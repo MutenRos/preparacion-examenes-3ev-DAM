@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las características generales de los lenguajes de marcas."
+    },
+    {
+      "id": "b",
+      "texto": "Se han reconocido las ventajas que proporcionan en el tratamiento de la información."
+    },
+    {
+      "id": "c",
+      "texto": "Se han clasificado los lenguajes de marcas e identificado los más relevantes."
+    },
+    {
+      "id": "d",
+      "texto": "Se han diferenciado sus ámbitos de aplicación."
+    },
+    {
+      "id": "e",
+      "texto": "Se han reconocido la necesidad y los ámbitos específicos de aplicación de un lenguaje de marcas de propósito general."
+    },
+    {
+      "id": "f",
+      "texto": "Se han analizado las características propias de diferentes lenguajes de marcas."
+    },
+    {
+      "id": "g",
+      "texto": "Se ha identificado la estructura de un documento y sus reglas sintácticas."
+    },
+    {
+      "id": "h",
+      "texto": "Se ha contrastado la necesidad de crear documentos bien formados y la influencia en su procesamiento."
+    },
+    {
+      "id": "i",
+      "texto": "Se han identificado las ventajas que aportan los espacios de nombres."
+    }
+  ]
+}

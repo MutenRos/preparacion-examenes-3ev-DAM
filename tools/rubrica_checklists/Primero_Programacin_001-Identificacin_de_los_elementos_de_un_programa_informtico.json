@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Programación/001-Identificación de los elementos de un programa informático",
+  "archivo_origen": "Primero/Programación/001-Identificación de los elementos de un programa informático/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los bloques que componen la estructura de un programa informático."
+    },
+    {
+      "id": "b",
+      "texto": "Se han creado proyectos de desarrollo de aplicaciones."
+    },
+    {
+      "id": "c",
+      "texto": "Se han utilizado entornos integrados de desarrollo."
+    },
+    {
+      "id": "d",
+      "texto": "Se han identificado los distintos tipos de variables y la utilidad específica de cada uno."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha modificado el código de un programa para crear y utilizar variables."
+    },
+    {
+      "id": "f",
+      "texto": "Se han creado y utilizado constantes y literales."
+    },
+    {
+      "id": "g",
+      "texto": "Se han clasificado, reconocido y utilizado en expresiones los operadores del lenguaje."
+    },
+    {
+      "id": "h",
+      "texto": "Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas."
+    },
+    {
+      "id": "i",
+      "texto": "Se han introducido comentarios en el código."
+    }
+  ]
+}

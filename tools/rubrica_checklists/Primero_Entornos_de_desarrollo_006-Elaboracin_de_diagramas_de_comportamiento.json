@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Entornos de desarrollo/006-Elaboración de diagramas de comportamiento",
+  "archivo_origen": "Primero/Entornos de desarrollo/006-Elaboración de diagramas de comportamiento/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los distintos tipos de diagramas de comportamiento."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha reconocido el significado de los diagramas de casos de uso."
+    },
+    {
+      "id": "c",
+      "texto": "Se han interpretado diagramas de interacción."
+    },
+    {
+      "id": "d",
+      "texto": "Se han elaborado diagramas de interacción sencillos."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha interpretado el significado de diagramas de actividades."
+    },
+    {
+      "id": "f",
+      "texto": "Se han elaborado diagramas de actividades sencillos."
+    },
+    {
+      "id": "g",
+      "texto": "Se han interpretado diagramas de estados."
+    },
+    {
+      "id": "h",
+      "texto": "Se han planteado diagramas de estados sencillos."
+    }
+  ]
+}

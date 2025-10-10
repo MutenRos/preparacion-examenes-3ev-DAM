@@ -1,0 +1,35 @@
+Cuándo el volumen de datos supera lo que un solo sistema informático puede manejar (por 'CPU', 'RAM' o tamaño de 'disco'), una solución muy empleada es la distribución. Fragmentar y/o replicar datos en varios nodos, ganando estabilidad y evitando cuellos de botella. Pero antes de fragmentar, tenemos que ver si nuestro sistema esta al límite.
+
+Para ello podemos usar scripts escritos en 'PYTHON' que defina nuestro limite, calcule los porcentajes usados y determine si es necesario o no fragmentar de una manera clara para el usuario. 
+Con cifras ficticias, este podría ser un ejemplo de script;
+
+'''
+#Definimos las variables
+cpu_limit =100.0
+ram_limit =32.0
+disk_space =512.0
+
+#Definimos el uso actual
+cpu_now =76.0
+ram_now =28.5
+disk_now =490.0
+
+#Calculamos el porcentaje de uso
+cpu_usage = (cpu_now / cpu_limit) * 100
+ram_usage = (ram_now / ram_limit) * 100 if ram_limit > 0 else 0
+disk_usage = (disk_now / disk_space) * 100 if disk_space > 0 else 0
+
+#Verificacion de limites
+is_overloaded = (cpu_now >= cpu_limit) or \
+    (ram_now >= ram_limit) or \
+    (disk_now >= disk_space)
+
+#Evaluacion del sistema
+if is_overloaded:
+    print("El sistema esta sobrecargado")
+else:
+    print("El sistema funciona correctamente")
+
+'''
+
+Ahora si que tenemos una manera sencilla de saber cuando tendremos que fragmentar nuestros datos o distribuirlos antes del colapso. Esta técnica es ***clave*** para grandes volúmenes de datos.

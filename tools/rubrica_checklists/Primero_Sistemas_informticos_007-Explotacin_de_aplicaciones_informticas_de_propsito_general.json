@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Sistemas informáticos/007-Explotación de aplicaciones informáticas de propósito general",
+  "archivo_origen": "Primero/Sistemas informáticos/007-Explotación de aplicaciones informáticas de propósito general/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha clasificado software en función de su licencia y propósito."
+    },
+    {
+      "id": "b",
+      "texto": "Se han analizado las necesidades específicas de software asociadas al uso de sistemas informáticos en diferentes entornos productivos."
+    },
+    {
+      "id": "c",
+      "texto": "Se han realizado tareas de documentación mediante el uso de herramientas ofimáticas y de trabajo colaborativo."
+    },
+    {
+      "id": "d",
+      "texto": "Se han utilizado sistemas de correo y mensajería electrónica."
+    },
+    {
+      "id": "e",
+      "texto": "Se han utilizado los servicios de transferencia de ficheros."
+    },
+    {
+      "id": "f",
+      "texto": "Se han utilizado métodos de búsqueda de documentación técnica mediante el uso de servicios de Internet."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado herramientas de propósito general."
+    }
+  ]
+}

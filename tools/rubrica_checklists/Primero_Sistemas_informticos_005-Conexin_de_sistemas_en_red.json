@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Sistemas informáticos/005-Conexión de sistemas en red",
+  "archivo_origen": "Primero/Sistemas informáticos/005-Conexión de sistemas en red/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha configurado el protocolo TCP/IP."
+    },
+    {
+      "id": "b",
+      "texto": "Se han configurado redes de área local cableadas."
+    },
+    {
+      "id": "c",
+      "texto": "Se han configurado redes de área local inalámbricas."
+    },
+    {
+      "id": "d",
+      "texto": "Se han utilizado dispositivos de interconexión de redes."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha configurado el acceso a redes de área extensa."
+    },
+    {
+      "id": "f",
+      "texto": "Se han gestionado puertos de comunicaciones."
+    },
+    {
+      "id": "g",
+      "texto": "Se ha verificado el funcionamiento de la red mediante el uso de comandos y herramientas básicas."
+    },
+    {
+      "id": "h",
+      "texto": "Se han aplicado protocolos seguros de comunicaciones."
+    }
+  ]
+}

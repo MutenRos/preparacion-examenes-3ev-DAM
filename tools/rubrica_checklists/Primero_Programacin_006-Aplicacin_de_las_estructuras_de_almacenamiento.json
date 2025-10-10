@@ -1,0 +1,46 @@
+{
+  "unidad": "Primero/Programación/006-Aplicación de las estructuras de almacenamiento",
+  "archivo_origen": "Primero/Programación/006-Aplicación de las estructuras de almacenamiento/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han escrito programas que utilicen matrices (arrays)."
+    },
+    {
+      "id": "b",
+      "texto": "Se han reconocido las librerías de clases relacionadas con tipos de datos avanzados."
+    },
+    {
+      "id": "c",
+      "texto": "Se han utilizado listas para almacenar y procesar información."
+    },
+    {
+      "id": "d",
+      "texto": "Se han utilizado iteradores para recorrer los elementos de las listas."
+    },
+    {
+      "id": "e",
+      "texto": "Se han reconocido las características y ventajas de cada una de las colecciones de datos disponibles."
+    },
+    {
+      "id": "f",
+      "texto": "Se han creado clases y métodos genéricos."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto."
+    },
+    {
+      "id": "h",
+      "texto": "Se han identificado las clases relacionadas con el tratamiento de documentos escritos en diferentes lenguajes de intercambio de datos."
+    },
+    {
+      "id": "i",
+      "texto": "Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos."
+    },
+    {
+      "id": "j",
+      "texto": "Se han utilizado operaciones agregadas para el manejo de información almacenada en colecciones."
+    }
+  ]
+}

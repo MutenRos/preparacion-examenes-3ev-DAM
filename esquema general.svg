@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="esquema general.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.95749083"
+     inkscape:cx="333.16246"
+     inkscape:cy="649.61458"
+     inkscape:window-width="1920"
+     inkscape:window-height="971"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-1-6"
+       width="155.3047"
+       height="191.00723"
+       x="22.980305"
+       y="71.074883"
+       ry="4.8848686" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-1"
+       width="115.5132"
+       height="162.82159"
+       x="39.183636"
+       y="83.502144"
+       ry="4.8848686" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="88.709213"
+       height="36.538815"
+       x="52.951973"
+       y="99.260529"
+       ry="4.8848686" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="56.126976"
+       y="107.09309"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="56.126976"
+         y="107.09309">interfaces</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="79.611366"
+       y="242.71257"
+       id="text1-4"><tspan
+         sodipodi:role="line"
+         id="tspan1-50"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="79.611366"
+         y="242.71257">entorno de desarrollo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="101.81123"
+       y="257.16962"
+       id="text1-4-1"><tspan
+         sodipodi:role="line"
+         id="tspan1-50-5"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="101.81123"
+         y="257.16962">sistemas informáticos</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="72.961586"
+       y="132.47478"
+       id="text1-3"><tspan
+         sodipodi:role="line"
+         id="tspan1-5"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="72.961586"
+         y="132.47478">lenguajes de marcas</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-2"
+       width="88.709213"
+       height="36.538815"
+       x="52.640434"
+       y="147.8662"
+       ry="4.8848686" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="55.815437"
+       y="155.69876"
+       id="text1-7"><tspan
+         sodipodi:role="line"
+         id="tspan1-0"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="55.815437"
+         y="155.69876">el funcionamiento</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="92.229233"
+       y="181.08044"
+       id="text1-3-9"><tspan
+         sodipodi:role="line"
+         id="tspan1-5-3"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="92.229233"
+         y="181.08044">programación</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.28;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-2-6"
+       width="88.709213"
+       height="36.538815"
+       x="52.362476"
+       y="198.20303"
+       ry="4.8848686" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="55.537479"
+       y="206.0356"
+       id="text1-7-1"><tspan
+         sodipodi:role="line"
+         id="tspan1-0-8"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="55.537479"
+         y="206.0356">guardar datos</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="89.215744"
+       y="231.58655"
+       id="text1-3-9-7"><tspan
+         sodipodi:role="line"
+         id="tspan1-5-3-9"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="89.215744"
+         y="231.58655">bases de datos</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:7.01471px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.82798;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="71.505386"
+       y="224.82437"
+       id="text1-3-7"><tspan
+         sodipodi:role="line"
+         id="tspan1-5-5"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.82798"
+         x="71.505386"
+         y="224.82437">lenguajes de marcas</tspan></text>
+  </g>
+</svg>

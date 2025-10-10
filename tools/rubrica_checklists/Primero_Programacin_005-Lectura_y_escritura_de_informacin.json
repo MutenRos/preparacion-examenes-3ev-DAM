@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Programación/005-Lectura y escritura de información",
+  "archivo_origen": "Primero/Programación/005-Lectura y escritura de información/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha utilizado la consola para realizar operaciones de entrada y salida de información."
+    },
+    {
+      "id": "b",
+      "texto": "Se han aplicado formatos en la visualización de la información."
+    },
+    {
+      "id": "c",
+      "texto": "Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas."
+    },
+    {
+      "id": "d",
+      "texto": "Se han utilizado ficheros para almacenar y recuperar información."
+    },
+    {
+      "id": "e",
+      "texto": "Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros."
+    },
+    {
+      "id": "f",
+      "texto": "Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples."
+    },
+    {
+      "id": "g",
+      "texto": "Se han programado controladores de eventos."
+    },
+    {
+      "id": "h",
+      "texto": "Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información."
+    }
+  ]
+}

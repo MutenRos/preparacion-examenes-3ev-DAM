@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Programación/008-Mantenimiento de la persistencia de los objetos",
+  "archivo_origen": "Primero/Programación/008-Mantenimiento de la persistencia de los objetos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las características de las bases de datos orientadas a objetos."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha analizado su aplicación en el desarrollo de aplicaciones mediante lenguajes orientados a objetos."
+    },
+    {
+      "id": "c",
+      "texto": "Se han instalado sistemas gestores de bases de datos orientados a objetos."
+    },
+    {
+      "id": "d",
+      "texto": "Se han clasificado y analizado los distintos métodos soportados por los sistemas gestores para la gestión de la información almacenada."
+    },
+    {
+      "id": "e",
+      "texto": "Se han creado bases de datos y las estructuras necesarias para el almacenamiento de objetos."
+    },
+    {
+      "id": "f",
+      "texto": "Se han programado aplicaciones que almacenen objetos en las bases de datos creadas."
+    },
+    {
+      "id": "g",
+      "texto": "Se han realizado programas para recuperar, actualizar y eliminar objetos de las bases de datos."
+    },
+    {
+      "id": "h",
+      "texto": "Se han realizado programas para almacenar y gestionar tipos de datos estructurados, compuestos y relacionados."
+    }
+  ]
+}

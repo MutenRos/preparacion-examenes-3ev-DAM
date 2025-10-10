@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Programación/003-Uso de estructuras de control",
+  "archivo_origen": "Primero/Programación/003-Uso de estructuras de control/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha escrito y probado código que haga uso de estructuras de selección."
+    },
+    {
+      "id": "b",
+      "texto": "Se han utilizado estructuras de repetición."
+    },
+    {
+      "id": "c",
+      "texto": "Se han reconocido las posibilidades de las sentencias de salto."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha escrito código utilizando control de excepciones."
+    },
+    {
+      "id": "e",
+      "texto": "Se han creado programas ejecutables utilizando diferentes estructuras de control."
+    },
+    {
+      "id": "f",
+      "texto": "Se han probado y depurado los programas."
+    },
+    {
+      "id": "g",
+      "texto": "Se ha comentado y documentado el código."
+    },
+    {
+      "id": "h",
+      "texto": "Se han creado excepciones."
+    },
+    {
+      "id": "i",
+      "texto": "Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo."
+    }
+  ]
+}

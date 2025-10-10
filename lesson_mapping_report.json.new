@@ -1,0 +1,33 @@
+{
+  "moved": [
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/005-Legislación sobre protección de datos/entregas/ingested_backups_1759665015/Lección dam2526PrimeroBases de datos001-Almacenamiento de la información005-Legislación sobre protección de datos.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/005-Legislación sobre protección de datos"
+    },
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/entregas/ingested_backups_1759665015/Lección dam2526PrimeroBases de datos001-Almacenamiento de la información004-Bases de datos centralizadas y bases de datos distribuidas. Técnicas de fragmentación.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos"
+    },
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/003-Sistemas gestores de base de datos Funciones, componentes y tipos/entregas/ingested_backups_1759665015/Lección dam2526PrimeroBases de datos001-Almacenamiento de la información003-Sistemas gestores de base de datos Funciones, componentes y tipos.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/003-Sistemas gestores de base de datos Funciones, componentes y tipos"
+    },
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Entornos de desarrollo/001-Desarrollo de software/001-Concepto de programa informático/entregas/ingested_backups_1759665015/Lección dam2526PrimeroEntornos de desarrollo001-Desarrollo de software001-Concepto de programa informático.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Entornos de desarrollo/001-Desarrollo de software/001-Concepto de programa informático"
+    },
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas/001-Clasificación/entregas/ingested_backups_1759665015/Lección dam2526PrimeroLenguajes de marcas y sistemas de gestión de información001-Reconocimiento de las características de lenguajes de marcas001-Clasificación.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas/001-Clasificación"
+    }
+  ],
+  "ambiguous": [],
+  "archived": [
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Segundo/ingested_backups_1759664344/submission.md",
+      "reason": "aggregate_backup_redundant",
+      "note": "This aggregate backup contained sections already incorporated into per-lesson submission.md files and is archived for traceability."
+    }
+  ],
+  "unmatched": []
+}

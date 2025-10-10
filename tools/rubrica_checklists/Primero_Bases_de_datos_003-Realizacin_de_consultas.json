@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Bases de datos/003-Realización de consultas",
+  "archivo_origen": "Primero/Bases de datos/003-Realización de consultas/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las herramientas y sentencias para realizar consultas."
+    },
+    {
+      "id": "b",
+      "texto": "Se han realizado consultas simples sobre una tabla."
+    },
+    {
+      "id": "c",
+      "texto": "Se han realizado consultas sobre el contenido de varias tablas mediante composiciones internas."
+    },
+    {
+      "id": "d",
+      "texto": "Se han realizado consultas sobre el contenido de varias tablas mediante composiciones externas."
+    },
+    {
+      "id": "e",
+      "texto": "Se han realizado consultas resumen."
+    },
+    {
+      "id": "f",
+      "texto": "Se han realizado consultas con subconsultas."
+    },
+    {
+      "id": "g",
+      "texto": "Se han realizado consultas que implican múltiples selecciones."
+    },
+    {
+      "id": "h",
+      "texto": "Se han aplicado criterios de optimización de consultas."
+    }
+  ]
+}

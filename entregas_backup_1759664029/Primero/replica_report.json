@@ -1,0 +1,5 @@
+{
+  "action": "clean_student_submissions",
+  "date": "2025-10-05",
+  "result": "All student submission files (submission.md, .txt, .py, merged_backups, .bak, submission.report.json, replica_merge_report.json) were removed from entregas/Primero. Only the professor's original materials (README.md, plantillas, rubricas, etc) remain in each folder."
+}

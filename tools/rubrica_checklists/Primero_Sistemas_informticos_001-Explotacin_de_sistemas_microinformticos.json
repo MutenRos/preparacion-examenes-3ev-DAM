@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Sistemas informáticos/001-Explotación de sistemas microinformáticos",
+  "archivo_origen": "Primero/Sistemas informáticos/001-Explotación de sistemas microinformáticos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han reconocido los componentes físicos de un sistema informático y sus mecanismos de interconexión."
+    },
+    {
+      "id": "b",
+      "texto": "Se han clasificado los tipos de memorias, señalando sus características e identifcando sus prestaciones y la función que desarrollan en el conjunto del sistema."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha verificado el proceso de puesta en marcha de un equipo."
+    },
+    {
+      "id": "d",
+      "texto": "Se han clasificado, instalado y configurado diferentes tipos de dispositivos periféricos."
+    },
+    {
+      "id": "e",
+      "texto": "Se han identificado los tipos de redes y sistemas de comunicación."
+    },
+    {
+      "id": "f",
+      "texto": "Se han identificado los componentes de una red informática."
+    },
+    {
+      "id": "g",
+      "texto": "Se han interpretado mapas físicos y lógicos de una red informática."
+    },
+    {
+      "id": "h",
+      "texto": "Se han reconocido las normas de seguridad y prevención de riesgos laborales en el uso de los sistemas informáticos."
+    }
+  ]
+}

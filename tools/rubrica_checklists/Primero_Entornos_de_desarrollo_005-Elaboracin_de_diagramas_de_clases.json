@@ -1,0 +1,30 @@
+{
+  "unidad": "Primero/Entornos de desarrollo/005-Elaboración de diagramas de clases",
+  "archivo_origen": "Primero/Entornos de desarrollo/005-Elaboración de diagramas de clases/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los conceptos básicos de la programación orientada a objetos."
+    },
+    {
+      "id": "b",
+      "texto": "Se han utilizado herramientas para la elaboración de diagramas de clases."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha interpretado el significado de diagramas de clases."
+    },
+    {
+      "id": "d",
+      "texto": "Se han trazado diagramas de clases a partir de las especificaciones de las mismas."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha generado código a partir de un diagrama de clases."
+    },
+    {
+      "id": "f",
+      "texto": "Se ha generado un diagrama de clases mediante ingeniería inversa."
+    }
+  ]
+}

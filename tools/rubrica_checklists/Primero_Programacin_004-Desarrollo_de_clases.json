@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Programación/004-Desarrollo de clases",
+  "archivo_origen": "Primero/Programación/004-Desarrollo de clases/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha reconocido la sintaxis, estructura y componentes típicos de una clase."
+    },
+    {
+      "id": "b",
+      "texto": "Se han definido clases."
+    },
+    {
+      "id": "c",
+      "texto": "Se han definido propiedades y métodos."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado constructores."
+    },
+    {
+      "id": "e",
+      "texto": "Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente."
+    },
+    {
+      "id": "f",
+      "texto": "Se han utilizado mecanismos para controlar la visibilidad de las clases y de sus miembros."
+    },
+    {
+      "id": "g",
+      "texto": "Se han definido y utilizado clases heredadas."
+    },
+    {
+      "id": "h",
+      "texto": "Se han creado y utilizado métodos estáticos."
+    },
+    {
+      "id": "i",
+      "texto": "Se han creado y utilizado conjuntos y librerías de clases."
+    }
+  ]
+}

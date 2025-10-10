@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Sistemas informáticos/006-Gestión de recursos en una red",
+  "archivo_origen": "Primero/Sistemas informáticos/006-Gestión de recursos en una red/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha configurado el acceso a recursos locales y recursos de red."
+    },
+    {
+      "id": "b",
+      "texto": "Se han identificado y configurado los derechos de usuario y directivas de seguridad."
+    },
+    {
+      "id": "c",
+      "texto": "Se han explotado servidores de ficheros, servidores de impresión y servidores de aplicaciones."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha accedido a los servidores utilizando técnicas de conexión remota."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha evaluado la necesidad de proteger los recursos y el sistema."
+    },
+    {
+      "id": "f",
+      "texto": "Se han instalado y evaluado utilidades de seguridad básica."
+    },
+    {
+      "id": "g",
+      "texto": "Se han configurado y explotado dominios."
+    }
+  ]
+}

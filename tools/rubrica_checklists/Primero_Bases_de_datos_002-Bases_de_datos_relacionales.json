@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Bases de datos/002-Bases de datos relacionales",
+  "archivo_origen": "Primero/Bases de datos/002-Bases de datos relacionales/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha analizado el formato de almacenamiento de la información."
+    },
+    {
+      "id": "b",
+      "texto": "Se han creado las tablas y las relaciones entre ellas."
+    },
+    {
+      "id": "c",
+      "texto": "Se han seleccionado los tipos de datos adecuados."
+    },
+    {
+      "id": "d",
+      "texto": "Se han definido los campos clave en las tablas."
+    },
+    {
+      "id": "e",
+      "texto": "Se han implantado las restricciones reflejadas en el diseño lógico."
+    },
+    {
+      "id": "f",
+      "texto": "Se han creado vistas."
+    },
+    {
+      "id": "g",
+      "texto": "Se han creado los usuarios y se les han asignado privilegios."
+    },
+    {
+      "id": "h",
+      "texto": "Se han utilizado asistentes, herramientas gráficas y los lenguajes de definición y control de datos."
+    }
+  ]
+}

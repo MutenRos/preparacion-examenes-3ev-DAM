@@ -1,0 +1,30 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/003-Manipulación de documentos Web",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/003-Manipulación de documentos Web/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado y clasificado los lenguajes de script de cliente relacionados con la web y sus diferentes versiones y estándares."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha identificado la sintaxis básica de los lenguajes de script de cliente."
+    },
+    {
+      "id": "c",
+      "texto": "Se han utilizado métodos para la selección y acceso de los diferentes elementos de un documento web."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado y modificado elementos de documentos web."
+    },
+    {
+      "id": "e",
+      "texto": "Se han eliminado elementos de documentos web."
+    },
+    {
+      "id": "f",
+      "texto": "Se han realizado modificaciones sobre los estilos de un documento web."
+    }
+  ]
+}

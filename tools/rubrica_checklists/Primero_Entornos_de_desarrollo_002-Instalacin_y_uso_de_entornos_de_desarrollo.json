@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Entornos de desarrollo/002-Instalación y uso de entornos de desarrollo",
+  "archivo_origen": "Primero/Entornos de desarrollo/002-Instalación y uso de entornos de desarrollo/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han instalado entornos de desarrollo, propietarios y libres."
+    },
+    {
+      "id": "b",
+      "texto": "Se han añadido y eliminado módulos en el entorno de desarrollo."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha personalizado y automatizado el entorno de desarrollo."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha configurado el sistema de actualización del entorno de desarrollo."
+    },
+    {
+      "id": "e",
+      "texto": "Se han generado ejecutables a partir de código fuente de diferentes lenguajes en un mismo entorno de desarrollo."
+    },
+    {
+      "id": "f",
+      "texto": "Se han generado ejecutables a partir de un mismo código fuente con varios entornos de desarrollo."
+    },
+    {
+      "id": "g",
+      "texto": "Se han identificado las características comunes y específicas de diversos entornos de desarrollo."
+    }
+  ]
+}

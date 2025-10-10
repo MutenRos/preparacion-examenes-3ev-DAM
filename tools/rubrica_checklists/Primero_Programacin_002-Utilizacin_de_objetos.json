@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Programación/002-Utilización de objetos",
+  "archivo_origen": "Primero/Programación/002-Utilización de objetos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los fundamentos de la programación orientada a objetos."
+    },
+    {
+      "id": "b",
+      "texto": "Se han escrito programas simples."
+    },
+    {
+      "id": "c",
+      "texto": "Se han instanciado objetos a partir de clases predefinidas."
+    },
+    {
+      "id": "d",
+      "texto": "Se han utilizado métodos y propiedades de los objetos."
+    },
+    {
+      "id": "e",
+      "texto": "Se han escrito llamadas a métodos estáticos."
+    },
+    {
+      "id": "f",
+      "texto": "Se han utilizado parámetros en la llamada a métodos."
+    },
+    {
+      "id": "g",
+      "texto": "Se han incorporado y utilizado librerías de objetos."
+    },
+    {
+      "id": "h",
+      "texto": "Se han utilizado constructores."
+    },
+    {
+      "id": "i",
+      "texto": "Se ha utilizado el entorno integrado de desarrollo en la creación y compilación de programas simples."
+    }
+  ]
+}

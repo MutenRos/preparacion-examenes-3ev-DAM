@@ -1,0 +1,119 @@
+Si mas de una persona va a trabajar en una misma base de datos, se hace imprescindible un sistema gestor de bases de datos o 'SGBD', que nos permita consultar, modificar y relacionar las tablas existentes asi como crearlas o eliminarlas.
+
+
+###  Entidades y relaciones
+
+**Producto**: `producto_id` (PK), `nombre`, `descripcion`, `precio`, `stock`, `activo`.
+
+**Cliente**: `cliente_id` (PK), `nombre`, `apellidos`, `email`, `telefono`.
+
+**Usuario**: `usuario_id` (PK), `username`, `nombre`, `rol`.
+
+**Orden**: `orden_id` (PK), `cliente_id` (FK→**Cliente**), `usuario_id` (FK→**Usuario**), `fecha`, `total`.
+
+#### Relaciones
+- **Cliente 1–N Orden**: una orden pertenece a un cliente.
+- **Usuario 1–N Orden**: una orden la registra un usuario.
+- **Orden N–N Producto** → se resuelve con tabla puente **OrdenItem**.
+
+**OrdenItem**: *(PK compuesta)* `orden_id` (FK→**Orden**), `producto_id` (FK→**Producto**), `cantidad`, `precio_unit`.
+
+Hemos craedo la base de datos con DB Browser for SQLite, que es un SGBD sencillo para una base de datos simple. Al crear las atablas nos devuelve el siguiente código SQL
+
+'''
+**Cliente** 
+CREATE TABLE Cliente (
+  cliente_id   INTEGER PRIMARY KEY,
+  nombre       TEXT NOT NULL,
+  apellidos    TEXT NOT NULL,
+  email        TEXT NOT NULL UNIQUE,
+  telefono     TEXT
+)
+
+**Orden**
+CREATE TABLE Orden (
+  orden_id     INTEGER PRIMARY KEY,
+  cliente_id   INTEGER NOT NULL,
+  usuario_id   INTEGER NOT NULL,
+  fecha        TEXT NOT NULL,              -- ISO-8601: YYYY-MM-DD
+  total        NUMERIC NOT NULL CHECK (total >= 0),
+  FOREIGN KEY (cliente_id) REFERENCES Cliente(cliente_id),
+  FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id)
+)
+
+**OrdenItem**
+CREATE TABLE OrdenItem (
+  orden_id     INTEGER NOT NULL,
+  producto_id  INTEGER NOT NULL,
+  cantidad     INTEGER NOT NULL CHECK (cantidad > 0),
+  precio_unit  NUMERIC NOT NULL CHECK (precio_unit >= 0),
+  PRIMARY KEY (orden_id, producto_id),
+  FOREIGN KEY (orden_id)    REFERENCES Orden(orden_id),
+  FOREIGN KEY (producto_id) REFERENCES Producto(producto_id)
+)
+
+**Producto**
+CREATE TABLE Producto (
+  producto_id  INTEGER PRIMARY KEY,
+  nombre       TEXT NOT NULL,
+  descripcion  TEXT,
+  precio       NUMERIC NOT NULL CHECK (precio >= 0),
+  stock        INTEGER NOT NULL CHECK (stock >= 0),
+  activo       INTEGER NOT NULL DEFAULT 1  -- 1=true, 0=false
+)
+
+**Usuario**
+CREATE TABLE Usuario (
+  usuario_id   INTEGER PRIMARY KEY,
+  username     TEXT NOT NULL UNIQUE,
+  nombre       TEXT NOT NULL,
+  rol          TEXT NOT NULL CHECK (rol IN ('admin','ventas','soporte'))
+)
+'''
+
+Lo que nos crea las tablas necesarias para nuestro pequeño negocio de componentes, y las rellenamos gracias a este código prestado de chatGPT laa rellenamos rápidamente con algún ejemplo:
+
+'''
+INSERT INTO Usuario (usuario_id, username, nombre, rol) VALUES
+  (1,'admin1','Laura Admin','admin'),
+  (2,'ventas1','Luis Ventas','ventas');
+
+INSERT INTO Cliente (cliente_id, nombre, apellidos, email, telefono) VALUES
+  (100,'Juan','García','juan@example.com','600111222');
+
+INSERT INTO Producto (producto_id, nombre, descripcion, precio, stock, activo) VALUES
+  (1000,'Raspberry Pi 5 - 8GB','SBC 8GB RAM', 99.90,12,1),
+  (1001,'Fuente 5V 3A USB-C','Alimentador oficial',12.50,30,1),
+  (1002,'Tarjeta microSD 64GB','U3 A2',14.95,0,1),     -- sin stock
+  (1003,'HAT PoE+','PoE Plus',24.90,10,0);            -- inactivo
+
+INSERT INTO Orden (orden_id, cliente_id, usuario_id, fecha, total) VALUES
+  (5000,100,2,'2025-09-30',112.40);
+
+INSERT INTO OrdenItem (orden_id, producto_id, cantidad, precio_unit) VALUES
+  (5000,1000,1,99.90),
+  (5000,1001,1,12.50);
+'''
+
+Y ahora que la tenemos creada y rellena podemos realizar consultas como "Muestra el listado de productos disponibles para la venta", o:
+
+'''
+SELECT
+  nombre  AS producto,
+  precio,
+  stock
+FROM Producto
+WHERE activo = 1 AND stock > 0
+ORDER BY nombre;
+'''
+
+lo que nos devuelve como respuesta:
+
+'''
+Fuente 5V 3A USB-C	12.5	30
+Raspberry Pi 5 - 8GB	99.9	12
+'''
+
+Asi es como un SGBD puede facilitarnos la vida a la hora de hurgar en tablas y listas por muy pequeño que sea tu negocio a monitorizar.
+
+

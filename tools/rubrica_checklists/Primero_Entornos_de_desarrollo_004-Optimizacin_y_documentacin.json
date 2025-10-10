@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Entornos de desarrollo/004-Optimización y documentación",
+  "archivo_origen": "Primero/Entornos de desarrollo/004-Optimización y documentación/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los patrones de refactorización más usuales."
+    },
+    {
+      "id": "b",
+      "texto": "Se han elaborado las pruebas asociadas a la refactorización."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha revisado el código fuente usando un analizador de código."
+    },
+    {
+      "id": "d",
+      "texto": "Se han identificado las posibilidades de configuración de un analizador de código."
+    },
+    {
+      "id": "e",
+      "texto": "Se han aplicado patrones de refactorización con las herramientas que proporciona el entorno de desarrollo."
+    },
+    {
+      "id": "f",
+      "texto": "Se ha realizado el control de versiones integrado en el entorno de desarrollo."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado herramientas del entorno de desarrollo para documentar las clases."
+    },
+    {
+      "id": "h",
+      "texto": "Se han utilizado repositorios remotos para el desarrollo de código colaborativo."
+    },
+    {
+      "id": "i",
+      "texto": "Se han utilizado herramientas para la integración continua del código."
+    }
+  ]
+}

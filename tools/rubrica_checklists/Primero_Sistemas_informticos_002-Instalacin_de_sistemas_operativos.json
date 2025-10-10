@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Sistemas informáticos/002-Instalación de sistemas operativos",
+  "archivo_origen": "Primero/Sistemas informáticos/002-Instalación de sistemas operativos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los elementos funcionales de un sistema informático."
+    },
+    {
+      "id": "b",
+      "texto": "Se han analizado las características, funciones y arquitectura de un sistema operativo."
+    },
+    {
+      "id": "c",
+      "texto": "Se han comparado sistemas operativos en base a sus requisitos, características, campos de aplicación y licencias de uso."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha planificado el proceso de la instalación de sistemas operativos."
+    },
+    {
+      "id": "e",
+      "texto": "Se han instalado y actualizado sistemas operativos libres y propietarios."
+    },
+    {
+      "id": "f",
+      "texto": "Se han aplicado técnicas de actualización y recuperación del sistema."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado tecnologías de virtualización para instalar y probar sistemas operativos."
+    },
+    {
+      "id": "h",
+      "texto": "Se han instalado, desinstalado y actualizado aplicaciones."
+    },
+    {
+      "id": "i",
+      "texto": "Se han documentado los procesos realizados."
+    }
+  ]
+}

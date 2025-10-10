@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Sistemas informáticos/003-Gestión de la información",
+  "archivo_origen": "Primero/Sistemas informáticos/003-Gestión de la información/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han comparado sistemas de archivos."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha identificado la estructura y función de los directorios del sistema operativo."
+    },
+    {
+      "id": "c",
+      "texto": "Se han utilizado herramientas en entorno gráfico y comandos para localizar información en el sistema de archivos."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado diferentes tipos de particiones y unidades lógicas."
+    },
+    {
+      "id": "e",
+      "texto": "Se han realizado y restaurado copias de seguridad."
+    },
+    {
+      "id": "f",
+      "texto": "Se han planificado y automatizado tareas."
+    },
+    {
+      "id": "g",
+      "texto": "Se han instalado y evaluado utilidades relacionadas con la gestión de información."
+    }
+  ]
+}

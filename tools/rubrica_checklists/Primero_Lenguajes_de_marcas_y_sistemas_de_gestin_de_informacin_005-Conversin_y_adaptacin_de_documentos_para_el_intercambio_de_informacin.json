@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/005-Conversión y adaptación de documentos para el intercambio de información",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/005-Conversión y adaptación de documentos para el intercambio de información/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha identificado la necesidad de la conversión de documentos para el intercambio de la información."
+    },
+    {
+      "id": "b",
+      "texto": "Se han establecido ámbitos de aplicación."
+    },
+    {
+      "id": "c",
+      "texto": "Se han analizado las tecnologías implicadas y su modo de funcionamiento."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha descrito la sintaxis específica utilizada en la conversión y adaptación de documentos para el intercambio de información."
+    },
+    {
+      "id": "e",
+      "texto": "Se han creado especificaciones de conversión."
+    },
+    {
+      "id": "f",
+      "texto": "Se han identificado y caracterizado herramientas específicas relacionadas con la conversión de documentos para el intercambio de información."
+    },
+    {
+      "id": "g",
+      "texto": "Se han realizado conversiones sobre documentos para el intercambio de información."
+    }
+  ]
+}

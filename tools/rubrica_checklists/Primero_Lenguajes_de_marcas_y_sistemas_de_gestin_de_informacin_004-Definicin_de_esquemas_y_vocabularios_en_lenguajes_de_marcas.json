@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/004-Definición de esquemas y vocabularios en lenguajes de marcas",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/004-Definición de esquemas y vocabularios en lenguajes de marcas/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha establecido la necesidad de describir la información transmitida en los documentos y sus reglas."
+    },
+    {
+      "id": "b",
+      "texto": "Se han identificado las tecnologías relacionadas con la definición de documentos."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha analizado la estructura y sintaxis específica utilizada en la descripción."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado descripciones de documentos."
+    },
+    {
+      "id": "e",
+      "texto": "Se han utilizado descripciones en la elaboración y validación de documentos."
+    },
+    {
+      "id": "f",
+      "texto": "Se han asociado las descripciones con los documentos."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado herramientas específicas."
+    }
+  ]
+}

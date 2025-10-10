@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Entornos de desarrollo/001-Desarrollo de software",
+  "archivo_origen": "Primero/Entornos de desarrollo/001-Desarrollo de software/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se ha reconocido la relación de los programas con los componentes del sistema informático: memoria, procesador, periféricos, entre otros."
+    },
+    {
+      "id": "b",
+      "texto": "Se han identificado las fases de desarrollo de una aplicación informática."
+    },
+    {
+      "id": "c",
+      "texto": "Se han diferenciado los conceptos de código fuente, objeto y ejecutable."
+    },
+    {
+      "id": "d",
+      "texto": "Se han reconocido las características de la generación de código intermedio para su ejecución en máquinas virtuales."
+    },
+    {
+      "id": "e",
+      "texto": "Se han clasificado los lenguajes de programación, identificando sus características."
+    },
+    {
+      "id": "f",
+      "texto": "Se ha evaluado la funcionalidad ofrecida por las herramientas utilizadas en el desarrollo de software."
+    },
+    {
+      "id": "g",
+      "texto": "Se han identificado las características y escenarios de uso de las metodologías ágiles de desarrollo de software."
+    }
+  ]
+}

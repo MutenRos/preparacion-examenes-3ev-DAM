@@ -1,0 +1,34 @@
+{
+  "unidad": "Primero/Programación/009-Gestión de bases de datos",
+  "archivo_origen": "Primero/Programación/009-Gestión de bases de datos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las características y métodos de acceso a sistemas gestores de bases de datos."
+    },
+    {
+      "id": "b",
+      "texto": "Se han programado conexiones con bases de datos."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha escrito un código para almacenar información en bases de datos."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado programas para recuperar y mostrar información almacenada en bases de datos."
+    },
+    {
+      "id": "e",
+      "texto": "Se han efectuado borrados y modificaciones sobre la información almacenada."
+    },
+    {
+      "id": "f",
+      "texto": "Se han creado aplicaciones que muestren la información almacenada en bases de datos."
+    },
+    {
+      "id": "g",
+      "texto": "Se han creado aplicaciones para gestionar la información presente en bases de datos."
+    }
+  ]
+}

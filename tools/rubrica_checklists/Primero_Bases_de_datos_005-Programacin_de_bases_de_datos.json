@@ -1,0 +1,46 @@
+{
+  "unidad": "Primero/Bases de datos/005-Programación de bases de datos",
+  "archivo_origen": "Primero/Bases de datos/005-Programación de bases de datos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las diversas formas de automatizar tareas."
+    },
+    {
+      "id": "b",
+      "texto": "Se han reconocido los métodos de ejecución de guiones."
+    },
+    {
+      "id": "c",
+      "texto": "Se han identificado las herramientas disponibles para editar guiones."
+    },
+    {
+      "id": "d",
+      "texto": "Se han definido y utilizado guiones para automatizar tareas."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha hecho uso de las funciones proporcionadas por el sistema gestor."
+    },
+    {
+      "id": "f",
+      "texto": "Se han definido procedimientos y funciones de usuario."
+    },
+    {
+      "id": "g",
+      "texto": "Se han utilizado estructuras de control de flujo."
+    },
+    {
+      "id": "h",
+      "texto": "Se han definido eventos y disparadores."
+    },
+    {
+      "id": "i",
+      "texto": "Se han utilizado cursores."
+    },
+    {
+      "id": "j",
+      "texto": "Se han utilizado excepciones."
+    }
+  ]
+}

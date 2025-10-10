@@ -1,0 +1,42 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/007-Sistemas de gestión empresarial",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/007-Sistemas de gestión empresarial/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los principales sistemas de gestión empresarial."
+    },
+    {
+      "id": "b",
+      "texto": "Se han reconocido las ventajas de los sistemas de gestión de información empresariales."
+    },
+    {
+      "id": "c",
+      "texto": "Se han evaluado las características de las principales aplicaciones de gestión empresarial."
+    },
+    {
+      "id": "d",
+      "texto": "Se han instalado aplicaciones de gestión de la información empresarial."
+    },
+    {
+      "id": "e",
+      "texto": "Se han configurado y administrado las aplicaciones."
+    },
+    {
+      "id": "f",
+      "texto": "Se han establecido y verificado mecanismos de acceso seguro a la información."
+    },
+    {
+      "id": "g",
+      "texto": "Se han generado informes."
+    },
+    {
+      "id": "h",
+      "texto": "Se han realizado procedimientos de extracción de información para su tratamiento e incorporación a diversos sistemas."
+    },
+    {
+      "id": "i",
+      "texto": "Se han elaborado documentos relativos a la explotación de la aplicación."
+    }
+  ]
+}

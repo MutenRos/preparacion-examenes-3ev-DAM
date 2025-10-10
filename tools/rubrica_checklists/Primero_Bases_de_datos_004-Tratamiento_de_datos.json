@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Bases de datos/004-Tratamiento de datos",
+  "archivo_origen": "Primero/Bases de datos/004-Tratamiento de datos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado las herramientas y sentencias para modificar el contenido de la base de datos."
+    },
+    {
+      "id": "b",
+      "texto": "Se han insertado, borrado y actualizado datos en las tablas."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha incluido en una tabla la información resultante de la ejecución de una consulta."
+    },
+    {
+      "id": "d",
+      "texto": "Se han diseñado guiones de sentencias para llevar a cabo tareas complejas."
+    },
+    {
+      "id": "e",
+      "texto": "Se ha reconocido el funcionamiento de las transacciones."
+    },
+    {
+      "id": "f",
+      "texto": "Se han anulado parcial o totalmente los cambios producidos por una transacción."
+    },
+    {
+      "id": "g",
+      "texto": "Se han identificado los efectos de las distintas políticas de bloqueo de registros."
+    },
+    {
+      "id": "h",
+      "texto": "Se han adoptado medidas para mantener la integridad y consistencia de la información."
+    }
+  ]
+}

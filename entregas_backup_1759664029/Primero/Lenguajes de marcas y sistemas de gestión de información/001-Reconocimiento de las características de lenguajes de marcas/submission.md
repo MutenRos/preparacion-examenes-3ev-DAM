@@ -1,0 +1,77 @@
+
+
+---
+
+**Corrected ingest:** Lección dam2526PrimeroLenguajes de marcas y sistemas de gestión de información001-Reconocimiento de las características de lenguajes de marcas001-Clasificación.txt — Sun Oct  5 13:44:32 2025
+
+1.
+En el mundo digital, para estructurar y presentar información en la web, se utiliza el lenguaje HTML. El modelado e impresión 3D permite ttransformar diseños en objetos físicos. A continuación, documentaremos en HTML un mini-proyecto de impresión 3D.
+
+Vamos a construir un HTML básico paso a paso. Primero levantamos la estructura mínima con `<!DOCTYPE html>`, abrimos `<html>`, creamos un `<head>` con `<meta charset="utf-8">` y `<title>`, y dejamos el contenido en `<body>`. En la intro usamos un `<h1>` y un `<p>` para explicar por qué documentamos el proyecto 3D; ahí indicamos **nombre del objeto** y **herramientas**. Después describimos el **proceso** con una lista ordenada (`<ol><li>…</li></ol>`). Añadimos dos **imágenes locales** con `<img>` (p. ej. `modelo_soporte.png` y `pieza_impresa.png`) incluyendo `alt`, `width`, `height`. Mostramos las **dimensiones** en una tabla simple (`<table>` con `<thead>`, `<tbody>`, `<th>`, `<td>`). Incorporamos dos **citas** con `<blockquote>` (texto plano, sin enlaces). Cerramos con un `<h2>` y un `<p>` resumiendo **habilidades reforzadas** e **ideas futuras**.
+
+
+'''
+<!DOCTYPE html>
+<HTML lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Proyecto de Modelado e Impresión 3D - Memoria HTML</title>
+</head>
+<body>
+	<h1>Proyecto de Modelado e Impresión 3D</h1>
+	<p>
+		En el mundo actual, el <strong>modelado e impresión 3D</strong> permite crear prototipos y piezas personalizadas a partir de diseños tridimensionales. Documentar este flujo en <strong>HTML</strong> estructura la información y facilita la comunicación.
+	</p>
+	<p><strong>Nombre del objeto:</strong> Soporte para Raspberry pi</p>
+	<p><strong>Herramientas utilizadas:</strong> Thinkercad, Chitubox Slicer.</p>
+
+	<h2>Pasos del proceso</h2>
+	<ol>
+		<li>Definir medidas y requisitos del soporte</li>
+		<li>Modelar la pieza</li>
+		<li>Exportar el modelo a .stl</li>
+		<li>Laminado: Configurar altura de capa, relleno y soportes.a</li>
+		<li>Imprimir la pieza y realizar el portprocesado basico</li>
+		<li>Verificar encaje y funcionalidada con la Raspberri Pi</ali>
+	</ol>
+	
+	<h2>Imágenes del modelo y la pieza</h2>
+	<p>Vista previa del modelo 3D:</p>
+	<img src="modelo_soporte.png" alt="Modelo 3D del soporte para Raspberry Pi" width="320" height="200">
+	
+	<h2>Dimensiones del objeto impreso </h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Dimensión</th>
+				<th>Valor (mm)</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr>
+				<td>Ancho</td>
+				<td>85</td>
+			</tr>
+			<tr>
+				<td>Alto</td>
+				<td>25</td>
+			</tr>
+			<tr>
+				<td>Profundidad</td>
+				<td>60</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Citas y Referencias </h2>
+	<blockquote>
+		"El modelado 3D acelera la creación de prototipos funcionales y personalizados"
+		<br>
+		<em>Fuente: Apuntes de modelado e impresión 3D</em>
+	</blockquote>
+</body>
+'''
+
+En un  visor web, este código nos dará una visión clara y ordenada de nuestro proyecto de impresión 3D mostrando alguna de las muchas capacidades de HTML
+

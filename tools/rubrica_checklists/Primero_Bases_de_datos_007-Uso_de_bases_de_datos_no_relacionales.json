@@ -1,0 +1,26 @@
+{
+  "unidad": "Primero/Bases de datos/007-Uso de bases de datos no relacionales",
+  "archivo_origen": "Primero/Bases de datos/007-Uso de bases de datos no relacionales/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han caracterizado las bases de datos no relacionales."
+    },
+    {
+      "id": "b",
+      "texto": "Se han evaluado los principales tipos de bases de datos no relacionales."
+    },
+    {
+      "id": "c",
+      "texto": "Se han identificado los elementos utilizados en estas bases de datos."
+    },
+    {
+      "id": "d",
+      "texto": "Se han identificado distintas formas de gestión de la información según el tipo de base de datos no relacionales."
+    },
+    {
+      "id": "e",
+      "texto": "Se han utilizado las herramientas del sistema gestor para la gestión de la información almacenada."
+    }
+  ]
+}

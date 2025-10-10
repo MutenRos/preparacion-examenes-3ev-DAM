@@ -1,0 +1,24 @@
+{
+  "moved": [
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/005-Legislación sobre protección de datos/entregas/ingested_backups_1759665015/Lección dam2526PrimeroBases de datos001-Almacenamiento de la información005-Legislación sobre protección de datos.txt",
+      "lesson_dir": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/005-Legislación sobre protección de datos"
+    }
+  ],
+  "ambiguous": [
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/ingested_backups_1759664790/Lección dam2526PrimeroBases de datos001-Almacenamiento de la información006-Big Data introducción, análisis de datos, inteligencia de negocios.txt",
+      "candidates": [
+        "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Primero/Bases de datos/001-Almacenamiento de la información/006-Big Data introducción, análisis de datos, inteligencia de negocios"
+      ]
+    }
+  ],
+  "archived": [
+    {
+      "file": "/home/dlc/Escritorio/DAM2527/dam2526/entregas/Segundo/ingested_backups_1759664344/submission.md",
+      "reason": "aggregate_backup_redundant",
+      "note": "This aggregate backup contained sections already incorporated into per-lesson submission.md files and is archived for traceability."
+    }
+  ],
+  "unmatched": []
+}

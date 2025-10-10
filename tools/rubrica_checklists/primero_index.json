@@ -1,0 +1,182 @@
+{
+  "Primero/Sistemas informáticos/005-Conexión de sistemas en red": {
+    "archivo_origen": "Primero/Sistemas informáticos/005-Conexión de sistemas en red/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_005-Conexin_de_sistemas_en_red.json",
+    "num_criterios": 8
+  },
+  "Primero/Sistemas informáticos/002-Instalación de sistemas operativos": {
+    "archivo_origen": "Primero/Sistemas informáticos/002-Instalación de sistemas operativos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_002-Instalacin_de_sistemas_operativos.json",
+    "num_criterios": 9
+  },
+  "Primero/Sistemas informáticos/006-Gestión de recursos en una red": {
+    "archivo_origen": "Primero/Sistemas informáticos/006-Gestión de recursos en una red/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_006-Gestin_de_recursos_en_una_red.json",
+    "num_criterios": 7
+  },
+  "Primero/Sistemas informáticos/001-Explotación de sistemas microinformáticos": {
+    "archivo_origen": "Primero/Sistemas informáticos/001-Explotación de sistemas microinformáticos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_001-Explotacin_de_sistemas_microinformticos.json",
+    "num_criterios": 8
+  },
+  "Primero/Sistemas informáticos/004-Configuración de sistemas operativos": {
+    "archivo_origen": "Primero/Sistemas informáticos/004-Configuración de sistemas operativos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_004-Configuracin_de_sistemas_operativos.json",
+    "num_criterios": 8
+  },
+  "Primero/Sistemas informáticos/007-Explotación de aplicaciones informáticas de propósito general": {
+    "archivo_origen": "Primero/Sistemas informáticos/007-Explotación de aplicaciones informáticas de propósito general/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_007-Explotacin_de_aplicaciones_informticas_de_propsito_general.json",
+    "num_criterios": 7
+  },
+  "Primero/Sistemas informáticos/003-Gestión de la información": {
+    "archivo_origen": "Primero/Sistemas informáticos/003-Gestión de la información/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Sistemas_informticos_003-Gestin_de_la_informacin.json",
+    "num_criterios": 7
+  },
+  "Primero/Bases de datos/006-Interpretación de Diagramas EntidadRelación": {
+    "archivo_origen": "Primero/Bases de datos/006-Interpretación de Diagramas EntidadRelación/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_006-Interpretacin_de_Diagramas_EntidadRelacin.json",
+    "num_criterios": 8
+  },
+  "Primero/Bases de datos/007-Uso de bases de datos no relacionales": {
+    "archivo_origen": "Primero/Bases de datos/007-Uso de bases de datos no relacionales/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_007-Uso_de_bases_de_datos_no_relacionales.json",
+    "num_criterios": 5
+  },
+  "Primero/Bases de datos/001-Almacenamiento de la información": {
+    "archivo_origen": "Primero/Bases de datos/001-Almacenamiento de la información/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_001-Almacenamiento_de_la_informacin.json",
+    "num_criterios": 10
+  },
+  "Primero/Bases de datos/002-Bases de datos relacionales": {
+    "archivo_origen": "Primero/Bases de datos/002-Bases de datos relacionales/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_002-Bases_de_datos_relacionales.json",
+    "num_criterios": 8
+  },
+  "Primero/Bases de datos/004-Tratamiento de datos": {
+    "archivo_origen": "Primero/Bases de datos/004-Tratamiento de datos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_004-Tratamiento_de_datos.json",
+    "num_criterios": 8
+  },
+  "Primero/Bases de datos/003-Realización de consultas": {
+    "archivo_origen": "Primero/Bases de datos/003-Realización de consultas/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_003-Realizacin_de_consultas.json",
+    "num_criterios": 8
+  },
+  "Primero/Bases de datos/005-Programación de bases de datos": {
+    "archivo_origen": "Primero/Bases de datos/005-Programación de bases de datos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Bases_de_datos_005-Programacin_de_bases_de_datos.json",
+    "num_criterios": 10
+  },
+  "Primero/Entornos de desarrollo/005-Elaboración de diagramas de clases": {
+    "archivo_origen": "Primero/Entornos de desarrollo/005-Elaboración de diagramas de clases/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_005-Elaboracin_de_diagramas_de_clases.json",
+    "num_criterios": 6
+  },
+  "Primero/Entornos de desarrollo/003-Diseño y realización de pruebas": {
+    "archivo_origen": "Primero/Entornos de desarrollo/003-Diseño y realización de pruebas/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_003-Diseo_y_realizacin_de_pruebas.json",
+    "num_criterios": 9
+  },
+  "Primero/Entornos de desarrollo/004-Optimización y documentación": {
+    "archivo_origen": "Primero/Entornos de desarrollo/004-Optimización y documentación/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_004-Optimizacin_y_documentacin.json",
+    "num_criterios": 9
+  },
+  "Primero/Entornos de desarrollo/001-Desarrollo de software": {
+    "archivo_origen": "Primero/Entornos de desarrollo/001-Desarrollo de software/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_001-Desarrollo_de_software.json",
+    "num_criterios": 7
+  },
+  "Primero/Entornos de desarrollo/006-Elaboración de diagramas de comportamiento": {
+    "archivo_origen": "Primero/Entornos de desarrollo/006-Elaboración de diagramas de comportamiento/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_006-Elaboracin_de_diagramas_de_comportamiento.json",
+    "num_criterios": 8
+  },
+  "Primero/Entornos de desarrollo/002-Instalación y uso de entornos de desarrollo": {
+    "archivo_origen": "Primero/Entornos de desarrollo/002-Instalación y uso de entornos de desarrollo/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Entornos_de_desarrollo_002-Instalacin_y_uso_de_entornos_de_desarrollo.json",
+    "num_criterios": 7
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/006-Almacenamiento de información": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/006-Almacenamiento de información/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_006-Almacenamiento_de_informacin.json",
+    "num_criterios": 9
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_001-Reconocimiento_de_las_caractersticas_de_lenguajes_de_marcas.json",
+    "num_criterios": 9
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/004-Definición de esquemas y vocabularios en lenguajes de marcas": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/004-Definición de esquemas y vocabularios en lenguajes de marcas/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_004-Definicin_de_esquemas_y_vocabularios_en_lenguajes_de_marcas.json",
+    "num_criterios": 7
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/003-Manipulación de documentos Web": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/003-Manipulación de documentos Web/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_003-Manipulacin_de_documentos_Web.json",
+    "num_criterios": 6
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/005-Conversión y adaptación de documentos para el intercambio de información": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/005-Conversión y adaptación de documentos para el intercambio de información/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_005-Conversin_y_adaptacin_de_documentos_para_el_intercambio_de_informacin.json",
+    "num_criterios": 7
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/007-Sistemas de gestión empresarial": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/007-Sistemas de gestión empresarial/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_007-Sistemas_de_gestin_empresarial.json",
+    "num_criterios": 9
+  },
+  "Primero/Lenguajes de marcas y sistemas de gestión de información/002-Utilización de lenguajes de marcas en entornos web": {
+    "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/002-Utilización de lenguajes de marcas en entornos web/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Lenguajes_de_marcas_y_sistemas_de_gestin_de_informacin_002-Utilizacin_de_lenguajes_de_marcas_en_entornos_web.json",
+    "num_criterios": 10
+  },
+  "Primero/Programación/006-Aplicación de las estructuras de almacenamiento": {
+    "archivo_origen": "Primero/Programación/006-Aplicación de las estructuras de almacenamiento/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_006-Aplicacin_de_las_estructuras_de_almacenamiento.json",
+    "num_criterios": 10
+  },
+  "Primero/Programación/005-Lectura y escritura de información": {
+    "archivo_origen": "Primero/Programación/005-Lectura y escritura de información/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_005-Lectura_y_escritura_de_informacin.json",
+    "num_criterios": 8
+  },
+  "Primero/Programación/004-Desarrollo de clases": {
+    "archivo_origen": "Primero/Programación/004-Desarrollo de clases/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_004-Desarrollo_de_clases.json",
+    "num_criterios": 9
+  },
+  "Primero/Programación/002-Utilización de objetos": {
+    "archivo_origen": "Primero/Programación/002-Utilización de objetos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_002-Utilizacin_de_objetos.json",
+    "num_criterios": 9
+  },
+  "Primero/Programación/007-Utilización avanzada de clases": {
+    "archivo_origen": "Primero/Programación/007-Utilización avanzada de clases/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_007-Utilizacin_avanzada_de_clases.json",
+    "num_criterios": 10
+  },
+  "Primero/Programación/001-Identificación de los elementos de un programa informático": {
+    "archivo_origen": "Primero/Programación/001-Identificación de los elementos de un programa informático/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_001-Identificacin_de_los_elementos_de_un_programa_informtico.json",
+    "num_criterios": 9
+  },
+  "Primero/Programación/009-Gestión de bases de datos": {
+    "archivo_origen": "Primero/Programación/009-Gestión de bases de datos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_009-Gestin_de_bases_de_datos.json",
+    "num_criterios": 7
+  },
+  "Primero/Programación/008-Mantenimiento de la persistencia de los objetos": {
+    "archivo_origen": "Primero/Programación/008-Mantenimiento de la persistencia de los objetos/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_008-Mantenimiento_de_la_persistencia_de_los_objetos.json",
+    "num_criterios": 8
+  },
+  "Primero/Programación/003-Uso de estructuras de control": {
+    "archivo_origen": "Primero/Programación/003-Uso de estructuras de control/Criterios de evaluacion.md",
+    "out_file": "tools/rubrica_checklists/Primero_Programacin_003-Uso_de_estructuras_de_control.json",
+    "num_criterios": 9
+  }
+}

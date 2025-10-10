@@ -1,0 +1,46 @@
+{
+  "unidad": "Primero/Programación/007-Utilización avanzada de clases",
+  "archivo_origen": "Primero/Programación/007-Utilización avanzada de clases/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado los conceptos de herencia, superclase y subclase."
+    },
+    {
+      "id": "b",
+      "texto": "Se han utilizado modificadores para bloquear y forzar la herencia de clases y métodos."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha reconocido la incidencia de los constructores en la herencia."
+    },
+    {
+      "id": "d",
+      "texto": "Se han creado clases heredadas que sobrescriben la implementación de métodos de la superclase."
+    },
+    {
+      "id": "e",
+      "texto": "Se han diseñado y aplicado jerarquías de clases."
+    },
+    {
+      "id": "f",
+      "texto": "Se han probado y depurado las jerarquías de clases."
+    },
+    {
+      "id": "g",
+      "texto": "Se han realizado programas que implementen y utilicen jerarquías de clases."
+    },
+    {
+      "id": "h",
+      "texto": "Se ha comentado y documentado el código."
+    },
+    {
+      "id": "i",
+      "texto": "Se han identificado y evaluado los escenarios de uso de interfaces."
+    },
+    {
+      "id": "j",
+      "texto": "Se han identificado y evaluado los escenarios de utilización de la herencia y la composición."
+    }
+  ]
+}

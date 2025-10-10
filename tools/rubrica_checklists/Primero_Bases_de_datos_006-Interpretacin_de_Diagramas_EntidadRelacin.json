@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Bases de datos/006-Interpretación de Diagramas EntidadRelación",
+  "archivo_origen": "Primero/Bases de datos/006-Interpretación de Diagramas EntidadRelación/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han utilizado herramientas gráficas para representar el diseño lógico."
+    },
+    {
+      "id": "b",
+      "texto": "Se han identificado las tablas del diseño lógico."
+    },
+    {
+      "id": "c",
+      "texto": "Se han identificado los campos que forman parte de las tablas del diseño lógico."
+    },
+    {
+      "id": "d",
+      "texto": "Se han analizado las relaciones entre las tablas del diseño lógico."
+    },
+    {
+      "id": "e",
+      "texto": "Se han identificado los campos clave."
+    },
+    {
+      "id": "f",
+      "texto": "Se han aplicado reglas de integridad."
+    },
+    {
+      "id": "g",
+      "texto": "Se han aplicado reglas de normalización."
+    },
+    {
+      "id": "h",
+      "texto": "Se han analizado y documentado las restricciones que no pueden plasmarse en el diseño lógico."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "unidad": "Primero/Lenguajes de marcas y sistemas de gestión de información/002-Utilización de lenguajes de marcas en entornos web",
+  "archivo_origen": "Primero/Lenguajes de marcas y sistemas de gestión de información/002-Utilización de lenguajes de marcas en entornos web/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han identificado y clasificado los lenguajes de marcas relacionados con la web y sus diferentes versiones y estándares."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha analizado la estructura de un documento HTML e identificado las secciones que lo componen."
+    },
+    {
+      "id": "c",
+      "texto": "Se ha reconocido la funcionalidad de las principales etiquetas y los atributos del lenguaje HTML."
+    },
+    {
+      "id": "d",
+      "texto": "Se han establecido las semejanzas y diferencias entre las diferentes versiones de HTML."
+    },
+    {
+      "id": "e",
+      "texto": "Se han utilizado herramientas en la creación de documentos web."
+    },
+    {
+      "id": "f",
+      "texto": "Se han identificado las ventajas que aporta la utilización de hojas de estilo."
+    },
+    {
+      "id": "g",
+      "texto": "Se han aplicado hojas de estilo."
+    },
+    {
+      "id": "h",
+      "texto": "Se han validado documentos HTML y CSS."
+    },
+    {
+      "id": "i",
+      "texto": "Se han identificado las tecnologías en que se basa la sindicación de contenidos."
+    },
+    {
+      "id": "j",
+      "texto": "Se han reconocido los ámbitos de aplicación de la sindicación de contenidos."
+    }
+  ]
+}

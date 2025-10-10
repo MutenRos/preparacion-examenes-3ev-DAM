@@ -1,0 +1,38 @@
+{
+  "unidad": "Primero/Sistemas informáticos/004-Configuración de sistemas operativos",
+  "archivo_origen": "Primero/Sistemas informáticos/004-Configuración de sistemas operativos/Criterios de evaluacion.md",
+  "criterios": [
+    {
+      "id": "a",
+      "texto": "Se han configurado cuentas de usuario locales y grupos."
+    },
+    {
+      "id": "b",
+      "texto": "Se ha asegurado el acceso al sistema mediante el uso de directivas de cuenta y directivas de contraseñas."
+    },
+    {
+      "id": "c",
+      "texto": "Se han identificado, arrancado y detenido servicios y procesos."
+    },
+    {
+      "id": "d",
+      "texto": "Se ha protegido el acceso a la información mediante el uso de permisos locales y listas de control de acceso."
+    },
+    {
+      "id": "e",
+      "texto": "Se han utilizado comandos para realizar las tareas básicas de configuración y administración del sistema."
+    },
+    {
+      "id": "f",
+      "texto": "Se ha monitorizado el sistema."
+    },
+    {
+      "id": "g",
+      "texto": "Se han instalado y evaluado utilidades para el mantenimiento y optimización del sistema."
+    },
+    {
+      "id": "h",
+      "texto": "Se han evaluado las necesidades del sistema informático en relación con el desarrollo de aplicaciones."
+    }
+  ]
+}
