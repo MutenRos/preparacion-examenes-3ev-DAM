@@ -1,0 +1,96 @@
+Crear un gráfico con SVG
+En este ejercicio, vamos a aprender a crear gráficos utilizando el lenguaje de marcado SVG (Scalable Vector Graphics). Este lenguaje permite dibujar imágenes vectoriales, lo que significa que los gráficos se escalarán sin pérdida de calidad.
+
+Contexto: Los Raspberrys y similares son dispositivos muy versátiles que pueden ser utilizados para controlar diversos proyectos electrónicos. Uno de estos proyectos puede ser la creación de gráficos simples para visualizar datos o simplemente para diversión. El modelado e impresión 3D también nos permite crear objetos físicos que representen nuestros gráficos SVG.
+
+Enunciado paso a paso:
+
+Crea un archivo SVG básico: Comienza por crear un archivo llamado circulo.svg con el siguiente contenido:
+
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="100" fill="red"/>
+</svg>
+Este código creará un círculo rojo en el centro de la pantalla.
+
+Añade más formas: Abre tu archivo circulo.svg y añade una línea desde el centro del círculo hacia abajo:
+
+<line x1="256" y1="256" x2="256" y2="400" stroke="black"/>
+Ahora tienes un círculo rojo con una línea negra desde el centro hacia abajo.
+
+Añade texto: Añade un texto en la parte inferior del círculo:
+
+<text x="256" y="410" font-family="Arial" font-size="16" text-anchor="middle">Mi primer gráfico SVG</text>
+El texto estará centrado debajo del círculo.
+
+Restricciones:
+
+No uses librerías externas.
+No utilices input()/lectura de teclado.
+No utilices estructuras no vistas en el tema actual.
+Criterios de evaluación:
+
+Introducción y contextualización (25%): El alumno debe explicar cómo usar SVG para crear gráficos simples y cómo estos pueden aplicarse en proyectos electrónicos y 3D.
+Desarrollo técnico correcto y preciso (25%): El archivo circulo.svg debe contener el código correcto para crear un círculo, una línea y texto.
+Aplicación práctica con ejemplo claro (25%): El alumno debe explicar cómo podrían extender este gráfico básico para incluir más formas o datos.
+Cierre/Conclusión enlazando con la unidad (25%): El alumno debe relacionar su trabajo con el tema de los lenguajes de marcas y cómo estos pueden ser utilizados para representar información de manera visual.
+
+
+Para crear imagenes 2D sencillas, `.SVG` es un lenguaje de marcas muy adecuado. Permite definir gráficos vectoriales que pueden ser escalados sin pérdida de calidad, lo que es ideal para diversas aplicaciones, incluyendo proyectos con Raspberry Pi y modelado 3D. Para nuestro proyecto de hoy vamos a crear un archivo llamado `circulo.svg` que contendrá un gráfico simple con un círculo, una línea y un texto, dentro de una pagina `HTML`
+Empezaremos con la estructura basica de `html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico SVG</title>
+</head>
+<body>
+    <h1>Mi primer gráfico SVG</h1>
+  
+</body>
+</html>
+```
+
+Dentro del cuerpo del documento, añadiremos el código SVG para crear el gráfico. El código SVG se coloca dentro de la etiqueta `<svg>`, donde definiremos un círculo, una línea y un texto.
+
+```html
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="256" cy="256" r="100" fill="red"/>
+</svg>
+```
+Este código crea un círculo rojo con un radio de 100 píxeles, centrado en las coordenadas (256, 256) dentro de un área de 512x512 píxeles. Tambien podemos añadir otras formas como:
+
+```html
+    <line x1="256" y1="256" x2="256" y2="400" stroke="black"/>
+```
+Esta línea negra se extiende desde el centro del círculo hacia abajo. Finalmente, añadimos un texto debajo del círculo:
+
+```html
+<text x="256" y="410" font-family="Arial" font-size="16" text-anchor="middle">Mi primer gráfico SVG</text>
+```
+Este texto estará centrado debajo del círculo.
+
+El código completo dentro del cuerpo del documento HTML quedaría así:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico SVG</title>
+</head>
+<body>
+    <h1>Mi primer gráfico SVG</h1>
+    <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="256" cy="256" r="100" fill="red"/>
+        <line x1="256" y1="256" x2="256" y2="400" stroke="black"/>
+        <text x="256" y="410" font-family="Arial" font-size="16" text-anchor="middle">Mi primer gráfico SVG</text>
+    </svg>
+</body>
+</html>
+```
+`SVG` es un lenguaje de marcas muy útil para crear gráficos vectoriales que pueden ser utilizados en una variedad de aplicaciones, desde visualización de datos hasta diseño gráfico. Con este conocimiento, puedes empezar a experimentar con más formas y estilos para crear gráficos más complejos y personalizados.
+Con este conocimiento, puedes empezar a experimentar con más formas y estilos para crear gráficos más complejos y personalizados.

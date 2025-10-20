@@ -1,0 +1,98 @@
+En nuestro mundo digital actual, los lenguajes de marcas desempeñan un papel crucial en la estructuración y transmisión de información de manera eficiente. Uno de los aspectos más importantes a considerar es su capacidad para utilizar espacios de nombres, una característica que añade una capa adicional de organización y evita conflictos entre elementos.
+
+Los espacios de nombres son un sistema que permite agrupar elementos relacionados bajo un nombre común. En el ejemplo que veremos a continuación, utilizaremos un espacio de nombres para describir a diferentes personas con distintos detalles.
+
+Enunciado paso a paso
+Entendiendo el Espacio de Nombres:
+
+Abre el archivo persona.xml y observa cómo se utiliza el espacio de nombres per definido como https://jocarsa.com/personas.
+Identifica los elementos dentro del espacio de nombres per.
+Accediendo a Elementos con Espacio de Nombres:
+
+Crea una variable llamada nombreEspacio y asigna el valor "https://jocarsa.com/personas".
+Utiliza esta variable para seleccionar los elementos dentro del espacio de nombres.
+Ejemplo Práctico:
+
+Escribe un ejemplo claro que muestre cómo acceder a los elementos nombre y edad dentro del espacio de nombres per.
+Almacena el nombre propio de la primera persona en una variable llamada nombrePersona1.
+Restricciones
+No utilices librerías externas.
+Evita la lectura de teclado o entrada directa de datos.
+Solo puedes usar estructuras vistas hasta ahora.
+Criterios de evaluación
+Introducción y contextualización (25%): El estudiante debe entender el concepto de espacio de nombres en lenguajes de marcas y cómo se utiliza para evitar conflictos entre elementos.
+Desarrollo técnico correcto y preciso (25%): El estudiante debe mostrar una comprensión profunda del uso de espacios de nombres, seleccionando correctamente los elementos dentro del espacio definido.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe proporcionar un ejemplo práctico que demuestre cómo acceder a elementos específicos dentro del espacio de nombres, utilizando variables adecuadas y estructuras vistas hasta ahora.
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe enlazar el ejercicio con el concepto impartido en clase, mostrando cómo esta característica es relevante en la manipulación de documentos XML.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- En este documento voy a describir a un ser humano -->
+<personas xmlns:per="https://jocarsa.com/personas">
+
+  <per:persona>
+    <per:nombre id="propio">Dario</per:nombre>
+    <per:nombre id="mote">MutenRos</per:nombre>
+    <per:edad medida="años">31</per:edad>
+    <per:profesion>Programador</per:profesion>
+  </per:persona>
+  
+  <per:persona>
+    <per:nombre id="propio">Dario</per:nombre>
+    <per:nombre id="mote">MutenRos</per:nombre>
+    <per:edad medida="años">31</per:edad>
+    <per:profesion>Programador</per:profesion>
+  </per:persona>
+  
+</personas>
+
+
+Cuando varios `XML` definen los mismos nombres para los elementos pueden surgir conflictos. Para evitar estos conflictos, se utilizan los espacios de nombres (namespaces). Un espacio de nombres es un contenedor que agrupa elementos y atributos bajo un nombre único, generalmente representado por una URL. 
+Por ejemplo, <nombre> puede referirse tanto al nommbre de una persona como al nombre de un producto, dependiendo del `namespace` al que pertenezca.
+
+En el `XML` proporcionado, se define un espacio de nombres con el prefijo `per` que apunta a la URL `https://jocarsa.com/personas`. Todos los elementos que utilizan este prefijo pertenecen a este espacio de nombres, lo que ayuda a evitar conflictos con otros posibles elementos llamados `nombre`, `edad`, etc.
+
+Para acceder a los elementos dentro de un espacio de nombres, es necesario utilizar el prefijo definido. Por ejemplo, para acceder al nombre de la primera persona, se usaría `per:nombre`.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<personas xmlns:per="https://jocarsa.com/personas">
+
+  <per:persona>
+    <per:nombre id="propio">Dario</per:nombre>
+    <per:nombre id="mote">MutenRos</per:nombre>
+    <per:edad medida="años">31</per:edad>
+    <per:profesion>Programador</per:profesion>
+  </per:persona>
+  
+  <per:persona>
+    <per:nombre id="propio">Dario</per:nombre>
+    <per:nombre id="mote">MutenRos</per:nombre>
+    <per:edad medida="años">31</per:edad>
+    <per:profesion>Programador</per:profesion>
+  </per:persona>
+</personas>
+```
+Para acceder a los elementos dentro del espacio de nombres `per`, se puede hacer lo siguiente:
+
+```python
+import xml.etree.ElementTree as ET
+
+# Cargar el archivo XML
+tree = ET.parse('persona.xml')
+root = tree.getroot()
+
+# Definir el espacio de nombres
+namespace = {'per': 'https://jocarsa.com/personas'}
+
+# Acceder al primer elemento persona
+primeraPersona = root.find("per:persona", namespace)
+
+# Obtener el nombre propio y la edad de la primera persona
+nombrePersona1 = primeraPersona.find("per:nombre[@id='propio']", namespace).text
+edadPersona1 = primeraPersona.find("per:edad", namespace).text
+
+# Imprimir los resultados
+print("Nombre de la primera persona:", nombrePersona1)
+print("Edad de la primera persona:", edadPersona1)
+```
+Asi es como empezamos a utilizar tambien scripts externos para manipular `XML` y `XSD`, lo cual es muy util en proyectos futuros donde se maneje gran cantidad de datos estructurados. Este ejercicio nos ha ayudado a entender mejor la importancia de los espacios de nombres y cómo acceder a los elementos correctamente, asegurando que no haya conflictos y que la información se mantenga organizada y clara.

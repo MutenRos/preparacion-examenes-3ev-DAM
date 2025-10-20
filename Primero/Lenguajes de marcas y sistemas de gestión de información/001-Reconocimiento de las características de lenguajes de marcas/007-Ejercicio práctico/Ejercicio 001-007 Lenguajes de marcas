@@ -1,0 +1,184 @@
+Contexto
+Jose Vicente es un entusiasta del modelado e impresión 3D y disfruta mucho jugando con Raspberrys y similares. En sus tiempos libres, experimenta con diferentes proyectos tecnológicos y creativos, incluyendo la creación de modelos 3D que luego imprime en su impresora 3D.
+
+Enunciado paso a paso
+Identificación de datos personales:
+
+Jose Vicente tiene varios datos personales que necesita organizar. A partir del archivo 004-datos personales.xml, identifica y lista todos los datos personales del usuario.
+Manipulación de información en XML:
+
+Utilizando el lenguaje de marcas XML, busca y modifica el número de teléfono fijo de Jose Vicente a 963778757. Guarda los cambios en un nuevo archivo llamado 004-datos personales_modificados.xml.
+Selección y acceso a elementos:
+
+Desarrolla una función que permita seleccionar el correo electrónico personal de Jose Vicente desde el archivo 006-muchas experiencias.xml. Almacena este correo electrónico en una variable llamada correo_personal_jose.
+Ejemplo claro y aplicación práctica:
+
+Crea un ejemplo práctico donde se utilice la función anterior para mostrar el correo personal de Jose Vicente.
+Restricciones
+Solo puedes usar los archivos proporcionados en /var/www/html/dam2526/Primero/Lenguajes de marcas y sistemas de gestión de información/001-Reconocimiento de las características de lenguajes de marcas/007-Ejercicio práctico/101-Ejercicios.
+No puedes utilizar librerías externas ni estructuras no vistas en la asignatura.
+Criterios de evaluación
+Introducción y contextualización (25%):
+
+El estudiante debe entender el contexto del ejercicio, relacionado con su hobby de modelado e impresión 3D y su interés por los Raspberrys.
+Desarrollo técnico correcto y preciso (25%):
+
+El estudiante debe identificar correctamente los datos personales y modificar el número de teléfono fijo según las instrucciones.
+Aplicación práctica con ejemplo claro (25%):
+
+El estudiante debe desarrollar una función que seleccione el correo electrónico personal y almacenarlo en una variable, mostrando un ejemplo práctico de su uso.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+El estudiante debe explicar cómo estos ejercicios aplican los conceptos aprendidos sobre lenguajes de marcas y sistemas de gestión de información, relacionándolos con sus hobbies.
+
+# 004-datos personales.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- En este documento voy a describir a un ser humano -->
+<persona>
+  <datospersonales>
+    <nombre>Jose Vicente</nombre>
+    <apellido1>Carratalá</apellido1>
+    <apellido2>Sanchis</apellido2>
+    <telefonos>
+      <movil>620891718</movil>
+      <fijo>963778757</fijo>
+    </telefonos>
+    <emails>
+      <empresa>info@jocarsa.com</empresa>
+      <personal>info@josevicentecarratala.com</personal>
+    </emails>
+  </datospersonales>
+  <experiencialaboral>
+  
+  </experiencialaboral>
+  <formacion>
+    
+  </formacion>
+</persona>
+```
+#006-muchas experiencias.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- En este documento voy a describir a un ser humano -->
+<persona>
+  <datospersonales>
+    <nombre>Jose Vicente</nombre>
+    <apellido1>Carratalá</apellido1>
+    <apellido2>Sanchis</apellido2>
+    <telefonos>
+      <movil>620891718</movil>
+      <fijo>963778757</fijo>
+    </telefonos>
+    <emails>
+      <empresa>info@jocarsa.com</empresa>
+      <personal>info@josevicentecarratala.com</personal>
+    </emails>
+  </datospersonales>
+  <experiencialaboral>
+    <experiencia>
+      <nombreempresa>
+        Empresa 1
+      </nombreempresa>
+      <fechadeinicio>XXXX-XX-XX</fechadeinicio>
+      <fechadefinal>XXXX-XX-XX</fechadefinal>
+      <descripcion>
+        Aqui pondré una pequeña descripción del puesto de trabajo
+      </descripcion>
+      <logo>logo.jpg</logo>
+    </experiencia>
+    <experiencia>
+      <nombreempresa>
+        Empresa 1
+      </nombreempresa>
+      <fechadeinicio>XXXX-XX-XX</fechadeinicio>
+      <fechadefinal>XXXX-XX-XX</fechadefinal>
+      <descripcion>
+        Aqui pondré una pequeña descripción del puesto de trabajo
+      </descripcion>
+      <logo>logo.jpg</logo>
+    </experiencia>
+    <experiencia>
+      <nombreempresa>
+        Empresa 1
+      </nombreempresa>
+      <fechadeinicio>XXXX-XX-XX</fechadeinicio>
+      <fechadefinal>XXXX-XX-XX</fechadefinal>
+      <descripcion>
+        Aqui pondré una pequeña descripción del puesto de trabajo
+      </descripcion>
+      <logo>logo.jpg</logo>
+    </experiencia>
+  </experiencialaboral>
+  <formacion>
+    <titulo>
+      <nombre>Título en XXXXXX</titulo>
+      <fechadeinicio>XXXX-XX-XX</fechadeinicio>
+      <fechadefinal>XXXX-XX-XX</fechadefinal>
+      <institucion>Nombre de la institución</institucion>
+      <descripcion>
+        Aqui pondré una pequeña descripción del titulo obtenido
+      </descripcion>
+      <logo>logo.jpg</logo>
+    </titulo>
+  </formacion>
+</persona>
+
+```
+# Solución
+
+Como Jose Vicente, somos muchos los que no sabemos estar quietos y empezamos mil proyectos que despues no podemos atender y se nos acaban olvidando. Para poner fin a esto, lo primero es organizarnos. Lo primero es organizar los datos personales, que para este caso, usaremos los de Jose Vicente, que son los que tenemos en el archivo 004-datos personales.xml.
+Identificación de datos personales:
+- Nombre: Jose Vicente
+- Primer Apellido: Carratalá
+- Segundo Apellido: Sanchis
+- Teléfono Móvil: 620891718
+- Teléfono Fijo: 963778757
+- Email Empresa: info@jocarsa.com
+- Email Personal: info@josevicentecarratala.com
+
+Manipulación de información en XML:
+Vamos a modificar a mano el numero de telefono fijo y a guardarlo en un nuevo archivo llamado 004-datos personales_modificados.xml. Para ello deberemos localizar la etiqueta <fijo> y cambiar su valor por 963778757.
+004-datos personales_modificados.xml:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+  <datospersonales>
+    <nombre>Jose Vicente</nombre>
+    <apellido1>Carratalá</apellido1>
+    <apellido2>Sanchis</apellido2>
+    <telefonos>
+      <movil>620891718</movil>
+      <fijo>963778757</fijo>
+    </telefonos>
+    <emails>
+      <empresa>info@jocarsa.com</empresa>
+      <personal>info@josevicentecarratala.com</personal>
+    </emails>
+  </datospersonales>
+  <experiencialaboral>
+
+  </experiencialaboral>
+  <formacion>
+
+  </formacion>
+</persona>
+```
+Y nos quedaria algo asi.
+Y ahora, para tener un acceso rapido al email actualizado, vamos a crear una funcion que nos permita acceder a el y lo guardaremos como la variable `correo_personal_jose`. Lo tomaremos del archivo 006-muchas experiencias.xml.
+
+```python
+import xml.etree.ElementTree as ET
+
+def obtener_correoPersonal():
+    tree = ET.parse('006-muchas experiencias.xml')
+    root = tree.getroot()
+    correoPersonal = root.find('.//emails/personal').text
+    return correoPersonal
+correo_personal_jose = obtener_correoPersonal()
+print("El correo personal de Jose Vicente es:", correo_personal_jose)
+```
+Al ejecutar este código, la salida será:
+"El correo personal de Jose Vicente es: info@josevicentecarratala.com"
+Como hemos visto, los lenguajes de marcas como XML nos permiten organizar y manipular datos de manera estructurada. En este caso, hemos podido identificar y modificar datos personales, así como acceder a información específica mediante funciones en Python. Esto es especialmente útil para alguien como Jose Vicente, que maneja múltiples proyectos y necesita tener su información personal bien organizada y accesible.
+Este podria ser un comienzo para organizar nuestros proyectos y hobbies, utilizando lenguajes de marcas y sistemas de gestión de información para mantener todo en orden.

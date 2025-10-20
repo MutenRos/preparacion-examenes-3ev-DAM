@@ -1,0 +1,53 @@
+Contexto
+Jose Vicente es un apasionado del modelado e impresión 3D y disfruta mucho jugando con Raspberrys. Como parte de su proyecto personal, está creando una página web que documentará sus proyectos de modelado y su experiencia con estos dispositivos electrónicos.
+
+Enunciado paso a paso
+Crea el documento HTML básico:
+
+Comienza con la estructura básica de un documento HTML5.
+Asegúrate de incluir el <!doctype html> al principio del archivo.
+Define el lenguaje y la codificación del documento:
+
+Utiliza la etiqueta <html lang="es"> para especificar que el contenido está en español.
+Agrega la codificación UTF-8 con la meta etiqueta <meta charset="utf-8">.
+Añade un título a la página:
+
+Dentro de la etiqueta <head>, inserta una etiqueta <title> con el nombre "Proyectos de Jose Vicente".
+Organiza el contenido en cabeza y cuerpo:
+
+Crea las etiquetas <head> y <body>.
+Coloca el título dentro de la etiqueta <head> y cualquier otro contenido relevante dentro de la etiqueta <body>.
+Restricciones
+Solo puedes usar los conceptos y estructuras que se han visto en clase.
+No utilices etiquetas o atributos adicionales no mencionados.
+Evita el uso de input() ni lectura de teclado.
+Criterios de evaluación
+Introducción y contextualización (25%): El alumno debe mostrar comprensión del contexto del proyecto y cómo aplicará los conocimientos aprendidos en la práctica.
+Desarrollo técnico correcto y preciso (25%): El documento HTML debe seguir las estructuras y sintaxis vistas en clase, incluyendo el uso de <!doctype html>, <html lang="es">, <meta charset="utf-8">, <head> y <body>.
+Aplicación práctica con ejemplo claro (25%): El alumno debe crear un título descriptivo y organizar el contenido en la estructura adecuada, mostrando habilidad práctica.
+Cierre/Conclusión enlazando con la unidad (25%): El ejercicio debe conectar con los conceptos de estructura básica del HTML y cómo se aplican a proyectos prácticos como el de Jose Vicente.
+
+
+Ahora que ya lo tenemos todo mas o menos organizado, vamos a documentar el primer proyecto de Jose Vicente, que es un modelo 3D de una funda para Raspberry Pi.
+Lo haremos eh `HTML`:
+
+```html
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Proyectos de Jose Vicente</title>
+</head>
+<body>
+Pasos para la creación de una funda para Raspberry Pi:
+    <ol>
+        <li>Diseño del modelo 3D utilizando software de modelado.</li>
+        <li>Exportación del diseño en un formato compatible con la impresora 3D.</li>
+        <li>Configuración de la impresora 3D con los parámetros adecuados.</li>
+        <li>Impresión del modelo y post-procesamiento si es necesario.</li>
+    </ol>
+
+</body>
+</html>
+```
+Ahora todo el mundo tendrá acceso a los proyectos de Jose Vicente y podrá seguir sus pasos para crear su propia funda para Raspberry Pi.

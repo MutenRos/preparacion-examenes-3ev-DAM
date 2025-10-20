@@ -1,0 +1,98 @@
+Título Creación de un formulario HTML para un proyecto 3D
+
+Contexto Como aficionado a las miniaturas y al modelado e impresión 3D, te gustaría crear una página web que muestre tus proyectos actuales. Para ello, necesitas aprender a utilizar lenguajes de marcas como HTML para estructurar tu contenido.
+
+Enunciado paso a paso
+
+Crea un archivo llamado proyectos_3d.html en la carpeta de trabajo.
+Define la estructura básica del documento HTML utilizando las etiquetas <html>, <head> y <body>.
+En el encabezado (<head>), establece el título de la página con la etiqueta <title>.
+Dentro del cuerpo (<body>), crea un encabezado principal para tu sección de proyectos con la etiqueta <h1>.
+A continuación, añade una lista desordenada (<ul>) para listar tus proyectos 3D.
+Para cada proyecto, utiliza una etiqueta <li> dentro de la lista y agrega el nombre del proyecto como texto.
+Finalmente, cierra todas las etiquetas correspondientes para completar la estructura HTML.
+Restricciones
+
+No usar herramientas gráficas para diseñar la página; solo utilizar lenguaje HTML.
+Solo puedes usar los elementos básicos de HTML vistos en clase (<html>, <head>, <body>, <title>, <h1>, <ul> y <li>).
+Criterios de evaluación
+
+La estructura del documento HTML es correcta (5 puntos).
+El título de la página es claro y descriptivo (5 puntos).
+Se ha utilizado una lista desordenada para listar los proyectos (5 puntos).
+Cada proyecto tiene un nombre legible en la lista (5 puntos).
+
+
+Uno de mis planes de negocio es abrir una tienda online de modelos de miniaturas listos para imprimr, pintar y jugar. Y si hay dos cosas que necesito, es:
+1. Una pagina `WEB`
+2. Tener todos los archivos organizados, ya que son miles las miniaturas distintas coleccionables.
+
+Una forma de clasificar y estructurar todas ellas podria ser con un lenguaje de marcas como es `HTML`.
+Empezaremos creando nuestro archivo `miniaturas.html`:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Proyectos 3D de Miniaturas</title>
+    </head>
+    <body>
+        <h1>Mis Proyectos 3D</h1>
+        <ul>
+            <li>Guerrero Fantástico</li>
+            <li>Dragón de las Sombras</li>
+            <li>Vehículo Espacial</li>
+            <li>Escenario Medieval</li>
+            <li>Monstruo del Pantano</li>
+        </ul>
+    </body>
+</html>
+```
+Cuando tengamos mas miniaturas, tambien podriamos clasificarlas segun su tipo:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Catálogo de Miniaturas 3D por Categorías</title>
+    </head>
+    <body>
+        <h1>Catálogo de Miniaturas 3D</h1>
+        
+        <h1>Personajes Fantásticos</h1>
+        <ul>
+            <li>Guerrero Élfico</li>
+            <li>Mago Arcano</li>
+            <li>Paladín Sagrado</li>
+            <li>Asesino de las Sombras</li>
+        </ul>
+        
+        <h1>Criaturas y Monstruos</h1>
+        <ul>
+            <li>Dragón Rojo Ancestral</li>
+            <li>Troll de las Montañas</li>
+            <li>Lich Rey</li>
+            <li>Bestia del Pantano</li>
+        </ul>
+        
+        <h1>Vehículos y Máquinas</h1>
+        <ul>
+            <li>Tanque Steampunk</li>
+            <li>Nave Espacial</li>
+            <li>Mecha de Combate</li>
+            <li>Dirigible Fantasía</li>
+        </ul>
+        
+        <h1>Escenarios y Ambientación</h1>
+        <ul>
+            <li>Torre de Vigilancia</li>
+            <li>Puente Medieval</li>
+            <li>Ruinas Ancestrales</li>
+            <li>Campamento Aventurero</li>
+        </ul>
+    </body>
+</html>
+```
+A medida que vayamos ampliando nuestra collecction, tambien lo puede ir haciendo muestra `base de datos` en `HTML`, manteniendo un orden y estructura claras y visuales.

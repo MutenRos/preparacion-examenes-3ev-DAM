@@ -1,0 +1,64 @@
+Introducción: Jose Vicente es un amante del modelado e impresión 3D y está interesado en aprender más sobre lenguajes de marcas como XML. Para ello, ha decidido crear un documento XML que describa sus habilidades y experiencia.
+
+Desarrollo técnico correcto y preciso: Crea un archivo XML llamado habilidades.xml con la siguiente estructura:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+  <nombre id="propio">Jose Vicente</nombre>
+  <nombre id="mote">JV</nombre>
+  <edad medida="años">47</edad>
+  <profesion>Programador</profesion>
+  <hobby>
+    <tipo>Jugar con Raspberrys y similares</tipo>
+    <descripción>Explora la programación y el desarrollo de software usando dispositivos Raspberry Pi.</descripción>
+  </hobby>
+  <hobby>
+    <tipo>Modelado e impresión 3D</tipo>
+    <descripción>Crea modelos tridimensionales y los imprime para prototipar ideas.</descripción>
+  </hobby>
+</persona>
+Aplicación práctica con ejemplo claro: Añade al menos dos habilidades adicionales a tu documento XML siguiendo el mismo formato que los ejemplos proporcionados.
+
+Cierre/Conclusión enlazando con la unidad: Utiliza tus nuevas habilidades de modelado e impresión 3D para crear un prototipo de una herramienta o dispositivo que puedas utilizar en tu hobby de coches de carreras del siglo pasado. Describa cómo el uso de XML te ha ayudado a organizar y presentar información sobre tus proyectos.
+
+Restricciones
+No usar librerías externas.
+No usar input()/lectura de teclado.
+No usar estructuras no vistas en la clase actual.
+Criterios de evaluación
+Introducción y contextualización (25%): El estudiante debe mostrar una comprensión clara del contexto y cómo los hobbies del alumno se relacionan con el tema de XML.
+Desarrollo técnico correcto y preciso (25%): El documento XML debe seguir la estructura proporcionada y contener información precisa sobre las habilidades y experiencias del estudiante.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe añadir al menos dos habilidades adicionales y describir cómo el uso de XML ha ayudado a organizar su información.
+Cierre/Conclusión enlazando con la unidad (25%): La conclusión del estudiante debe mostrar una aplicación práctica de los conocimientos adquiridos y cómo se pueden aplicar en un contexto real relacionado con sus hobbies.
+
+
+`XML` es un lenguaje de marcas que se utiliza para describir datos de manera estructurada. A diferencia de otros lenguajes de marcado, como HTML, que se centran en la presentación de la información, XML se centra en la representación de datos y su significado. Esto lo convierte en una herramienta poderosa para la gestión de información en aplicaciones y sistemas.
+Su simpleza, hace que sea fácil de aprender y utilizar, lo que lo convierte en una opción popular para desarrolladores y profesionales de la información. Además, su capacidad para ser extendido permite a los usuarios crear sus propias etiquetas y estructuras, adaptándose a las necesidades específicas de sus proyectos.
+Jose vicente se ha apuntado a nuestro curso de modelade e impresion 3D, asi que vamos a crearle una ficha XML con sus habilidades y experiencia.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+    <nombre id="propio">Jose Vicente</nombre>
+    <nombre id="mote">JV</nombre>
+    <edad medida="años">47</edad>
+    <profesion>Programador</profesion>
+    <hobby>
+        <tipo>Jugar con Raspberrys y similares</tipo>
+        <descripción>Explora la programación y el desarrollo de software usando dispositivos Raspberry Pi.</descripción>
+    </hobby>
+    <hobby>
+        <tipo>Modelado e impresión 3D</tipo>
+        <descripción>Crea modelos tridimensionales y los imprime para prototipar ideas.</descripción>
+    </hobby>
+    <hobby>
+        <tipo>Fotografía</tipo>
+        <descripción>Captura imágenes de alta calidad utilizando técnicas avanzadas de fotografía.</descripción>
+    </hobby>
+    <hobby>
+        <tipo>Ciclismo</tipo>
+        <descripción>Disfruta de rutas en bicicleta para mantenerse en forma y explorar nuevos lugares.</descripción>
+    </hobby>
+</persona>
+```
+Visualmente tenemos una ficha clara de Jose Vicente, con sus habilidades y experiencia. Pero lo mas importante, la hemos creado en `XML`, un lenguaje de marcas que nos permite estructurar y organizar la información de manera eficiente, ademas de la posibilidad de usar algun gestor de bases de datos para acceder a dicha informacion.
