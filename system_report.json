@@ -1,0 +1,124 @@
+{
+  "basic": {
+    "timestamp": "2025-10-12 18:10:46",
+    "platform_system": "Windows",
+    "platform_release": "11",
+    "platform_version": "10.0.22631",
+    "architecture": "AMD64",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "uname": "Windows Jarvis 11 10.0.22631 AMD64 AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "hostname": "Jarvis",
+    "fqdn": "Jarvis",
+    "node_id": "0x2c9811817724",
+    "python_version": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+  },
+  "cpu": {
+    "logical_cores": 16,
+    "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD"
+  },
+  "memory": {},
+  "disks": {
+    "cwd": "C:\\Users\\freak\\Desktop\\DAM2527\\GIT_DAM_25-27",
+    "root_usage": {
+      "total": 1999217094656,
+      "used": 1851326038016,
+      "free": 147891056640
+    },
+    "cwd_usage": {
+      "total": 1999217094656,
+      "used": 1851326038016,
+      "free": 147891056640
+    }
+  },
+  "network": {
+    "ip_addresses": [
+      "192.168.56.1",
+      "192.168.1.115"
+    ],
+    "example_com_resolves_to": "23.220.75.232"
+  },
+  "users_processes": {
+    "process_list_raw": "Nombre de imagen               PID Nombre de sesi¢n N£m. de ses Uso de memor\n========================= ======== ================ =========== ============\nSystem Idle Process              0 Services                   0         8 KB\nSystem                           4 Services                   0    10.376 KB\nSecure System                  172 Services                   0   108.096 KB\nRegistry                       220 Services                   0    54.436 KB\nsmss.exe                       764 Services                   0     1.116 KB\ncsrss.exe                      832 Services                   0     4.952 KB\nwininit.exe                   1204 Services                   0     6.572 KB\ncsrss.exe                     1224 Console                    1     6.116 KB\nservices.exe                  1276 Services                   0     9.692 KB\nLsaIso.exe                    1296 Services                   0     3.520 KB\nlsass.exe                     1312 Services                   0    24.264 KB\nsvchost.exe                   1436 Services                   0    29.988 KB\nfontdrvhost.exe               1464 Services                   0     4.516 KB\nsvchost.exe                   1540 Services                   0    17.324 KB\nsvchost.exe                   1584 Services                   0     9.772 KB\nwinlogon.exe                  1648 Console                    1    11.408 KB\nfontdrvhost.exe               1708 Console                    1     9.364 KB\nsvchost.exe                   1788 Services                   0     5.168 KB\nsvchost.exe                   1828 Services                   0     7.620 KB\nsvchost.exe                   1836 Services                   0     5.104 KB\nsvchost.exe                   1844 Services                   0    11.660 KB\nsvchost.exe                   1852 Services                   0    13.888 KB\nsvchost.exe                   1948 Services                   0     9.960 KB\nsvchost.exe                   1956 Services                   0     9.764 KB\nsvchost.exe                    840 Services                   0     5.548 KB\nsvchost.exe                   1532 Services                   0     7.120 KB\nsvchost.exe                   1936 Services                   0    15.512 KB\nsvchost.exe                   2124 Services                   0     9.768 KB\nsvchost.exe                   2200 Services                   0    11.160 KB\ndwm.exe                       2256 Console                    1   192.016 KB\nNVDisplay.Container.exe       2400 Services                   0    35.532 KB\nsvchost.exe                   2416 Services                   0     8.768 KB\nsvchost.exe                   2484 Services                   0     7.544 KB\nsvchost.exe                   2492 Services                   0     7.004 KB\nsvchost.exe                   2536 Services                   0    16.284 KB\nsvchost.exe                   2624 Services                   0    16.764 KB\namdfendrsr.exe                2632 Services                   0     7.168 KB\natiesrxx.exe                  2640 Services                   0     6.744 KB\nsvchost.exe                   2804 Services                   0     8.136 KB\ndasHost.exe                   2816 Services                   0    12.032 KB\nsvchost.exe                   2928 Services                   0     7.372 KB\nsvchost.exe                   3012 Services                   0     6.076 KB\nsvchost.exe                   3128 Services                   0     9.296 KB\nsvchost.exe                   3216 Services                   0     6.788 KB\nsvchost.exe                   3268 Services                   0     6.396 KB\nsvchost.exe                   3288 Services                   0    25.420 KB\nsvchost.exe                   3352 Services                   0     8.776 KB\nsvchost.exe                   3380 Services                   0     7.916 KB\nNVDisplay.Container.exe       3568 Console                    1    40.440 KB\nsvchost.exe                   3732 Services                   0    16.548"
+  },
+  "python_env": {
+    "executable": "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "version": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "path": [
+      "c:\\Users\\freak\\Desktop\\DAM2527\\GIT_DAM_25-27\\Primero\\Sistemas informáticos\\002-Instalación de sistemas operativos\\001-Evolución histórica y clasificación\\101-Ejercicios",
+      "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip",
+      "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\DLLs",
+      "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\Lib",
+      "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313",
+      "C:\\Users\\freak\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages"
+    ],
+    "installed_modules_sample": [
+      "002-informacion de mi ordenador",
+      "__future__",
+      "__hello__",
+      "__phello__",
+      "_aix_support",
+      "_android_support",
+      "_apple_support",
+      "_asyncio",
+      "_bz2",
+      "_collections_abc",
+      "_colorize",
+      "_compat_pickle",
+      "_compression",
+      "_ctypes",
+      "_ctypes_test",
+      "_decimal",
+      "_elementtree",
+      "_hashlib",
+      "_ios_support",
+      "_lzma",
+      "_markupbase",
+      "_multiprocessing",
+      "_opcode_metadata",
+      "_osx_support",
+      "_overlapped",
+      "_py_abc",
+      "_pydatetime",
+      "_pydecimal",
+      "_pyio",
+      "_pylong",
+      "_pyrepl",
+      "_queue",
+      "_sitebuiltins",
+      "_socket",
+      "_sqlite3",
+      "_ssl",
+      "_strptime",
+      "_testbuffer",
+      "_testcapi",
+      "_testclinic",
+      "_testclinic_limited",
+      "_testconsole",
+      "_testimportmultiple",
+      "_testinternalcapi",
+      "_testlimitedcapi",
+      "_testmultiphase",
+      "_testsinglephase",
+      "_threading_local",
+      "_tkinter",
+      "_uuid",
+      "_weakrefset",
+      "_wmi",
+      "_zoneinfo",
+      "abc",
+      "antigravity",
+      "argparse",
+      "ast",
+      "asyncio",
+      "base64",
+      "bdb"
+    ]
+  },
+  "gpu": {
+    "nvidia": [
+      "NVIDIA GeForce RTX 4070 SUPER, 12282 MiB, 560.94"
+    ],
+    "CUDA_VISIBLE_DEVICES": null
+  }
+}

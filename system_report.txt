@@ -1,0 +1,33 @@
+=============================INFORME DEL SISTEMA==============================
+Generado: 2025-10-12 18:10:46
+
+1) Información Básica
+   - Sistema: Windows 11 (AMD64)
+   - Plataforma: Windows-11-10.0.22631-SP0
+   - Hostname: Jarvis (FQDN: Jarvis)
+   - Nodo ID (MAC): 0x2c9811817724
+   - Ejecutable Python: C:\Users\freak\AppData\Local\Programs\Python\Python313\python.exe
+
+2) CPU
+   - Procesador (platform): AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+   - Cores (logical): 16, (physical if available): N/D
+
+3) Memoria
+
+4) Discos
+   - Raíz total=1999217094656 used=1851326038016 free=147891056640
+
+5) Red
+   - IPs detectadas: 192.168.56.1, 192.168.1.115
+
+6) Usuarios & procesos
+
+7) GPU
+   - GPUs NVIDIA:
+     NVIDIA GeForce RTX 4070 SUPER, 12282 MiB, 560.94
+
+8) Entorno Python
+   - Versión: 3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]
+   - Módulos (muestra): 002-informacion de mi ordenador, __future__, __hello__, __phello__, _aix_support, _android_support, _apple_support, _asyncio, _bz2, _collections_abc, _colorize, _compat_pickle
+
+==============================================================================
