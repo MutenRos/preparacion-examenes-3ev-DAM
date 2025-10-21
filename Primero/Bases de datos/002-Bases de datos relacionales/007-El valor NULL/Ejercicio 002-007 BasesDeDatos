@@ -1,0 +1,37 @@
+Enunciado paso a paso
+Contexto: En tu proyecto de miniatura de coche antiguo, necesitas almacenar información detallada sobre cada vehículo. Como parte de este proceso, has decidido implementar una base de datos relacional para gestionar los datos de tus coches. Algunos campos, como el apellido del propietario (si es que lo conoces), pueden estar vacíos en algunas entradas.
+
+Desarrolla la tabla de clientes: Antes de añadir los detalles de los coches a tu base de datos, necesitas crear una tabla para almacenar información sobre los clientes (propietarios de los coches). Este ejercicio te ayudará a entender cómo manejar el valor NULL en las bases de datos relacionales.
+
+Modifica la columna apellidos: Utiliza un comando SQL para modificar la columna apellidos en la tabla clientes. Cambia su tipo de dato a VARCHAR(100) y establece que pueda contener valores NULL.
+
+Restricciones
+No uses librerías externas ni funciones complejas.
+Evita el uso de input() o lectura de teclado.
+Solo utiliza estructuras vistas hasta ahora.
+Criterios de evaluación
+Introducción y contextualización (25%): Explica por qué necesitas almacenar información con valores NULL en tu base de datos.
+Desarrollo técnico correcto y preciso (25%): Escribe el comando SQL correcto para modificar la columna apellidos.
+Aplicación práctica con ejemplo claro (25%): Proporciona un ejemplo práctico de cómo esta modificación puede ser útil en tu proyecto.
+Cierre/Conclusión enlazando con la unidad (25%): Reflexiona sobre cómo este conocimiento te ayudará a gestionar tus miniaturas de coches y entenderás mejor cómo se maneja la falta de datos en una base de datos relacional.
+
+
+Es posible que en el momento de la toma de datos de nuestros clientes para añadirlos a nuestra base de datos, no toda la informacion este disponible, por ejemplo, Puede que no se sepa su telefono y no lo tenga encima, o cualquier otro dato. Por eso es importante que nuestra base de datos pueda manejar valores NULL, que representan la ausencia de un valor.
+Por eso, vamos a hacer que la tabla de clientes de nuestra base de datos permita que las columnas `telefono`y `email` puedan contener valores nill, siempre  y cuando una de las dos no este vacia.
+
+Para modificar las columnas `telefono` y `email` de la tabla `clientes` para que puedan contener valores `NULL`, utilizaremos el siguiente comando SQL:
+
+```sql
+ALTER TABLE `empresarial`.`clientes`
+  MODIFY COLUMN `telefono` VARCHAR(15) NULL,
+  MODIFY COLUMN `email` VARCHAR(100) NULL;
+```
+Y ahora hacemos que necesariamente una de las dos columnas tenga que tener un valor, para eso añadimos la siguiente restriccion CHECK:
+
+```sql
+ALTER TABLE `empresarial`.`clientes`
+  ADD CONSTRAINT `chk_telefono_o_email` CHECK (
+    (`telefono` IS NOT NULL) OR (`email` IS NOT NULL)
+  );
+```
+Con estas modificaciones, nuestra tabla `clientes` ahora puede manejar valores NULL en las columnas `telefono` y `email`, siempre y cuando al menos una de ellas tenga un valor. Esto es especialmente útil en situaciones donde no se dispone de toda la información del cliente en el momento de la inserción de datos, pero necesitemos un metodo de contacto si o si.

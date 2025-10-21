@@ -1,0 +1,69 @@
+Contexto
+En nuestro proyecto final sobre bases de datos, estamos trabajando en una aplicación que permitirá gestionar los clientes de una tienda de electrónica. Para asegurar que todos los datos ingresados sean precisos y seguros, es crucial implementar restricciones de validación. Un aspecto importante de este proceso es comprobar el formato del número de teléfono y la dirección de correo electrónico.
+
+Enunciado paso a paso
+Comprender las restricciones existentes:
+
+El proyecto ya tiene una restricción que verifica si el número de teléfono tiene exactamente 9 dígitos.
+También hay una restricción que asegura que el formato del correo electrónico es válido.
+Implementar nuevas restricciones:
+
+Añade una nueva restricción para verificar que el nombre del cliente no esté vacío.
+Implementa otra restricción que asegure que la edad del cliente sea mayor o igual a 18 años.
+Ejemplos de datos:
+
+Nombre del cliente: "Juan Pérez"
+Edad del cliente: 25
+Teléfono del cliente: "987654321"
+Correo electrónico del cliente: "juan.perez@example.com"
+Restricciones
+Restricción de nombre no vacío: Asegura que el campo nombre en la tabla clientes no esté vacío.
+Restricción de edad mínima: Asegura que el campo edad en la tabla clientes sea mayor o igual a 18.
+Criterios de evaluación
+Introducción y contextualización (25%)
+
+El estudiante debe explicar claramente por qué es necesario implementar estas restricciones en nuestra aplicación de gestión de clientes.
+Desarrollo técnico correcto y preciso (25%)
+
+El estudiante debe escribir las sentencias SQL correctas para añadir las nuevas restricciones a la tabla clientes.
+Aplicación práctica con ejemplo claro (25%)
+
+El estudiante debe proporcionar ejemplos de cómo insertar datos que cumplen y no cumplen las nuevas restricciones.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+El estudiante debe explicar cómo estas restricciones ayudan a garantizar la integridad de los datos en nuestra aplicación y cómo se relacionan con el tema de bases de datos que estamos estudiando.
+
+
+
+
+
+
+Nuestra base de datos se pone seria, y necesitamos verificar la veracidad de la identidad de nuestros clientes. Ya tenemos unos verificadores implementados para el numero de telefono y el correo electronico, lo que nos asegura un contacto con el cliente. Pero no sabemos si nos ha dado su nombre real o si es mayor de edad para comprar ciertos productos. Vamos a implementar estas dos restricciones adicionales en nuestra tabla `clientes`.Para asegurarnos de que el nombre del cliente no este vacio, añadiremos la siguiente restricion:
+
+```sql
+ALTER TABLE `empresarial`.`clientes`
+  ADD CONSTRAINT `chk_nombre_no_vacio` CHECK (LENGTH(TRIM(`nombre`)) > 0);
+```
+Esta restriccion utiliza la funcion LENGTH junto con TRIM para asegurarse de que el campo `nombre` contenga al menos un caracter que no sea espacio en blanco.
+
+Para garantizar que la edad del cliente sea mayor o igual a 18 años, añadiremos la siguiente restricción:
+
+```sql
+ALTER TABLE `empresarial`.`clientes`
+  ADD CONSTRAINT `chk_edad_minima` CHECK (`edad` >= 18);
+```
+Esta restricción asegura que el campo `edad` contenga un valor numérico que sea mayor o igual a 18.
+
+Con estas dos nuevas restricciones implementadas, nuestra tabla `clientes` ahora garantiza que cada cliente tenga un nombre válido y sea mayor de edad. Para veriicarlo realizaremos una consulta de insercion con datos que cumplen y no cumplen las restricciones:
+```sql
+-- Datos que cumplen las restricciones
+INSERT INTO `empresarial`.`clientes` (`nombre`, `edad`, `telefono`, `correo_electronico`)
+VALUES ('Juan Pérez', 25, '987654321', 'juan.perez@example.com'); 
+-- Datos que no cumplen la restricción de nombre no vacío
+INSERT INTO `empresarial`.`clientes` (`nombre`, `edad`, `telefono`, `correo_electronico`)
+VALUES ('   ', 30, '123456789', 'maria.garcia@example.com');
+-- Datos que no cumplen la restricción de edad mínima
+INSERT INTO `empresarial`.`clientes` (`nombre`, `edad`, `telefono`, `correo_electronico`)
+VALUES ('Luis Gómez', 16, '987654321', 'luis.gomez@example.com');
+```
+Con estas restricciones adicionales, aseguramos que los datos ingresados en nuestra aplicación de gestión de clientes sean más confiables y precisos. La restricción de nombre no vacío evita que se registren clientes sin un nombre válido, lo cual es esencial para la identificación y comunicación. Por otro lado, la restricción de edad mínima garantiza que solo se registren clientes que cumplan con los requisitos legales para adquirir ciertos productos.Estas medidas no solo mejoran la integridad de los datos en nuestra base de datos, sino que también refuerzan la confianza en nuestra aplicación de gestión de clientes, alineándose con los principios fundamentales de las bases de datos relacionales que estamos estudiando.
