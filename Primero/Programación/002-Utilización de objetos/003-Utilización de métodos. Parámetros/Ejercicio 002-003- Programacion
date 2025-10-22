@@ -1,0 +1,307 @@
+Título: Utilizando Métodos Predeterminados en Python
+Contexto
+En nuestro mundo digital actual, los Raspberrys y similares son herramientas increíbles para aprender programación y automatización. Además, el modelado e impresión 3D nos permiten crear modelos detallados que luego podemos controlar con nuestros dispositivos electrónicos. Para este ejercicio, vamos a utilizar métodos de un objeto math predefinido en Python, lo cual es útil tanto para los Raspberrys como para cualquier proyecto que requiera cálculos matemáticos.
+
+Enunciado paso a paso
+Importar el módulo math: Comenzaremos importando el módulo math con un alias matematicas. Esto nos permitirá acceder a una serie de métodos matemáticos predefinidos.
+
+import math as matematicas
+Calcular la raíz cuadrada: Utilizar el método sqrt del módulo math para calcular la raíz cuadrada de un número. Este método es muy útil tanto en programación como en proyectos que involucran cálculos matemáticos.
+
+numero = 16
+raiz = matematicas.sqrt(numero)
+print(raiz)  # Debería imprimir 4.0
+Utilizar el método pow: Aprenderemos a utilizar el método pow para elevar un número a una potencia. Este método es especialmente útil en proyectos que implican cálculos complejos.
+
+base = 2
+exponente = 3
+resultado_potencia = matematicas.pow(base, exponente)
+print(resultado_potencia)  # Debería imprimir 8.0
+Restricciones
+No utilizar librerías externas.
+Solo usar el módulo math para los cálculos.
+Criterios de evaluación
+Introducción y contextualización (25%)
+
+El alumnado debe explicar cómo los Raspberrys y el modelado e impresión 3D pueden beneficiarse del uso de métodos predeterminados en Python.
+Desarrollo técnico correcto y preciso (25%)
+
+El alumnado debe escribir correctamente el código para importar el módulo math y utilizar sus métodos sqrt y pow.
+Aplicación práctica con ejemplo claro (25%)
+
+El alumnado debe proporcionar ejemplos claros de cómo calcular la raíz cuadrada y elevar un número a una potencia utilizando los métodos del módulo math.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+El alumnado debe explicar cómo estos conceptos pueden aplicarse en proyectos futuros que involucren cálculos matemáticos o automatización con dispositivos electrónicos como los Raspberrys.
+
+---
+
+## Solución del Ejercicio 002-003
+
+### Introducción y Contextualización
+
+El módulo `math` de Python es una herramienta fundamental cuando trabajamos con proyectos de hardware y automatización. En mis proyectos con Raspberry Pi, Arduino y impresión 3D, constantemente necesito realizar cálculos matemáticos precisos:
+
+- **Cálculo de distancias**: Cuando trabajo con sensores ultrasónicos para medir distancias, necesito calcular raíces cuadradas para aplicar el teorema de Pitágoras y determinar distancias en 2D o 3D.
+
+- **Control de servomotores**: Para calcular ángulos y posiciones de brazos robóticos, necesito funciones trigonométricas y potencias para conversiones entre sistemas de coordenadas.
+
+- **Diseño 3D paramétrico**: Al diseñar piezas para imprimir en 3D, frecuentemente necesito calcular dimensiones basadas en fórmulas matemáticas, como radios de círculos, áreas, volúmenes, o escalas.
+
+- **Algoritmos de control PID**: Para controlar la temperatura de una impresora 3D o la velocidad de un motor, necesito operaciones matemáticas avanzadas.
+
+El módulo `math` nos proporciona métodos optimizados y precisos que son esenciales para cualquier proyecto técnico serio.
+
+### Desarrollo Técnico: Uso del Módulo Math
+
+#### 1. Importación del módulo con alias
+
+Comenzamos importando el módulo `math` con un alias para facilitar su uso:
+
+```python
+import math as matematicas
+```
+
+Usar un alias como `matematicas` hace nuestro código más legible y descriptivo, especialmente útil cuando trabajamos con varios módulos en un mismo proyecto.
+
+#### 2. Cálculo de la raíz cuadrada
+
+El método `sqrt()` (square root) calcula la raíz cuadrada de un número. Es fundamental en muchos cálculos de física y geometría:
+
+```python
+# Ejemplo básico
+numero = 16
+raiz = matematicas.sqrt(numero)
+print(f"La raíz cuadrada de {numero} es: {raiz}")  # Imprime: 4.0
+```
+
+**Aplicación práctica: Cálculo de distancia entre dos puntos**
+
+En un proyecto con sensores de posición, podemos usar la raíz cuadrada para calcular la distancia euclidiana:
+
+```python
+# Coordenadas de dos puntos en un plano 2D
+x1, y1 = 3, 4
+x2, y2 = 0, 0
+
+# Distancia entre dos puntos: sqrt((x2-x1)² + (y2-y1)²)
+distancia = matematicas.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+print(f"La distancia entre los puntos es: {distancia} unidades")  # 5.0
+```
+
+Este cálculo es crucial cuando programamos robots móviles que necesitan navegar entre puntos específicos.
+
+#### 3. Elevación a potencias con pow()
+
+El método `pow()` eleva un número a una potencia específica:
+
+```python
+# Ejemplo básico
+base = 2
+exponente = 3
+resultado_potencia = matematicas.pow(base, exponente)
+print(f"{base} elevado a {exponente} es: {resultado_potencia}")  # Imprime: 8.0
+```
+
+**Diferencia entre math.pow() y el operador ****
+
+Python ofrece dos formas de elevar números:
+- `**` operador (ej: `2**3`) - Más rápido, puede devolver int o float
+- `math.pow()` - Siempre devuelve float, útil cuando necesitamos consistencia de tipo
+
+```python
+# Comparación
+print(2**3)                    # 8 (int)
+print(matematicas.pow(2, 3))   # 8.0 (float)
+```
+
+**Aplicación práctica: Cálculo de área de un círculo**
+
+```python
+# Calcular el área de un círculo para diseñar una pieza en 3D
+radio = 5  # cm
+area = matematicas.pi * matematicas.pow(radio, 2)
+print(f"El área de un círculo con radio {radio}cm es: {area:.2f} cm²")
+```
+
+### Aplicación Práctica con Ejemplos Reales
+
+#### Ejemplo 1: Calibración de sensor ultrasónico
+
+Cuando trabajo con sensores HC-SR04 en Raspberry Pi para medir distancias, necesito convertir el tiempo de respuesta a distancia:
+
+```python
+import math as matematicas
+
+# Velocidad del sonido en cm/microsegundo
+velocidad_sonido = 0.0343
+
+# Tiempo medido por el sensor (en microsegundos)
+tiempo_ida_vuelta = 2000
+
+# Distancia = (velocidad * tiempo) / 2
+# Pero si queremos la distancia en línea recta considerando un ángulo...
+tiempo_medio = tiempo_ida_vuelta / 2
+distancia_directa = velocidad_sonido * tiempo_medio
+
+print(f"Distancia medida: {distancia_directa} cm")
+
+# Si el sensor está inclinado 45 grados, necesitamos trigonometría
+angulo_grados = 45
+angulo_radianes = matematicas.radians(angulo_grados)
+distancia_horizontal = distancia_directa * matematicas.cos(angulo_radianes)
+distancia_vertical = distancia_directa * matematicas.sin(angulo_radianes)
+
+print(f"Componente horizontal: {distancia_horizontal:.2f} cm")
+print(f"Componente vertical: {distancia_vertical:.2f} cm")
+```
+
+#### Ejemplo 2: Escalado de modelos 3D
+
+Cuando diseño piezas en 3D, a menudo necesito escalarlas proporcionalmente:
+
+```python
+import math as matematicas
+
+# Dimensiones originales de una pieza
+largo_original = 10  # cm
+ancho_original = 8   # cm
+alto_original = 5    # cm
+
+# Factor de escala (queremos duplicar el volumen)
+# Si V = l*a*h, para duplicar el volumen: V_nuevo = 2*V
+# factor³ = 2, entonces factor = ∛2
+factor_escala = matematicas.pow(2, 1/3)
+
+# Nuevas dimensiones
+largo_nuevo = largo_original * factor_escala
+ancho_nuevo = ancho_original * factor_escala
+alto_nuevo = alto_original * factor_escala
+
+print(f"Dimensiones originales: {largo_original}x{ancho_original}x{alto_original} cm")
+print(f"Factor de escala: {factor_escala:.4f}")
+print(f"Nuevas dimensiones: {largo_nuevo:.2f}x{ancho_nuevo:.2f}x{alto_nuevo:.2f} cm")
+
+# Verificación del volumen
+volumen_original = largo_original * ancho_original * alto_original
+volumen_nuevo = largo_nuevo * ancho_nuevo * alto_nuevo
+print(f"Volumen original: {volumen_original} cm³")
+print(f"Volumen nuevo: {volumen_nuevo:.2f} cm³")
+print(f"Proporción: {volumen_nuevo/volumen_original:.2f}x")
+```
+
+#### Ejemplo 3: Control de velocidad de motor paso a paso
+
+Para controlar motores paso a paso en impresoras 3D o robots:
+
+```python
+import math as matematicas
+
+# Configuración del motor
+pasos_por_revolucion = 200
+microstepping = 16  # Cada paso se divide en 16 micropasos
+
+# Pasos totales por revolución completa
+pasos_totales = pasos_por_revolucion * microstepping
+print(f"Pasos totales por revolución: {pasos_totales}")
+
+# Queremos mover 45 grados
+angulo_deseado = 45
+revoluciones = angulo_deseado / 360
+pasos_necesarios = revoluciones * pasos_totales
+
+print(f"Para mover {angulo_deseado}°, necesitamos {pasos_necesarios:.0f} pasos")
+
+# Velocidad: RPM a pasos por segundo
+rpm = 60  # Revoluciones por minuto
+pasos_por_segundo = (rpm * pasos_totales) / 60
+print(f"A {rpm} RPM, el motor da {pasos_por_segundo:.0f} pasos por segundo")
+
+# Calcular el delay entre pasos en microsegundos
+delay_microsegundos = 1000000 / pasos_por_segundo
+print(f"Delay entre pasos: {delay_microsegundos:.2f} µs")
+```
+
+#### Código completo del ejercicio básico
+
+```python
+#!/usr/bin/env python3
+"""
+Ejercicio 002-003: Utilización de métodos del módulo math
+Autor: [Tu nombre]
+Fecha: 22/10/2025
+"""
+
+import math as matematicas
+
+print("="*50)
+print("EJERCICIO DE MÉTODOS MATEMÁTICOS EN PYTHON")
+print("="*50)
+
+# 1. Cálculo de raíz cuadrada
+print("\n1. RAÍZ CUADRADA")
+numero = 16
+raiz = matematicas.sqrt(numero)
+print(f"La raíz cuadrada de {numero} es: {raiz}")
+
+# Ejemplo adicional: cálculo de hipotenusa
+cateto_a = 3
+cateto_b = 4
+hipotenusa = matematicas.sqrt(cateto_a**2 + cateto_b**2)
+print(f"Hipotenusa de un triángulo con catetos {cateto_a} y {cateto_b}: {hipotenusa}")
+
+# 2. Potenciación
+print("\n2. POTENCIACIÓN")
+base = 2
+exponente = 3
+resultado_potencia = matematicas.pow(base, exponente)
+print(f"{base} elevado a {exponente} es: {resultado_potencia}")
+
+# Ejemplo adicional: área de círculo
+radio = 5
+area_circulo = matematicas.pi * matematicas.pow(radio, 2)
+print(f"Área de un círculo con radio {radio}: {area_circulo:.2f}")
+
+# 3. Otros métodos útiles del módulo math
+print("\n3. OTROS MÉTODOS ÚTILES")
+
+# Valor absoluto y redondeo
+print(f"Valor absoluto de -10: {matematicas.fabs(-10)}")
+print(f"Redondeo hacia arriba de 4.3: {matematicas.ceil(4.3)}")
+print(f"Redondeo hacia abajo de 4.9: {matematicas.floor(4.9)}")
+
+# Trigonometría (útil para robótica)
+angulo_grados = 45
+angulo_radianes = matematicas.radians(angulo_grados)
+print(f"\nÁngulo de {angulo_grados}° = {angulo_radianes:.4f} radianes")
+print(f"Seno de {angulo_grados}°: {matematicas.sin(angulo_radianes):.4f}")
+print(f"Coseno de {angulo_grados}°: {matematicas.cos(angulo_radianes):.4f}")
+print(f"Tangente de {angulo_grados}°: {matematicas.tan(angulo_radianes):.4f}")
+
+# Constantes matemáticas
+print("\n4. CONSTANTES MATEMÁTICAS")
+print(f"Pi: {matematicas.pi}")
+print(f"Euler (e): {matematicas.e}")
+
+print("\n" + "="*50)
+print("FIN DEL EJERCICIO")
+print("="*50)
+```
+
+### Conclusión y Aplicación Futura
+
+El dominio del módulo `math` es fundamental para cualquier proyecto serio de programación con hardware. En mis futuros proyectos planeo aplicar estos conocimientos en:
+
+1. **Sistema de navegación para robot autónomo**: Utilizando raíces cuadradas para calcular distancias entre waypoints y trigonometría para calcular ángulos de giro.
+
+2. **Calibración de impresora 3D**: Calculando el flujo exacto de filamento basado en el diámetro del nozzle (usando π y pow para áreas de círculo), y optimizando velocidades de impresión.
+
+3. **Sistema de riego automático inteligente**: Calculando volúmenes de agua necesarios basados en el área de las plantas (geometría circular o rectangular) y ajustando según humedad del suelo.
+
+4. **Brazo robótico de 3 ejes**: Implementando cinemática inversa usando funciones trigonométricas para convertir coordenadas cartesianas (x, y, z) en ángulos de servo.
+
+5. **Monitor de energía solar**: Calculando la potencia óptima basada en el ángulo del sol (trigonometría) y prediciendo producción energética.
+
+El módulo `math` no solo nos proporciona precisión en los cálculos, sino que también optimiza el rendimiento, algo crítico cuando ejecutamos código en dispositivos con recursos limitados como Raspberry Pi Zero o Arduino. Estos métodos están implementados en C y son mucho más rápidos que implementaciones caseras en Python puro.
+
+Además, entender estos conceptos matemáticos nos prepara para trabajar con librerías más avanzadas como NumPy (para análisis numérico), OpenCV (para visión artificial), o TensorFlow (para machine learning), que son el siguiente paso natural en proyectos de automatización inteligente.

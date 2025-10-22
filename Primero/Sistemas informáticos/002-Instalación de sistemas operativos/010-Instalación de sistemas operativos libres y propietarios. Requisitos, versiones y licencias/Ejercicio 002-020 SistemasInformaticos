@@ -1,0 +1,229 @@
+Enunciado paso a paso
+Preparación inicial:
+
+Inicia sesión en tu máquina virtual (servidor) utilizando el sistema operativo Linux.
+Asegúrate de que la máquina virtual esté encendida y accede al servidor desde tu propio ordenador mediante SSH.
+Instalación del servidor web:
+
+En el servidor, instala Apache2, un servidor web popular para servir páginas web.
+Utiliza el comando sudo apt install apache2 para realizar la instalación.
+Verificación de la instalación:
+
+Una vez instalado Apache2, verifica que el servidor esté funcionando correctamente.
+Abre tu navegador y navega a http://192.168.1.114. Deberías ver la página predeterminada de Apache2.
+Restricciones
+Utiliza solo los comandos y herramientas que se han visto en clase (no librerías externas ni estructuras no vistas).
+Asegúrate de tener permisos de super usuario (sudo) para realizar las instalaciones necesarias.
+Criterios de evaluación
+Introducción y contextualización: 25%
+
+Explica cómo habilitar el acceso remoto al servidor utilizando SSH y cómo iniciar sesión en la máquina virtual.
+Desarrollo técnico correcto y preciso: 25%
+
+Muestra el proceso de instalación de Apache2 utilizando los comandos adecuados.
+Verifica que el servidor web esté funcionando correctamente.
+Aplicación práctica con ejemplo claro: 25%
+
+Proporciona un ejemplo práctico de cómo acceder al servidor web a través del navegador y verificar su instalación.
+Cierre/Conclusión enlazando con la unidad: 25%
+
+Reflexiona sobre el uso de servidores web en entornos de desarrollo y cómo este conocimiento puede aplicarse en proyectos futuros relacionados con la gestión de sistemas informáticos.
+
+---
+
+## Solución del Ejercicio 002-020
+
+### Introducción y Contextualización
+
+En el mundo de los sistemas embebidos y la automatización del hogar, contar con un servidor web propio es fundamental. En mi caso, trabajando con Raspberry Pi y Arduino para proyectos de domótica, he necesitado montar servidores web para controlar dispositivos remotamente, monitorizar sensores y servir interfaces de control. Este ejercicio me permite practicar la instalación y configuración de Apache2, que es la base para crear dashboards de control para mis proyectos de impresión 3D, control de LEDs y automatización.
+
+#### Acceso remoto mediante SSH
+
+Para acceder a nuestro servidor Linux desde cualquier punto de la red, utilizamos SSH (Secure Shell), un protocolo que permite conexión remota segura. En mi taller, esto me permite controlar mi servidor desde el ordenador principal sin necesidad de estar físicamente junto a la Raspberry Pi.
+
+**Paso 1: Verificar que SSH esté instalado en el servidor**
+
+En muchas distribuciones Linux, OpenSSH viene preinstalado. Si no es el caso, lo instalamos:
+
+```bash
+sudo apt update
+sudo apt install openssh-server
+```
+
+**Paso 2: Verificar el estado del servicio SSH**
+
+```bash
+sudo systemctl status ssh
+```
+
+Si no está activo, lo iniciamos:
+
+```bash
+sudo systemctl start ssh
+sudo systemctl enable ssh
+```
+
+**Paso 3: Conectar desde nuestro ordenador**
+
+Desde Windows, podemos usar PowerShell o el cliente SSH integrado:
+
+```bash
+ssh usuario@192.168.1.114
+```
+
+Donde `usuario` es nuestro nombre de usuario en el servidor Linux. Al conectar por primera vez, nos pedirá confirmar la huella digital del servidor y luego introducir nuestra contraseña.
+
+### Desarrollo Técnico: Instalación de Apache2
+
+Una vez conectados al servidor mediante SSH, procedemos a instalar Apache2. Este servidor web es perfecto para servir páginas de control personalizadas para nuestros proyectos maker.
+
+**Paso 1: Actualizar los repositorios**
+
+Antes de instalar cualquier paquete, es buena práctica actualizar la lista de paquetes disponibles:
+
+```bash
+sudo apt update
+```
+
+**Paso 2: Instalar Apache2**
+
+```bash
+sudo apt install apache2 -y
+```
+
+El parámetro `-y` confirma automáticamente la instalación sin pedirnos confirmación. Durante la instalación, APT descargará Apache2 y todas sus dependencias.
+
+**Paso 3: Verificar el estado del servicio**
+
+Una vez instalado, Apache2 se inicia automáticamente. Verificamos que esté corriendo:
+
+```bash
+sudo systemctl status apache2
+```
+
+Deberíamos ver un mensaje indicando que el servicio está "active (running)".
+
+**Paso 4: Habilitar Apache2 para que se inicie con el sistema**
+
+```bash
+sudo systemctl enable apache2
+```
+
+Esto asegura que Apache2 se inicie automáticamente cada vez que arranque el servidor.
+
+**Paso 5: Verificar los puertos en uso**
+
+Apache2 escucha en el puerto 80 por defecto. Podemos verificarlo con:
+
+```bash
+sudo ss -tulpn | grep apache2
+```
+
+o
+
+```bash
+sudo netstat -tulpn | grep apache2
+```
+
+### Aplicación Práctica: Verificación y Personalización
+
+#### Verificación desde el navegador
+
+Abrimos nuestro navegador web (Chrome, Firefox, Edge, etc.) y navegamos a:
+
+```
+http://192.168.1.114
+```
+
+Deberíamos ver la página de bienvenida predeterminada de Apache2 con el mensaje "Apache2 Ubuntu Default Page" o similar. Esta página confirma que el servidor está funcionando correctamente.
+
+#### Personalización para nuestro proyecto
+
+Los archivos web de Apache2 se encuentran en `/var/www/html/`. El archivo principal es `index.html`. Para personalizarlo para nuestro proyecto de control de LEDs, podemos editarlo:
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Ejemplo de una página personalizada para control de dispositivos:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Sistema Domótico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .status {
+            background-color: #2d2d2d;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>🏠 Sistema de Control Domótico</h1>
+    <div class="status">
+        <h2>Servidor Apache2 - Activo</h2>
+        <p>Raspberry Pi - Sistema de automatización</p>
+        <p>Listo para controlar LEDs, sensores y dispositivos IoT</p>
+    </div>
+    <p><small>IP: 192.168.1.114 | Puerto: 80</small></p>
+</body>
+</html>
+```
+
+Guardamos con `Ctrl+O`, `Enter`, y salimos con `Ctrl+X`.
+
+Recargamos la página en el navegador y veremos nuestra página personalizada.
+
+#### Comandos útiles para gestionar Apache2
+
+```bash
+# Reiniciar el servicio (aplicar cambios)
+sudo systemctl restart apache2
+
+# Detener el servicio
+sudo systemctl stop apache2
+
+# Iniciar el servicio
+sudo systemctl start apache2
+
+# Ver logs de acceso
+sudo tail -f /var/log/apache2/access.log
+
+# Ver logs de errores
+sudo tail -f /var/log/apache2/error.log
+```
+
+### Conclusión: Aplicación en Proyectos Futuros
+
+Este ejercicio sienta las bases para proyectos mucho más ambiciosos. Con Apache2 funcionando, puedo:
+
+1. **Crear interfaces web para control de dispositivos**: Páginas HTML con JavaScript que envíen comandos a mis Raspberry Pi para encender LEDs, motores o servos.
+
+2. **Monitorizar impresoras 3D**: Servir una interfaz web que muestre el estado de mis impresoras 3D, temperatura del extrusor, progreso de impresión, etc.
+
+3. **Dashboard de sensores**: Mostrar en tiempo real datos de sensores de temperatura, humedad, movimiento o calidad del aire conectados a mis Arduino o ESP8266.
+
+4. **Servidor de archivos**: Compartir archivos STL para impresión 3D o documentación de proyectos con otros miembros del equipo.
+
+5. **Panel de administración del hogar inteligente**: Controlar luces, persianas, climatización y otros dispositivos domóticos desde cualquier navegador en mi red local.
+
+La combinación de Linux, Apache2 y hardware de bajo costo como Raspberry Pi es increíblemente poderosa. Este conocimiento de instalación y configuración de servicios es fundamental en el campo de la administración de sistemas y la IoT (Internet de las Cosas). En próximos proyectos, puedo expandir esto añadiendo bases de datos (MySQL), lenguajes del lado del servidor (PHP, Python) y protocolos de comunicación (MQTT, WebSockets) para crear sistemas de automatización completos y profesionales.
+
+El hecho de poder instalar y gestionar servicios mediante línea de comandos y SSH me da independencia y control total sobre mi infraestructura, algo esencial cuando trabajamos con múltiples dispositivos distribuidos en diferentes ubicaciones.
