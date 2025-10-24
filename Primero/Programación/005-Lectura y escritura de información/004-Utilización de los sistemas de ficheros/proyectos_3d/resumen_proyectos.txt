@@ -1,0 +1,14 @@
+Proyecto: Modelo de robot
+Fecha: 2023-01-15
+Descripción: Un modelo 3D de un robot humanoide.
+ID: PRY000001
+
+Proyecto: Miniatura de coche
+Fecha: 2023-02-10
+Descripción: Una miniatura 3D de un coche deportivo.
+ID: PRY000002
+
+Proyecto: Figura de acción
+Fecha: 2023-03-05
+Descripción: Una figura de acción articulada.
+ID: PRY000003

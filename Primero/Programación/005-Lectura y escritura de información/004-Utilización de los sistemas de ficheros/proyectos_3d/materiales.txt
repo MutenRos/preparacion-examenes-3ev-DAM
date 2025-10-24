@@ -1,0 +1,14 @@
+Material: PLA
+Cantidad: 500g
+Notas: Utilizado para la mayoría de los modelos.
+ID: MAT000001
+
+Material: ABS
+Cantidad: 300g
+Notas: Utilizado para piezas que requieren mayor resistencia.
+ID: MAT000002
+
+Material: PETG
+Cantidad: 200g
+Notas: Utilizado para piezas que requieren mayor flexibilidad.
+ID: MAT000003
