@@ -1,0 +1,336 @@
+Contexto
+Jose Vicente Carratalá Sanchis es un destacado desarrollador, profesor y diseñador con una pasión por la tecnología y la creatividad. Su currículum es una excelente muestra de sus habilidades y experiencia en diversos campos. En este ejercicio, te proponemos diseñar un diseño de currículum utilizando las técnicas de CSS Flexbox para mejorar su presentación visual.
+
+Enunciado paso a paso
+Abrir el archivo HTML: Comienza abriendo el archivo josevicente.html que encontrarás en la carpeta /var/www/html/dam2526/Primero/Lenguajes de marcas y sistemas de gestión de información/002-Utilización de lenguajes de marcas en entornos web/008-Ejercicio curriculum/101-Ejercicios/.
+
+Añadir estilos Flexbox: En el archivo HTML, encuentra la sección <style> y añade los siguientes estilos Flexbox para mejorar la presentación del currículum:
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body, html {
+  background: black;
+  font-size: 11px;
+}
+main {
+  width: 600px;
+  background: white;
+  margin: auto;
+  display: flex;
+  font-family: sans-serif;
+}
+#izquierda img {
+  border-radius: 400px;
+}
+#izquierda {
+  background: indigo;
+  flex: 1;
+  padding: 40px;
+  color: white;
+}
+#derecha {
+  flex: 3;
+  padding: 40px;
+}
+#derecha article {
+  border-bottom: 1px solid indigo;
+}
+#izquierda article {
+  border-bottom: 1px solid white;
+}
+Ajustar la estructura del currículum: Asegúrate de que el contenido esté organizado en dos columnas, con una columna para la foto y los datos personales (#izquierda) y otra para el resumen profesional (#derecha). Utiliza las técnicas de Flexbox para alinear y distribuir los elementos dentro de cada sección.
+
+Aplicar estilos adicionales: Puedes añadir más estilos para mejorar la presentación, como cambiar el tamaño del texto, ajustar los márgenes o aplicar una fuente diferente. Por ejemplo:
+
+#izquierda h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+#derecha h1, #derecha h2 {
+  color: indigo;
+}
+Restricciones
+No usar librerías externas.
+Mantén el estilo minimalista y profesional.
+Criterios de evaluación
+Introducción y contextualización (25%): El estudiante debe entender el contexto del ejercicio y cómo aplicar los conceptos de Flexbox para mejorar la presentación del currículum.
+Desarrollo técnico correcto y preciso (25%): El estudiante debe escribir correctamente los estilos CSS utilizando las técnicas de Flexbox, asegurándose de que el diseño se adapte correctamente a diferentes tamaños de pantalla.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe aplicar los conceptos en un ejercicio práctico y mostrar cómo mejorar la presentación del currículum utilizando Flexbox.
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe reflexionar sobre cómo los conceptos de Flexbox pueden ser aplicados en otros contextos y cómo mejorar la presentación de documentos web en general.
+
+
+
+
+Ya preparamos el .json con los datos necesarios para el curriculum, y se nos da el archivo HTML base una estructura basica de curriculum. Nuestro objetivo es aplicar CSS Flexbox para mejorar la presentación visual de nuestro currículum.
+Comenzamos abriendo el archivo josevicente.html . 
+
+```HTML
+<!doctype html>
+<html lang="es"> 
+  <head>
+    <title>Curriculum Dario Lacal Civera</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <main>
+      <section id="izquierda">
+      </section>
+      <section id="derecha">
+      </section>
+    </main>
+  </body>
+</html>
+
+'''
+A continuación, añadimos los estilos Flexbox en la sección <style> del archivo HTML para mejorar la presentación del currículum. Definimos estilos para el cuerpo, las secciones izquierda y derecha, y aplicamos Flexbox para distribuir los elementos de manera adecuada.
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Curriculum Dario Lacal Civera</title>
+    <meta charset="utf-8">
+    <style>
+      * {
+  margin: 0px;
+  padding: 0px;
+}
+body, html {
+  background: black;
+  font-size: 11px;
+}
+main {
+  width: 600px;
+  background: white;
+  margin: auto;
+  display: flex;
+  font-family: sans-serif;
+}
+#izquierda img {
+  border-radius: 400px;
+}
+#izquierda {
+  background: indigo;
+  flex: 1;
+  padding: 40px;
+  color: white;
+}
+#derecha {
+  flex: 3;
+  padding: 40px;
+}
+#derecha article {
+  border-bottom: 1px solid indigo;
+}
+#izquierda article {
+  border-bottom: 1px solid white;
+}* {
+  margin: 0px;
+  padding: 0px;
+}
+body, html {
+  background: black;
+  font-size: 11px;
+}
+main {
+  width: 600px;
+  background: white;
+  margin: auto;
+  display: flex;
+  font-family: sans-serif;
+}
+#izquierda img {
+  border-radius: 400px;
+}
+#izquierda {
+  background: indigo;
+  flex: 1;
+  padding: 40px;
+  color: white;
+}
+#derecha {
+  flex: 3;
+  padding: 40px;
+}
+#derecha article {
+  border-bottom: 1px solid indigo;
+}
+#izquierda article {
+  border-bottom: 1px solid white;
+}
+    </style>
+  </head>
+  <body>
+    <main>
+      <section id="izquierda">
+      </section>
+      <section id="derecha">
+      </section>
+    </main>
+  </body>
+  </html>
+  ```
+Finalmente, organizamos el contenido dentro de las secciones #izquierda y #derecha para que el currículum esté bien estructurado y visualmente atractivo. Utilizamos Flexbox para alinear y distribuir los elementos dentro de cada sección, asegurándonos de que la información sea clara y fácil de leer.
+Ademas, los datos del curriculum los cargamos desde el archivo `Curriculum.json` para facilitar su mantenimiento y actualización futura.
+```json
+{
+    "datos_personales": {
+        "nombre": "Dario",
+        "apellidos": "Lacal Civera",
+        "email": "dariolacal94@gmail.com"
+    },
+    "redes_sociales": [
+        {
+            "facebook": "https://www.facebook.com/DarioLC94"
+        },
+        {
+            "instagram": "https://www.instagram.com/rosdelamugre/"
+        },
+        {
+            "linkedin": "https://www.linkedin.com/in/dar%C3%ADo-lacal-953946389/"
+        },
+        {
+            "github": "https://github.com/MutenRos"
+        }
+    ],
+    "formacion": [
+        {
+            "titulo": "Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+            "institucion": "Tame Centro de Formacion",
+            "periodo": "2025-Actualidad"
+        },
+        {
+            "titulo": "Tecnico en sistemas microinformaticos y redes",
+            "institucion": "Tame Centro de Formacion",
+            "periodo": "2023-2025"
+        },
+        {
+            "titulo": "Ciclo Formativo de Grado Medio en Madera y Mueble",
+            "institucion": "Centro de formacion SERVEF Catarroja",
+            "periodo": "2013-2015"
+        },
+        {
+            "titulo": "Educacion Secundaria Obligatoria",
+            "institucion": "Patronato Parroquial Don Pio XII",
+            "periodo": "2007-2012"
+        }
+    ],
+    "experiencia_laboral": [
+        {
+            "puesto": "Recepcion de Envios",
+            "empresa": "Bombas IDEAL",
+            "periodo": "2024-Actualidad"
+        },
+        {
+            "puesto": "Oficial de Mantenimiento",
+            "empresa": "A.U.P.I.M.",
+            "periodo": "2023-2024"
+        },
+        {
+            "puesto": "Operario de CNC de Corte(seccionadora de madera) y Operario de Chapadora",
+            "empresa": "Getnou",
+            "periodo": "2020-2022"
+        },
+        {
+            "puesto": "Operario de CNC (telas y tapizados)",
+            "empresa": "Sofas Cama Zardá",
+            "periodo": "2017-2020"
+        }
+    ]
+}
+```
+Ahora hacemos que nuestro archivo `HTML' cargue los datos desde el archivo `Curriculum.json` y los inserte en las secciones correspondientes utilizando JavaScript para mejorar la presentación visual del currículum con Flexbox.
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Curriculum Dario Lacal Civera</title>
+    <meta charset="utf-8">
+    <style>
+      * {
+  margin: 0px;
+  padding: 0px;
+}
+body, html {
+  background: black;
+  font-size: 11px;
+}
+main {
+  width: 600px;
+  background: white;
+  margin: auto;
+  display: flex;
+  font-family: sans-serif;
+}
+#izquierda img {
+  border-radius: 400px;
+}
+#izquierda {
+  background: indigo;
+  flex: 1;
+  padding: 40px;
+  color: white;
+}
+#derecha {
+  flex: 3;
+  padding: 40px;
+}
+#derecha article {
+  border-bottom: 1px solid indigo;
+}
+#izquierda article {
+  border-bottom: 1px solid white;
+}
+    </style>
+  </head>
+  <body>
+    <main>
+      <section id="izquierda">
+      </section>
+      <section id="derecha">
+      </section>
+    </main>
+    <script>
+      fetch('Curriculum.json')
+        .then(response => response.json())
+        .then(data => {
+          const izquierda = document.getElementById('izquierda');
+          const derecha = document.getElementById('derecha');
+
+          // Datos personales
+          izquierda.innerHTML += `<article><h3>${data.datos_personales.nombre} ${data.datos_personales.apellidos}</h3><p>${data.datos_personales.email}</p></article>`;
+
+          // Redes sociales
+          let redesHTML = '<article><h3>Redes Sociales</h3><ul>';
+          data.redes_sociales.forEach(red => {
+            const [key, value] = Object.entries(red)[0];
+            redesHTML += `<li><a href="${value}">${key}</a></li>`;
+          });
+          redesHTML += '</ul></article>';
+          izquierda.innerHTML += redesHTML;
+
+          // Formación
+          let formacionHTML = '<article><h2>Formación</h2>';
+          data.formacion.forEach(formacion => {
+            formacionHTML += `<h3>${formacion.titulo}</h3><p>${formacion.institucion} (${formacion.periodo})</p>`;
+          });
+          formacionHTML += '</article>';
+          derecha.innerHTML += formacionHTML;
+
+          // Experiencia laboral
+          let experienciaHTML = '<article><h2>Experiencia Laboral</h2>';
+          data.experiencia_laboral.forEach(experiencia => {
+            experienciaHTML += `<h3>${experiencia.puesto}</h3><p>${experiencia.empresa} (${experiencia.periodo})</p>`;
+          });
+          experienciaHTML += '</article>';
+          derecha.innerHTML += experienciaHTML;
+        });
+    </script>
+  </body>
+</html>
+```
+Con estos pasos, hemos mejorado la presentación visual del currículum utilizando CSS Flexbox, asegurándonos de que la información esté bien organizada y sea fácil de leer. Además, al cargar los datos desde un archivo JSON, facilitamos la actualización y el mantenimiento del currículum en el futuro.
+Ahora es una version rudimentaria, pero `HTML`, `CSS` y `JavaScript` funcionan correctamente juntos para mostrar el currículum de manera efectiva.
+''
