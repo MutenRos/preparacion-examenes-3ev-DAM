@@ -1,0 +1,254 @@
+Ejercicio: Creación de una Base de Datos y Gestión de Clientes
+Contexto: Como aficionado a los Raspberrys y modelado 3D, has decidido crear un proyecto para gestionar clientes utilizando una base de datos SQLite. Este proyecto te permitirá aprender cómo interactuar con la base de datos y cómo manejar operaciones básicas como agregar y ver clientes.
+
+Enunciado paso a paso:
+
+Crea la Tabla de Clientes:
+
+Abre el archivo fcreartabla.py.
+Implementa la función crear_tabla() para crear una tabla llamada clientes en la base de datos clientes.db. La tabla debe tener los siguientes campos:
+id: Identificador único del cliente (tipo INTEGER, PRIMARY KEY AUTOINCREMENT).
+nombre: Nombre del cliente (tipo TEXT, NOT NULL).
+edad: Edad del cliente (tipo INTEGER, NOT NULL).
+email: Correo electrónico del cliente (tipo TEXT, NOT NULL y UNIQUE).
+Refactoriza la Función de Imprimir Menú:
+
+Abre el archivo fimprimemenu.py.
+Refactoriza la función imprimeMenu() para que sea más limpia y segura. Asegúrate de que no tenga parámetros ni retorne valores.
+Implementa la Función de Inserción de Clientes:
+
+Abre el archivo finsertarcliente.py.
+Implementa la función insertar_cliente() para solicitar al usuario los datos del cliente (nombre, edad y email) y luego insertar estos datos en la tabla clientes de la base de datos.
+Refactoriza las Funciones Principales:
+
+Abre el archivo 008-seguimos refactorizando.py.
+Refactoriza las funciones principales (imprimeMenu(), insertar_cliente() y seleccionarClientes()) para que sean más modularizadas y legibles.
+Documenta las Funciones:
+
+Abre los archivos mencionados en el paso 1, 2, 3 y 4.
+Documenta cada función utilizando docstrings siguiendo la convención de documentación recomendada para Python.
+Restricciones:
+
+No uses estructuras no vistas hasta el momento del curso.
+Asegúrate de que todas las funciones cumplan con los requisitos establecidos en el contexto.
+Criterios de evaluación:
+
+Introducción y contextualización (25%): El estudiante debe entender el contexto del proyecto y cómo se relaciona con sus hobbies.
+Desarrollo técnico correcto y preciso (25%): El estudiante debe implementar correctamente las funciones y documentarlas adecuadamente.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe probar el programa y mostrar cómo funciona la gestión de clientes utilizando la base de datos SQLite.
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe reflexionar sobre cómo este proyecto puede aplicarse en su vida diaria o en proyectos futuros relacionados con la gestión de datos y bases de información.
+
+
+
+
+Hacer entradas de datos via SQL esta bien, pero no es muy practico para el usuario final. Por eso, vamos a crear un pequeño programa en python que nos permita gestionar una base de datos de clientes de manera sencilla. 
+
+## 1. Creación de la tabla de clientes
+
+Primero creamos el archivo `fcreartabla.py` que contiene la función para crear la tabla:
+
+```Python
+import sqlite3
+
+def crear_tabla():
+    '''
+    Crea la tabla 'clientes' en la base de datos si no existe.
+    
+    Esta función establece conexión con la base de datos SQLite 'clientes.db'
+    y crea una tabla llamada 'clientes' con los campos: id, nombre, edad y email.
+    
+    No tiene parámetros.
+    No retorna valores.
+    '''
+    basededatos = sqlite3.connect('clientes.db')
+    cursor = basededatos.cursor()
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS clientes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        edad INTEGER NOT NULL,
+        email TEXT NOT NULL UNIQUE
+    )
+    ''')    
+    basededatos.commit()
+    basededatos.close()
+```
+
+Ya hemos creado la tabla `clientes` en la base de datos `clientes.db`, ahora toca crear un menu aunque sea de comandos para insertar clientes. El archivo `fimprimemenu.py` contiene la función refactorizada para mostrar el menú:
+
+```Python
+def imprimeMenu():
+    '''
+    Muestra el menú de opciones al usuario.
+    
+    Esta función imprime en consola las opciones disponibles del sistema
+    de gestión de clientes. Las opciones son: añadir cliente o ver clientes.
+    
+    No tiene parámetros.
+    No retorna valores.
+    '''
+    print("\n" + "="*40)
+    print("SISTEMA DE GESTIÓN DE CLIENTES")
+    print("="*40)
+    print("1. Añadir cliente")
+    print("2. Ver clientes")
+    print("3. Salir")
+    print("="*40)
+```
+
+El archivo `finsertarcliente.py` implementa la inserción de clientes con validación:
+
+```Python
+import sqlite3
+
+def insertar_cliente():
+    '''
+    Inserta un nuevo cliente en la base de datos.
+    
+    Esta función solicita al usuario los datos del cliente (nombre, edad y email),
+    valida que la edad sea un número entero positivo, y luego inserta los datos
+    en la tabla 'clientes' de la base de datos SQLite.
+    
+    No tiene parámetros.
+    No retorna valores.
+    
+    Maneja excepciones:
+    - ValueError: Si la edad no es un número válido
+    - sqlite3.IntegrityError: Si el email ya existe en la base de datos
+    '''
+    try:
+        basededatos = sqlite3.connect('clientes.db')
+        cursor = basededatos.cursor()
+        
+        nombre = input("Nombre del cliente: ").strip()
+        edad = int(input("Edad: "))
+        
+        if edad < 0:
+            print("Error: La edad no puede ser negativa.")
+            return
+            
+        email = input("Email: ").strip()
+        
+        cursor.execute('''
+        INSERT INTO clientes (nombre, edad, email)
+        VALUES (?, ?, ?)
+        ''', (nombre, edad, email))
+        
+        basededatos.commit()
+        print("\n✓ Cliente añadido exitosamente.")
+        
+    except ValueError:
+        print("\n✗ Error: La edad debe ser un número entero.")
+    except sqlite3.IntegrityError:
+        print("\n✗ Error: El email ya está registrado.")
+    finally:
+        basededatos.close()
+```
+
+## 4. Función para seleccionar clientes
+
+Creamos también el archivo `fseleccionaclientes.py`:
+
+```Python
+import sqlite3
+
+def seleccionarClientes():
+    '''
+    Muestra todos los clientes de la base de datos.
+    
+    Esta función recupera todos los registros de la tabla 'clientes'
+    y los muestra en un formato legible en la consola.
+    
+    No tiene parámetros.
+    No retorna valores.
+    '''
+    basededatos = sqlite3.connect('clientes.db')
+    cursor = basededatos.cursor()
+    
+    cursor.execute('SELECT * FROM clientes')
+    clientes = cursor.fetchall()
+    
+    if not clientes:
+        print("\nNo hay clientes registrados.")
+    else:
+        print("\n" + "="*60)
+        print("LISTA DE CLIENTES")
+        print("="*60)
+        for cliente in clientes:
+            print(f"ID: {cliente[0]:3d} | Nombre: {cliente[1]:20s} | Edad: {cliente[2]:3d} | Email: {cliente[3]}")
+        print("="*60)
+        print(f"Total de clientes: {len(clientes)}")
+    
+    basededatos.close()
+```
+
+## 5. Programa principal refactorizado
+
+Finalmente, el archivo `008-seguimos refactorizando.py` integra todas las funciones:
+
+```Python
+'''
+Sistema de Gestión de Clientes con SQLite
+
+Este programa permite gestionar una base de datos de clientes usando SQLite.
+Proporciona funcionalidades para crear la tabla, añadir clientes y ver la lista.
+
+Autor: [Tu nombre]
+Fecha: 29/10/2025
+'''
+
+from fcreartabla import crear_tabla
+from fimprimemenu import imprimeMenu
+from finsertarcliente import insertar_cliente
+from fseleccionaclientes import seleccionarClientes
+
+def main():
+    '''
+    Función principal del programa.
+    
+    Inicializa la base de datos y ejecuta el bucle principal del menú,
+    permitiendo al usuario realizar operaciones de gestión de clientes.
+    
+    No tiene parámetros.
+    No retorna valores.
+    '''
+    print("\nBienvenido al Sistema de Gestión de Clientes")
+    print("Inicializando base de datos...")
+    
+    # Crear la tabla si no existe
+    crear_tabla()
+    print("✓ Base de datos lista.\n")
+    
+    while True:
+        imprimeMenu()
+        opcion = input("\nSeleccione una opción (1-3): ").strip()
+        
+        if opcion == '1':
+            insertar_cliente()
+        elif opcion == '2':
+            seleccionarClientes()
+        elif opcion == '3':
+            print("\n¡Hasta luego!")
+            break
+        else:
+            print("\n✗ Opción no válida. Por favor, seleccione 1, 2 o 3.")
+        
+        input("\nPresione Enter para continuar...")
+
+if __name__ == "__main__":
+    main()
+```
+
+## Conclusión
+
+Este proyecto demuestra cómo crear un sistema completo de gestión de datos usando SQLite y Python. Las funciones están correctamente documentadas con docstrings, siguiendo las convenciones de Python (PEP 257), lo que facilita el mantenimiento y comprensión del código.
+
+La modularización del código en archivos separados mejora la organización y permite reutilizar las funciones en otros proyectos. Este enfoque es fundamental para proyectos más grandes, como sistemas de inventario para tiendas de componentes de Raspberry Pi o gestión de pedidos en negocios de impresión 3D.
+
+Las buenas prácticas aplicadas incluyen:
+- Documentación completa con docstrings
+- Manejo de excepciones para errores comunes
+- Validación de datos de entrada
+- Separación de responsabilidades en funciones específicas
+- Uso de mensajes claros para el usuario
+- Cierre adecuado de conexiones a la base de datos
