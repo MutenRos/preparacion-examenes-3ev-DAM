@@ -1,0 +1,137 @@
+Actividad final de unidad:
+
+Indica qué lenguajes de programación hemos visto en esta unidad, e indica las características del lenguaje de programación que estamos trabajando en la asignatura de programación.
+
+Compara cuestiones tales como por ejemplo si el lenguaje es compilado o interpretado, si requiere un interprete, si es multiplataforma, etc etc.
+
+---
+
+# LENGUAJES VISTOS EN LA UNIDAD
+
+## Mencionados
+- **C** - Compilado, bajo nivel, rápido
+- **Java** - Compilado a bytecode, JVM, multiplataforma
+- **Python** - Interpretado, alto nivel, multiparadigma
+- **JavaScript** - Interpretado, web, cliente/servidor
+
+## Trabajados en profundidad
+- **JSON y XML** - Lenguajes de marcado para intercambio de datos
+- **SQL** - Lenguaje de consulta para bases de datos relacionales
+- **Python** - Lenguaje principal de la asignatura de Programación
+- **JavaScript** - Lenguaje para desarrollo web (Lenguajes de Marcas)
+
+---
+
+# COMPARATIVA TÉCNICA: PYTHON vs OTROS
+
+| Característica | Python | C | Java | JavaScript |
+|----------------|--------|---|------|------------|
+| **Tipo** | Interpretado | Compilado | Compilado (bytecode) | Interpretado |
+| **Intérprete** | CPython | No (compilador GCC) | JVM | Motor V8/SpiderMonkey |
+| **Multiplataforma** | ✓ Sí | ⚠️ Requiere recompilación | ✓ Sí (JVM) | ✓ Sí (navegadores) |
+| **Nivel** | Alto | Bajo | Alto | Alto |
+| **Paradigma** | Multiparadigma | Procedural | OOP | Multiparadigma |
+| **Tipado** | Dinámico | Estático | Estático | Dinámico |
+| **Gestión memoria** | Automática (GC) | Manual | Automática (GC) | Automática (GC) |
+| **Velocidad** | Lenta | Muy rápida | Rápida | Media |
+| **Uso principal** | Scripts, IA, backend | Sistemas, drivers | Empresarial, Android | Web, frontend/backend |
+
+---
+
+# PYTHON: LENGUAJE DE LA ASIGNATURA
+
+## Características principales
+
+**Interpretado:**
+- Requiere intérprete CPython instalado
+- El código se ejecuta línea a línea
+- No genera ejecutable (.exe), usa archivos `.py`
+- Versión actual: Python 3.13 (noviembre 2025)
+
+**Multiplataforma:**
+- Windows: `python.exe` desde Microsoft Store o python.org
+- Linux: Pre-instalado en la mayoría (Ubuntu, Debian)
+- macOS: Pre-instalado o vía Homebrew
+- Mismo código funciona en todos los SO sin cambios
+
+**Alto nivel:**
+- Sintaxis legible, casi como pseudocódigo
+- Gestión automática de memoria (garbage collector)
+- No necesitas declarar tipos de variables
+- Muchas funcionalidades built-in (listas, diccionarios, sets)
+
+**Multiparadigma:**
+- Procedural: Funciones, variables, control de flujo
+- OOP: Clases, herencia, polimorfismo
+- Funcional: Lambda, map, filter, reduce
+
+**Tipado dinámico:**
+```python
+x = 5         # x es int
+x = "hola"    # Ahora x es str → Permitido
+```
+
+**Biblioteca estándar extensa:**
+- `sqlite3` → Bases de datos (usado en Programación)
+- `json` → Manejo de datos JSON
+- `os` → Operaciones sistema de archivos
+- `datetime` → Fechas y horas
+
+**Ecosistema de paquetes:**
+- PyPI (Python Package Index) - 500K+ paquetes
+- `pip install flask` → Framework web (Proyecto Intermodular)
+- `pip install mysql-connector-python` → MySQL
+- `pip install pandas` → Análisis de datos
+
+---
+
+# SQL: LENGUAJE DE BASES DE DATOS
+
+## Características
+
+**Declarativo (no procedural):**
+- Dices QUÉ quieres, no CÓMO obtenerlo
+- `SELECT * FROM clientes WHERE ciudad = 'Valencia'`
+
+**Estándar pero con variantes:**
+- MySQL (usamos en clase)
+- PostgreSQL
+- SQLite (usado en ejercicio 005-008 Programación)
+- SQL Server
+
+**Integración con Python:**
+```python
+import sqlite3
+conexion = sqlite3.connect('discos.db')
+cursor = conexion.cursor()
+cursor.execute("SELECT * FROM discos")
+```
+
+**Relacionable con JSON/XML:**
+- Exportar: `mysqldump` → SQL → convertir a JSON
+- Importar: JSON → parsear → `INSERT INTO`
+
+---
+
+# CONCLUSIÓN
+
+Estamos usando principalmente:
+- **Python** para programación (procedural, OOP, manejo de archivos, BD)
+- **SQL** para gestionar bases de datos relacionales
+- **JSON/XML** para intercambio de datos
+- **JavaScript/HTML/CSS** para desarrollo web
+
+**Por qué Python es ideal para aprender:**
+- Sintaxis clara y legible
+- Multiplataforma sin complicaciones
+- Gran comunidad y documentación
+- Aplicable a múltiples campos (web, IA, ciencia de datos, automatización)
+- Rápido prototipado de ideas
+
+**Proyecto Intermodular ERP:**
+- Backend: Python + Flask
+- Base de datos: MySQL
+- Intercambio datos: JSON
+- Frontend: HTML/CSS/JavaScript
+
+**El stack completo** que estamos aprendiendo es directamente aplicable al mundo laboral.

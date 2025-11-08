@@ -1,5 +1,20 @@
-# 📚 CHEATSHEET - DAM PRIMERO
-*Chuleta rápida con conceptos esenciales y ejemplos prácticos*
+# 📚 CHEATSHEET COMPLETO - DAM PRIMERO (2025-2026)
+*Referencia completa con todos los conceptos, ejemplos prácticos y proyectos*
+
+**Actualizado:** Noviembre 2025  
+**Versión:** 2.0 - Contenido expandido
+
+---
+
+## 📋 ÍNDICE RÁPIDO
+
+1. [🖥️ Sistemas Informáticos](#-sistemas-informáticos) - Hardware, Linux, Redes
+2. [💾 Bases de Datos](#-bases-de-datos) - SQL, MySQL, NoSQL
+3. [💻 Programación (Python)](#-programación-python) - Sintaxis, POO, Archivos
+4. [🔧 Entornos de Desarrollo](#-entornos-de-desarrollo) - Git, IDEs, Testing
+5. [🌐 Lenguajes de Marcas](#-lenguajes-de-marcas) - HTML, CSS, JavaScript, XML
+6. [🚀 Proyecto Intermodular](#-proyecto-intermodular) - ERP, Blog, Portafolio
+7. [📊 Simulacros de Examen](#-simulacros-de-examen) - Casos prácticos completos
 
 ---
 
@@ -1781,119 +1796,922 @@ conn.close()
 ## 🔧 ENTORNOS DE DESARROLLO
 
 ### 001 - Desarrollo de software
-- **SDLC**: Análisis → Diseño → Desarrollo → Pruebas → Despliegue → Mantenimiento
-- **Metodologías ágiles**: Scrum, Kanban, XP
-- **Sprints**: Iteraciones cortas (1-4 semanas)
-- **User Stories**: Como [usuario] quiero [funcionalidad] para [beneficio]
 
-### 002 - Entornos de desarrollo (IDE)
-```bash
-# VS Code
-- Extensions: Python, Pylance, GitLens
-- Shortcuts: Ctrl+P (buscar), Ctrl+Shift+P (comandos)
-- Debugging: F5 (run), F9 (breakpoint)
+**¿Qué es?** El ciclo completo desde que tienes una idea hasta que el software está funcionando en producción.
 
-# Git básico
-git init
-git add .
-git commit -m "mensaje"
-git push origin main
-git pull
-git status
-git log
+**Fases del desarrollo (SDLC - Software Development Life Cycle):**
 
-# Terminal
-ls, cd, mkdir, rm, cp, mv
-cat, grep, find, chmod
+```
+1. ANÁLISIS       → ¿Qué necesita el cliente?
+2. DISEÑO         → ¿Cómo lo vamos a hacer?
+3. DESARROLLO     → Escribir código
+4. PRUEBAS        → ¿Funciona correctamente?
+5. DESPLIEGUE     → Poner en producción
+6. MANTENIMIENTO  → Arreglar bugs, añadir features
 ```
 
-### 003 - Pruebas
+**Código fuente vs código objeto vs código ejecutable:**
+
+```
+CÓDIGO FUENTE (.py, .java, .c)
+    ↓ COMPILADOR/INTÉRPRETE
+CÓDIGO OBJETO (.o, .class, bytecode)
+    ↓ ENLAZADOR (linker)
+CÓDIGO EJECUTABLE (.exe, binario)
+```
+
+**Tipos de lenguajes:**
+
+**Lenguajes compilados (C, C++, Rust):**
+```bash
+# Proceso en C
+gcc programa.c -o programa.exe     # Compilar
+./programa.exe                     # Ejecutar directamente
+
+# Ventajas: MUY RÁPIDO en ejecución
+# Desventajas: Necesitas compilar para cada SO
+```
+
+**Lenguajes interpretados (Python, JavaScript):**
+```bash
+# Proceso en Python
+python programa.py                 # Interpretar y ejecutar a la vez
+
+# Ventajas: Multiplataforma, no necesitas compilar
+# Desventajas: MÁS LENTO en ejecución
+```
+
+**Máquinas virtuales (Java, C#):**
+```bash
+# Java: Punto medio
+javac Programa.java    # Compilar a bytecode (.class)
+java Programa          # Ejecutar en JVM (máquina virtual)
+
+# Ventajas: Multiplataforma + más rápido que interpretado
+# Desventajas: Necesitas JVM instalada
+```
+
+**Metodologías ágiles:**
+
+**SCRUM - La más popular:**
+```
+SPRINT (1-4 semanas)
+├── Sprint Planning    → Planificar qué hacer
+├── Daily Stand-up     → Reunión diaria 15 min
+├── Desarrollo         → Programar
+├── Sprint Review      → Mostrar lo hecho
+└── Retrospective      → ¿Qué mejorar?
+
+Roles:
+- Product Owner  → Representa al cliente
+- Scrum Master   → Facilita el proceso
+- Development Team → Programadores
+```
+
+**KANBAN - Tablero visual:**
+```
+┌─────────┬─────────────┬───────────┬────────┐
+│ TO DO   │ IN PROGRESS │ TESTING   │  DONE  │
+├─────────┼─────────────┼───────────┼────────┤
+│ Tarea 1 │   Tarea 3   │  Tarea 5  │ Tarea 7│
+│ Tarea 2 │   Tarea 4   │  Tarea 6  │ Tarea 8│
+└─────────┴─────────────┴───────────┴────────┘
+
+Regla: Limita el WIP (Work In Progress)
+No más de 3 tareas en "In Progress" a la vez
+```
+
+**XP (Extreme Programming) - Prácticas técnicas:**
+- **TDD** (Test-Driven Development): Escribir tests ANTES del código
+- **Pair Programming**: Dos programadores, un ordenador
+- **Continuous Integration**: Integrar código varias veces al día
+- **Refactoring**: Mejorar código existente sin cambiar funcionalidad
+
+**User Stories (Historias de usuario):**
+```
+FORMATO:
+Como [tipo de usuario]
+Quiero [funcionalidad]
+Para [beneficio/objetivo]
+
+EJEMPLO:
+Como estudiante de DAM
+Quiero una calculadora web
+Para practicar HTML/CSS/JavaScript
+
+CRITERIOS DE ACEPTACIÓN:
+- Suma, resta, multiplicación, división
+- Interfaz responsive
+- Validación de errores (división por 0)
+```
+
+**En la práctica:**
+- **Blog personal**: SCRUM con sprints de 2 semanas
+- **Sistema ERP**: User Story → "Como gerente quiero ver estadísticas de ventas para tomar decisiones"
+- **Raspberry Pi**: KANBAN para gestionar proyectos hardware
+
+### 002 - Instalación y uso de entornos de desarrollo (IDE)
+
+**¿Qué es?** Un IDE (Integrated Development Environment) es una aplicación que te facilita programar.
+
+**Visual Studio Code - El más usado:**
+```bash
+# Instalar VS Code
+# Descargar desde code.visualstudio.com
+
+# Extensiones esenciales
+1. Python          → Syntax highlighting, debugging
+2. Pylance         → IntelliSense para Python
+3. GitLens         → Ver historial Git en cada línea
+4. Live Server     → Servidor web para HTML
+5. Prettier        → Formatear código automáticamente
+6. MySQL           → Conectar a bases de datos
+```
+
+**Características clave de un IDE:**
+
+**1. Syntax Highlighting - Colorear código:**
 ```python
-# Unit testing
+# Sin highlighting: todo del mismo color
+if edad >= 18:
+    print("Mayor de edad")
+
+# Con highlighting:
+# - if, print en azul (keywords)
+# - "Mayor de edad" en rojo (strings)
+# - >= en morado (operadores)
+```
+
+**2. Autocompletado (IntelliSense):**
+```python
+# Escribes "str." y te sugiere:
+# - str.upper()
+# - str.lower()
+# - str.split()
+# - str.replace()
+```
+
+**3. Debugging - Depurar paso a paso:**
+```python
+# Poner breakpoint (F9) en una línea
+# Ejecutar con F5 (Debug)
+# Ver valores de variables en cada paso
+
+def calcular(a, b):
+    resultado = a + b    # ← BREAKPOINT aquí
+    return resultado
+
+calcular(5, 10)
+# Al ejecutar, se para aquí y ves: a=5, b=10
+```
+
+**4. Terminal integrado:**
+```bash
+# Ctrl + ` para abrir terminal
+python programa.py
+git add .
+git commit -m "Mensaje"
+```
+
+**5. Vista de proyecto (Explorer):**
+```
+mi_proyecto/
+├── src/
+│   ├── main.py
+│   └── utils.py
+├── tests/
+│   └── test_main.py
+├── README.md
+└── requirements.txt
+```
+
+**Git básico desde VS Code:**
+```bash
+# Inicializar repositorio
+git init
+
+# Configurar usuario (solo primera vez)
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+# Workflow básico
+git add .                      # Añadir todos los cambios
+git commit -m "Añadir login"   # Guardar snapshot
+git push origin main           # Subir a GitHub
+
+# Ver cambios
+git status    # Ver archivos modificados
+git log       # Ver historial de commits
+git diff      # Ver líneas cambiadas
+
+# Branches (ramas)
+git branch feature/login       # Crear rama
+git checkout feature/login     # Cambiar a rama
+git merge feature/login        # Fusionar con main
+
+# Deshacer cambios
+git restore archivo.py         # Descartar cambios
+git reset HEAD~1               # Deshacer último commit
+```
+
+**Atajos de teclado esenciales VS Code:**
+```
+Ctrl + P         → Buscar archivo rápido
+Ctrl + Shift + P → Paleta de comandos
+Ctrl + /         → Comentar/descomentar línea
+Ctrl + D         → Seleccionar siguiente ocurrencia
+Alt + ↑/↓        → Mover línea arriba/abajo
+Ctrl + Shift + K → Borrar línea
+F2               → Renombrar símbolo
+F5               → Ejecutar con debugger
+Ctrl + `         → Abrir terminal
+```
+
+**Generar ejecutable desde Python (opcional):**
+```bash
+# Instalar PyInstaller
+pip install pyinstaller
+
+# Crear .exe de programa.py
+pyinstaller --onefile programa.py
+
+# Resultado en dist/programa.exe
+# Ahora puedes distribuirlo sin Python instalado
+```
+
+**En la práctica:**
+- **Blog Flask**: Debug paso a paso para encontrar error en ruta
+- **Script Raspberry Pi**: Terminal integrado para ejecutar `sudo python sensor.py`
+- **Proyecto Git**: GitLens para ver quién cambió cada línea
+
+### 003 - Diseño y realización de pruebas
+
+**¿Qué es?** Asegurarte de que tu código funciona correctamente ANTES de dárselo al cliente.
+
+**Tipos de pruebas:**
+
+**1. Pruebas unitarias (Unit Testing):**
+```python
+# Probar UNA función aislada
 import unittest
 
-class TestModelo(unittest.TestCase):
-    def setUp(self):
-        self.modelo = Modelo3D("Pieza", "PLA")
+def suma(a, b):
+    return a + b
+
+class TestSuma(unittest.TestCase):
+    def test_suma_positivos(self):
+        self.assertEqual(suma(2, 3), 5)
     
-    def test_nombre(self):
-        self.assertEqual(self.modelo.nombre, "Pieza")
+    def test_suma_negativos(self):
+        self.assertEqual(suma(-1, -1), -2)
     
-    def test_imprimir(self):
-        resultado = self.modelo.imprimir()
-        self.assertIsNotNone(resultado)
+    def test_suma_cero(self):
+        self.assertEqual(suma(5, 0), 5)
 
 if __name__ == '__main__':
     unittest.main()
-
-# Tipos de pruebas
-- Unitarias: Funciones/métodos individuales
-- Integración: Módulos juntos
-- Sistema: Aplicación completa
-- Regresión: Después de cambios
 ```
+
+**2. Pruebas de integración:**
+```python
+# Probar VARIOS módulos juntos
+def obtener_usuario(id):
+    # Conecta a BD
+    return {"id": id, "nombre": "Juan"}
+
+def enviar_email(usuario):
+    # Envía email
+    return f"Email enviado a {usuario['nombre']}"
+
+# Test de integración: BD + Email
+class TestIntegracion(unittest.TestCase):
+    def test_flujo_completo(self):
+        usuario = obtener_usuario(1)
+        resultado = enviar_email(usuario)
+        self.assertEqual(resultado, "Email enviado a Juan")
+```
+
+**3. Pruebas de regresión:**
+```python
+# Asegurarte de que NADA se rompió después de cambios
+
+# Tienes 50 tests
+# Haces cambio en login
+# Ejecutas TODOS los tests
+# Si alguno falla → rompiste algo
+```
+
+**4. Pruebas de sistema (End-to-End):**
+```python
+# Probar TODO el sistema como usuario
+
+# Ejemplo: Blog
+1. Abrir navegador
+2. Ir a /login
+3. Escribir usuario y contraseña
+4. Click en "Entrar"
+5. Verificar que ves el dashboard
+
+# Herramientas: Selenium, Playwright
+```
+
+**Estructura de un test (AAA Pattern):**
+```python
+def test_crear_entrada():
+    # ARRANGE - Preparar datos
+    entrada = Entrada(
+        titulo="Test",
+        contenido="Contenido de prueba",
+        autor_id=1
+    )
+    
+    # ACT - Ejecutar acción
+    resultado = entrada.guardar()
+    
+    # ASSERT - Verificar resultado
+    assert resultado.id is not None
+    assert resultado.titulo == "Test"
+```
+
+**Comandos pytest (alternativa a unittest):**
+```bash
+# Instalar
+pip install pytest
+
+# Ejecutar todos los tests
+pytest
+
+# Ejecutar archivo específico
+pytest test_blog.py
+
+# Ver detalles
+pytest -v
+
+# Ver print() en tests
+pytest -s
+
+# Ejecutar solo tests que contengan "login"
+pytest -k login
+
+# Cobertura de código (% de código probado)
+pip install pytest-cov
+pytest --cov=src
+```
+
+**Ejemplo práctico - Blog:**
+```python
+# test_blog.py
+import pytest
+from blog import crear_entrada, obtener_entradas
+
+def test_crear_entrada_valida():
+    entrada = crear_entrada("Título", "Contenido largo")
+    assert entrada['id'] > 0
+    assert entrada['titulo'] == "Título"
+
+def test_crear_entrada_titulo_corto():
+    # Debe fallar si título < 5 caracteres
+    with pytest.raises(ValueError):
+        crear_entrada("Test", "Contenido")
+
+def test_obtener_entradas():
+    entradas = obtener_entradas()
+    assert len(entradas) > 0
+    assert all('titulo' in e for e in entradas)
+
+# Ejecutar: pytest test_blog.py
+```
+
+**TDD (Test-Driven Development) - Escribir test ANTES del código:**
+```python
+# 1. Escribir test (FALLA porque no existe la función)
+def test_calcular_precio_con_iva():
+    assert calcular_precio_con_iva(100, 21) == 121
+
+# 2. Escribir código mínimo para que pase
+def calcular_precio_con_iva(precio, iva):
+    return precio * (1 + iva/100)
+
+# 3. Refactorizar (mejorar código manteniendo tests)
+def calcular_precio_con_iva(precio, iva=21):  # IVA por defecto
+    if precio < 0 or iva < 0:
+        raise ValueError("Precio e IVA deben ser positivos")
+    return round(precio * (1 + iva/100), 2)
+
+# 4. Repetir ciclo: RED → GREEN → REFACTOR
+```
+
+**Fixtures - Datos de prueba reutilizables:**
+```python
+import pytest
+
+@pytest.fixture
+def conexion_bd():
+    # Setup: Crear BD temporal
+    db = crear_base_datos_test()
+    yield db  # Pasar a los tests
+    # Teardown: Limpiar después
+    db.cerrar()
+
+def test_guardar_usuario(conexion_bd):
+    usuario = Usuario("Juan", "juan@mail.com")
+    usuario.guardar(conexion_bd)
+    # BD temporal se limpia automáticamente
+```
+
+**En la práctica:**
+- **Calculadora web**: Test para cada operación (+, -, *, /)
+- **CRUD Blog**: Tests para create, read, update, delete
+- **Raspberry Pi**: Test de lectura de sensor (mock del hardware)
 
 ### 004 - Optimización y documentación
+
+**¿Qué es?** Hacer tu código más rápido, legible y fácil de mantener.
+
+**Refactorización - Mejorar código sin cambiar funcionalidad:**
+
+**Antes (código malo):**
 ```python
-# Docstrings
-def funcion(param):
+def p(n, e, c):
+    if n > 18:
+        if e == 'Valencia':
+            if c > 1000:
+                return 0.2
+    return 0
+```
+
+**Después (código bueno):**
+```python
+def calcular_descuento(edad, ciudad, compra):
     """
-    Descripción breve.
+    Calcula descuento basado en criterios.
     
     Args:
-        param (int): Descripción del parámetro
+        edad (int): Edad del cliente
+        ciudad (str): Ciudad de residencia
+        compra (float): Importe de compra
     
     Returns:
-        str: Descripción del retorno
+        float: Porcentaje de descuento (0.0 - 1.0)
+    """
+    ES_MAYOR = edad > 18
+    ES_VALENCIA = ciudad == 'Valencia'
+    COMPRA_ALTA = compra > 1000
+    
+    if ES_MAYOR and ES_VALENCIA and COMPRA_ALTA:
+        return 0.2
+    
+    return 0.0
+```
+
+**Docstrings - Documentar código:**
+```python
+def conectar_bd(host, puerto=3306, timeout=30):
+    """
+    Conecta a base de datos MySQL.
+    
+    Establece conexión con retry automático en caso de fallo.
+    
+    Args:
+        host (str): IP o hostname del servidor MySQL
+        puerto (int, optional): Puerto de conexión. Default 3306.
+        timeout (int, optional): Segundos antes de timeout. Default 30.
+    
+    Returns:
+        Connection: Objeto de conexión MySQL
     
     Raises:
-        ValueError: Si param es negativo
+        ConnectionError: Si no se puede conectar después de 3 intentos
+        ValueError: Si puerto está fuera de rango 1-65535
+    
+    Example:
+        >>> conn = conectar_bd('localhost')
+        >>> cursor = conn.cursor()
     """
-    pass
-
-# Refactorización
-- Nombres descriptivos
-- Funciones pequeñas (una responsabilidad)
-- DRY (Don't Repeat Yourself)
-- Eliminar código muerto
-
-# Control de versiones
-- Branches: main, develop, feature/nombre
-- Commits: Mensajes claros y concisos
-- Pull Requests: Revisión de código
-- Tags: Versiones (v1.0.0)
+    if not (1 <= puerto <= 65535):
+        raise ValueError(f"Puerto {puerto} inválido")
+    
+    # Código de conexión...
 ```
+
+**PEP 8 - Guía de estilo Python:**
+```python
+# BIEN ✓
+def calcular_area_circulo(radio):
+    PI = 3.14159
+    return PI * radio ** 2
+
+nombre_completo = "Juan García"
+lista_numeros = [1, 2, 3, 4, 5]
+
+# MAL ✗
+def CalcularAreaCirculo(Radio):  # CamelCase en funciones
+    pi = 3.14159  # Constante en minúsculas
+    return pi*Radio**2  # Sin espacios
+
+nombreCompleto = "Juan García"  # camelCase en variables
+listaNumeros=[1,2,3,4,5]  # Sin espacios en lista
+```
+
+**Nombrar variables:**
+```python
+# MAL ✗
+a = 21
+x = 100
+d = datetime.now()
+
+# BIEN ✓
+edad_minima = 21
+precio_producto = 100
+fecha_actual = datetime.now()
+```
+
+**DRY (Don't Repeat Yourself) - No te repitas:**
+```python
+# MAL ✗ (código duplicado)
+entrada1 = crear_entrada("Título 1", "Contenido 1", 1)
+entrada1.fecha_publicacion = datetime.now()
+entrada1.estado = 'publicado'
+entrada1.guardar()
+
+entrada2 = crear_entrada("Título 2", "Contenido 2", 1)
+entrada2.fecha_publicacion = datetime.now()
+entrada2.estado = 'publicado'
+entrada2.guardar()
+
+# BIEN ✓ (función reutilizable)
+def publicar_entrada(titulo, contenido, autor_id):
+    entrada = crear_entrada(titulo, contenido, autor_id)
+    entrada.fecha_publicacion = datetime.now()
+    entrada.estado = 'publicado'
+    entrada.guardar()
+    return entrada
+
+entrada1 = publicar_entrada("Título 1", "Contenido 1", 1)
+entrada2 = publicar_entrada("Título 2", "Contenido 2", 1)
+```
+
+**Control de versiones con Git - Buenas prácticas:**
+```bash
+# Commits atómicos (un cambio lógico por commit)
+git add login.py
+git commit -m "Añadir validación de email en login"
+
+git add dashboard.py
+git commit -m "Corregir bug en gráfico de estadísticas"
+
+# Mensajes de commit descriptivos
+# BIEN ✓
+git commit -m "Añadir exportación a CSV en módulo de reportes"
+git commit -m "Corregir error de división por cero en cálculo de media"
+
+# MAL ✗
+git commit -m "cambios"
+git commit -m "fix"
+git commit -m "asdfasdf"
+
+# Convención de mensajes
+feat: Nueva funcionalidad
+fix: Corrección de bug
+docs: Cambios en documentación
+refactor: Refactorización de código
+test: Añadir o modificar tests
+
+# Ejemplo
+git commit -m "feat: Añadir sistema de comentarios"
+git commit -m "fix: Corregir error 500 al subir imagen"
+git commit -m "docs: Actualizar README con instrucciones Docker"
+```
+
+**Branches - Ramas para organizar desarrollo:**
+```bash
+# Crear rama para nueva funcionalidad
+git checkout -b feature/sistema-comentarios
+
+# Trabajar en la rama
+git add comentarios.py
+git commit -m "feat: Añadir modelo Comentario"
+
+# Volver a main y fusionar
+git checkout main
+git merge feature/sistema-comentarios
+
+# Borrar rama después de fusionar
+git branch -d feature/sistema-comentarios
+
+# Estrategia típica
+main           → Código en producción
+develop        → Código en desarrollo
+feature/login  → Nueva funcionalidad
+bugfix/error-500 → Corrección de bug
+```
+
+**.gitignore - Ignorar archivos:**
+```bash
+# .gitignore para Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+.vscode/
+*.db
+*.sqlite3
+
+# .gitignore para Node.js
+node_modules/
+.env
+dist/
+build/
+```
+
+**README.md - Documentación del proyecto:**
+```markdown
+# Sistema de Blog DAM 2526
+
+Aplicación web para gestionar blog con Flask y MySQL.
+
+## Características
+- CRUD completo de entradas
+- Sistema de comentarios
+- Exportación a JSON/CSV
+- Dashboard de estadísticas
+
+## Instalación
+```bash
+# Clonar repositorio
+git clone https://github.com/usuario/blog-dam.git
+cd blog-dam
+
+# Crear entorno virtual
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Configurar BD
+mysql -u root -p < schema.sql
+
+# Ejecutar
+python app.py
+```
+
+## Uso
+1. Abrir http://localhost:5000
+2. Login con usuario: admin / password: admin
+3. Crear nueva entrada en /crear
+
+## Tecnologías
+- Python 3.13
+- Flask 3.0
+- MySQL 8.0
+- Bootstrap 5
+
+## Licencia
+MIT
+```
+
+**En la práctica:**
+- **Refactorizar**: Función de 100 líneas → 5 funciones de 20 líneas
+- **Git**: Commit antes de hacer cambios arriesgados
+- **README**: Documentar instalación del proyecto ERP
 
 ### 005 - Diagramas de clases (UML)
+
+**¿Qué es?** Representación visual de las clases y sus relaciones en un programa orientado a objetos.
+
+**Sintaxis básica:**
 ```
-┌─────────────────┐
-│   Modelo3D      │
-├─────────────────┤
-│ - nombre: str   │
-│ - material: str │
-├─────────────────┤
-│ + imprimir()    │
-│ + calcular()    │
-└─────────────────┘
-        △
-        │
-        │ (herencia)
-        │
-┌─────────────────┐
-│ ModeloAvanzado  │
-└─────────────────┘
+┌─────────────────────────┐
+│    NombreClase          │
+├─────────────────────────┤
+│ - atributo_privado      │
+│ + atributo_publico      │
+│ # atributo_protegido    │
+├─────────────────────────┤
+│ + metodo_publico()      │
+│ - metodo_privado()      │
+└─────────────────────────┘
+
+Visibilidad:
++ público (public)
+- privado (private)
+# protegido (protected)
+```
+
+**Ejemplo - Sistema de Blog:**
+```
+┌────────────────────┐
+│      Usuario       │
+├────────────────────┤
+│ - id: int          │
+│ - nombre: str      │
+│ - email: str       │
+│ - password_hash    │
+├────────────────────┤
+│ + login()          │
+│ + logout()         │
+│ + cambiar_pass()   │
+└────────────────────┘
+         △
+         │ herencia
+         │
+┌────────────────────┐
+│       Autor        │
+├────────────────────┤
+│ - biografia: str   │
+│ - foto: str        │
+├────────────────────┤
+│ + crear_entrada()  │
+│ + editar_entrada() │
+└────────────────────┘
+
+┌────────────────────┐         ┌────────────────────┐
+│      Entrada       │◆────────│    Comentario      │
+├────────────────────┤1      * ├────────────────────┤
+│ - id: int          │         │ - id: int          │
+│ - titulo: str      │         │ - texto: str       │
+│ - contenido: str   │         │ - fecha: datetime  │
+│ - fecha: datetime  │         ├────────────────────┤
+├────────────────────┤         │ + validar()        │
+│ + publicar()       │         │ + eliminar()       │
+│ + archivar()       │         └────────────────────┘
+└────────────────────┘
 
 Relaciones:
-→  Asociación
-◇→ Agregación
-◆→ Composición
+→  Asociación (relación simple)
+◇→ Agregación (tiene-un, débil)
+◆→ Composición (contiene, fuerte)
+△  Herencia (es-un)
 ```
 
+**Cardinalidad (multiplicidad):**
+```
+1      → Exactamente uno
+0..1   → Cero o uno (opcional)
+1..*   → Uno o muchos
+*      → Cero o muchos
+0..*   → Cero o muchos (equivalente a *)
+3..5   → Entre 3 y 5
+
+Ejemplo:
+Usuario 1 ────── * Entrada
+"Un usuario puede tener muchas entradas"
+
+Entrada 1 ────── * Comentario
+"Una entrada puede tener muchos comentarios"
+```
+
+**Herramientas para crear diagramas:**
+- **draw.io** (online, gratis)
+- **PlantUML** (código → diagrama)
+- **Lucidchart** (online, pago)
+- **Visual Paradigm** (profesional)
+
+**Código PlantUML:**
+```plantuml
+@startuml
+class Usuario {
+  - id: int
+  - nombre: str
+  - email: str
+  + login()
+  + logout()
+}
+
+class Entrada {
+  - id: int
+  - titulo: str
+  - contenido: str
+  + publicar()
+}
+
+class Comentario {
+  - id: int
+  - texto: str
+  + validar()
+}
+
+Usuario "1" -- "*" Entrada
+Entrada "1" *-- "*" Comentario
+@enduml
+```
+
+**En la práctica:**
+- **Proyecto ERP**: Diagrama con clases Cliente, Producto, Pedido
+- **Blog**: Usuario ← Autor (herencia), Entrada → Comentarios
+- **Raspberry Pi**: SensorTemperatura → Medicion (composición)
+
 ### 006 - Diagramas de comportamiento
-- **Casos de uso**: Actores → Sistema
-- **Secuencia**: Interacciones entre objetos
-- **Actividad**: Flujo de trabajo
-- **Estado**: Transiciones de estado
+
+**Diagramas de casos de uso - Funcionalidades del sistema:**
+```
+        ┌─────────────┐
+        │   Usuario   │ (Actor)
+        └──────┬──────┘
+               │
+       ┌───────┴───────┐
+       │               │
+    ┌──▼───┐       ┌──▼────┐
+    │Login │       │Ver    │
+    │      │       │entradas│
+    └──────┘       └───────┘
+       │
+    ┌──▼────────┐
+    │Crear      │ «include»
+    │entrada    ├──────→ «Validar»
+    └───────────┘
+
+Elementos:
+- Actor: Usuario, Admin, Sistema externo
+- Caso de uso: Funcionalidad (verbo)
+- Include: Siempre se ejecuta
+- Extend: Opcionalmente se ejecuta
+```
+
+**Diagramas de secuencia - Interacciones entre objetos:**
+```
+Usuario   Browser   Servidor   BD
+   │         │          │        │
+   │ Click ──┤          │        │
+   │         │ GET /login        │
+   │         ├─────────→│        │
+   │         │          │ SELECT user
+   │         │          ├───────→│
+   │         │          │←───────┤
+   │         │←─────────┤        │
+   │         │ HTML     │        │
+   │ Muestra │          │        │
+   │←────────┤          │        │
+
+Elementos:
+│  Línea de vida
+→  Mensaje (llamada)
+←  Respuesta
+```
+
+**Diagramas de actividad - Flujo de trabajo:**
+```
+        START
+          │
+          ▼
+    ┌──────────┐
+    │Ingresar  │
+    │email/pass│
+    └────┬─────┘
+         │
+         ▼
+    ╱────────╲
+   ╱ ¿Válido? ╲ ───NO──→ [Mostrar error]
+   ╲──────────╱                │
+         │YES                   │
+         ▼                      │
+    ┌──────────┐                │
+    │Crear     │                │
+    │sesión    │                │
+    └────┬─────┘                │
+         │                      │
+         ▼                      │
+    [Redirect]←─────────────────┘
+         │
+         ▼
+        END
+
+Elementos:
+┌──┐ Actividad
+╱──╲ Decisión (if)
+═══ Fork/Join (paralelo)
+```
+
+**Diagramas de estado - Ciclos de vida:**
+```
+    ┌──────────┐
+    │ Borrador │←──┐
+    └────┬─────┘   │
+         │         │
+      publicar     │
+         │         │
+         ▼         │archivar
+    ┌──────────┐   │
+    │Publicado │───┘
+    └────┬─────┘
+         │
+      eliminar
+         │
+         ▼
+    ┌──────────┐
+    │Eliminado │
+    └──────────┘
+
+Estados de una Entrada de blog
+```
+
+**En la práctica:**
+- **Blog**: Casos de uso (Login, Crear entrada, Comentar)
+- **Raspberry Pi**: Secuencia (Leer sensor → Guardar BD → Enviar email)
+- **ERP**: Actividad (Flujo de pedido: Crear → Validar → Enviar → Entregar)
 
 ---
 
@@ -4666,4 +5484,755 @@ if __name__ == '__main__':
 
 ---
 
-**💡 Tip final**: Este cheatsheet es tu referencia rápida. Practica cada concepto con proyectos reales y busca siempre aplicaciones prácticas con tu Raspberry Pi e impresora 3D. ¡La mejor forma de aprender es haciendo! 🔧🖨️
+## 🚀 PROYECTO INTERMODULAR - SISTEMA ERP COMPLETO
+
+### ¿Qué es un ERP?
+
+**ERP (Enterprise Resource Planning)**: Sistema que integra TODOS los procesos de una empresa en una sola base de datos.
+
+**Módulos típicos de un ERP:**
+- **Inventario**: Productos, stock, almacenes
+- **Compras**: Proveedores, pedidos, recepciones
+- **Ventas**: Clientes, presupuestos, pedidos, facturación
+- **Producción**: Órdenes de fabricación, materiales, tiempos
+- **Contabilidad**: Asientos, balance, P&L (Pérdidas y Ganancias)
+- **RRHH**: Empleados, nóminas, contratos
+- **CRM**: Relación con clientes, oportunidades, seguimiento
+
+**En la práctica (nuestro proyecto):**
+```
+Caso: Taller de impresión 3D que fabrica piezas bajo pedido
+
+Cliente llama → CRM registra oportunidad
+         ↓
+Presupuesto → Ventas crea presupuesto
+         ↓
+Aceptado → Se convierte en Pedido de Venta
+         ↓
+Producción → Crea Orden de Fabricación
+         ↓
+Inventario → Descuenta filamento usado
+         ↓
+Albarán → Entrega al cliente
+         ↓
+Factura → Contabilidad registra venta
+         ↓
+RRHH → Calcula comisión del vendedor
+```
+
+### Base de Datos ERP - Schema Completo
+
+**Tablas maestras (94 tablas en total):**
+
+```sql
+-- =====================================================
+-- MÓDULO: PRODUCTOS
+-- =====================================================
+
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) UNIQUE NOT NULL COMMENT 'PRODXXXXXXXX',
+    descripcion VARCHAR(255) NOT NULL,
+    precio_base DECIMAL(10,2) NOT NULL,
+    stock_minimo INT NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_codigo (codigo)
+) ENGINE=InnoDB COMMENT='Maestro de productos';
+
+CREATE TABLE categorias_productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL,
+    nombre VARCHAR(100) UNIQUE NOT NULL,
+    descripcion VARCHAR(255)
+) ENGINE=InnoDB;
+
+-- Ejemplo real: Piezas 3D
+INSERT INTO categorias_productos (codigo, nombre, descripcion) VALUES
+('CAT001', 'Soportes Electrónica', 'Soportes para Raspberry Pi, Arduino'),
+('CAT002', 'Piezas Funcionales', 'Engranajes, poleas, conectores'),
+('CAT003', 'Decorativos', 'Figuras, macetas, organizadores');
+
+INSERT INTO productos (codigo, descripcion, precio_base, stock_minimo) VALUES
+('PROD0001', 'Soporte Raspberry Pi 4 - PETG', 3.50, 10),
+('PROD0002', 'Caja Arduino Uno - PLA', 2.00, 15),
+('PROD0003', 'Engranaje 20 dientes - Nylon', 1.80, 20);
+
+-- =====================================================
+-- MÓDULO: CLIENTES Y PROVEEDORES
+-- =====================================================
+
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'CLIXXXXXXXX',
+    nombre VARCHAR(255) NOT NULL,
+    cif VARCHAR(20) UNIQUE NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    contacto VARCHAR(100),
+    email VARCHAR(100),
+    telefono VARCHAR(20),
+    condiciones_comerciales TEXT,
+    INDEX idx_cif (cif),
+    INDEX idx_nombre (nombre)
+) ENGINE=InnoDB;
+
+INSERT INTO clientes (codigo, nombre, cif, direccion, email, telefono) VALUES
+('CLI0001', 'TechLab Valencia SL', 'B98765432', 'C/ Colón 45, Valencia', 'info@techlab.es', '963123456'),
+('CLI0002', 'Automatismos Industriales SA', 'A12345678', 'Pol. Ind. Norte, Paterna', 'compras@automatismos.com', '961654321');
+
+CREATE TABLE proveedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'PROVXXXXXXXX',
+    nombre VARCHAR(255) NOT NULL,
+    cif VARCHAR(20) UNIQUE NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    contacto VARCHAR(100),
+    INDEX idx_cif (cif)
+) ENGINE=InnoDB;
+
+INSERT INTO proveedores (codigo, nombre, cif, direccion, contacto) VALUES
+('PROV0001', 'Filamentos 3D España SL', 'B55555555', 'C/ Industria 12, Madrid', 'Juan García'),
+('PROV0002', 'Componentes Electrónicos Valencia', 'B66666666', 'Av. Francia 88, Valencia', 'Ana Martínez');
+
+-- =====================================================
+-- MÓDULO: VENTAS
+-- =====================================================
+
+CREATE TABLE presupuestos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'PRES25XXXXXXXX',
+    cliente_id INT NOT NULL,
+    fecha_presupuesto DATE NOT NULL,
+    fecha_validez DATE NOT NULL,
+    estado VARCHAR(50) NOT NULL, -- 'borrador', 'enviado', 'aceptado', 'rechazado'
+    total DECIMAL(10,2) NOT NULL,
+    observaciones TEXT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    INDEX idx_fecha (fecha_presupuesto),
+    INDEX idx_estado (estado)
+) ENGINE=InnoDB;
+
+CREATE TABLE lineas_presupuestos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    presupuesto_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad DECIMAL(10,2) NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    descuento DECIMAL(5,2) DEFAULT 0,
+    importe DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (presupuesto_id) REFERENCES presupuestos(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+) ENGINE=InnoDB;
+
+-- Ejemplo: Cliente TechLab pide presupuesto de 50 soportes Raspberry Pi
+INSERT INTO presupuestos (codigo, cliente_id, fecha_presupuesto, fecha_validez, estado, total)
+VALUES ('PRES25000001', 1, '2025-10-25', '2025-11-25', 'enviado', 175.00);
+
+INSERT INTO lineas_presupuestos (presupuesto_id, producto_id, cantidad, precio_unitario, descuento, importe)
+VALUES (1, 1, 50, 3.50, 0, 175.00);
+
+CREATE TABLE pedidos_venta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'PV25XXXXXXXX',
+    cliente_id INT NOT NULL,
+    presupuesto_id INT NULL, -- Puede venir de presupuesto o ser directo
+    fecha_pedido DATE NOT NULL,
+    fecha_entrega_prevista DATE,
+    estado VARCHAR(50) NOT NULL, -- 'pendiente', 'en_produccion', 'listo', 'entregado'
+    total DECIMAL(10,2) NOT NULL,
+    observaciones TEXT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (presupuesto_id) REFERENCES presupuestos(id),
+    INDEX idx_fecha (fecha_pedido),
+    INDEX idx_estado (estado)
+) ENGINE=InnoDB;
+
+CREATE TABLE lineas_pedidos_venta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad DECIMAL(10,2) NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    descuento DECIMAL(5,2) DEFAULT 0,
+    importe DECIMAL(10,2) NOT NULL,
+    cantidad_entregada DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos_venta(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+) ENGINE=InnoDB;
+
+-- Cliente acepta presupuesto → Se convierte en pedido
+INSERT INTO pedidos_venta (codigo, cliente_id, presupuesto_id, fecha_pedido, fecha_entrega_prevista, estado, total)
+VALUES ('PV25000001', 1, 1, '2025-10-26', '2025-11-05', 'pendiente', 175.00);
+
+INSERT INTO lineas_pedidos_venta (pedido_id, producto_id, cantidad, precio_unitario, descuento, importe, cantidad_entregada)
+VALUES (1, 1, 50, 3.50, 0, 175.00, 0);
+
+-- =====================================================
+-- MÓDULO: PRODUCCIÓN
+-- =====================================================
+
+CREATE TABLE ordenes_fabricacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'OF25XXXXXXXX',
+    pedido_venta_id INT NULL,
+    producto_id INT NOT NULL,
+    cantidad_planificada DECIMAL(10,2) NOT NULL,
+    cantidad_fabricada DECIMAL(10,2) DEFAULT 0,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin_prevista DATE NOT NULL,
+    fecha_fin_real DATE NULL,
+    estado VARCHAR(50) NOT NULL, -- 'planificada', 'en_proceso', 'completada', 'cancelada'
+    tiempo_estimado_minutos INT,
+    tiempo_real_minutos INT,
+    observaciones TEXT,
+    FOREIGN KEY (pedido_venta_id) REFERENCES pedidos_venta(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    INDEX idx_estado (estado),
+    INDEX idx_fecha_inicio (fecha_inicio)
+) ENGINE=InnoDB;
+
+-- Crear orden de fabricación para el pedido PV25000001
+INSERT INTO ordenes_fabricacion 
+(codigo, pedido_venta_id, producto_id, cantidad_planificada, fecha_inicio, fecha_fin_prevista, estado, tiempo_estimado_minutos)
+VALUES 
+('OF25000001', 1, 1, 50, '2025-10-27', '2025-11-03', 'planificada', 3000);
+-- 50 piezas × 60 minutos/pieza = 3000 minutos = 50 horas
+
+CREATE TABLE consumos_produccion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orden_fabricacion_id INT NOT NULL,
+    producto_consumido_id INT NOT NULL, -- Material usado (filamento, etc.)
+    cantidad_consumida DECIMAL(10,2) NOT NULL,
+    fecha_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (orden_fabricacion_id) REFERENCES ordenes_fabricacion(id),
+    FOREIGN KEY (producto_consumido_id) REFERENCES productos(id)
+) ENGINE=InnoDB;
+
+-- Ejemplo: Para fabricar 50 soportes necesitamos 1.5 kg de filamento PETG
+-- Primero añadimos el filamento a productos
+INSERT INTO productos (codigo, descripcion, precio_base, stock_minimo)
+VALUES ('MAT0001', 'Filamento PETG 1kg - Negro', 18.00, 5);
+
+-- Luego registramos el consumo
+INSERT INTO consumos_produccion (orden_fabricacion_id, producto_consumido_id, cantidad_consumida)
+VALUES (1, 4, 1.5); -- 1.5 kg de filamento
+
+-- =====================================================
+-- MÓDULO: INVENTARIO Y STOCK
+-- =====================================================
+
+CREATE TABLE almacenes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) UNIQUE NOT NULL COMMENT 'ALMXXXXXXXX',
+    nombre VARCHAR(100) UNIQUE NOT NULL,
+    ubicacion VARCHAR(255)
+) ENGINE=InnoDB;
+
+INSERT INTO almacenes (codigo, nombre, ubicacion) VALUES
+('ALM001', 'Almacén Principal', 'Planta Baja - Nave A'),
+('ALM002', 'Almacén Materias Primas', 'Planta 1 - Zona Norte'),
+('ALM003', 'Almacén Productos Terminados', 'Planta Baja - Zona Sur');
+
+CREATE TABLE stock (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id INT NOT NULL,
+    almacen_id INT NOT NULL,
+    cantidad DECIMAL(10,2) NOT NULL DEFAULT 0,
+    ultima_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    FOREIGN KEY (almacen_id) REFERENCES almacenes(id),
+    UNIQUE KEY unique_producto_almacen (producto_id, almacen_id)
+) ENGINE=InnoDB;
+
+-- Stock inicial
+INSERT INTO stock (producto_id, almacen_id, cantidad) VALUES
+(1, 3, 5),   -- 5 soportes RPi4 en stock
+(2, 3, 12),  -- 12 cajas Arduino en stock
+(4, 2, 8.5); -- 8.5 kg filamento PETG en almacén materias primas
+
+CREATE TABLE movimientos_stock (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id INT NOT NULL,
+    almacen_id INT NOT NULL,
+    tipo_movimiento VARCHAR(50) NOT NULL, -- 'entrada', 'salida', 'transferencia', 'ajuste'
+    cantidad DECIMAL(10,2) NOT NULL,
+    referencia VARCHAR(50), -- Código del documento origen (OF, PV, etc.)
+    fecha_movimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+    usuario VARCHAR(100),
+    observaciones TEXT,
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    FOREIGN KEY (almacen_id) REFERENCES almacenes(id),
+    INDEX idx_fecha (fecha_movimiento),
+    INDEX idx_tipo (tipo_movimiento)
+) ENGINE=InnoDB;
+
+-- Al completar orden fabricación → Entrada a stock
+INSERT INTO movimientos_stock (producto_id, almacen_id, tipo_movimiento, cantidad, referencia, usuario, observaciones)
+VALUES (1, 3, 'entrada', 50, 'OF25000001', 'operario1', 'Fabricación completada');
+
+-- Actualizar stock
+UPDATE stock 
+SET cantidad = cantidad + 50 
+WHERE producto_id = 1 AND almacen_id = 3;
+-- Ahora tenemos 55 soportes RPi4
+
+-- Al consumir filamento → Salida de stock
+INSERT INTO movimientos_stock (producto_id, almacen_id, tipo_movimiento, cantidad, referencia, usuario, observaciones)
+VALUES (4, 2, 'salida', -1.5, 'OF25000001', 'operario1', 'Consumo producción');
+
+UPDATE stock 
+SET cantidad = cantidad - 1.5 
+WHERE producto_id = 4 AND almacen_id = 2;
+-- Ahora quedan 7 kg de filamento
+
+-- =====================================================
+-- CONSULTAS ÚTILES ERP
+-- =====================================================
+
+-- 1. Dashboard ejecutivo: Pedidos pendientes con valor total
+SELECT 
+    pv.codigo AS pedido,
+    c.nombre AS cliente,
+    pv.fecha_pedido,
+    pv.fecha_entrega_prevista,
+    pv.total,
+    pv.estado,
+    DATEDIFF(pv.fecha_entrega_prevista, CURDATE()) AS dias_para_entrega
+FROM pedidos_venta pv
+INNER JOIN clientes c ON pv.cliente_id = c.id
+WHERE pv.estado IN ('pendiente', 'en_produccion')
+ORDER BY pv.fecha_entrega_prevista;
+
+-- 2. Control de producción: Órdenes en curso con tiempos
+SELECT 
+    of.codigo AS orden,
+    p.descripcion AS producto,
+    of.cantidad_planificada,
+    of.cantidad_fabricada,
+    of.fecha_inicio,
+    of.fecha_fin_prevista,
+    of.tiempo_estimado_minutos / 60 AS horas_estimadas,
+    of.estado,
+    ROUND((of.cantidad_fabricada / of.cantidad_planificada) * 100, 2) AS porcentaje_completado
+FROM ordenes_fabricacion of
+INNER JOIN productos p ON of.producto_id = p.id
+WHERE of.estado = 'en_proceso'
+ORDER BY of.fecha_fin_prevista;
+
+-- 3. Gestión de stock: Productos bajo mínimo (necesitan reposición)
+SELECT 
+    p.codigo,
+    p.descripcion,
+    p.stock_minimo,
+    COALESCE(SUM(s.cantidad), 0) AS stock_actual,
+    p.stock_minimo - COALESCE(SUM(s.cantidad), 0) AS cantidad_a_reponer
+FROM productos p
+LEFT JOIN stock s ON p.id = s.producto_id
+GROUP BY p.id, p.codigo, p.descripcion, p.stock_minimo
+HAVING stock_actual < p.stock_minimo
+ORDER BY cantidad_a_reponer DESC;
+
+-- 4. Análisis de ventas: Top 10 productos más vendidos
+SELECT 
+    p.codigo,
+    p.descripcion,
+    SUM(lpv.cantidad) AS unidades_vendidas,
+    SUM(lpv.importe) AS ingresos_totales,
+    COUNT(DISTINCT lpv.pedido_id) AS num_pedidos
+FROM lineas_pedidos_venta lpv
+INNER JOIN productos p ON lpv.producto_id = p.id
+INNER JOIN pedidos_venta pv ON lpv.pedido_id = pv.id
+WHERE pv.estado != 'cancelado'
+  AND pv.fecha_pedido >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+GROUP BY p.id, p.codigo, p.descripcion
+ORDER BY unidades_vendidas DESC
+LIMIT 10;
+
+-- 5. Rentabilidad por cliente (top clientes por volumen)
+SELECT 
+    c.codigo,
+    c.nombre,
+    COUNT(pv.id) AS num_pedidos,
+    SUM(pv.total) AS facturacion_total,
+    AVG(pv.total) AS ticket_medio
+FROM clientes c
+INNER JOIN pedidos_venta pv ON c.id = pv.cliente_id
+WHERE pv.fecha_pedido >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+GROUP BY c.id, c.codigo, c.nombre
+ORDER BY facturacion_total DESC
+LIMIT 10;
+
+-- 6. Trazabilidad completa de un pedido (del presupuesto a la entrega)
+SELECT 
+    'Presupuesto' AS fase,
+    pres.codigo AS documento,
+    pres.fecha_presupuesto AS fecha,
+    pres.estado,
+    pres.total
+FROM presupuestos pres
+WHERE pres.codigo = 'PRES25000001'
+
+UNION ALL
+
+SELECT 
+    'Pedido Venta' AS fase,
+    pv.codigo AS documento,
+    pv.fecha_pedido AS fecha,
+    pv.estado,
+    pv.total
+FROM pedidos_venta pv
+WHERE pv.presupuesto_id = (SELECT id FROM presupuestos WHERE codigo = 'PRES25000001')
+
+UNION ALL
+
+SELECT 
+    'Orden Fabricación' AS fase,
+    of.codigo AS documento,
+    of.fecha_inicio AS fecha,
+    of.estado,
+    NULL AS total
+FROM ordenes_fabricacion of
+WHERE of.pedido_venta_id = (
+    SELECT id FROM pedidos_venta WHERE presupuesto_id = (
+        SELECT id FROM presupuestos WHERE codigo = 'PRES25000001'
+    )
+)
+ORDER BY fecha;
+```
+
+### Python - Integración con ERP
+
+**Caso práctico: Script para calcular coste de producción**
+
+```python
+import mysql.connector
+from decimal import Decimal
+
+class ERPProduccion:
+    def __init__(self):
+        self.db = mysql.connector.connect(
+            host='localhost',
+            user='erp_user',
+            password='Erp_2025!',
+            database='erp_empresarial'
+        )
+        self.cursor = self.db.cursor(dictionary=True)
+    
+    def calcular_coste_orden_fabricacion(self, codigo_orden):
+        """
+        Calcula coste total de una orden de fabricación:
+        - Materiales consumidos
+        - Mano de obra (tiempo × coste hora)
+        - Costes indirectos
+        """
+        # Obtener orden
+        self.cursor.execute("""
+            SELECT 
+                of.id,
+                of.codigo,
+                p.descripcion AS producto,
+                of.cantidad_planificada,
+                of.tiempo_real_minutos,
+                p.precio_base
+            FROM ordenes_fabricacion of
+            INNER JOIN productos p ON of.producto_id = p.id
+            WHERE of.codigo = %s
+        """, (codigo_orden,))
+        
+        orden = self.cursor.fetchone()
+        if not orden:
+            print(f"❌ Orden {codigo_orden} no encontrada")
+            return None
+        
+        # Coste materiales (consumos)
+        self.cursor.execute("""
+            SELECT 
+                p.descripcion AS material,
+                cp.cantidad_consumida,
+                p.precio_base,
+                (cp.cantidad_consumida * p.precio_base) AS coste
+            FROM consumos_produccion cp
+            INNER JOIN productos p ON cp.producto_consumido_id = p.id
+            WHERE cp.orden_fabricacion_id = %s
+        """, (orden['id'],))
+        
+        consumos = self.cursor.fetchall()
+        coste_materiales = sum(c['coste'] for c in consumos)
+        
+        # Coste mano de obra (€/hora)
+        COSTE_HORA_OPERARIO = Decimal('15.00')
+        horas_trabajadas = Decimal(orden['tiempo_real_minutos'] or 0) / 60
+        coste_mano_obra = horas_trabajadas * COSTE_HORA_OPERARIO
+        
+        # Costes indirectos (10% de materiales + mano obra)
+        coste_directo = coste_materiales + coste_mano_obra
+        costes_indirectos = coste_directo * Decimal('0.10')
+        
+        coste_total = coste_directo + costes_indirectos
+        coste_unitario = coste_total / Decimal(orden['cantidad_planificada'])
+        
+        # Mostrar informe
+        print("=" * 60)
+        print(f"ANÁLISIS DE COSTES - {codigo_orden}")
+        print("=" * 60)
+        print(f"Producto: {orden['producto']}")
+        print(f"Cantidad: {orden['cantidad_planificada']} unidades")
+        print(f"Tiempo: {horas_trabajadas:.2f} horas")
+        print()
+        
+        print("COSTES DIRECTOS:")
+        print("-" * 60)
+        print("Materiales:")
+        for c in consumos:
+            print(f"  - {c['material']}: {c['cantidad_consumida']} × {c['precio_base']}€ = {c['coste']:.2f}€")
+        print(f"  TOTAL MATERIALES: {coste_materiales:.2f}€")
+        print()
+        print(f"Mano de obra: {horas_trabajadas:.2f}h × {COSTE_HORA_OPERARIO}€/h = {coste_mano_obra:.2f}€")
+        print()
+        
+        print("COSTES INDIRECTOS:")
+        print("-" * 60)
+        print(f"10% sobre costes directos: {costes_indirectos:.2f}€")
+        print()
+        
+        print("RESUMEN:")
+        print("=" * 60)
+        print(f"Coste directo:      {coste_directo:.2f}€")
+        print(f"Costes indirectos:  {costes_indirectos:.2f}€")
+        print(f"COSTE TOTAL:        {coste_total:.2f}€")
+        print(f"Coste unitario:     {coste_unitario:.2f}€")
+        print()
+        print(f"Precio venta actual: {orden['precio_base']:.2f}€")
+        margen = ((Decimal(orden['precio_base']) - coste_unitario) / Decimal(orden['precio_base'])) * 100
+        print(f"Margen:             {margen:.2f}%")
+        print("=" * 60)
+        
+        return {
+            'coste_total': float(coste_total),
+            'coste_unitario': float(coste_unitario),
+            'margen': float(margen)
+        }
+    
+    def cerrar(self):
+        self.cursor.close()
+        self.db.close()
+
+# Uso
+if __name__ == '__main__':
+    erp = ERPProduccion()
+    erp.calcular_coste_orden_fabricacion('OF25000001')
+    erp.cerrar()
+```
+
+**Salida esperada:**
+```
+============================================================
+ANÁLISIS DE COSTES - OF25000001
+============================================================
+Producto: Soporte Raspberry Pi 4 - PETG
+Cantidad: 50 unidades
+Tiempo: 50.00 horas
+
+COSTES DIRECTOS:
+------------------------------------------------------------
+Materiales:
+  - Filamento PETG 1kg - Negro: 1.5 × 18.00€ = 27.00€
+  TOTAL MATERIALES: 27.00€
+
+Mano de obra: 50.00h × 15.00€/h = 750.00€
+
+COSTES INDIRECTOS:
+------------------------------------------------------------
+10% sobre costes directos: 77.70€
+
+RESUMEN:
+============================================================
+Coste directo:      777.00€
+Costes indirectos:  77.70€
+COSTE TOTAL:        854.70€
+Coste unitario:     17.09€
+
+Precio venta actual: 3.50€
+Margen:             -388.29%
+============================================================
+⚠️ El precio de venta es MENOR que el coste → Pérdidas!
+```
+
+**Caso práctico 2: Automatizar envío de pedidos con bajo stock**
+
+```python
+import mysql.connector
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+class ERPAlertas:
+    def __init__(self):
+        self.db = mysql.connector.connect(
+            host='localhost',
+            user='erp_user',
+            password='Erp_2025!',
+            database='erp_empresarial'
+        )
+        self.cursor = self.db.cursor(dictionary=True)
+    
+    def verificar_stock_bajo(self):
+        """Encuentra productos con stock bajo mínimo"""
+        self.cursor.execute("""
+            SELECT 
+                p.codigo,
+                p.descripcion,
+                p.stock_minimo,
+                COALESCE(SUM(s.cantidad), 0) AS stock_actual,
+                p.stock_minimo - COALESCE(SUM(s.cantidad), 0) AS faltante
+            FROM productos p
+            LEFT JOIN stock s ON p.id = s.producto_id
+            GROUP BY p.id, p.codigo, p.descripcion, p.stock_minimo
+            HAVING stock_actual < p.stock_minimo
+            ORDER BY faltante DESC
+        """)
+        
+        return self.cursor.fetchall()
+    
+    def enviar_email_alerta(self, productos_bajo_stock):
+        """Envía email con productos que necesitan reposición"""
+        if not productos_bajo_stock:
+            print("✅ Todos los productos tienen stock suficiente")
+            return
+        
+        # Construir mensaje
+        html = """
+        <html>
+          <body>
+            <h2 style="color: #e74c3c;">⚠️ ALERTA: Productos con stock bajo</h2>
+            <p>Los siguientes productos necesitan reposición urgente:</p>
+            <table border="1" cellpadding="8" style="border-collapse: collapse;">
+              <tr style="background-color: #34495e; color: white;">
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Stock Mínimo</th>
+                <th>Stock Actual</th>
+                <th>Faltante</th>
+              </tr>
+        """
+        
+        for p in productos_bajo_stock:
+            html += f"""
+              <tr>
+                <td>{p['codigo']}</td>
+                <td>{p['descripcion']}</td>
+                <td style="text-align: center;">{p['stock_minimo']}</td>
+                <td style="text-align: center; color: #e74c3c;">{p['stock_actual']:.2f}</td>
+                <td style="text-align: center; font-weight: bold;">{p['faltante']:.2f}</td>
+              </tr>
+            """
+        
+        html += """
+            </table>
+            <p><b>Acción requerida:</b> Generar pedidos de compra para reponer stock.</p>
+          </body>
+        </html>
+        """
+        
+        # Configurar email
+        remitente = 'erp@tuempresa.com'
+        destinatario = 'compras@tuempresa.com'
+        asunto = f'⚠️ STOCK BAJO: {len(productos_bajo_stock)} productos necesitan reposición'
+        
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = asunto
+        msg['From'] = remitente
+        msg['To'] = destinatario
+        
+        parte_html = MIMEText(html, 'html')
+        msg.attach(parte_html)
+        
+        # Enviar (configurar SMTP)
+        try:
+            servidor = smtplib.SMTP('smtp.gmail.com', 587)
+            servidor.starttls()
+            servidor.login(remitente, 'tu_password_app')
+            servidor.send_message(msg)
+            servidor.quit()
+            print(f"✅ Email enviado a {destinatario}")
+        except Exception as e:
+            print(f"❌ Error enviando email: {e}")
+    
+    def ejecutar_revision_diaria(self):
+        """Tarea programada para ejecutar diariamente con cron"""
+        print(f"🔍 Revisión de stock: {datetime.now()}")
+        productos = self.verificar_stock_bajo()
+        
+        if productos:
+            print(f"⚠️ {len(productos)} productos con stock bajo:")
+            for p in productos:
+                print(f"  - {p['codigo']}: {p['stock_actual']:.2f} (mínimo {p['stock_minimo']})")
+            
+            self.enviar_email_alerta(productos)
+        else:
+            print("✅ Stock correcto en todos los productos")
+    
+    def cerrar(self):
+        self.cursor.close()
+        self.db.close()
+
+# Ejecutar
+if __name__ == '__main__':
+    from datetime import datetime
+    
+    alertas = ERPAlertas()
+    alertas.ejecutar_revision_diaria()
+    alertas.cerrar()
+```
+
+**Programar con cron (Linux/Raspberry Pi):**
+```bash
+# Ejecutar cada día a las 8:00 AM
+crontab -e
+
+# Añadir línea:
+0 8 * * * /usr/bin/python3 /home/pi/erp/alertas_stock.py >> /home/pi/erp/logs/alertas.log 2>&1
+```
+
+### Conceptos clave del proyecto ERP completo
+
+**Base de datos:**
+- ✅ **Normalización**: Evitar redundancia con tablas maestras + transaccionales
+- ✅ **Claves foráneas (FK)**: Mantener integridad referencial (cliente_id, producto_id)
+- ✅ **ON DELETE CASCADE**: Borrar líneas automáticamente si se borra cabecera
+- ✅ **Índices**: idx_codigo, idx_fecha para acelerar búsquedas
+- ✅ **COMMENT**: Documentar formato de códigos (PRODXXXXXXXX)
+- ✅ **DEFAULT**: Valores por defecto (CURRENT_TIMESTAMP, estado='pendiente')
+- ✅ **CHECK**: Validar datos (cantidad > 0, precio >= 0)
+- ✅ **UNIQUE**: Evitar duplicados (codigo, cif, email)
+
+**SQL avanzado:**
+- ✅ **JOINs complejos**: INNER JOIN múltiples tablas para informes
+- ✅ **Agregaciones**: SUM(), COUNT(), AVG() con GROUP BY
+- ✅ **Subconsultas**: SELECT dentro de FROM o WHERE
+- ✅ **UNION**: Combinar resultados de varias consultas (trazabilidad)
+- ✅ **DATEDIFF**: Calcular días entre fechas
+- ✅ **DATE_SUB**: Filtrar últimos 6 meses
+- ✅ **COALESCE**: Reemplazar NULL por valor (stock = 0 si no hay registro)
+- ✅ **HAVING**: Filtrar después de GROUP BY
+- ✅ **ROUND**: Redondear decimales (porcentajes)
+
+**Python integración:**
+- ✅ **mysql.connector**: Librería oficial para MySQL
+- ✅ **cursor(dictionary=True)**: Resultados como diccionarios
+- ✅ **Decimal**: Para cálculos precisos de dinero (evitar float)
+- ✅ **Transacciones**: commit() / rollback() para operaciones críticas
+- ✅ **Excepciones**: try/except para capturar errores BD
+- ✅ **Email automation**: smtplib para alertas
+- ✅ **HTML en emails**: MIMEMultipart para emails formateados
+- ✅ **Cron jobs**: Automatizar tareas diarias
+
+**Aplicación práctica:**
+- Sistema completo de gestión para taller impresión 3D
+- Control de stock de filamentos y materiales
+- Órdenes de fabricación con cálculo de costes
+- Dashboard ejecutivo con KPIs en Raspberry Pi
+- Alertas automáticas por email cuando stock bajo
+
+---
+
+**💡 Tip final**: Este cheatsheet es tu referencia rápida. Practica cada concepto con proyectos reales y busca siempre aplicaciones prácticas con tu Raspberry Pi e impresora 3D. El proyecto ERP integra TODOS los conocimientos del curso: BD relacionales, programación Python, interfaces web, consultas complejas y automatización. ¡La mejor forma de aprender es haciendo! 🔧🖨️💼

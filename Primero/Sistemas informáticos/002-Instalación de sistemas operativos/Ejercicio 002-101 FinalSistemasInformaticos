@@ -1,0 +1,158 @@
+Enunciado de la actividad:
+
+En base a la máquina virtual que has creado en la unidad anterior:
+
+1.-Descarga Ubuntu Server 24.04 2.-Instala esa versión de Linux en la máquina virtual 3.-Una vez instala la máquina: 3.1.-Instala openssh server y conectate desde fuera (atención al adaptador puente) 3.2.-Instala Apache2 3.3.-Instala y asegura MySQL Server 3.4.-Asegurate de que está Python3 instalado 3.5.-Instala PIP 3.6.-Instala Flask 3.7.- Asegura hola mundo en Apache, MySQL, Python/Flask
+
+Recuerda realizar el examen siguiendo la rúbrica
+
+================================================================================
+RESOLUCIÓN - STACK LAMP EN UBUNTU SERVER 24.04
+================================================================================
+
+PASO 1: INSTALACIÓN UBUNTU SERVER
+----------------------------------
+1. Descargar ISO: ubuntu-24.04-live-server-amd64.iso
+2. VirtualBox: 4GB RAM, 4 cores, 100GB disco
+3. Red: Adaptador puente (obligatorio para SSH externo)
+4. Usuario: dario / ubuntu-server / dario
+5. Durante instalación: Marcar "Install OpenSSH server"
+
+PASO 2: ACTUALIZAR SISTEMA
+---------------------------
+sudo apt update && sudo apt upgrade -y
+
+PASO 3: SSH (ya instalado)
+---------------------------
+# Obtener IP
+hostname -I
+
+# Firewall
+sudo ufw allow ssh
+sudo ufw enable
+
+# Conectar desde Windows
+ssh dario@192.168.1.X
+
+PASO 4: APACHE2
+---------------
+sudo apt install apache2 -y
+sudo ufw allow 80/tcp
+
+# Crear index.html
+sudo nano /var/www/html/index.html
+
+<!DOCTYPE html>
+<html>
+<head><title>Hola Mundo Apache</title></head>
+<body>
+    <h1>¡Hola Mundo desde Apache2!</h1>
+    <p>Ubuntu Server 24.04 - Apache2 funcionando</p>
+</body>
+</html>
+
+# Probar: http://IP_SERVIDOR
+
+PASO 5: MYSQL
+-------------
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+# Password validation: Yes (MEDIUM)
+# Nueva contraseña root
+# Remove anonymous users: Yes
+# Disallow root login remotely: Yes
+# Remove test database: Yes
+
+# Configurar root con contraseña
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pass123!';
+FLUSH PRIVILEGES;
+EXIT;
+
+# Crear BD de prueba
+mysql -u root -p
+
+CREATE DATABASE prueba_lamp;
+USE prueba_lamp;
+CREATE TABLE mensajes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mensaje VARCHAR(255),
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO mensajes (mensaje) VALUES 
+('Hola Mundo desde MySQL'),
+('LAMP Stack funcionando');
+
+CREATE USER 'lampuser'@'localhost' IDENTIFIED BY 'LampPass123!';
+GRANT ALL ON prueba_lamp.* TO 'lampuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+PASO 6: PYTHON Y PIP
+--------------------
+python3 --version  # Ya está instalado
+sudo apt install python3-pip -y
+
+PASO 7: FLASK
+-------------
+pip3 install flask mysql-connector-python --break-system-packages
+
+PASO 8: APP FLASK
+-----------------
+mkdir ~/flask_app && cd ~/flask_app
+nano app.py
+
+from flask import Flask, render_template_string
+import mysql.connector
+
+app = Flask(__name__)
+
+HTML = '''
+<!DOCTYPE html>
+<html>
+<head><title>Flask + MySQL</title></head>
+<body>
+    <h1>Hola Mundo desde Flask</h1>
+    <h2>Mensajes desde MySQL:</h2>
+    <ul>
+    {% for msg in mensajes %}
+        <li>{{ msg[1] }} - {{ msg[2] }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
+'''
+
+@app.route('/')
+def index():
+    conn = mysql.connector.connect(
+        host='localhost',
+        user='lampuser',
+        password='LampPass123!',
+        database='prueba_lamp'
+    )
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM mensajes")
+    mensajes = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return render_template_string(HTML, mensajes=mensajes)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+# Ejecutar
+sudo ufw allow 5000/tcp
+python3 app.py
+# Probar: http://IP_SERVIDOR:5000
+
+# Background
+nohup python3 app.py &
+
+================================================================================
+VERIFICACIÓN FINAL
+================================================================================
+✅ SSH: ssh dario@IP_SERVIDOR
+✅ Apache: http://IP_SERVIDOR
+✅ Flask: http://IP_SERVIDOR:5000
+✅ MySQL: mysql -u lampuser -p prueba_lamp
