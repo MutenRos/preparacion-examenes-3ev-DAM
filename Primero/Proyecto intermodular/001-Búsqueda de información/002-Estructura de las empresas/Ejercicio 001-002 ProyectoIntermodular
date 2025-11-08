@@ -1,0 +1,149 @@
+Título: Análisis de Mercado y Competencia en IA para Valencia
+
+Contexto: En nuestra comunidad, hay un gran potencial para desarrollar servicios de Inteligencia Artificial (IA). Los sectores industriales, comercio minorista, salud, agricultura y transporte son ejemplos de donde podría tenerse una demanda significativa. Además, el ecosistema local de startups de IA en Valencia es cada vez más activo, lo que ofrece tanto oportunidades como competencia.
+
+Enunciado paso a paso:
+
+Identificar Oportunidades: Analiza los sectores industriales, comercio minorista, salud, agricultura y transporte en la provincia de Valencia. ¿Cuáles de estos sectores podrían beneficiarse más de servicios de IA? Identifica al menos 3 sectores con mayor potencial.
+
+Estimar Tamaño del Mercado: Para cada sector identificado, estima cuántas empresas podrían necesitar servicios de IA. Considera tanto pymes como startups locales. Utiliza los datos proporcionados en el contexto para apoyar tu estimación.
+
+Evaluar Competencia Local: Identifica las empresas y startups locales que ya están ofreciendo servicios de IA, como Quibim, Voicemod y Aunoa. ¿Cómo podrías diferenciarte de ellas? Considera factores como la calidad del servicio, el precio, la experiencia en sectores específicos o la capacidad de personalización.
+
+Definir Niche: Basándote en tu análisis, define un nicho específico dentro del sector que te permita competir con éxito. Por ejemplo, si decides enfocarte en la salud, podrías considerar soluciones de IA para diagnóstico médico o gestión de datos clínicos.
+
+Escribir Informe: Prepara un informe resumido de tus hallazgos. Incluye los sectores identificados, las estimaciones de tamaño del mercado y el análisis de competencia local. Añade una conclusión sobre cómo podrías aprovechar el nicho que has definido para construir tu negocio de IA en Valencia.
+
+Restricciones:
+
+No utilizar librerías externas.
+No usar estructuras no vistas en clase (por ejemplo, bucles, funciones).
+Criterios de evaluación:
+
+Introducción y contextualización (25%): El estudiante debe explicar claramente el contexto del análisis y cómo se relaciona con los sectores de la provincia de Valencia.
+Desarrollo técnico correcto y preciso (25%): El estudiante debe mostrar una comprensión sólida de los sectores identificados, sus potencialidades y amenazas, así como un análisis crítico de la competencia local.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe proporcionar estimaciones precisas del tamaño del mercado en cada sector y justificarlas con datos relevantes. Además, el análisis de competencia debe ser conciso pero completo.
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe resumir sus hallazgos y sugerir un nicho específico dentro del sector que te permita competir exitosamente. La conclusión debe estar clara y enfocada en cómo el análisis de mercado y competencia puede ayudarte a construir tu negocio de IA en Valencia.
+
+---
+
+# INFORME: ANÁLISIS DE MERCADO Y COMPETENCIA EN IA PARA VALENCIA
+
+## 1. INTRODUCCIÓN Y CONTEXTUALIZACIÓN
+
+El mercado valenciano cuenta con aproximadamente 145.000 PYMES, de las cuales más del 70% usan métodos obsoletos o pagan software excesivamente caro (SAP, Navision, Holded).
+
+Mi propuesta: **Sistema ERP con Supervisor de IA** desplegable localmente (incluso en Raspberry Pi), eliminando dependencias cloud y costes recurrentes. Combina gestión empresarial completa con IA para automatización y análisis predictivo.
+
+**Ventaja competitiva:** Independencia tecnológica, sin suscripciones mensuales, control total de datos y personalización ilimitada.
+
+## 2. IDENTIFICACIÓN DE OPORTUNIDADES POR SECTOR
+
+### **SECTOR 1: INDUSTRIA MANUFACTURERA** ⭐⭐⭐⭐⭐
+
+Valencia cuenta con ~8.500 empresas industriales (cerámica, textil, metalurgia, alimentación, impresión 3D).
+
+**Necesidades de IA:**
+- Control de inventario predictivo
+- Optimización de rutas de fabricación
+- Gestión de lotes y trazabilidad
+- Predicción de mantenimiento maquinaria
+
+**Mercado objetivo:** ~3.200 PYMES de 5-50 empleados  
+**Potencial inicial:** 150-200 empresas (2 años)
+
+### **SECTOR 2: COMERCIO MINORISTA Y DISTRIBUCIÓN** ⭐⭐⭐⭐
+
+~35.000 establecimientos, de los cuales ~12.000 necesitan gestión avanzada.
+
+**Necesidades de IA:**
+- Predicción de demanda por temporada
+- Gestión multialmacén optimizada
+- Alertas automáticas de reposición
+- Análisis de rotación de productos
+
+**Potencial inicial:** 100-150 empresas (2 años)
+
+### **SECTOR 3: AGRICULTURA** ⭐⭐⭐⭐⭐ (NICHO DIFERENCIADOR)
+
+Valencia es referente mundial: cítricos, hortalizas, vino, arroz. ~250 cooperativas + ~1.800 empresas agroindustriales.
+
+**Necesidades de IA:**
+- Predicción de cosechas
+- Trazabilidad obligatoria en exportación
+- Control de caducidades y certificaciones
+- Optimización de rutas de distribución
+
+**Potencial inicial:** 50-80 cooperativas/empresas (2 años)
+
+## 3. ESTIMACIÓN DEL TAMAÑO DEL MERCADO
+
+**Mercado Total (TAM):** 145.000 PYMES → 45.000 con necesidad de ERP  
+**Mercado Disponible (SAM):** 8.000 empresas con capacidad inversión  
+**Mercado Obtenible (SOM):**
+- Año 1: 50 clientes × 2.500€ = 125.000€
+- Año 2: 150 clientes × 2.500€ = 375.000€
+- Año 3: 350 clientes × 2.500€ = 875.000€
+
+## 4. EVALUACIÓN DE COMPETENCIA
+
+### **Competidores IA Valencia:**
+- **Quibim:** IA médica (no competencia directa)
+- **Voicemod:** IA para gaming/streaming (no competencia)
+- **BigBro.AI Sports:** Análisis deportivo (no competencia)
+
+### **Competidores ERP tradicionales:**
+
+| Factor | Mi ERP + IA | Holded | Sage | Navision |
+|--------|-------------|--------|------|----------|
+| Precio inicial | 2.500€ | 0€ | 1.500€ | 15.000€+ |
+| Coste 5 años | 2.500€ | 5.940€ | 9.000€+ | 30.000€+ |
+| Despliegue | Local | Cloud | Local/Cloud | Cloud |
+| IA predictiva | ✅ | ❌ | ❌ | ⚠️ Caro |
+| Personalización | ✅ Total | ❌ | ⚠️ | ⚠️ |
+| Control datos | ✅ 100% | ❌ | ✅ | ❌ |
+
+**Diferenciación clave:** TCO 60-80% inferior + IA real + soporte local valenciano
+
+## 5. DEFINICIÓN DEL NICHO
+
+**"ERP Industrial para PYMES Manufactureras Valencianas con IA Predictiva"**
+
+**Target:** Empresas 5-50 empleados, producción propia, 500K-5M€ facturación  
+**Subsectores:** Talleres metalúrgicos, componentes plásticos, alimentación local, impresión 3D
+
+**Propuesta de valor:**  
+"Sistema ERP completo que aprende de tu producción, predice necesidades y reduce costes hasta 15% - Precio único, sin suscripciones"
+
+**Funcionalidades críticas:**
+- Módulo BOM multinivel
+- Control de producción con IA
+- Gestión de calidad y trazabilidad
+- Inventario multiubicación
+- Predicción de consumo de materias primas
+
+## 6. PLAN DE ACCIÓN (3 MESES)
+
+**MES 1:** Finalizar módulo producción, crear web y material comercial  
+**MES 2:** Identificar 30 empresas objetivo, contactar asociaciones (FEMEVAL, COEVAL)  
+**MES 3:** Cerrar 3-5 clientes piloto a 1.500€, documentar casos de éxito
+
+**KPIs clave:**
+- Mes 6: 15-20 clientes
+- Mes 12: 50 clientes
+- Coste adquisición cliente: <150€
+
+## 7. CONCLUSIÓN
+
+El mercado valenciano presenta **oportunidad clara** para un ERP con IA enfocado en PYMES industriales:
+
+✅ Necesidad real: empresas pagando suscripciones caras o usando Excel  
+✅ Diferenciación: IA predictiva real + despliegue local  
+✅ Ventaja de costes: TCO 60-80% inferior  
+✅ Conocimiento local: entender necesidades específicas valencianas
+
+**Nicho defendible:** PYMES manufactureras valencianas necesitan esta solución. El producto está listo. Es momento de ejecutar.
+
+---
+
+**Relación con ejercicio 001-001:** Este análisis valida la viabilidad comercial del ERP técnico desarrollado anteriormente.

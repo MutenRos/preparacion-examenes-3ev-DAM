@@ -1,0 +1,236 @@
+En este ejercicio, vamos a trabajar con Flask y MySQL para crear una aplicación web que gestione entradas de blog. El objetivo es mejorar el estilo de nuestra página web utilizando HTML y CSS, y también aprender a usar funciones en Python para manejar diferentes operaciones como insertar, listar, actualizar y eliminar entradas.
+
+Enunciado paso a paso
+
+Mejora el estilo de la página web: Abre el archivo 033-mejoramos el estilo.py y mejora el estilo de la página utilizando CSS. Asegúrate de que la página tenga un diseño limpio y atractivo.
+
+Documenta las funciones en Python: Abre el archivo 025-uso las funciones.py y documenta cada una de las funciones con un comentario que explique su propósito y cómo se usa. Por ejemplo:
+
+def insertar():
+    """Inserta una nueva entrada en la base de datos."""
+    # Código para insertar una entrada
+Ordena los artículos por fecha inversa: Abre el archivo 034-articulos por fecha inversa.py y modifica la consulta SQL para ordenar los artículos por fecha inversa.
+
+Restricciones
+
+No uses librerías externas.
+Mantén el alcance estricto del tema actual.
+Criterios de evaluación
+
+Introducción y contextualización (25%): El estudiante debe entender claramente el contexto del ejercicio y cómo se relaciona con lo aprendido en clase.
+
+Desarrollo técnico correcto y preciso (25%): El estudiante debe implementar correctamente los cambios en el estilo de la página y documentar las funciones de manera precisa.
+
+Aplicación práctica con ejemplo claro (25%): El estudiante debe probar su aplicación web y asegurarse de que funcione correctamente, ordenando los artículos por fecha inversa y mostrando un diseño atractivo.
+
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe explicar cómo este ejercicio se relaciona con lo aprendido en clase y cómo puede aplicarse en proyectos futuros.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+Introducción y contextualización
+
+En esta actividad, vamos a mejorar nuestra aplicación web de blog usando Flask y MySQL. Aprenderás a mejorar el estilo visual con CSS, documentar tu código profesionalmente y ordenar datos en bases de datos. Además, vamos a integrar tus hobbies de impresión 3D y Raspberry Pi para hacer el ejercicio más práctico y cercano a tus intereses.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+TAREA 1: Mejoramos el estilo de la página web
+
+Ya tenemos nuestra aplicación de blog funcionando, pero hoy la vamos a dejar mucho más bonita usando CSS. Esto hará que sea más cómoda de usar y visualmente atractiva.
+
+Abrimos el archivo `033-mejoramos el estilo.py` y mejoramos el CSS. Primero, añadimos un gradiente de fondo morado (inspirado en las impresoras Prusa):
+
+```css
+body, html {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+```
+
+Luego, añadimos efectos hover en los artículos para que se eleven cuando pasas el ratón por encima:
+
+```css
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  border-left-width: 8px;
+}
+```
+
+Y añadimos una animación sutil para que los artículos aparezcan suavemente:
+
+```css
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+article { animation: fadeIn 0.5s ease; }
+```
+
+Finalmente, hacemos que sea responsive para móviles:
+
+```css
+@media (max-width: 768px) {
+  header, main, footer { padding: 20px; margin: 10px; }
+  header h1 { font-size: 1.8em; }
+  article h3 { font-size: 1.4em; }
+}
+```
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+TAREA 2: Documentamos las funciones en Python
+
+Ahora vamos a documentar nuestras funciones para que cualquiera pueda entender qué hacen. Esto es súper importante cuando trabajas en equipo o cuando vuelves a tu código después de un tiempo.
+
+Abrimos el archivo `025-uso las funciones.py` y añadimos docstrings a cada función. Por ejemplo, para la función `insertar()`:
+
+```python
+def insertar():
+  """
+  Inserta una nueva entrada (post) en la base de datos.
+  
+  Solicita al usuario el título, fecha, contenido y autor del post,
+  y lo guarda en la tabla posts de MySQL.
+  
+  Args: Ninguno (solicita datos por input())
+  Returns: None
+  
+  Ejemplo:
+    >>> insertar()
+    Introduce el titulo: Carcasa para Raspberry Pi
+    Introduce la fecha: 2025-11-02
+    Introduce el contenido: Tutorial para diseñar e imprimir...
+    Introduce el id del autor: 1
+    
+  Nota:
+    ⚠️ Esta función usa concatenación de strings en SQL.
+    En producción deberías usar parametrización para evitar SQL injection.
+  """
+  titulo = input("Introduce el titulo: ")
+  fecha = input("Introduce la fecha: ")
+  contenido = input("Introduce el contenido: ")
+  autor = input("Introduce el id del autor: ")
+  cursor.execute("INSERT INTO posts VALUES (NULL,'"+titulo+"','"+fecha+"','"+contenido+"',"+autor+");")
+  conexion.commit()
+```
+
+También hay que corregir un bug: la función `menu()` no estaba retornando la opción elegida. Añadimos `return opcion` al final:
+
+```python
+def menu():
+  """Muestra el menú CRUD y retorna la opción elegida."""
+  print("Escoge una opción:")
+  print("1.-Crear entrada nueva")
+  print("2.-Listar entradas")
+  print("3.-Actualizar entrada")
+  print("4.-Eliminar entradas")
+  opcion = int(input("Escoge una opcion: "))
+  return opcion  # 🐛 Bug corregido: ahora retornamos la opción
+```
+
+Y en el programa principal cambiamos:
+
+```python
+while True:
+  opcion = menu()  # Ahora guardamos la opción retornada
+  if opcion == 1:
+    insertar()
+  # ...
+```
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+TAREA 3: Ordenamos los artículos por fecha inversa
+
+Los blogs modernos (como Twitter, Instagram, Medium) muestran las publicaciones más recientes primero. Vamos a hacer lo mismo con nuestro blog.
+
+Abrimos el archivo `034-articulos por fecha inversa.py` y modificamos la consulta SQL para añadir `ORDER BY fecha DESC`:
+
+```python
+# Orden descendente: del más reciente al más antiguo
+cursor.execute("SELECT * FROM posts_completos ORDER BY fecha DESC;")
+```
+
+Así el post de hoy aparecerá primero, y el de hace un mes al final. `DESC` significa "descendente" (de mayor a menor).
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+Aplicación práctica con ejemplo claro
+
+Para probar tu aplicación, primero necesitas crear la base de datos. Crea un archivo `inicializar_bd.sql`:
+
+```sql
+CREATE DATABASE IF NOT EXISTS blogexamen;
+USE blogexamen;
+
+CREATE TABLE autores (
+    Identificador INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    apellidos VARCHAR(150)
+);
+
+CREATE TABLE posts (
+    Identificador INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200),
+    fecha DATE,
+    contenido TEXT,
+    autor INT,
+    FOREIGN KEY (autor) REFERENCES autores(Identificador)
+);
+
+CREATE VIEW posts_completos AS
+SELECT p.titulo, DATE_FORMAT(p.fecha, '%d/%m/%Y') as fecha, p.contenido, a.nombre, a.apellidos
+FROM posts p INNER JOIN autores a ON p.autor = a.Identificador;
+
+INSERT INTO autores VALUES (1, 'Jose Vicente', 'Carratalá');
+INSERT INTO posts VALUES 
+(NULL, 'Diseño de carcasa para Raspberry Pi 4', '2025-10-15', 'Hoy terminé de diseñar una carcasa personalizada...', 1),
+(NULL, 'Control de LEDs mediante GPIO', '2025-10-28', 'Implementé un sistema de control de LEDs RGB...', 1),
+(NULL, 'Configuración de Octoprint', '2025-11-01', 'Guía completa para instalar Octoprint...', 1),
+(NULL, 'Soporte ajustable para cámara', '2025-11-02', 'Diseñé e imprimí un soporte universal...', 1);
+```
+
+Luego ejecutas:
+
+```bash
+pip install flask mysql-connector-python
+mysql -u root -p < inicializar_bd.sql
+python "034-articulos por fecha inversa.py"
+```
+
+Y abres en el navegador: http://localhost:5000
+
+Deberías ver tu blog con:
+• Fondo morado con gradiente
+• Artículos ordenados del más nuevo al más viejo (02/11 primero, 15/10 al final)
+• Efectos hover cuando pasas el ratón sobre los artículos
+• Responsive en móviles
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+Cierre/Conclusión enlazando con la unidad
+
+Este ejercicio integra todo lo aprendido en la Unidad 005 sobre lectura/escritura de información:
+
+**Bases de datos relacionales**: Hemos trabajado con MySQL, creando tablas relacionadas (autores y posts), vistas (posts_completos) y ordenando resultados con ORDER BY DESC.
+
+**Flask como backend web**: Hemos usado rutas (@app.route), renderizado de HTML dinámico y conexión con bases de datos desde Python.
+
+**Arquitectura MVC**: Model (datos en MySQL), View (HTML/CSS), Controller (funciones Python con CRUD).
+
+**Documentación profesional**: Los docstrings permiten que otros desarrolladores (o tú mismo en el futuro) entiendan el código sin tener que leerlo línea por línea.
+
+Este ejercicio puede aplicarse en proyectos futuros como:
+• Un blog personal para documentar tus proyectos de impresión 3D
+• Un sistema de gestión de piezas impresas con inventario y fotos
+• Una base de datos de configuraciones óptimas por material (PLA, PETG, ABS)
+• Un monitor de estado de tu impresora 3D con Raspberry Pi que registre logs en la base de datos
+
+Conceptos clave aprendidos:
+✓ CSS: Gradientes, animaciones con @keyframes, hover effects, responsive con @media
+✓ Python: Docstrings con Args/Returns/Ejemplo, gestión de conexiones a BD
+✓ SQL: ORDER BY DESC, vistas con CREATE VIEW, JOIN entre tablas
+✓ Flask: Decoradores @route, renderizado HTML, debug mode
+
+Recuerda que este es solo el comienzo. Puedes ampliar tu blog añadiendo paginación, búsqueda por palabras clave, categorías, subida de imágenes de tus modelos 3D, o incluso crear una API REST para consumirla desde una app móvil.

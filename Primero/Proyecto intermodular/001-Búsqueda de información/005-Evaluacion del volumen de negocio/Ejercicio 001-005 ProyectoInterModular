@@ -1,0 +1,48 @@
+Diseño de un Servicio de IA para PYMES en la Comunitat Valenciana
+
+Como asistente de PYMES, tu objetivo es diseñar y proyectar un servicio de inteligencia artificial (IA) que pueda ser ofrecido a las pymes locales. Para ello, necesitas estimar el volumen de negocio potencial y elaborar un plan de ingresos.
+
+Contexto:
+
+La Comunitat Valenciana es un mercado prometedor para servicios de IA debido a su creciente adopción y la estructura empresarial diversa. Los hobbies como jugar con Raspberrys y similares, así como el modelado e impresión 3D, te ayudarán a entender mejor los desafíos tecnológicos y las necesidades de los clientes.
+
+Enunciado paso a paso:
+
+Tamaño del mercado “top-down” (TAM/SAM) en CV
+
+Calcula el número total de empresas en la Comunitat Valenciana.
+Determina cuántas de estas empresas podrían ser consideradas como pymes con "músculo" (10–199 empleados).
+Estima el SAM práctico en CV.
+Modelo de ingresos: histórico (10 años), actual y proyección (20 años)
+
+Basándote en los datos históricos, calcula los ingresos anuales para cada escenario (conservador, base, ambicioso).
+Proyecta estos ingresos hasta el año 2045.
+Considera cómo la adopción de IA y las tendencias del mercado afectarán tus proyecciones.
+Metodología resumida
+
+Utiliza los pasos descritos para calcular el tamaño base del mercado en CV.
+Aplíca los supuestos comerciales para determinar el ticket anual (ACV) de tu servicio.
+Elabora un plan de ingresos detallado, considerando crecimiento orgánico y sostenido.
+Restricciones:
+
+No utilices librerías externas o estructuras no vistas en la clase.
+Asegúrate de usar solo los conceptos y métodos explicados en el material de clase.
+Criterios de evaluación:
+
+Introducción y contextualización (25%)
+
+Muestra una comprensión adecuada del contexto y su relevancia para la empresa.
+Demuestra cómo tus hobbies te ayudan a entender mejor los desafíos tecnológicos y las necesidades de los clientes.
+Desarrollo técnico correcto y preciso (25%)
+
+Calcula correctamente el tamaño del mercado y el SAM práctico en CV.
+Proyecta precisamente los ingresos anuales para cada escenario hasta 2045.
+Aplica correctamente los supuestos comerciales para determinar el ticket anual.
+Aplicación práctica con ejemplo claro (25%)
+
+Proporciona ejemplos claros de cómo aplicar los conceptos en la práctica real.
+Demuestra tu capacidad para analizar y proyectar datos relevantes.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+Concluye el ejercicio, enfocándote en cómo estos cálculos pueden ayudar a la empresa a tomar decisiones estratégicas.
+Muestra cómo los resultados de tu análisis podrían influir en el diseño y expansión del servicio de IA.

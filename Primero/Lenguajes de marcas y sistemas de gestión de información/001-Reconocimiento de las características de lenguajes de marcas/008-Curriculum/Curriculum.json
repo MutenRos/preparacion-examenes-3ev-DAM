@@ -1,0 +1,65 @@
+{
+    "datos_personales": {
+        "nombre": "Dario",
+        "apellidos": "Lacal Civera",
+        "email": "dariolacal94@gmail.com"
+    },
+    "redes_sociales": [
+        {
+            "facebook": "https://www.facebook.com/DarioLC94"
+        },
+        {
+            "instagram": "https://www.instagram.com/rosdelamugre/"
+        },
+        {
+            "linkedin": "https://www.linkedin.com/in/dar%C3%ADo-lacal-953946389/"
+        },
+        {
+            "github": "https://github.com/MutenRos"
+        }
+    ],
+    "formacion": [
+        {
+            "titulo": "Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+            "institucion": "Tame Centro de Formacion",
+            "periodo": "2025-Actualidad"
+        },
+        {
+            "titulo": "Tecnico en sistemas microinformaticos y redes",
+            "institucion": "Tame Centro de Formacion",
+            "periodo": "2023-2025"
+        },
+        {
+            "titulo": "Ciclo Formativo de Grado Medio en Madera y Mueble",
+            "institucion": "Centro de formacion SERVEF Catarroja",
+            "periodo": "2013-2015"
+        },
+        {
+            "titulo": "Educacion Secundaria Obligatoria",
+            "institucion": "Patronato Parroquial Don Pio XII",
+            "periodo": "2007-2012"
+        }
+    ],
+    "experiencia_laboral": [
+        {
+            "puesto": "Recepcion de Envios",
+            "empresa": "Bombas IDEAL",
+            "periodo": "2024-Actualidad"
+        },
+        {
+            "puesto": "Oficial de Mantenimiento",
+            "empresa": "A.U.P.I.M.",
+            "periodo": "2023-2024"
+        },
+        {
+            "puesto": "Operario de CNC de Corte(seccionadora de madera) y Operario de Chapadora",
+            "empresa": "Getnou",
+            "periodo": "2020-2022"
+        },
+        {
+            "puesto": "Operario de CNC (telas y tapizados)",
+            "empresa": "Sofas Cama Zardá",
+            "periodo": "2017-2020"
+        }
+    ]
+}

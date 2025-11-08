@@ -1,0 +1,34 @@
+{
+    "proyecto": "Soporte Raspberry Pi Camera",
+    "version": "2.1",
+    "autor": "Dario",
+    "fecha_creacion": "2025-11-02",
+    "materiales": [
+        {
+            "tipo": "PLA",
+            "color": "Negro",
+            "marca": "Geeetech",
+            "diametro": "1.75mm"
+        }
+    ],
+    "configuracion_impresion": {
+        "temperatura_extrusor": 210,
+        "temperatura_cama": 60,
+        "velocidad_impresion": 60,
+        "velocidad_primera_capa": 20,
+        "altura_capa": 0.2,
+        "relleno_porcentaje": 20,
+        "patron_relleno": "grid",
+        "soportes": true,
+        "tipo_soportes": "tree",
+        "adhesion": "brim",
+        "ancho_brim": 5
+    },
+    "estimaciones": {
+        "tiempo_horas": 2.5,
+        "peso_gramos": 15,
+        "longitud_filamento_metros": 5.2,
+        "costo_estimado_euros": 0.18
+    },
+    "notas": "Funciona perfecto con RPi 3 y 4. Considerar aumentar grosor de la base para más estabilidad."
+}

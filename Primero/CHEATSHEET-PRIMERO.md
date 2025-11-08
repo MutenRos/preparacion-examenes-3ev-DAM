@@ -2158,4 +2158,2512 @@ python3 script.py
 
 ---
 
+## 🎯 SIMULACROS DE EXAMEN
+
+### Bases de Datos - Blog con Autores y Entradas
+
+**Escenario completo**: Crear un sistema de blog profesional con autores, entradas, categorías y comentarios.
+
+#### Paso 1: Crear base de datos con codificación correcta
+
+```sql
+-- UTF-8 para acentos y emojis 😊
+CREATE DATABASE blog2526 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
+
+USE blog2526;
+```
+
+**¿Por qué UTF-8?** Para guardar tildes (á, é, í), ñ, emojis y caracteres especiales sin problemas.
+
+#### Paso 2: Crear tablas sin restricciones
+
+```sql
+-- Primero creamos estructura básica
+CREATE TABLE autores (
+    id_autor INT,
+    nombre VARCHAR(100),
+    email VARCHAR(100),
+    fecha_registro DATE,
+    biografia TEXT
+);
+
+CREATE TABLE categorias (
+    id_categoria INT,
+    nombre VARCHAR(50),
+    descripcion VARCHAR(200)
+);
+
+CREATE TABLE entradas (
+    id_entrada INT,
+    id_autor INT,
+    id_categoria INT,
+    titulo VARCHAR(200),
+    contenido TEXT,
+    fecha_publicacion DATE,
+    visitas INT DEFAULT 0,
+    estado ENUM('borrador', 'publicado', 'archivado') DEFAULT 'borrador'
+);
+
+CREATE TABLE comentarios (
+    id_comentario INT,
+    id_entrada INT,
+    nombre_usuario VARCHAR(100),
+    comentario TEXT,
+    fecha_comentario DATETIME
+);
+```
+
+#### Paso 3: Añadir claves primarias con ALTER TABLE
+
+```sql
+-- Añadimos restricciones después
+ALTER TABLE autores 
+ADD PRIMARY KEY (id_autor);
+
+ALTER TABLE categorias 
+ADD PRIMARY KEY (id_categoria);
+
+ALTER TABLE entradas 
+ADD PRIMARY KEY (id_entrada);
+
+ALTER TABLE comentarios 
+ADD PRIMARY KEY (id_comentario);
+```
+
+**¿Por qué ALTER TABLE?** En examen suelen dar tablas ya creadas y hay que modificarlas.
+
+#### Paso 4: Añadir AUTO_INCREMENT (importante para MySQL)
+
+```sql
+-- Modificamos las claves primarias para que sean auto-incrementales
+ALTER TABLE autores 
+MODIFY id_autor INT AUTO_INCREMENT;
+
+ALTER TABLE categorias 
+MODIFY id_categoria INT AUTO_INCREMENT;
+
+ALTER TABLE entradas 
+MODIFY id_entrada INT AUTO_INCREMENT;
+
+ALTER TABLE comentarios 
+MODIFY id_comentario INT AUTO_INCREMENT;
+```
+
+#### Paso 5: Crear claves foráneas con restricciones
+
+```sql
+-- Entrada → Autor (si borras autor, ¿qué pasa con sus entradas?)
+ALTER TABLE entradas
+ADD CONSTRAINT fk_entrada_autor
+FOREIGN KEY (id_autor) 
+REFERENCES autores(id_autor)
+ON DELETE CASCADE          -- Borrar entradas del autor
+ON UPDATE CASCADE;         -- Actualizar si cambia id
+
+-- Entrada → Categoría
+ALTER TABLE entradas
+ADD CONSTRAINT fk_entrada_categoria
+FOREIGN KEY (id_categoria) 
+REFERENCES categorias(id_categoria)
+ON DELETE SET NULL         -- Si borras categoría, poner NULL
+ON UPDATE CASCADE;
+
+-- Comentario → Entrada
+ALTER TABLE comentarios
+ADD CONSTRAINT fk_comentario_entrada
+FOREIGN KEY (id_entrada) 
+REFERENCES entradas(id_entrada)
+ON DELETE CASCADE          -- Si borras entrada, borrar sus comentarios
+ON UPDATE CASCADE;
+```
+
+**Opciones ON DELETE:**
+- `CASCADE`: Borra en cascada (si borras autor, borra sus entradas)
+- `SET NULL`: Pone NULL (si borras categoría, entrada queda sin categoría)
+- `RESTRICT`: No permite borrar si tiene datos relacionados
+- `NO ACTION`: Igual que RESTRICT
+
+#### Paso 6: Insertar datos de prueba
+
+```sql
+-- Autores
+INSERT INTO autores (nombre, email, fecha_registro, biografia) VALUES
+('Ana García', 'ana@blog.com', '2024-01-10', 'Desarrolladora web apasionada por Python y bases de datos'),
+('Carlos Ruiz', 'carlos@blog.com', '2024-02-15', 'Experto en impresión 3D y Arduino'),
+('María López', 'maria@blog.com', '2024-03-20', 'Estudiante de DAM, entusiasta de Raspberry Pi'),
+('Pedro Sánchez', 'pedro@blog.com', '2024-04-05', 'Maker y desarrollador full-stack');
+
+-- Categorías
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Programación', 'Tutoriales de Python, Java, JavaScript'),
+('Hardware', 'Raspberry Pi, Arduino, IoT'),
+('Impresión 3D', 'Diseños, filamentos, tutoriales'),
+('Bases de datos', 'MySQL, PostgreSQL, MongoDB'),
+('Proyectos', 'Proyectos integradores y prácticos');
+
+-- Entradas (nota: id_autor y id_categoria se autogeneran)
+INSERT INTO entradas (id_autor, id_categoria, titulo, contenido, fecha_publicacion, visitas, estado) VALUES
+(1, 1, 'Introducción a Python', 'Python es un lenguaje versátil...', '2025-01-15', 150, 'publicado'),
+(2, 2, 'Controlar LED con Raspberry Pi', 'Tutorial para encender LEDs con GPIO...', '2025-01-20', 230, 'publicado'),
+(1, 4, 'Bases de datos relacionales', 'Conceptos fundamentales de MySQL...', '2025-01-25', 180, 'publicado'),
+(3, 3, 'Mi primera impresión 3D', 'Configuración de Cura para PLA...', '2025-02-01', 95, 'publicado'),
+(2, 5, 'Sistema domótico con ESP32', 'Controla luces desde tu móvil...', '2025-02-10', 320, 'publicado'),
+(4, 1, 'Flask: web en Python', 'Crear APIs REST con Flask...', '2025-02-15', 275, 'publicado'),
+(1, 1, 'Tutorial de decoradores', 'Borrador en progreso...', NULL, 0, 'borrador');
+
+-- Comentarios
+INSERT INTO comentarios (id_entrada, nombre_usuario, comentario, fecha_comentario) VALUES
+(1, 'Usuario123', 'Excelente tutorial para principiantes', '2025-01-16 10:30:00'),
+(1, 'DevJunior', 'Me ayudó mucho, gracias!', '2025-01-17 14:20:00'),
+(2, 'MakerPro', '¿Funciona con Raspberry Pi 3?', '2025-01-21 09:15:00'),
+(2, 'Carlos Ruiz', 'Sí, funciona con Pi 3 y Pi 4', '2025-01-21 10:00:00'),
+(3, 'Estudiante', 'Muy clara la explicación de JOINs', '2025-01-26 16:45:00'),
+(5, 'HomeUser', 'Implementé esto en casa, funciona perfecto', '2025-02-11 20:30:00');
+```
+
+#### Paso 7: Consultas avanzadas con JOINs
+
+```sql
+-- LEFT JOIN: Todos los autores, aunque no tengan entradas publicadas
+SELECT 
+    a.nombre AS autor,
+    a.email,
+    COUNT(e.id_entrada) AS num_entradas,
+    COALESCE(SUM(e.visitas), 0) AS total_visitas
+FROM autores a
+LEFT JOIN entradas e ON a.id_autor = e.id_autor 
+    AND e.estado = 'publicado'
+GROUP BY a.id_autor, a.nombre, a.email
+ORDER BY total_visitas DESC;
+
+-- INNER JOIN múltiple: Entradas con toda su información
+SELECT 
+    e.titulo,
+    a.nombre AS autor,
+    c.nombre AS categoria,
+    e.fecha_publicacion,
+    e.visitas,
+    COUNT(com.id_comentario) AS num_comentarios
+FROM entradas e
+INNER JOIN autores a ON e.id_autor = a.id_autor
+INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+LEFT JOIN comentarios com ON e.id_entrada = com.id_entrada
+WHERE e.estado = 'publicado'
+GROUP BY e.id_entrada, e.titulo, a.nombre, c.nombre, 
+         e.fecha_publicacion, e.visitas
+ORDER BY e.fecha_publicacion DESC;
+
+-- Subconsulta: Entradas más populares que la media
+SELECT titulo, visitas
+FROM entradas
+WHERE visitas > (SELECT AVG(visitas) FROM entradas)
+ORDER BY visitas DESC;
+
+-- HAVING: Categorías con más de 2 entradas
+SELECT 
+    c.nombre AS categoria,
+    COUNT(e.id_entrada) AS num_entradas,
+    AVG(e.visitas) AS visitas_promedio
+FROM categorias c
+LEFT JOIN entradas e ON c.id_categoria = e.id_categoria
+GROUP BY c.id_categoria, c.nombre
+HAVING COUNT(e.id_entrada) > 1
+ORDER BY num_entradas DESC;
+```
+
+#### Paso 8: Crear vistas para consultas frecuentes
+
+```sql
+-- Vista: Resumen de entradas publicadas
+CREATE VIEW vista_entradas_publicadas AS
+SELECT 
+    e.id_entrada,
+    e.titulo,
+    a.nombre AS autor,
+    a.email AS email_autor,
+    c.nombre AS categoria,
+    DATE_FORMAT(e.fecha_publicacion, '%d/%m/%Y') AS fecha,
+    e.visitas,
+    (SELECT COUNT(*) 
+     FROM comentarios com 
+     WHERE com.id_entrada = e.id_entrada) AS comentarios
+FROM entradas e
+INNER JOIN autores a ON e.id_autor = a.id_autor
+INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+WHERE e.estado = 'publicado'
+ORDER BY e.fecha_publicacion DESC;
+
+-- Usar la vista
+SELECT * FROM vista_entradas_publicadas WHERE categoria = 'Hardware';
+
+-- Vista: Ranking de autores
+CREATE VIEW vista_ranking_autores AS
+SELECT 
+    a.nombre,
+    COUNT(e.id_entrada) AS entradas_publicadas,
+    SUM(e.visitas) AS total_visitas,
+    AVG(e.visitas) AS visitas_promedio
+FROM autores a
+LEFT JOIN entradas e ON a.id_autor = e.id_autor 
+    AND e.estado = 'publicado'
+GROUP BY a.id_autor, a.nombre
+ORDER BY total_visitas DESC;
+```
+
+#### Paso 9: Crear usuarios con permisos específicos
+
+```sql
+-- Usuario para la aplicación web (lectura y escritura)
+CREATE USER 'blog_app'@'localhost' IDENTIFIED BY 'App_2025!';
+GRANT SELECT, INSERT, UPDATE ON blog2526.* TO 'blog_app'@'localhost';
+
+-- Usuario para los autores (solo sus propias entradas)
+CREATE USER 'autor'@'localhost' IDENTIFIED BY 'Autor_2025!';
+GRANT SELECT ON blog2526.vista_entradas_publicadas TO 'autor'@'localhost';
+GRANT INSERT, UPDATE ON blog2526.entradas TO 'autor'@'localhost';
+
+-- Usuario administrador (todos los permisos)
+CREATE USER 'blog_admin'@'localhost' IDENTIFIED BY 'Admin_2025!';
+GRANT ALL PRIVILEGES ON blog2526.* TO 'blog_admin'@'localhost';
+
+-- Usuario solo lectura (estadísticas)
+CREATE USER 'blog_stats'@'localhost' IDENTIFIED BY 'Stats_2025!';
+GRANT SELECT ON blog2526.vista_ranking_autores TO 'blog_stats'@'localhost';
+GRANT SELECT ON blog2526.vista_entradas_publicadas TO 'blog_stats'@'localhost';
+
+-- Aplicar cambios
+FLUSH PRIVILEGES;
+
+-- Ver permisos de un usuario
+SHOW GRANTS FOR 'blog_app'@'localhost';
+```
+
+#### Paso 10: Operaciones avanzadas
+
+```sql
+-- UPDATE: Incrementar visitas
+UPDATE entradas 
+SET visitas = visitas + 1 
+WHERE id_entrada = 5;
+
+-- UPDATE con JOIN: Cambiar categoría de todas las entradas de un autor
+UPDATE entradas e
+INNER JOIN autores a ON e.id_autor = a.id_autor
+SET e.id_categoria = 5
+WHERE a.nombre = 'Carlos Ruiz' AND e.estado = 'borrador';
+
+-- DELETE con subconsulta: Borrar comentarios spam (menos de 5 caracteres)
+DELETE FROM comentarios 
+WHERE LENGTH(comentario) < 5;
+
+-- Transacciones: Publicar entrada y notificar
+START TRANSACTION;
+
+UPDATE entradas 
+SET estado = 'publicado', 
+    fecha_publicacion = CURDATE() 
+WHERE id_entrada = 7;
+
+INSERT INTO comentarios (id_entrada, nombre_usuario, comentario, fecha_comentario)
+VALUES (7, 'Sistema', 'Entrada publicada automáticamente', NOW());
+
+COMMIT;  -- Si todo OK, confirmar cambios
+-- ROLLBACK;  -- Si hay error, deshacer
+```
+
+**Conceptos clave del simulacro completo:**
+- ✅ CREATE DATABASE con charset UTF-8 (acentos y emojis)
+- ✅ ALTER TABLE para modificar estructura existente
+- ✅ AUTO_INCREMENT para claves primarias
+- ✅ FOREIGN KEY con ON DELETE CASCADE/SET NULL
+- ✅ INNER JOIN vs LEFT JOIN (diferencia crucial)
+- ✅ Subconsultas en SELECT y WHERE
+- ✅ GROUP BY + HAVING para filtrar grupos
+- ✅ CREATE VIEW para consultas reutilizables
+- ✅ Gestión de usuarios con GRANT específicos
+- ✅ Transacciones con START TRANSACTION/COMMIT
+- ✅ Funciones: COUNT(), AVG(), SUM(), DATE_FORMAT(), COALESCE()
+
+**Aplicación práctica con Raspberry Pi:**
+- Blog de proyectos maker guardado en MySQL
+- Raspberry Pi como servidor web + base de datos
+- Consultas desde app móvil para ver entradas
+- Sistema de comentarios en tiempo real
+
+### Programación - CRUD Completo de Blog con Python
+
+**Escenario completo**: Aplicación de consola profesional para gestionar el blog con todas las operaciones CRUD, validaciones, exportación y menú interactivo.
+
+#### Arquitectura del proyecto
+
+```
+blog_manager/
+│
+├── main.py              # Programa principal con menú
+├── database.py          # Conexión y operaciones BD
+├── modelos.py           # Clases Entrada, Autor, Comentario
+├── exportador.py        # Exportar a JSON/CSV
+└── config.py            # Configuración (credenciales BD)
+```
+
+#### 1. Configuración y conexión (config.py + database.py)
+
+```python
+# config.py - Credenciales centralizadas
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'blog_app',
+    'password': 'App_2025!',
+    'database': 'blog2526'
+}
+
+# database.py - Gestión de conexión
+import mysql.connector
+from mysql.connector import Error
+from config import DB_CONFIG
+
+class Database:
+    def __init__(self):
+        """Inicializar conexión a la base de datos"""
+        try:
+            self.conexion = mysql.connector.connect(**DB_CONFIG)
+            self.cursor = self.conexion.cursor(dictionary=True)  # Resultados como dict
+            print("✓ Conectado a la base de datos")
+        except Error as e:
+            print(f"✗ Error de conexión: {e}")
+            self.conexion = None
+    
+    def ejecutar_query(self, query, parametros=None):
+        """Ejecutar SELECT y devolver resultados"""
+        try:
+            self.cursor.execute(query, parametros or ())
+            return self.cursor.fetchall()
+        except Error as e:
+            print(f"✗ Error en consulta: {e}")
+            return []
+    
+    def ejecutar_modificacion(self, query, parametros=None):
+        """Ejecutar INSERT/UPDATE/DELETE"""
+        try:
+            self.cursor.execute(query, parametros or ())
+            self.conexion.commit()
+            return True
+        except Error as e:
+            print(f"✗ Error: {e}")
+            self.conexion.rollback()
+            return False
+    
+    def obtener_ultimo_id(self):
+        """Obtener ID del último INSERT"""
+        return self.cursor.lastrowid
+    
+    def cerrar(self):
+        """Cerrar conexión"""
+        if self.conexion and self.conexion.is_connected():
+            self.cursor.close()
+            self.conexion.close()
+            print("✓ Conexión cerrada")
+```
+
+#### 2. Modelos - POO con clases (modelos.py)
+
+```python
+# modelos.py - Clases para representar entidades
+from datetime import datetime
+
+class Autor:
+    def __init__(self, id_autor=None, nombre="", email="", fecha_registro=None, biografia=""):
+        self.id_autor = id_autor
+        self.nombre = nombre
+        self.email = email
+        self.fecha_registro = fecha_registro or datetime.now().date()
+        self.biografia = biografia
+    
+    def validar(self):
+        """Validar datos antes de guardar"""
+        errores = []
+        if not self.nombre or len(self.nombre) < 3:
+            errores.append("Nombre debe tener al menos 3 caracteres")
+        if "@" not in self.email or "." not in self.email:
+            errores.append("Email inválido")
+        return errores
+    
+    def __str__(self):
+        return f"{self.nombre} ({self.email})"
+
+class Entrada:
+    def __init__(self, id_entrada=None, id_autor=None, id_categoria=None,
+                 titulo="", contenido="", fecha_publicacion=None, 
+                 visitas=0, estado="borrador"):
+        self.id_entrada = id_entrada
+        self.id_autor = id_autor
+        self.id_categoria = id_categoria
+        self.titulo = titulo
+        self.contenido = contenido
+        self.fecha_publicacion = fecha_publicacion
+        self.visitas = visitas
+        self.estado = estado
+    
+    def validar(self):
+        """Validar entrada"""
+        errores = []
+        if not self.titulo or len(self.titulo) < 5:
+            errores.append("Título debe tener al menos 5 caracteres")
+        if not self.contenido or len(self.contenido) < 20:
+            errores.append("Contenido debe tener al menos 20 caracteres")
+        if not self.id_autor:
+            errores.append("Debe especificar un autor")
+        if not self.id_categoria:
+            errores.append("Debe especificar una categoría")
+        if self.estado not in ['borrador', 'publicado', 'archivado']:
+            errores.append("Estado inválido")
+        return errores
+    
+    def __str__(self):
+        return f"[{self.estado.upper()}] {self.titulo} ({self.visitas} visitas)"
+
+class Comentario:
+    def __init__(self, id_comentario=None, id_entrada=None, 
+                 nombre_usuario="", comentario="", fecha_comentario=None):
+        self.id_comentario = id_comentario
+        self.id_entrada = id_entrada
+        self.nombre_usuario = nombre_usuario
+        self.comentario = comentario
+        self.fecha_comentario = fecha_comentario or datetime.now()
+    
+    def validar(self):
+        errores = []
+        if not self.nombre_usuario or len(self.nombre_usuario) < 2:
+            errores.append("Nombre de usuario debe tener al menos 2 caracteres")
+        if not self.comentario or len(self.comentario) < 5:
+            errores.append("Comentario debe tener al menos 5 caracteres")
+        return errores
+```
+
+#### 3. Sistema CRUD completo
+
+```python
+# main.py - Programa principal
+from database import Database
+from modelos import Entrada, Autor, Comentario
+import json
+import csv
+from datetime import datetime
+
+class BlogManager:
+    def __init__(self):
+        self.db = Database()
+    
+    # ========== CREATE (Insertar) ==========
+    
+    def crear_entrada(self):
+        """Crear nueva entrada interactivamente"""
+        print("\n" + "="*60)
+        print("CREAR NUEVA ENTRADA")
+        print("="*60)
+        
+        # Mostrar autores disponibles
+        self.listar_autores_simple()
+        id_autor = self.pedir_numero("\nID del autor: ")
+        
+        # Mostrar categorías
+        self.listar_categorias_simple()
+        id_categoria = self.pedir_numero("ID de la categoría: ")
+        
+        # Pedir datos
+        titulo = input("Título: ").strip()
+        contenido = input("Contenido: ").strip()
+        estado = input("Estado (borrador/publicado) [borrador]: ").strip() or "borrador"
+        
+        # Crear objeto y validar
+        entrada = Entrada(
+            id_autor=id_autor,
+            id_categoria=id_categoria,
+            titulo=titulo,
+            contenido=contenido,
+            estado=estado
+        )
+        
+        errores = entrada.validar()
+        if errores:
+            print("\n✗ Errores de validación:")
+            for error in errores:
+                print(f"  • {error}")
+            return
+        
+        # Insertar en BD
+        query = """
+            INSERT INTO entradas (id_autor, id_categoria, titulo, contenido, 
+                                 fecha_publicacion, estado, visitas)
+            VALUES (%s, %s, %s, %s, %s, %s, 0)
+        """
+        fecha = datetime.now().date() if estado == 'publicado' else None
+        parametros = (id_autor, id_categoria, titulo, contenido, fecha, estado)
+        
+        if self.db.ejecutar_modificacion(query, parametros):
+            id_nueva = self.db.obtener_ultimo_id()
+            print(f"\n✓ Entrada creada con ID: {id_nueva}")
+        else:
+            print("\n✗ Error al crear entrada")
+    
+    # ========== READ (Listar/Buscar) ==========
+    
+    def listar_entradas(self, filtro_estado=None):
+        """Listar entradas con formato de tabla"""
+        print("\n" + "="*120)
+        print("LISTADO DE ENTRADAS")
+        print("="*120)
+        
+        query = """
+            SELECT 
+                e.id_entrada,
+                e.titulo,
+                a.nombre AS autor,
+                c.nombre AS categoria,
+                e.fecha_publicacion,
+                e.visitas,
+                e.estado,
+                (SELECT COUNT(*) FROM comentarios 
+                 WHERE id_entrada = e.id_entrada) AS num_comentarios
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        """
+        
+        if filtro_estado:
+            query += " WHERE e.estado = %s"
+            resultados = self.db.ejecutar_query(query, (filtro_estado,))
+        else:
+            resultados = self.db.ejecutar_query(query)
+        
+        if not resultados:
+            print("No hay entradas")
+            return
+        
+        # Encabezado
+        print(f"{'ID':<5} {'TÍTULO':<35} {'AUTOR':<20} {'CATEGORÍA':<15} "
+              f"{'FECHA':<12} {'VISITAS':<8} {'COMENT.':<8} {'ESTADO':<10}")
+        print("-" * 120)
+        
+        # Filas
+        for entrada in resultados:
+            fecha = entrada['fecha_publicacion'].strftime('%d/%m/%Y') if entrada['fecha_publicacion'] else 'Sin fecha'
+            estado_color = {
+                'publicado': '🟢',
+                'borrador': '🟡',
+                'archivado': '⚪'
+            }.get(entrada['estado'], '')
+            
+            print(f"{entrada['id_entrada']:<5} "
+                  f"{entrada['titulo'][:33]:<35} "
+                  f"{entrada['autor'][:18]:<20} "
+                  f"{entrada['categoria'][:13]:<15} "
+                  f"{fecha:<12} "
+                  f"{entrada['visitas']:<8} "
+                  f"{entrada['num_comentarios']:<8} "
+                  f"{estado_color} {entrada['estado']:<9}")
+        
+        print("-" * 120)
+        print(f"Total: {len(resultados)} entradas")
+    
+    def buscar_entradas(self):
+        """Buscar entradas por palabra clave"""
+        keyword = input("\nPalabra clave (busca en título y contenido): ").strip()
+        
+        query = """
+            SELECT e.id_entrada, e.titulo, a.nombre AS autor, e.visitas
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            WHERE e.titulo LIKE %s OR e.contenido LIKE %s
+            ORDER BY e.visitas DESC
+        """
+        
+        patron = f"%{keyword}%"
+        resultados = self.db.ejecutar_query(query, (patron, patron))
+        
+        if not resultados:
+            print("No se encontraron resultados")
+            return
+        
+        print(f"\nEncontradas {len(resultados)} entradas:")
+        for r in resultados:
+            print(f"  [{r['id_entrada']}] {r['titulo']} - {r['autor']} ({r['visitas']} visitas)")
+    
+    # ========== UPDATE (Actualizar) ==========
+    
+    def actualizar_entrada(self):
+        """Actualizar entrada existente"""
+        self.listar_entradas()
+        id_entrada = self.pedir_numero("\nID de la entrada a actualizar: ")
+        
+        # Cargar datos actuales
+        query = "SELECT * FROM entradas WHERE id_entrada = %s"
+        resultado = self.db.ejecutar_query(query, (id_entrada,))
+        
+        if not resultado:
+            print("✗ Entrada no encontrada")
+            return
+        
+        entrada_actual = resultado[0]
+        
+        print("\nDeja en blanco para mantener el valor actual")
+        nuevo_titulo = input(f"Título [{entrada_actual['titulo']}]: ").strip()
+        nuevo_contenido = input(f"Contenido [{entrada_actual['contenido'][:30]}...]: ").strip()
+        nuevo_estado = input(f"Estado [{entrada_actual['estado']}]: ").strip()
+        
+        # Usar valores actuales si no se ingresó nada
+        titulo_final = nuevo_titulo or entrada_actual['titulo']
+        contenido_final = nuevo_contenido or entrada_actual['contenido']
+        estado_final = nuevo_estado or entrada_actual['estado']
+        
+        # Actualizar fecha si se publica
+        fecha_pub = datetime.now().date() if estado_final == 'publicado' and entrada_actual['estado'] != 'publicado' else entrada_actual['fecha_publicacion']
+        
+        query = """
+            UPDATE entradas 
+            SET titulo = %s, contenido = %s, estado = %s, fecha_publicacion = %s
+            WHERE id_entrada = %s
+        """
+        
+        if self.db.ejecutar_modificacion(query, (titulo_final, contenido_final, 
+                                                   estado_final, fecha_pub, id_entrada)):
+            print("\n✓ Entrada actualizada")
+        else:
+            print("\n✗ Error al actualizar")
+    
+    def incrementar_visitas(self, id_entrada):
+        """Incrementar contador de visitas"""
+        query = "UPDATE entradas SET visitas = visitas + 1 WHERE id_entrada = %s"
+        self.db.ejecutar_modificacion(query, (id_entrada,))
+    
+    # ========== DELETE (Eliminar) ==========
+    
+    def eliminar_entrada(self):
+        """Eliminar entrada con confirmación"""
+        self.listar_entradas()
+        id_entrada = self.pedir_numero("\nID de la entrada a eliminar: ")
+        
+        # Mostrar detalles antes de borrar
+        query = """
+            SELECT e.titulo, a.nombre AS autor,
+                   (SELECT COUNT(*) FROM comentarios WHERE id_entrada = e.id_entrada) AS comentarios
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            WHERE e.id_entrada = %s
+        """
+        resultado = self.db.ejecutar_query(query, (id_entrada,))
+        
+        if not resultado:
+            print("✗ Entrada no encontrada")
+            return
+        
+        entrada = resultado[0]
+        print(f"\n⚠️  ¿Eliminar '{entrada['titulo']}' de {entrada['autor']}?")
+        print(f"    Esto también eliminará {entrada['comentarios']} comentarios")
+        
+        confirmacion = input("    Escribe 'CONFIRMAR' para eliminar: ").strip()
+        
+        if confirmacion == 'CONFIRMAR':
+            query = "DELETE FROM entradas WHERE id_entrada = %s"
+            if self.db.ejecutar_modificacion(query, (id_entrada,)):
+                print("\n✓ Entrada eliminada")
+            else:
+                print("\n✗ Error al eliminar")
+        else:
+            print("\n✗ Eliminación cancelada")
+    
+    # ========== EXPORTACIÓN ==========
+    
+    def exportar_json(self):
+        """Exportar todas las entradas a JSON"""
+        query = """
+            SELECT 
+                e.id_entrada, e.titulo, e.contenido,
+                a.nombre AS autor, a.email AS email_autor,
+                c.nombre AS categoria,
+                e.fecha_publicacion, e.visitas, e.estado
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+            WHERE e.estado = 'publicado'
+            ORDER BY e.fecha_publicacion DESC
+        """
+        
+        resultados = self.db.ejecutar_query(query)
+        
+        # Convertir date a string para JSON
+        for r in resultados:
+            if r['fecha_publicacion']:
+                r['fecha_publicacion'] = r['fecha_publicacion'].strftime('%Y-%m-%d')
+        
+        filename = f"blog_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(resultados, f, indent=4, ensure_ascii=False)
+        
+        print(f"\n✓ {len(resultados)} entradas exportadas a {filename}")
+    
+    def exportar_csv(self):
+        """Exportar a CSV para Excel"""
+        query = """
+            SELECT 
+                e.titulo, a.nombre AS autor, c.nombre AS categoria,
+                e.fecha_publicacion, e.visitas, e.estado
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        """
+        
+        resultados = self.db.ejecutar_query(query)
+        
+        filename = f"blog_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        with open(filename, 'w', newline='', encoding='utf-8-sig') as f:  # BOM para Excel
+            if resultados:
+                writer = csv.DictWriter(f, fieldnames=resultados[0].keys())
+                writer.writeheader()
+                for row in resultados:
+                    if row['fecha_publicacion']:
+                        row['fecha_publicacion'] = row['fecha_publicacion'].strftime('%d/%m/%Y')
+                    writer.writerow(row)
+        
+        print(f"\n✓ {len(resultados)} entradas exportadas a {filename}")
+    
+    # ========== ESTADÍSTICAS ==========
+    
+    def mostrar_estadisticas(self):
+        """Dashboard de estadísticas"""
+        print("\n" + "="*70)
+        print("📊 ESTADÍSTICAS DEL BLOG")
+        print("="*70)
+        
+        # Total entradas por estado
+        query = """
+            SELECT estado, COUNT(*) as total, SUM(visitas) as visitas_total
+            FROM entradas
+            GROUP BY estado
+        """
+        estados = self.db.ejecutar_query(query)
+        
+        print("\n📝 Entradas por estado:")
+        for e in estados:
+            print(f"  {e['estado'].capitalize()}: {e['total']} entradas, {e['visitas_total'] or 0} visitas")
+        
+        # Top 5 entradas más visitadas
+        query = """
+            SELECT e.titulo, a.nombre AS autor, e.visitas
+            FROM entradas e
+            INNER JOIN autores a ON e.id_autor = a.id_autor
+            WHERE e.estado = 'publicado'
+            ORDER BY e.visitas DESC
+            LIMIT 5
+        """
+        top_entradas = self.db.ejecutar_query(query)
+        
+        print("\n🏆 Top 5 entradas más visitadas:")
+        for i, e in enumerate(top_entradas, 1):
+            print(f"  {i}. {e['titulo']} - {e['autor']} ({e['visitas']} visitas)")
+        
+        # Autores más activos
+        query = """
+            SELECT a.nombre, COUNT(e.id_entrada) as entradas, SUM(e.visitas) as visitas_total
+            FROM autores a
+            LEFT JOIN entradas e ON a.id_autor = e.id_autor AND e.estado = 'publicado'
+            GROUP BY a.id_autor, a.nombre
+            ORDER BY entradas DESC
+        """
+        autores = self.db.ejecutar_query(query)
+        
+        print("\n✍️ Ranking de autores:")
+        for i, a in enumerate(autores, 1):
+            print(f"  {i}. {a['nombre']}: {a['entradas'] or 0} entradas, {a['visitas_total'] or 0} visitas")
+    
+    # ========== UTILIDADES ==========
+    
+    def listar_autores_simple(self):
+        """Listar autores para selección"""
+        query = "SELECT id_autor, nombre, email FROM autores"
+        autores = self.db.ejecutar_query(query)
+        print("\nAutores disponibles:")
+        for a in autores:
+            print(f"  [{a['id_autor']}] {a['nombre']} ({a['email']})")
+    
+    def listar_categorias_simple(self):
+        """Listar categorías para selección"""
+        query = "SELECT id_categoria, nombre FROM categorias"
+        categorias = self.db.ejecutar_query(query)
+        print("\nCategorías disponibles:")
+        for c in categorias:
+            print(f"  [{c['id_categoria']}] {c['nombre']}")
+    
+    def pedir_numero(self, mensaje):
+        """Pedir input numérico con validación"""
+        while True:
+            try:
+                return int(input(mensaje))
+            except ValueError:
+                print("✗ Debe ingresar un número")
+    
+    # ========== MENÚ PRINCIPAL ==========
+    
+    def menu_principal(self):
+        """Menú interactivo"""
+        while True:
+            print("\n" + "="*70)
+            print("🗂️  SISTEMA DE GESTIÓN DE BLOG - MENÚ PRINCIPAL")
+            print("="*70)
+            print("1. 📋 Listar todas las entradas")
+            print("2. 🔍 Buscar entradas")
+            print("3. ➕ Crear nueva entrada")
+            print("4. ✏️  Actualizar entrada")
+            print("5. 🗑️  Eliminar entrada")
+            print("6. 📊 Ver estadísticas")
+            print("7. 💾 Exportar a JSON")
+            print("8. 📄 Exportar a CSV")
+            print("9. 🟢 Listar solo publicadas")
+            print("0. 🚪 Salir")
+            print("="*70)
+            
+            opcion = input("\nSelecciona una opción: ").strip()
+            
+            try:
+                if opcion == "1":
+                    self.listar_entradas()
+                elif opcion == "2":
+                    self.buscar_entradas()
+                elif opcion == "3":
+                    self.crear_entrada()
+                elif opcion == "4":
+                    self.actualizar_entrada()
+                elif opcion == "5":
+                    self.eliminar_entrada()
+                elif opcion == "6":
+                    self.mostrar_estadisticas()
+                elif opcion == "7":
+                    self.exportar_json()
+                elif opcion == "8":
+                    self.exportar_csv()
+                elif opcion == "9":
+                    self.listar_entradas(filtro_estado='publicado')
+                elif opcion == "0":
+                    print("\n👋 ¡Hasta luego!")
+                    self.db.cerrar()
+                    break
+                else:
+                    print("\n✗ Opción no válida")
+            except Exception as e:
+                print(f"\n✗ Error: {e}")
+            
+            input("\nPresiona ENTER para continuar...")
+
+# Ejecutar aplicación
+if __name__ == "__main__":
+    app = BlogManager()
+    app.menu_principal()
+```
+
+**Conceptos clave del simulacro completo:**
+- ✅ **POO**: Clases Database, BlogManager, Entrada, Autor con métodos
+- ✅ **Validación**: Método validar() en cada clase antes de insertar
+- ✅ **CRUD completo**: Create, Read, Update, Delete con confirmaciones
+- ✅ **SQL parametrizado**: %s para evitar SQL injection
+- ✅ **Transacciones**: commit() y rollback() para integridad
+- ✅ **Formateo**: Tablas alineadas con f-strings y padding
+- ✅ **Exportación**: JSON con ensure_ascii=False, CSV con encoding BOM para Excel
+- ✅ **Manejo de fechas**: datetime, strftime para formatear
+- ✅ **Cursor dictionary**: Resultados como diccionarios en lugar de tuplas
+- ✅ **Try/except**: Captura de errores de conexión y SQL
+- ✅ **Funciones helper**: pedir_numero(), listar_simple() para reutilizar código
+- ✅ **Menú interactivo**: while True con opciones numeradas
+- ✅ **Estadísticas**: Agregaciones con COUNT(), SUM(), GROUP BY
+
+**Aplicación práctica:**
+- Sistema de inventario para piezas 3D
+- CRUD de proyectos Raspberry Pi
+- Gestión de filamentos y consumibles
+- Dashboard de impresiones con estadísticas
+
+### Proyecto Intermodular - Aplicación Web Blog con Flask
+
+**Escenario completo**: Crear una aplicación web completa con Flask integrando bases de datos, formularios, autenticación y diseño moderno.
+
+#### Estructura del proyecto web
+
+```
+blog_web/
+│
+├── app.py                    # Aplicación Flask principal
+├── config.py                 # Configuración
+├── requirements.txt          # Dependencias
+│
+├── templates/                # Plantillas HTML
+│   ├── base.html            # Layout base
+│   ├── index.html           # Página principal
+│   ├── entrada.html         # Detalle de entrada
+│   ├── crear.html           # Formulario nueva entrada
+│   └── estadisticas.html    # Dashboard
+│
+├── static/                   # Archivos estáticos
+│   ├── css/
+│   │   └── style.css        # Estilos CSS
+│   └── js/
+│       └── main.js          # JavaScript
+│
+└── database.py              # Conexión BD
+```
+
+#### 1. Aplicación Flask principal (app.py)
+
+```python
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+import mysql.connector
+from datetime import datetime
+
+app = Flask(__name__)
+app.secret_key = 'tu_clave_secreta_aqui_2025'  # Para flash messages
+
+# Configuración base de datos
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'blog_app',
+    'password': 'App_2025!',
+    'database': 'blog2526'
+}
+
+def get_db():
+    """Obtener conexión a BD"""
+    return mysql.connector.connect(**DB_CONFIG)
+
+# ========== RUTAS PRINCIPALES ==========
+
+@app.route('/')
+def index():
+    """Página principal - Listado de entradas"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    cursor.execute("""
+        SELECT 
+            e.id_entrada,
+            e.titulo,
+            e.contenido,
+            a.nombre AS autor,
+            c.nombre AS categoria,
+            DATE_FORMAT(e.fecha_publicacion, '%d/%m/%Y') as fecha,
+            e.visitas,
+            (SELECT COUNT(*) FROM comentarios 
+             WHERE id_entrada = e.id_entrada) as comentarios
+        FROM entradas e
+        INNER JOIN autores a ON e.id_autor = a.id_autor
+        INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        WHERE e.estado = 'publicado'
+        ORDER BY e.fecha_publicacion DESC
+        LIMIT 10
+    """)
+    
+    entradas = cursor.fetchall()
+    
+    # Estadísticas generales
+    cursor.execute("""
+        SELECT 
+            COUNT(*) as total_entradas,
+            SUM(visitas) as total_visitas,
+            (SELECT COUNT(*) FROM autores) as total_autores
+        FROM entradas WHERE estado = 'publicado'
+    """)
+    stats = cursor.fetchone()
+    
+    db.close()
+    
+    return render_template('index.html', 
+                          entradas=entradas, 
+                          stats=stats)
+
+@app.route('/entrada/<int:id>')
+def ver_entrada(id):
+    """Ver detalle de entrada"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    # Incrementar visitas
+    cursor.execute("UPDATE entradas SET visitas = visitas + 1 WHERE id_entrada = %s", (id,))
+    db.commit()
+    
+    # Obtener entrada
+    cursor.execute("""
+        SELECT 
+            e.id_entrada,
+            e.titulo,
+            e.contenido,
+            a.nombre AS autor,
+            a.biografia AS autor_bio,
+            c.nombre AS categoria,
+            DATE_FORMAT(e.fecha_publicacion, '%d/%m/%Y a las %H:%i') as fecha,
+            e.visitas
+        FROM entradas e
+        INNER JOIN autores a ON e.id_autor = a.id_autor
+        INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        WHERE e.id_entrada = %s AND e.estado = 'publicado'
+    """, (id,))
+    
+    entrada = cursor.fetchone()
+    
+    if not entrada:
+        flash('Entrada no encontrada', 'error')
+        return redirect(url_for('index'))
+    
+    # Obtener comentarios
+    cursor.execute("""
+        SELECT 
+            nombre_usuario,
+            comentario,
+            DATE_FORMAT(fecha_comentario, '%d/%m/%Y %H:%i') as fecha
+        FROM comentarios
+        WHERE id_entrada = %s
+        ORDER BY fecha_comentario DESC
+    """, (id,))
+    
+    comentarios = cursor.fetchall()
+    
+    # Entradas relacionadas (misma categoría)
+    cursor.execute("""
+        SELECT id_entrada, titulo, visitas
+        FROM entradas
+        WHERE id_categoria = (SELECT id_categoria FROM entradas WHERE id_entrada = %s)
+          AND id_entrada != %s
+          AND estado = 'publicado'
+        ORDER BY visitas DESC
+        LIMIT 3
+    """, (id, id))
+    
+    relacionadas = cursor.fetchall()
+    
+    db.close()
+    
+    return render_template('entrada.html', 
+                          entrada=entrada, 
+                          comentarios=comentarios,
+                          relacionadas=relacionadas)
+
+@app.route('/categoria/<nombre>')
+def por_categoria(nombre):
+    """Filtrar entradas por categoría"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    cursor.execute("""
+        SELECT 
+            e.id_entrada,
+            e.titulo,
+            e.contenido,
+            a.nombre AS autor,
+            DATE_FORMAT(e.fecha_publicacion, '%d/%m/%Y') as fecha,
+            e.visitas
+        FROM entradas e
+        INNER JOIN autores a ON e.id_autor = a.id_autor
+        INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        WHERE c.nombre = %s AND e.estado = 'publicado'
+        ORDER BY e.fecha_publicacion DESC
+    """, (nombre,))
+    
+    entradas = cursor.fetchall()
+    db.close()
+    
+    return render_template('categoria.html', 
+                          categoria=nombre, 
+                          entradas=entradas)
+
+# ========== CREAR/EDITAR ENTRADAS ==========
+
+@app.route('/crear', methods=['GET', 'POST'])
+def crear_entrada():
+    """Formulario para crear entrada"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        titulo = request.form.get('titulo')
+        contenido = request.form.get('contenido')
+        id_autor = request.form.get('id_autor')
+        id_categoria = request.form.get('id_categoria')
+        estado = request.form.get('estado', 'borrador')
+        
+        # Validaciones
+        errores = []
+        if not titulo or len(titulo) < 5:
+            errores.append('El título debe tener al menos 5 caracteres')
+        if not contenido or len(contenido) < 20:
+            errores.append('El contenido debe tener al menos 20 caracteres')
+        if not id_autor:
+            errores.append('Debe seleccionar un autor')
+        if not id_categoria:
+            errores.append('Debe seleccionar una categoría')
+        
+        if errores:
+            for error in errores:
+                flash(error, 'error')
+        else:
+            # Insertar en BD
+            fecha = datetime.now().date() if estado == 'publicado' else None
+            
+            cursor.execute("""
+                INSERT INTO entradas 
+                (id_autor, id_categoria, titulo, contenido, 
+                 fecha_publicacion, estado, visitas)
+                VALUES (%s, %s, %s, %s, %s, %s, 0)
+            """, (id_autor, id_categoria, titulo, contenido, fecha, estado))
+            
+            db.commit()
+            flash('Entrada creada correctamente', 'success')
+            
+            nuevo_id = cursor.lastrowid
+            db.close()
+            return redirect(url_for('ver_entrada', id=nuevo_id))
+    
+    # GET: Mostrar formulario
+    cursor.execute("SELECT id_autor, nombre FROM autores")
+    autores = cursor.fetchall()
+    
+    cursor.execute("SELECT id_categoria, nombre FROM categorias")
+    categorias = cursor.fetchall()
+    
+    db.close()
+    
+    return render_template('crear.html', 
+                          autores=autores, 
+                          categorias=categorias)
+
+# ========== COMENTARIOS ==========
+
+@app.route('/comentar/<int:id_entrada>', methods=['POST'])
+def agregar_comentario(id_entrada):
+    """Añadir comentario a entrada"""
+    nombre = request.form.get('nombre')
+    comentario = request.form.get('comentario')
+    
+    if not nombre or not comentario:
+        flash('Todos los campos son obligatorios', 'error')
+        return redirect(url_for('ver_entrada', id=id_entrada))
+    
+    if len(comentario) < 5:
+        flash('El comentario debe tener al menos 5 caracteres', 'error')
+        return redirect(url_for('ver_entrada', id=id_entrada))
+    
+    db = get_db()
+    cursor = db.cursor()
+    
+    cursor.execute("""
+        INSERT INTO comentarios 
+        (id_entrada, nombre_usuario, comentario, fecha_comentario)
+        VALUES (%s, %s, %s, NOW())
+    """, (id_entrada, nombre, comentario))
+    
+    db.commit()
+    db.close()
+    
+    flash('Comentario añadido', 'success')
+    return redirect(url_for('ver_entrada', id=id_entrada))
+
+# ========== BÚSQUEDA ==========
+
+@app.route('/buscar')
+def buscar():
+    """Buscar entradas"""
+    query = request.args.get('q', '')
+    
+    if not query:
+        return redirect(url_for('index'))
+    
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    cursor.execute("""
+        SELECT 
+            e.id_entrada,
+            e.titulo,
+            a.nombre AS autor,
+            DATE_FORMAT(e.fecha_publicacion, '%d/%m/%Y') as fecha,
+            e.visitas
+        FROM entradas e
+        INNER JOIN autores a ON e.id_autor = a.id_autor
+        WHERE (e.titulo LIKE %s OR e.contenido LIKE %s)
+          AND e.estado = 'publicado'
+        ORDER BY e.visitas DESC
+    """, (f'%{query}%', f'%{query}%'))
+    
+    resultados = cursor.fetchall()
+    db.close()
+    
+    return render_template('buscar.html', 
+                          query=query, 
+                          resultados=resultados)
+
+# ========== API JSON ==========
+
+@app.route('/api/entradas')
+def api_entradas():
+    """API JSON de entradas"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    cursor.execute("""
+        SELECT 
+            e.id_entrada,
+            e.titulo,
+            a.nombre AS autor,
+            c.nombre AS categoria,
+            e.fecha_publicacion,
+            e.visitas
+        FROM entradas e
+        INNER JOIN autores a ON e.id_autor = a.id_autor
+        INNER JOIN categorias c ON e.id_categoria = c.id_categoria
+        WHERE e.estado = 'publicado'
+        ORDER BY e.fecha_publicacion DESC
+    """)
+    
+    entradas = cursor.fetchall()
+    db.close()
+    
+    # Convertir fechas a string
+    for e in entradas:
+        if e['fecha_publicacion']:
+            e['fecha_publicacion'] = e['fecha_publicacion'].strftime('%Y-%m-%d')
+    
+    return jsonify(entradas)
+
+@app.route('/api/estadisticas')
+def api_estadisticas():
+    """API de estadísticas para gráficos"""
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    
+    # Entradas por categoría
+    cursor.execute("""
+        SELECT c.nombre, COUNT(e.id_entrada) as total
+        FROM categorias c
+        LEFT JOIN entradas e ON c.id_categoria = e.id_categoria 
+            AND e.estado = 'publicado'
+        GROUP BY c.id_categoria, c.nombre
+    """)
+    por_categoria = cursor.fetchall()
+    
+    # Entradas por mes
+    cursor.execute("""
+        SELECT 
+            DATE_FORMAT(fecha_publicacion, '%Y-%m') as mes,
+            COUNT(*) as total
+        FROM entradas
+        WHERE estado = 'publicado' 
+          AND fecha_publicacion >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
+        GROUP BY mes
+        ORDER BY mes
+    """)
+    por_mes = cursor.fetchall()
+    
+    db.close()
+    
+    return jsonify({
+        'por_categoria': por_categoria,
+        'por_mes': por_mes
+    })
+
+# ========== MANEJO DE ERRORES ==========
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def server_error(error):
+    return render_template('500.html'), 500
+
+# ========== FILTROS JINJA PERSONALIZADOS ==========
+
+@app.template_filter('truncar')
+def truncar_texto(texto, longitud=100):
+    """Truncar texto con elipsis"""
+    if len(texto) <= longitud:
+        return texto
+    return texto[:longitud] + '...'
+
+@app.template_filter('fecha_relativa')
+def fecha_relativa(fecha):
+    """Mostrar 'hace X días'"""
+    if isinstance(fecha, str):
+        return fecha
+    
+    ahora = datetime.now().date()
+    diferencia = (ahora - fecha).days
+    
+    if diferencia == 0:
+        return 'Hoy'
+    elif diferencia == 1:
+        return 'Ayer'
+    elif diferencia < 7:
+        return f'Hace {diferencia} días'
+    elif diferencia < 30:
+        return f'Hace {diferencia // 7} semanas'
+    else:
+        return fecha.strftime('%d/%m/%Y')
+
+# Ejecutar servidor
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
+```
+
+#### 2. Template base (templates/base.html)
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog DAM 2526{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">
+                📝 Blog DAM
+            </a>
+            
+            <form action="{{ url_for('buscar') }}" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Buscar..." required>
+                <button type="submit">🔍</button>
+            </form>
+            
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('crear_entrada') }}">Crear entrada</a></li>
+                <li><a href="/estadisticas">Estadísticas</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                        <button onclick="this.parentElement.remove()">✕</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Contenido principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog DAM 2526 - Proyecto Intermodular</p>
+            <p>
+                <a href="/api/entradas">API JSON</a> | 
+                <a href="/api/estadisticas">Estadísticas API</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+```
+
+#### 3. Página principal (templates/index.html)
+
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>📚 Blog de Desarrollo y Maker</h1>
+        <p class="subtitle">Tutoriales, proyectos y experiencias con Python, Raspberry Pi e impresión 3D</p>
+        
+        <div class="stats-cards">
+            <div class="stat-card">
+                <span class="stat-number">{{ stats.total_entradas }}</span>
+                <span class="stat-label">Entradas</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">{{ stats.total_visitas }}</span>
+                <span class="stat-label">Visitas</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">{{ stats.total_autores }}</span>
+                <span class="stat-label">Autores</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="entradas-grid">
+        {% for entrada in entradas %}
+        <article class="entrada-card">
+            <div class="entrada-header">
+                <span class="categoria-badge">{{ entrada.categoria }}</span>
+                <span class="fecha">{{ entrada.fecha }}</span>
+            </div>
+            
+            <h2>
+                <a href="{{ url_for('ver_entrada', id=entrada.id_entrada) }}">
+                    {{ entrada.titulo }}
+                </a>
+            </h2>
+            
+            <p class="excerpt">
+                {{ entrada.contenido | truncar(150) }}
+            </p>
+            
+            <div class="entrada-footer">
+                <span class="autor">✍️ {{ entrada.autor }}</span>
+                <span class="stats">
+                    👁️ {{ entrada.visitas }} | 
+                    💬 {{ entrada.comentarios }}
+                </span>
+            </div>
+            
+            <a href="{{ url_for('ver_entrada', id=entrada.id_entrada) }}" 
+               class="btn btn-primary">
+                Leer más →
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    
+    {% if entradas|length == 0 %}
+    <div class="empty-state">
+        <p>No hay entradas publicadas todavía</p>
+        <a href="{{ url_for('crear_entrada') }}" class="btn btn-primary">
+            Crear la primera entrada
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+```
+
+#### 4. CSS moderno (static/css/style.css) - Fragmento clave
+
+```css
+/* Variables CSS */
+:root {
+    --primary: #667eea;
+    --primary-dark: #5568d3;
+    --secondary: #764ba2;
+    --success: #48bb78;
+    --error: #f56565;
+    --bg: #f7fafc;
+    --text: #2d3748;
+    --text-light: #718096;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid de entradas */
+.entradas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.entrada-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.entrada-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .entradas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar .container {
+        flex-direction: column;
+    }
+}
+```
+
+**Conceptos clave del simulacro completo:**
+- ✅ **Flask**: @app.route, render_template, request, redirect, url_for
+- ✅ **Jinja2**: {% extends %}, {% block %}, {% for %}, {{ variable }}
+- ✅ **Flash messages**: Mensajes temporales con categorías
+- ✅ **Formularios**: POST con validación, CSRF protection
+- ✅ **API REST**: Endpoints JSON con jsonify()
+- ✅ **Filtros custom**: @app.template_filter para funciones en templates
+- ✅ **Manejo de errores**: @app.errorhandler(404), (500)
+- ✅ **CSS Grid**: Layout responsive de cards
+- ✅ **Gradient backgrounds**: linear-gradient() para diseño moderno
+- ✅ **Box-shadow**: Profundidad y hover effects
+- ✅ **Backdrop-filter**: Efecto glassmorphism
+- ✅ **Variables CSS**: :root para colores centralizados
+
+**Aplicación práctica con Raspberry Pi:**
+- Blog alojado en Raspberry Pi como servidor
+- Dashboard de proyectos 3D con fotos
+- API para app móvil de control
+- Sistema de documentación técnica
+
+### Lenguajes de Marcas - Curriculum y Portafolio Profesional
+
+**Escenario completo**: Crear un curriculum vitae y portafolio web responsive con tecnologías modernas.
+
+#### Proyecto 1: Curriculum Vitae con CSS Grid
+
+**Características:**
+- Layout de dos columnas con CSS Grid
+- Sidebar oscuro con información de contacto
+- Barra de progreso para habilidades
+- Responsive (móvil → una columna)
+- Gradientes y sombras para diseño moderno
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Darío García</title>
+    <style>
+        /* ========== RESET Y VARIABLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --dark: #2c3e50;
+            --dark-light: #34495e;
+            --light: #ecf0f1;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --accent: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        /* ========== LAYOUT PRINCIPAL CON GRID ========== */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;  /* Sidebar fijo + contenido flexible */
+            gap: 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        /* ========== SIDEBAR IZQUIERDO ========== */
+        #izquierda {
+            background: linear-gradient(180deg, var(--dark), var(--dark-light));
+            color: white;
+            padding: 2.5rem 2rem;
+        }
+        
+        .foto {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .subtitulo {
+            text-align: center;
+            color: #bdc3c7;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        #izquierda .seccion {
+            margin-bottom: 2.5rem;
+        }
+        
+        #izquierda h2 {
+            color: white;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        #izquierda ul {
+            list-style: none;
+        }
+        
+        #izquierda li {
+            padding: 0.7rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        #izquierda li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* ========== BARRAS DE PROGRESO ========== */
+        .habilidad-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .habilidad-nombre {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .progress {
+            background: rgba(255, 255, 255, 0.2);
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), #5dade2);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animación de brillo */
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            to { left: 100%; }
+        }
+        
+        /* Enlaces de contacto */
+        #izquierda a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        #izquierda a:hover {
+            color: #5dade2;
+            text-decoration: underline;
+        }
+        
+        /* ========== CONTENIDO DERECHO ========== */
+        #derecha {
+            padding: 3rem 2.5rem;
+        }
+        
+        #derecha .seccion {
+            margin-bottom: 3rem;
+        }
+        
+        #derecha h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        /* ========== EXPERIENCIA/FORMACIÓN ========== */
+        .experiencia, .formacion {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .experiencia::before, .formacion::before {
+            content: '●';
+            position: absolute;
+            left: -0.55rem;
+            top: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            background: white;
+        }
+        
+        .experiencia h3, .formacion h3 {
+            color: var(--text);
+            margin-bottom: 0.4rem;
+            font-size: 1.3rem;
+        }
+        
+        .fecha {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+        
+        .empresa {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .experiencia ul, .formacion ul {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+        
+        .experiencia li, .formacion li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+        }
+        
+        .experiencia li:before, .formacion li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* ========== RESUMEN ========== */
+        #derecha .resumen {
+            font-size: 1.05rem;
+            color: var(--text);
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            line-height: 1.8;
+        }
+        
+        /* ========== PROYECTOS DESTACADOS ========== */
+        .proyecto-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .proyecto-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .proyecto-card h3 {
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .tecnologias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            main {
+                grid-template-columns: 1fr;  /* Una columna en móvil */
+            }
+            
+            body {
+                padding: 1rem;
+            }
+            
+            #izquierda {
+                border-radius: 15px 15px 0 0;
+            }
+            
+            #derecha {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            main {
+                box-shadow: none;
+            }
+            
+            .progress-bar::before {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- ========== SIDEBAR IZQUIERDO ========== -->
+        <section id="izquierda">
+            <img src="https://via.placeholder.com/160" alt="Foto perfil" class="foto">
+            <h1>Darío García</h1>
+            <p class="subtitulo">Desarrollador Full Stack</p>
+            
+            <article class="seccion">
+                <h2>📞 Contacto</h2>
+                <ul>
+                    <li>📧 dario.garcia@email.com</li>
+                    <li>📱 +34 612 345 678</li>
+                    <li>🌐 <a href="https://github.com/dariodev" target="_blank">github.com/dariodev</a></li>
+                    <li>💼 <a href="https://linkedin.com/in/dariodev" target="_blank">LinkedIn</a></li>
+                    <li>📍 Madrid, España</li>
+                </ul>
+            </article>
+            
+            <article class="seccion">
+                <h2>🌍 Idiomas</h2>
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Español</span>
+                        <span>Nativo</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Inglés</span>
+                        <span>B2</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Francés</span>
+                        <span>A2</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 35%"></div>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="seccion">
+                <h2>💻 Habilidades Técnicas</h2>
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Python</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>JavaScript</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>SQL / MySQL</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>HTML/CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Flask / Django</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="habilidad-nombre">
+                        <span>Git / GitHub</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="seccion">
+                <h2>🎯 Intereses</h2>
+                <ul>
+                    <li>Impresión 3D y diseño</li>
+                    <li>Raspberry Pi y IoT</li>
+                    <li>Automatización con Python</li>
+                    <li>Desarrollo web moderno</li>
+                    <li>Open source y comunidad</li>
+                </ul>
+            </article>
+        </section>
+        
+        <!-- ========== CONTENIDO DERECHO ========== -->
+        <section id="derecha">
+            <article class="seccion">
+                <h2>👤 Resumen Profesional</h2>
+                <p class="resumen">
+                    Desarrollador full stack apasionado por Python y tecnologías web modernas. 
+                    Experiencia creando aplicaciones con Flask, gestión de bases de datos MySQL 
+                    y diseño responsive. Maker entusiasta con proyectos de Raspberry Pi, Arduino 
+                    e impresión 3D. Busco integrar hardware y software en soluciones innovadoras 
+                    y prácticas.
+                </p>
+            </article>
+            
+            <article class="seccion">
+                <h2>💼 Experiencia Laboral</h2>
+                
+                <div class="experiencia">
+                    <h3>Desarrollador Web Full Stack</h3>
+                    <p class="fecha"><span class="empresa">TechSolutions S.L.</span> | Enero 2024 - Actualidad</p>
+                    <ul>
+                        <li>Desarrollo de aplicaciones web con Flask y React</li>
+                        <li>Diseño e implementación de bases de datos MySQL</li>
+                        <li>Creación de APIs REST para integración con móviles</li>
+                        <li>Optimización de consultas SQL, mejorando rendimiento en 40%</li>
+                        <li>Implementación de sistema de autenticación JWT</li>
+                    </ul>
+                </div>
+                
+                <div class="experiencia">
+                    <h3>Técnico de Soporte IT</h3>
+                    <p class="fecha"><span class="empresa">Innovatech</span> | Junio 2022 - Diciembre 2023</p>
+                    <ul>
+                        <li>Soporte técnico a 100+ usuarios corporativos</li>
+                        <li>Administración de servidores Linux (Ubuntu Server)</li>
+                        <li>Automatización de tareas repetitivas con scripts Python</li>
+                        <li>Mantenimiento de infraestructura de red</li>
+                        <li>Documentación técnica de procedimientos</li>
+                    </ul>
+                </div>
+                
+                <div class="experiencia">
+                    <h3>Desarrollador Junior Python</h3>
+                    <p class="fecha"><span class="empresa">Freelance</span> | Enero 2021 - Mayo 2022</p>
+                    <ul>
+                        <li>Desarrollo de scripts de automatización para clientes</li>
+                        <li>Web scraping y procesamiento de datos con Python</li>
+                        <li>Creación de dashboards con Plotly y Dash</li>
+                        <li>Integración con APIs de terceros (Stripe, SendGrid)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="seccion">
+                <h2>🎓 Formación Académica</h2>
+                
+                <div class="formacion">
+                    <h3>Técnico Superior en DAM</h3>
+                    <p class="fecha"><span class="empresa">IES Politécnico</span> | 2024 - 2026</p>
+                    <p>Desarrollo de Aplicaciones Multiplataforma. Especialización en Python, 
+                       bases de datos y desarrollo web.</p>
+                </div>
+                
+                <div class="formacion">
+                    <h3>Bachillerato Tecnológico</h3>
+                    <p class="fecha"><span class="empresa">IES Tecnológico</span> | 2020 - 2022</p>
+                    <p>Modalidad de Ciencias y Tecnología. Nota media: 8.5</p>
+                </div>
+                
+                <div class="formacion">
+                    <h3>Certificaciones</h3>
+                    <ul>
+                        <li>Python for Data Science - Coursera (2023)</li>
+                        <li>MySQL Database Administration - Udemy (2023)</li>
+                        <li>Git & GitHub Masterclass - Udemy (2022)</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="seccion">
+                <h2>🚀 Proyectos Destacados</h2>
+                
+                <div class="proyecto-card">
+                    <h3>🖨️ Sistema de Gestión de Impresión 3D</h3>
+                    <p>
+                        Aplicación web para gestionar modelos 3D, filamentos y trabajos de impresión. 
+                        Backend en Flask con base de datos MySQL. Dashboard para estadísticas de uso 
+                        y control de inventario de materiales.
+                    </p>
+                    <div class="tecnologias">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+                
+                <div class="proyecto-card">
+                    <h3>🏠 Dashboard IoT con Raspberry Pi</h3>
+                    <p>
+                        Sistema domótico con sensores DHT22 para temperatura y humedad. 
+                        Raspberry Pi 4 como servidor, almacenamiento en MySQL, visualización 
+                        web en tiempo real. Control de relés para automatización.
+                    </p>
+                    <div class="tecnologias">
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">GPIO</span>
+                    </div>
+                </div>
+                
+                <div class="proyecto-card">
+                    <h3>📊 Analizador de Logs con IA</h3>
+                    <p>
+                        Herramienta para analizar logs de servidor, detectar patrones anómalos 
+                        y generar alertas. Procesamiento con pandas, visualización con Plotly, 
+                        exportación de informes PDF.
+                    </p>
+                    <div class="tecnologias">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Regex</span>
+                        <span class="tech-tag">Plotly</span>
+                        <span class="tech-tag">ReportLab</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
+```
+
+#### Proyecto 2: Portafolio con CSS Grid y Modales
+
+**Características:**
+- Layout de galería con CSS Grid (columnas auto-ajustables)
+- Modales para ver proyectos en detalle
+- JavaScript para interactividad
+- Efectos hover avanzados
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Proyectos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f0f0f;
+            color: white;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        /* ========== GRID DE PROYECTOS ========== */
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .proyecto-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        
+        .proyecto-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .proyecto-imagen {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        
+        .proyecto-card:hover .proyecto-imagen {
+            transform: scale(1.1);
+        }
+        
+        .proyecto-info {
+            padding: 1.5rem;
+        }
+        
+        .proyecto-info h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* ========== MODAL ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 800px;
+            position: relative;
+            animation: slideDown 0.4s;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #667eea;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-content h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-detalles {
+            line-height: 1.8;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎨 Mi Portafolio</h1>
+        <p>Proyectos de desarrollo web y maker</p>
+    </header>
+    
+    <div class="proyectos-grid">
+        <div class="proyecto-card" onclick="abrirModal(1)">
+            <img src="https://via.placeholder.com/400x250" class="proyecto-imagen">
+            <div class="proyecto-info">
+                <h3>Sistema de Blog</h3>
+                <p>Aplicación web completa con Flask y MySQL</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="proyecto-card" onclick="abrirModal(2)">
+            <img src="https://via.placeholder.com/400x250" class="proyecto-imagen">
+            <div class="proyecto-info">
+                <h3>Dashboard IoT</h3>
+                <p>Control de Raspberry Pi con sensores</p>
+                <div class="tags">
+                    <span class="tag">Raspberry Pi</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">GPIO</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Más proyectos... -->
+    </div>
+    
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <img id="modal-img" src="">
+            <h2 id="modal-titulo"></h2>
+            <div id="modal-descripcion" class="modal-detalles"></div>
+        </div>
+    </div>
+    
+    <script>
+        function abrirModal(id) {
+            const proyectos = {
+                1: {
+                    img: 'https://via.placeholder.com/800x400',
+                    titulo: 'Sistema de Blog Completo',
+                    descripcion: `
+                        <p>Aplicación web profesional desarrollada con Flask...</p>
+                        <ul>
+                            <li>Autenticación de usuarios</li>
+                            <li>CRUD completo de entradas</li>
+                            <li>Sistema de comentarios</li>
+                            <li>Exportación a JSON/CSV</li>
+                        </ul>
+                    `
+                },
+                2: {
+                    img: 'https://via.placeholder.com/800x400',
+                    titulo: 'Dashboard IoT con Raspberry Pi',
+                    descripcion: `
+                        <p>Sistema domótico con monitorización en tiempo real...</p>
+                        <ul>
+                            <li>Sensores DHT22 temperatura/humedad</li>
+                            <li>Control de relés vía web</li>
+                            <li>Gráficos históricos con Chart.js</li>
+                            <li>Alertas por email</li>
+                        </ul>
+                    `
+                }
+            };
+            
+            const proyecto = proyectos[id];
+            document.getElementById('modal-img').src = proyecto.img;
+            document.getElementById('modal-titulo').textContent = proyecto.titulo;
+            document.getElementById('modal-descripcion').innerHTML = proyecto.descripcion;
+            document.getElementById('modal').style.display = 'block';
+        }
+        
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        // Cerrar con ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarModal();
+        });
+        
+        // Cerrar click fuera
+        window.onclick = (e) => {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) cerrarModal();
+        };
+    </script>
+</body>
+</html>
+```
+
+**Conceptos clave del simulacro completo:**
+- ✅ **CSS Grid avanzado**: grid-template-columns con repeat(auto-fit, minmax())
+- ✅ **Gradientes complejos**: linear-gradient() para fondos y texto
+- ✅ **Pseudo-elementos**: ::before para bullets y decoración
+- ✅ **Animaciones CSS**: @keyframes para fade-in, slide, shine
+- ✅ **Transiciones**: transform, box-shadow para hover effects
+- ✅ **Barras de progreso**: Implementación custom con animación
+- ✅ **Media queries**: @media para responsive design
+- ✅ **Modales**: Overlay con JavaScript, eventos onclick
+- ✅ **Event listeners**: keydown (ESC), click fuera del modal
+- ✅ **DOM manipulation**: getElementById, innerHTML, textContent
+- ✅ **Template literals**: `` para HTML dentro de JavaScript
+- ✅ **Background-clip**: Para gradientes en texto
+- ✅ **Object-fit**: Para imágenes que mantengan proporción
+- ✅ **Position**: absolute, relative, fixed para layouts complejos
+- ✅ **Z-index**: Capas para modales sobre contenido
+- ✅ **Backdrop-filter**: (opcional) Para efecto glassmorphism
+
+**Aplicación práctica:**
+- Portafolio personal para mostrar proyectos
+- Galería de modelos 3D impresos
+- Documentación técnica de proyectos Raspberry Pi
+- Curriculum interactivo para postular a empleos
+
+---
+
 **💡 Tip final**: Este cheatsheet es tu referencia rápida. Practica cada concepto con proyectos reales y busca siempre aplicaciones prácticas con tu Raspberry Pi e impresora 3D. ¡La mejor forma de aprender es haciendo! 🔧🖨️

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>CV - Dario Lacal Civera</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .email {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .item h3 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .item .empresa,
+        .item .institucion {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .item .periodo {
+            color: #718096;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="nombre"></h1>
+            <p class="email" id="email"></p>
+            <div class="social-links" id="social-links"></div>
+        </header>
+
+        <div class="content">
+            <div class="left">
+                <section class="section">
+                    <h2>📚 Formación</h2>
+                    <div id="formacion"></div>
+                </section>
+            </div>
+
+            <div class="right">
+                <section class="section">
+                    <h2>💼 Experiencia Laboral</h2>
+                    <div id="experiencia"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch('Curriculum.json')
+            .then(response => response.json())
+            .then(data => {
+                // Datos personales
+                document.getElementById('nombre').textContent = 
+                    `${data.datos_personales.nombre} ${data.datos_personales.apellidos}`;
+                document.getElementById('email').textContent = data.datos_personales.email;
+
+                // Redes sociales
+                const socialLinks = document.getElementById('social-links');
+                data.redes_sociales.forEach(red => {
+                    const [key, value] = Object.entries(red)[0];
+                    const link = document.createElement('a');
+                    link.href = value;
+                    link.target = '_blank';
+                    link.textContent = key;
+                    socialLinks.appendChild(link);
+                });
+
+                // Formación
+                const formacionDiv = document.getElementById('formacion');
+                data.formacion.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'item';
+                    div.innerHTML = `
+                        <h3>${item.titulo}</h3>
+                        <p class="institucion">${item.institucion}</p>
+                        <p class="periodo">${item.periodo}</p>
+                    `;
+                    formacionDiv.appendChild(div);
+                });
+
+                // Experiencia laboral
+                const experienciaDiv = document.getElementById('experiencia');
+                data.experiencia_laboral.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'item';
+                    div.innerHTML = `
+                        <h3>${item.puesto}</h3>
+                        <p class="empresa">${item.empresa}</p>
+                        <p class="periodo">${item.periodo}</p>
+                    `;
+                    experienciaDiv.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error cargando el CV:', error));
+    </script>
+</body>
+</html>

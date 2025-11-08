@@ -1,0 +1,208 @@
+Ejercicio: Indexador de Archivos con Tkinter y SQLite
+En este ejercicio, vamos a crear una aplicación utilizando tkinter para indexar archivos en un directorio específico y almacenar su información en una base de datos SQLite. Este proyecto combina tus intereses en el modelado e impresión 3D y la programación con Raspberrys y similares.
+
+Contexto
+Imagine que eres un entusiasta del modelado 3D y tienes varios discos de impresión guardados en diferentes carpetas. Quieres crear una aplicación para indexar estos archivos, almacenando su nombre, ruta y otros detalles como tamaño y fechas de creación y modificación en una base de datos SQLite.
+
+Enunciado paso a paso
+Configuración del Entorno:
+
+Asegúrate de tener instalados tkinter y sqlite3.
+Crea dos archivos llamados discos.db y archivos.sql. El primero será la base de datos donde almacenaremos la información, y el segundo contendrá un script para crear la tabla.
+Escribir el Script para Crear la Tabla:
+
+Abre el archivo archivos.sql y escribe el siguiente contenido:
+CREATE TABLE "archivos" (
+    "identificador" INTEGER,
+    "disco" TEXT,
+    "ruta" TEXT,
+    "archivo" TEXT,
+    "tamanio" TEXT,
+    "creacion" TEXT,
+    "modificacion" TEXT,
+    PRIMARY KEY("identificador" AUTOINCREMENT)
+);
+Crear la Aplicación con Tkinter:
+
+Abre el archivo insertar.py y sigue los siguientes pasos:
+Interfaz Gráfica con Tkinter:
+
+Crea dos campos de entrada para indicar el nombre de la carpeta a indexar y el nombre del disco.
+Agrega un botón que, al presionarlo, ejecute una función procesar para recoger los datos ingresados.
+Función procesar:
+
+Esta función debe validar que ambos campos no estén vacíos y que la carpeta indicada exista.
+Utiliza sqlite3.connect("discos.db") para conectarte a la base de datos.
+Recorre el directorio especificado utilizando os.walk() y almacena la información de cada archivo en la tabla archivos.
+Ejecutar la Aplicación:
+
+Guarda los cambios en insertar.py.
+Ejecuta el script para ver cómo funciona tu aplicación.
+Restricciones
+No usar librerías externas como ttkbootstrap o pandas.
+Solo utilizar conceptos y funciones vistas hasta ahora en la clase.
+Asegúrate de manejar excepciones adecuadamente, por ejemplo, si algún archivo no se puede leer.
+Criterios de Evaluación
+Introducción y contextualización (25%)
+
+Explica claramente el propósito del ejercicio y cómo combina tus pasatiempos.
+Desarrollo técnico correcto y preciso (25%)
+
+Muestra una comprensión profunda de la estructura de tkinter y cómo interactuar con ella para crear interfaces gráficas.
+Demuestra habilidad en el manejo de bases de datos SQLite.
+Aplicación práctica con ejemplo claro (25%)
+
+Proporciona un ejemplo claro de cómo se ejecuta la aplicación y qué resultado debería obtenerse.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+Concluye el ejercicio explicando cómo este proyecto puede ser útil en tu futuro trabajo o hobby, como modelador 3D o entusiasta de la impresión 3D.
+
+
+En este ejercicio, vamos a crear una aplicación sencilla utilizando tkinter para indexar archivos en un directorio específico y almacenar su información en una base de datos SQLite. Esta aplicación será útil para organizar y gestionar tus archivos relacionados con el modelado e impresión 3D.
+Primero, creamos la base de datos SQLite y la tabla necesaria para almacenar la información de los archivos. Abrimos el archivo `archivos.sql` y escribimos la siguiente sentencia SQL para crear la tabla `archivos`:
+
+```SQL
+CREATE TABLE "archivos" (
+    "identificador" INTEGER,
+    "disco" TEXT,
+    "ruta" TEXT,
+    "archivo" TEXT,
+    "tamanio" TEXT,
+    "creacion" TEXT,
+    "modificacion" TEXT,
+    PRIMARY KEY("identificador" AUTOINCREMENT)
+);
+```
+Luego, en el archivo `insertar.py`, creamos la interfaz gráfica utilizando tkinter. Añadimos dos campos de entrada para que el usuario pueda especificar la carpeta a indexar y el nombre del disco. También añadimos un botón que, al ser presionado, ejecutará la función `procesar`.
+```Python
+import tkinter as tk
+import os
+import sqlite3
+from tkinter import messagebox
+def procesar():
+    carpeta = entry_carpeta.get()
+    disco = entry_disco.get()
+    
+    if not carpeta or not disco:
+        messagebox.showerror("Error", "Ambos campos son obligatorios.")
+        return
+    
+    if not os.path.exists(carpeta):
+        messagebox.showerror("Error", "La carpeta especificada no existe.")
+        return
+    
+    conn = sqlite3.connect("discos.db")
+    cursor = conn.cursor()
+    
+    for root, dirs, files in os.walk(carpeta):
+        for file in files:
+            ruta_completa = os.path.join(root, file)
+            tamanio = os.path.getsize(ruta_completa)
+            creacion = os.path.getctime(ruta_completa)
+            modificacion = os.path.getmtime(ruta_completa)
+            
+            cursor.execute("""
+                INSERT INTO archivos (disco, ruta, archivo, tamanio, creacion, modificacion)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (disco, root, file, tamanio, creacion, modificacion))
+    
+    conn.commit()
+    conn.close()
+    messagebox.showinfo("Éxito", "Archivos indexados correctamente.")
+root = tk.Tk()
+root.title("Indexador de Archivos")
+tk.Label(root, text="Carpeta a indexar:").pack()
+entry_carpeta = tk.Entry(root, width=50)
+entry_carpeta.pack()
+tk.Label(root, text="Nombre del disco:").pack()
+entry_disco = tk.Entry(root, width=50)
+entry_disco.pack()
+tk.Button(root, text="Procesar", command=procesar).pack()
+root.mainloop()
+```
+
+Dentro de la función `procesar`, validamos que ambos campos no estén vacíos y que la carpeta indicada exista. Si todo es correcto, nos conectamos a la base de datos SQLite utilizando `sqlite3.connect("discos.db")`. Luego, recorremos el directorio especificado utilizando `os.walk()` y almacenamos la información de cada archivo en la tabla `archivos`.
+
+**Importante**: El commit y close se hacen DESPUÉS del bucle, no dentro. Esto mejora el rendimiento y evita errores.
+
+```Python
+    for root, dirs, files in os.walk(carpeta):
+        for file in files:
+            try:
+                ruta_completa = os.path.join(root, file)
+                tamanio = os.path.getsize(ruta_completa)
+                creacion = int(os.path.getctime(ruta_completa))
+                modificacion = int(os.path.getmtime(ruta_completa))
+                
+                cursor.execute("""
+                    INSERT INTO archivos (disco, ruta, archivo, tamanio, creacion, modificacion)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                """, (disco, root, file, tamanio, creacion, modificacion))
+            except Exception as e:
+                # Si hay error con un archivo, continuar con el siguiente
+                print(f"Error al procesar {file}: {e}")
+                continue
+    
+    # Guardar cambios y cerrar conexión FUERA del bucle
+    conn.commit()
+    conn.close()
+    
+    messagebox.showinfo("Éxito", "Archivos indexados correctamente.")
+    
+    # Limpiar los campos de entrada
+    entry_carpeta.delete(0, tk.END)
+    entry_disco.delete(0, tk.END)
+```
+Finalmente, guardamos los cambios en `insertar.py` y ejecutamos el script para ver cómo funciona nuestra aplicación. Al ingresar una carpeta válida y un nombre de disco, la aplicación indexará todos los archivos en esa carpeta y almacenará su información en la base de datos SQLite.
+El script completo de `insertar.py` se vería así:
+```Python
+import tkinter as tk
+import os
+import sqlite3
+from tkinter import messagebox
+def procesar():
+    carpeta = entry_carpeta.get()
+    disco = entry_disco.get()
+    
+    if not carpeta or not disco:
+        messagebox.showerror("Error", "Ambos campos son obligatorios.")
+        return
+    
+    if not os.path.exists(carpeta):
+        messagebox.showerror("Error", "La carpeta especificada no existe.")
+        return
+    
+    conn = sqlite3.connect("discos.db")
+    cursor = conn.cursor()
+    
+    for root, dirs, files in os.walk(carpeta):
+        for file in files:
+            ruta_completa = os.path.join(root, file)
+            tamanio = os.path.getsize(ruta_completa)
+            creacion = os.path.getctime(ruta_completa)
+            modificacion = os.path.getmtime(ruta_completa)
+            
+            cursor.execute("""
+                INSERT INTO archivos (disco, ruta, archivo, tamanio, creacion, modificacion)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (disco, root, file, tamanio, creacion, modificacion))
+    
+    conn.commit()
+    conn.close()
+    messagebox.showinfo("Éxito", "Archivos indexados correctamente.")
+
+    entry_carpeta.delete(0, tk.END)
+    entry_disco.delete(0, tk.END)
+root = tk.Tk()
+root.title("Indexador de Archivos")
+tk.Label(root, text="Carpeta a indexar:").pack()
+entry_carpeta = tk.Entry(root, width=50)
+entry_carpeta.pack()
+tk.Label(root, text="Nombre del disco:").pack()
+entry_disco = tk.Entry(root, width=50)
+entry_disco.pack()
+tk.Button(root, text="Procesar", command=procesar).pack()
+root.mainloop()
+```
+
+Esta aplicación es una herramienta práctica para organizar tus archivos de modelado e impresión 3D, facilitando su gestión y acceso en el futuro.

@@ -1,0 +1,34 @@
+Contexto
+
+En tu proyecto intermodular sobre Búsqueda de información y Características de los departamentos, te encuentras con un cliente potencial en una pequeña pyme valenciana que está interesada en implementar soluciones de IA para mejorar su eficiencia operativa. La empresa utiliza una Raspberry Pi para gestionar sus inventarios y rutas de suministro, lo que te ha inspirado a explorar cómo la tecnología puede ser integrada en diferentes departamentos.
+
+Enunciado paso a paso
+
+Identifica el departamento clave: Basándote en la utilización de la Raspberry Pi, identifica cuál es el departamento clave que podría beneficiarse más de una solución de IA. Justifica tu elección.
+Analiza las decisiones y roles: Revisa la tabla proporcionada para determinar quién decide, quién usa y quién bloquea en el departamento que has elegido. Identifica también dónde duele para este departamento.
+Determina los KPIs relevantes: Basándote en los KPIs mencionados, identifica cuáles serían los indicadores más importantes para medir el éxito de la implementación de una solución de IA en ese departamento.
+Restricciones
+
+No utilices librerías externas ni estructuras no vistas.
+Asegúrate de que todos los términos y conceptos utilizados estén dentro del contexto proporcionado y se refieran a departamentos típicos de clientes potenciales (pymes valencianas) o competidores (proveedores de IA).
+Criterios de evaluación
+
+Introducción y contextualización (25%): El alumnado debe mostrar una comprensión clara del contexto y cómo el proyecto intermodular se relaciona con su hobby de jugar con Raspberry Pi.
+Desarrollo técnico correcto y preciso (25%): El alumnado debe identificar correctamente el departamento clave, analizar los roles y decisiones relevantes, y determinar adecuadamente los KPIs.
+Aplicación práctica con ejemplo claro (25%): El alumnado debe explicar su elección del departamento y cómo esta elección se relaciona con su hobby de modelado e impresión 3D.
+Cierre/Conclusión enlazando con la unidad (25%): El alumnado debe conectar sus hallazgos con el mapa de compra y las pistas tácticas proporcionados, mostrando cómo esta información puede ser útil para su proyecto intermodular.
+
+
+
+
+
+La IA es una herramienta muy versatil que puede aplicarse en diversos departamentos de una empresa. En este caso, considerando el uso de Raspberry Pi y el interés en modelado e impresión 3D, el departamento más relevante podría ser el de Logística y Almacén.
+Todavia es una tecnologia desconocida para la gente a nivel de usuario, limitandose estos a usarla para generar imagenes de gatitos haciendo cosas que de normal no haria un gatito, asi que desde mi punto de vista, la implementacion mas util de la IA en cualquiera de los campos o tipos de empresa en los que se use mi aplicacion, seria en la deteccion de errores humanos basandose en patrones de comportamiento, para asi reducir los errores y aumentar la eficiencia, pero sobretodo, mejorar la economia de la empresa.
+En el departamento de Logística y Almacén, la IA podría ayudar a optimizar la gestión de inventarios, predecir la demanda de productos y mejorar las rutas de suministro. Esto se alinea con el uso de Raspberry Pi para gestionar inventarios, ya que la IA podría analizar los datos recopilados por la Raspberry Pi para tomar decisiones informadas.
+En cuanto a los roles y decisiones, en el departamento de Logística y Almacén, el encargado de logística sería quien decide las estrategias de gestión de inventarios y rutas de suministro. Los empleados del almacén serían los usuarios que interactúan con la Raspberry Pi para registrar entradas y salidas de productos. Un posible bloqueador podría ser la resistencia al cambio por parte del personal, que podría estar acostumbrado a métodos tradicionales de gestión.
+Los KPIs relevantes para medir el éxito de la implementación de una solución de IA en el departamento de Logística y Almacén podrían incluir:
+Precisión del inventario: Medir la exactitud de los registros de inventario antes y después de la implementación de la IA.
+Tiempo de procesamiento de pedidos: Evaluar si la IA ha reducido el tiempo necesario para procesar y despachar pedidos.
+Costos operativos: Analizar si la IA ha contribuido a reducir los costos asociados con la gestión de inventarios y logística.
+Satisfacción del cliente: Medir la satisfacción del cliente en relación con la eficiencia de las entregas y la disponibilidad de productos.
+En conclusión, la implementación de una solución de IA en el departamento de Logística y Almacén, utilizando Raspberry Pi, podría mejorar significativamente la eficiencia operativa de la empresa. Esta elección se relaciona con mi hobby de modelado e impresión 3D, ya que la creación de carcasas personalizadas para la Raspberry Pi podría ser una parte integral del proyecto, permitiendo una integración más fluida de la tecnología en el entorno de trabajo. Además, al abordar los roles y decisiones dentro del departamento, puedo asegurarme de que la solución propuesta sea práctica y aceptada por el personal, maximizando así su efectividad.

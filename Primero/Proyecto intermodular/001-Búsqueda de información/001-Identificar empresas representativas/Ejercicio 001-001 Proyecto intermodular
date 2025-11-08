@@ -1,0 +1,380 @@
+Diseño y Despliegue de un Servicio de IA para Entornos Regulados
+Contexto
+En tu proyecto de IA, te has centrado en empresas representativas como Deepseek, Copilot, Grok, OpenAI, Mistral, Maisa, Cinco Días, ActiMirror, Aitister, QUIBIM, MasLeads, BigBro.AI Sports, Voicemod SL, WonderBits, Highdatanet y MyTaskPanel Consulting. Como un amante del modelado e impresión 3D, puedes visualizar cómo estos sistemas podrían funcionar como una red de nodos interconectados. Además, como aficionado a los Raspberrys y similares, imaginas que podrías utilizar estas pequeñas computadoras para implementar componentes de IA en entornos regulados.
+
+Enunciado paso a paso
+Identificación de Necesidades: Identifica las necesidades actuales del mercado empresarial valenciano relacionadas con la IA. Considera los desafíos y oportunidades que estas empresas representativas están explorando.
+Modelo Conceptual: Diseña un modelo conceptual de cómo podrías implementar un servicio de IA para entornos regulados utilizando Raspberrys y tecnologías 3D. Visualiza cómo estos componentes podrían interactuar entre sí.
+Despliegue en Entorno Local: Utiliza tus habilidades con Raspberrys para desplegar un prototipo de tu servicio de IA en un entorno local. Considera la configuración de servidores y la integración de soluciones 3D.
+Restricciones
+No utilizar librerías externas.
+No usar estructuras no vistas.
+El proyecto debe ser realista con los recursos disponibles para una pequeña o mediana empresa valenciana.
+Criterios de evaluación
+Introducción y contextualización (25%): El estudiante debe mostrar comprensión del contexto del mercado empresarial de la IA en Valencia.
+Desarrollo técnico correcto y preciso (25%): El diseño del modelo conceptual y el despliegue en entorno local deben ser técnicamente precisos y realistas.
+Aplicación práctica con ejemplo claro (25%): El estudiante debe proporcionar un ejemplo claro de cómo implementaría su servicio de IA utilizando Raspberrys y tecnologías 3D.
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe concluir el proyecto enfocándose en cómo este servicio de IA podría contribuir a la innovación empresarial en Valencia.
+
+
+
+Para nuestro proyecto intermodular, vamos a crear un sistema de gestion de almacen y gestion empresarial, tan completo como navision, proteo, holded , etc. No dependiente de ningun otro software comercial, y que pueda ser desplegado en un entorno local.
+Ademas, intentaremos integrar un supervisor de IA que nos ayude a optimizar todo y reducir la carga de tarea humana a casi simple supervision.
+Existen muchos ejemplos de programas de gestion empresarial, pero cuando todo falla, siempre se acaba recurriendo a navision y a unas compatibilidades forzadas con python, asi que vamos a trabajar con  python desde primera hora, facilitandonos asi tareas y correcciones futuras.
+
+Primero vamos a listar las funciones que nos ofrece Navision:
+
+- Gestion de inventario
+- Gestion de compras
+- Gestion de ventas
+- Gestion de clientes y proveedores
+- Gestion de contabilidad
+- Informes y analiticas
+- Integracion con otros sistemas
+- Personalizacion y escalabilidad
+- Seguridad y control de acceso
+- Soporte para multiples monedas e idiomas
+- Automatizacion de procesos empresariales
+- Cumplimiento normativo y auditoria
+- Interfaz de usuario intuitiva
+- Acceso movil y remoto
+
+Con estas funciones en mente, vamos a empezar a diseñar la estructura basica de nuestro software de gestion empresarial, y a partir de ahi, iremos añadiendo funcionalidades y mejorandolo poco a poco.
+Definimos primero las tablas de la base de datos que vamos a necesitar:
+
+TABLAS MAESTRAS (Datos base del sistema)
+
+- **Tabla de productos**: Almacena toda la información de los productos (código, descripción, precio base, stock mínimo, etc.)
+- **Tabla de categorias_productos**: Clasifica productos en grupos (electrónica, textil, alimentación, etc.)
+- **Tabla de familias_productos**: Agrupa categorías en familias más amplias (consumibles, maquinaria, servicios)
+- **Tabla de atributos_productos**: Define características variables (color, talla, material, voltaje) - Para variantes
+- **Tabla de unidades_medida**: Define unidades (kg, litros, metros, unidades, cajas) y conversiones entre ellas
+- **Tabla de lotes**: Registra lotes de producción y fechas de caducidad - Trazabilidad completa
+- **Tabla de numeros_serie**: Controla artículos con número de serie único (móviles, portátiles, maquinaria)
+
+- **Tabla de clientes**: Datos completos de clientes (nombre, CIF, dirección, contacto, condiciones comerciales)
+- **Tabla de direcciones_cliente**: Múltiples direcciones por cliente (fiscal, entrega, facturación)
+- **Tabla de contactos_cliente**: Personas de contacto en cada cliente (nombre, cargo, teléfono, email)
+- **Tabla de proveedores**: Datos de proveedores (igual estructura que clientes)
+- **Tabla de direcciones_proveedor**: Direcciones múltiples de proveedores
+- **Tabla de contactos_proveedor**: Contactos en empresas proveedoras
+
+TABLAS DE OPERACIONES COMERCIALES (Compras y Ventas)
+
+- **Tabla de presupuestos**: Ofertas comerciales a clientes (antes de confirmar venta)
+- **Tabla de lineas_presupuestos**: Detalle línea a línea de cada presupuesto
+- **Tabla de pedidos_venta**: Pedidos confirmados de clientes (orden de venta)
+- **Tabla de lineas_pedidos_venta**: Detalle de productos en cada pedido de venta
+- **Tabla de albaranes_venta**: Documentos de entrega de mercancía a clientes
+- **Tabla de lineas_albaranes_venta**: Detalle de qué se entregó en cada albarán
+- **Tabla de facturas_venta**: Facturas emitidas a clientes (documento contable definitivo)
+- **Tabla de lineas_facturas_venta**: Detalle de líneas de cada factura de venta
+
+- **Tabla de solicitudes_compra**: Peticiones internas de material (desde producción o almacén)
+- **Tabla de pedidos_compra**: Pedidos realizados a proveedores
+- **Tabla de lineas_pedidos_compra**: Detalle de productos en cada pedido de compra
+- **Tabla de albaranes_compra**: Recepción de mercancía de proveedores
+- **Tabla de lineas_albaranes_compra**: Detalle de qué se recibió en cada albarán
+- **Tabla de facturas_compra**: Facturas recibidas de proveedores
+- **Tabla de lineas_facturas_compra**: Detalle de líneas de cada factura de compra
+
+TABLAS DE LOGÍSTICA Y ALMACÉN
+
+- **Tabla de almacenes**: Diferentes almacenes físicos (central, delegaciones, consigna)
+- **Tabla de zonas_almacen**: Zonas dentro de cada almacén (recepción, picking, reserva, expedición)
+- **Tabla de ubicaciones_almacen**: Ubicaciones exactas (pasillo-estantería-altura: A-12-03)
+- **Tabla de tipos_ubicacion**: Clasifica ubicaciones (paletización, picking, bloqueo, cuarentena)
+- **Tabla de inventario**: Stock actual de cada producto en cada ubicación
+- **Tabla de movimientos_stock**: Historial de todos los movimientos (entradas, salidas, traspasos)
+- **Tabla de inventarios_fisicos**: Recuentos físicos de stock (auditorías)
+- **Tabla de ajustes_inventario**: Correcciones de diferencias encontradas en recuentos
+
+TABLAS DE PRODUCCIÓN
+
+- **Tabla de secciones_produccion**: Diferentes áreas de fabricación (mecanizado, montaje, pintura, embalaje)
+- **Tabla de centros_trabajo**: Máquinas o puestos de trabajo (torno CNC, impresora 3D, soldadora)
+- **Tabla de ordenes_fabricacion**: Órdenes de producción (qué fabricar, cuánto, cuándo)
+- **Tabla de listas_materiales** (BOM): Recetas de fabricación (qué materiales necesita cada producto)
+- **Tabla de lineas_bom**: Detalle de componentes en cada lista de materiales
+- **Tabla de rutas_fabricacion**: Secuencia de operaciones para fabricar un producto
+- **Tabla de operaciones_ruta**: Pasos individuales de cada ruta (mecanizar, soldar, pintar)
+- **Tabla de partes_trabajo**: Registro de tiempo empleado por operarios en cada orden
+- **Tabla de consumos_materiales**: Materiales consumidos en cada orden de fabricación
+- **Tabla de control_calidad**: Inspecciones y resultados de calidad en producción
+
+TABLAS FINANCIERAS Y CONTABLES
+
+- **Tabla de cuentas_contables**: Plan General Contable (430, 477, 600, 700, etc.)
+- **Tabla de asientos_contables**: Asientos del libro diario
+- **Tabla de lineas_asientos**: Movimientos debe/haber de cada asiento
+- **Tabla de centros_coste**: Departamentos o proyectos (ventas, producción, administración)
+- **Tabla de proyectos**: Obras o proyectos específicos con contabilidad separada
+- **Tabla de vencimientos**: Fechas de pago/cobro de facturas (gestión de tesorería)
+- **Tabla de remesas**: Agrupaciones de recibos para banco (SEPA, pagarés)
+- **Tabla de extractos_bancarios**: Movimientos de cuentas bancarias
+- **Tabla de conciliacion_bancaria**: Relación entre asientos contables y extractos
+
+TABLAS DE GESTIÓN COMERCIAL
+
+- **Tabla de tarifas**: Diferentes precios según cliente/cantidad (tarifa general, VIP, mayorista)
+- **Tabla de precios_tarifa**: Precios específicos de productos en cada tarifa
+- **Tabla de descuentos**: Descuentos por volumen, campaña o cliente
+- **Tabla de promociones**: Ofertas temporales (3x2, -20%, regalo)
+- **Tabla de condiciones_pago**: Formas de pago (contado, 30/60/90 días, confirming)
+- **Tabla de formas_pago**: Medios de pago (efectivo, tarjeta, transferencia, pagaré)
+- **Tabla de agentes_comerciales**: Vendedores y representantes
+- **Tabla de comisiones**: Porcentajes de comisión por agente/producto
+- **Tabla de campañas_marketing**: Campañas de captación o fidelización
+- **Tabla de oportunidades**: Posibles ventas futuras (pipeline comercial)
+
+TABLAS DE CONFIGURACIÓN Y SISTEMA
+
+- **Tabla de empresas**: Diferentes empresas/delegaciones en sistema multiempresa
+- **Tabla de usuarios**: Usuarios del sistema con credenciales
+- **Tabla de roles**: Perfiles de usuario (admin, vendedor, almacenero, contable)
+- **Tabla de permisos**: Permisos específicos por rol (crear factura, eliminar producto)
+- **Tabla de series_numeracion**: Numeración de documentos (F2025/0001, P2025/0123)
+- **Tabla de parametros_sistema**: Configuración global (IVA por defecto, días vencimiento)
+- **Tabla de tipos_documento**: Clasificación de documentos (factura, albarán, presupuesto)
+- **Tabla de monedas**: Diferentes monedas (EUR, USD, GBP)
+- **Tabla de tipos_cambio**: Conversión entre monedas por fecha
+- **Tabla de paises**: Países (para direcciones y reglas fiscales)
+- **Tabla de provincias**: Provincias/estados de cada país
+- **Tabla de impuestos**: Tipos de IVA y otros impuestos (21%, 10%, 4%, exento)
+- **Tabla de tipos_retencion**: Retenciones de IRPF (15%, 7%, 2%)
+- **Tabla de traducciones**: Textos en múltiples idiomas para interfaz
+
+TABLAS DE COMUNICACIÓN Y SEGUIMIENTO
+
+- **Tabla de emails**: Emails enviados desde el sistema (facturas, pedidos confirmados)
+- **Tabla de plantillas_email**: Plantillas HTML para emails automáticos
+- **Tabla de sms**: SMS enviados (alertas de entrega, recordatorios de pago)
+- **Tabla de notificaciones**: Notificaciones push para app móvil o web
+- **Tabla de adjuntos**: Archivos adjuntos a documentos (contratos PDF, fotos de producto)
+- **Tabla de incidencias**: Tickets de soporte o incidencias (producto defectuoso, retraso)
+- **Tabla de seguimiento_incidencias**: Historial de cambios en cada incidencia
+
+TABLAS DE AUDITORÍA Y TRAZABILIDAD
+
+- **Tabla de log_cambios**: Registro de todos los cambios (quién, qué, cuándo) - Auditoría completa
+- **Tabla de historial_precios**: Evolución de precios de productos en el tiempo
+- **Tabla de firmas_digitales**: Firmas electrónicas de documentos (certificados digitales)
+- **Tabla de sesiones**: Sesiones activas de usuarios (control de acceso concurrente)
+- **Tabla de acciones_usuario**: Log de acciones realizadas por cada usuario
+
+TABLAS PARA IA Y AUTOMATIZACIÓN
+
+- **Tabla de reglas_negocio**: Reglas automáticas (si stock<10, crear pedido a proveedor)
+- **Tabla de alertas**: Alertas configuradas (stock bajo, facturas impagadas, pedidos retrasados)
+- **Tabla de workflows**: Flujos de trabajo automatizados (aprobar presupuesto > crear pedido)
+- **Tabla de estados_workflow**: Estados de cada paso en workflows
+- **Tabla de analisis_predictivos**: Resultados de análisis de IA (demanda prevista, rotación)
+- **Tabla de sugerencias_ia**: Sugerencias del sistema (reordenar productos, cambiar precios)
+- **Tabla de decisiones_ia**: Historial de decisiones tomadas por IA para aprendizaje
+- **Tabla de modelos_ml**: Modelos de machine learning entrenados (predicción ventas, clasificación)
+
+TABLAS DE RECURSOS HUMANOS (Opcional pero recomendado)
+
+- **Tabla de empleados**: Trabajadores de la empresa (datos personales, puesto, salario)
+- **Tabla de departamentos**: Departamentos de la empresa (ventas, producción, administración)
+- **Tabla de turnos**: Turnos de trabajo (mañana, tarde, noche)
+- **Tabla de calendarios**: Calendarios laborales (festivos, horarios)
+- **Tabla de ausencias**: Vacaciones, bajas médicas, permisos
+
+
+RELACIONES ENTRE TABLAS (Claves foráneas principales)
+
+**Flujo Comercial de Ventas:**
+clientes → presupuestos → pedidos_venta → albaranes_venta → facturas_venta
+         ↓                ↓                ↓                  ↓
+    lineas_presupuestos  lineas_pedidos   lineas_albaranes   lineas_facturas
+                         ↓
+                    movimientos_stock (reserva)
+                         ↓
+                    inventario (reduce stock)
+
+**Flujo Comercial de Compras:**
+proveedores → pedidos_compra → albaranes_compra → facturas_compra
+             ↓                 ↓                  ↓
+       lineas_pedidos    lineas_albaranes   lineas_facturas
+                         ↓
+                    movimientos_stock (entrada)
+                         ↓
+                    inventario (aumenta stock)
+
+**Flujo de Producción:**
+ordenes_fabricacion → listas_materiales (BOM) → consumos_materiales
+                   ↓                                    ↓
+              rutas_fabricacion                  movimientos_stock
+                   ↓                                    ↓
+            operaciones_ruta                       inventario
+                   ↓
+            partes_trabajo
+
+**Relaciones de Productos:**
+productos → categorias_productos → familias_productos
+         ↓
+    atributos_productos (variantes)
+         ↓
+    lotes / numeros_serie
+         ↓
+    ubicaciones_almacen → zonas_almacen → almacenes
+         ↓
+    inventario
+
+**Relaciones Contables:**
+facturas_venta / facturas_compra → asientos_contables → lineas_asientos
+                                                        ↓
+                                                  cuentas_contables
+                                                        ↓
+                                                  centros_coste
+
+**Relaciones de Tesorería:**
+facturas → vencimientos → remesas → extractos_bancarios
+                       ↓
+                 conciliacion_bancaria
+
+**Relaciones de Usuarios y Seguridad:**
+usuarios → roles → permisos
+        ↓
+   sesiones / log_cambios / acciones_usuario
+
+**Relaciones de IA:**
+productos → analisis_predictivos → sugerencias_ia → decisiones_ia
+         ↓
+    reglas_negocio → alertas → workflows
+
+**Relaciones de Documentación:**
+(cualquier tabla) → adjuntos
+                  → emails
+                  → notificaciones
+                  → incidencias
+
+**Claves Foráneas Críticas:**
+- Todas las líneas de documentos (lineas_*) referencian a productos
+- Todos los documentos referencian a clientes o proveedores
+- Todos los movimientos_stock referencian a productos, ubicaciones y documentos origen
+- Todos los registros tienen usuario_creacion y fecha_creacion para auditoría
+- Los workflows conectan múltiples tablas según el proceso automatizado
+
+Como todas las ID van a ser autoincrementales, vamos a distinguirlas con un prefijo para facilitar su identificación y trazabilidad:
+
+**TABLAS MAESTRAS (sin año - datos permanentes):**
+- Productos: PRODXXXXXXXX
+- Categorías de productos: CATXXXXXXXX
+- Familias de productos: FAMXXXXXXXX
+- Atributos de productos: ATRXXXXXXXX
+- Unidades de medida: UNIXXXXXXXX
+- Lotes: LOTXXXXXXXX
+- Números de serie: SNXXXXXXXXXX (Serie única por producto)
+- Clientes: CLIXXXXXXXX
+- Direcciones cliente: DCLIXXXXXXXX
+- Contactos cliente: CCLIXXXXXXXX
+- Proveedores: PROVXXXXXXXX
+- Direcciones proveedor: DPROVXXXXXXXX
+- Contactos proveedor: CPROVXXXXXXXX
+
+**OPERACIONES COMERCIALES (con año - documentos transaccionales):**
+- Presupuestos: PRES25XXXXXXXX
+- Pedidos de venta: PV25XXXXXXXX
+- Albaranes de venta: AV25XXXXXXXX
+- Facturas de venta: FV25XXXXXXXX
+- Solicitudes de compra: SC25XXXXXXXX
+- Pedidos de compra: PC25XXXXXXXX
+- Albaranes de compra: AC25XXXXXXXX
+- Facturas de compra: FC25XXXXXXXX
+
+**LOGÍSTICA Y ALMACÉN:**
+- Almacenes: ALMXXXXXXXX (maestro)
+- Zonas de almacén: ZONAXXXXXXXX (maestro)
+- Ubicaciones: UBIXXXXXXXX (maestro, ejemplo: UBI-A-12-03 para pasillo-estante-altura)
+- Tipos de ubicación: TUBXXXXXXXX (maestro)
+- Movimientos de stock: MOV25XXXXXXXX (transaccional - con año)
+- Inventarios físicos: INV25XXXXXXXX (transaccional - con año)
+- Ajustes de inventario: AJU25XXXXXXXX (transaccional - con año)
+
+**PRODUCCIÓN:**
+- Secciones de producción: SECXXXXXXXX (maestro)
+- Centros de trabajo: CTXXXXXXXX (maestro)
+- Órdenes de fabricación: OF25XXXXXXXX (transaccional - con año)
+- Listas de materiales (BOM): BOMXXXXXXXX (maestro)
+- Rutas de fabricación: RUTXXXXXXXX (maestro)
+- Operaciones de ruta: OPEXXXXXXXX (maestro)
+- Partes de trabajo: PT25XXXXXXXX (transaccional - con año)
+- Consumos de materiales: CONS25XXXXXXXX (transaccional - con año)
+- Control de calidad: CAL25XXXXXXXX (transaccional - con año)
+
+**FINANCIERAS Y CONTABLES:**
+- Cuentas contables: CTAXXXXXXXX (maestro, o usar códigos PGC: 430, 477, 600, 700)
+- Asientos contables: ASI25XXXXXXXX (transaccional - con año)
+- Centros de coste: CCXXXXXXXX (maestro)
+- Proyectos: PROYXXXXXXXX (maestro)
+- Vencimientos: VEN25XXXXXXXX (transaccional - con año)
+- Remesas: REM25XXXXXXXX (transaccional - con año)
+- Extractos bancarios: EXT25XXXXXXXX (transaccional - con año)
+- Conciliación bancaria: CONC25XXXXXXXX (transaccional - con año)
+
+**GESTIÓN COMERCIAL:**
+- Tarifas: TARXXXXXXXX (maestro)
+- Descuentos: DESCXXXXXXXX (maestro)
+- Promociones: PROMOXXXXXXXX (maestro - aunque pueden tener fecha límite)
+- Condiciones de pago: CPAGXXXXXXXX (maestro)
+- Formas de pago: FPAGXXXXXXXX (maestro)
+- Agentes comerciales: AGEXXXXXXXX (maestro)
+- Comisiones: COMXXXXXXXX (maestro)
+- Campañas de marketing: CAMPXXXXXXXX (maestro)
+- Oportunidades: OPO25XXXXXXXX (transaccional - con año)
+
+**CONFIGURACIÓN Y SISTEMA:**
+- Empresas: EMPXXXXXXXX (maestro)
+- Usuarios: USRXXXXXXXX (maestro)
+- Roles: ROLXXXXXXXX (maestro)
+- Permisos: PERMXXXXXXXX (maestro)
+- Series de numeración: SERXXXXXXXX (maestro)
+- Parámetros del sistema: PARXXXXXXXX (maestro)
+- Tipos de documento: TDOCXXXXXXXX (maestro)
+- Monedas: MONXXXXXXXX (maestro, o usar códigos ISO: EUR, USD, GBP)
+- Tipos de cambio: TC25XXXXXXXX (transaccional - con año y fecha)
+- Países: PAISXXXXXXXX (maestro, o usar códigos ISO: ES, FR, DE)
+- Provincias: PROVXXXXXXXX (maestro)
+- Impuestos: IMPXXXXXXXX (maestro)
+- Tipos de retención: RETXXXXXXXX (maestro)
+- Traducciones: TRADXXXXXXXX (maestro)
+
+**COMUNICACIÓN Y SEGUIMIENTO:**
+- Emails: EMAIL25XXXXXXXX (transaccional - con año)
+- Plantillas de email: TPLXXXXXXXX (maestro)
+- SMS: SMS25XXXXXXXX (transaccional - con año)
+- Notificaciones: NOT25XXXXXXXX (transaccional - con año)
+- Adjuntos: ADJXXXXXXXX (maestro)
+- Incidencias: INC25XXXXXXXX (transaccional - con año)
+
+**AUDITORÍA Y TRAZABILIDAD:**
+- Log de cambios: LOG25XXXXXXXX (transaccional - con año)
+- Historial de precios: HPRE25XXXXXXXX (transaccional - con año)
+- Firmas digitales: FIRMA25XXXXXXXX (transaccional - con año)
+- Sesiones: SES25XXXXXXXX (transaccional - con año)
+- Acciones de usuario: ACC25XXXXXXXX (transaccional - con año)
+
+**IA Y AUTOMATIZACIÓN:**
+- Reglas de negocio: REGXXXXXXXX (maestro)
+- Alertas: ALE25XXXXXXXX (transaccional - con año)
+- Workflows: WFXXXXXXXX (maestro)
+- Estados de workflow: EWF25XXXXXXXX (transaccional - con año)
+- Análisis predictivos: PRED25XXXXXXXX (transaccional - con año)
+- Sugerencias de IA: SUG25XXXXXXXX (transaccional - con año)
+- Decisiones de IA: DEC25XXXXXXXX (transaccional - con año)
+- Modelos ML: MLXXXXXXXX (maestro)
+
+**RECURSOS HUMANOS:**
+- Empleados: EMPXXXXXXXX (maestro)
+- Departamentos: DEPXXXXXXXX (maestro)
+- Turnos: TURXXXXXXXX (maestro)
+- Calendarios: CALXXXXXXXX (maestro)
+- Ausencias: AUS25XXXXXXXX (transaccional - con año)
+
+**Nota:** El año (25) en los prefijos se actualizará automáticamente cada año (26, 27, etc.) para mantener trazabilidad histórica en documentos transaccionales (facturas, pedidos, movimientos, etc.). Los datos maestros (productos, clientes, configuración) no llevan año ya que son permanentes y se actualizan in-place.
+
+-- Nota: Este script muestra las 13 tablas maestras b�sicas como ejemplo.
+-- El sistema ERP completo requiere 81 tablas adicionales seg�n la arquitectura definida.
+-- Por razones de brevedad, se documenta la estructura completa en archivo separado.
