@@ -1,0 +1,197 @@
+Contexto
+¡Hola! Hoy vamos a aprender cómo cambiar la IP de escucha de una aplicación Flask para que pueda ser accesible desde cualquier dispositivo en nuestra red local. Este conocimiento será muy útil si quieres compartir tu proyecto con amigos o probar diferentes configuraciones.
+
+Para practicar, vamos a crear un sencillo microblog usando Flask y luego cambiar su dirección IP de escucha. Además, te pediré que utilices tus habilidades de modelado e impresión 3D para diseñar una interfaz visual atractiva para tu blog.
+
+Enunciado paso a paso
+Crea un archivo llamado microblog.py y copia el siguiente código en él:
+
+# pip install flask
+
+from flask import Flask             
+
+aplicacion = Flask(__name__)
+
+@aplicacion.route("/")
+def raiz():
+  cadena = '''
+  <style>
+    body{background:grey;}
+    h1{color:white;text-align:center;}
+    article{background:white;padding:20px;margin:auto;width:500px;}
+  </style>
+  <h1>El blog Python de Jose Vicente</h1>
+  '''
+  articulos = [
+    "Primer artículo",
+    "Segundo artículo",
+    "Tercer artículo",
+    "Cuarto artículo",
+    "..."
+  ]
+  for articulo in articulos:
+    cadena += '''<article>
+      <h2>'''+articulo+'''</h2>
+      <p>Este será el contenido del artículo</p>
+    </article>'''
+  return cadena
+  
+if __name__ == "__main__":
+  aplicacion.run(host="192.168.1.78", port=5000,debug=True)
+Guarda el archivo y ejecútalo en tu terminal:
+
+python3 microblog.py
+Esto iniciará un servidor Flask que escuchará en la IP 192.168.1.78 y el puerto 5000.
+
+Accede a tu blog desde otro dispositivo en la misma red local, abriendo el navegador e introduciendo la dirección http://192.168.1.78:5000. Deberías ver un blog con varios artículos.
+
+Cambia la IP de escucha para que sea accesible desde cualquier dispositivo en tu red local:
+
+Modifica el archivo microblog.py y cambia la línea donde se inicializa el servidor Flask:
+
+aplicacion.run(host="0.0.0.0", port=5000,debug=True)
+Guarda los cambios y vuelve a ejecutar el script.
+
+python3 microblog.py
+Ahora, tu blog debería ser accesible desde cualquier dispositivo en la misma red local, utilizando la dirección IP de tu servidor.
+
+Restricciones
+No uses librerías externas adicionales.
+Mantén el código dentro del archivo microblog.py.
+Criterios de evaluación
+Introducción y contextualización (25%): El estudiante debe entender por qué es importante cambiar la IP de escucha en una aplicación Flask.
+
+Desarrollo técnico correcto y preciso (25%): El estudiante debe implementar correctamente el cambio de IP de escucha y asegurarse de que la aplicación se ejecuta sin errores.
+
+Aplicación práctica con ejemplo claro (25%): El estudiante debe probar la aplicación desde otro dispositivo en la misma red local y verificar que funciona correctamente.
+
+Cierre/Conclusión enlazando con la unidad (25%): El estudiante debe reflexionar sobre cómo este conocimiento puede ser útil en proyectos futuros y cómo puede integrarse con otros conceptos aprendidos en el curso.
+
+================================================================================
+RESOLUCIÓN
+================================================================================
+
+INTRODUCCIÓN
+------------
+La configuración `host="0.0.0.0"` en Flask permite que la aplicación sea accesible desde cualquier dispositivo en la red local, no solo desde localhost. Esto es esencial para proyectos con Raspberry Pi o IoT.
+
+- `127.0.0.1`: Solo localhost
+- `192.168.1.X`: Solo esa IP específica
+- `0.0.0.0`: Todas las interfaces de red
+
+CÓDIGO - microblog.py
+---------------------
+
+# pip install flask
+
+from flask import Flask
+
+aplicacion = Flask(__name__)
+
+@aplicacion.route("/")
+def raiz():
+    cadena = '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog Maker & 3D</title>
+        <style>
+            body {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+            h1 {
+                color: white;
+                text-align: center;
+                font-size: 2.5em;
+            }
+            article {
+                background: white;
+                padding: 25px;
+                margin: 20px auto;
+                max-width: 700px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                border-left: 5px solid #667eea;
+            }
+            article:hover {
+                transform: translateY(-5px);
+            }
+            h2 { color: #667eea; }
+            .tag {
+                background: #667eea;
+                color: white;
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.85em;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🚀 Blog Maker & 3D Printing</h1>
+    '''
+    
+    articulos = [
+        {
+            "titulo": "Flask en Raspberry Pi 4",
+            "contenido": "Despliegue de apps Flask en Raspberry Pi con systemd.",
+            "tags": ["Flask", "Raspberry Pi"]
+        },
+        {
+            "titulo": "Optimización impresión 3D",
+            "contenido": "Técnicas para reducir soportes en Cura y PrusaSlicer.",
+            "tags": ["3D Printing", "Cura"]
+        },
+        {
+            "titulo": "Dashboard IoT con CSS Grid",
+            "contenido": "Interfaces responsivas para sensores en tiempo real.",
+            "tags": ["IoT", "CSS Grid"]
+        }
+    ]
+    
+    for articulo in articulos:
+        cadena += f'''
+        <article>
+            <h2>{articulo["titulo"]}</h2>
+            <p>{articulo["contenido"]}</p>
+            <div>
+        '''
+        for tag in articulo["tags"]:
+            cadena += f'<span class="tag">{tag}</span>'
+        cadena += '</div></article>'
+    
+    cadena += '''
+    <div style="text-align:center; color:white; margin-top:30px;">
+        Servidor Flask en <code>0.0.0.0:5000</code> 🌐
+    </div>
+    </body>
+    </html>
+    '''
+    return cadena
+
+if __name__ == "__main__":
+    # host="0.0.0.0" -> Todas las interfaces (WiFi, Ethernet)
+    # debug=True -> Recarga automática (NO en producción)
+    aplicacion.run(host="0.0.0.0", port=5000, debug=True)
+
+PRUEBAS
+-------
+1. Ejecutar: python microblog.py
+2. Obtener IP: ipconfig (Windows) o hostname -I (Linux)
+3. Acceder desde móvil: http://192.168.1.X:5000
+4. Verificar firewall: sudo ufw allow 5000/tcp (Linux)
+
+APLICACIÓN PRÁCTICA
+-------------------
+Caso real: Dashboard impresora 3D en Raspberry Pi
+
+1. Copiar a Raspberry: scp microblog.py pi@raspberrypi.local:/home/pi/
+2. Ejecutar: ssh pi@raspberrypi.local && python3 microblog.py
+3. Acceder desde móvil mientras imprimes: http://IP_RASPBERRY:5000
+
+CONCLUSIÓN
+----------
+Flask + `0.0.0.0` es ideal para proyectos maker: ligero, simple, accesible desde cualquier dispositivo en red local. Perfecto para Raspberry Pi, dashboards IoT y automatización.

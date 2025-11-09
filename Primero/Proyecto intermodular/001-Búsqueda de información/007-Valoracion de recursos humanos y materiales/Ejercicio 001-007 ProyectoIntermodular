@@ -1,0 +1,311 @@
+Actividad: Planificación de Recursos para un Portafolio de Servicios de IA Educativa
+
+En este ejercicio te pides planificar los recursos necesarios para lanzar un portafolio de servicios de IA educativa con un bajo presupuesto y objetivo de captar clientes en el primer año.
+
+Identifica 2 productos clave que puedas desarrollar rápidamente con tus recursos actuales, como se sugiere en la opción B: Generador de materiales educativos o la Opción C: Sistema de alertas de absentismo/riesgo.
+
+Establece los roles y personas necesarios para el desarrollo de estos productos. Considera cómo podrías subcontratar partes del trabajo, como diseño gráfico/web o asesoría legal, a freelancers o empresas especializadas.
+
+Define la infraestructura mínima viable que te permita arrancar con estos productos. Esto puede incluir uso de cloud barato, APIs IA de bajo costo y herramientas de desarrollo minimalistas.
+
+Estimación de costos anuales para el personal necesario y la infraestructura inicial. Recuerda que tu objetivo es mantener los gastos en menos de 1.500 € al año.
+
+Crea un plan de comercialización que te permita captar clientes iniciales. Considera opciones como proyectos pilotos gratuitos o bajo coste y cómo convertirlos en suscripciones anuales.
+
+Escribe un resumen de tu plan, incluyendo los productos clave, roles necesarios, infraestructura mínima y estrategia comercial.
+
+Este ejercicio te ayudará a aplicar los conceptos aprendidos sobre la planificación de recursos y costes en un escenario práctico real. Recuerda integrar tus hobbies como modelado e impresión 3D para visualizar el diseño del sistema, o usar tu experiencia con Raspberrys para entender mejor las capacidades técnicas necesarias.
+
+================================================================================
+RESOLUCIÓN - PLAN DE RECURSOS PARA SERVICIOS IA EDUCATIVA
+================================================================================
+
+PRODUCTOS CLAVE SELECCIONADOS
+------------------------------
+
+PRODUCTO 1: GENERADOR DE MATERIALES EDUCATIVOS CON IA
+Sistema automatizado que crea fichas, exámenes, presentaciones y ejercicios personalizados para docentes, adaptados al currículo valenciano.
+
+PRODUCTO 2: SISTEMA DE ALERTAS DE ABSENTISMO Y RIESGO ACADÉMICO
+Plataforma predictiva que detecta patrones de riesgo (faltas, bajas notas, comportamiento) y alerta al tutor antes de que el alumno abandone.
+
+================================================================================
+ROLES Y RECURSOS HUMANOS
+================================================================================
+
+EQUIPO INTERNO (YO):
+- Desarrollo backend y IA (100% mi tiempo)
+- Infraestructura y DevOps
+- Soporte técnico nivel 1
+- Product Owner
+
+SUBCONTRATACIÓN EXTERNA:
+┌─────────────────────────┬──────────────┬─────────────┬──────────┐
+│ Servicio                │ Proveedor    │ Frecuencia  │ Coste    │
+├─────────────────────────┼──────────────┼─────────────┼──────────┤
+│ Diseño UI/UX            │ Fiverr/Workana│ 1 vez      │ 200€     │
+│ Diseño logo/branding    │ Freelancer   │ 1 vez      │ 100€     │
+│ Asesoría legal RGPD     │ Legaltech    │ Consulta   │ 150€     │
+│ Redacción web/marketing │ Estudiante   │ 1 vez      │ 80€      │
+└─────────────────────────┴──────────────┴─────────────┴──────────┘
+TOTAL SUBCONTRATACIÓN: 530€/año
+
+ESTRATEGIA DE RECURSOS:
+✓ Maximizar trabajo propio (0€ salario inicial)
+✓ Usar herramientas gratuitas/open source
+✓ Subcontratar solo especialidades críticas
+✓ Network con estudiantes de diseño (portfolio mutuo)
+
+================================================================================
+INFRAESTRUCTURA MÍNIMA VIABLE
+================================================================================
+
+HARDWARE:
+- Mi PC actual (desarrollo)
+- Raspberry Pi 4 8GB: 85€ (servidor demo local para colegios)
+- Carcasa impresa 3D: 5€ (filamento PLA)
+
+SOFTWARE Y SERVICIOS CLOUD:
+
+┌─────────────────────────┬──────────────────┬─────────────┬──────────┐
+│ Servicio                │ Proveedor        │ Plan        │ Coste/año│
+├─────────────────────────┼──────────────────┼─────────────┼──────────┤
+│ Hosting web + BD        │ Hetzner Cloud    │ CX11        │ 50€      │
+│ API IA (GPT-3.5)        │ OpenAI           │ Pay as go   │ 300€     │
+│ Dominio .es             │ Namecheap        │ Anual       │ 12€      │
+│ Email profesional       │ Zoho Mail        │ Free tier   │ 0€       │
+│ Analytics               │ Google Analytics │ Free        │ 0€       │
+│ Repositorio código      │ GitHub           │ Free        │ 0€       │
+│ CDN/SSL                 │ Cloudflare       │ Free        │ 0€       │
+│ Base datos              │ PostgreSQL       │ Self-hosted │ 0€       │
+│ Backup automático       │ Backblaze B2     │ 10GB        │ 6€       │
+└─────────────────────────┴──────────────────┴─────────────┴──────────┘
+TOTAL CLOUD/SOFTWARE: 368€/año
+
+HERRAMIENTAS DESARROLLO (GRATIS):
+- VS Code (IDE)
+- Python + Flask (framework web)
+- PostgreSQL (base de datos)
+- Git (control versiones)
+- Postman (testing APIs)
+- Canva Free (mockups iniciales)
+
+TOTAL INFRAESTRUCTURA: 458€/año (hardware + cloud)
+
+================================================================================
+DESGLOSE PRESUPUESTO ANUAL
+================================================================================
+
+CATEGORÍA              │ DETALLE                    │ COSTE
+───────────────────────┼────────────────────────────┼──────────
+HARDWARE               │ Raspberry Pi + accesorios  │   90€
+CLOUD & SOFTWARE       │ Hosting, API, dominio      │  368€
+SUBCONTRATACIÓN        │ Diseño, legal, marketing   │  530€
+MARKETING              │ Ads Google/Meta (mínimo)   │  250€
+CONTINGENCIA           │ Imprevistos (10%)          │  100€
+───────────────────────┼────────────────────────────┼──────────
+TOTAL ANUAL            │                            │ 1.338€
+───────────────────────┴────────────────────────────┴──────────
+
+✓ DENTRO DEL PRESUPUESTO: 1.338€ < 1.500€
+MARGEN DISPONIBLE: 162€ para oportunidades
+
+================================================================================
+DESARROLLO DE PRODUCTOS
+================================================================================
+
+PRODUCTO 1: GENERADOR DE MATERIALES EDUCATIVOS
+-----------------------------------------------
+
+FUNCIONALIDADES MVP:
+✓ Generación de fichas de actividades (Primaria/ESO)
+✓ Creación de exámenes tipo test + desarrollo
+✓ Ejercicios adaptados a asignatura/nivel
+✓ Exportación PDF/DOCX
+✓ Banco de 500 plantillas predefinidas
+
+STACK TÉCNICO:
+- Backend: Python + Flask
+- IA: OpenAI GPT-3.5 Turbo (0.002$/1K tokens)
+- BD: PostgreSQL (materiales generados)
+- Frontend: HTML/CSS/JS vanilla
+- Plantillas: Jinja2 + ReportLab (PDF)
+
+TIEMPO DESARROLLO: 3 semanas
+
+COSTE OPERATIVO:
+- API IA: ~15€/mes (50 generaciones/día)
+- Hosting: incluido en plan
+TOTAL: 180€/año
+
+PRODUCTO 2: SISTEMA ALERTAS ABSENTISMO
+---------------------------------------
+
+FUNCIONALIDADES MVP:
+✓ Importación datos desde Excel/CSV
+✓ Detección patrones: 3+ faltas/semana
+✓ Alertas email automáticas a tutores
+✓ Dashboard con alumnos en riesgo
+✓ Informes mensuales PDF
+
+STACK TÉCNICO:
+- Backend: Python + Flask
+- IA: Modelo sklearn (clasificación local, 0€)
+- BD: PostgreSQL
+- Email: SMTP (Zoho gratis)
+- Gráficas: Chart.js
+
+TIEMPO DESARROLLO: 2 semanas
+
+COSTE OPERATIVO:
+- Hosting: incluido
+- Sin API externa (modelo local)
+TOTAL: 0€/año adicional
+
+================================================================================
+PLAN DE COMERCIALIZACIÓN - AÑO 1
+================================================================================
+
+FASE 1: VALIDACIÓN (Meses 1-2)
+-------------------------------
+✓ 3 colegios piloto GRATIS (3 meses)
+  - Requisito: feedback semanal
+  - Caso de estudio documentado
+  - Testimonios en vídeo
+
+✓ Red de contactos:
+  - LinkedIn: 50 directores/jefes estudio
+  - Asistir a jornadas educativas (Generalitat)
+  - Colaboración con AMPAs
+
+INVERSIÓN: 50€ (tarjetas visita, desplazamientos)
+
+FASE 2: LANZAMIENTO (Meses 3-6)
+--------------------------------
+✓ Conversión pilotos: 2 de 3 esperado (66%)
+
+MODELO PRICING:
+┌────────────────────────┬─────────────┬──────────────┐
+│ Producto               │ Precio/año  │ Coste/colegio│
+├────────────────────────┼─────────────┼──────────────┤
+│ Generador Materiales   │ 480€        │ 180€         │
+│ Alertas Absentismo     │ 360€        │ 5€           │
+│ PACK DUAL (descuento)  │ 720€ (15%)  │ 185€         │
+└────────────────────────┴─────────────┴──────────────┘
+
+✓ Marketing digital:
+  - Google Ads: "software educativo Valencia" (100€/mes)
+  - LinkedIn Ads: directores centros (50€/mes)
+  - Blog SEO: "recursos docentes IA" (0€, yo escribo)
+
+INVERSIÓN: 150€/mes × 4 = 600€
+
+FASE 3: CRECIMIENTO (Meses 7-12)
+---------------------------------
+✓ Objetivo: 10 colegios de pago
+✓ Estrategias:
+  - Webinars gratuitos para docentes
+  - Referidos: 1 mes gratis por recomendación
+  - Presencia en eventos educativos locales
+
+✓ Expansión:
+  - 5 colegios privados (precio premium: 960€/año)
+  - 5 colegios públicos (precio social: 480€/año)
+
+INVERSIÓN: 100€ (stands, material)
+
+PROYECCIÓN INGRESOS AÑO 1
+--------------------------
+
+MES 3-6:   2 colegios × 720€ × 0.75 años = 1.080€
+MES 7-12:  8 colegios × 720€ × 0.5 años  = 2.880€
+           ────────────────────────────────────
+TOTAL INGRESOS AÑO 1:                     3.960€
+
+BENEFICIO AÑO 1: 3.960€ - 1.338€ = 2.622€
+ROI: 196%
+
+================================================================================
+INTEGRACIÓN HOBBIES TÉCNICOS
+================================================================================
+
+RASPBERRY PI:
+- Demo física para presentaciones en colegios
+- Servidor local que funciona sin internet (importante en zonas rurales)
+- Carcasa personalizada impresa 3D con logo del colegio
+- Imagen profesional: "hardware dedicado" vs "la nube"
+
+IMPRESIÓN 3D:
+- Carcasas Raspberry Pi personalizadas (5€ vs 25€ comercial)
+- Soportes para tablets en aulas (regalo promocional)
+- Prototipos de diseño UI (maquetas físicas para pitch)
+- Merchandising: llaveros logo para eventos
+
+VENTAJA COMPETITIVA:
+"No solo vendemos software, entregamos solución completa con hardware incluido"
+
+================================================================================
+CRONOGRAMA AÑO 1
+================================================================================
+
+MES 1-2:   Desarrollo MVP + Diseño web + Pilotos
+MES 3:     Lanzamiento web + Conversión 2 pilotos
+MES 4-6:   Marketing digital + Eventos educativos
+MES 7-9:   Captación 5 colegios nuevos
+MES 10-12: Captación 3 colegios + Mejoras producto
+
+================================================================================
+RIESGOS Y MITIGACIÓN
+================================================================================
+
+RIESGO 1: Pocos clientes año 1
+MITIGACIÓN: Freemium (versión gratis limitada para viralizar)
+
+RIESGO 2: Costes API IA superan presupuesto
+MITIGACIÓN: Límite 100 generaciones/cliente/mes + modelo local alternativo
+
+RIESGO 3: Competencia de grandes (Google Classroom, etc.)
+MITIGACIÓN: Foco en personalización valenciana + soporte local personal
+
+RIESGO 4: RGPD y protección datos menores
+MITIGACIÓN: Consultoría legal inicial + términos claros + datos anonimizados
+
+================================================================================
+RESUMEN EJECUTIVO
+================================================================================
+
+PRODUCTOS: 
+- Generador Materiales Educativos IA
+- Sistema Alertas Absentismo/Riesgo
+
+EQUIPO:
+- 1 persona (yo): desarrollo, soporte, ventas
+- Subcontratación puntual: diseño, legal, marketing
+
+INFRAESTRUCTURA:
+- Cloud: Hetzner (50€/año) + OpenAI API (300€/año)
+- Hardware: Raspberry Pi (90€) para demos
+- Herramientas: 100% open source/gratuitas
+
+PRESUPUESTO ANUAL: 1.338€ (dentro límite 1.500€)
+
+COMERCIALIZACIÓN:
+- Fase 1: 3 pilotos gratis (validación)
+- Fase 2: Conversión + ads digital
+- Fase 3: Crecimiento a 10 colegios
+
+PROYECCIÓN:
+- Ingresos año 1: 3.960€
+- Beneficio neto: 2.622€
+- ROI: 196%
+- Break-even: mes 5
+
+VENTAJA COMPETITIVA:
+Solución 100% local, personalizada al currículo valenciano, con soporte presencial y hardware incluido. Precio 70% menor que competencia internacional.
+
+ESCALABILIDAD AÑO 2:
+Con beneficios año 1 (2.622€), reinvertir en:
+- 1 desarrollador part-time
+- Expansión a Castellón/Alicante
+- Nuevos productos (tutor IA, corrección automática)
+- Objetivo: 50 colegios, 36.000€ ingresos

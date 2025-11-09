@@ -1,0 +1,383 @@
+Contexto
+José Vicente es un apasionado amante de la tecnología y la creatividad. Su pasión por los Raspberrys y otros dispositivos electrónicos lo lleva a experimentar con diferentes proyectos, incluyendo la creación de tiendas en línea. Además, su interés en el modelado e impresión 3D le permite visualizar y prototipar productos antes de implementarlos en su tienda.
+
+Enunciado paso a paso
+Desarrolla una tienda online usando Flask:
+
+Crea un archivo llamado tiendaonline.py con el siguiente contenido básico para tu aplicación Flask.
+from flask import Flask, render_template
+
+aplicacion = Flask(__name__)
+
+@aplicacion.route("/")
+def raiz():
+  return render_template("index.html")
+
+if __name__ == "__main__":
+  aplicacion.run()
+Crea la plantilla HTML para la página principal:
+
+Crea una carpeta llamada templates en el mismo directorio que tu archivo tiendaonline.py.
+Dentro de esta carpeta, crea un archivo llamado index.html con el siguiente contenido básico.
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Tienda online</title>
+    <meta charset="utf-8">
+    <style>
+      body,html{background:grey;font-family:sans-serif;text-align:center;}
+      header,footer,main{background:white;width:600px;margin:auto;padding:20px;}
+      main{display:grid;grid-template-columns:auto auto auto;gap:20px;}
+      main article img{
+        width:100%;height:100px;background:grey;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tienda online</h1>
+    </header>
+    <main>
+      <!-- Aquí irán los artículos de la tienda -->
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+Integra productos en tu tienda:
+
+Añade varios artículos a tu página principal utilizando el modelo y las plantillas que ya tienes.
+Por ejemplo, puedes agregar un artículo así:
+<article>
+  <img src="ruta/a/imagen.jpg" alt="Producto">
+  <h3>Nombre del Producto</h3>
+  <p>Precio: 5.54€</p>
+</article>
+Repite este proceso para agregar más productos.
+Restricciones
+No uses librerías externas.
+Mantén el código dentro de las estructuras vistas en clase.
+Asegúrate de que todos los archivos y carpetas estén correctamente organizados según el contexto proporcionado.
+Criterios de evaluación
+Introducción y contextualización (25%): El alumnado debe entender la importancia del proyecto para José Vicente y cómo se integra en su pasión por la tecnología y la creatividad.
+Desarrollo técnico correcto y preciso (25%): El alumnado debe implementar correctamente una tienda online usando Flask, incluyendo la creación de archivos HTML y Python.
+Aplicación práctica con ejemplo claro (25%): El alumnado debe agregar varios productos a su tienda online utilizando el modelo y las plantillas proporcionados.
+Cierre/Conclusión enlazando con la unidad (25%): El alumnado debe explicar cómo este proyecto puede ayudarle a mejorar sus habilidades técnicas y cómo se relaciona con su pasión por los Raspberrys y el modelado e impresión 3D.
+
+================================================================================
+RESOLUCIÓN
+================================================================================
+
+INTRODUCCIÓN
+------------
+Tienda online de productos maker: componentes electrónicos, piezas 3D impresas y accesorios para Raspberry Pi. Flask + templates permite crear catálogos dinámicos escalables.
+
+ESTRUCTURA DEL PROYECTO
+------------------------
+tienda/
+├── tiendaonline.py
+└── templates/
+    └── index.html
+
+CÓDIGO - tiendaonline.py
+-------------------------
+
+from flask import Flask, render_template
+
+aplicacion = Flask(__name__)
+
+# Catálogo de productos (normalmente vendría de BD)
+productos = [
+    {
+        "id": 1,
+        "nombre": "Raspberry Pi 4 8GB",
+        "descripcion": "Microordenador completo",
+        "precio": 89.99,
+        "imagen": "https://via.placeholder.com/200x150/667eea/ffffff?text=Pi+4"
+    },
+    {
+        "id": 2,
+        "nombre": "Carcasa impresa 3D",
+        "descripcion": "Personalizada con ventilación",
+        "precio": 12.50,
+        "imagen": "https://via.placeholder.com/200x150/764ba2/ffffff?text=Case+3D"
+    },
+    {
+        "id": 3,
+        "nombre": "Filamento PLA 1kg",
+        "descripcion": "Color negro mate",
+        "precio": 18.99,
+        "imagen": "https://via.placeholder.com/200x150/3498db/ffffff?text=Filamento"
+    },
+    {
+        "id": 4,
+        "nombre": "Sensor DHT22",
+        "descripcion": "Temperatura y humedad",
+        "precio": 5.99,
+        "imagen": "https://via.placeholder.com/200x150/e74c3c/ffffff?text=Sensor"
+    },
+    {
+        "id": 5,
+        "nombre": "Cable HDMI 2m",
+        "descripcion": "4K 60Hz compatible",
+        "precio": 7.50,
+        "imagen": "https://via.placeholder.com/200x150/2ecc71/ffffff?text=HDMI"
+    },
+    {
+        "id": 6,
+        "nombre": "Kit LEDs RGB",
+        "descripcion": "WS2812B 5 metros",
+        "precio": 15.99,
+        "imagen": "https://via.placeholder.com/200x150/f39c12/ffffff?text=LEDs"
+    }
+]
+
+@aplicacion.route("/")
+def raiz():
+    return render_template("index.html", productos=productos)
+
+@aplicacion.route("/producto/<int:id>")
+def detalle_producto(id):
+    producto = next((p for p in productos if p["id"] == id), None)
+    if producto:
+        return f'''
+        <h1>{producto["nombre"]}</h1>
+        <img src="{producto["imagen"]}" style="max-width:400px">
+        <p>{producto["descripcion"]}</p>
+        <h2>{producto["precio"]}€</h2>
+        <a href="/">Volver a la tienda</a>
+        '''
+    return "Producto no encontrado", 404
+
+if __name__ == "__main__":
+    aplicacion.run(host="0.0.0.0", port=5000, debug=True)
+
+CÓDIGO - templates/index.html
+------------------------------
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Maker & 3D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        main {
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        article {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        article img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        article h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        article p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .precio {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2ecc71;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+        }
+        
+        footer {
+            background: white;
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛒 Tienda Maker & 3D Printing</h1>
+        <p>Componentes electrónicos, Raspberry Pi y accesorios para impresión 3D</p>
+    </header>
+    
+    <main>
+        {% for producto in productos %}
+        <article>
+            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+            <h3>{{ producto.nombre }}</h3>
+            <p>{{ producto.descripcion }}</p>
+            <p class="precio">{{ "%.2f"|format(producto.precio) }}€</p>
+            <a href="/producto/{{ producto.id }}" class="btn">Ver detalles</a>
+        </article>
+        {% endfor %}
+    </main>
+    
+    <footer>
+        <p><strong>Tienda Maker & 3D</strong></p>
+        <p>Envíos en 24-48h | Garantía 2 años | Pago seguro</p>
+    </footer>
+</body>
+</html>
+
+EJECUCIÓN
+---------
+1. Crear estructura:
+   mkdir tienda
+   cd tienda
+   mkdir templates
+
+2. Crear archivos tiendaonline.py y templates/index.html con el código anterior
+
+3. Ejecutar:
+   python tiendaonline.py
+
+4. Abrir navegador:
+   http://localhost:5000
+
+SALIDA ESPERADA
+---------------
+Tienda online con grid de 6 productos:
+- Raspberry Pi 4 8GB (89.99€)
+- Carcasa impresa 3D (12.50€)
+- Filamento PLA 1kg (18.99€)
+- Sensor DHT22 (5.99€)
+- Cable HDMI 2m (7.50€)
+- Kit LEDs RGB (15.99€)
+
+Cada producto con imagen placeholder, descripción, precio y botón "Ver detalles".
+
+MEJORAS OPCIONALES
+------------------
+
+# 1. Integración con SQLite
+import sqlite3
+
+def obtener_productos():
+    conn = sqlite3.connect('tienda.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM productos")
+    productos = cursor.fetchall()
+    conn.close()
+    return productos
+
+# 2. Carrito de compras (sesiones)
+from flask import session
+
+@aplicacion.route("/agregar/<int:id>")
+def agregar_carrito(id):
+    if 'carrito' not in session:
+        session['carrito'] = []
+    session['carrito'].append(id)
+    return f"Producto {id} agregado al carrito"
+
+# 3. Búsqueda de productos
+@aplicacion.route("/buscar")
+def buscar():
+    query = request.args.get('q', '')
+    resultados = [p for p in productos if query.lower() in p['nombre'].lower()]
+    return render_template("index.html", productos=resultados)
+
+CONCLUSIÓN
+----------
+Este proyecto integra Flask (backend) con HTML/CSS (frontend) para crear e-commerce funcional. Aplicable a:
+
+✓ Venta de piezas impresas 3D personalizadas
+✓ Catálogo de proyectos Raspberry Pi
+✓ Tienda de componentes electrónicos
+✓ Portfolio de diseños maker
+
+Escalable a: carrito, pagos, usuarios, stock, pedidos. Perfecto para desplegar en Raspberry Pi como servidor local de tienda física.
+
+

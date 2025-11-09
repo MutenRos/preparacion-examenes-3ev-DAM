@@ -1,0 +1,440 @@
+En este ejercicio, vamos a profundizar en el uso de CSS Grid para crear tableros y calendarios dinámicos. Imagina que eres un amante del modelado e impresión 3D, y quieres crear una aplicación web que muestre los días de un año en forma de mes. Además, tienes un pasatiempo por jugar con Raspberrys y similares, lo que te ha llevado a aprender Flask para generar contenido dinámico.
+
+Enunciado paso a paso
+Importa la librería Flask: Comienza importando la librería Flask en tu archivo Python.
+Crea una nueva aplicación Flask: Define una variable aplicacion que sea una instancia de Flask.
+Define la ruta inicial: Crea una función llamada raiz() que se ejecutará cuando el usuario acceda a la ruta inicial (/).
+Genera contenido HTML con CSS Grid:
+Define un estilo CSS para los meses y las celdas de los días.
+Utiliza bucles anidados para generar una grilla de 8x8, similar a cómo podrías diseñar un tablero en Raspberrys o Miniaturas.
+Devuelve el contenido HTML: Concatena todas las cadenas HTML y CSS dentro de la función raiz() y devuélvelas como respuesta.
+Restricciones
+No uses funciones externas ni estructuras no vistas en el curso actual.
+Solo puedes usar los conceptos permitidos en la lista blanca.
+Criterios de evaluación
+Introducción y contextualización (25%): Explica claramente cómo podrías utilizar tus hobbies para mejorar tu conocimiento sobre Flask y CSS Grid.
+Desarrollo técnico correcto y preciso (25%): Asegúrate de que el código esté bien estructurado y funcione correctamente sin errores.
+Aplicación práctica con ejemplo claro (25%): Muestra un ejemplo claro de cómo podrías usar la aplicación en tu hobby del modelado e impresión 3D.
+Cierre/Conclusión enlazando con la unidad (25%): Reflexiona sobre cómo este ejercicio podría aplicarse en proyectos futuros relacionados con tu pasatiempo.
+
+================================================================================
+RESOLUCIÓN - CALENDARIO DINÁMICO CON FLASK Y CSS GRID
+================================================================================
+
+INTRODUCCIÓN Y CONTEXTUALIZACIÓN
+---------------------------------
+Como aficionado a Raspberry Pi e impresión 3D, necesito organizar proyectos y deadlines. Este ejercicio combina Flask (para desplegar en Raspberry Pi) con CSS Grid (para visualizar calendarios de impresión). Aplicaciones prácticas:
+
+- **Raspberry Pi**: Servidor local que muestra calendario de impresiones 3D programadas
+- **Impresión 3D**: Planificar filamentos necesarios por mes, tiempo de impresión
+- **Miniatura/Gaming**: Calendario de partidas, torneos, deadlines de pintado
+
+CSS Grid es perfecto para calendarios porque crea matrices adaptativas sin JavaScript complejo, ideal para pantallas táctiles en Raspberry Pi.
+
+================================================================================
+CÓDIGO PYTHON - app.py
+================================================================================
+
+from flask import Flask
+import calendar
+
+aplicacion = Flask(__name__)
+
+@aplicacion.route('/')
+def raiz():
+    # Generar año completo 2025
+    year = 2025
+    
+    html = '''
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendario 3D Printing Schedule</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Arial', sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 20px;
+                min-height: 100vh;
+            }
+            
+            h1 {
+                text-align: center;
+                color: white;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            
+            .year-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .month-container {
+                background: white;
+                border-radius: 15px;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                transition: transform 0.3s;
+            }
+            
+            .month-container:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            }
+            
+            .month-name {
+                text-align: center;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #667eea;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 3px solid #f0f0f0;
+            }
+            
+            .calendar-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+            }
+            
+            .day-header {
+                text-align: center;
+                font-weight: bold;
+                color: #764ba2;
+                padding: 10px 5px;
+                font-size: 0.9em;
+                background: #f8f9fa;
+                border-radius: 5px;
+            }
+            
+            .day-cell {
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s;
+                background: white;
+            }
+            
+            .day-cell:hover {
+                background: #667eea;
+                color: white;
+                border-color: #667eea;
+                transform: scale(1.1);
+            }
+            
+            .empty-cell {
+                background: transparent;
+                border: none;
+            }
+            
+            .weekend {
+                background: #fff3cd;
+            }
+            
+            .today {
+                background: #28a745;
+                color: white;
+                border-color: #28a745;
+                font-weight: bold;
+            }
+            
+            @media (max-width: 768px) {
+                .year-container {
+                    grid-template-columns: 1fr;
+                }
+                
+                h1 {
+                    font-size: 1.8em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📅 Calendario Proyectos 3D - 2025</h1>
+        <div class="year-container">
+    '''
+    
+    # Nombres de meses en español
+    meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+             'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    
+    # Días de la semana
+    dias_semana = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
+    
+    # Generar cada mes
+    for month_num in range(1, 13):
+        html += '<div class="month-container">'
+        html += f'<div class="month-name">{meses[month_num - 1]}</div>'
+        html += '<div class="calendar-grid">'
+        
+        # Headers de días de la semana
+        for day in dias_semana:
+            html += f'<div class="day-header">{day}</div>'
+        
+        # Obtener calendario del mes
+        month_calendar = calendar.monthcalendar(year, month_num)
+        
+        # Generar celdas de días
+        for week in month_calendar:
+            for day_num, day in enumerate(week):
+                if day == 0:
+                    # Celda vacía
+                    html += '<div class="day-cell empty-cell"></div>'
+                else:
+                    # Determinar si es fin de semana (sábado=5, domingo=6)
+                    weekend_class = 'weekend' if day_num >= 5 else ''
+                    
+                    # Marcar día actual (ejemplo: 8 de noviembre)
+                    today_class = 'today' if month_num == 11 and day == 8 else ''
+                    
+                    html += f'<div class="day-cell {weekend_class} {today_class}">{day}</div>'
+        
+        html += '</div>'  # Cierra calendar-grid
+        html += '</div>'  # Cierra month-container
+    
+    html += '''
+        </div>
+    </body>
+    </html>
+    '''
+    
+    return html
+
+# Ejecutar aplicación
+if __name__ == '__main__':
+    aplicacion.run(host='0.0.0.0', port=5000, debug=True)
+
+================================================================================
+EJEMPLO TABLERO 8x8 (COMO AJEDREZ/DAMAS)
+================================================================================
+
+# Alternativa: Tablero de juego estilo miniatura gaming
+
+@aplicacion.route('/tablero')
+def tablero():
+    html = '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Tablero Gaming 8x8</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #2c3e50;
+            }
+            
+            .board {
+                display: grid;
+                grid-template-columns: repeat(8, 60px);
+                grid-template-rows: repeat(8, 60px);
+                gap: 0;
+                border: 5px solid #34495e;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            }
+            
+            .cell {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2em;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+            
+            .cell:hover {
+                transform: scale(1.1);
+                z-index: 10;
+            }
+            
+            .white { background: #f0d9b5; }
+            .black { background: #b58863; }
+        </style>
+    </head>
+    <body>
+        <div class="board">
+    '''
+    
+    # Generar tablero 8x8 alternando colores
+    for row in range(8):
+        for col in range(8):
+            color = 'white' if (row + col) % 2 == 0 else 'black'
+            coord = f'{chr(65+col)}{8-row}'  # A8, B8, ..., H1
+            html += f'<div class="cell {color}">{coord}</div>'
+    
+    html += '''
+        </div>
+    </body>
+    </html>
+    '''
+    
+    return html
+
+================================================================================
+APLICACIÓN PRÁCTICA - CALENDARIO IMPRESIÓN 3D
+================================================================================
+
+# Versión especializada para tracking de impresiones 3D
+
+@aplicacion.route('/impresiones')
+def impresiones():
+    # Simulación de proyectos programados
+    proyectos = {
+        '2025-11-10': {'nombre': 'Miniaturas Warhammer', 'horas': 8},
+        '2025-11-15': {'nombre': 'Carcasa Raspberry Pi', 'horas': 4},
+        '2025-11-20': {'nombre': 'Soporte Monitor', 'horas': 12},
+        '2025-12-05': {'nombre': 'Regalos Navidad', 'horas': 20},
+    }
+    
+    html = '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Calendario Impresión 3D</title>
+        <style>
+            body {
+                font-family: Arial;
+                padding: 20px;
+                background: #ecf0f1;
+            }
+            
+            h1 { color: #2c3e50; }
+            
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin-top: 20px;
+            }
+            
+            .project-card {
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                border-left: 5px solid #3498db;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .project-date {
+                font-weight: bold;
+                color: #3498db;
+                margin-bottom: 5px;
+            }
+            
+            .project-time {
+                color: #e74c3c;
+                font-size: 0.9em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🖨️ Proyectos de Impresión Programados</h1>
+        <div class="projects">
+    '''
+    
+    for fecha, datos in proyectos.items():
+        html += f'''
+        <div class="project-card">
+            <div class="project-date">📅 {fecha}</div>
+            <div>{datos['nombre']}</div>
+            <div class="project-time">⏱️ {datos['horas']} horas</div>
+        </div>
+        '''
+    
+    html += '''
+        </div>
+    </body>
+    </html>
+    '''
+    
+    return html
+
+================================================================================
+INSTRUCCIONES DE USO
+================================================================================
+
+1. INSTALACIÓN:
+   pip install flask
+
+2. EJECUCIÓN LOCAL:
+   python app.py
+   # Abrir: http://localhost:5000
+
+3. EJECUCIÓN EN RASPBERRY PI:
+   # Copiar archivo a Raspberry
+   scp app.py pi@raspberrypi.local:/home/pi/
+   
+   # SSH a Raspberry
+   ssh pi@raspberrypi.local
+   
+   # Ejecutar
+   python3 app.py
+   
+   # Acceder desde red local: http://IP_RASPBERRY:5000
+
+4. RUTAS DISPONIBLES:
+   /           - Calendario anual completo
+   /tablero    - Tablero gaming 8x8
+   /impresiones - Proyectos 3D programados
+
+================================================================================
+CONCLUSIÓN Y APLICACIONES FUTURAS
+================================================================================
+
+APRENDIZAJES CLAVE:
+✓ CSS Grid: Sistema flexible para layouts bidimensionales
+✓ Flask: Framework minimalista ideal para Raspberry Pi
+✓ calendar module: Generación automática de calendarios
+✓ Responsive design: Adaptable a pantallas táctiles pequeñas
+
+PROYECTOS FUTUROS:
+
+1. RASPBERRY PI DASHBOARD:
+   - Pantalla táctil 7" en impresora 3D
+   - Muestra progreso de impresión actual
+   - Calendario de mantenimiento (cambio de nozzle, limpieza)
+   - Integración con OctoPrint
+
+2. GESTOR DE FILAMENTOS:
+   - Grid visual de carretes disponibles
+   - Colores en celdas según filamento
+   - Click para ver detalles (marca, temperatura, proyectos)
+
+3. PLANIFICADOR DE MINIATURAS:
+   - Calendario de torneos/partidas
+   - Grid de ejército (qué pintar cada semana)
+   - Tracking de progreso con fotos
+
+4. CONTROL DOMÓTICO:
+   - Grid de dispositivos IoT en casa
+   - Cada celda = un dispositivo conectado
+   - Click para toggle on/off
+
+VENTAJAS DE ESTA ARQUITECTURA:
+- Código simple sin dependencias pesadas
+- Ejecución en Raspberry Pi Zero (512MB RAM)
+- Accesible desde móvil en misma WiFi
+- Fácil personalización con CSS
+
+Este ejercicio demuestra que tecnologías web modernas (Flask + CSS Grid) son perfectas para proyectos maker con Raspberry Pi, combinando hardware físico con interfaces visuales profesionales.
