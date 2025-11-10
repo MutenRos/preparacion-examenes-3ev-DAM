@@ -1,0 +1,44 @@
+{
+  "proyectos": [
+    {
+      "titulo": "GIT_DAM_25-27",
+      "descripcion": "Repositorio completo del curso DAM 25-27. Incluye materiales, ejercicios y proyectos de todos los módulos del ciclo formativo.",
+      "fecha": "2025",
+      "categoria": "Educación",
+      "imagen": "https://via.placeholder.com/400x200/e94560/ffffff?text=DAM+25-27",
+      "url": "https://github.com/MutenRos/GIT_DAM_25-27"
+    },
+    {
+      "titulo": "eID",
+      "descripcion": "Proyecto de identificación electrónica desarrollado con HTML. Sistema de gestión de identidades digitales.",
+      "fecha": "2025",
+      "categoria": "Web",
+      "imagen": "https://via.placeholder.com/400x200/0f3460/ffffff?text=eID",
+      "url": "https://github.com/MutenRos/eID"
+    },
+    {
+      "titulo": "elece-barber",
+      "descripcion": "Sitio web para barbería desarrollado con HTML. Diseño moderno y funcional para servicios de peluquería profesional.",
+      "fecha": "2025",
+      "categoria": "Web",
+      "imagen": "https://via.placeholder.com/400x200/53354a/ffffff?text=Elece+Barber",
+      "url": "https://github.com/MutenRos/elece-barber"
+    },
+    {
+      "titulo": "Works",
+      "descripcion": "Portafolio de trabajos y proyectos personales. Showcase de diferentes desarrollos y experimentos con HTML.",
+      "fecha": "2024",
+      "categoria": "Portfolio",
+      "imagen": "https://via.placeholder.com/400x200/16213e/e94560?text=Works",
+      "url": "https://github.com/MutenRos/Works"
+    },
+    {
+      "titulo": "GPTARS_Interstellar",
+      "descripcion": "Fork de TARS de Interstellar integrado con ChatGPT. Proyecto Python bajo licencia MIT para asistente conversacional.",
+      "fecha": "2024",
+      "categoria": "IA",
+      "imagen": "https://via.placeholder.com/400x200/1a1a2e/0f3460?text=GPTARS",
+      "url": "https://github.com/MutenRos/GPTARS_Interstellar"
+    }
+  ]
+}
