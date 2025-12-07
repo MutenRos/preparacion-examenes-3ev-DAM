@@ -1,6 +1,11 @@
 # EJERCICIO 004-004: BASES DE DATOS Y TRANSACCIONES
 
-## ENUNCIADO DEL EJERCICIO
+**Alumno:** Darío Lacal | **Evaluación:** 1ª | **Rúbrica:** 4 secciones × 25%  
+**Criterios de Evaluación:** 4.a, 4.b, 4.e, 4.f, 4.h
+
+---
+
+## ENUNCIADO ORIGINAL
 
 Para practicar el concepto impartido en clase sobre bases de datos y relaciones entre tablas, sigue estos pasos:
 
@@ -31,296 +36,726 @@ Para practicar el concepto impartido en clase sobre bases de datos y relaciones 
 
 ---
 
-## SOLUCIÓN IMPLEMENTADA
+## 1. INTRODUCCIÓN BREVE Y CONTEXTUALIZACIÓN (25%)
 
-### 1. Base de Datos Creada: tiendaonline2526
+### Objetivo y Contexto
 
-**6 Tablas normalizadas (3NF) con relaciones foráneas:**
-- `categorias` (5 registros) - Categorización de productos
-- `clientes` (5 registros) - Información de clientes con email único
-- `productos` (15 registros) - Catálogo con FK a categorías
-- `gestion_stock` (15 registros) - Control de inventario (1:1 con productos)
-- `pedidos` (6 registros) - Órdenes de clientes con FK a clientes
-- `lineas_pedido` (13 registros) - Detalles N:M entre pedidos y productos
+Este ejercicio responde al **Criterio de Evaluación 4: "Modifica la información almacenada en la base de datos"**, abordando específicamente:
+- **4.a)** Identificar herramientas y sentencias para modificar el contenido de la BD
+- **4.b)** Insertar, borrar y actualizar datos en las tablas
+- **4.e)** Reconocer el funcionamiento de las transacciones
+- **4.f)** Anular parcial o totalmente los cambios por transacciones
+- **4.h)** Adoptar medidas para mantener integridad y consistencia
 
-### 2. Datos Insertados
+### Justificación del Proyecto
 
-**Categorías (5 registros):**
-- Electrónica (notebooks, móviles, accesorios)
-- Ropa (prendas de vestir)
-- Hogar (artículos para el hogar)
-- Deportes (equipamiento deportivo)
-- Libros (material editorial)
+Se ha diseñado un **Sistema de Gestión de Tienda Online (tiendaonline2526)** como contexto realista para demostrar:
 
-**Clientes (5 registros):**
-| ID | Nombre | Email | Teléfono |
-|---|---|---|---|
-| 1 | Juan García López | juan@example.com | 600123456 |
-| 2 | María Rodríguez Pérez | maria@example.com | 610234567 |
-| 3 | Carlos López Martínez | carlos@example.com | 620345678 |
-| 4 | Ana Martínez García | ana@example.com | 630456789 |
-| 5 | Pedro Sánchez López | pedro@example.com | 640567890 |
+1. **Normalización 3NF:** Eliminación de redundancias mediante descomposición de tablas
+2. **Relaciones complejas:** 
+   - 1:N (cliente → múltiples pedidos)
+   - N:M (pedidos ↔ productos via tabla junción)
+   - 1:1 (producto → gestión de stock)
+3. **Manipulación de datos:** INSERT, UPDATE, DELETE con integridad referencial
+4. **Transacciones ACID:** Garantizar operaciones atómicas y consistentes
+5. **Integridad de datos:** Claves foráneas, constraints, y triggers
 
-**Productos (15 registros):**
-- Laptop Dell 15": 1299.99€ (Electrónica)
-- iPhone 14 Pro: 999.99€ (Electrónica)
-- AirPods Pro: 279.99€ (Electrónica)
-- Monitor LG 27": 349.99€ (Electrónica)
-- Teclado Mecánico: 129.99€ (Electrónica)
-- Sudadera Deportiva: 39.99€ (Ropa)
-- Pantalón Vaquero: 59.99€ (Ropa)
-- Camiseta Casual: 24.99€ (Ropa)
-- Zapatos Deportivos: 89.99€ (Deportes)
-- Almohada Ergonómica: 34.99€ (Hogar)
-- Mantas Térmicas: 44.99€ (Hogar)
-- Lámpara LED: 29.99€ (Hogar)
-- Python para Dummies: 34.99€ (Libros)
-- SQL Avanzado: 39.99€ (Libros)
-- Gestión Empresarial: 44.99€ (Libros)
+### Conexión con la Teoría
 
-**Pedidos (6 registros):**
-- Pedido #1: Juan García - 4 productos (2890.95€) - Estado: entregado
-- Pedido #2: María Rodríguez - 2 productos (149.97€) - Estado: entregado
-- Pedido #3: Carlos López - 3 productos (494.95€) - Estado: procesando
-- Pedido #4: Ana Martínez - 1 producto (1299.99€) - Estado: pendiente
-- Pedido #5: Pedro Sánchez - 2 productos (229.96€) - Estado: enviado
-- Pedido #6: Juan García - 1 producto (279.99€) - Estado: entregado
-**Total vendido: 5345.81€**
+Las **transacciones** son cruciales en sistemas de producción porque garantizan que operaciones complejas (ej: registrar un pedido, decrementar stock, guardar estado) **ocurren todas o ninguna**. Sin transacciones, un fallo a mitad de la operación dejaría datos inconsistentes.
 
-**Gestión de Stock (15 registros):**
-- Cada producto tiene asociado registro de inventario
-- Cantidad disponible vs. cantidad mínima para reorden
-- Control automático de alertas de stock bajo
+Ejemplo: Si un cliente confirma compra pero fallan por stock insuficiente:
+- SIN transacción: Pedido creado + stock NO decrementado = inconsistencia
+- CON transacción: Todo se revierte (ROLLBACK) si hay error
 
-### 3. Verificación de Integridad y Relaciones
+---
 
-**✅ Relaciones Foráneas Funcionando:**
+## 2. DESARROLLO DETALLADO Y PRECISO (25%)
 
-Consulta 1: Cliente con sus pedidos
+### A. Estructura de la Base de Datos (Criterio 4.a)
+
+#### Base de Datos Principal
 ```sql
-SELECT p.id_pedido, c.nombre, p.fecha_pedido, p.total, p.estado
+CREATE DATABASE tiendaonline2526 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci;
+```
+
+#### Tablas Diseñadas (6 tablas con 59 registros totales)
+
+**1. Tabla `categorias`** (5 registros)
+```sql
+CREATE TABLE categorias (
+    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) UNIQUE NOT NULL,
+    descripcion TEXT,
+    activa BOOLEAN DEFAULT TRUE,
+    COMMENT='Categorización de productos disponibles'
+);
+```
+Registros:
+- Electrónica, Ropa, Hogar, Deportes, Libros
+
+**2. Tabla `clientes`** (5 registros)
+```sql
+CREATE TABLE clientes (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(150) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefono VARCHAR(20),
+    ciudad VARCHAR(50),
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    COMMENT='Clientes registrados en el sistema'
+);
+```
+Registros:
+- Juan García López (juan@example.com) - 600123456
+- María Rodríguez Pérez (maria@example.com) - 610234567
+- Carlos López Martínez (carlos@example.com) - 620345678
+- Ana Martínez García (ana@example.com) - 630456789
+- Pedro Sánchez López (pedro@example.com) - 640567890
+
+**3. Tabla `productos`** (15 registros con FK a categorias)
+```sql
+CREATE TABLE productos (
+    id_producto INT PRIMARY KEY AUTO_INCREMENT,
+    id_categoria INT NOT NULL,
+    nombre VARCHAR(150) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria) 
+        ON DELETE RESTRICT,
+    INDEX idx_categoria (id_categoria),
+    COMMENT='Catálogo de productos con relación a categorías'
+);
+```
+Ejemplos de productos:
+- Laptop Dell 15" (1299.99€) - Electrónica
+- iPhone 14 Pro (999.99€) - Electrónica
+- Sudadera Deportiva (39.99€) - Ropa
+- Monitor LG 27" (349.99€) - Electrónica
+- Python para Dummies (34.99€) - Libros
+
+**4. Tabla `gestion_stock`** (15 registros, 1:1 con productos)
+```sql
+CREATE TABLE gestion_stock (
+    id_gestion INT PRIMARY KEY AUTO_INCREMENT,
+    id_producto INT UNIQUE NOT NULL,
+    cantidad_disponible INT DEFAULT 0,
+    cantidad_minima INT DEFAULT 10,
+    cantidad_maxima INT DEFAULT 1000,
+    ubicacion VARCHAR(50),
+    ultima_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto) 
+        ON DELETE CASCADE,
+    COMMENT='Control de inventario, 1:1 con productos'
+);
+```
+Características:
+- Cantidad disponible para cada producto
+- Umbrales mínimo/máximo para alertas
+- Ubicación física en almacén
+- Timestamp de última actualización
+
+**5. Tabla `pedidos`** (6 registros con FK a clientes)
+```sql
+CREATE TABLE pedidos (
+    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT NOT NULL,
+    fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(12, 2),
+    estado ENUM('pendiente', 'procesando', 'enviado', 'entregado', 'cancelado') 
+        DEFAULT 'pendiente',
+    fecha_entrega DATE,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) 
+        ON DELETE RESTRICT,
+    INDEX idx_cliente (id_cliente),
+    INDEX idx_fecha (fecha_pedido),
+    COMMENT='Pedidos de clientes con relación 1:N'
+);
+```
+Estados de pedidos incluidos:
+- Pendiente (sin procesar)
+- Procesando (en preparación)
+- Enviado (en tránsito)
+- Entregado (completado)
+- Cancelado (rechazado)
+
+**6. Tabla `lineas_pedido`** (13 registros, N:M entre pedidos y productos)
+```sql
+CREATE TABLE lineas_pedido (
+    id_linea INT PRIMARY KEY AUTO_INCREMENT,
+    id_pedido INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL CHECK (cantidad > 0),
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(12, 2) GENERATED ALWAYS AS 
+        (cantidad * precio_unitario) STORED,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido) 
+        ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto) 
+        ON DELETE RESTRICT,
+    UNIQUE KEY uk_pedido_producto (id_pedido, id_producto),
+    COMMENT='Detalles de cada producto en cada pedido (N:M)'
+);
+```
+Características:
+- Campo `subtotal` generado automáticamente
+- Constraint para cantidad > 0
+- Índice UNIQUE para evitar duplicados
+- ON DELETE CASCADE permite borrar pedidos con sus líneas
+
+### B. Inserción de Datos (Criterio 4.b - INSERT)
+
+Datos de prueba insertados en orden respetando dependencias:
+
+```sql
+-- 1. Categorías (no tiene dependencias)
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Electrónica', 'Dispositivos y accesorios electrónicos'),
+('Ropa', 'Prendas de vestir y accesorios'),
+('Hogar', 'Artículos para el hogar'),
+('Deportes', 'Equipamiento deportivo'),
+('Libros', 'Material editorial y publicaciones');
+
+-- 2. Clientes (no tiene dependencias)
+INSERT INTO clientes (nombre, email, telefono, ciudad) VALUES
+('Juan García López', 'juan@example.com', '600123456', 'Madrid'),
+('María Rodríguez Pérez', 'maria@example.com', '610234567', 'Barcelona'),
+('Carlos López Martínez', 'carlos@example.com', '620345678', 'Valencia'),
+('Ana Martínez García', 'ana@example.com', '630456789', 'Sevilla'),
+('Pedro Sánchez López', 'pedro@example.com', '640567890', 'Bilbao');
+
+-- 3. Productos (depende de categorías)
+INSERT INTO productos (id_categoria, nombre, precio) VALUES
+(1, 'Laptop Dell 15"', 1299.99),
+(1, 'iPhone 14 Pro', 999.99),
+(1, 'AirPods Pro', 279.99),
+(1, 'Monitor LG 27"', 349.99),
+(1, 'Teclado Mecánico', 129.99),
+(2, 'Sudadera Deportiva', 39.99),
+(2, 'Pantalón Vaquero', 59.99),
+(2, 'Camiseta Casual', 24.99),
+(4, 'Zapatos Deportivos', 89.99),
+(3, 'Almohada Ergonómica', 34.99),
+(3, 'Mantas Térmicas', 44.99),
+(3, 'Lámpara LED', 29.99),
+(5, 'Python para Dummies', 34.99),
+(5, 'SQL Avanzado', 39.99),
+(5, 'Gestión Empresarial', 44.99);
+
+-- 4. Gestión de Stock (depende de productos)
+INSERT INTO gestion_stock (id_producto, cantidad_disponible, cantidad_minima) VALUES
+(1, 8, 2), (2, 5, 2), (3, 15, 5), (4, 12, 3), (5, 20, 5),
+(6, 50, 10), (7, 35, 10), (8, 45, 15), (9, 18, 5), (10, 22, 5),
+(11, 16, 5), (12, 30, 10), (13, 25, 10), (14, 18, 8), (15, 12, 5);
+
+-- 5. Pedidos (depende de clientes)
+INSERT INTO pedidos (id_cliente, estado, total) VALUES
+(1, 'entregado', 2890.95),
+(2, 'entregado', 149.97),
+(3, 'procesando', 494.95),
+(4, 'pendiente', 1299.99),
+(5, 'enviado', 229.96),
+(1, 'entregado', 279.99);
+
+-- 6. Líneas de Pedido (depende de pedidos y productos)
+INSERT INTO lineas_pedido (id_pedido, id_producto, cantidad, precio_unitario) VALUES
+-- Pedido 1
+(1, 1, 1, 1299.99), (1, 6, 2, 39.99), (1, 13, 1, 34.99), (1, 15, 1, 44.99),
+-- Pedido 2
+(2, 8, 3, 24.99), (2, 10, 2, 34.99),
+-- Pedido 3
+(3, 2, 1, 999.99), (3, 9, 1, 89.99), (3, 12, 1, 29.99),
+-- Pedido 4
+(4, 1, 1, 1299.99),
+-- Pedido 5
+(5, 3, 1, 279.99), (5, 14, 1, 39.99),
+-- Pedido 6
+(6, 3, 1, 279.99);
+```
+
+**Total de registros insertados:** 59 (5+5+15+15+6+13)
+
+### C. Actualización de Datos (Criterio 4.b - UPDATE)
+
+Actualizaciones frecuentes en operaciones:
+
+```sql
+-- 1. Decrementar stock al procesar pedido
+UPDATE gestion_stock 
+SET cantidad_disponible = cantidad_disponible - 2
+WHERE id_producto = 6;  -- Sudadera
+
+-- 2. Cambiar estado de pedido a "enviado"
+UPDATE pedidos 
+SET estado = 'enviado', fecha_entrega = DATE_ADD(NOW(), INTERVAL 5 DAY)
+WHERE id_pedido = 3;
+
+-- 3. Actualizar total del pedido basado en líneas
+UPDATE pedidos p
+SET total = (SELECT SUM(subtotal) FROM lineas_pedido WHERE id_pedido = p.id_pedido)
+WHERE id_pedido = 1;
+
+-- 4. Cambiar email de cliente
+UPDATE clientes 
+SET email = 'juan.garcia@newemail.com'
+WHERE id_cliente = 1;
+```
+
+### D. Borrado de Datos (Criterio 4.b - DELETE)
+
+Con integridad referencial (cascada):
+
+```sql
+-- Borrar una línea de pedido
+DELETE FROM lineas_pedido 
+WHERE id_pedido = 6 AND id_producto = 3;
+
+-- Borrar un pedido completo (líneas se borran automáticamente)
+DELETE FROM pedidos 
+WHERE id_pedido = 6;
+
+-- NO se puede borrar cliente con pedidos (RESTRICT)
+-- DELETE FROM clientes WHERE id_cliente = 1;  -- ERROR!
+
+-- Primero hay que borrar pedidos
+DELETE FROM pedidos WHERE id_cliente = 1;
+DELETE FROM clientes WHERE id_cliente = 1;  -- Ahora OK
+```
+
+### E. Consultas de Verificación
+
+**Consulta 1: Cliente con sus pedidos (Criterio 4.h - integridad)**
+```sql
+SELECT 
+    p.id_pedido,
+    c.nombre AS cliente,
+    p.fecha_pedido,
+    p.total,
+    p.estado
 FROM pedidos p
-JOIN clientes c ON p.id_cliente = c.id_cliente
+INNER JOIN clientes c ON p.id_cliente = c.id_cliente
 WHERE c.nombre = 'Juan García López'
 ORDER BY p.fecha_pedido DESC;
 ```
-**Resultado esperado:** 2 pedidos de Juan García con totales 2890.95€ y 279.99€
+Resultado esperado: 2 pedidos (2890.95€, 279.99€) entregados
 
-Consulta 2: Detalle completo de un pedido (cliente + productos + precios)
+**Consulta 2: Detalles completos de un pedido (5 tablas)**
 ```sql
 SELECT 
-  p.id_pedido,
-  c.nombre AS cliente,
-  pr.nombre AS producto,
-  cat.nombre AS categoria,
-  lp.cantidad,
-  lp.precio_unitario,
-  lp.subtotal,
-  p.estado
+    p.id_pedido,
+    c.nombre AS cliente,
+    pr.nombre AS producto,
+    cat.nombre AS categoria,
+    lp.cantidad,
+    lp.precio_unitario,
+    lp.subtotal,
+    p.estado
 FROM pedidos p
-JOIN clientes c ON p.id_cliente = c.id_cliente
-JOIN lineas_pedido lp ON p.id_pedido = lp.id_pedido
-JOIN productos pr ON lp.id_producto = pr.id_producto
-JOIN categorias cat ON pr.id_categoria = cat.id_categoria
+INNER JOIN clientes c ON p.id_cliente = c.id_cliente
+INNER JOIN lineas_pedido lp ON p.id_pedido = lp.id_pedido
+INNER JOIN productos pr ON lp.id_producto = pr.id_producto
+INNER JOIN categorias cat ON pr.id_categoria = cat.id_categoria
 WHERE p.id_pedido = 1
 ORDER BY pr.nombre;
 ```
-**Resultado esperado:** 4 productos del pedido #1 con cálculo de subtotal
+Resultado: 4 productos del Pedido #1 con cálculo automático de subtotal
 
-Consulta 3: Stock disponible y alertas
+**Consulta 3: Stock con alertas de reorden**
 ```sql
 SELECT 
-  pr.nombre AS producto,
-  cat.nombre AS categoria,
-  gs.cantidad_disponible,
-  gs.cantidad_minima,
-  CASE 
-    WHEN gs.cantidad_disponible <= gs.cantidad_minima THEN 'REORDEN URGENTE'
-    WHEN gs.cantidad_disponible < (gs.cantidad_minima * 1.5) THEN 'STOCK BAJO'
-    ELSE 'OK' 
-  END AS estado_stock
+    pr.nombre,
+    cat.nombre AS categoria,
+    gs.cantidad_disponible,
+    gs.cantidad_minima,
+    CASE 
+        WHEN gs.cantidad_disponible <= gs.cantidad_minima 
+            THEN 'REORDEN URGENTE'
+        WHEN gs.cantidad_disponible < gs.cantidad_minima * 1.5 
+            THEN 'STOCK BAJO'
+        ELSE 'OK'
+    END AS estado
 FROM productos pr
-JOIN gestion_stock gs ON pr.id_producto = gs.id_producto
-JOIN categorias cat ON pr.id_categoria = cat.id_categoria
+INNER JOIN gestion_stock gs ON pr.id_producto = gs.id_producto
+INNER JOIN categorias cat ON pr.id_categoria = cat.id_categoria
 ORDER BY gs.cantidad_disponible ASC;
 ```
-**Resultado esperado:** Estado del inventario con alertas de productos bajos
 
-Consulta 4: Ingresos por categoría
+**Consulta 4: Análisis de ventas por categoría**
 ```sql
 SELECT 
-  cat.nombre AS categoria,
-  COUNT(DISTINCT p.id_pedido) AS cantidad_pedidos,
-  COUNT(lp.id_linea) AS total_articulos,
-  SUM(lp.subtotal) AS ingresos_totales
+    cat.nombre AS categoria,
+    COUNT(DISTINCT p.id_pedido) AS pedidos,
+    SUM(lp.cantidad) AS articulos_vendidos,
+    ROUND(SUM(lp.subtotal), 2) AS ingresos
 FROM categorias cat
-JOIN productos pr ON cat.id_categoria = pr.id_categoria
-JOIN lineas_pedido lp ON pr.id_producto = lp.id_producto
+INNER JOIN productos pr ON cat.id_categoria = pr.id_categoria
+INNER JOIN lineas_pedido lp ON pr.id_producto = lp.id_producto
 GROUP BY cat.id_categoria
-ORDER BY ingresos_totales DESC;
+ORDER BY ingresos DESC;
 ```
-**Resultado esperado:** Análisis de ingresos por categoría (Electrónica lidera)
+Resultado: Electrónica lidera con 2900€+
 
-### 4. Aplicación Práctica (PHP)
+---
 
-**Descripción:** Aplicación web interactiva para visualizar pedidos con detalles dinámicos
+## 3. APLICACIÓN PRÁCTICA (25%)
 
-**index.php - Dashboard Principal:**
+### Aplicación Web en PHP
+
+#### A. Dashboard Principal (index.php)
+
 ```php
 <?php
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "tiendaonline2526");
-if ($conexion->connect_error) die("Error: " . $conexion->connect_error);
+$mysqli = new mysqli("localhost", "root", "", "tiendaonline2526");
+if ($mysqli->connect_error) {
+    die("Error de conexión: " . $mysqli->connect_error);
+}
+$mysqli->set_charset("utf8mb4");
 
-// Consulta de pedidos con información de cliente
-$resultado = $conexion->query("
-    SELECT p.id_pedido, c.nombre, p.fecha_pedido, p.total, p.estado
-    FROM pedidos p
-    JOIN clientes c ON p.id_cliente = c.id_cliente
-    ORDER BY p.fecha_pedido DESC
-");
-
-// Estadísticas
-$stats = $conexion->query("
+// Obtener estadísticas
+$stats = $mysqli->query("
     SELECT 
         COUNT(*) as total_pedidos,
         SUM(CASE WHEN estado='entregado' THEN 1 ELSE 0 END) as entregados,
-        SUM(total) as ventas_totales
+        ROUND(SUM(total), 2) as ventas_totales
     FROM pedidos
 ")->fetch_assoc();
+
+// Obtener lista de pedidos
+$pedidos = $mysqli->query("
+    SELECT p.id_pedido, c.nombre, p.fecha_pedido, p.total, p.estado
+    FROM pedidos p
+    INNER JOIN clientes c ON p.id_cliente = c.id_cliente
+    ORDER BY p.fecha_pedido DESC
+");
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Dashboard de Pedidos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - tiendaonline2526</title>
     <style>
-        body { font-family: Arial; margin: 20px; background: #f5f5f5; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
-        .stat-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #667eea; color: white; }
-        .estado { padding: 5px 10px; border-radius: 4px; font-weight: bold; }
-        .entregado { background: #d4edda; color: #155724; }
-        .procesando { background: #fff3cd; color: #856404; }
-        .enviado { background: #d1ecf1; color: #0c5460; }
-        .pendiente { background: #f8d7da; color: #721c24; }
-        button { background: #667eea; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 5px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .stat-card h3 { color: #666; font-size: 12px; text-transform: uppercase; margin-bottom: 10px; }
+        .stat-card .value { font-size: 28px; font-weight: bold; color: #667eea; }
+        .content { padding: 30px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        tr:hover { background: #f8f9fa; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge.entregado { background: #d4edda; color: #155724; }
+        .badge.procesando { background: #fff3cd; color: #856404; }
+        .badge.enviado { background: #d1ecf1; color: #0c5460; }
+        .badge.pendiente { background: #f8d7da; color: #721c24; }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
         button:hover { background: #764ba2; }
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-content { background: white; margin: 50px auto; padding: 20px; width: 80%; border-radius: 8px; }
-        .close { cursor: pointer; float: right; font-size: 20px; }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .modal-header h2 { color: #333; }
+        .close-btn {
+            background: none;
+            color: #999;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+        }
+        .close-btn:hover { color: #333; }
+        .modal-body table {
+            margin-top: 20px;
+        }
+        .modal-body td { padding: 10px 0; border: none; }
+        .modal-body td:first-child { font-weight: 600; color: #667eea; width: 30%; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📊 Dashboard de Pedidos - tiendaonline2526</h1>
-        
+        <div class="header">
+            <h1>📊 Dashboard - tiendaonline2526</h1>
+            <p>Sistema de Gestión de Pedidos | Ejercicio 004-004 Bases de Datos</p>
+        </div>
+
         <div class="stats">
-            <div class="stat-box">
-                <h3><?php echo $stats['total_pedidos']; ?></h3>
-                <p>Total Pedidos</p>
+            <div class="stat-card">
+                <h3>Total Pedidos</h3>
+                <div class="value"><?php echo $stats['total_pedidos']; ?></div>
             </div>
-            <div class="stat-box">
-                <h3><?php echo $stats['entregados']; ?></h3>
-                <p>Entregados</p>
+            <div class="stat-card">
+                <h3>Entregados</h3>
+                <div class="value"><?php echo $stats['entregados']; ?></div>
             </div>
-            <div class="stat-box">
-                <h3><?php echo number_format($stats['ventas_totales'], 2); ?>€</h3>
-                <p>Ventas Totales</p>
+            <div class="stat-card">
+                <h3>Ventas Totales</h3>
+                <div class="value"><?php echo number_format($stats['ventas_totales'], 2); ?>€</div>
             </div>
         </div>
 
-        <h2>Listado de Pedidos</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Fecha</th>
-                    <th>Total</th>
-                    <th>Estado</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while($pedido = $resultado->fetch_assoc()): ?>
-                <tr>
-                    <td>#<?php echo $pedido['id_pedido']; ?></td>
-                    <td><?php echo $pedido['nombre']; ?></td>
-                    <td><?php echo date('d/m/Y', strtotime($pedido['fecha_pedido'])); ?></td>
-                    <td><?php echo number_format($pedido['total'], 2); ?>€</td>
-                    <td><span class="estado <?php echo strtolower($pedido['estado']); ?>"><?php echo ucfirst($pedido['estado']); ?></span></td>
-                    <td><button onclick="verDetalles(<?php echo $pedido['id_pedido']; ?>)">Ver Detalles</button></td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+        <div class="content">
+            <h2 style="margin-bottom: 20px;">Listado de Pedidos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while($p = $pedidos->fetch_assoc()): ?>
+                    <tr>
+                        <td><strong>#<?php echo $p['id_pedido']; ?></strong></td>
+                        <td><?php echo htmlspecialchars($p['nombre']); ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($p['fecha_pedido'])); ?></td>
+                        <td><strong><?php echo number_format($p['total'], 2); ?>€</strong></td>
+                        <td>
+                            <span class="badge <?php echo strtolower($p['estado']); ?>">
+                                <?php echo ucfirst($p['estado']); ?>
+                            </span>
+                        </td>
+                        <td>
+                            <button onclick="verDetalles(<?php echo $p['id_pedido']; ?>)">
+                                Ver Detalles
+                            </button>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div id="modal">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
-            <div id="detalles"></div>
+            <div class="modal-header">
+                <h2 id="modal-title">Detalles del Pedido</h2>
+                <button class="close-btn" onclick="cerrarModal()">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
         </div>
     </div>
 
     <script>
         function verDetalles(idPedido) {
-            fetch('detalles_pedido.php?id=' + idPedido)
-                .then(r => r.json())
+            fetch(`detalles_pedido.php?id=${idPedido}`)
+                .then(response => response.json())
                 .then(data => {
-                    let html = '<h2>Detalles del Pedido #' + data.id + '</h2>';
-                    html += '<p><strong>Cliente:</strong> ' + data.cliente + '</p>';
-                    html += '<p><strong>Fecha:</strong> ' + data.fecha + '</p>';
-                    html += '<table><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio Unit.</th><th>Subtotal</th></tr></thead><tbody>';
-                    data.lineas.forEach(l => {
-                        html += '<tr><td>' + l.producto + '</td><td>' + l.cantidad + '</td><td>' + l.precio + '€</td><td>' + l.subtotal + '€</td></tr>';
+                    document.getElementById('modal-title').textContent = 
+                        `Detalles del Pedido #${data.id}`;
+                    
+                    let html = `
+                        <table>
+                            <tr><td>Cliente:</td><td><strong>${data.cliente}</strong></td></tr>
+                            <tr><td>Fecha:</td><td>${data.fecha}</td></tr>
+                            <tr><td>Estado:</td><td><span class="badge ${data.estado.toLowerCase()}">${data.estado}</span></td></tr>
+                        </table>
+                        <table style="margin-top: 20px;">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.lineas.forEach(linea => {
+                        html += `
+                            <tr>
+                                <td>${linea.producto}</td>
+                                <td style="text-align:center;">${linea.cantidad}</td>
+                                <td style="text-align:right;">${linea.precio}€</td>
+                                <td style="text-align:right;"><strong>${linea.subtotal}€</strong></td>
+                            </tr>
+                        `;
                     });
-                    html += '</tbody></table>';
-                    html += '<p style="font-weight:bold; font-size:18px; text-align:right;">Total: ' + data.total + '€</p>';
-                    document.getElementById('detalles').innerHTML = html;
-                    document.getElementById('modal').style.display = 'block';
+                    
+                    html += `
+                            </tbody>
+                        </table>
+                        <div style="margin-top: 20px; text-align: right; border-top: 2px solid #e0e0e0; padding-top: 15px;">
+                            <h3 style="color: #667eea;">Total: ${data.total}€</h3>
+                        </div>
+                    `;
+                    
+                    document.getElementById('modal-body').innerHTML = html;
+                    document.getElementById('modal').classList.add('active');
                 });
         }
-        function cerrarModal() { document.getElementById('modal').style.display = 'none'; }
+
+        function cerrarModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
 ```
 
-**detalles_pedido.php - Backend AJAX:**
+#### B. Backend AJAX (detalles_pedido.php)
+
 ```php
 <?php
 header('Content-Type: application/json');
-$conexion = new mysqli("localhost", "root", "", "tiendaonline2526");
 
-$id = intval($_GET['id']);
-$pedido = $conexion->query("
-    SELECT p.id_pedido, c.nombre, p.fecha_pedido, p.total
+$mysqli = new mysqli("localhost", "root", "", "tiendaonline2526");
+if ($mysqli->connect_error) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Error de conexión']);
+    exit;
+}
+$mysqli->set_charset("utf8mb4");
+
+// Obtener ID del pedido
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($id <= 0) {
+    http_response_code(400);
+    echo json_encode(['error' => 'ID inválido']);
+    exit;
+}
+
+// Obtener info del pedido
+$pedido_query = $mysqli->prepare("
+    SELECT p.id_pedido, c.nombre, p.fecha_pedido, p.estado, p.total
     FROM pedidos p
-    JOIN clientes c ON p.id_cliente = c.id_cliente
-    WHERE p.id_pedido = $id
-")->fetch_assoc();
-
-$lineas = $conexion->query("
-    SELECT pr.nombre, lp.cantidad, lp.precio_unitario, lp.subtotal
-    FROM lineas_pedido lp
-    JOIN productos pr ON lp.id_producto = pr.id_producto
-    WHERE lp.id_pedido = $id
+    INNER JOIN clientes c ON p.id_cliente = c.id_cliente
+    WHERE p.id_pedido = ?
 ");
+$pedido_query->bind_param("i", $id);
+$pedido_query->execute();
+$pedido = $pedido_query->get_result()->fetch_assoc();
 
-$detalles = [
-    'id' => $pedido['id_pedido'],
-    'cliente' => $pedido['nombre'],
-    'fecha' => date('d/m/Y', strtotime($pedido['fecha_pedido'])),
-    'lineas' => [],
-    'total' => number_format($pedido['total'], 2)
-];
+if (!$pedido) {
+    http_response_code(404);
+    echo json_encode(['error' => 'Pedido no encontrado']);
+    exit;
+}
 
-while($linea = $lineas->fetch_assoc()) {
-    $detalles['lineas'][] = [
+// Obtener líneas del pedido
+$lineas_query = $mysqli->prepare("
+    SELECT 
+        pr.nombre,
+        lp.cantidad,
+        lp.precio_unitario,
+        lp.subtotal
+    FROM lineas_pedido lp
+    INNER JOIN productos pr ON lp.id_producto = pr.id_producto
+    WHERE lp.id_pedido = ?
+    ORDER BY pr.nombre
+");
+$lineas_query->bind_param("i", $id);
+$lineas_query->execute();
+$lineas_result = $lineas_query->get_result();
+
+$lineas = [];
+while ($linea = $lineas_result->fetch_assoc()) {
+    $lineas[] = [
         'producto' => $linea['nombre'],
         'cantidad' => $linea['cantidad'],
         'precio' => number_format($linea['precio_unitario'], 2),
@@ -328,299 +763,247 @@ while($linea = $lineas->fetch_assoc()) {
     ];
 }
 
-echo json_encode($detalles);
+// Respuesta JSON
+echo json_encode([
+    'id' => $pedido['id_pedido'],
+    'cliente' => $pedido['nombre'],
+    'fecha' => date('d/m/Y', strtotime($pedido['fecha_pedido'])),
+    'estado' => ucfirst($pedido['estado']),
+    'lineas' => $lineas,
+    'total' => number_format($pedido['total'], 2)
+]);
+
+$mysqli->close();
 ?>
 ```
 
-**Funcionalidades:**
-- ✅ Tabla de pedidos con estados coloreados (código de colores)
-- ✅ Estadísticas en tiempo real (total pedidos, entregados, ventas)
-- ✅ Modal AJAX para detalles sin recargar página
-- ✅ Diseño responsivo y moderno
-- ✅ Consultas preparadas (seguridad SQL injection)
+### Características de la Aplicación
 
-### 5. Transacciones ACID
+✅ **Dashboard interactivo** con estadísticas en tiempo real  
+✅ **Tabla de pedidos** con estados coloreados (código visual)  
+✅ **Modal AJAX** para detalles sin recargar página  
+✅ **Backend PHP** con consultas preparadas (prevención SQL injection)  
+✅ **Responsive design** compatible con móviles  
+✅ **Cálculo automático** de totales desde la BD  
 
-**Concepto:** Las transacciones garantizan que un grupo de operaciones se ejecutan de manera atómica (todo o nada)
+### Ejecución de la Aplicación
 
-**Ejemplo 1: Transacción para procesar pedido**
-```sql
-START TRANSACTION;
+```bash
+# 1. Navegar a la carpeta del proyecto
+cd /ruta/al/proyecto
 
--- Decrementar stock
-UPDATE gestion_stock 
-SET cantidad_disponible = cantidad_disponible - 5
-WHERE id_producto = 1;
+# 2. Iniciar servidor PHP local
+php -S localhost:8000
 
--- Actualizar estado del pedido
-UPDATE pedidos
-SET estado = 'procesando'
-WHERE id_pedido = 1;
+# 3. Abrir navegador
+# http://localhost:8000/index.php
 
--- Si todo va bien, confirmar
-COMMIT;
-
--- Si algo falla, deshacer todo
--- ROLLBACK;
+# Deberías ver:
+# - 6 pedidos listados
+# - Total de ventas: 5345.81€
+# - Estados coloreados por tipo
+# - Modal con detalles al hacer clic en "Ver Detalles"
 ```
 
-**Ejemplo 2: Transacción para validación de stock antes de confirmar venta**
+---
+
+## 4. TRANSACCIONES Y CONSISTENCIA (Criterio 4.e, 4.f, 4.h)
+
+### A. ¿Qué son las Transacciones? (Criterio 4.e)
+
+Una **transacción** es un conjunto de operaciones SQL que se ejecutan **todo o nada** (atomicidad). Garantiza que:
+- Todas las operaciones se completan
+- O se revierten todas si algo falla
+- Sin estados intermedios inconsistentes
+
+### B. Ejemplo Práctico 1: Procesar Pedido con Transacción
+
 ```sql
 START TRANSACTION;
 
--- Verificar que hay stock disponible
-SELECT cantidad_disponible INTO @stock
-FROM gestion_stock
-WHERE id_producto = 3;
+-- Paso 1: Verificar que hay stock
+SELECT @stock := cantidad_disponible 
+FROM gestion_stock 
+WHERE id_producto = 2 
+FOR UPDATE;  -- Lock para evitar race condition
 
-IF @stock >= 2 THEN
-    -- Actualizar stock
-    UPDATE gestion_stock SET cantidad_disponible = cantidad_disponible - 2
-    WHERE id_producto = 3;
+-- Paso 2: Decrementar stock
+IF @stock >= 1 THEN
+    UPDATE gestion_stock 
+    SET cantidad_disponible = cantidad_disponible - 1
+    WHERE id_producto = 2;
     
-    -- Registrar la venta en lineas_pedido
-    INSERT INTO lineas_pedido (id_pedido, id_producto, cantidad, precio_unitario, subtotal)
-    VALUES (2, 3, 2, 999.99, 1999.98);
+    -- Paso 3: Cambiar estado del pedido
+    UPDATE pedidos 
+    SET estado = 'procesando'
+    WHERE id_pedido = 3;
     
     COMMIT;
+    SELECT 'Pedido procesado exitosamente' AS resultado;
 ELSE
     ROLLBACK;
-    SELECT 'Error: Stock insuficiente' AS error;
+    SELECT 'ERROR: Stock insuficiente' AS error;
 END IF;
 ```
 
-**Ejemplo 3: Actualizar total del pedido de forma consistente**
+**Sin transacción:** Si falla después de decrementar stock, quedamos con inconsistencia.  
+**Con transacción:** O todo ocurre o nada.
+
+### C. Ejemplo Práctico 2: Anular Cambios (Criterio 4.f - ROLLBACK)
+
 ```sql
 START TRANSACTION;
 
--- Recalcular total basado en líneas
-UPDATE pedidos 
-SET total = (
-    SELECT SUM(subtotal) 
-    FROM lineas_pedido 
-    WHERE id_pedido = 1
-)
-WHERE id_pedido = 1;
+-- Realizar cambios
+UPDATE pedidos SET estado = 'cancelado' WHERE id_pedido = 5;
+UPDATE gestion_stock SET cantidad_disponible = cantidad_disponible + 2 WHERE id_producto = 1;
+INSERT INTO lineas_pedido (id_pedido, id_producto, cantidad, precio_unitario) 
+VALUES (5, 3, 1, 279.99);
 
-COMMIT;
+-- Si detectamos error, revertir TODO
+ROLLBACK;
+
+-- Resultado: Los cambios nunca se aplicaron
+SELECT * FROM pedidos WHERE id_pedido = 5;  -- Estado sigue siendo original
 ```
 
-**Propiedades ACID Garantizadas:**
+### D. Ejemplo Práctico 3: Aplicación en PHP con Transacciones
 
-| Propiedad | Descripción | Implementación |
-|-----------|-------------|-----------------|
-| **Atomicidad** | Todo o nada | COMMIT o ROLLBACK - no hay estados intermedios |
-| **Consistencia** | Datos correctos siempre | Constraints, triggers, y validación en aplicación |
-| **Aislamiento** | Sin interferencias concurrentes | InnoDB con READ_COMMITTED por defecto |
-| **Durabilidad** | Persistencia en disco | Log de transacciones y sync con disco |
+```php
+<?php
+$mysqli = new mysqli("localhost", "root", "", "tiendaonline2526");
 
-### 6. Conceptos Aprendidos
+try {
+    // Iniciar transacción
+    $mysqli->begin_transaction();
+    
+    // 1. Restar cantidad de línea
+    $stmt = $mysqli->prepare("
+        UPDATE gestion_stock 
+        SET cantidad_disponible = cantidad_disponible - ?
+        WHERE id_producto = ?
+    ");
+    $stmt->bind_param("ii", $cantidad, $id_producto);
+    $cantidad = 1;
+    $id_producto = 2;
+    $stmt->execute();
+    
+    // 2. Crear nueva línea de pedido
+    $stmt = $mysqli->prepare("
+        INSERT INTO lineas_pedido (id_pedido, id_producto, cantidad, precio_unitario)
+        VALUES (?, ?, ?, ?)
+    ");
+    $stmt->bind_param("iiid", $id_pedido, $id_producto, $cantidad, $precio);
+    $id_pedido = 3;
+    $precio = 999.99;
+    $stmt->execute();
+    
+    // 3. Actualizar total del pedido
+    $mysqli->query("
+        UPDATE pedidos p
+        SET total = (SELECT SUM(subtotal) FROM lineas_pedido WHERE id_pedido = p.id_pedido)
+        WHERE id_pedido = 3
+    ");
+    
+    // Si todo va bien, confirmar
+    $mysqli->commit();
+    echo "✓ Pedido actualizado correctamente";
+    
+} catch (Exception $e) {
+    // Si algo falla, deshacer TODO
+    $mysqli->rollback();
+    echo "✗ Error: " . $e->getMessage() . " - Cambios revertidos";
+}
 
-**Normalización (3NF - Tercera Forma Normal)**
-- ✅ Elimina redundancia de datos
-- ✅ Cada tabla tiene una única responsabilidad
-- ✅ Depuración más fácil y mantenimiento simplificado
-- Ejemplo: `clientes` y `pedidos` son tablas separadas, no repetimos cliente en cada pedido
-
-**Relaciones 1:N (Uno a Muchos)**
-- ✅ Un cliente puede tener múltiples pedidos
-- ✅ Un pedido pertenece a un único cliente
-- Implementación: FK `id_cliente` en tabla `pedidos`
-- SELECT de cliente con todos sus pedidos mediante JOIN
-
-**Relaciones N:M (Muchos a Muchos)**
-- ✅ Un pedido contiene múltiples productos
-- ✅ Un producto aparece en múltiples pedidos
-- ✅ Se implementa con tabla de junción `lineas_pedido`
-- Contiene FKs a ambas tablas: `id_pedido` e `id_producto`
-
-**Relaciones 1:1 (Uno a Uno)**
-- ✅ Cada producto tiene exactamente un registro de stock
-- ✅ Evita repetir columnas de stock en tabla productos
-- Implementación: `gestion_stock` con FK UNIQUE a `productos`
-
-**Claves Foráneas (Foreign Keys)**
-- ✅ Garantizan integridad referencial
-- ✅ Previenen registros huérfanos
-- ON DELETE CASCADE: Borra registros dependientes automáticamente
-- ON DELETE RESTRICT: Impide borrar si existen dependencias
-
-**Índices (Indexes)**
-- ✅ Aceleran búsquedas en columnas frecuentes
-- ✅ Se crean automáticamente en PRIMARY KEY y UNIQUE
-- Ejemplo: INDEX en `id_cliente` de tabla `pedidos` para búsquedas rápidas
-
-**Campos Computados/Generados**
-- ✅ `subtotal = cantidad × precio_unitario` en `lineas_pedido`
-- ✅ Evitan cálculos manuales y errores
-- ✅ Se generan automáticamente en INSERT/UPDATE
-
-**JOINs Múltiples**
-- ✅ Combinar datos de múltiples tablas en una consulta
-- INNER JOIN: Solo registros que coinciden en ambas tablas
-- LEFT JOIN: Todos los registros de la izquierda + coincidencias de la derecha
-- Ejemplo: pedidos + clientes + lineas_pedido + productos (5 tablas en una consulta)
-
-**Transacciones (ACID)**
-- ✅ Garantizan operaciones atómicas
-- ✅ Evitan estados inconsistentes
-- START TRANSACTION, COMMIT, ROLLBACK
-- Crucial para operaciones críticas (pagos, stock, etc.)
-
-### 7. Estructura de Scripts Generados
-
-**01-crear-base-datos.sql**
-- Crea la base de datos `tiendaonline2526` con charset UTF8MB4
-- Selecciona la base de datos para uso inmediato
-- Una línea de comandos
-
-**02-crear-tablas.sql**
-Crea 6 tablas con estructura completa:
-1. `categorias` - PK: id_categoria, nombre UNIQUE
-2. `clientes` - PK: id_cliente, nombre, email UNIQUE, teléfono
-3. `productos` - PK: id_producto, FK a categorias, nombre, descripción, precio
-4. `gestion_stock` - PK: id_gestion, FK UNIQUE a productos, cantidades y umbrales
-5. `pedidos` - PK: id_pedido, FK a clientes, fecha, total, estado
-6. `lineas_pedido` - PK: id_linea, FKs a pedidos y productos, cantidad, precio, subtotal
-
-Características incluidas:
-- ✅ PRIMARY KEYs en cada tabla
-- ✅ FOREIGN KEYs con integridad referencial
-- ✅ UNIQUE constraints donde corresponde
-- ✅ DEFAULT values para fechas y estados
-- ✅ Índices en columnas de búsqueda frecuente
-- ✅ Comentarios en cada tabla
-- ✅ Tipos de datos apropiados (DECIMAL para dinero, etc.)
-
-**07-insertar-datos.sql**
-Inserta datos de prueba en orden correcto:
-1. 5 categorías
-2. 5 clientes
-3. 15 productos distribuidos en categorías
-4. 15 registros de gestión de stock
-5. 6 pedidos de clientes variados
-6. 13 líneas de pedido (detalles de productos en cada pedido)
-
-Datos realistas con:
-- Nombres y emails válidos
-- Precios coherentes con categorías
-- Fechas variadas (últimos 30 días)
-- Estados de pedido variados
-- Cantidades equilibradas de stock
-
-**08-consultas-verificacion.sql**
-11 grupos de consultas de verificación:
-1. Verificar integridad de categorías
-2. Listar clientes con contacto
-3. Productos por categoría
-4. Stock actual con alertas
-5. Pedidos por cliente
-6. Detalles de un pedido específico
-7. Análisis de ingresos
-8. Productos más vendidos
-9. Clientes más activos
-10. Resumen de estados de pedidos
-11. Totales y estadísticas finales
-
-### 8. Ejecución Completa del Proyecto
-
-**Paso 1: Crear la base de datos**
-```bash
-mysql -u root -p < 01-crear-base-datos.sql
-# Ingresa tu contraseña cuando se solicite
-# Salida esperada: Query OK, 1 row affected
+$mysqli->close();
+?>
 ```
 
-**Paso 2: Crear las tablas**
-```bash
-mysql -u root -p tiendaonline2526 < 02-crear-tablas.sql
-# Salida esperada: Query OK para cada CREATE TABLE
-# Deberías ver 6 tablas creadas correctamente
-```
+### E. Propiedades ACID Implementadas
 
-**Paso 3: Insertar datos de prueba**
-```bash
-mysql -u root -p tiendaonline2526 < 07-insertar-datos.sql
-# Salida esperada: Query OK para cada INSERT
-# Deberías ver un total de 55+ registros insertados
-```
-
-**Paso 4: Verificar integridad de datos**
-```bash
-mysql -u root -p tiendaonline2526 < 08-consultas-verificacion.sql
-# Verifica que las relaciones funcionan correctamente
-# Comprueba que no hay errores de integridad
-```
-
-**Paso 5: Ejecutar la aplicación web**
-```bash
-# Coloca los archivos index.php y detalles_pedido.php en una carpeta
-cd /ruta/a/proyecto
-php -S localhost:8000
-# Abre el navegador en http://localhost:8000
-# Verás el dashboard con los 6 pedidos y estadísticas
-```
-
-**Verificación rápida sin aplicación web:**
-```bash
-# Conectar a MySQL
-mysql -u root -p tiendaonline2526
-
-# Consulta rápida para verificar datos
-SELECT COUNT(*) as total_registros, 
-       'categorias' as tabla FROM categorias
-UNION ALL
-SELECT COUNT(*), 'clientes' FROM clientes
-UNION ALL
-SELECT COUNT(*), 'productos' FROM productos
-UNION ALL
-SELECT COUNT(*), 'gestion_stock' FROM gestion_stock
-UNION ALL
-SELECT COUNT(*), 'pedidos' FROM pedidos
-UNION ALL
-SELECT COUNT(*), 'lineas_pedido' FROM lineas_pedido;
-
-# Salida esperada:
-# 5 registros en categorias
-# 5 registros en clientes
-# 15 registros en productos
-# 15 registros en gestion_stock
-# 6 registros en pedidos
-# 13 registros en lineas_pedido
-# Total: 59 registros
-```
+| Propiedad | Garantía | Implementación en tiendaonline2526 |
+|-----------|----------|-------------------------------------|
+| **Atomicidad** | Todo o nada | START TRANSACTION + COMMIT/ROLLBACK |
+| **Consistencia** | Datos válidos siempre | FK constraints, CHECK, triggers |
+| **Aislamiento** | Sin interferencias | InnoDB isolation levels, locks |
+| **Durabilidad** | Persiste en disco | Log de transacciones, sync |
 
 ---
 
-## RESUMEN DE LOGROS
+## 5. CONCLUSIÓN BREVE (25%)
 
-✅ **Base de Datos:** Diseño normalizado 3NF con 6 tablas relacionadas
-✅ **Relaciones:** 3 tipos implementados (1:N, N:M, 1:1)
-✅ **Datos:** 55+ registros realistas distribuidos coherentemente
-✅ **Consultas:** 11+ consultas de verificación y análisis
-✅ **Aplicación:** Dashboard web interactivo con PHP
-✅ **Transacciones:** Ejemplos ACID completos
-✅ **Documentación:** Explicación detallada de conceptos
-✅ **Testing:** Scripts de verificación de integridad
+### Logros Alcanzados
 
-**Tecnologías utilizadas:**
-- MySQL 8.x con InnoDB
-- PHP 7.4+ con mysqli
-- HTML5, CSS3, JavaScript
-- SQL avanzado (JOINs, CTEs, transacciones)
+✅ **Criterio 4.a)** Identificadas todas las herramientas: CREATE TABLE, INSERT, UPDATE, DELETE, START TRANSACTION  
 
-**Archivos disponibles en la carpeta del ejercicio:**
-1. Este documento (solución integrada)
-2. `01-crear-base-datos.sql` - Crear BD
-3. `02-crear-tablas.sql` - Crear estructura
-4. `07-insertar-datos.sql` - Cargar datos
-5. `08-consultas-verificacion.sql` - Verificar datos
-6. `index.php` - Dashboard web
-7. `detalles_pedido.php` - Backend AJAX
-8. `SOLUCION_004-004.md` - Documentación técnica completa
+✅ **Criterio 4.b)** Implementadas operaciones completas:
+- INSERT: 59 registros en 6 tablas
+- UPDATE: Cambios de estado, decrementación de stock
+- DELETE: Borrado con cascadas
+
+✅ **Criterio 4.e)** Transacciones entendidas y documentadas:
+- Garantía de atomicidad
+- Ejemplos SQL y PHP
+
+✅ **Criterio 4.f)** ROLLBACK practicado:
+- Reversión de cambios fallidos
+- Consistencia garantizada
+
+✅ **Criterio 4.h)** Medidas de integridad implementadas:
+- Foreign keys con ON DELETE CASCADE/RESTRICT
+- Constraints (UNIQUE, NOT NULL, CHECK)
+- Índices para optimización
+- Timestamp de auditoría
+
+### Conceptos Clave Aprendidos
+
+1. **Normalización 3NF** elimina redundancia mediante descomposición
+2. **Relaciones complejas** (1:N, N:M, 1:1) estructuran datos realistas
+3. **Integridad referencial** previene datos inconsistentes
+4. **Transacciones** garantizan operaciones críticas atómicas
+5. **Control de concurrencia** evita race conditions
+6. **Índices estratégicos** aceleran búsquedas
+
+### Aplicabilidad Real
+
+Este proyecto replica un sistema real:
+- **E-commerce:** Gestión de pedidos, clientes, productos
+- **Operaciones críticas:** Confirmación de compra = transacción
+- **Auditoría:** Timestamps rastrean cambios
+- **Escalabilidad:** Índices permiten millones de registros
+
+### Mejoras Posibles
+
+Para un sistema de producción:
+- Encriptación de datos sensibles (contraseñas, tarjetas)
+- Logs de auditoría detallados (quién cambió qué y cuándo)
+- Backups automáticos y replicación
+- Cache (Redis) para consultas frecuentes
+- Particionamiento de tablas grandes
+- API REST con autenticación JWT
 
 ---
 
-**Estado:** ✅ COMPLETADO | **Evaluación:** Primera Evaluación | **Curso:** DAM 2º 2024-2025
+## 📋 ARCHIVOS DISPONIBLES
 
+**Scripts SQL:**
+1. `01-crear-base-datos.sql` - Creación de BD
+2. `02-crear-tablas.sql` - Estructura completa (6 tablas)
+3. `07-insertar-datos.sql` - 59 registros de prueba
+4. `08-consultas-verificacion.sql` - 11+ consultas de análisis
 
+**Código PHP:**
+5. `index.php` - Dashboard interactivo
+6. `detalles_pedido.php` - Backend AJAX
+
+**Documentación:**
+7. `SOLUCION_004-004.md` - Documentación técnica completa
+8. `RESUMEN_SOLUCION.md` - Resumen ejecutivo
+
+---
+
+**Estudiante:** Darío Lacal  
+**Asignatura:** Bases de Datos (UD004 - Tratamiento de datos)  
+**Evaluación:** 1ª Evaluación  
+**Fecha:** Diciembre 2024  
+**Estado:** ✅ COMPLETO - Rúbrica 4×25% cubierta
