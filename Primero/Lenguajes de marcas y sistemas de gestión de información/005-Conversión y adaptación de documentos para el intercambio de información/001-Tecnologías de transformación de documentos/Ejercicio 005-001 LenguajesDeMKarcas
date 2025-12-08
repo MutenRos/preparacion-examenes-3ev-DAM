@@ -1,0 +1,199 @@
+Contexto
+
+En este ejercicio práctico, aprenderás a conectar una base de datos MySQL con Python y cómo utilizar Flask para crear una API que devuelva los datos en formato JSON. Este conocimiento es fundamental para desarrollar aplicaciones web interactivas y eficientes. Además, puedes aplicar tus habilidades de modelado e impresión 3D al diseñar modelos de bases de datos o interfaces gráficas para interactuar con esta información.
+
+Enunciado paso a paso
+
+Conectarte a la base de datos:
+
+Abre el archivo 001-me conecto a la base de datos.py.
+Asegúrate de que el código esté correcto y funcione sin errores al conectarse a tu base de datos MySQL local.
+Obtener datos en formato diccionario:
+
+Modifica el archivo 002-quiero un diccionario.py para obtener los resultados de la consulta en formato diccionario.
+Verifica que los datos se estén devolviendo correctamente y sean fácilmente manipulables.
+Crear una API con Flask:
+
+Abre el archivo 004-le pongo un poco de flask.py.
+Configura tu aplicación Flask para que, al acceder a la ruta /api, retorne los datos de la base de datos en formato JSON.
+Asegúrate de que la API esté funcionando correctamente y que los datos se muestran adecuadamente.
+Consumir la API con JavaScript:
+
+Abre el archivo templates/index.html.
+Utiliza JavaScript para consumir la API creada en Flask y mostrar los datos en tu página web.
+Prueba la funcionalidad completa, asegurándote de que los datos se muestran correctamente.
+Restricciones
+
+No uses librerías externas adicionales.
+Mantén el código dentro de los límites del tema actual.
+Criterios de evaluación
+
+Introducción y contextualización (25%)
+
+El estudiante debe entender la importancia de conectar bases de datos con Python y cómo Flask puede facilitar este proceso.
+Desarrollo técnico correcto y preciso (25%)
+
+El código debe estar bien estructurado, sin errores y funcional correctamente.
+La conversión de los resultados a formato JSON debe ser efectiva.
+Aplicación práctica con ejemplo claro (25%)
+
+El estudiante debe probar la API y asegurarse de que los datos se muestran correctamente en la página web.
+Debe verificar que el proceso de conexión, consulta y visualización funcione como se espera.
+Cierre/Conclusión enlazando con la unidad (25%)
+
+El estudiante debe contextualizar su trabajo dentro del tema de conversión y adaptación de documentos para el intercambio de información.
+Debe reflexionar sobre cómo estos conocimientos pueden aplicarse en proyectos futuros.
+
+## SOLUCIÓN
+
+### Introducción y contextualización (25%)
+
+Flask + MySQL + JSON permite crear APIs REST para intercambio de datos entre sistemas. Transforma datos relacionales (MySQL) a formato JSON, facilitando integración con aplicaciones web, móviles e IoT.
+
+### Desarrollo técnico correcto y preciso (25%)
+
+**001-me conecto a la base de datos.py:**
+```python
+import mysql.connector
+
+# Conexión a MySQL
+conexion = mysql.connector.connect(
+    host="localhost",
+    user="miempresa",
+    password="miempresa",
+    database="miempresa"
+)
+
+cursor = conexion.cursor()
+cursor.execute("SELECT * FROM clientes")
+resultados = cursor.fetchall()
+
+for fila in resultados:
+    print(fila)
+
+cursor.close()
+conexion.close()
+```
+
+**002-quiero un diccionario.py:**
+```python
+import mysql.connector
+
+conexion = mysql.connector.connect(
+    host="localhost",
+    user="miempresa",
+    password="miempresa",
+    database="miempresa"
+)
+
+cursor = conexion.cursor(dictionary=True)
+cursor.execute("SELECT * FROM clientes")
+resultados = cursor.fetchall()
+
+for fila in resultados:
+    print(fila)
+
+cursor.close()
+conexion.close()
+```
+
+**004-le pongo un poco de flask.py:**
+```python
+from flask import Flask, jsonify
+import mysql.connector
+
+app = Flask(__name__)
+
+@app.route('/api')
+def api():
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="miempresa",
+        password="miempresa",
+        database="miempresa"
+    )
+    
+    cursor = conexion.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM clientes")
+    resultados = cursor.fetchall()
+    
+    cursor.close()
+    conexion.close()
+    
+    return jsonify(resultados)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+**templates/index.html:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Clientes</title>
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    <div id="clientes"></div>
+
+    <script>
+        fetch('/api')
+            .then(response => response.json())
+            .then(datos => {
+                const contenedor = document.getElementById('clientes');
+                datos.forEach(cliente => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <p><strong>ID:</strong> ${cliente.id}</p>
+                        <p><strong>Nombre:</strong> ${cliente.nombre}</p>
+                        <p><strong>Email:</strong> ${cliente.email}</p>
+                        <hr>
+                    `;
+                    contenedor.appendChild(div);
+                });
+            });
+    </script>
+</body>
+</html>
+```
+
+### Aplicación práctica con ejemplo claro (25%)
+
+**Ejecución:**
+```bash
+python 004-le pongo un poco de flask.py
+```
+
+**Salida:**
+```
+* Running on http://127.0.0.1:5000
+```
+
+**Acceso a la API:**
+- `http://127.0.0.1:5000/api` → JSON de clientes
+- `http://127.0.0.1:5000/` → Página web con datos
+
+**Respuesta JSON:**
+```json
+[
+  {
+    "id": 1,
+    "nombre": "Dario Lacal",
+    "email": "dario@example.com"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana García",
+    "email": "ana@example.com"
+  }
+]
+```
+
+### Cierre/Conclusión (25%)
+
+Esta práctica demuestra conversión de datos: MySQL → Python (diccionarios) → JSON → JavaScript. Fundamental en arquitecturas modernas (frontend-backend separados). Aplicable en ERPs, dashboards, aplicaciones móviles y sistemas IoT que consumen APIs REST.
