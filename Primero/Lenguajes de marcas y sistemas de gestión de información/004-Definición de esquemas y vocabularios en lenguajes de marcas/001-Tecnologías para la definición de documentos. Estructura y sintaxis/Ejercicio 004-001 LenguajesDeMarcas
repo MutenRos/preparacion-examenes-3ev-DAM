@@ -61,8 +61,8 @@ Estos formatos son esenciales en IoT (Raspberry, sensores) y entornos empresaria
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persona>
-  <nombre>Jose Vicente</nombre>
-  <apellidos>Carratalá Sanchis</apellidos>
+  <nombre>Dario</nombre>
+  <apellidos>Lacal Civera</apellidos>
 </persona>
 ```
 
@@ -75,8 +75,8 @@ Estos formatos son esenciales en IoT (Raspberry, sensores) y entornos empresaria
 
 ```json
 {
-  "nombre": "Jose Vicente",
-  "apellidos": "Carratalá Sanchis"
+  "nombre": "Dario",
+  "apellidos": "Lacal Civera"
 }
 ```
 
@@ -93,7 +93,7 @@ Estos formatos son esenciales en IoT (Raspberry, sensores) y entornos empresaria
   </head>
   <body>
     <p>Aquí escribo mi contenido</p>
-    <p>Mi nombre es Jose Vicente Carratalá Sanchis</p>
+    <p>Mi nombre es Dario Lacal Civera</p>
   </body>
 </html>
 ```
@@ -118,8 +118,8 @@ Una empresa necesita intercambiar datos de empleados:
 ```xml
 <empleados>
   <empleado id="1">
-    <nombre>Jose Vicente</nombre>
-    <apellidos>Carratalá Sanchis</apellidos>
+    <nombre>Dario</nombre>
+    <apellidos>Lacal Civera</apellidos>
     <departamento>IT</departamento>
   </empleado>
 </empleados>
@@ -130,8 +130,8 @@ Una empresa necesita intercambiar datos de empleados:
 [
   {
     "id": 1,
-    "nombre": "Jose Vicente",
-    "apellidos": "Carratalá Sanchis",
+    "nombre": "Dario",
+    "apellidos": "Lacal Civera",
     "departamento": "IT"
   }
 ]
@@ -140,7 +140,7 @@ Una empresa necesita intercambiar datos de empleados:
 **HTML (interfaz usuario):**
 ```html
 <div class="empleado">
-  <h2>Jose Vicente Carratalá Sanchis</h2>
+  <h2>Dario Lacal Civera</h2>
   <p>Departamento: IT</p>
 </div>
 ```
