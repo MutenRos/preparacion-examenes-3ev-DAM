@@ -13,7 +13,7 @@
       table td{padding:12px;border-bottom:1px solid #ddd;}
       table tbody tr:nth-child(odd){background:white;}
       table tbody tr:nth-child(even){background:#f0f8ff;}
-      table tbody tr:hover{background:#e6e6fa;}
+      table tbody tr:hover{background:#e6e6fa;cursor:pointer;}
       .redondeado {border-radius:8px;}
       .inicial{display:block;width:20px;height:20px;background:indigo;color:white;text-align:center;padding:10px;border-radius:5px;line-height:20px;}
     </style>
