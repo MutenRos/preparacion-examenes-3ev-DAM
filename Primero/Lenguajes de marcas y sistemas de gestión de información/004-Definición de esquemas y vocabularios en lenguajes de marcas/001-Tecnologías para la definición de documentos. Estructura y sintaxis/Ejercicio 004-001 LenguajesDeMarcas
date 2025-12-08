@@ -1,0 +1,162 @@
+En nuestro mundo digital actual, las personas utilizan una variedad de lenguajes de marcas para almacenar y compartir información de manera eficiente. Un ejemplo claro de esto son los archivos XML y JSON que vimos en clase. Además, los Raspberrys y similares, junto con el modelado e impresión 3D, son herramientas útiles para crear y manipular datos de manera práctica.
+
+Enunciado paso a paso
+Entendimiento del documento XML: Abre el archivo 003-documento.xml que contiene la siguiente información:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+  <nombre>Jose Vicente</nombre>
+  <apellidos>Carratalá Sanchis</apellidos>
+</persona>
+Identifica y explica los elementos y atributos presentes en este documento.
+
+Creación de un nuevo documento JSON: Basándote en el contenido del archivo 003-documento.xml, crea un nuevo archivo llamado nuevo-documento.json con la misma información pero en formato JSON:
+
+{
+  "nombre": "Jose Vicente",
+  "apellidos": "Carratalá Sanchis"
+}
+Asegúrate de que el contenido sea preciso y siga las reglas de sintaxis JSON.
+
+Modificación del documento HTML: Abre el archivo 001-archivo.html y modifica el contenido dentro de la etiqueta <body> para agregar una nueva parrafo con tu nombre completo:
+
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Aquí escribo mi contenido</p>
+    <p>Mi nombre es Jose Vicente Carratalá Sanchis</p>
+  </body>
+</html>
+Asegúrate de que la sintaxis HTML sea correcta.
+
+Validación del documento XML: Utiliza un validador online para verificar si el archivo 003-documento.xml es válido según su estructura y sintaxis.
+
+Restricciones
+No se permiten librerías externas ni estructuras no vistas en clase.
+Solo puedes usar los conceptos y tecnologías que hemos aprendido hasta ahora (XML, JSON, HTML).
+Criterios de evaluación
+Introducción y contextualización (25%): Explica cómo el uso de archivos XML, JSON y HTML es relevante en la actualidad.
+Desarrollo técnico correcto y preciso (25%): Demuestra una comprensión profunda del contenido y las técnicas utilizadas para crear y manipular estos formatos.
+Aplicación práctica con ejemplo claro (25%): Muestra habilidades prácticas al aplicar los conceptos aprendidos en ejemplos reales.
+Cierre/Conclusión enlazando con la unidad (25%): Concluye el ejercicio relacionándolo con lo que hemos estudiado y cómo estos formatos son útiles en entornos empresariales.
+
+## SOLUCIÓN
+
+### Introducción y contextualización (25%)
+
+XML, JSON y HTML son pilares de internet:
+- **XML**: intercambio estructurado de datos entre sistemas (APIs, configuraciones)
+- **JSON**: formato ligero para APIs REST, preferido en aplicaciones web modernas
+- **HTML**: presentación de contenido en navegadores
+
+Estos formatos son esenciales en IoT (Raspberry, sensores) y entornos empresariales (ERPs, bases de datos).
+
+### Desarrollo técnico correcto y preciso (25%)
+
+#### 1. Entendimiento del XML:
+
+**Estructura del documento 003-documento.xml:**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+  <nombre>Jose Vicente</nombre>
+  <apellidos>Carratalá Sanchis</apellidos>
+</persona>
+```
+
+- `<?xml version="1.0"?>`: Declaración XML (versión, codificación UTF-8)
+- `<persona>`: Elemento raíz (contenedor principal)
+- `<nombre>` y `<apellidos>`: Elementos anidados (propiedades)
+- Estructura jerárquica: fácil de parsear y validar
+
+#### 2. Nuevo archivo JSON (nuevo-documento.json):
+
+```json
+{
+  "nombre": "Jose Vicente",
+  "apellidos": "Carratalá Sanchis"
+}
+```
+
+**Diferencias XML vs JSON:**
+- XML: etiquetas explícitas, más verboso
+- JSON: sintaxis compacta, pares clave-valor, mejor para APIs
+
+#### 3. Modificación del HTML (001-archivo.html):
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Aquí escribo mi contenido</p>
+    <p>Mi nombre es Jose Vicente Carratalá Sanchis</p>
+  </body>
+</html>
+```
+
+**Validaciones:**
+- DOCTYPE correcto
+- Estructura jerárquica válida
+- Etiquetas cerradas correctamente
+- Contenido semántico en `<p>`
+
+#### 4. Validación XML:
+
+✓ Documento válido. Sin errores de sintaxis. Estructura bien formada.
+
+### Aplicación práctica con ejemplo claro (25%)
+
+**Caso real: Sistema de gestión de empleados**
+
+Una empresa necesita intercambiar datos de empleados:
+
+**XML (configuración/almacenamiento):**
+```xml
+<empleados>
+  <empleado id="1">
+    <nombre>Jose Vicente</nombre>
+    <apellidos>Carratalá Sanchis</apellidos>
+    <departamento>IT</departamento>
+  </empleado>
+</empleados>
+```
+
+**JSON (API REST para frontend):**
+```json
+[
+  {
+    "id": 1,
+    "nombre": "Jose Vicente",
+    "apellidos": "Carratalá Sanchis",
+    "departamento": "IT"
+  }
+]
+```
+
+**HTML (interfaz usuario):**
+```html
+<div class="empleado">
+  <h2>Jose Vicente Carratalá Sanchis</h2>
+  <p>Departamento: IT</p>
+</div>
+```
+
+Los tres formatos trabajan juntos: XML almacena, JSON transmite, HTML presenta.
+
+### Cierre/Conclusión (25%)
+
+Estos formatos son complementarios:
+- **XML**: estructura y validación rigurosa (DTD, XSD)
+- **JSON**: ligereza y compatibilidad con JavaScript (web moderno)
+- **HTML**: semántica y accesibilidad (presentación)
+
+En entornos empresariales (ERPs, APIs), dominar estos formatos es fundamental para:
+✓ Integración de sistemas
+✓ Movilidad de datos
+✓ Interoperabilidad (Raspberry, servidores, clientes web)
+
+La elección del formato depende del caso de uso, pero todos siguen el mismo principio: **estructura clara, datos accesibles, fácil de mantener**.
