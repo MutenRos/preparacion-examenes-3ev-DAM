@@ -29,7 +29,7 @@ Cierre/Conclusión enlazando con la unidad (25%): Responde a las preguntas sobre
 
 ### Introducción y contextualización (25%)
 
-Crear APIs REST dinámicas permite exponer múltiples tablas de base de datos en formato JSON. Aplicable en Raspberry Pi para dashboards IoT, paneles de control de impresoras 3D, o sistemas de monitorización de sensores.
+APIs dinámicas exponen tablas MySQL en JSON. Útil en Raspberry Pi para dashboards IoT o paneles de impresoras 3D.
 
 ### Desarrollo técnico correcto y preciso (25%)
 
@@ -40,17 +40,12 @@ import mysql.connector
 
 app = Flask(__name__)
 
-def conectar():
-    return mysql.connector.connect(
-        host="localhost",
-        user="miempresa",
-        password="miempresa",
-        database="miempresa"
-    )
-
 @app.route('/api/tables')
 def get_tables():
-    conexion = conectar()
+    conexion = mysql.connector.connect(
+        host="localhost", user="miempresa", 
+        password="miempresa", database="miempresa"
+    )
     cursor = conexion.cursor()
     cursor.execute("SHOW TABLES")
     tablas = [tabla[0] for tabla in cursor.fetchall()]
@@ -60,12 +55,13 @@ def get_tables():
 
 @app.route('/api/data')
 def get_data():
-    conexion = conectar()
+    conexion = mysql.connector.connect(
+        host="localhost", user="miempresa",
+        password="miempresa", database="miempresa"
+    )
     cursor = conexion.cursor(dictionary=True)
-    
-    # Obtener todas las tablas
     cursor.execute("SHOW TABLES")
-    tablas = [tabla[f'Tables_in_miempresa'] for tabla in cursor.fetchall()]
+    tablas = [t[f'Tables_in_miempresa'] for t in cursor.fetchall()]
     
     datos = {}
     for tabla in tablas:
@@ -86,15 +82,10 @@ import mysql.connector
 import json
 
 conexion = mysql.connector.connect(
-    host="localhost",
-    user="miempresa",
-    password="miempresa",
-    database="miempresa"
+    host="localhost", user="miempresa",
+    password="miempresa", database="miempresa"
 )
-
 cursor = conexion.cursor(dictionary=True)
-
-# Obtener tablas
 cursor.execute("SHOW TABLES")
 tablas = [t[f'Tables_in_miempresa'] for t in cursor.fetchall()]
 
@@ -103,7 +94,6 @@ for tabla in tablas:
     cursor.execute(f"SELECT * FROM {tabla}")
     datos[tabla] = cursor.fetchall()
 
-# Formatear JSON legible
 print(json.dumps(datos, indent=2, ensure_ascii=False))
 
 cursor.close()
@@ -116,12 +106,9 @@ import mysql.connector
 import json
 
 conexion = mysql.connector.connect(
-    host="localhost",
-    user="miempresa",
-    password="miempresa",
-    database="miempresa"
+    host="localhost", user="miempresa",
+    password="miempresa", database="miempresa"
 )
-
 cursor = conexion.cursor(dictionary=True)
 cursor.execute("SHOW TABLES")
 tablas = [t[f'Tables_in_miempresa'] for t in cursor.fetchall()]
@@ -131,14 +118,10 @@ for tabla in tablas:
     cursor.execute(f"SELECT * FROM {tabla}")
     datos[tabla] = cursor.fetchall()
 
-# Guardar en archivo JSON
 with open('datos.json', 'w', encoding='utf-8') as f:
     json.dump(datos, f, indent=2, ensure_ascii=False)
 
 print("✓ JSON generado: datos.json")
-
-cursor.close()
-conexion.close()
 ```
 
 **ver las tablas.py:**
@@ -146,16 +129,12 @@ conexion.close()
 import mysql.connector
 
 conexion = mysql.connector.connect(
-    host="localhost",
-    user="miempresa",
-    password="miempresa",
-    database="miempresa"
+    host="localhost", user="miempresa",
+    password="miempresa", database="miempresa"
 )
-
 cursor = conexion.cursor()
 cursor.execute("SHOW TABLES")
 
-print("Tablas en la base de datos:")
 for tabla in cursor.fetchall():
     print(f"- {tabla[0]}")
 
@@ -165,62 +144,20 @@ conexion.close()
 
 ### Aplicación práctica con ejemplo claro (25%)
 
-**Prueba de endpoints:**
-
+**Ejecutar:**
 ```bash
-# Ejecutar Flask
 python endpoints.py
-
-# Probar endpoints
-curl http://127.0.0.1:5000/api/tables
 curl http://127.0.0.1:5000/api/data
 ```
 
-**Respuesta `/api/tables`:**
-```json
-["clientes", "pedidos", "productos"]
-```
-
-**Respuesta `/api/data`:**
+**Respuesta JSON:**
 ```json
 {
-  "clientes": [
-    {
-      "id": 1,
-      "nombre": "Dario Lacal",
-      "email": "dario@example.com"
-    }
-  ],
-  "pedidos": [
-    {
-      "id": 1,
-      "cliente_id": 1,
-      "total": 150.50
-    }
-  ],
-  "productos": [
-    {
-      "id": 1,
-      "nombre": "Producto A",
-      "precio": 25.99
-    }
-  ]
-}
-```
-
-**Archivo generado (datos.json):**
-```json
-{
-  "clientes": [
-    {
-      "id": 1,
-      "nombre": "Dario Lacal",
-      "email": "dario@example.com"
-    }
-  ]
+  "clientes": [{"id": 1, "nombre": "Dario Lacal"}],
+  "pedidos": [{"id": 1, "total": 150.50}]
 }
 ```
 
 ### Cierre/Conclusión (25%)
 
-Esta actividad demuestra conversión de estructuras relacionales (MySQL) a JSON para intercambio de datos. Aplicable en Raspberry Pi para APIs de sensores IoT, paneles de control de impresoras 3D (temperatura, estado), y sistemas de monitorización remota. El formato JSON facilita integración con cualquier frontend o dispositivo.
+Conversión MySQL → JSON para intercambio de datos. Aplicable en APIs IoT (Raspberry) y sistemas de monitorización remota.
