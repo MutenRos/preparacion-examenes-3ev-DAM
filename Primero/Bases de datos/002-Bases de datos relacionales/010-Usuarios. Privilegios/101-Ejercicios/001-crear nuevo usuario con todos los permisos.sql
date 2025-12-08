@@ -14,3 +14,5 @@ MAX_USER_CONNECTIONS 0;
 
 GRANT ALL PRIVILEGES ON `empresarial`.* 
 TO 'usuarioempresarial'@'localhost';
+
+FLUSH PRIVILEGES;
