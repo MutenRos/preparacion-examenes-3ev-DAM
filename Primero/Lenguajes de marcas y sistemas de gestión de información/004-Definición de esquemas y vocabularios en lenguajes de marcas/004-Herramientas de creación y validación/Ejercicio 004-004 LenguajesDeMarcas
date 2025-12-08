@@ -30,18 +30,11 @@ Cierre/Conclusión enlazando con la unidad (25%): La actividad debe cerrar con u
 
 ### Introducción y contextualización (25%)
 
-La generación automática de XML desde esquemas XSD es crucial en:
-- **Formularios dinámicos**: generar UI automáticamente desde esquemas
-- **APIs**: crear plantillas de peticiones/respuestas válidas
-- **Testing**: generar datos de prueba conformes al esquema
-- **Integración**: facilitar intercambio de datos entre sistemas
-
-Este ejercicio muestra cómo automatizar la creación de XML válido, reduciendo errores manuales.
+Generar XML desde esquemas XSD automatiza la creación de documentos válidos, reduciendo errores. Aplicable en APIs, formularios web y sistemas empresariales.
 
 ### Desarrollo técnico correcto y preciso (25%)
 
-#### Esquema XSD (esquema.xsd):
-
+**Esquema XSD (esquema.xsd):**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -51,245 +44,62 @@ Este ejercicio muestra cómo automatizar la creación de XML válido, reduciendo
         <xs:element name="nombre" type="xs:string"/>
         <xs:element name="apellidos" type="xs:string"/>
         <xs:element name="edad" type="xs:integer"/>
-        <xs:element name="email" type="xs:string"/>
-        <xs:element name="ciudad" type="xs:string"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>
 ```
 
-#### Código Python (generar_xml.py):
-
+**Código Python (generar_xml.py):**
 ```python
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-import xmlschema
 
-def generar_xml_desde_esquema(archivo_xsd, archivo_salida):
-    """
-    Genera un XML válido pidiendo datos al usuario según esquema XSD.
-    
-    Args:
-        archivo_xsd: Ruta al esquema XSD
-        archivo_salida: Ruta donde guardar el XML generado
-    """
-    # Cargar esquema XSD
-    esquema = xmlschema.XMLSchema(archivo_xsd)
-    
-    # Obtener elemento raíz del esquema
-    elemento_raiz = esquema.root_elements[0]
-    nombre_raiz = elemento_raiz.local_name
-    
-    print(f"Generando XML según esquema: {archivo_xsd}\n")
-    
-    # Crear elemento raíz del XML
-    raiz = ET.Element(nombre_raiz)
-    
-    # Obtener los campos del esquema
-    campos = obtener_campos_esquema(elemento_raiz)
-    
-    # Solicitar valores al usuario para cada campo
-    for campo in campos:
-        nombre_campo = campo['nombre']
-        tipo_campo = campo['tipo']
-        
-        valor = input(f"Introduce {nombre_campo} ({tipo_campo}): ")
-        
-        # Validar tipo de dato
-        valor_validado = validar_tipo(valor, tipo_campo, nombre_campo)
-        
-        # Crear elemento hijo y añadirlo a la raíz
-        elemento = ET.SubElement(raiz, nombre_campo)
-        elemento.text = str(valor_validado)
-    
-    # Convertir a string y formatear
-    xml_str = ET.tostring(raiz, encoding='utf-8')
-    dom = minidom.parseString(xml_str)
-    xml_formateado = dom.toprettyxml(indent="  ", encoding='UTF-8')
-    
-    # Guardar en archivo
-    with open(archivo_salida, 'wb') as f:
-        f.write(xml_formateado)
-    
-    print(f"\n✓ XML generado correctamente: {archivo_salida}")
-    
-    # Validar el XML generado
-    try:
-        esquema.validate(archivo_salida)
-        print("✓ XML válido según el esquema XSD")
-    except Exception as e:
-        print(f"✗ Error de validación: {e}")
+# Crear elemento raíz
+raiz = ET.Element('persona')
 
-def obtener_campos_esquema(elemento):
-    """Extrae los campos del esquema XSD"""
-    campos = []
-    
-    # Navegar por el tipo complejo
-    if hasattr(elemento, 'type'):
-        tipo = elemento.type
-        if hasattr(tipo, 'content'):
-            for item in tipo.content:
-                if hasattr(item, 'local_name'):
-                    campos.append({
-                        'nombre': item.local_name,
-                        'tipo': obtener_tipo_base(item)
-                    })
-    
-    return campos
+# Solicitar valores al usuario
+nombre = input("Introduce nombre: ")
+apellidos = input("Introduce apellidos: ")
+edad = input("Introduce edad: ")
 
-def obtener_tipo_base(elemento):
-    """Obtiene el tipo base de un elemento XSD"""
-    if hasattr(elemento, 'type'):
-        tipo = elemento.type
-        if hasattr(tipo, 'local_name'):
-            return tipo.local_name
-        elif hasattr(tipo, 'base_type'):
-            return tipo.base_type.local_name
-    return 'string'
+# Añadir elementos hijos
+ET.SubElement(raiz, 'nombre').text = nombre
+ET.SubElement(raiz, 'apellidos').text = apellidos
+ET.SubElement(raiz, 'edad').text = edad
 
-def validar_tipo(valor, tipo, nombre_campo):
-    """Valida y convierte el valor según el tipo XSD"""
-    try:
-        if tipo == 'integer':
-            return int(valor)
-        elif tipo == 'decimal' or tipo == 'float':
-            return float(valor)
-        elif tipo == 'boolean':
-            return valor.lower() in ['true', '1', 'yes', 'sí']
-        else:
-            return valor
-    except ValueError:
-        print(f"⚠ Advertencia: '{valor}' no es un {tipo} válido para {nombre_campo}")
-        return valor
+# Formatear XML
+xml_str = ET.tostring(raiz, encoding='utf-8')
+dom = minidom.parseString(xml_str)
+xml_formateado = dom.toprettyxml(indent="  ", encoding='UTF-8')
 
-# Ejecutar generación
-if __name__ == "__main__":
-    generar_xml_desde_esquema('esquema.xsd', 'persona.xml')
+# Guardar en archivo
+with open('persona.xml', 'wb') as f:
+    f.write(xml_formateado)
+
+print("✓ XML generado: persona.xml")
 ```
 
 ### Aplicación práctica con ejemplo claro (25%)
 
-#### Ejecución del programa:
-
+**Ejecución:**
 ```
-Generando XML según esquema: esquema.xsd
-
-Introduce nombre (string): Dario
-Introduce apellidos (string): Lacal Civera
-Introduce edad (integer): 22
-Introduce email (string): dario@example.com
-Introduce ciudad (string): Valencia
-
-✓ XML generado correctamente: persona.xml
-✓ XML válido según el esquema XSD
+Introduce nombre: Dario
+Introduce apellidos: Lacal Civera
+Introduce edad: 22
+✓ XML generado: persona.xml
 ```
 
-#### XML generado (persona.xml):
-
+**XML generado (persona.xml):**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persona>
   <nombre>Dario</nombre>
   <apellidos>Lacal Civera</apellidos>
   <edad>22</edad>
-  <email>dario@example.com</email>
-  <ciudad>Valencia</ciudad>
 </persona>
-```
-
-#### Versión simplificada (sin dependencias externas):
-
-```python
-import xml.etree.ElementTree as ET
-from xml.dom import minidom
-
-def generar_xml_simple():
-    """Genera XML sin parsear XSD (versión simplificada)"""
-    
-    # Crear elemento raíz
-    raiz = ET.Element('persona')
-    
-    # Campos predefinidos
-    campos = ['nombre', 'apellidos', 'edad', 'email', 'ciudad']
-    
-    print("Generación de XML - Persona\n")
-    
-    # Solicitar valores
-    for campo in campos:
-        valor = input(f"Introduce {campo}: ")
-        elemento = ET.SubElement(raiz, campo)
-        elemento.text = valor
-    
-    # Formatear XML
-    xml_str = ET.tostring(raiz, encoding='utf-8')
-    dom = minidom.parseString(xml_str)
-    xml_formateado = dom.toprettyxml(indent="  ", encoding='UTF-8')
-    
-    # Guardar
-    with open('persona.xml', 'wb') as f:
-        f.write(xml_formateado)
-    
-    print("\n✓ XML generado: persona.xml")
-
-if __name__ == "__main__":
-    generar_xml_simple()
-```
-
-#### Ejemplo con valores por defecto:
-
-```python
-def generar_xml_con_defaults():
-    """Genera XML con valores por defecto"""
-    
-    datos_default = {
-        'nombre': 'Dario',
-        'apellidos': 'Lacal Civera',
-        'edad': '22',
-        'email': 'dario@example.com',
-        'ciudad': 'Valencia'
-    }
-    
-    raiz = ET.Element('persona')
-    
-    for campo, default in datos_default.items():
-        valor = input(f"{campo} [{default}]: ") or default
-        elemento = ET.SubElement(raiz, campo)
-        elemento.text = valor
-    
-    # Formatear y guardar
-    xml_str = ET.tostring(raiz, encoding='utf-8')
-    dom = minidom.parseString(xml_str)
-    
-    with open('persona.xml', 'wb') as f:
-        f.write(dom.toprettyxml(indent="  ", encoding='UTF-8'))
-    
-    print("✓ XML generado correctamente")
-
-generar_xml_con_defaults()
 ```
 
 ### Cierre/Conclusión (25%)
 
-La generación automática de XML desde esquemas XSD permite:
-
-**Ventajas en desarrollo:**
-- ✓ Reducir errores manuales (estructura garantizada)
-- ✓ Acelerar desarrollo (plantillas automáticas)
-- ✓ Facilitar testing (datos de prueba conformes)
-- ✓ Documentación viva (esquema = especificación)
-
-**Aplicaciones empresariales:**
-- **APIs REST/SOAP**: generar payloads de peticiones
-- **Formularios web**: crear UI dinámicamente desde XSD
-- **Importación de datos**: validar antes de insertar en BD
-- **Integración B2B**: garantizar formato correcto
-
-**Relación con la unidad:**
-Este ejercicio integra todos los conceptos vistos:
-1. Definición de esquemas (XSD)
-2. Validación de documentos (xmlschema)
-3. Generación programática (ElementTree)
-4. Formateo legible (minidom)
-
-En entornos profesionales, esta técnica es esencial para mantener consistencia de datos y automatizar procesos que tradicionalmente requerían edición manual de XML.
+Este proceso automatiza la creación de XML válido, aplicable en aplicaciones web (formularios dinámicos) y sistemas empresariales (integración de datos). ElementTree y minidom permiten generar y formatear XML sin librerías externas.
