@@ -102,7 +102,7 @@
 Esta carpeta contiene una serie de ejercicios diseñados para que los estudiantes de Formación Profesional trabajen con componentes HTML estándar y nativos, enfocándose en la creación y personalización de interfaces de usuario. Los ejercicios cubren diversos tipos de formularios y elementos interactivos como campos de texto, controles de entrada variados (teléfono, URL, correo electrónico), elementos de control avanzado (range, meters), listas desplegables, botones y contenedores de formularios. A través de estos ejercicios, los estudiantes adquirirán competencias en la estructuración de interfaces web dinámicas y en la implementación de funcionalidades básicas para mejorar la interacción del usuario con el sitio web.
 
 ### revision de componentes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -122,7 +122,7 @@ En este caso específico, el cuerpo de la página (`<body>`) está vacío, lo qu
 ```
 
 ### componentes de formulario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -166,7 +166,7 @@ Estos elementos son fundamentales para la creación de interfaces de usuario int
 ```
 
 ### meters
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -195,7 +195,7 @@ Estos componentes son importantes porque ayudan a mejorar la usabilidad y la acc
 ```
 
 ### sugerencias para un input
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -233,7 +233,7 @@ Este tipo de implementación es útil cuando tienes una lista limitada pero espe
 ```
 
 ### Resultados calculados
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -265,7 +265,7 @@ Este tipo de interacción dinámica mejora la experiencia del usuario, ya que pr
 ```
 
 ### detalles y sumario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -294,7 +294,7 @@ En resumen, esta página web contiene un encabezado principal ("Componentes de f
 ```
 
 ### agrupar campos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -326,7 +326,7 @@ Esta estructura es importante porque mejora la accesibilidad y claridad del form
 ```
 
 ### campo select
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -360,7 +360,7 @@ Este tipo de componente es importante porque permite a los usuarios elegir entre
 ```
 
 ### textarea
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -389,7 +389,7 @@ Este tipo de elementos son fundamentales en cualquier formulario web donde los u
 ```
 
 ### range
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -417,7 +417,7 @@ Este tipo de control es importante porque proporciona una forma fácil e interac
 ```
 
 ### boton con input
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -445,7 +445,7 @@ Este código sirve como una introducción al manejo de controles interactivos en
 ```
 
 ### boton de verdad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -475,7 +475,7 @@ Este código básico es útil para entender cómo incorporar elementos interacti
 ```
 
 ### Form como contenedor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -614,7 +614,7 @@ El código que has proporcionado es una página web interactiva para diseñar fo
 Este es un ejemplo bastante completo que combina JavaScript, HTML y CSS para crear una interfaz de usuario interactiva y funcional.
 
 ### interfaz inicial
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -648,7 +648,7 @@ Esta estructura básica permite a los usuarios crear formularios web añadiendo 
 ```
 
 ### maquetar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -703,7 +703,7 @@ Esta plantilla proporciona una base para futuros ejercicios donde podrás añadi
 ```
 
 ### comportamiento
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -764,7 +764,7 @@ Este tipo de diseño es útil para desarrolladores que quieren permitir a los us
 ```
 
 ### recorro el for
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -841,7 +841,7 @@ Este ejercicio es importante porque enseña cómo interactuar con el DOM para mo
 ```
 
 ### boton de generar html
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -927,7 +927,7 @@ Esta herramienta educativa ayuda a los estudiantes a comprender mejor cómo inte
 ```
 
 ### nombre id y clase
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1016,7 +1016,7 @@ Este ejercicio es útil para entender cómo interactuar con el DOM (Modelo de Ob
 ```
 
 ### mejora de los estilos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1372,7 +1372,7 @@ En resumen, esta página proporciona una interfaz fácil de usar para diseñar f
 ```
 
 ### mejora de funcionalidades
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1981,7 +1981,7 @@ This setup provides a robust form designer where users can create, view, and exp
 En esta serie de ejercicios, centraremos nuestra atención en el desarrollo y estilización de interfaces de usuario utilizando HTML y CSS. Los problemas que se abordan van desde la creación básica de elementos interactivos hasta la implementación avanzada de animaciones y sombras para mejorar la apariencia visual del diseño. Estas actividades permitirán a los estudiantes dominar las propiedades de estilo en CSS, como padding, border-radius, text-shadow y box-shadow, así como trabajar con animaciones utilizando @keyframes. Además, se incluye una introducción básica al uso de JavaScript para manipular estilos dinámicamente, lo que será beneficioso para quienes busquen incorporar interactividad en sus interfaces web.
 
 ### componente basico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2014,7 +2014,7 @@ Este fragmento sirve como punto de partida para aprender cómo estructurar una p
 ```
 
 ### aplico estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2053,7 +2053,7 @@ Este tipo de estilización es importante porque ayuda a hacer que la interfaz de
 ```
 
 ### animar control
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2108,7 +2108,7 @@ Esta técnica es útil para llamar la atención del usuario o simplemente para m
 ```
 
 ### propiedades y sombras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2167,7 +2167,7 @@ En resumen, este código demuestra cómo combinar CSS con animaciones para crear
 ```
 
 ### centrar siempre
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2231,7 +2231,7 @@ Este tipo de efectos animados es importante para captar la atención del usuario
 ```
 
 ### js para componentes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2353,7 +2353,7 @@ Además del HTML y el CSS, hay un pequeño script JavaScript al final del docume
 En esta serie de ejercicios, trabajarás con la creación y manipulación de interfaces de usuario en HTML y JavaScript. El objetivo principal es aprender a vincular componentes del DOM (como tablas) a orígenes de datos JSON para mostrar información estructurada de forma dinámica. Comenzarás por inicializar una tabla vacía y luego avanzarás hasta estilizarla y poblarla con los datos proporcionados en un array JSON. Estos ejercicios te ayudarán a comprender cómo manipular y visualizar datos mediante la programación web, mejorando tus habilidades en la creación de interfaces interactivas y dinámicas para aplicaciones web.
 
 ### json inicial
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2457,7 +2457,7 @@ Este código es importante porque establece la base para ejercicios más avanzad
 ```
 
 ### tomo el primer elemento del json
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2573,7 +2573,7 @@ Este ejemplo es importante porque muestra cómo puede interactuar el HTML con Ja
 ```
 
 ### poblar los datos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2859,7 +2859,7 @@ Both implementations are used by calling their respective functions in an HTML f
 This setup provides a good starting point for creating data visualizations directly in HTML/JS without external libraries. If you need further enhancements or have specific requirements, feel free to ask!
 
 ### grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2885,7 +2885,7 @@ Este esquema básico sirve como punto de partida para desarrollar cualquier pág
 ```
 
 ### primera grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2934,7 +2934,7 @@ Este tipo de representación visual ayuda en la comprensión inmediata de las di
 ```
 
 ### estilo de la barra
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3006,7 +3006,7 @@ Esta página es útil en contextos educativos o de demostración para mostrar c�
 ```
 
 ### empiezo a encapsular
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3094,7 +3094,7 @@ El objetivo principal de este código parece ser mostrar cómo crear una interfa
 ```
 
 ### creo un objeto de datos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3202,7 +3202,7 @@ Esta técnica combina HTML básico con JavaScript para dinamizar y visualizar da
 ```
 
 ### encapsulo en funcion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3315,7 +3315,7 @@ Finalmente, después de definir la función, se llama a `graficaBarras` pasándo
 ```
 
 ### mas origenes de datos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3509,7 +3509,7 @@ Este código es útil porque permite la generación dinámica de gráficos en HT
 ```
 
 ### y si le pongo color
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3700,7 +3700,7 @@ Al final, la función `graficaBarras` es llamada cuatro veces con diferentes con
 ```
 
 ### en cierta forma un espacio de nombrs
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3892,7 +3892,7 @@ Finalmente, se llama a la función `graficaBarras` cuatro veces para cada div co
 ```
 
 ### externalizo a archivos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4033,7 +4033,7 @@ Este código es importante porque demuestra cómo externalizar estilos y funcion
 ```
 
 ### lo cargo como libreria externa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4173,7 +4173,7 @@ Este fragmento es crucial porque muestra cómo integrar una librería externa pa
 ```
 
 ### grafica de tarta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4256,7 +4256,7 @@ Este tipo de código es importante porque demuestra cómo se pueden combinar HTM
 ```
 
 ### a javascript
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4328,7 +4328,7 @@ Este código sirve como una introducción a cómo crear gráficos simples usando
 ```
 
 ### averiguamos el total
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4416,7 +4416,7 @@ Este código es importante porque establece la base para generar una visualizaci
 ```
 
 ### construyo una cadena
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4510,7 +4510,7 @@ El propósito principal del código es generar una visualización gráfica (en f
 ```
 
 ### encapsulo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4602,7 +4602,7 @@ El código es importante porque demuestra cómo combinar HTML, CSS (a través de
 ```
 
 ### probamos multiple
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4771,7 +4771,7 @@ Esta técnica es importante porque permite personalizar y visualizar fácilmente
 ```
 
 ### estilizar mejor las gráficas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4990,7 +4990,7 @@ Finalmente, se llaman a esta función cuatro veces con diferentes conjuntos de d
 ```
 
 ### svg sobreimpreso
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5245,7 +5245,7 @@ Este código es especialmente útil para estudiantes de desarrollo web que desea
 ```
 
 ### leyendas en las partes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5560,7 +5560,7 @@ Este ejemplo es especialmente útil para entender cómo combinar HTML, CSS y Jav
 ```
 
 ### titulo de la grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5888,7 +5888,7 @@ Este código combina HTML, CSS y JavaScript para crear gráficos dinámicos e in
 ```
 
 ### titulo de la grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6223,7 +6223,7 @@ En resumen, este código combina HTML, CSS y JavaScript para crear una página v
 ```
 
 ### jvgraficabarras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6258,7 +6258,7 @@ Este estilo CSS es crucial para crear una gráfica visualmente atractiva y legib
 ```
 
 ### jvgraficabarras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6649,7 +6649,7 @@ chart.chartRenderer({
 The provided code ensures that your data rendering components are flexible and reusable, capable of handling various input formats and providing dynamic interaction features like filtering and sorting. Ensure you test these classes with a variety of dataset sizes and structures to verify their robustness and efficiency in real-world applications.
 
 ### clase tabla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7064,7 +7064,7 @@ Este conjunto de características hace que sea muy útil tanto para desarrollado
 ```
 
 ### simplificar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7246,7 +7246,7 @@ Además, hay un ejemplo predefinido de datos JSON almacenados en la variable `sa
 ```
 
 ### encappsular
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7506,7 +7506,7 @@ Este tipo de implementación es útil para desarrolladores web ya que permite cr
 ```
 
 ### namespace
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7737,7 +7737,7 @@ Finalmente, cuando la página está lista para ser utilizada (`DOMContentLoaded`
 ```
 
 ### tabla correctamente renderizada
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7973,7 +7973,7 @@ Este archivo es útil para estudiantes que quieren aprender sobre la generación
 ```
 
 ### renderiza bien
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8226,7 +8226,7 @@ Este código es especialmente útil para estudiantes que están aprendiendo sobr
 ```
 
 ### consumo datos externos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8490,7 +8490,7 @@ En resumen, este fragmento de código HTML es un ejemplo práctico de cómo comb
 ```
 
 ### represento la tabla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8745,7 +8745,7 @@ En resumen, este fragmento es un ejemplo práctico de cómo utilizar JavaScript 
 ```
 
 ### externalizacion de prueba
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8784,7 +8784,7 @@ Este código es importante porque demuestra cómo integrar HTML y JavaScript par
 ```
 
 ### minisistema
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8827,7 +8827,7 @@ Esta técnica es muy común en desarrollo web moderno ya que permite separar cla
 ```
 
 ### api2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8877,7 +8877,7 @@ Este tipo de código es fundamental en desarrollo web moderno ya que combina HTM
 ```
 
 ### estilo del nav
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8929,7 +8929,7 @@ Esta práctica es importante porque permite una mayor interactividad y personali
 ```
 
 ### accion en cada boton
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8986,7 +8986,7 @@ Esta técnica de crear elementos HTML dinámicamente y agregar eventos a ellos e
 ```
 
 ### cargo la tabla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9045,7 +9045,7 @@ Esta técnica permite tener interfaces dinámicas y modulares, ya que toda la l�
 ```
 
 ### ahora cargo la tabla que toca
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9110,7 +9110,7 @@ Esta técnica es importante porque permite crear interfaces dinámicas que puede
 ```
 
 ### ahora formularios
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9206,7 +9206,7 @@ Este código es importante porque demuestra cómo integrar backend con frontend 
 ```
 
 ### ahora graficas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9352,7 +9352,7 @@ Este código es importante porque demuestra cómo combinar HTML, CSS y JavaScrip
 ```
 
 ### extendemos todavia mas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9587,7 +9587,7 @@ Este enfoque combina HTML, CSS y JavaScript para proporcionar una experiencia de
 ```
 
 ### api
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9643,7 +9643,7 @@ echo json_encode($data);
 ```
 
 ### api2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9723,7 +9723,7 @@ $conn->close();
 ```
 
 ### jocarsaux2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10153,7 +10153,7 @@ El código proporcionado es una implementación funcional para crear interfaces 
 ```
 
 ### jocarsaux3
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10798,7 +10798,7 @@ This utility library simplifies complex UI tasks by abstracting away low-level d
 ```
 
 ### jocarsaux4
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11694,7 +11694,7 @@ This `JocarsaUX` library simplifies the creation and rendering of various UI com
 ```
 
 ### pruebalibreria
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12072,7 +12072,7 @@ Estas actividades están diseñadas para proporcionar a los estudiantes una comp
 En esta carpeta de ejercicios, los estudiantes trabajarán con la integración de tecnología del habla en interfaces web. Los ejercicios abordan tanto la síntesis de voz como el reconocimiento de voz usando JavaScript y HTML5. En estos ejemplos, se practica cómo capturar texto desde un micrófono, procesarlo y luego sintetizarlo nuevamente para ser pronunciado por el sistema. Además, algunos ejercicios incorporan elementos adicionales como la modificación de datos basada en comandos vocales reconocidos. Los estudiantes desarrollarán habilidades en manejo de eventos de voz, interacción con APIs de habla y construcción de interfaces más naturales para usuarios.
 
 ### sintesis de voz
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12118,7 +12118,7 @@ Esta característica es útil en aplicaciones web donde se necesita proporcionar
 ```
 
 ### microfono
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12157,7 +12157,7 @@ Este tipo de código es fundamental para desarrolladores que buscan incorporar f
 ```
 
 ### fusiono proyectos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12219,7 +12219,7 @@ Este código es importante porque combina funciones de reconocimiento y síntesi
 ```
 
 ### pinto tabla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12299,7 +12299,7 @@ El fragmento de código es importante porque demuestra cómo integrar funcionali
 ```
 
 ### reacciono a la voz
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12452,7 +12452,7 @@ Los estudiantes deben crear un proyecto final que integre múltiples funcionalid
 Esta carpeta contiene ejercicios que trabajan con la biblioteca MediaPipe para detectar y trazar puntos de referencia en las manos, cara y cuerpo utilizando cámaras web. Los archivos HTML proporcionados implementan demos básicas que permiten a los estudiantes comprender cómo capturar video desde una cámara y procesarlo para identificar y dibujar sobre los keypoints (puntos clave) de diferentes partes del cuerpo humano. Estos ejercicios practican competencias esenciales en el desarrollo web, como la manipulación del DOM (Document Object Model), el manejo de eventos, el uso de librerías externas y el procesamiento de datos en tiempo real.
 
 ### reconocimiento manos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12522,7 +12522,7 @@ Este código es importante porque demuestra cómo integrar tecnología avanzada 
 ```
 
 ### acceso a los datos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12593,7 +12593,7 @@ Esta página web es fundamental para estudiantes interesados en la interacción 
 ```
 
 ### cara
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12669,7 +12669,7 @@ Este tipo de código es fundamental para el desarrollo de aplicaciones que requi
 ```
 
 ### cuerpo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12815,7 +12815,7 @@ While both documents serve different purposes and use different technologies, if
 However, such an integration is quite complex and would require deep understanding of both libraries along with a good grasp on how to handle real-time video processing and 3D animation simultaneously.
 
 ### mediapipe cara
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12933,7 +12933,7 @@ Este código es especialmente útil en contextos donde necesitas interacción co
 ```
 
 ### via 3d
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13175,7 +13175,7 @@ Este tipo de aplicación es un excelente ejemplo de cómo combinar tecnologías 
 ```
 
 ### arjs
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13261,7 +13261,7 @@ Este código es importante porque demuestra cómo integrar las tecnologías web 
 ```
 
 ### proyectomelanie
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13535,7 +13535,7 @@ Este código es importante porque demuestra cómo utilizar tecnologías modernas
 ```
 
 ### melanieavanzado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13991,7 +13991,7 @@ This application leverages advanced computer vision techniques to create interac
 ```
 
 ### melaniemejorado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14270,7 +14270,7 @@ Este código es importante porque demuestra cómo integrar tecnologías avanzada
 ```
 
 ### realidad aumentada geometria propia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14354,7 +14354,7 @@ La sección principal del código HTML contiene un escenario A-Frame (`<a-scene>
 ```
 
 ### suzanne sencillo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14392,7 +14392,7 @@ Esta página es útil para estudiantes que quieren aprender cómo combinar model
 ```
 
 ### nave sencilllo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14432,7 +14432,7 @@ En resumen, este código proporciona una base sólida para experimentar con mode
 ```
 
 ### proyecto melanie con claude
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15079,7 +15079,7 @@ El código maneja eficientemente las dimensiones cambiantes de la página al rea
 Este tipo de herramienta puede ser útil para analizar patrones de interacción en sitios web, visualizando zonas más visitadas o interactuadas por los usuarios.
 
 ### focus y blur
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15115,7 +15115,7 @@ Estos eventos son importantes porque permiten responder y reaccionar a las inter
 ```
 
 ### y si cambia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15160,7 +15160,7 @@ Este tipo de interacción es importante para desarrollar interfaces web dinámic
 ```
 
 ### integracion de onchange
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15197,7 +15197,7 @@ En resumen, este fragmento enseña cómo capturar y responder a los cambios en e
 ```
 
 ### eventos boton
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15232,7 +15232,7 @@ Este tipo de asociación entre eventos y acciones es fundamental en programació
 ```
 
 ### doble click
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15263,7 +15263,7 @@ Este tipo de interacción es importante porque permite que las páginas web reac
 ```
 
 ### mouse down
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15294,7 +15294,7 @@ Este código te ayuda a entender cómo capturar eventos en HTML utilizando JavaS
 ```
 
 ### mouseup
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15323,7 +15323,7 @@ Este tipo de código es importante para entender cómo vincular eventos a elemen
 ```
 
 ### mouseenter
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15354,7 +15354,7 @@ Esta técnica es útil para proporcionar retroalimentación inmediata al usuario
 ```
 
 ### mouse leave
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15383,7 +15383,7 @@ Este tipo de código es importante para entender cómo interactúan los eventos 
 ```
 
 ### mouse over
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15416,7 +15416,7 @@ Este código es importante porque muestra cómo se pueden asociar funciones espe
 ```
 
 ### menu contextual
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15449,7 +15449,7 @@ Esta técnica es importante porque permite a los desarrolladores controlar inter
 ```
 
 ### mousemove
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15485,7 +15485,7 @@ Este código te permite empezar a comprender la captura y manipulación de event
 ```
 
 ### mostrar mapa de calor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15542,7 +15542,7 @@ Este tipo de código es importante para entender cómo manejar eventos del rató
 ```
 
 ### circulos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15599,7 +15599,7 @@ Este tipo de efecto visual puede ser útil en muchos contextos, como demostracio
 ```
 
 ### eventos teclado keypress
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15629,7 +15629,7 @@ La función anónima (`function(event){...}`) que recibe como parámetro el obje
 ```
 
 ### evento keyup
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15659,7 +15659,7 @@ Esta técnica es útil porque permite responder a las acciones del usuario en ti
 ```
 
 ### onkeydown
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15689,7 +15689,7 @@ Este código es importante porque muestra cómo vincular eventos específicos a 
 ```
 
 ### eventos de portatpapeles
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15718,7 +15718,7 @@ Esta técnica es útil para controlar acciones específicas del usuario, como mo
 ```
 
 ### prohibir la copia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15749,7 +15749,7 @@ Este tipo de código se utiliza frecuentemente para proteger contenido sensible 
 ```
 
 ### cortar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15779,7 +15779,7 @@ Este tipo de asociación entre eventos y acciones permite a los desarrolladores 
 ```
 
 ### pegar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15809,7 +15809,7 @@ Este tipo de interacción con eventos del navegador ayuda a los desarrolladores 
 ```
 
 ### carga
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15839,7 +15839,7 @@ Esta técnica es útil para asegurarse de que cualquier JavaScript que dependa d
 ```
 
 ### cambio de tamaño
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15868,7 +15868,7 @@ Es importante porque ayuda a mejorar la experiencia del usuario al garantizar qu
 ```
 
 ### scroll
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15904,7 +15904,7 @@ El cuerpo (`<body>`) de esta página contiene varios párrafos con texto fictici
 ```
 
 ### detecto cambio de conexion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15940,7 +15940,7 @@ Este tipo de código es importante porque ayuda a mejorar la experiencia del usu
 ```
 
 ### drag and drop
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15994,7 +15994,7 @@ Este tipo de código es importante porque permite que los usuarios interactúen 
 ```
 
 ### arrastro el original
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16078,7 +16078,7 @@ Este tipo de interacción es importante para entender cómo crear elementos inte
 ```
 
 ### mejora de la libreria heatmap
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16253,7 +16253,7 @@ Este tipo de implementación es útil en aplicaciones que necesiten registrar in
 ```
 
 ### mas mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16673,7 +16673,7 @@ HeatmapTracker.init({
 ```
 
 ### carga externa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16853,7 +16853,7 @@ This JavaScript library is a great example of encapsulating complex UI interacti
 For further enhancements or customizations, you might consider adding additional features like multi-selection support, better handling of large datasets, internationalization/localization, or integrating with popular frameworks/libraries (React, Vue.js).
 
 ### plantilla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16892,7 +16892,7 @@ Este enfoque es útil para separar la estructura visual del código que manipula
 ```
 
 ### estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16958,7 +16958,7 @@ Este código es útil para entender cómo crear elementos reutilizables usando t
 ```
 
 ### solo cuando se muestra por encina
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17031,7 +17031,7 @@ Esta técnica es útil porque permite definir una estructura reutilizable en un 
 ```
 
 ### componentizacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17119,7 +17119,7 @@ Este enfoque permite a los desarrolladores crear componentes reutilizables y bie
 ```
 
 ### externalizacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17151,7 +17151,7 @@ Esta práctica es importante porque permite modularizar el código, mejorando su
 ```
 
 ### parametrizacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17178,7 +17178,7 @@ En el cuerpo del documento (`<body>`), hay tres instancias del elemento personal
 ```
 
 ### select con busqueda
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17399,7 +17399,7 @@ Este tipo de estructura es útil para interfaces web que requieren una gran cant
 ```
 
 ### le añado buscador
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17617,7 +17617,7 @@ Este tipo de diseño es especialmente útil en formularios web donde se requiere
 ```
 
 ### un poco de css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17845,7 +17845,7 @@ La importancia de esta estructura radica en su capacidad para organizar grandes 
 ```
 
 ### empezamos con js
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18043,7 +18043,7 @@ Esta técnica es fundamental cuando trabajas con formularios grandes y dinámico
 ```
 
 ### matcheando
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18239,7 +18239,7 @@ Este tipo de funcionalidad es común en interfaces de usuario modernas donde la 
 ```
 
 ### lleno el array de coincidencias
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18442,7 +18442,7 @@ Esta funcionalidad es importante porque proporciona una forma sencilla para que 
 ```
 
 ### repintar solo las que toca
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18654,7 +18654,7 @@ Finalmente, cuando el usuario deja de escribir (o cambia su búsqueda), se repin
 ```
 
 ### select personalizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18981,7 +18981,7 @@ Este código es importante porque combina funcionalidades de HTML, CSS y JavaScr
 ```
 
 ### a componente
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19214,7 +19214,7 @@ El uso de este componente ayuda a mantener el código limpio y modular, ya que l
 ```
 
 ### llamada a componente
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19351,7 +19351,7 @@ Este tipo de componente es útil en aplicaciones web donde los usuarios tienen q
 ```
 
 ### carga externa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19488,7 +19488,7 @@ Este tipo de enfoque es importante porque simplifica la implementación de carac
 ```
 
 ### boton-tooltip
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19594,7 +19594,7 @@ customElements.define('boton-tooltip', BotonTooltip);
 ```
 
 ### jocarsaui
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19656,7 +19656,7 @@ Estos estilos ayudan a crear interfaces de usuario más limpias y coherentes, me
 ```
 
 ### jocarsaui
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20047,7 +20047,7 @@ a {
 This setup ensures that your HTML elements have consistent base styles, making it easier to build on top of these foundations with custom designs.
 
 ### libreria
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20340,7 +20340,7 @@ button[data-variant="danger"],  .danger  { background: var(--destructive); }
 ```
 
 ### ejemplo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20462,7 +20462,7 @@ Este ejemplo es importante porque demuestra cómo puede simplificar la creación
 ```
 
 ### cssreset
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20644,7 +20644,7 @@ img[alt=""] {
 ```
 
 ### html de reinicio
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20742,7 +20742,7 @@ El objetivo principal es permitir a los estudiantes ver cómo estos estilos pred
 ```
 
 ### carga desde GitHub
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20932,7 +20932,7 @@ Basándome en el contexto proporcionado, y considerando que los archivos están 
 En esta carpeta, encontrarás una serie de ejercicios diseñados para practicar las habilidades fundamentales de creación y manipulación de bases de datos utilizando SQL. Los estudiantes aprenderán a crear tablas relacionadas, insertar datos en ellas, establecer relaciones entre tablas mediante claves foráneas, realizar consultas avanzadas que incluyen el uso de JOINs para combinar información de múltiples tablas, y crear vistas para simplificar y organizar los resultados. Además, se explorará la creación y administración de usuarios en MySQL, otorgándoles diferentes niveles de acceso a las bases de datos. Estos ejercicios son esenciales para desarrollar una comprensión sólida de cómo gestionar datos eficientemente en entornos de desarrollo web.
 
 ### crear tablas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20967,7 +20967,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20999,7 +20999,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21020,7 +21020,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21037,7 +21037,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21058,7 +21058,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21089,7 +21089,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21236,7 +21236,7 @@ En esta carpeta, encontrarás una serie de ejercicios diseñados para familiariz
 El conjunto de ejercicios te ayudará a mejorar tus competencias en la creación de interfaces intuitivas y funcionales, considerando tanto las necesidades de los usuarios internos (empleados) como externos (clientes). A través del análisis de componentes básicos como páginas de inicio, formularios de contacto y vistas de tablas, podrás desarrollar un entendimiento sólido sobre cómo construir aplicaciones web que sean amigables y accesibles para todos los usuarios.
 
 ### plantilla maestra
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21263,7 +21263,7 @@ Este código es importante porque establece la estructura básica de una página
 ```
 
 ### plantilla login
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21302,7 +21302,7 @@ Este ejemplo es importante porque demuestra cómo integrar estilos CSS directame
 ```
 
 ### traigo el login
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21331,7 +21331,7 @@ Este enfoque es útil cuando se quiere mantener una estructura modular del códi
 ```
 
 ### maestro
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21358,7 +21358,7 @@ Esta práctica es común en desarrollo web para crear plantillas y layouts coher
 ```
 
 ### parametros url
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21389,7 +21389,7 @@ Es importante porque nos permite pasar información entre páginas web sin neces
 ```
 
 ### maestro
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21509,7 +21509,7 @@ In `dashboard.html` or another relevant section:
 This structure ensures that users are guided through different levels of navigation and functionality within your ERP system.
 
 ### dashboard
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21706,7 +21706,7 @@ Este tipo de diseño y estructura son comunes en aplicaciones web empresariales,
 ```
 
 ### entity-table
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21976,7 +21976,7 @@ Este diseño es importante porque proporciona a los administradores un resumen r
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22078,7 +22078,7 @@ Este código es importante porque proporciona a los usuarios una interfaz amigab
 ```
 
 ### modules
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22288,7 +22288,7 @@ Seguir estos pasos debería ayudarte a asegurarte de que todos los enlaces inter
 En esta carpeta, se encuentran ejercicios relacionados con el diseño y la implementación de interfaces gráficas para un sitio web simple. El enfoque principal es desarrollar competencias en estilización con CSS y estructuración básica utilizando PHP para incluir diferentes componentes del sitio, como la cabecera y el pie de página. Los estudiantes practicarán cómo crear archivos de estilo separados (como `estilo.css`) que definan los elementos visuales generales del sitio web, así como cómo organizar el contenido dinámicamente utilizando condicionales en PHP para mostrar páginas específicas según la URL solicitada.
 
 ### estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22319,7 +22319,7 @@ main{
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22426,7 +22426,7 @@ En esta carpeta de ejercicios, los estudiantes trabajan con la creación y dise�
 Estos ejercicios ayudan a desarrollar competencias clave como la comprensión de estructuras HTML y PHP, el uso efectivo de hojas de estilo CSS, y cómo trabajar con cálculos para crear paletas de colores que siguen principios de diseño visual.
 
 ### maestro
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22457,7 +22457,7 @@ Este tipo de organización, donde partes reutilizables del diseño se almacenan 
 ```
 
 ### estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22510,7 +22510,7 @@ button{
 ```
 
 ### funcionescss
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22782,7 +22782,7 @@ El código proporcionado es una implementación completa y detallada de una herr
 Este código proporciona una base sólida para un editor de diagramas interactivo y personalizable, lo que podría ser útil en una variedad de contextos, desde diagramación de procesos hasta diseño gráfico simple. La implementación completa incluiría el manejo del estado del usuario (por ejemplo, almacenar y restaurar diseños) y la integración con API o bases de datos para guardar los cambios permanentemente.
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22844,7 +22844,7 @@ Este diseño es crucial para facilitar a los estudiantes o diseñadores una inte
 ```
 
 ### script
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -23518,7 +23518,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 ### styles
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -24114,7 +24114,7 @@ El código anterior proporciona una estructura básica para interactuar con el W
 Este enfoque permite una interacción fluida entre tu interfaz principal y la lógica física ejecutada por el worker, garantizando un rendimiento óptimo al separar las tareas pesadas de los cálculos físicos del bucle principal de renderizado.
 
 ### punto de partida
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -24551,7 +24551,7 @@ En resumen, este código proporciona una representación visualmente atractiva d
 ```
 
 ### activar o desactivar propiedades
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -25049,7 +25049,7 @@ Para un uso más interactivo, este código podría ser expandido para incluir m�
 ```
 
 ### dinamico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -25629,7 +25629,7 @@ Este tipo de representación es útil para identificar patrones o clusters que p
 ```
 
 ### con worker
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -26160,7 +26160,7 @@ Este código demuestra cómo puede ser útil el uso del Web Worker para procesam
 ```
 
 ### espacio en 3D
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -26847,7 +26847,7 @@ Con estos cambios, el código es más modular y fácil de entender, lo que facil
 ```
 
 ### espacio en 3D mejorado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -27623,7 +27623,7 @@ This application seems well thought out but can certainly benefit from optimizat
 ```
 
 ### direccion corregida
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -28517,7 +28517,7 @@ This should help your application run smoother and handle edge cases more gracef
 ```
 
 ### billboards y mas cosas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29328,7 +29328,7 @@ This app provides an engaging and interactive way to explore complex datasets, m
 ```
 
 ### mejoras en ver texto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -30378,7 +30378,7 @@ Feel free to add further enhancements or customizations based on your applicatio
 ```
 
 ### texto a ver si ahora si
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -31320,7 +31320,7 @@ function crearNodos3D(personas) {
 ```
 
 ### giramos el texto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32460,7 +32460,7 @@ El código proporcionado es una versión mejorada y refactorizada del tuyo. Aseg
 ```
 
 ### carga de datos json
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -33427,7 +33427,7 @@ By integrating such features, you can make your 3D graph more interactive and re
 ```
 
 ### click en pastillas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -34557,7 +34557,7 @@ This script provides a comprehensive framework for creating interactive, data-dr
 ```
 
 ### personas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -34713,7 +34713,7 @@ Este archivo JSON es una fuente rica para ejercicios de programación y análisi
 ```
 
 ### personas2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35616,7 +35616,7 @@ This overview captures the variety in hobbies, professions, and city distributio
 ```
 
 ### worker
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36061,7 +36061,7 @@ The provided code is a dynamic SVG-based chart rendering system that fetches dat
 This code is highly customizable for different data sources and visualization needs. By modifying the `chartType` variable and adjusting animation parameters, developers can create engaging visual experiences tailored to specific use cases.
 
 ### pantalla completa de informe
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36111,7 +36111,7 @@ Este tipo de código es útil cuando quieres crear interfaces dinámicas en tu a
 ```
 
 ### tarta css puro
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36411,7 +36411,7 @@ Este tipo de código es importante en desarrollo web ya que permite crear interf
 ```
 
 ### incluir grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36470,7 +36470,7 @@ Este tipo de estructura es muy versátil para crear páginas dinámicas y atract
 ```
 
 ### con json
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36632,7 +36632,7 @@ Esta página es útil en el contexto de desarrollo de interfaces gráficas web p
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36903,7 +36903,7 @@ En resumen, este código combina PHP y CSS para crear una interfaz web moderna q
 ```
 
 ### diferentes tipos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37149,7 +37149,7 @@ Este código es importante porque combina estilos CSS modernos con programación
 ```
 
 ### mas usable
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37396,7 +37396,7 @@ Este código es útil porque muestra cómo combinar HTML, CSS y PHP para crear u
 ```
 
 ### json externo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37571,7 +37571,7 @@ Este código es importante porque demuestra cómo integrar estilos CSS personali
 ```
 
 ### grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37892,7 +37892,7 @@ if (!defined('SVG_PIE_CHART_CSS_PRINTED')) {
 ```
 
 ### grafica2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -38444,7 +38444,7 @@ if (!defined('SVG_CHARTS_CSS_PRINTED')) {
 ```
 
 ### grafica3
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -39264,7 +39264,7 @@ if (!isset($_GET['auth']) || base64_decode($_GET['auth']) !== 'jocarsa:jocarsa')
 This approach ensures a more maintainable, scalable, and secure system for monitoring server performance.
 
 ### api
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -39345,7 +39345,7 @@ switch ($endpoint) {
 ```
 
 ### grafica3
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -39886,7 +39886,7 @@ if (!defined('SVG_CHARTS_CSS_PRINTED')) {
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -40062,7 +40062,7 @@ La importancia de este código radica en cómo combina diferentes tecnologías p
 ```
 
 ### server_monitor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -40468,7 +40468,7 @@ Feel free to ask if you need more detailed guidance on any part! 🚀
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Desarrollo%20de%20interfaces/005-Creaci%C3%B3n%20de%20informes/004-Filtrado%20de%20datos)
 
 ### mapa
-<small>Creado: 2026-01-20 20:00</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-mapa.py`
 
@@ -40516,7 +40516,7 @@ if __name__ == "__main__":
 ```
 
 ### mapa opencv
-<small>Creado: 2026-01-20 20:03</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-mapa opencv.py`
 
@@ -40794,7 +40794,7 @@ if __name__ == "__main__":
 ```
 
 ### mapa arbol
-<small>Creado: 2026-01-20 20:12</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-mapa arbol.py`
 
@@ -41230,7 +41230,7 @@ if __name__ == "__main__":
 ```
 
 ### mapa animado
-<small>Creado: 2026-01-20 20:31</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-mapa animado.py`
 
@@ -41898,7 +41898,7 @@ if __name__ == "__main__":
 ```
 
 ### mapa cronologico
-<small>Creado: 2026-01-20 23:55</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-mapa cronologico.py`
 
@@ -42351,7 +42351,7 @@ if __name__ == "__main__":
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Desarrollo%20de%20interfaces/005-Creaci%C3%B3n%20de%20informes/005-Numeraci%C3%B3n%20de%20l%C3%ADneas%2C%20recuentos%20y%20totales)
 
 ### generador
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-generador.py`
 
@@ -42826,7 +42826,7 @@ if __name__ == "__main__":
 ```
 
 ### antialias
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-antialias.py`
 
@@ -43077,7 +43077,7 @@ if __name__ == "__main__":
 ```
 
 ### codigo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `codigo.py`
 
@@ -43118,7 +43118,7 @@ diHola("Juan",48)
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Desarrollo%20de%20interfaces/006-Documentaci%C3%B3n%20de%20aplicaciones/001-Ficheros%20de%20ayuda.%20Formatos)
 
 ### generador articulos por carpeta
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-generador articulos por carpeta.py`
 
@@ -43867,7 +43867,7 @@ if __name__ == "__main__":
 ```
 
 ### mejora keywords
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-mejora keywords.py`
 
@@ -44659,7 +44659,7 @@ if __name__ == "__main__":
 ```
 
 ### imagen nombres unicos
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-imagen nombres unicos.py`
 
@@ -45483,7 +45483,7 @@ if __name__ == "__main__":
 ```
 
 ### no reprocesar existentes
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-no reprocesar existentes.py`
 
@@ -46350,7 +46350,7 @@ if __name__ == "__main__":
 ```
 
 ### carpetas completas
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-carpetas completas.py`
 
@@ -47217,7 +47217,7 @@ if __name__ == "__main__":
 ```
 
 ### archivos individuales
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-archivos individuales.py`
 
@@ -47892,7 +47892,7 @@ if __name__ == "__main__":
 ```
 
 ### apuntes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `apuntes.py`
 
@@ -48084,7 +48084,7 @@ if (require.main === module) {
 El código proporciona una interfaz web básica para interactuar con el sistema de archivos. Es funcional y bien estructurado, pero requiere consideraciones adicionales en términos de seguridad, especialmente si se va a usar en un entorno donde los usuarios pueden tener acceso no supervisado al servidor.
 
 ### config
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -48106,7 +48106,7 @@ Este archivo JSON es útil para personalizar y mantener configuraciones específ
 ```
 
 ### electron-main
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -48193,7 +48193,7 @@ app.on("window-all-closed", () => {
 ```
 
 ### package-lock
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -52543,7 +52543,7 @@ Would you like to perform any specific action with this information, such as ver
 ```
 
 ### package
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -52610,7 +52610,7 @@ Este archivo es crucial porque proporciona una estructura clara del proyecto, fa
 ```
 
 ### server
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -53098,7 +53098,7 @@ Tu código ya es muy funcional y bien estructurado. Añadir estas mejoras ayudar
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Desarrollo%20de%20interfaces/008-Realizaci%C3%B3n%20de%20pruebas/001-Objetivo%2C%20importancia%20y%20limitaciones%20del%20proceso%20de%20prueba)
 
 ### demo de playwright
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-demo de playwright.py`
 
@@ -53119,7 +53119,7 @@ with sync_playwright() as p:
 ```
 
 ### play2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-play2.py`
 
@@ -53140,7 +53140,7 @@ with sync_playwright() as p:
 ```
 
 ### play con fecha
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-play con fecha.py`
 
@@ -53166,7 +53166,7 @@ with sync_playwright() as p:
 ```
 
 ### guardamos en carpeta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-guardamos en carpeta.py`
 
@@ -53196,7 +53196,7 @@ with sync_playwright() as p:
 ```
 
 ### y repetir
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-y repetir.py`
 
@@ -53232,7 +53232,7 @@ with sync_playwright() as p:
 ```
 
 ### index1
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index1.html`
 
@@ -53252,7 +53252,7 @@ with sync_playwright() as p:
 ```
 
 ### index2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index2.html`
 
@@ -53284,7 +53284,7 @@ with sync_playwright() as p:
 ```
 
 ### index3
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index3.html`
 
@@ -53323,7 +53323,7 @@ with sync_playwright() as p:
 ```
 
 ### index4
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index4.html`
 

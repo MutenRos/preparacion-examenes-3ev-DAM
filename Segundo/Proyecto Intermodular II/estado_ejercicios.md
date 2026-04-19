@@ -1,6 +1,6 @@
 # Proyecto Intermodular II — Estado de ejercicios
 
-Generado: 2026-03-05 17:00
+Generado: 2026-04-18 21:00
 
 ---
 
@@ -83,6 +83,7 @@ _Sin subunidades_
 ## Proyectos tercer trimestre
 
 - 🔴 Clasificador documental inteligente
+- 🔴 Cosas de practicas
 
 
 ## Actividad libre de final de evaluación - La milla extra

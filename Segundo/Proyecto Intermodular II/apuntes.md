@@ -55,6 +55,7 @@
   - [IA a partir de PDF](#ia-a-partir-de-pdf)
 - [Proyectos tercer trimestre](#proyectos-tercer-trimestre)
   - [Clasificador documental inteligente](#clasificador-documental-inteligente)
+  - [Cosas de practicas](#cosas-de-practicas)
 - [Actividad libre de final de evaluación - La milla extra](#actividad-libre-de-final-de-evaluacion-la-milla-extra)
   - [La Milla Extra - Primera evaluación](#la-milla-extra-primera-evaluacion)
 - [Actividades final de unidad - Segundo trimestre](#actividades-final-de-unidad-segundo-trimestre)
@@ -200,7 +201,7 @@ Al adoptar esta estructura organizativa y estratégica, nuestra empresa de IA es
 Esta carpeta contiene ejercicios que exploran la identificación y priorización de necesidades para el desarrollo de productos de Inteligencia Artificial (IA) orientados a pequeñas y medianas empresas (Pymes) en Valencia. Los problemas abordados giran en torno al análisis del mercado, la detección de oportunidades de negocio basadas en IA, y la definición de proyectos tecnológicos que responden a las demandas específicas de estas empresas. Estos ejercicios ayudarán a los estudiantes a comprender cómo identificar necesidades empresariales reales, diseñar soluciones prácticas y escalables, y estructurar modelos de negocio viables para la implementación de tecnologías emergentes en entornos Pyme.
 
 ### Oportunidades de negocio previsibles en el sector
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -845,7 +846,7 @@ Estas actividades están diseñadas para que los estudiantes apliquen los conoci
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/008-Proyectos/001-empresarialIA)
 
 ### servidor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-servidor.py`
 
@@ -941,7 +942,7 @@ except Exception as e:
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/008-Proyectos/002-agente%20virtual)
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-index.html`
 
@@ -1132,7 +1133,7 @@ except Exception as e:
 ```
 
 ### agente me sigue
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-agente me sigue.html`
 
@@ -1401,7 +1402,7 @@ except Exception as e:
 ```
 
 ### correcciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-correcciones.html`
 
@@ -1621,7 +1622,7 @@ except Exception as e:
 ```
 
 ### eje vertical
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-eje vertical.html`
 
@@ -1842,7 +1843,7 @@ except Exception as e:
 ```
 
 ### multiplicadores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-multiplicadores.html`
 
@@ -2072,7 +2073,7 @@ except Exception as e:
 ```
 
 ### el agente me escucha
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-el agente me escucha.html`
 
@@ -2435,7 +2436,7 @@ except Exception as e:
 ```
 
 ### escuchad2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-escuchad2.html`
 
@@ -2828,7 +2829,7 @@ except Exception as e:
 ```
 
 ### habla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-habla.html`
 
@@ -3276,7 +3277,7 @@ except Exception as e:
 ```
 
 ### escoger voz
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `009-escoger voz.html`
 
@@ -3706,7 +3707,7 @@ except Exception as e:
 ```
 
 ### lip sync
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `010-lip sync.html`
 
@@ -4249,7 +4250,7 @@ except Exception as e:
 ```
 
 ### arreglo parpadeo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-arreglo parpadeo.html`
 
@@ -4850,7 +4851,7 @@ Estas actividades están diseñadas no solo para que los estudiantes comprendan 
 Esta carpeta contiene una serie de ejercicios SQL diseñados para familiarizarte con los conceptos básicos y avanzados del manejo de bases de datos. Los problemas trabajan desde la creación de tablas, inserción de datos hasta la implementación de claves foráneas y consultas JOIN. También se practica la creación de vistas que combinan datos de múltiples tablas para facilitar la visualización y el acceso a información relevante. Finalmente, los ejercicios incluyen la gestión de usuarios y privilegios en MySQL, lo cual es crucial para entender cómo controlar el acceso a las bases de datos.
 
 ### crear tablas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4887,7 +4888,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4915,7 +4916,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4938,7 +4939,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4957,7 +4958,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4978,7 +4979,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5007,7 +5008,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5134,7 +5135,7 @@ mi_proyecto/
 - Es recomendable tener acceso a una computadora con conexión estable y suficientes recursos para completar el proceso sin interrupciones.
 
 ### videos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5347,7 +5348,7 @@ if __name__ == "__main__":
 ```
 
 ### transcripciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5977,7 +5978,7 @@ if __name__ == "__main__":
 ```
 
 ### resumenes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6143,7 +6144,7 @@ if __name__ == "__main__":
 ```
 
 ### listas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6226,7 +6227,7 @@ Este conjunto de ejercicios se centra en la creación de una aplicación web que
 A través de este ejercicio, los estudiantes practicarán habilidades fundamentales como el desarrollo backend en Python, el uso de marcos web como Flask para crear aplicaciones web dinámicas, y cómo integrar servicios de inteligencia artificial en sus proyectos.
 
 ### app
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6558,7 +6559,7 @@ Este conjunto de archivos provee un marco completo para aprender y aplicar técn
 Si tienes alguna pregunta o necesitas más detalles sobre cualquier parte del proceso, por favor avísame!
 
 ### entrenar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6817,7 +6818,7 @@ if __name__ == "__main__":
 ```
 
 ### probar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7053,7 +7054,7 @@ if __name__ == "__main__":
 ```
 
 ### training_data
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7299,7 +7300,7 @@ Ana ha decidido cursar DAW en el turno de tarde y está esperando la formalizaci
 Si Ana necesita ayuda adicional con los trámites o cualquier otra pregunta sobre el ciclo formativo, María estará disponible para ayudarla.
 
 ### whatsapp a jsonl
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7614,7 +7615,7 @@ if __name__ == "__main__":
 ```
 
 ### entrenamiento
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7867,7 +7868,7 @@ if __name__ == "__main__":
 ```
 
 ### probar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8097,7 +8098,7 @@ if __name__ == "__main__":
 ```
 
 ### probar interactivo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8234,7 +8235,7 @@ if __name__ == "__main__":
 ```
 
 ### app
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8370,7 +8371,7 @@ if __name__ == "__main__":
 ```
 
 ### conversacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8420,7 +8421,7 @@ Es importante porque permite al chatbot entender mejor las consultas comunes de 
 ```
 
 ### conversacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8635,7 +8636,7 @@ El script es útil para la generación automática de conjuntos de preguntas y r
 Este script proporciona una base sólida para generar Q&A a partir de transcripciones de texto, con potencial para ser adaptado o extendido según las necesidades específicas del usuario.
 
 ### prompt
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9078,7 +9079,7 @@ if __name__ == "__main__":
 ```
 
 ### pdf a md
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9112,7 +9113,7 @@ if __name__ == "__main__":
 ```
 
 ### prueba
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9154,7 +9155,7 @@ if __name__ == "__main__":
 ```
 
 ### md a jsonl
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9805,7 +9806,7 @@ if __name__ == "__main__":
 ```
 
 ### streaming
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10443,7 +10444,7 @@ if __name__ == "__main__":
 ```
 
 ### estadisticas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11332,7 +11333,7 @@ Funciones clave:
 El script es modular y bien estructurado, con funciones específicas para tareas como normalizar texto, dividir en bloques, generar Q&A y manejar la salida. También incluye características útiles como seguimiento del progreso y registro de logs.
 
 ### Entrar en una web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11361,7 +11362,7 @@ except requests.exceptions.RequestException as e:
 ```
 
 ### guardar web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11406,7 +11407,7 @@ except requests.exceptions.RequestException as e:
 ```
 
 ### adivinar nombre de la web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11482,7 +11483,7 @@ except requests.exceptions.RequestException as e:
 ```
 
 ### timeout entre paginas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11650,7 +11651,7 @@ if __name__ == "__main__":
 ```
 
 ### tambien quiero los pdf
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11868,7 +11869,7 @@ if __name__ == "__main__":
 ```
 
 ### entrenar IA con todos los materiales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12779,7 +12780,7 @@ Con estas modificaciones, el script puede ser más eficiente y flexible para man
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/009-Proyectos%20segundo%20trimestre/007-interfaz%20natural%20IA)
 
 ### inicio
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-inicio.html`
 
@@ -13200,7 +13201,7 @@ Con estas modificaciones, el script puede ser más eficiente y flexible para man
 ```
 
 ### un solo widget
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-un solo widget.html`
 
@@ -13617,7 +13618,7 @@ Con estas modificaciones, el script puede ser más eficiente y flexible para man
 ```
 
 ### desfase facial con mediapipe
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-desfase facial con mediapipe.html`
 
@@ -14280,7 +14281,7 @@ Here's an updated version of the code with some minor improvements:
 Note that I've removed some unnecessary code and made a few minor improvements to the code organization and accessibility.
 
 ### envio smtp
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14333,7 +14334,7 @@ except Exception as e:
 ```
 
 ### primera version
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14544,7 +14545,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### segunda version
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14757,7 +14758,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### interfaces natural
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15139,7 +15140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### mejoras
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15523,7 +15524,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### corazon
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16306,7 +16307,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ajax']) && $_POST['aj
 ```
 
 ### tema claro y mejoras en la redaccion
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17020,7 +17021,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ajax']) && $_POST['aj
 ```
 
 ### simulacion de email
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17866,7 +17867,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ajax']) && $_POST['aj
 ```
 
 ### enviar email realmente
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18913,7 +18914,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send_email']) && $_PO
 ```
 
 ### cliente email
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20587,7 +20588,7 @@ if ($replyMode && $selectedEmail) {
 ```
 
 ### prueba final
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -22323,7 +22324,7 @@ if ($replyMode && $selectedEmail) {
 ```
 
 ### version con UI modificada
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-version con UI modificada.php`
 
@@ -24029,7 +24030,7 @@ th, td {
 Esta es solo una posible versión refactoreada del código, y hay muchas otras formas de mejorarlo.
 
 ### Primera version
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -24383,7 +24384,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### mas preguntas
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -24996,7 +24997,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### tabla con json de lavender
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -25756,7 +25757,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### tabla corregida
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -26555,7 +26556,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['analizar']) && $_POST
 ```
 
 ### badges
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -27204,7 +27205,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['analizar']) && $_POST
 ```
 
 ### seguridad
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -28121,7 +28122,7 @@ Overall, the code seems well-structured, but there are opportunities for improve
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/009-Proyectos%20segundo%20trimestre/011-Agente%20IA)
 
 ### agent
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `agent.js`
 
@@ -28416,7 +28417,7 @@ Overall, the code seems well-structured, but there are opportunities for improve
 ```
 
 ### agent
-<small>Creado: 2026-02-08 14:39</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `agent.php`
 
@@ -28671,7 +28672,7 @@ json_err("Acción no válida.", 400);
 ```
 
 ### Archivo sin título
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `Archivo sin título`
 
@@ -28680,7 +28681,7 @@ json_err("Acción no válida.", 400);
 ```
 
 ### bootstrap
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `bootstrap.php`
 
@@ -28721,7 +28722,7 @@ echo json_encode([
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index.html`
 
@@ -28771,6 +28772,12 @@ echo json_encode([
 ## Clasificador documental inteligente
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/010-Proyectos%20tercer%20trimestre/001-Clasificador%20documental%20inteligente)
+
+
+<a id="cosas-de-practicas"></a>
+## Cosas de practicas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/010-Proyectos%20tercer%20trimestre/002-Cosas%20de%20practicas)
 
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jocarsa-conversion - Action</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">jc</div>
+      <div class="brand-text">
+        <h1>jocarsa-conversion</h1>
+        <p>Subida de PDF</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Enviar PDF</h2>
+      <p>Selecciona un archivo PDF y envíalo al backend en PHP.</p>
+    </section>
+
+    <section class="form-panel">
+      <form action="back.php" method="post" enctype="multipart/form-data" class="upload-form">
+        <div class="form-group">
+          <label for="pdf_file">Archivo PDF</label>
+          <input type="file" id="pdf_file" name="pdf_file" accept="application/pdf,.pdf" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="button-primary">Enviar PDF</button>
+          <a href="index.html" class="button-secondary">Volver</a>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -151,7 +151,7 @@ Para ejecutar este código, simplemente necesita insertarlo en una página HTML 
 Este ejemplo proporciona una base sólida para desarrollar juegos más complejos utilizando JavaScript y HTML5 Canvas.
 
 ### empezamos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -185,7 +185,7 @@ Este archivo sirve como punto de partida para desarrollar un juego o aplicación
 ```
 
 ### entramos en el bucle
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -221,7 +221,7 @@ Este fragmento de código HTML establece la estructura básica de una página we
 ```
 
 ### condiciones de inicio
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -265,7 +265,7 @@ Este tipo de estructura de bucle es crucial en el desarrollo de juegos ya que ma
 ```
 
 ### clases
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -337,7 +337,7 @@ Este código es fundamental porque establece las bases para la lógica del juego
 ```
 
 ### vamos con las rocas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -439,7 +439,7 @@ Este código es un punto de partida fundamental para desarrollar juegos interact
 ```
 
 ### aleatoriedad rocas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -541,7 +541,7 @@ Esta estructura básica es crucial porque establece cómo se dibujan y actualiza
 ```
 
 ### las rocas se mueven
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -647,7 +647,7 @@ Este código es importante ya que establece la base para una aplicación web int
 ```
 
 ### comentarios
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -767,7 +767,7 @@ Este código es importante porque introduce conceptos clave en la programación 
 ```
 
 ### pantalla completa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -892,7 +892,7 @@ Este tipo de estructura es fundamental en el desarrollo de juegos simples para e
 ```
 
 ### personaje dibujo y se mueve
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1032,7 +1032,7 @@ Este código es importante porque establece la base para un juego interactivo co
 ```
 
 ### controles de teclado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1204,7 +1204,7 @@ Este código es importante porque establece las bases para una interacción bás
 ```
 
 ### ahora me desplazo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1375,7 +1375,7 @@ Este tipo de diseño es crucial para crear juegos interactivos, ya que permite u
 ```
 
 ### balas como objetos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1559,7 +1559,7 @@ Este código es importante porque demuestra cómo manejar objetos en un juego in
 ```
 
 ### espaciadora crea balas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1750,7 +1750,7 @@ Este código es fundamental para entender cómo se estructura un juego simple en
 ```
 
 ### tengo que tambien dibujar las balas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1942,7 +1942,7 @@ Este código es importante porque demuestra cómo estructurar un juego simple ut
 ```
 
 ### les digo a las balas que se mueven
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2142,7 +2142,7 @@ En resumen, este fragmento de código proporciona una base sólida para la creac
 ```
 
 ### mas velocidad para las balas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2342,7 +2342,7 @@ Este código es importante porque demuestra cómo se pueden crear objetos reutil
 ```
 
 ### detectamos colision de la bala con la roca
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2557,7 +2557,7 @@ Este código proporciona una base sólida para un juego simple y ofrece la flexi
 ```
 
 ### ahora borramos la roca
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2769,7 +2769,7 @@ Este código es importante porque demuestra cómo se pueden crear objetos comple
 ```
 
 ### la bala tambien se rompe con la roca
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -2987,7 +2987,7 @@ Este código es importante porque demuestra cómo estructurar un juego básico c
 ```
 
 ### balas se eliminan al salir de la pantalla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3214,7 +3214,7 @@ Este bucle principal permite animar y actualizar constantemente el estado del ju
 ```
 
 ### mejoramos controles de teclado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3462,7 +3462,7 @@ Este código es importante porque proporciona un ejemplo de cómo implementar in
 ```
 
 ### simulamos la inercia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3706,7 +3706,7 @@ Este tipo de estructura es común en juegos simples basados en JavaScript, y ayu
 ```
 
 ### mejores gráficos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -3963,7 +3963,7 @@ Este bucle asegura que todo el juego esté actualizado y en movimiento, creando 
 ```
 
 ### dibujamos estrellas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4234,7 +4234,7 @@ Este código es importante porque demuestra cómo se pueden crear juegos simples
 ```
 
 ### inercia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4515,7 +4515,7 @@ Este tipo de estructura es común en juegos simples basados en HTML5 y JavaScrip
 ```
 
 ### niveles
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -4834,7 +4834,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `028-mejoras.html`
 
@@ -5503,7 +5503,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### multiplayer
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `029-multiplayer.html`
 
@@ -6204,7 +6204,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### volvemos a las mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `030-volvemos a las mejoras.html`
 
@@ -6873,7 +6873,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### 3d
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `031-3d.html`
 
@@ -7617,7 +7617,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### 3d
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `032-3d.html`
 
@@ -8491,7 +8491,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### con planeta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `033-con planeta.html`
 
@@ -9529,7 +9529,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### asteroides
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `034-asteroides.html`
 
@@ -10678,7 +10678,7 @@ Esta estructura proporciona una base sólida para crear juegos interactivos usan
 ```
 
 ### server
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `server.php`
 
@@ -10792,7 +10792,7 @@ echo json_encode([
 ```
 
 ### state
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `state.json`
 
@@ -10801,7 +10801,7 @@ echo json_encode([
 ```
 
 ### state
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `state.php`
 
@@ -11129,7 +11129,7 @@ El código final es bastante complejo y utiliza una gran cantidad de configuraci
 Este código resulta en un modelo de la Tierra altamente detallado y visualmente impresionante, con características realistas como nubes transparentes y efectos post-procesados para mejorar aún más el aspecto final.
 
 ### trucazo js
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11157,7 +11157,7 @@ Este tipo de código es fundamental en programación web ya que muestra cómo in
 ```
 
 ### aframe
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11187,7 +11187,7 @@ La escena también incluye un plano (a-plane) que actúa como el suelo de la esc
 ```
 
 ### poco a poco
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11213,7 +11213,7 @@ Este código simple demuestra cómo crear elementos 3D interactivos utilizando A
 ```
 
 ### ahora añado una caja
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11250,7 +11250,7 @@ Este código es importante porque demuestra cómo incorporar objetos simples en 
 ```
 
 ### ahora creo un plano para un suelo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11280,7 +11280,7 @@ Este tipo de código es importante para estudiantes que desean aprender a crear 
 ```
 
 ### cargo un glb o gltf
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11324,7 +11324,7 @@ Este código es útil porque muestra de forma sencilla cómo integrar modelos 3D
 ```
 
 ### controles de orbita
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11382,7 +11382,7 @@ Los ajustes realizados dentro del atributo `orbit-controls` como la velocidad de
 ```
 
 ### wasd
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11430,7 +11430,7 @@ Este código es importante porque demuestra cómo cargar modelos 3D complejos de
 ```
 
 ### hablemos de luces
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11456,7 +11456,7 @@ Este código es fundamental para aprender a crear objetos básicos en A-Frame y 
 ```
 
 ### apago la luz
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11485,7 +11485,7 @@ Esta página web sirve como una introducción a cómo configurar objetos 3D bás
 ```
 
 ### ahora quito toda luz
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11521,7 +11521,7 @@ Este código es parte de una serie de ejercicios que probablemente buscan enseñ
 ```
 
 ### la luz ambiental es un relleno
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11555,7 +11555,7 @@ Este código es importante porque demuestra cómo configurar un entorno básico 
 ```
 
 ### tenemos luces direccionales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11586,7 +11586,7 @@ Esta configuración básica es fundamental para entender cómo se crean escenas 
 ```
 
 ### materiales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11622,7 +11622,7 @@ Este código es importante porque muestra cómo integrar geometrías 3D simples 
 ```
 
 ### especularidad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11656,7 +11656,7 @@ Además, el código incluye dos fuentes de luz: un tipo ambiental suave que ilum
 ```
 
 ### brillo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11693,7 +11693,7 @@ Esta configuración es importante porque permite experimentar con diferentes mat
 ```
 
 ### texturas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11730,7 +11730,7 @@ Esta combinación de elementos proporciona una base sólida para comenzar a juga
 ```
 
 ### textura tierra
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11776,7 +11776,7 @@ Este código es un buen ejemplo práctico para entender cómo incorporar objetos
 ```
 
 ### textura rugosidad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11822,7 +11822,7 @@ Este tipo de código es crucial en el desarrollo multimedia y móvil, ya que per
 ```
 
 ### esfera de nubes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11876,7 +11876,7 @@ Este código es importante porque demuestra cómo utilizar A-Frame para crear en
 ```
 
 ### transparencia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11930,7 +11930,7 @@ Finalmente, se agregan dos fuentes de luz: una luz ambiental suave que ilumina e
 ```
 
 ### animacion tierra
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11992,7 +11992,7 @@ Este tipo de código es importante porque muestra cómo se pueden combinar eleme
 ```
 
 ### jerarquia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12058,7 +12058,7 @@ Este tipo de código es importante en el desarrollo multimedia porque permite cr
 ```
 
 ### postproceso
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12308,7 +12308,7 @@ This ensures that focused cards are visually distinct, enhancing usability for k
 Overall, this code creates a sophisticated interactive grid with engaging parallax effects suitable for showcasing portfolios or any set of related visual elements.
 
 ### grid de elementos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12597,7 +12597,7 @@ Este tipo de diseño es muy útil para presentar información visualmente atract
 ```
 
 ### camara con perspectiva
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12846,7 +12846,7 @@ Este tipo de diseño 3D en CSS es particularmente interesante porque combina ele
 ```
 
 ### css y javascript
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13124,7 +13124,7 @@ Esta combinación de CSS y JavaScript permite crear una experiencia interactiva 
 ```
 
 ### capas de profundidad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13919,7 +13919,7 @@ bucle();
 Este código debería funcionar de manera más eficiente y correcta para tu juego isométrico.
 
 ### rejilla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -13966,7 +13966,7 @@ Este código HTML crea una página web que incluye un lienzo de dibujo interacti
 ```
 
 ### isometrico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14029,7 +14029,7 @@ El corazón del código es una serie de bucles que dibujan líneas para formar l
 ```
 
 ### isometrico trucado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14106,7 +14106,7 @@ Esta técnica es útil en la programación multimedia y juegos móviles donde se
 ```
 
 ### personaje
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14195,7 +14195,7 @@ Finalmente, se limpia el fondo del lienzo y se dibuja un personaje en una posici
 ```
 
 ### capturo y encierro
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14304,7 +14304,7 @@ Este tipo de diseño es útil para desarrollar juegos o aplicaciones multimedia 
 ```
 
 ### cargo spritesheet
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14412,7 +14412,7 @@ Este código es importante porque muestra cómo cargar imágenes en un canvas HT
 ```
 
 ### uso cropping
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14527,7 +14527,7 @@ Este tipo de código es importante para estudiantes de programación multimedia 
 ```
 
 ### uso de un bucle
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14683,7 +14683,7 @@ Este tipo de estructura es importante para comprender cómo manejar interactivid
 ```
 
 ### recogibles
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -14861,7 +14861,7 @@ Este tipo de código es útil para entender cómo manejar entornos interactivos 
 ```
 
 ### recoger
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15393,7 +15393,7 @@ Would you like me to elaborate on any particular aspect or help with further ref
 Feel free to ask for more detailed explanations or additional improvements based on your specific needs. Happy coding! 🚀
 
 ### threejs basico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15483,7 +15483,7 @@ Este código es fundamental para aprender los conceptos básicos de Three.js, pe
 ```
 
 ### suelo y movimiento
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -15747,7 +15747,7 @@ Este tipo de código es crucial para entender cómo crear juegos 3D interactivos
 ```
 
 ### gravedad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16102,7 +16102,7 @@ En resumen, este código proporciona una base sólida para desarrollar juegos 3D
 ```
 
 ### raycast
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -16562,7 +16562,7 @@ Este tipo de código es fundamental para comprender cómo crear juegos en 3D usa
 ```
 
 ### crear y eliminar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17086,7 +17086,7 @@ Este código sería útil para proyectos educativos, sitios web con juegos simpl
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -17837,7 +17837,7 @@ By following this structure and expanding on it with additional features, you ca
 ```
 
 ### no antialias
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -18986,7 +18986,7 @@ This updated script includes improved collision detection, player movement with 
 ```
 
 ### ssao
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -19784,7 +19784,7 @@ This basic structure provides a solid foundation for building more complex 3D sa
 ```
 
 ### escena amplia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -20549,7 +20549,7 @@ This code serves as an excellent foundation for building more complex Minecraft-
 ```
 
 ### bloques
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -21370,7 +21370,7 @@ By following these guidelines, you can further enhance this voxel game to create
 ```
 
 ### terreno fractal
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-terreno fractal.html`
 
@@ -22290,7 +22290,7 @@ By following these guidelines, you can further enhance this voxel game to create
 ```
 
 ### nubes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012-nubes.html`
 
@@ -23405,7 +23405,7 @@ By following these guidelines, you can further enhance this voxel game to create
 ```
 
 ### mas mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `013-mas mejoras.html`
 
@@ -24555,7 +24555,7 @@ By following these guidelines, you can further enhance this voxel game to create
 ```
 
 ### suavizar terreno
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `014-suavizar terreno.html`
 
@@ -25854,7 +25854,7 @@ SURFACE_HIDE_LAYERS: 2, // 1..3 recomendado (2 suele ir bien)
 ```
 
 ### mas suavizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `015-mas suavizado.html`
 
@@ -27166,7 +27166,7 @@ SURFACE_HIDE_LAYERS: 2, // 1..3 recomendado (2 suele ir bien)
 ```
 
 ### mas suavizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `016-mas suavizado.html`
 
@@ -28433,7 +28433,7 @@ SURFACE_HIDE_LAYERS: 2, // 1..3 recomendado (2 suele ir bien)
 ```
 
 ### colision suavizada
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `017-colision suavizada.html`
 
@@ -29842,7 +29842,7 @@ Estas actividades están diseñadas para proporcionar a los estudiantes de Forma
 Este conjunto de ejercicios está diseñado para ayudarte a entender y aplicar conceptos básicos de manejo de bases de datos relacionales utilizando SQL. Los problemas abordan desde la creación de estructuras de base de datos, como tablas con relaciones entre ellas, hasta operaciones CRUD (Crear, Leer, Actualizar y Borrar) y el uso de vistas para mejorar la consulta de información. A través de estos ejercicios, practicarás competencias clave en diseño de bases de datos, gestión de usuarios y control de acceso, lo que te preparará para trabajar con sistemas más complejos en entornos profesionales.
 
 ### crear tablas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29879,7 +29879,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29909,7 +29909,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29930,7 +29930,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29949,7 +29949,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29970,7 +29970,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -29997,7 +29997,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -30132,7 +30132,7 @@ The HTML code you provided is for an advanced interactive web application that u
 This code integrates several cutting-edge technologies (WebRTC, ML-based face detection, A-Frame) to create a sophisticated real-time interactive 3D environment. The combination of these elements allows for intuitive control and rich spatial interaction directly through facial tracking.
 
 ### entorno 3d
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -30339,7 +30339,7 @@ Este código es importante porque combina varios conceptos avanzados en desarrol
 ```
 
 ### segunda version
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -30628,7 +30628,7 @@ Este fragmento es útil para estudiantes interesados en aprender cómo combinar 
 ```
 
 ### caja abierta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -30932,7 +30932,7 @@ El código incluye además elementos como luces (punto y ambiental) que iluminan
 ```
 
 ### exageracion de movimiento
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -31286,7 +31286,7 @@ Este código es una excelente introducción al desarrollo de experiencias VR usa
 ```
 
 ### sombras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -31922,7 +31922,7 @@ Al abrir el HTML en un navegador, se carga el JSON, se crean las partículas y s
 Este tipo de visualización puede ser útil para explorar relaciones sociales o patrones de agrupamiento en datos similares.
 
 ### red de elementos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -31983,7 +31983,7 @@ Finalmente, otro bucle for recorre el array de partículas y llama a la función
 ```
 
 ### lineas entre las particulas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32069,7 +32069,7 @@ Este tipo de código es común en proyectos de programación multimedia, especia
 ```
 
 ### bucle animado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32155,7 +32155,7 @@ Esta técnica es común en el desarrollo de juegos 2D y animaciones web para cre
 ```
 
 ### hacemos que las particulas se muevan
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32265,7 +32265,7 @@ Este fragmento de código HTML es parte de un ejercicio para desarrollar juegos 
 ```
 
 ### rebote en las paredes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32364,7 +32364,7 @@ Este tipo de código es útil en el desarrollo de juegos 2D o aplicaciones visua
 ```
 
 ### reflejo realista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32488,7 +32488,7 @@ Este tipo de código es fundamental para comprender cómo se crean animaciones s
 ```
 
 ### añadimos velocidad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32614,7 +32614,7 @@ Este tipo de código es importante en la programación multimedia y dispositivos
 ```
 
 ### un poco de color
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32745,7 +32745,7 @@ Esta animación simple es un ejemplo del uso de canvas y JavaScript para crear e
 ```
 
 ### array con nombres
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -32893,7 +32893,7 @@ Este tipo de código es común en proyectos de programación multimedia y dispos
 ```
 
 ### agrupar particulas con animacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -33091,7 +33091,7 @@ Este tipo de simulaciones son útiles para aprender sobre conceptos de física c
 ```
 
 ### movimiento aleatorio fuera
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -33287,7 +33287,7 @@ El script principal crea un conjunto de estas partículas en el lienzo, cada una
 ```
 
 ### busca de estabilidad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -33559,7 +33559,7 @@ Este tipo de código es importante porque demuestra cómo se pueden crear sistem
 ```
 
 ### libertad para las partículas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -33836,7 +33836,7 @@ Este tipo de código es típico en la creación de juegos 2D o aplicaciones inte
 ```
 
 ### asociacion por varios criterios
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -34135,7 +34135,7 @@ Esta simulación es especialmente interesante porque modela cómo entidades indi
 ```
 
 ### colores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -34463,7 +34463,7 @@ La carga del archivo JSON ocurre al inicio de la página, creando un conjunto es
 ```
 
 ### anchuras de lineas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -34785,7 +34785,7 @@ Este tipo de simulación es útil para demostrar conceptos relacionados con fís
 ```
 
 ### anchura variable
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35210,7 +35210,7 @@ Este código es importante porque combina elementos fundamentales de programaci�
 ```
 
 ### personas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35465,7 +35465,7 @@ This refactored code uses a more robust gesture recognition system that calculat
 Note that this is just an example, and you may need to modify it further to fit your specific use case.
 
 ### openstreetmap
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35534,7 +35534,7 @@ En resumen, este código es fundamental para crear un mapa básico de OSM usando
 ```
 
 ### centrado en Valencia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35599,7 +35599,7 @@ El script en sí se encarga de inicializar la aplicación Leaflet y agregar una 
 ```
 
 ### manos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35760,7 +35760,7 @@ El código comienza inicializando una película con Leaflet para mostrar una ima
 ```
 
 ### mover manos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -35933,7 +35933,7 @@ En este código, hay dos partes importantes:
 ```
 
 ### claude nuevo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36190,7 +36190,7 @@ Finalmente, se utiliza el objeto Camera de MediaPipe Hands para tomar capturas d
 ```
 
 ### debug
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36368,7 +36368,7 @@ Estos cambios mejoran significativamente las capacidades del programa para recon
 ```
 
 ### con claude
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36545,7 +36545,7 @@ En resumen, este código es una demostración sencilla de cómo utilizar MediaPi
 ```
 
 ### pinch
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36752,7 +36752,7 @@ Es importante destacar que este código no funciona sin la biblioteca MediaPipe 
 ```
 
 ### pinch 2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -36976,7 +36976,7 @@ El funcionamiento del código se puede resumir en las siguientes partes clave:
 ```
 
 ### repinch
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37233,7 +37233,7 @@ Este código ilustra cómo se pueden utilizar las tecnologías de reconocimiento
 ```
 
 ### zoom mas suave
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37528,7 +37528,7 @@ Este código es importante porque proporciona una forma de interactuar con una a
 ```
 
 ### suavizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -37837,7 +37837,7 @@ En resumen, este código proporciona una interfaz interactiva para zoomar y pane
 ```
 
 ### mas suviazado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -38266,7 +38266,7 @@ To improve the code, consider:
 Please note that this is a high-level overview of the code structure and functionality. If you'd like me to review specific parts of the code or provide more detailed feedback, feel free to ask!
 
 ### robot inicial
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -38597,7 +38597,7 @@ loop();
 ```
 
 ### muchos robots
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -38990,7 +38990,7 @@ loop();
 ```
 
 ### generaciones de robots
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -39467,7 +39467,7 @@ loop();
 ```
 
 ### grafica
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -40015,7 +40015,7 @@ loop();
 ```
 
 ### laberinto cambiante
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -40804,7 +40804,7 @@ loop();
 ```
 
 ### visuales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -41710,7 +41710,7 @@ loop();
 ```
 
 ### mas parametros
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -42692,7 +42692,7 @@ loop();
 ```
 
 ### preferencia por colores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -43734,7 +43734,7 @@ loop();
 ```
 
 ### memoria a corto plazo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -44900,7 +44900,7 @@ loop();
 ```
 
 ### colisiones y comida
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -46135,7 +46135,7 @@ loop();
 ```
 
 ### refuel
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -47398,7 +47398,7 @@ loop();
 ```
 
 ### algoritmo genetico coches
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012-algoritmo genetico coches.html`
 
@@ -48259,7 +48259,7 @@ Some potential areas for improvement:
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/002-Desarrollo%20de%20juegos%202D%20y%203D/005-C%C3%A1maras%20e%20iluminaci%C3%B3n)
 
 ### escenario de base
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-escenario de base.html`
 
@@ -48298,7 +48298,7 @@ Some potential areas for improvement:
 ```
 
 ### threejs
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-threejs.html`
 
@@ -48405,7 +48405,7 @@ Some potential areas for improvement:
 ```
 
 ### controles de teclado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-controles de teclado.html`
 
@@ -48544,7 +48544,7 @@ Some potential areas for improvement:
 ```
 
 ### la camara debe seguir al personaja
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-la camara debe seguir al personaja.html`
 
@@ -48687,7 +48687,7 @@ Some potential areas for improvement:
 ```
 
 ### la luz va contigo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-la luz va contigo.html`
 
@@ -48834,7 +48834,7 @@ Some potential areas for improvement:
 ```
 
 ### comunicacion de red
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-comunicacion de red.html`
 
@@ -49004,7 +49004,7 @@ Some potential areas for improvement:
 ```
 
 ### sin http
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-sin http.html`
 
@@ -49174,7 +49174,7 @@ Some potential areas for improvement:
 ```
 
 ### 008
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008.html`
 
@@ -49344,7 +49344,7 @@ Some potential areas for improvement:
 ```
 
 ### 009
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `009.html`
 
@@ -49559,7 +49559,7 @@ Some potential areas for improvement:
 ```
 
 ### 010
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `010.html`
 
@@ -49822,7 +49822,7 @@ Some potential areas for improvement:
 ```
 
 ### 011
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011.html`
 
@@ -50087,7 +50087,7 @@ Some potential areas for improvement:
 ```
 
 ### 012
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012.html`
 
@@ -50489,7 +50489,7 @@ Some potential areas for improvement:
 ```
 
 ### index_old
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index_old.php`
 
@@ -50661,7 +50661,7 @@ echo json_encode([
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/002-Desarrollo%20de%20juegos%202D%20y%203D/006-Creaci%C3%B3n%20de%20escenas.)
 
 ### crear caja en Blender
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-crear caja en Blender.py`
 
@@ -50672,7 +50672,7 @@ bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', loc
 ```
 
 ### crear linea de cajas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-crear linea de cajas.py`
 
@@ -50687,7 +50687,7 @@ for x in range(0,100,3):
 ```
 
 ### crear rejilla bidimensional
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-crear rejilla bidimensional.py`
 
@@ -50709,7 +50709,7 @@ for x in range(0,50,3):
 ```
 
 ### array de cajas de tamaño aleatorio
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-array de cajas de tamaño aleatorio.py`
 
@@ -50733,7 +50733,7 @@ for x in range(0,50,3):
 ```
 
 ### array de edificios
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-array de edificios.py`
 
@@ -50757,7 +50757,7 @@ for x in range(0,50,3):
 ```
 
 ### edificios con aceras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-edificios con aceras.py`
 
@@ -50796,7 +50796,7 @@ for x in range(0,50,3):
 ```
 
 ### y creamos un asfalto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-y creamos un asfalto.py`
 
@@ -50865,7 +50865,7 @@ bpy.ops.transform.rotate(
 ```
 
 ### creamos un sol
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `009-creamos un sol.py`
 
@@ -50934,7 +50934,7 @@ bpy.ops.transform.rotate(
 ```
 
 ### creamos objetos con materiales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `010-creamos objetos con materiales.py`
 
@@ -51053,7 +51053,7 @@ bpy.ops.transform.rotate(
 ```
 
 ### colores en los materiales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-colores en los materiales.py`
 
@@ -51172,7 +51172,7 @@ bpy.ops.transform.rotate(
 ```
 
 ### mundo de planos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012-mundo de planos.py`
 
@@ -51288,7 +51288,7 @@ bpy.ops.object.select_all(action='DESELECT')
 ```
 
 ### mundo de planos pero con materiales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `013-mundo de planos pero con materiales.py`
 
@@ -51547,7 +51547,7 @@ print(f"Terrain done. min_z={min_z:.3f} max_z={max_z:.3f} sea={SEA_LEVEL:.3f}")
 ```
 
 ### malla en lugar de planos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `014-malla en lugar de planos.py`
 
@@ -51795,7 +51795,7 @@ obj.select_set(True)
 ```
 
 ### ponemos cielo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `015-ponemos cielo.py`
 
@@ -52087,7 +52087,7 @@ except Exception:
 ```
 
 ### agua con olas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `016-agua con olas.py`
 
@@ -52563,7 +52563,7 @@ print("Done. Terrain min/max height:", hmin, hmax)
 ```
 
 ### material de relieve en el terreno
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `017-material de relieve en el terreno.py`
 
@@ -53103,7 +53103,7 @@ print("Terrain min/max after subdiv :", hmin2, hmax2)
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `018-mejoras.py`
 
@@ -53599,7 +53599,7 @@ print("Done. Terrain min/max height:", hmin, hmax)
 ```
 
 ### pseudo animacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `019-pseudo animacion.py`
 
@@ -54093,7 +54093,7 @@ print("Done. Fly-through enabled: NoiseSpace moves each frame.")
 ```
 
 ### volvemos a estatico y jugamos con scattering
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `020-volvemos a estatico y jugamos con scattering.py`
 
@@ -54967,7 +54967,7 @@ This HTML file demonstrates the usage of the custom video player. It involves:
 This setup provides a more modern and customizable video player experience, enhancing usability without relying on browser-native controls.
 
 ### video en html5
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -54991,7 +54991,7 @@ Este es uno de los métodos más simples para incorporar medios interactivos en 
 ```
 
 ### video con controles
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55011,7 +55011,7 @@ Este fragmento de código HTML crea una página web simple que muestra un video 
 ```
 
 ### reproducir con javascript
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55046,7 +55046,7 @@ Este código es importante porque demuestra cómo combinar elementos multimedia 
 ```
 
 ### parar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55085,7 +55085,7 @@ Este tipo de interacción es importante porque permite al usuario controlar exac
 ```
 
 ### rebobinar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55131,7 +55131,7 @@ Este tipo de código es importante porque muestra cómo interactuar con elemento
 ```
 
 ### 10 segundos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55195,7 +55195,7 @@ Estas funciones permiten a los usuarios interactuar con el reproductor de video 
 ```
 
 ### estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55291,7 +55291,7 @@ Este tipo de diseño es útil para comprender cómo integrar interactividad bás
 ```
 
 ### mostrar solo al entrar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55392,7 +55392,7 @@ Este código es importante porque demuestra cómo integrar interactividad y esti
 ```
 
 ### refactorizamos javascript
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55494,7 +55494,7 @@ El script JavaScript dentro de la etiqueta `<script>` selecciona el elemento de 
 ```
 
 ### boton de play
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55628,7 +55628,7 @@ Este tipo de código es importante porque muestra cómo puedes personalizar y am
 ```
 
 ### control de volumen
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55769,7 +55769,7 @@ Este tipo de código es importante porque demuestra cómo se pueden combinar HTM
 ```
 
 ### cargar resoluciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -55914,7 +55914,7 @@ Este tipo de página web es típica en aplicaciones multimedia donde se necesita
 ```
 
 ### select de resoluciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56060,7 +56060,7 @@ Este código es importante porque muestra cómo integrar interactividad en una p
 ```
 
 ### relleno el select
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56212,7 +56212,7 @@ Esta página web es una excelente introducción a la interacción entre HTML, CS
 ```
 
 ### selecciono video
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56369,7 +56369,7 @@ Este tipo de código es importante porque demuestra cómo integrar múltiples te
 ```
 
 ### cambio dinamico de resolucion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56530,7 +56530,7 @@ Esta página web proporciona una experiencia interactiva y versátil para el usu
 ```
 
 ### un poco de estilo para el select
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56701,7 +56701,7 @@ Este código es importante porque demuestra cómo integrar y manipular varios el
 ```
 
 ### por donde va el tiempo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56925,7 +56925,7 @@ Finalmente, se implementa una funcionalidad para mostrar la posición actual del
 ```
 
 ### convertido en libreria
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -56964,7 +56964,7 @@ Esta estructura es importante porque permite a los desarrolladores trabajar con 
 ```
 
 ### jocarsa-video
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57082,7 +57082,7 @@ Este estilo CSS es crucial porque mejora la experiencia del usuario, haciendo qu
 ```
 
 ### jocarsa-video
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57720,7 +57720,7 @@ document.addEventListener('DOMContentLoaded', function () {
 This combined approach ensures that your audio player is both visually appealing and functionally robust.
 
 ### reproductor personalizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57766,7 +57766,7 @@ Este fragmento es importante porque demuestra cómo integrar elementos multimedi
 ```
 
 ### script de control
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57827,7 +57827,7 @@ Esta estructura es importante porque permite a los usuarios interactuar de maner
 ```
 
 ### progreso
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57892,7 +57892,7 @@ Esta página es útil para aprender a integrar elementos multimedia básicos com
 ```
 
 ### bucle
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -57996,7 +57996,7 @@ Este tipo de implementación es importante porque proporciona una experiencia m�
 ```
 
 ### mejoras estéticas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -58317,7 +58317,7 @@ El script también incluye funciones para actualizar visualmente los controles s
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -58708,7 +58708,7 @@ Esta página web es un ejemplo práctico de cómo combinar HTML, CSS y JavaScrip
 ```
 
 ### desvelar onda
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -59457,7 +59457,7 @@ for i in range(NUM_OUTPUT_IMAGES):
 Esta versión incorpora la función `obtener_fondoAleatorio` para obtener un fondo aleatorio de una carpeta. También agrega funciones para aplicar efectos de sombra y transparencia, así como la capacidad de cambiar el tipo de efecto a utilizar dependiendo de las necesidades específicas del proyecto.
 
 ### generar_imagenes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -59518,7 +59518,7 @@ print(f"{NUM_IMAGES} images created in '{OUTPUT_FOLDER}'")
 ```
 
 ### colores solidos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -59581,7 +59581,7 @@ print(f"{NUM_IMAGES} solid-color images created in '{OUTPUT_FOLDER}'")
 ```
 
 ### con logo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -59686,7 +59686,7 @@ print(f"{NUM_IMAGES} images created in '{OUTPUT_FOLDER}' with logo overlay.")
 ```
 
 ### con galeria de imagenes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -59872,7 +59872,7 @@ print(f"Proceso terminado. Imágenes generadas en '{OUTPUT_FOLDER}'.")
 ```
 
 ### con texto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -60117,7 +60117,7 @@ print(f"Done. Images generated in '{OUTPUT_FOLDER}'.")
 ```
 
 ### outline en texto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -60379,7 +60379,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/003-Utilizaci%C3%B3n%20de%20librer%C3%ADas%20multimedia%20integradas/005-Reproducci%C3%B3n%20de%20objetos%20multimedia)
 
 ### sintesis musical
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-sintesis musical.html`
 
@@ -60529,7 +60529,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### pentagrama
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-pentagrama.html`
 
@@ -60883,7 +60883,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### mejoras
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-mejoras.html`
 
@@ -61473,7 +61473,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### mas funciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-mas funciones.html`
 
@@ -62146,7 +62146,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### mejora del sonido
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-mejora del sonido.html`
 
@@ -62998,7 +62998,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### piano
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-piano.html`
 
@@ -64027,7 +64027,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/003-Utilizaci%C3%B3n%20de%20librer%C3%ADas%20multimedia%20integradas/006-Animaci%C3%B3n%20de%20objetos)
 
 ### circulo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-circulo.html`
 
@@ -64179,7 +64179,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### arcos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-arcos.html`
 
@@ -64346,7 +64346,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### aleatoriedad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-aleatoriedad.html`
 
@@ -64522,7 +64522,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### click
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-click.html`
 
@@ -64721,7 +64721,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### click catapulta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-click catapulta.html`
 
@@ -64964,7 +64964,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### audio buffer
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-audio buffer.html`
 
@@ -65214,7 +65214,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### dos ciruclos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-dos ciruclos.html`
 
@@ -65499,7 +65499,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### mejoras visuales
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-mejoras visuales.html`
 
@@ -65837,7 +65837,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/003-Utilizaci%C3%B3n%20de%20librer%C3%ADas%20multimedia%20integradas/007-Animaci%C3%B3n%20de%20objetos%20parte%202)
 
 ### animacion en css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-animacion en css.html`
 
@@ -65868,7 +65868,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### muchas iteraciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-muchas iteraciones.html`
 
@@ -65900,7 +65900,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### varios puntos medios
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-varios puntos medios.html`
 
@@ -65935,7 +65935,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### puedo animar varias propiedades
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-puedo animar varias propiedades.html`
 
@@ -65970,7 +65970,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### empezamos corporativo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-empezamos corporativo.html`
 
@@ -66003,7 +66003,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### vaciamos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-vaciamos.html`
 
@@ -66042,7 +66042,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### multiples contenedores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-multiples contenedores.html`
 
@@ -66095,7 +66095,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### primero animo la barra
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-primero animo la barra.html`
 
@@ -66154,7 +66154,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### mido jocarsa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `009-mido jocarsa.html`
 
@@ -66245,7 +66245,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### oculto contenedores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `010-oculto contenedores.html`
 
@@ -66336,7 +66336,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### ancho de contenedores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-ancho de contenedores.html`
 
@@ -66438,7 +66438,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### ancho dinamico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012-ancho dinamico.html`
 
@@ -66593,7 +66593,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### cascada
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `013-cascada.html`
 
@@ -66785,7 +66785,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 ```
 
 ### un poco mas de estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `014-un poco mas de estilo.html`
 
@@ -66999,7 +66999,7 @@ En general, el uso de una función de blending depende del efecto deseado y del 
 Este conjunto de ejercicios se enfoca en el desarrollo web y móvil, específicamente en la creación y mejora de interfaces para aplicaciones multimedia. Los problemas abordados van desde la comprensión de diferentes tecnologías y plataformas móviles como Android, iOS y Harmony OS hasta la implementación básica de HTML y CSS para crear una interfaz usuario simple pero funcional. Se practican competencias clave en diseño web responsivo, incluyendo estilos básicos, reescalamiento automático, uso de botones interactivos y creación de layouts flexibles que se ajustan a diferentes tamaños de pantalla. Estos ejercicios son esenciales para estudiantes que desean familiarizarse con las bases del desarrollo web adaptativo y móvil.
 
 ### prototipo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67066,7 +67066,7 @@ Este diseño básico de HTML permite estructurar la información de manera clara
 ```
 
 ### estilo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67138,7 +67138,7 @@ Este código es fundamental para entender cómo estructurar y estilizar contenid
 ```
 
 ### no reescalar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67206,7 +67206,7 @@ En la parte principal de la página, dentro de la etiqueta `<section>`, hay múl
 ```
 
 ### botones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67277,7 +67277,7 @@ Este tipo de estructura es común en sitios web donde se muestran listas de cont
 ```
 
 ### articulos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67369,7 +67369,7 @@ El uso de CSS en este código es crucial para dar formato a la página, haciendo
 ```
 
 ### reproduccion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67471,7 +67471,7 @@ El archivo actual representa una interfaz más completa y funcional que el anter
 ```
 
 ### ocupa el 100
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67851,7 +67851,7 @@ Para agregar las funcionalidades de navegación entre pantallas en el footer, ne
 Con estas modificaciones, tu aplicación debería ser capaz de navegar entre pantallas en función del botón presionado en el footer.
 
 ### Comenzamos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -67956,7 +67956,7 @@ Además, hay un bloque `<template id="lista">` que sirve como plantilla para gen
 ```
 
 ### cargamos datos de ap
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68070,7 +68070,7 @@ Esta página es importante porque combina HTML, CSS y JavaScript para proporcion
 ```
 
 ### personalizamos la plantilla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68186,7 +68186,7 @@ Este código es importante porque combina HTML, CSS y JavaScript para crear una 
 ```
 
 ### on error
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68308,7 +68308,7 @@ Esta estructura es útil porque permite a los usuarios personalizar su experienc
 ```
 
 ### click en articulo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68432,7 +68432,7 @@ Este código es importante porque demuestra cómo combinar HTML, CSS y JavaScrip
 ```
 
 ### pantalla siguiente
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68566,7 +68566,7 @@ Este código es importante porque demuestra cómo combinar HTML, CSS y JavaScrip
 ```
 
 ### muestro la pantalla lista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68702,7 +68702,7 @@ Este diseño es importante porque permite una experiencia visual atractiva y fun
 ```
 
 ### plantilla de la lista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -68882,7 +68882,7 @@ Este enfoque es importante porque permite una mayor flexibilidad y dinamismo en 
 ```
 
 ### estilo de la lista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69076,7 +69076,7 @@ Esta estructura permite una interfaz interactiva y dinámica en dispositivos mó
 ```
 
 ### footer
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69547,7 +69547,7 @@ Este código debería proporcionarte una interfaz más funcional y intuitiva, pe
 Esta carpeta contiene ejercicios que te permitirán trabajar con la creación y manipulación de interfaces para aplicaciones multimedia en dispositivos móviles. Los archivos incluyen un archivo HTML interactivo, un script PHP para compilar el código, y varios componentes incrustados en PHP que generan partes específicas del sitio web. El foco está puesto en cómo integrar dinamismo usando JavaScript con datos provenientes de una API, así como en la estructura y estilo de páginas web adaptativas para móviles utilizando HTML5 y CSS3. Estos ejercicios te ayudarán a mejorar tus habilidades en el desarrollo web móvil, incluyendo manejo de eventos, fetch API, y diseño responsivo.
 
 ### compilado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69737,7 +69737,7 @@ Este código es importante porque combina HTML, CSS y JavaScript para crear una 
 ```
 
 ### compilador
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69757,7 +69757,7 @@ Después de ejecutar "index.php", el código utiliza `ob_get_clean()` para obten
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69883,7 +69883,7 @@ Esta carpeta contiene tres ejercicios que se centran en la creación de una apli
 Esta carpeta contiene ejercicios relacionados con la preparación de una aplicación web para su integración en dispositivos móviles, específicamente enfocándose en el proceso de compilación y estructura de archivos. Los estudiantes aprenderán a compilar scripts PHP en HTML estático y copiar carpetas recursivamente utilizando funciones como `copyRecursive()`. Este conjunto de ejercicios ayuda a desarrollar competencias clave en la gestión de directorios, manipulación de archivos y preparación del código para entornos móviles.
 
 ### compilador
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -69960,7 +69960,7 @@ echo "✅ Compilation complete\n";
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -70030,7 +70030,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/004-An%C3%A1lisis%20de%20tecnolog%C3%ADas%20para%20aplicaciones%20en%20dispositivos%20m%C3%B3viles/007-Ciclo%20de%20vida%20de%20una%20aplicaci%C3%B3n)
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-index.html`
 
@@ -70059,7 +70059,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### boton para cambiar de pantalla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-boton para cambiar de pantalla.html`
 
@@ -70103,7 +70103,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### volvemos a la pantalla inicial
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-volvemos a la pantalla inicial.html`
 
@@ -70151,7 +70151,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### pantalla de configuracion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-pantalla de configuracion.html`
 
@@ -70218,7 +70218,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### version escalable
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-version escalable.html`
 
@@ -70354,7 +70354,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### español
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-español.html`
 
@@ -70490,7 +70490,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### esbozo aplicacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-esbozo aplicacion.html`
 
@@ -70789,7 +70789,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 ```
 
 ### esbozo version 2
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-esbozo version 2.html`
 
@@ -71098,7 +71098,7 @@ Estas actividades están diseñadas para ayudar a los estudiantes a profundizar 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Programaci%C3%B3n%20multimedia%20y%20dispositivos%20m%C3%B3viles/004-An%C3%A1lisis%20de%20tecnolog%C3%ADas%20para%20aplicaciones%20en%20dispositivos%20m%C3%B3viles/008-Modificaci%C3%B3n%20de%20aplicaciones%20existentes)
 
 ### geolocalizacion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-geolocalizacion.html`
 
@@ -71139,7 +71139,7 @@ function getLocation() {
 ```
 
 ### mostrar mapa
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-mostrar mapa.html`
 
@@ -71276,7 +71276,7 @@ function getLocation() {
 ```
 
 ### marcadores
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-marcadores.html`
 
@@ -71489,7 +71489,7 @@ function getLocation() {
 ```
 
 ### camino de coche
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-camino de coche.html`
 
@@ -71753,7 +71753,7 @@ function getLocation() {
 ```
 
 ### ejemplo ruta
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-ejemplo ruta.html`
 
@@ -72093,7 +72093,7 @@ function getLocation() {
 ```
 
 ### poligonos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-poligonos.html`
 
@@ -72505,7 +72505,7 @@ out geom;
 ```
 
 ### guardar poligonos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-guardar poligonos.html`
 
@@ -72844,7 +72844,7 @@ async function sendPolygonsToPHP() {
 ```
 
 ### save_polygons
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `save_polygons.php`
 

@@ -1,6 +1,6 @@
 # Proyecto intermodular — Estado de ejercicios
 
-Generado: 2026-03-05 17:00
+Generado: 2026-04-18 21:00
 
 ---
 
@@ -116,8 +116,30 @@ Generado: 2026-03-05 17:00
 - 🔴 Añado enlaces sociales a la web
 - 🔴 documentos a bases de datos
 - 🔴 asistente de IA
+- 🟢 Portafolios Serena — 2026-03-09
+- 🟢 Drive como base de datos — 2026-03-09
+- 🟢 Consumo energetico — 2026-03-09
+- 🟢 Informatica grafica — 2026-03-09
+- 🟢 Motivando a Darío — 2026-03-09
+- 🔴 Fundamentos de Blender
+- 🔴 cliente de correo electronico
+- 🔴 wysiwyg
+- 🔴 minibot
+- 🔴 estadisticas apache
+- 🔴 cuestionario online inglés
+- 🔴 correos de cumpleaños
+- 🔴 proyecto agente whatsapp
+- 🔴 me gustan los pdf
+- 🔴 varias IA en un mismo proyecto
+- 🔴 formularios condicionales
+- 🔴 multiformularios condicionales
+- 🔴 Resumen de publicación en servidores
 
 
 ## Carpeta sin título
+
+_Sin subunidades_
+
+## New Folder
 
 _Sin subunidades_

@@ -88,7 +88,26 @@
   - [Añado enlaces sociales a la web](#anado-enlaces-sociales-a-la-web)
   - [documentos a bases de datos](#documentos-a-bases-de-datos)
   - [asistente de IA](#asistente-de-ia)
+  - [Portafolios Serena](#portafolios-serena)
+  - [Drive como base de datos](#drive-como-base-de-datos)
+  - [Consumo energetico](#consumo-energetico)
+  - [Informatica grafica](#informatica-grafica)
+  - [Motivando a Darío](#motivando-a-dario)
+  - [Fundamentos de Blender](#fundamentos-de-blender)
+  - [cliente de correo electronico](#cliente-de-correo-electronico)
+  - [wysiwyg](#wysiwyg)
+  - [minibot](#minibot)
+  - [estadisticas apache](#estadisticas-apache)
+  - [cuestionario online inglés](#cuestionario-online-ingles)
+  - [correos de cumpleaños](#correos-de-cumpleanos)
+  - [proyecto agente whatsapp](#proyecto-agente-whatsapp)
+  - [me gustan los pdf](#me-gustan-los-pdf)
+  - [varias IA en un mismo proyecto](#varias-ia-en-un-mismo-proyecto)
+  - [formularios condicionales](#formularios-condicionales)
+  - [multiformularios condicionales](#multiformularios-condicionales)
+  - [Resumen de publicación en servidores](#resumen-de-publicacion-en-servidores)
 - [Carpeta sin título](#carpeta-sin-titulo)
+- [New Folder](#new-folder)
 
 ---
 
@@ -515,7 +534,7 @@ En esta carpeta de ejercicios se aborda la planificación y valoración de recur
 Esta carpeta contiene un conjunto de ejercicios en Python utilizando la biblioteca Flask para generar contenido HTML y CSS dinámicamente. Los ejercicios comienzan con la creación básica de una página web usando Flask, pasando a crear un calendario completo y finalmente desarrollar el tablero de ajedrez mediante manipulaciones condicionales del CSS. A través de estos ejercicios, se aprenden conceptos clave como la estructura de rutas en Flask, construcción de cadenas HTML dinámicas con bucles y condicionales, y aplicación de estilos CSS para diseño gráfico. Estos ejercicios son especialmente útiles para aprender a integrar lógica back-end con presentación front-end utilizando un framework web como Flask.
 
 ### flask
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -529,7 +548,7 @@ Este fragmento de código es más bien un comentario que te indica cómo configu
 ```
 
 ### arrancar flask
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -557,7 +576,7 @@ def raiz():
 ```
 
 ### ahora arranco el servidor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -589,7 +608,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora imprimo html real
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -623,7 +642,7 @@ if __name__ == "__main__":
 ```
 
 ### html completo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -668,7 +687,7 @@ if __name__ == "__main__":
 ```
 
 ### ademas puedo poner css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -714,7 +733,7 @@ if __name__ == "__main__":
 ```
 
 ### contenido dinamico
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -762,7 +781,7 @@ if __name__ == "__main__":
 ```
 
 ### calendario con python y html
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -811,7 +830,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora hago un for de dias
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -871,7 +890,7 @@ if __name__ == "__main__":
 ```
 
 ### el poder del css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -936,7 +955,7 @@ if __name__ == "__main__":
 ```
 
 ### usamos grid
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1002,7 +1021,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora quiero todo el año
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1075,7 +1094,7 @@ if __name__ == "__main__":
 ```
 
 ### creo un tablero de ajedrez
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1107,7 +1126,7 @@ if __name__ == "__main__":
 ```
 
 ### celdas declaracion
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1156,7 +1175,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de css aunque poco legal
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1207,7 +1226,7 @@ if __name__ == "__main__":
 ```
 
 ### grid en el body
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1253,7 +1272,7 @@ if __name__ == "__main__":
 ```
 
 ### condicional
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1299,7 +1318,7 @@ if __name__ == "__main__":
 ```
 
 ### regla diferente en cada fila
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1351,7 +1370,7 @@ if __name__ == "__main__":
 ```
 
 ### comentarios en el ejercicio
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -1702,7 +1721,7 @@ Estas actividades buscan capacitar a los estudiantes no solo técnicamente sino 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/003-Informaci%C3%B3n%20relativa%20a%20las%20soluciones)
 
 ### producto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `producto.php`
 
@@ -2328,7 +2347,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `producto.xml`
 
@@ -2586,7 +2605,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `producto.xsd`
 
@@ -2933,7 +2952,7 @@ function render_article_image(array $img){
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/006-Partes%20del%20proyecto)
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index.php`
 
@@ -3056,7 +3075,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `producto.php`
 
@@ -3688,7 +3707,7 @@ function render_article_image(array $img){
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/007-Recursos%20materiales%20y%20humanos%20necesarios)
 
 ### contacto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `contacto.php`
 
@@ -4082,7 +4101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### index
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `index.php`
 
@@ -4207,7 +4226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### pagina
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `pagina.php`
 
@@ -4616,7 +4635,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `producto.php`
 
@@ -5436,7 +5455,7 @@ It seems you've been working through a series of steps involving Flask web appli
 Would you like to proceed further into these steps or address any specific issues?
 
 ### crear una aplicación de prueba en el servidor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5468,7 +5487,7 @@ if __name__ == "__main__":
 ```
 
 ### intentamos ejecutarlo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -5986,7 +6005,7 @@ josevicente@ubuntuserver:~$
 ```
 
 ### ahora si que ejecutamos de verdad
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6020,7 +6039,7 @@ Pero la IP no es la correcta (192.168.1.78)
 ```
 
 ### cambiamos la IP de escucha
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6050,7 +6069,7 @@ if __name__ == "__main__":
 ```
 
 ### ejecutamos de nuevo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6067,7 +6086,7 @@ En el servidor paro la versión 2, y lanzo la versión 7
 ```
 
 ### escuchamos en el puerto 80
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6099,7 +6118,7 @@ if __name__ == "__main__":
 ```
 
 ### escuchamos en el puerto 8080
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6127,7 +6146,7 @@ if __name__ == "__main__":
 ```
 
 ### escuchamos en el puerto 8080
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6157,7 +6176,7 @@ if __name__ == "__main__":
 ```
 
 ### creo un microblog
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6209,7 +6228,7 @@ if __name__ == "__main__":
 ```
 
 ### apunto al servidor
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6259,7 +6278,7 @@ if __name__ == "__main__":
 ```
 
 ### Archivo sin título
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6447,7 +6466,7 @@ if __name__ == "__main__":
 Este código crea un servidor web básico con Flask que muestra artículos desde una base de datos SQLite y presenta los resultados en HTML generado dinámicamente.
 
 ### esquema
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6651,7 +6670,7 @@ Este tipo de diagrama es útil para mostrar relaciones y dependencias en sistema
 ```
 
 ### crear tabla de articulos de blog
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6675,7 +6694,7 @@ CREATE TABLE "articulos" (
 ```
 
 ### insertar articulo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6702,7 +6721,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### insertar mas articulos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6744,7 +6763,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### quiero hacer un select
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6761,7 +6780,7 @@ SELECT * FROM articulos;
 ```
 
 ### conexion con sqlite
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6798,7 +6817,7 @@ print(filas)
 ```
 
 ### algo mas fino
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6832,7 +6851,7 @@ for fila in filas:
 ```
 
 ### ahora quiero diccionario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6861,7 +6880,7 @@ for fila in filas:
 ```
 
 ### controlo el diccionario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6894,7 +6913,7 @@ for fila in filas:
 ```
 
 ### extraigo la informacion limpia
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6927,7 +6946,7 @@ for fila in filas:
 ```
 
 ### ahora traigo flask
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -6974,7 +6993,7 @@ if __name__ == "__main__":
 ```
 
 ### html y css minimo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7038,7 +7057,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora css minimo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7109,7 +7128,7 @@ if __name__ == "__main__":
 ```
 
 ### imagenes en static
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7182,7 +7201,7 @@ if __name__ == "__main__":
 ```
 
 ### nuevas entradas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7220,7 +7239,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### imagenes en static
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7291,7 +7310,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de grid
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7364,7 +7383,7 @@ if __name__ == "__main__":
 ```
 
 ### texto alternativo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7437,7 +7456,7 @@ if __name__ == "__main__":
 ```
 
 ### adapto ip
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -7775,7 +7794,7 @@ By following these steps, you will have a Flask application that serves multiple
 Let me know if you need further assistance or specific configurations!
 
 ### Esquema full stack
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8379,7 +8398,7 @@ The SVG is a well-structured visual representation of skill domains. By enhancin
 ```
 
 ### flask hola mundo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8410,7 +8429,7 @@ if __name__ == "__main__":
 ```
 
 ### html más válido
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8450,7 +8469,7 @@ if __name__ == "__main__":
 ```
 
 ### simulo una tienda online
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8553,7 +8572,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8662,7 +8681,7 @@ if __name__ == "__main__":
 ```
 
 ### traigo sqlite
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8778,7 +8797,7 @@ if __name__ == "__main__":
 ```
 
 ### separo en tres bloques
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8858,7 +8877,7 @@ if __name__ == "__main__":
 ```
 
 ### 20 productos mas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8895,7 +8914,7 @@ INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES
 ```
 
 ### flask multipagina
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8921,7 +8940,7 @@ if __name__ == "__main__":
 ```
 
 ### muchas rutas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8959,7 +8978,7 @@ if __name__ == "__main__":
 ```
 
 ### pagina mas elaborada
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -8999,7 +9018,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora con estilo y menu
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9052,7 +9071,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora con css
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9107,7 +9126,7 @@ if __name__ == "__main__":
 ```
 
 ### plantillas flask
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9135,7 +9154,7 @@ if __name__ == "__main__":
 ```
 
 ### varias paginas y varias plantillas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9171,7 +9190,7 @@ if __name__ == "__main__":
 ```
 
 ### blog
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9598,7 +9617,7 @@ Y podrás acceder a la aplicación a través de `http://127.0.0.1:5000/` o desde
 ¡Espero que esto sea lo que necesitas!
 
 ### creacion de tabla
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9626,7 +9645,7 @@ CREATE TABLE "productos" (
 ```
 
 ### insercion de 20 productos
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9663,7 +9682,7 @@ INSERT INTO productos (nombre, descripcion, imagen, precio) VALUES
 ```
 
 ### controlar de leer
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9696,7 +9715,7 @@ basededatos.close()
 ```
 
 ### maqueta visual de tienda online
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -9759,7 +9778,7 @@ Por último, en la parte inferior de la página se encuentra el `footer`, que co
 ```
 
 ### estilo de la tienda
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10029,7 +10048,7 @@ El código es importante porque proporciona una estructura clara y estética par
 ```
 
 ### generar web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10194,7 +10213,7 @@ if __name__ == '__main__':
 ```
 
 ### revisamos url de las iagenes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10359,7 +10378,7 @@ if __name__ == '__main__':
 ```
 
 ### comentarios en el software
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -10573,7 +10592,7 @@ if __name__ == '__main__':                                      # Si este archiv
 ```
 
 ### escuchar en todas las interfaces
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11012,7 +11031,7 @@ Al ejecutar este código, tu servidor Flask será accesible desde cualquier dire
 Esta carpeta contiene un conjunto de ejercicios diseñados para ayudarte a prepararte para el examen intermodular, enfocándose en la integración entre bases de datos MySQL y aplicaciones web Flask. Los problemas trabajan con la extracción y manipulación de datos desde una base de datos y su visualización en formato HTML vía una aplicación web simple. A lo largo de los ejercicios, practicarás habilidades como consultas SQL básicas, manejo de conexiones a bases de datos, uso del framework Flask para crear rutas web, y construcción básica de páginas web con HTML.
 
 ### seleccionar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11046,7 +11065,7 @@ for linea in lineas:
 ```
 
 ### importamos flask
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11095,7 +11114,7 @@ if __name__ == "__main__":
 ```
 
 ### que lo saque en la web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11135,7 +11154,7 @@ if __name__ == "__main__":
 ```
 
 ### creamos un articulo
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11186,7 +11205,7 @@ if __name__ == "__main__":
 ```
 
 ### estilo mas consistente
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11335,7 +11354,7 @@ Estas actividades buscan cubrir desde el manejo básico hasta aspectos más avan
 En esta carpeta, encontrarás una serie de ejercicios diseñados para repasar y consolidar tus conocimientos en SQL, centrándote principalmente en el manejo de bases de datos relacionales. Los problemas abordan la creación de tablas con relaciones entre ellas, inserción de datos, definición de claves foráneas, selección de datos mediante consultas simples y avanzadas, y gestión de usuarios y privilegios en MySQL. A través de estos ejercicios, aprenderás a estructurar correctamente una base de datos, realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar), y trabajar con vistas para simplificar la consulta y visualización de datos complejos.
 
 ### crear tablas
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11372,7 +11391,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11402,7 +11421,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11423,7 +11442,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11440,7 +11459,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11457,7 +11476,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11488,7 +11507,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11622,7 +11641,7 @@ Para mejorar la robustez del scraper:
 - También podrías considerar usar una librería más especializada como Selenium que permite controlar un navegador web de forma programática, lo cual podría hacer el comportamiento del scraper aún más similar al humano.
 
 ### peticiones
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11637,7 +11656,7 @@ import requests
 ```
 
 ### pido mi propia web
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11665,7 +11684,7 @@ print(html)
 ```
 
 ### guardar mis propias imagenes
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11765,7 +11784,7 @@ print("\nTerminado.")
 ```
 
 ### scrapeo google
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -11863,7 +11882,7 @@ print("\nTerminado.")
 ```
 
 ### probamos con deepseek
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12096,7 +12115,7 @@ if __name__ == "__main__":
 ```
 
 ### parametro personalizado
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 #### Explicación
 
@@ -12422,7 +12441,7 @@ Si necesitas usar las imágenes en un proyecto público o comercial, es mejor bu
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/007-Ejercicios%20segundo%20trimestre/006-creador%20de%20muchos%20articulso%20de%20blog)
 
 ### generar
-<small>Creado: 2026-01-19 16:28</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `generar.py`
 
@@ -12830,7 +12849,7 @@ if __name__ == "__main__":
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/007-Ejercicios%20segundo%20trimestre/008-Multimedia)
 
 ### audio
-<small>Creado: 2026-01-26 16:10</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `001-audio.html`
 
@@ -12846,7 +12865,7 @@ if __name__ == "__main__":
 ```
 
 ### le pongo los controles
-<small>Creado: 2026-01-26 16:11</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `002-le pongo los controles.html`
 
@@ -12862,7 +12881,7 @@ if __name__ == "__main__":
 ```
 
 ### varias ondas de audio
-<small>Creado: 2026-01-26 16:12</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `003-varias ondas de audio.html`
 
@@ -12881,7 +12900,7 @@ if __name__ == "__main__":
 ```
 
 ### esquema
-<small>Creado: 2026-01-26 16:23</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `004-esquema.html`
 
@@ -12921,7 +12940,7 @@ if __name__ == "__main__":
 ```
 
 ### fuentes
-<small>Creado: 2026-01-26 16:33</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `005-fuentes.html`
 
@@ -12977,7 +12996,7 @@ if __name__ == "__main__":
 ```
 
 ### imagen heroe
-<small>Creado: 2026-01-26 16:37</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `006-imagen heroe.html`
 
@@ -13040,7 +13059,7 @@ if __name__ == "__main__":
 ```
 
 ### fondo en degradado
-<small>Creado: 2026-01-26 16:41</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `007-fondo en degradado.html`
 
@@ -13110,7 +13129,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### contenido del heroe
-<small>Creado: 2026-01-26 16:46</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `008-contenido del heroe.html`
 
@@ -13198,7 +13217,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### textura de fondo
-<small>Creado: 2026-01-26 16:52</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `009-textura de fondo.html`
 
@@ -13286,7 +13305,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### discos
-<small>Creado: 2026-01-26 17:00</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `010-discos.html`
 
@@ -13432,7 +13451,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### retocado IA
-<small>Creado: 2026-01-26 17:03</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `011-retocado IA.html`
 
@@ -13608,7 +13627,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### complementamos poniendo las canciones
-<small>Creado: 2026-01-26 17:08</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `012-complementamos poniendo las canciones.html`
 
@@ -13784,7 +13803,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### style
-<small>Creado: 2026-01-26 17:07</small>
+<small>Creado: 2026-04-16 17:39</small>
 
 `style.css`
 
@@ -14365,6 +14384,7837 @@ Estas actividades están diseñadas para complementar los conocimientos ya adqui
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/008-asistente%20de%20IA)
 
 
+<a id="portafolios-serena"></a>
+## Portafolios Serena
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/009-Portafolios%20Serena)
+
+### llamada con PHP
+<small>Creado: 2026-04-16 17:39</small>
+
+`002-llamada con PHP.php`
+
+```
+<?php
+$prompt = 'Hazme una web sencilla. Solo quiero el código, nada de explicación. Importante: Sólo código fuente. Nada de explicación. Solo código sin fences.';
+
+$url = 'http://localhost:11434/api/generate';
+
+$data = [
+    'model' => 'qwen2.5-coder:7b',
+    'prompt' => $prompt,
+    'stream' => false
+];
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    die('Error cURL: ' . curl_error($ch));
+}
+
+curl_close($ch);
+
+$resultado = json_decode($response, true);
+
+if (isset($resultado['response'])) {
+    echo $resultado['response'];
+} else {
+    echo "Respuesta no válida:\n";
+    print_r($resultado);
+}
+?>
+```
+
+### afinamos el prompt
+<small>Creado: 2026-04-16 17:39</small>
+
+`003-afinamos el prompt.php`
+
+```
+<?php
+$prompt = '
+	Hazme una web sencilla. 
+	Solo quiero el código, nada de explicación. 
+	Importante: Sólo código fuente. 
+	Nada de explicación. 
+	Solo código sin fences.
+	Quiero que el color corporativo sea el verde.';
+
+$url = 'http://localhost:11434/api/generate';
+
+$data = [
+    'model' => 'qwen2.5-coder:7b',
+    'prompt' => $prompt,
+    'stream' => false
+];
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    die('Error cURL: ' . curl_error($ch));
+}
+
+curl_close($ch);
+
+$resultado = json_decode($response, true);
+
+if (isset($resultado['response'])) {
+    echo $resultado['response'];
+} else {
+    echo "Respuesta no válida:\n";
+    print_r($resultado);
+}
+?>
+```
+
+### usuario elige
+<small>Creado: 2026-04-16 17:39</small>
+
+`004-usuario elige.php`
+
+```
+<?php
+$system = '
+	Hazme una web sencilla. 
+	Solo quiero el código, nada de explicación. 
+	Importante: Sólo código fuente. 
+	Nada de explicación. 
+	Solo código sin fences.
+	Quiero que el color corporativo sea el verde.
+	
+	';
+
+$usuario = $_GET['peticion'];
+
+$url = 'http://localhost:11434/api/generate';
+
+$data = [
+    'model' => 'qwen2.5-coder:7b',
+    'prompt' => $system.$usuario,
+    'stream' => false
+];
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    die('Error cURL: ' . curl_error($ch));
+}
+
+curl_close($ch);
+
+$resultado = json_decode($response, true);
+
+if (isset($resultado['response'])) {
+    echo $resultado['response'];
+} else {
+    echo "Respuesta no válida:\n";
+    print_r($resultado);
+}
+?>
+```
+
+### interfaz más bonita
+<small>Creado: 2026-04-16 17:39</small>
+
+`005-interfaz más bonita.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<nav>
+			<form action="?" method="GET">
+				<p>Indica cómo quieres tu web</p>
+				<input type="text" name="peticion">
+			</form>
+		</nav>
+		<main>
+			<?php
+				$system = '
+					Hazme una web sencilla. 
+					Solo quiero el código, nada de explicación. 
+					Importante: Sólo código fuente. 
+					Nada de explicación. 
+					Solo código sin fences.
+					
+					';
+
+				$usuario = $_GET['peticion'];
+
+				$url = 'http://localhost:11434/api/generate';
+
+				$data = [
+					 'model' => 'qwen2.5-coder:7b',
+					 'prompt' => $system.$usuario,
+					 'stream' => false
+				];
+
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POST, true);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+				$response = curl_exec($ch);
+
+				if (curl_errno($ch)) {
+					 die('Error cURL: ' . curl_error($ch));
+				}
+
+				curl_close($ch);
+
+				$resultado = json_decode($response, true);
+
+				if (isset($resultado['response'])) {
+					 echo $resultado['response'];
+				} else {
+					 echo "Respuesta no válida:\n";
+					 print_r($resultado);
+				}
+				?>
+		</main>
+	</body>
+</html>
+```
+
+### formulario desplazable
+<small>Creado: 2026-04-16 17:39</small>
+
+`006-formulario desplazable.php`
+
+```
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Generador web con Ollama</title>
+	<style>
+		*{box-sizing:border-box;}
+		html,body{
+			margin:0;
+			padding:0;
+			width:100%;
+			height:100%;
+			font-family:Arial,sans-serif;
+			overflow:hidden;
+			background:#0f172a;
+		}
+		body{
+			position:relative;
+		}
+		#fondo{
+			position:absolute;
+			inset:0;
+			background:#0f172a;
+		}
+		#preview{
+			width:100%;
+			height:100%;
+			border:0;
+			display:block;
+			background:white;
+		}
+		#panel{
+			position:fixed;
+			top:30px;
+			left:30px;
+			width:420px;
+			max-width:calc(100vw - 40px);
+			background:rgba(255,255,255,0.16);
+			backdrop-filter:blur(14px);
+			-webkit-backdrop-filter:blur(14px);
+			border:1px solid rgba(255,255,255,0.20);
+			border-radius:16px;
+			box-shadow:0 10px 30px rgba(0,0,0,0.35);
+			z-index:1000;
+			overflow:hidden;
+		}
+		#barra{
+			padding:12px 16px;
+			cursor:move;
+			background:rgba(255,255,255,0.10);
+			border-bottom:1px solid rgba(255,255,255,0.12);
+			color:white;
+			font-weight:bold;
+			user-select:none;
+		}
+		#contenidoPanel{
+			padding:16px;
+		}
+		#contenidoPanel p{
+			margin:0 0 10px 0;
+			color:white;
+		}
+		#peticion{
+			width:100%;
+			min-height:120px;
+			resize:vertical;
+			padding:12px;
+			border-radius:10px;
+			border:1px solid rgba(255,255,255,0.2);
+			background:rgba(255,255,255,0.18);
+			color:white;
+			outline:none;
+			font-size:14px;
+		}
+		#peticion::placeholder{
+			color:rgba(255,255,255,0.75);
+		}
+		#estado{
+			margin-top:10px;
+			font-size:12px;
+			color:rgba(255,255,255,0.95);
+			min-height:18px;
+		}
+	</style>
+</head>
+<body>
+<?php
+	function generar_html($peticion) {
+		$system = '
+Hazme una web sencilla.
+Solo quiero el código, nada de explicación.
+Importante: Sólo código fuente.
+Nada de explicación.
+Solo código sin fences.
+Devuelve HTML completo, con sus etiquetas html, head y body.
+';
+
+		$peticion = trim($peticion);
+
+		if ($peticion === '') {
+			return '<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vista previa</title>
+<style>
+body{
+	margin:0;
+	font-family:Arial,sans-serif;
+	background:#111827;
+	color:white;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	min-height:100vh;
+	padding:40px;
+	text-align:center;
+}
+main{
+	max-width:700px;
+}
+h1{
+	margin-top:0;
+}
+</style>
+</head>
+<body>
+	<main>
+		<h1>Escribe una petición</h1>
+		<p>La web generada aparecerá aquí automáticamente.</p>
+	</main>
+</body>
+</html>';
+		}
+
+		$url = 'http://localhost:11434/api/generate';
+
+		$data = [
+			'model' => 'qwen2.5-coder:7b',
+			'prompt' => $system . "\n" . $peticion,
+			'stream' => false
+		];
+
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+		curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+
+		$response = curl_exec($ch);
+
+		if (curl_errno($ch)) {
+			$error = curl_error($ch);
+			curl_close($ch);
+
+			return '<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+<style>
+body{font-family:Arial,sans-serif;background:#1f2937;color:white;padding:40px;}
+pre{white-space:pre-wrap;background:#111827;padding:15px;border-radius:8px;}
+</style>
+</head>
+<body>
+<h1>Error cURL</h1>
+<pre>' . htmlspecialchars($error) . '</pre>
+</body>
+</html>';
+		}
+
+		curl_close($ch);
+
+		$resultado = json_decode($response, true);
+
+		if (!isset($resultado['response'])) {
+			return '<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Respuesta no válida</title>
+<style>
+body{font-family:Arial,sans-serif;background:#1f2937;color:white;padding:40px;}
+pre{white-space:pre-wrap;background:#111827;padding:15px;border-radius:8px;}
+</style>
+</head>
+<body>
+<h1>Respuesta no válida</h1>
+<pre>' . htmlspecialchars(print_r($resultado, true)) . '</pre>
+</body>
+</html>';
+		}
+
+		$html = trim($resultado['response']);
+
+		$html = preg_replace('/^```html\s*/i', '', $html);
+		$html = preg_replace('/^```\s*/', '', $html);
+		$html = preg_replace('/\s*```$/', '', $html);
+		$html = trim($html);
+
+		if ($html === '') {
+			return '<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Vacío</title>
+</head>
+<body>
+<p>El modelo no devolvió contenido.</p>
+</body>
+</html>';
+		}
+
+		return $html;
+	}
+
+	$peticion = $_GET['peticion'] ?? '';
+
+	if (
+		isset($_GET['ajax']) &&
+		$_GET['ajax'] == '1'
+	) {
+		header('Content-Type: text/plain; charset=utf-8');
+		echo generar_html($peticion);
+		exit;
+	}
+
+	$html_inicial = generar_html($peticion);
+?>
+	<div id="fondo">
+		<iframe id="preview"></iframe>
+	</div>
+
+	<div id="panel">
+		<div id="barra">Generador web</div>
+		<div id="contenidoPanel">
+			<form onsubmit="return false;">
+				<p>Indica cómo quieres tu web</p>
+				<textarea id="peticion" name="peticion" placeholder="Por ejemplo: una landing sencilla con botón de contacto"><?= htmlspecialchars($peticion) ?></textarea>
+				<div id="estado"></div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		const preview = document.getElementById("preview");
+		const peticion = document.getElementById("peticion");
+		const estado = document.getElementById("estado");
+		const panel = document.getElementById("panel");
+		const barra = document.getElementById("barra");
+
+		function actualizarPreview(html){
+			const doc = preview.contentDocument || preview.contentWindow.document;
+			doc.open();
+			doc.write(html);
+			doc.close();
+		}
+
+		actualizarPreview(<?= json_encode($html_inicial, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>);
+
+		let temporizador = null;
+		let controlador = null;
+
+		async function pedirActualizacion(){
+			const texto = peticion.value.trim();
+
+			if(controlador){
+				controlador.abort();
+			}
+			controlador = new AbortController();
+
+			estado.textContent = texto === "" ? "" : "Generando...";
+
+			try{
+				const respuesta = await fetch("?" + new URLSearchParams({
+					ajax: "1",
+					peticion: texto
+				}).toString(), {
+					method: "GET",
+					signal: controlador.signal
+				});
+
+				const html = await respuesta.text();
+				actualizarPreview(html);
+				estado.textContent = texto === "" ? "" : "Actualizado";
+			}catch(error){
+				if(error.name !== "AbortError"){
+					estado.textContent = "Error al generar";
+				}
+			}
+		}
+
+		peticion.addEventListener("input", function(){
+			clearTimeout(temporizador);
+			temporizador = setTimeout(pedirActualizacion, 700);
+		});
+
+		let arrastrando = false;
+		let offsetX = 0;
+		let offsetY = 0;
+
+		barra.addEventListener("mousedown", function(e){
+			arrastrando = true;
+			offsetX = e.clientX - panel.offsetLeft;
+			offsetY = e.clientY - panel.offsetTop;
+		});
+
+		document.addEventListener("mousemove", function(e){
+			if(!arrastrando) return;
+
+			let x = e.clientX - offsetX;
+			let y = e.clientY - offsetY;
+
+			const maxX = window.innerWidth - panel.offsetWidth;
+			const maxY = window.innerHeight - panel.offsetHeight;
+
+			if(x < 0) x = 0;
+			if(y < 0) y = 0;
+			if(x > maxX) x = maxX;
+			if(y > maxY) y = maxY;
+
+			panel.style.left = x + "px";
+			panel.style.top = y + "px";
+		});
+
+		document.addEventListener("mouseup", function(){
+			arrastrando = false;
+		});
+	</script>
+</body>
+</html>
+```
+
+
+<a id="drive-como-base-de-datos"></a>
+## Drive como base de datos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/010-Drive%20como%20base%20de%20datos)
+
+### leer csv
+<small>Creado: 2026-04-16 17:39</small>
+
+`001-leer csv.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+if (($handle = fopen($url, "r")) !== false) {
+
+    while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+        print_r($data);
+        echo "<br>";
+    }
+
+    fclose($handle);
+}
+?>
+```
+
+### array con columnas
+<small>Creado: 2026-04-16 17:39</small>
+
+`002-array con columnas.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$rows = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+
+    while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+        $rows[] = $data;
+    }
+
+    fclose($handle);
+}
+
+print_r($rows);
+?>
+```
+
+### array nombrado
+<small>Creado: 2026-04-16 17:39</small>
+
+`003-array nombrado.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+
+    // Leer primera fila como nombres de columnas
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    // Leer resto de filas
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        $datos[] = array_combine($cabeceras, $fila);
+    }
+
+    fclose($handle);
+}
+
+// Mostrar resultado
+echo "<pre>";
+print_r($datos);
+echo "</pre>";
+
+?>
+```
+
+### ahora formateo una tienda online
+<small>Creado: 2026-04-16 17:39</small>
+
+`004-ahora formateo una tienda online.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+
+    // Leer primera fila como nombres de columnas
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    // Leer resto de filas
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        $datos[] = array_combine($cabeceras, $fila);
+    }
+
+    fclose($handle);
+}
+
+
+?>
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<header>
+			<h1>Tienda de artículos deportivos</h1>
+		</header>
+		<main>
+			<?php
+				foreach($datos as $articulo){
+					echo '
+					  <article>
+						   <h3>'.$articulo['nombre'].'</h3>
+						   <p>'.$articulo['descripcion'].'</p>
+						   <p><strong>'.$articulo['precio'].' €</strong></p>
+					  </article>
+				 ';
+				}
+			?>
+		</main>
+		<footer>
+			(c) 2026 Jose Vicente Carratala
+		</footer>
+	</body>
+</html>
+```
+
+### con css
+<small>Creado: 2026-04-16 17:39</small>
+
+`005-con css.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+
+    // Leer primera fila como nombres de columnas
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    // Leer resto de filas
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        $datos[] = array_combine($cabeceras, $fila);
+    }
+
+    fclose($handle);
+}
+
+
+?>
+<!doctype html>
+<html>
+	<head>
+		<style>
+			*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+:root{
+	--fondo:#f5f7fa;
+	--superficie:#ffffff;
+	--borde:#d9e1e8;
+	--texto:#1f2933;
+	--texto-secundario:#52606d;
+	--primario:#2d6cdf;
+	--primario-hover:#1f5ac7;
+	--sombra:0 8px 24px rgba(15, 23, 42, 0.08);
+	--radio:12px;
+	--ancho:1200px;
+}
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	background:var(--fondo);
+	color:var(--texto);
+	line-height:1.5;
+}
+
+header{
+	background:var(--superficie);
+	border-bottom:1px solid var(--borde);
+	box-shadow:0 2px 10px rgba(0,0,0,0.03);
+}
+
+header h1{
+	max-width:var(--ancho);
+	margin:auto;
+	padding:30px 20px;
+	font-size:32px;
+	font-weight:700;
+	color:var(--texto);
+}
+
+main{
+	max-width:var(--ancho);
+	margin:40px auto;
+	padding:0 20px;
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+	gap:24px;
+}
+
+article{
+	background:var(--superficie);
+	border:1px solid var(--borde);
+	border-radius:var(--radio);
+	padding:24px;
+	box-shadow:var(--sombra);
+	transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover{
+	transform:translateY(-4px);
+	box-shadow:0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+article h3{
+	font-size:22px;
+	margin-bottom:12px;
+	color:var(--texto);
+}
+
+article p{
+	font-size:15px;
+	color:var(--texto-secundario);
+	margin-bottom:10px;
+}
+
+article p strong{
+	display:inline-block;
+	margin-top:8px;
+	font-size:22px;
+	color:var(--primario);
+}
+
+footer{
+	margin-top:40px;
+	padding:30px 20px;
+	text-align:center;
+	color:var(--texto-secundario);
+	font-size:14px;
+	border-top:1px solid var(--borde);
+	background:var(--superficie);
+}
+
+@media (max-width:768px){
+	header h1{
+		font-size:26px;
+		padding:24px 16px;
+	}
+
+	main{
+		margin:24px auto;
+		padding:0 16px;
+		gap:16px;
+	}
+
+	article{
+		padding:18px;
+	}
+}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Tienda de artículos deportivos</h1>
+		</header>
+		<main>
+			<?php
+				foreach($datos as $articulo){
+					echo '
+						<article>
+							<h3>'.$articulo['nombre'].'</h3>
+							<p>'.$articulo['descripcion'].'</p>
+							<p><strong>'.$articulo['precio'].' €</strong></p>
+						</article>
+					';
+				}
+			?>
+		</main>
+		<footer>
+			(c) 2026 Jose Vicente Carratala
+		</footer>
+	</body>
+</html>
+```
+
+### tienda javascript
+<small>Creado: 2026-04-16 17:39</small>
+
+`006-tienda javascript.php`
+
+```
+<?php
+
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        $datos[] = array_combine($cabeceras, $fila);
+    }
+
+    fclose($handle);
+}
+
+?>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tienda de artículos deportivos</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+
+		:root{
+			--fondo:#f5f7fa;
+			--superficie:#ffffff;
+			--borde:#d9e1e8;
+			--texto:#1f2933;
+			--texto-secundario:#52606d;
+			--primario:#2d6cdf;
+			--primario-hover:#1f5ac7;
+			--exito:#1f9d55;
+			--peligro:#d64545;
+			--sombra:0 8px 24px rgba(15, 23, 42, 0.08);
+			--radio:12px;
+			--ancho:1200px;
+		}
+
+		body{
+			font-family:Arial, Helvetica, sans-serif;
+			background:var(--fondo);
+			color:var(--texto);
+			line-height:1.5;
+		}
+
+		header{
+			background:var(--superficie);
+			border-bottom:1px solid var(--borde);
+			box-shadow:0 2px 10px rgba(0,0,0,0.03);
+			position:sticky;
+			top:0;
+			z-index:20;
+		}
+
+		.header-contenido{
+			max-width:var(--ancho);
+			margin:auto;
+			padding:20px;
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:20px;
+		}
+
+		header h1{
+			font-size:32px;
+			font-weight:700;
+			color:var(--texto);
+		}
+
+		.boton-carrito{
+			border:none;
+			background:var(--primario);
+			color:white;
+			padding:12px 18px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-carrito:hover{
+			background:var(--primario-hover);
+		}
+
+		main{
+			max-width:var(--ancho);
+			margin:40px auto;
+			padding:0 20px;
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+			gap:24px;
+		}
+
+		article{
+			background:var(--superficie);
+			border:1px solid var(--borde);
+			border-radius:var(--radio);
+			padding:24px;
+			box-shadow:var(--sombra);
+			transition:transform 0.2s ease, box-shadow 0.2s ease;
+			display:flex;
+			flex-direction:column;
+		}
+
+		article:hover{
+			transform:translateY(-4px);
+			box-shadow:0 12px 30px rgba(15, 23, 42, 0.12);
+		}
+
+		article h3{
+			font-size:22px;
+			margin-bottom:12px;
+			color:var(--texto);
+		}
+
+		article p{
+			font-size:15px;
+			color:var(--texto-secundario);
+			margin-bottom:10px;
+		}
+
+		.precio{
+			margin-top:auto;
+			font-size:26px;
+			font-weight:700;
+			color:var(--primario);
+			margin-bottom:18px;
+		}
+
+		.boton-anadir{
+			border:none;
+			background:var(--texto);
+			color:white;
+			padding:12px 16px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-anadir:hover{
+			background:#101820;
+		}
+
+		aside#panelCarrito{
+			position:fixed;
+			top:0;
+			right:-420px;
+			width:420px;
+			max-width:100%;
+			height:100vh;
+			background:var(--superficie);
+			box-shadow:-10px 0 30px rgba(0,0,0,0.12);
+			border-left:1px solid var(--borde);
+			transition:right 0.3s ease;
+			z-index:50;
+			display:flex;
+			flex-direction:column;
+		}
+
+		aside#panelCarrito.abierto{
+			right:0;
+		}
+
+		.carrito-cabecera{
+			padding:22px 20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.carrito-cabecera h2{
+			font-size:24px;
+		}
+
+		.cerrar{
+			border:none;
+			background:transparent;
+			font-size:28px;
+			cursor:pointer;
+			color:var(--texto-secundario);
+		}
+
+		.carrito-contenido{
+			padding:20px;
+			overflow:auto;
+			flex:1;
+		}
+
+		.linea-carrito{
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:12px;
+			background:#fafbfd;
+		}
+
+		.linea-carrito h4{
+			font-size:17px;
+			margin-bottom:6px;
+		}
+
+		.linea-carrito p{
+			font-size:14px;
+			color:var(--texto-secundario);
+			margin-bottom:4px;
+		}
+
+		.controles-linea{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+			margin-top:10px;
+		}
+
+		.cantidad{
+			display:flex;
+			align-items:center;
+			gap:8px;
+		}
+
+		.cantidad button{
+			width:32px;
+			height:32px;
+			border:none;
+			border-radius:8px;
+			background:#e9eef5;
+			cursor:pointer;
+			font-size:18px;
+		}
+
+		.borrar{
+			border:none;
+			background:var(--peligro);
+			color:white;
+			padding:8px 10px;
+			border-radius:8px;
+			cursor:pointer;
+			font-size:13px;
+		}
+
+		.carrito-pie{
+			border-top:1px solid var(--borde);
+			padding:20px;
+			background:#fbfcfe;
+		}
+
+		.total{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			font-size:20px;
+			font-weight:700;
+			margin-bottom:16px;
+		}
+
+		.acciones-carrito{
+			display:flex;
+			gap:10px;
+		}
+
+		.acciones-carrito button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		#vaciarCarrito{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		#comprar{
+			background:var(--exito);
+			color:white;
+		}
+
+		#overlay,
+		#checkoutOverlay{
+			position:fixed;
+			inset:0;
+			background:rgba(15, 23, 42, 0.45);
+			opacity:0;
+			pointer-events:none;
+			transition:opacity 0.25s ease;
+			z-index:40;
+		}
+
+		#overlay.visible,
+		#checkoutOverlay.visible{
+			opacity:1;
+			pointer-events:auto;
+		}
+
+		#checkoutModal{
+			position:fixed;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%) scale(0.96);
+			width:560px;
+			max-width:calc(100% - 30px);
+			background:var(--superficie);
+			border-radius:16px;
+			box-shadow:0 20px 50px rgba(0,0,0,0.2);
+			z-index:60;
+			opacity:0;
+			pointer-events:none;
+			transition:all 0.25s ease;
+		}
+
+		#checkoutModal.visible{
+			opacity:1;
+			pointer-events:auto;
+			transform:translate(-50%, -50%) scale(1);
+		}
+
+		.modal-cabecera{
+			padding:20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.modal-cuerpo{
+			padding:20px;
+		}
+
+		form{
+			display:grid;
+			gap:14px;
+		}
+
+		label{
+			font-weight:700;
+			font-size:14px;
+			display:block;
+			margin-bottom:6px;
+		}
+
+		input, textarea{
+			width:100%;
+			padding:12px 14px;
+			border:1px solid var(--borde);
+			border-radius:10px;
+			font-size:15px;
+			outline:none;
+			background:white;
+		}
+
+		textarea{
+			min-height:90px;
+			resize:vertical;
+		}
+
+		.resumen-pedido{
+			background:#f8fafc;
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:8px;
+		}
+
+		.resumen-pedido h3{
+			font-size:18px;
+			margin-bottom:10px;
+		}
+
+		.resumen-pedido ul{
+			padding-left:18px;
+			color:var(--texto-secundario);
+		}
+
+		.resumen-pedido li{
+			margin-bottom:4px;
+		}
+
+		.botones-formulario{
+			display:flex;
+			gap:10px;
+			margin-top:8px;
+		}
+
+		.botones-formulario button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		.cancelar{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		.enviar{
+			background:var(--primario);
+			color:white;
+		}
+
+		.mensaje{
+			margin-top:14px;
+			padding:12px 14px;
+			border-radius:10px;
+			background:#edf7ed;
+			color:#1b5e20;
+			display:none;
+		}
+
+		.vacio{
+			color:var(--texto-secundario);
+			text-align:center;
+			padding:40px 10px;
+		}
+
+		footer{
+			margin-top:40px;
+			padding:30px 20px;
+			text-align:center;
+			color:var(--texto-secundario);
+			font-size:14px;
+			border-top:1px solid var(--borde);
+			background:var(--superficie);
+		}
+
+		@media (max-width:768px){
+			.header-contenido{
+				padding:16px;
+			}
+
+			header h1{
+				font-size:24px;
+			}
+
+			main{
+				margin:24px auto;
+				padding:0 16px;
+				gap:16px;
+			}
+
+			article{
+				padding:18px;
+			}
+
+			aside#panelCarrito{
+				width:100%;
+			}
+
+			.botones-formulario,
+			.acciones-carrito{
+				flex-direction:column;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-contenido">
+			<h1>Tienda de artículos deportivos</h1>
+			<button class="boton-carrito" id="abrirCarrito">Carrito (<span id="contadorCarrito">0</span>)</button>
+		</div>
+	</header>
+
+	<main>
+		<?php foreach($datos as $articulo): ?>
+			<article>
+				<h3><?php echo htmlspecialchars($articulo['nombre']); ?></h3>
+				<p><?php echo htmlspecialchars($articulo['descripcion']); ?></p>
+				<p class="precio"><?php echo number_format((float)$articulo['precio'], 2, ',', '.'); ?> €</p>
+				<button
+					class="boton-anadir"
+					data-nombre="<?php echo htmlspecialchars($articulo['nombre'], ENT_QUOTES); ?>"
+					data-descripcion="<?php echo htmlspecialchars($articulo['descripcion'], ENT_QUOTES); ?>"
+					data-precio="<?php echo (float)$articulo['precio']; ?>"
+				>
+					Añadir al carrito
+				</button>
+			</article>
+		<?php endforeach; ?>
+	</main>
+
+	<aside id="panelCarrito">
+		<div class="carrito-cabecera">
+			<h2>Carrito</h2>
+			<button class="cerrar" id="cerrarCarrito">&times;</button>
+		</div>
+
+		<div class="carrito-contenido" id="lineasCarrito"></div>
+
+		<div class="carrito-pie">
+			<div class="total">
+				<span>Total</span>
+				<span id="totalCarrito">0,00 €</span>
+			</div>
+			<div class="acciones-carrito">
+				<button id="vaciarCarrito">Vaciar</button>
+				<button id="comprar">Comprar</button>
+			</div>
+		</div>
+	</aside>
+
+	<div id="overlay"></div>
+
+	<div id="checkoutOverlay"></div>
+	<div id="checkoutModal">
+		<div class="modal-cabecera">
+			<h2>Datos del cliente</h2>
+			<button class="cerrar" id="cerrarCheckout">&times;</button>
+		</div>
+		<div class="modal-cuerpo">
+			<div class="resumen-pedido">
+				<h3>Resumen del pedido</h3>
+				<ul id="resumenPedido"></ul>
+				<p style="margin-top:10px;font-weight:700;">Total: <span id="resumenTotal">0,00 €</span></p>
+			</div>
+
+			<form id="formularioCompra">
+				<div>
+					<label for="nombreCliente">Nombre completo</label>
+					<input type="text" id="nombreCliente" name="nombreCliente" required>
+				</div>
+
+				<div>
+					<label for="emailCliente">Correo electrónico</label>
+					<input type="email" id="emailCliente" name="emailCliente" required>
+				</div>
+
+				<div>
+					<label for="telefonoCliente">Teléfono</label>
+					<input type="text" id="telefonoCliente" name="telefonoCliente" required>
+				</div>
+
+				<div>
+					<label for="direccionCliente">Dirección</label>
+					<textarea id="direccionCliente" name="direccionCliente" required></textarea>
+				</div>
+
+				<div class="botones-formulario">
+					<button type="button" class="cancelar" id="cancelarCheckout">Cancelar</button>
+					<button type="submit" class="enviar">Confirmar compra</button>
+				</div>
+			</form>
+
+			<div class="mensaje" id="mensajeCompra"></div>
+		</div>
+	</div>
+
+	<footer>
+		(c) 2026 Jose Vicente Carratala
+	</footer>
+
+	<script>
+		const carrito = [];
+		const contadorCarrito = document.getElementById("contadorCarrito");
+		const totalCarrito = document.getElementById("totalCarrito");
+		const lineasCarrito = document.getElementById("lineasCarrito");
+		const panelCarrito = document.getElementById("panelCarrito");
+		const overlay = document.getElementById("overlay");
+
+		const checkoutOverlay = document.getElementById("checkoutOverlay");
+		const checkoutModal = document.getElementById("checkoutModal");
+		const resumenPedido = document.getElementById("resumenPedido");
+		const resumenTotal = document.getElementById("resumenTotal");
+		const formularioCompra = document.getElementById("formularioCompra");
+		const mensajeCompra = document.getElementById("mensajeCompra");
+
+		function formatoEuros(valor){
+			return valor.toLocaleString("es-ES", {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			}) + " €";
+		}
+
+		function totalUnidades(){
+			return carrito.reduce((acumulado, item) => acumulado + item.cantidad, 0);
+		}
+
+		function totalImporte(){
+			return carrito.reduce((acumulado, item) => acumulado + (item.precio * item.cantidad), 0);
+		}
+
+		function abrirCarrito(){
+			panelCarrito.classList.add("abierto");
+			overlay.classList.add("visible");
+		}
+
+		function cerrarCarrito(){
+			panelCarrito.classList.remove("abierto");
+			overlay.classList.remove("visible");
+		}
+
+		function abrirCheckout(){
+			if(carrito.length === 0){
+				alert("El carrito está vacío.");
+				return;
+			}
+
+			resumenPedido.innerHTML = "";
+			carrito.forEach(item => {
+				const li = document.createElement("li");
+				li.textContent = item.nombre + " x " + item.cantidad + " = " + formatoEuros(item.precio * item.cantidad);
+				resumenPedido.appendChild(li);
+			});
+
+			resumenTotal.textContent = formatoEuros(totalImporte());
+			checkoutOverlay.classList.add("visible");
+			checkoutModal.classList.add("visible");
+		}
+
+		function cerrarCheckout(){
+			checkoutOverlay.classList.remove("visible");
+			checkoutModal.classList.remove("visible");
+		}
+
+		function renderCarrito(){
+			contadorCarrito.textContent = totalUnidades();
+			totalCarrito.textContent = formatoEuros(totalImporte());
+
+			if(carrito.length === 0){
+				lineasCarrito.innerHTML = '<div class="vacio">Todavía no has añadido productos.</div>';
+				return;
+			}
+
+			lineasCarrito.innerHTML = "";
+
+			carrito.forEach((item, indice) => {
+				const linea = document.createElement("div");
+				linea.className = "linea-carrito";
+
+				linea.innerHTML = `
+					<h4>${item.nombre}</h4>
+					<p>${item.descripcion}</p>
+					<p><strong>${formatoEuros(item.precio)}</strong> por unidad</p>
+					<div class="controles-linea">
+						<div class="cantidad">
+							<button type="button" data-accion="restar" data-indice="${indice}">-</button>
+							<span>${item.cantidad}</span>
+							<button type="button" data-accion="sumar" data-indice="${indice}">+</button>
+						</div>
+						<button type="button" class="borrar" data-accion="borrar" data-indice="${indice}">Eliminar</button>
+					</div>
+				`;
+
+				lineasCarrito.appendChild(linea);
+			});
+		}
+
+		function anadirProducto(nombre, descripcion, precio){
+			const existente = carrito.find(item => item.nombre === nombre);
+
+			if(existente){
+				existente.cantidad++;
+			}else{
+				carrito.push({
+					nombre,
+					descripcion,
+					precio: parseFloat(precio),
+					cantidad: 1
+				});
+			}
+
+			renderCarrito();
+			abrirCarrito();
+		}
+
+		document.querySelectorAll(".boton-anadir").forEach(boton => {
+			boton.addEventListener("click", function(){
+				anadirProducto(
+					this.dataset.nombre,
+					this.dataset.descripcion,
+					this.dataset.precio
+				);
+			});
+		});
+
+		document.getElementById("abrirCarrito").addEventListener("click", abrirCarrito);
+		document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+		overlay.addEventListener("click", cerrarCarrito);
+
+		lineasCarrito.addEventListener("click", function(e){
+			const accion = e.target.dataset.accion;
+			const indice = parseInt(e.target.dataset.indice);
+
+			if(isNaN(indice)) return;
+
+			if(accion === "sumar"){
+				carrito[indice].cantidad++;
+			}
+
+			if(accion === "restar"){
+				carrito[indice].cantidad--;
+				if(carrito[indice].cantidad <= 0){
+					carrito.splice(indice, 1);
+				}
+			}
+
+			if(accion === "borrar"){
+				carrito.splice(indice, 1);
+			}
+
+			renderCarrito();
+		});
+
+		document.getElementById("vaciarCarrito").addEventListener("click", function(){
+			carrito.length = 0;
+			renderCarrito();
+		});
+
+		document.getElementById("comprar").addEventListener("click", abrirCheckout);
+		document.getElementById("cerrarCheckout").addEventListener("click", cerrarCheckout);
+		document.getElementById("cancelarCheckout").addEventListener("click", cerrarCheckout);
+		checkoutOverlay.addEventListener("click", cerrarCheckout);
+
+		formularioCompra.addEventListener("submit", function(e){
+			e.preventDefault();
+
+			const pedido = {
+				cliente: {
+					nombre: document.getElementById("nombreCliente").value,
+					email: document.getElementById("emailCliente").value,
+					telefono: document.getElementById("telefonoCliente").value,
+					direccion: document.getElementById("direccionCliente").value
+				},
+				productos: carrito,
+				total: totalImporte(),
+				fecha: new Date().toISOString()
+			};
+
+			console.log("Pedido realizado:", pedido);
+
+			mensajeCompra.style.display = "block";
+			mensajeCompra.innerHTML = "Compra registrada correctamente. Revisa la consola del navegador para ver los datos del pedido.";
+
+			formularioCompra.reset();
+			carrito.length = 0;
+			renderCarrito();
+
+			setTimeout(() => {
+				cerrarCheckout();
+				mensajeCompra.style.display = "none";
+				mensajeCompra.innerHTML = "";
+			}, 1800);
+		});
+
+		renderCarrito();
+	</script>
+</body>
+</html>
+```
+
+### enviar correo
+<small>Creado: 2026-04-16 17:39</small>
+
+`008-enviar correo.php`
+
+```
+<?php
+
+// --------------------------------------------------
+// CONFIGURACIÓN SMTP
+// --------------------------------------------------
+define('SMTP_HOST', 'smtp.tudominio.com');
+define('SMTP_PORT', 587);
+define('SMTP_USER', 'tuusuario@tudominio.com');
+define('SMTP_PASS', 'tu_password');
+define('SMTP_FROM_EMAIL', 'tuusuario@tudominio.com');
+define('SMTP_FROM_NAME', 'Tienda deportiva');
+define('SMTP_TO_EMAIL', 'destinatario@tudominio.com');
+define('SMTP_SECURE', 'tls'); // 'tls' o ''
+
+
+// --------------------------------------------------
+// FUNCIÓN SMTP POR SOCKETS
+// --------------------------------------------------
+function smtp_read($socket) {
+    $data = '';
+    while ($str = fgets($socket, 515)) {
+        $data .= $str;
+        if (preg_match('/^\d{3}\s/', $str)) {
+            break;
+        }
+    }
+    return $data;
+}
+
+function smtp_expect($response, $codes) {
+    foreach ((array)$codes as $code) {
+        if (strpos($response, (string)$code) === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function smtp_cmd($socket, $command, $expectCodes) {
+    fwrite($socket, $command . "\r\n");
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, $expectCodes)) {
+        throw new Exception("Error SMTP en comando [$command]: $response");
+    }
+    return $response;
+}
+
+function smtp_send_mail($toEmail, $toName, $subject, $htmlBody, $textBody = '') {
+    $host = SMTP_HOST;
+    $port = SMTP_PORT;
+    $user = SMTP_USER;
+    $pass = SMTP_PASS;
+    $fromEmail = SMTP_FROM_EMAIL;
+    $fromName = SMTP_FROM_NAME;
+    $secure = SMTP_SECURE;
+
+    $socket = fsockopen($host, $port, $errno, $errstr, 20);
+    if (!$socket) {
+        throw new Exception("No se pudo conectar al servidor SMTP: $errstr ($errno)");
+    }
+
+    stream_set_timeout($socket, 20);
+
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 220)) {
+        fclose($socket);
+        throw new Exception("Respuesta inicial SMTP no válida: $response");
+    }
+
+    smtp_cmd($socket, "EHLO localhost", 250);
+
+    if ($secure === 'tls') {
+        smtp_cmd($socket, "STARTTLS", 220);
+
+        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            fclose($socket);
+            throw new Exception("No se pudo activar TLS.");
+        }
+
+        smtp_cmd($socket, "EHLO localhost", 250);
+    }
+
+    smtp_cmd($socket, "AUTH LOGIN", 334);
+    smtp_cmd($socket, base64_encode($user), 334);
+    smtp_cmd($socket, base64_encode($pass), 235);
+
+    smtp_cmd($socket, "MAIL FROM:<$fromEmail>", 250);
+    smtp_cmd($socket, "RCPT TO:<$toEmail>", [250, 251]);
+    smtp_cmd($socket, "DATA", 354);
+
+    $boundary = 'b1_' . md5(uniqid((string)mt_rand(), true));
+
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    $encodedFromName = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+    $encodedToName = '=?UTF-8?B?' . base64_encode($toName) . '?=';
+
+    if ($textBody === '') {
+        $textBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $htmlBody));
+    }
+
+    $headers = [];
+    $headers[] = "From: $encodedFromName <$fromEmail>";
+    $headers[] = "To: $encodedToName <$toEmail>";
+    $headers[] = "Subject: $encodedSubject";
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: multipart/alternative; boundary=\"$boundary\"";
+    $headers[] = "Date: " . date('r');
+    $headers[] = "Message-ID: <" . uniqid() . "@localhost>";
+
+    $message  = implode("\r\n", $headers) . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $textBody . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $htmlBody . "\r\n\r\n";
+    $message .= "--$boundary--\r\n.\r\n";
+
+    fwrite($socket, $message);
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 250)) {
+        fclose($socket);
+        throw new Exception("Error al enviar el cuerpo del mensaje: $response");
+    }
+
+    smtp_cmd($socket, "QUIT", 221);
+    fclose($socket);
+
+    return true;
+}
+
+
+// --------------------------------------------------
+// PROCESAR PEDIDO AJAX
+// --------------------------------------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['CONTENT_TYPE']) && str_contains($_SERVER['CONTENT_TYPE'], 'application/json')) {
+    header('Content-Type: application/json; charset=utf-8');
+
+    try {
+        $raw = file_get_contents("php://input");
+        $pedido = json_decode($raw, true);
+
+        if (!$pedido) {
+            throw new Exception("No se ha recibido un pedido válido.");
+        }
+
+        $cliente = $pedido['cliente'] ?? [];
+        $productos = $pedido['productos'] ?? [];
+        $total = (float)($pedido['total'] ?? 0);
+        $fecha = $pedido['fecha'] ?? date('c');
+
+        if (empty($cliente['nombre']) || empty($cliente['email']) || empty($cliente['telefono']) || empty($cliente['direccion'])) {
+            throw new Exception("Faltan datos del cliente.");
+        }
+
+        if (empty($productos)) {
+            throw new Exception("El pedido no contiene productos.");
+        }
+
+        $filasHtml = '';
+        $filasTexto = '';
+
+        foreach ($productos as $producto) {
+            $nombre = htmlspecialchars($producto['nombre'] ?? '');
+            $descripcion = htmlspecialchars($producto['descripcion'] ?? '');
+            $precio = (float)($producto['precio'] ?? 0);
+            $cantidad = (int)($producto['cantidad'] ?? 0);
+            $subtotal = $precio * $cantidad;
+
+            $filasHtml .= "
+                <tr>
+                    <td style='padding:8px;border:1px solid #ddd;'>$nombre</td>
+                    <td style='padding:8px;border:1px solid #ddd;'>$descripcion</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($precio, 2, ',', '.') . " €</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:center;'>$cantidad</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($subtotal, 2, ',', '.') . " €</td>
+                </tr>
+            ";
+
+            $filasTexto .= "- $nombre | $descripcion | " . number_format($precio, 2, ',', '.') . " € | Cantidad: $cantidad | Subtotal: " . number_format($subtotal, 2, ',', '.') . " €\n";
+        }
+
+        $html = "
+            <html>
+            <body style='font-family:Arial,Helvetica,sans-serif;color:#1f2933;'>
+                <h2>Nuevo pedido recibido</h2>
+
+                <h3>Datos del cliente</h3>
+                <p><strong>Nombre:</strong> " . htmlspecialchars($cliente['nombre']) . "</p>
+                <p><strong>Email:</strong> " . htmlspecialchars($cliente['email']) . "</p>
+                <p><strong>Teléfono:</strong> " . htmlspecialchars($cliente['telefono']) . "</p>
+                <p><strong>Dirección:</strong><br>" . nl2br(htmlspecialchars($cliente['direccion'])) . "</p>
+                <p><strong>Fecha:</strong> " . htmlspecialchars($fecha) . "</p>
+
+                <h3>Productos</h3>
+                <table cellspacing='0' cellpadding='0' style='border-collapse:collapse;width:100%;'>
+                    <thead>
+                        <tr>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Nombre</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Descripción</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Precio</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:center;'>Cantidad</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        $filasHtml
+                    </tbody>
+                </table>
+
+                <p style='margin-top:20px;font-size:18px;'><strong>Total:</strong> " . number_format($total, 2, ',', '.') . " €</p>
+            </body>
+            </html>
+        ";
+
+        $texto = "Nuevo pedido recibido\n\n";
+        $texto .= "DATOS DEL CLIENTE\n";
+        $texto .= "Nombre: " . $cliente['nombre'] . "\n";
+        $texto .= "Email: " . $cliente['email'] . "\n";
+        $texto .= "Teléfono: " . $cliente['telefono'] . "\n";
+        $texto .= "Dirección: " . $cliente['direccion'] . "\n";
+        $texto .= "Fecha: " . $fecha . "\n\n";
+        $texto .= "PRODUCTOS\n";
+        $texto .= $filasTexto . "\n";
+        $texto .= "TOTAL: " . number_format($total, 2, ',', '.') . " €\n";
+
+        smtp_send_mail(
+            SMTP_TO_EMAIL,
+            'Administrador',
+            'Nuevo pedido de la tienda deportiva',
+            $html,
+            $texto
+        );
+
+        echo json_encode([
+            'ok' => true,
+            'mensaje' => 'Compra registrada y enviada por correo correctamente.'
+        ]);
+        exit;
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode([
+            'ok' => false,
+            'mensaje' => $e->getMessage()
+        ]);
+        exit;
+    }
+}
+
+
+// --------------------------------------------------
+// CARGA DEL CSV
+// --------------------------------------------------
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        if (count($cabeceras) === count($fila)) {
+            $datos[] = array_combine($cabeceras, $fila);
+        }
+    }
+
+    fclose($handle);
+}
+?>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tienda de artículos deportivos</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+
+		:root{
+			--fondo:#f5f7fa;
+			--superficie:#ffffff;
+			--borde:#d9e1e8;
+			--texto:#1f2933;
+			--texto-secundario:#52606d;
+			--primario:#2d6cdf;
+			--primario-hover:#1f5ac7;
+			--exito:#1f9d55;
+			--peligro:#d64545;
+			--sombra:0 8px 24px rgba(15, 23, 42, 0.08);
+			--radio:12px;
+			--ancho:1200px;
+		}
+
+		body{
+			font-family:Arial, Helvetica, sans-serif;
+			background:var(--fondo);
+			color:var(--texto);
+			line-height:1.5;
+		}
+
+		header{
+			background:var(--superficie);
+			border-bottom:1px solid var(--borde);
+			box-shadow:0 2px 10px rgba(0,0,0,0.03);
+			position:sticky;
+			top:0;
+			z-index:20;
+		}
+
+		.header-contenido{
+			max-width:var(--ancho);
+			margin:auto;
+			padding:20px;
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:20px;
+		}
+
+		header h1{
+			font-size:32px;
+			font-weight:700;
+			color:var(--texto);
+		}
+
+		.boton-carrito{
+			border:none;
+			background:var(--primario);
+			color:white;
+			padding:12px 18px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-carrito:hover{
+			background:var(--primario-hover);
+		}
+
+		main{
+			max-width:var(--ancho);
+			margin:40px auto;
+			padding:0 20px;
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+			gap:24px;
+		}
+
+		article{
+			background:var(--superficie);
+			border:1px solid var(--borde);
+			border-radius:var(--radio);
+			padding:24px;
+			box-shadow:var(--sombra);
+			transition:transform 0.2s ease, box-shadow 0.2s ease;
+			display:flex;
+			flex-direction:column;
+		}
+
+		article:hover{
+			transform:translateY(-4px);
+			box-shadow:0 12px 30px rgba(15, 23, 42, 0.12);
+		}
+
+		article h3{
+			font-size:22px;
+			margin-bottom:12px;
+			color:var(--texto);
+		}
+
+		article p{
+			font-size:15px;
+			color:var(--texto-secundario);
+			margin-bottom:10px;
+		}
+
+		.precio{
+			margin-top:auto;
+			font-size:26px;
+			font-weight:700;
+			color:var(--primario);
+			margin-bottom:18px;
+		}
+
+		.boton-anadir{
+			border:none;
+			background:var(--texto);
+			color:white;
+			padding:12px 16px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-anadir:hover{
+			background:#101820;
+		}
+
+		aside#panelCarrito{
+			position:fixed;
+			top:0;
+			right:-420px;
+			width:420px;
+			max-width:100%;
+			height:100vh;
+			background:var(--superficie);
+			box-shadow:-10px 0 30px rgba(0,0,0,0.12);
+			border-left:1px solid var(--borde);
+			transition:right 0.3s ease;
+			z-index:50;
+			display:flex;
+			flex-direction:column;
+		}
+
+		aside#panelCarrito.abierto{
+			right:0;
+		}
+
+		.carrito-cabecera{
+			padding:22px 20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.carrito-cabecera h2{
+			font-size:24px;
+		}
+
+		.cerrar{
+			border:none;
+			background:transparent;
+			font-size:28px;
+			cursor:pointer;
+			color:var(--texto-secundario);
+		}
+
+		.carrito-contenido{
+			padding:20px;
+			overflow:auto;
+			flex:1;
+		}
+
+		.linea-carrito{
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:12px;
+			background:#fafbfd;
+		}
+
+		.linea-carrito h4{
+			font-size:17px;
+			margin-bottom:6px;
+		}
+
+		.linea-carrito p{
+			font-size:14px;
+			color:var(--texto-secundario);
+			margin-bottom:4px;
+		}
+
+		.controles-linea{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+			margin-top:10px;
+		}
+
+		.cantidad{
+			display:flex;
+			align-items:center;
+			gap:8px;
+		}
+
+		.cantidad button{
+			width:32px;
+			height:32px;
+			border:none;
+			border-radius:8px;
+			background:#e9eef5;
+			cursor:pointer;
+			font-size:18px;
+		}
+
+		.borrar{
+			border:none;
+			background:var(--peligro);
+			color:white;
+			padding:8px 10px;
+			border-radius:8px;
+			cursor:pointer;
+			font-size:13px;
+		}
+
+		.carrito-pie{
+			border-top:1px solid var(--borde);
+			padding:20px;
+			background:#fbfcfe;
+		}
+
+		.total{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			font-size:20px;
+			font-weight:700;
+			margin-bottom:16px;
+		}
+
+		.acciones-carrito{
+			display:flex;
+			gap:10px;
+		}
+
+		.acciones-carrito button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		#vaciarCarrito{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		#comprar{
+			background:var(--exito);
+			color:white;
+		}
+
+		#overlay,
+		#checkoutOverlay{
+			position:fixed;
+			inset:0;
+			background:rgba(15, 23, 42, 0.45);
+			opacity:0;
+			pointer-events:none;
+			transition:opacity 0.25s ease;
+			z-index:40;
+		}
+
+		#overlay.visible,
+		#checkoutOverlay.visible{
+			opacity:1;
+			pointer-events:auto;
+		}
+
+		#checkoutModal{
+			position:fixed;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%) scale(0.96);
+			width:560px;
+			max-width:calc(100% - 30px);
+			background:var(--superficie);
+			border-radius:16px;
+			box-shadow:0 20px 50px rgba(0,0,0,0.2);
+			z-index:60;
+			opacity:0;
+			pointer-events:none;
+			transition:all 0.25s ease;
+		}
+
+		#checkoutModal.visible{
+			opacity:1;
+			pointer-events:auto;
+			transform:translate(-50%, -50%) scale(1);
+		}
+
+		.modal-cabecera{
+			padding:20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.modal-cuerpo{
+			padding:20px;
+		}
+
+		form{
+			display:grid;
+			gap:14px;
+		}
+
+		label{
+			font-weight:700;
+			font-size:14px;
+			display:block;
+			margin-bottom:6px;
+		}
+
+		input, textarea{
+			width:100%;
+			padding:12px 14px;
+			border:1px solid var(--borde);
+			border-radius:10px;
+			font-size:15px;
+			outline:none;
+			background:white;
+		}
+
+		textarea{
+			min-height:90px;
+			resize:vertical;
+		}
+
+		.resumen-pedido{
+			background:#f8fafc;
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:8px;
+		}
+
+		.resumen-pedido h3{
+			font-size:18px;
+			margin-bottom:10px;
+		}
+
+		.resumen-pedido ul{
+			padding-left:18px;
+			color:var(--texto-secundario);
+		}
+
+		.resumen-pedido li{
+			margin-bottom:4px;
+		}
+
+		.botones-formulario{
+			display:flex;
+			gap:10px;
+			margin-top:8px;
+		}
+
+		.botones-formulario button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		.cancelar{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		.enviar{
+			background:var(--primario);
+			color:white;
+		}
+
+		.mensaje{
+			margin-top:14px;
+			padding:12px 14px;
+			border-radius:10px;
+			display:none;
+		}
+
+		.mensaje.ok{
+			background:#edf7ed;
+			color:#1b5e20;
+		}
+
+		.mensaje.error{
+			background:#fdecec;
+			color:#8a1f1f;
+		}
+
+		.vacio{
+			color:var(--texto-secundario);
+			text-align:center;
+			padding:40px 10px;
+		}
+
+		footer{
+			margin-top:40px;
+			padding:30px 20px;
+			text-align:center;
+			color:var(--texto-secundario);
+			font-size:14px;
+			border-top:1px solid var(--borde);
+			background:var(--superficie);
+		}
+
+		@media (max-width:768px){
+			.header-contenido{
+				padding:16px;
+			}
+
+			header h1{
+				font-size:24px;
+			}
+
+			main{
+				margin:24px auto;
+				padding:0 16px;
+				gap:16px;
+			}
+
+			article{
+				padding:18px;
+			}
+
+			aside#panelCarrito{
+				width:100%;
+			}
+
+			.botones-formulario,
+			.acciones-carrito{
+				flex-direction:column;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-contenido">
+			<h1>Tienda de artículos deportivos</h1>
+			<button class="boton-carrito" id="abrirCarrito">Carrito (<span id="contadorCarrito">0</span>)</button>
+		</div>
+	</header>
+
+	<main>
+		<?php foreach($datos as $articulo): ?>
+			<article>
+				<h3><?php echo htmlspecialchars($articulo['nombre']); ?></h3>
+				<p><?php echo htmlspecialchars($articulo['descripcion']); ?></p>
+				<p class="precio"><?php echo number_format((float)$articulo['precio'], 2, ',', '.'); ?> €</p>
+				<button
+					class="boton-anadir"
+					data-nombre="<?php echo htmlspecialchars($articulo['nombre'], ENT_QUOTES); ?>"
+					data-descripcion="<?php echo htmlspecialchars($articulo['descripcion'], ENT_QUOTES); ?>"
+					data-precio="<?php echo (float)$articulo['precio']; ?>"
+				>
+					Añadir al carrito
+				</button>
+			</article>
+		<?php endforeach; ?>
+	</main>
+
+	<aside id="panelCarrito">
+		<div class="carrito-cabecera">
+			<h2>Carrito</h2>
+			<button class="cerrar" id="cerrarCarrito">&times;</button>
+		</div>
+
+		<div class="carrito-contenido" id="lineasCarrito"></div>
+
+		<div class="carrito-pie">
+			<div class="total">
+				<span>Total</span>
+				<span id="totalCarrito">0,00 €</span>
+			</div>
+			<div class="acciones-carrito">
+				<button id="vaciarCarrito">Vaciar</button>
+				<button id="comprar">Comprar</button>
+			</div>
+		</div>
+	</aside>
+
+	<div id="overlay"></div>
+
+	<div id="checkoutOverlay"></div>
+	<div id="checkoutModal">
+		<div class="modal-cabecera">
+			<h2>Datos del cliente</h2>
+			<button class="cerrar" id="cerrarCheckout">&times;</button>
+		</div>
+		<div class="modal-cuerpo">
+			<div class="resumen-pedido">
+				<h3>Resumen del pedido</h3>
+				<ul id="resumenPedido"></ul>
+				<p style="margin-top:10px;font-weight:700;">Total: <span id="resumenTotal">0,00 €</span></p>
+			</div>
+
+			<form id="formularioCompra">
+				<div>
+					<label for="nombreCliente">Nombre completo</label>
+					<input type="text" id="nombreCliente" name="nombreCliente" required>
+				</div>
+
+				<div>
+					<label for="emailCliente">Correo electrónico</label>
+					<input type="email" id="emailCliente" name="emailCliente" required>
+				</div>
+
+				<div>
+					<label for="telefonoCliente">Teléfono</label>
+					<input type="text" id="telefonoCliente" name="telefonoCliente" required>
+				</div>
+
+				<div>
+					<label for="direccionCliente">Dirección</label>
+					<textarea id="direccionCliente" name="direccionCliente" required></textarea>
+				</div>
+
+				<div class="botones-formulario">
+					<button type="button" class="cancelar" id="cancelarCheckout">Cancelar</button>
+					<button type="submit" class="enviar">Confirmar compra</button>
+				</div>
+			</form>
+
+			<div class="mensaje" id="mensajeCompra"></div>
+		</div>
+	</div>
+
+	<footer>
+		(c) 2026 Jose Vicente Carratala
+	</footer>
+
+	<script>
+		const carrito = [];
+		const contadorCarrito = document.getElementById("contadorCarrito");
+		const totalCarrito = document.getElementById("totalCarrito");
+		const lineasCarrito = document.getElementById("lineasCarrito");
+		const panelCarrito = document.getElementById("panelCarrito");
+		const overlay = document.getElementById("overlay");
+
+		const checkoutOverlay = document.getElementById("checkoutOverlay");
+		const checkoutModal = document.getElementById("checkoutModal");
+		const resumenPedido = document.getElementById("resumenPedido");
+		const resumenTotal = document.getElementById("resumenTotal");
+		const formularioCompra = document.getElementById("formularioCompra");
+		const mensajeCompra = document.getElementById("mensajeCompra");
+
+		function formatoEuros(valor){
+			return valor.toLocaleString("es-ES", {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			}) + " €";
+		}
+
+		function totalUnidades(){
+			return carrito.reduce((acumulado, item) => acumulado + item.cantidad, 0);
+		}
+
+		function totalImporte(){
+			return carrito.reduce((acumulado, item) => acumulado + (item.precio * item.cantidad), 0);
+		}
+
+		function abrirCarrito(){
+			panelCarrito.classList.add("abierto");
+			overlay.classList.add("visible");
+		}
+
+		function cerrarCarrito(){
+			panelCarrito.classList.remove("abierto");
+			overlay.classList.remove("visible");
+		}
+
+		function abrirCheckout(){
+			if(carrito.length === 0){
+				alert("El carrito está vacío.");
+				return;
+			}
+
+			resumenPedido.innerHTML = "";
+			carrito.forEach(item => {
+				const li = document.createElement("li");
+				li.textContent = item.nombre + " x " + item.cantidad + " = " + formatoEuros(item.precio * item.cantidad);
+				resumenPedido.appendChild(li);
+			});
+
+			resumenTotal.textContent = formatoEuros(totalImporte());
+			checkoutOverlay.classList.add("visible");
+			checkoutModal.classList.add("visible");
+		}
+
+		function cerrarCheckout(){
+			checkoutOverlay.classList.remove("visible");
+			checkoutModal.classList.remove("visible");
+		}
+
+		function renderCarrito(){
+			contadorCarrito.textContent = totalUnidades();
+			totalCarrito.textContent = formatoEuros(totalImporte());
+
+			if(carrito.length === 0){
+				lineasCarrito.innerHTML = '<div class="vacio">Todavía no has añadido productos.</div>';
+				return;
+			}
+
+			lineasCarrito.innerHTML = "";
+
+			carrito.forEach((item, indice) => {
+				const linea = document.createElement("div");
+				linea.className = "linea-carrito";
+
+				linea.innerHTML = `
+					<h4>${item.nombre}</h4>
+					<p>${item.descripcion}</p>
+					<p><strong>${formatoEuros(item.precio)}</strong> por unidad</p>
+					<div class="controles-linea">
+						<div class="cantidad">
+							<button type="button" data-accion="restar" data-indice="${indice}">-</button>
+							<span>${item.cantidad}</span>
+							<button type="button" data-accion="sumar" data-indice="${indice}">+</button>
+						</div>
+						<button type="button" class="borrar" data-accion="borrar" data-indice="${indice}">Eliminar</button>
+					</div>
+				`;
+
+				lineasCarrito.appendChild(linea);
+			});
+		}
+
+		function anadirProducto(nombre, descripcion, precio){
+			const existente = carrito.find(item => item.nombre === nombre);
+
+			if(existente){
+				existente.cantidad++;
+			}else{
+				carrito.push({
+					nombre,
+					descripcion,
+					precio: parseFloat(precio),
+					cantidad: 1
+				});
+			}
+
+			renderCarrito();
+			abrirCarrito();
+		}
+
+		document.querySelectorAll(".boton-anadir").forEach(boton => {
+			boton.addEventListener("click", function(){
+				anadirProducto(
+					this.dataset.nombre,
+					this.dataset.descripcion,
+					this.dataset.precio
+				);
+			});
+		});
+
+		document.getElementById("abrirCarrito").addEventListener("click", abrirCarrito);
+		document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+		overlay.addEventListener("click", cerrarCarrito);
+
+		lineasCarrito.addEventListener("click", function(e){
+			const accion = e.target.dataset.accion;
+			const indice = parseInt(e.target.dataset.indice);
+
+			if(isNaN(indice)) return;
+
+			if(accion === "sumar"){
+				carrito[indice].cantidad++;
+			}
+
+			if(accion === "restar"){
+				carrito[indice].cantidad--;
+				if(carrito[indice].cantidad <= 0){
+					carrito.splice(indice, 1);
+				}
+			}
+
+			if(accion === "borrar"){
+				carrito.splice(indice, 1);
+			}
+
+			renderCarrito();
+		});
+
+		document.getElementById("vaciarCarrito").addEventListener("click", function(){
+			carrito.length = 0;
+			renderCarrito();
+		});
+
+		document.getElementById("comprar").addEventListener("click", abrirCheckout);
+		document.getElementById("cerrarCheckout").addEventListener("click", cerrarCheckout);
+		document.getElementById("cancelarCheckout").addEventListener("click", cerrarCheckout);
+		checkoutOverlay.addEventListener("click", cerrarCheckout);
+
+		formularioCompra.addEventListener("submit", async function(e){
+			e.preventDefault();
+
+			if(carrito.length === 0){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "El carrito está vacío.";
+				return;
+			}
+
+			const productosPedido = carrito.map(item => ({
+				nombre: item.nombre,
+				descripcion: item.descripcion,
+				precio: item.precio,
+				cantidad: item.cantidad
+			}));
+
+			const pedido = {
+				cliente: {
+					nombre: document.getElementById("nombreCliente").value,
+					email: document.getElementById("emailCliente").value,
+					telefono: document.getElementById("telefonoCliente").value,
+					direccion: document.getElementById("direccionCliente").value
+				},
+				productos: productosPedido,
+				total: totalImporte(),
+				fecha: new Date().toISOString()
+			};
+
+			try{
+				const respuesta = await fetch(window.location.href, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(pedido)
+				});
+
+				const resultado = await respuesta.json();
+
+				if(resultado.ok){
+					mensajeCompra.className = "mensaje ok";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje;
+
+					formularioCompra.reset();
+					carrito.length = 0;
+					renderCarrito();
+
+					setTimeout(() => {
+						cerrarCheckout();
+						mensajeCompra.style.display = "none";
+						mensajeCompra.textContent = "";
+					}, 1800);
+				}else{
+					mensajeCompra.className = "mensaje error";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje || "No se pudo procesar el pedido.";
+				}
+			}catch(error){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "Error de comunicación con el servidor.";
+			}
+		});
+
+		renderCarrito();
+	</script>
+</body>
+</html>
+```
+
+### uso de variables de entorno
+<small>Creado: 2026-04-16 17:39</small>
+
+`010-uso de variables de entorno.php`
+
+```
+<?php
+
+// --------------------------------------------------
+// CONFIGURACIÓN SMTP DESDE VARIABLES DE ENTORNO
+// --------------------------------------------------
+define('SMTP_HOST', getenv('MI_SERVIDORSMTP_CORREO_JOCARSA'));
+define('SMTP_PORT', 587);
+define('SMTP_USER', getenv('MI_CORREO_JOCARSA'));
+define('SMTP_PASS', getenv('MI_CONTRASENA_CORREO_JOCARSA'));
+define('SMTP_FROM_EMAIL', getenv('MI_CORREO_JOCARSA'));
+define('SMTP_FROM_NAME', 'Tienda deportiva');
+define('SMTP_TO_EMAIL', "jocarsa2@gmail.com");
+define('SMTP_SECURE', 'tls'); // 'tls' o ''
+
+
+// --------------------------------------------------
+// FUNCIÓN SMTP POR SOCKETS
+// --------------------------------------------------
+function smtp_read($socket) {
+    $data = '';
+    while ($str = fgets($socket, 515)) {
+        $data .= $str;
+        if (preg_match('/^\d{3}\s/', $str)) {
+            break;
+        }
+    }
+    return $data;
+}
+
+function smtp_expect($response, $codes) {
+    foreach ((array)$codes as $code) {
+        if (strpos($response, (string)$code) === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function smtp_cmd($socket, $command, $expectCodes) {
+    fwrite($socket, $command . "\r\n");
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, $expectCodes)) {
+        throw new Exception("Error SMTP en comando [$command]: $response");
+    }
+    return $response;
+}
+
+function smtp_send_mail($toEmail, $toName, $subject, $htmlBody, $textBody = '') {
+    $host = SMTP_HOST;
+    $port = SMTP_PORT;
+    $user = SMTP_USER;
+    $pass = SMTP_PASS;
+    $fromEmail = SMTP_FROM_EMAIL;
+    $fromName = SMTP_FROM_NAME;
+    $secure = SMTP_SECURE;
+
+    $socket = fsockopen($host, $port, $errno, $errstr, 20);
+    if (!$socket) {
+        throw new Exception("No se pudo conectar al servidor SMTP: $errstr ($errno)");
+    }
+
+    stream_set_timeout($socket, 20);
+
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 220)) {
+        fclose($socket);
+        throw new Exception("Respuesta inicial SMTP no válida: $response");
+    }
+
+    smtp_cmd($socket, "EHLO localhost", 250);
+
+    if ($secure === 'tls') {
+        smtp_cmd($socket, "STARTTLS", 220);
+
+        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            fclose($socket);
+            throw new Exception("No se pudo activar TLS.");
+        }
+
+        smtp_cmd($socket, "EHLO localhost", 250);
+    }
+
+    smtp_cmd($socket, "AUTH LOGIN", 334);
+    smtp_cmd($socket, base64_encode($user), 334);
+    smtp_cmd($socket, base64_encode($pass), 235);
+
+    smtp_cmd($socket, "MAIL FROM:<$fromEmail>", 250);
+    smtp_cmd($socket, "RCPT TO:<$toEmail>", [250, 251]);
+    smtp_cmd($socket, "DATA", 354);
+
+    $boundary = 'b1_' . md5(uniqid((string)mt_rand(), true));
+
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    $encodedFromName = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+    $encodedToName = '=?UTF-8?B?' . base64_encode($toName) . '?=';
+
+    if ($textBody === '') {
+        $textBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $htmlBody));
+    }
+
+    $headers = [];
+    $headers[] = "From: $encodedFromName <$fromEmail>";
+    $headers[] = "To: $encodedToName <$toEmail>";
+    $headers[] = "Subject: $encodedSubject";
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: multipart/alternative; boundary=\"$boundary\"";
+    $headers[] = "Date: " . date('r');
+    $headers[] = "Message-ID: <" . uniqid() . "@localhost>";
+
+    $message  = implode("\r\n", $headers) . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $textBody . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $htmlBody . "\r\n\r\n";
+    $message .= "--$boundary--\r\n.\r\n";
+
+    fwrite($socket, $message);
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 250)) {
+        fclose($socket);
+        throw new Exception("Error al enviar el cuerpo del mensaje: $response");
+    }
+
+    smtp_cmd($socket, "QUIT", 221);
+    fclose($socket);
+
+    return true;
+}
+
+
+// --------------------------------------------------
+// PROCESAR PEDIDO AJAX
+// --------------------------------------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['CONTENT_TYPE']) && str_contains($_SERVER['CONTENT_TYPE'], 'application/json')) {
+    header('Content-Type: application/json; charset=utf-8');
+
+    try {
+        $raw = file_get_contents("php://input");
+        $pedido = json_decode($raw, true);
+
+        if (!$pedido) {
+            throw new Exception("No se ha recibido un pedido válido.");
+        }
+
+        $cliente = $pedido['cliente'] ?? [];
+        $productos = $pedido['productos'] ?? [];
+        $total = (float)($pedido['total'] ?? 0);
+        $fecha = $pedido['fecha'] ?? date('c');
+
+        if (empty($cliente['nombre']) || empty($cliente['email']) || empty($cliente['telefono']) || empty($cliente['direccion'])) {
+            throw new Exception("Faltan datos del cliente.");
+        }
+
+        if (empty($productos)) {
+            throw new Exception("El pedido no contiene productos.");
+        }
+
+        $filasHtml = '';
+        $filasTexto = '';
+
+        foreach ($productos as $producto) {
+            $nombre = htmlspecialchars($producto['nombre'] ?? '');
+            $descripcion = htmlspecialchars($producto['descripcion'] ?? '');
+            $precio = (float)($producto['precio'] ?? 0);
+            $cantidad = (int)($producto['cantidad'] ?? 0);
+            $subtotal = $precio * $cantidad;
+
+            $filasHtml .= "
+                <tr>
+                    <td style='padding:8px;border:1px solid #ddd;'>$nombre</td>
+                    <td style='padding:8px;border:1px solid #ddd;'>$descripcion</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($precio, 2, ',', '.') . " €</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:center;'>$cantidad</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($subtotal, 2, ',', '.') . " €</td>
+                </tr>
+            ";
+
+            $filasTexto .= "- $nombre | $descripcion | " . number_format($precio, 2, ',', '.') . " € | Cantidad: $cantidad | Subtotal: " . number_format($subtotal, 2, ',', '.') . " €\n";
+        }
+
+        $html = "
+            <html>
+            <body style='font-family:Arial,Helvetica,sans-serif;color:#1f2933;'>
+                <h2>Nuevo pedido recibido</h2>
+
+                <h3>Datos del cliente</h3>
+                <p><strong>Nombre:</strong> " . htmlspecialchars($cliente['nombre']) . "</p>
+                <p><strong>Email:</strong> " . htmlspecialchars($cliente['email']) . "</p>
+                <p><strong>Teléfono:</strong> " . htmlspecialchars($cliente['telefono']) . "</p>
+                <p><strong>Dirección:</strong><br>" . nl2br(htmlspecialchars($cliente['direccion'])) . "</p>
+                <p><strong>Fecha:</strong> " . htmlspecialchars($fecha) . "</p>
+
+                <h3>Productos</h3>
+                <table cellspacing='0' cellpadding='0' style='border-collapse:collapse;width:100%;'>
+                    <thead>
+                        <tr>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Nombre</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Descripción</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Precio</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:center;'>Cantidad</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        $filasHtml
+                    </tbody>
+                </table>
+
+                <p style='margin-top:20px;font-size:18px;'><strong>Total:</strong> " . number_format($total, 2, ',', '.') . " €</p>
+            </body>
+            </html>
+        ";
+
+        $texto = "Nuevo pedido recibido\n\n";
+        $texto .= "DATOS DEL CLIENTE\n";
+        $texto .= "Nombre: " . $cliente['nombre'] . "\n";
+        $texto .= "Email: " . $cliente['email'] . "\n";
+        $texto .= "Teléfono: " . $cliente['telefono'] . "\n";
+        $texto .= "Dirección: " . $cliente['direccion'] . "\n";
+        $texto .= "Fecha: " . $fecha . "\n\n";
+        $texto .= "PRODUCTOS\n";
+        $texto .= $filasTexto . "\n";
+        $texto .= "TOTAL: " . number_format($total, 2, ',', '.') . " €\n";
+
+        smtp_send_mail(
+            SMTP_TO_EMAIL,
+            'Administrador',
+            'Nuevo pedido de la tienda deportiva',
+            $html,
+            $texto
+        );
+
+        echo json_encode([
+            'ok' => true,
+            'mensaje' => 'Compra registrada y enviada por correo correctamente.'
+        ]);
+        exit;
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode([
+            'ok' => false,
+            'mensaje' => $e->getMessage()
+        ]);
+        exit;
+    }
+}
+
+
+// --------------------------------------------------
+// CARGA DEL CSV
+// --------------------------------------------------
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        if (count($cabeceras) === count($fila)) {
+            $datos[] = array_combine($cabeceras, $fila);
+        }
+    }
+
+    fclose($handle);
+}
+?>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tienda de artículos deportivos</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+
+		:root{
+			--fondo:#f5f7fa;
+			--superficie:#ffffff;
+			--borde:#d9e1e8;
+			--texto:#1f2933;
+			--texto-secundario:#52606d;
+			--primario:#2d6cdf;
+			--primario-hover:#1f5ac7;
+			--exito:#1f9d55;
+			--peligro:#d64545;
+			--sombra:0 8px 24px rgba(15, 23, 42, 0.08);
+			--radio:12px;
+			--ancho:1200px;
+		}
+
+		body{
+			font-family:Arial, Helvetica, sans-serif;
+			background:var(--fondo);
+			color:var(--texto);
+			line-height:1.5;
+		}
+
+		header{
+			background:var(--superficie);
+			border-bottom:1px solid var(--borde);
+			box-shadow:0 2px 10px rgba(0,0,0,0.03);
+			position:sticky;
+			top:0;
+			z-index:20;
+		}
+
+		.header-contenido{
+			max-width:var(--ancho);
+			margin:auto;
+			padding:20px;
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:20px;
+		}
+
+		header h1{
+			font-size:32px;
+			font-weight:700;
+			color:var(--texto);
+		}
+
+		.boton-carrito{
+			border:none;
+			background:var(--primario);
+			color:white;
+			padding:12px 18px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-carrito:hover{
+			background:var(--primario-hover);
+		}
+
+		main{
+			max-width:var(--ancho);
+			margin:40px auto;
+			padding:0 20px;
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+			gap:24px;
+		}
+
+		article{
+			background:var(--superficie);
+			border:1px solid var(--borde);
+			border-radius:var(--radio);
+			padding:24px;
+			box-shadow:var(--sombra);
+			transition:transform 0.2s ease, box-shadow 0.2s ease;
+			display:flex;
+			flex-direction:column;
+		}
+
+		article:hover{
+			transform:translateY(-4px);
+			box-shadow:0 12px 30px rgba(15, 23, 42, 0.12);
+		}
+
+		article h3{
+			font-size:22px;
+			margin-bottom:12px;
+			color:var(--texto);
+		}
+
+		article p{
+			font-size:15px;
+			color:var(--texto-secundario);
+			margin-bottom:10px;
+		}
+
+		.precio{
+			margin-top:auto;
+			font-size:26px;
+			font-weight:700;
+			color:var(--primario);
+			margin-bottom:18px;
+		}
+
+		.boton-anadir{
+			border:none;
+			background:var(--texto);
+			color:white;
+			padding:12px 16px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-anadir:hover{
+			background:#101820;
+		}
+
+		aside#panelCarrito{
+			position:fixed;
+			top:0;
+			right:-420px;
+			width:420px;
+			max-width:100%;
+			height:100vh;
+			background:var(--superficie);
+			box-shadow:-10px 0 30px rgba(0,0,0,0.12);
+			border-left:1px solid var(--borde);
+			transition:right 0.3s ease;
+			z-index:50;
+			display:flex;
+			flex-direction:column;
+		}
+
+		aside#panelCarrito.abierto{
+			right:0;
+		}
+
+		.carrito-cabecera{
+			padding:22px 20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.carrito-cabecera h2{
+			font-size:24px;
+		}
+
+		.cerrar{
+			border:none;
+			background:transparent;
+			font-size:28px;
+			cursor:pointer;
+			color:var(--texto-secundario);
+		}
+
+		.carrito-contenido{
+			padding:20px;
+			overflow:auto;
+			flex:1;
+		}
+
+		.linea-carrito{
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:12px;
+			background:#fafbfd;
+		}
+
+		.linea-carrito h4{
+			font-size:17px;
+			margin-bottom:6px;
+		}
+
+		.linea-carrito p{
+			font-size:14px;
+			color:var(--texto-secundario);
+			margin-bottom:4px;
+		}
+
+		.controles-linea{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+			margin-top:10px;
+		}
+
+		.cantidad{
+			display:flex;
+			align-items:center;
+			gap:8px;
+		}
+
+		.cantidad button{
+			width:32px;
+			height:32px;
+			border:none;
+			border-radius:8px;
+			background:#e9eef5;
+			cursor:pointer;
+			font-size:18px;
+		}
+
+		.borrar{
+			border:none;
+			background:var(--peligro);
+			color:white;
+			padding:8px 10px;
+			border-radius:8px;
+			cursor:pointer;
+			font-size:13px;
+		}
+
+		.carrito-pie{
+			border-top:1px solid var(--borde);
+			padding:20px;
+			background:#fbfcfe;
+		}
+
+		.total{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			font-size:20px;
+			font-weight:700;
+			margin-bottom:16px;
+		}
+
+		.acciones-carrito{
+			display:flex;
+			gap:10px;
+		}
+
+		.acciones-carrito button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		#vaciarCarrito{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		#comprar{
+			background:var(--exito);
+			color:white;
+		}
+
+		#overlay,
+		#checkoutOverlay{
+			position:fixed;
+			inset:0;
+			background:rgba(15, 23, 42, 0.45);
+			opacity:0;
+			pointer-events:none;
+			transition:opacity 0.25s ease;
+			z-index:40;
+		}
+
+		#overlay.visible,
+		#checkoutOverlay.visible{
+			opacity:1;
+			pointer-events:auto;
+		}
+
+		#checkoutModal{
+			position:fixed;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%) scale(0.96);
+			width:560px;
+			max-width:calc(100% - 30px);
+			background:var(--superficie);
+			border-radius:16px;
+			box-shadow:0 20px 50px rgba(0,0,0,0.2);
+			z-index:60;
+			opacity:0;
+			pointer-events:none;
+			transition:all 0.25s ease;
+		}
+
+		#checkoutModal.visible{
+			opacity:1;
+			pointer-events:auto;
+			transform:translate(-50%, -50%) scale(1);
+		}
+
+		.modal-cabecera{
+			padding:20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.modal-cuerpo{
+			padding:20px;
+		}
+
+		form{
+			display:grid;
+			gap:14px;
+		}
+
+		label{
+			font-weight:700;
+			font-size:14px;
+			display:block;
+			margin-bottom:6px;
+		}
+
+		input, textarea{
+			width:100%;
+			padding:12px 14px;
+			border:1px solid var(--borde);
+			border-radius:10px;
+			font-size:15px;
+			outline:none;
+			background:white;
+		}
+
+		textarea{
+			min-height:90px;
+			resize:vertical;
+		}
+
+		.resumen-pedido{
+			background:#f8fafc;
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:8px;
+		}
+
+		.resumen-pedido h3{
+			font-size:18px;
+			margin-bottom:10px;
+		}
+
+		.resumen-pedido ul{
+			padding-left:18px;
+			color:var(--texto-secundario);
+		}
+
+		.resumen-pedido li{
+			margin-bottom:4px;
+		}
+
+		.botones-formulario{
+			display:flex;
+			gap:10px;
+			margin-top:8px;
+		}
+
+		.botones-formulario button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		.cancelar{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		.enviar{
+			background:var(--primario);
+			color:white;
+		}
+
+		.mensaje{
+			margin-top:14px;
+			padding:12px 14px;
+			border-radius:10px;
+			display:none;
+		}
+
+		.mensaje.ok{
+			background:#edf7ed;
+			color:#1b5e20;
+		}
+
+		.mensaje.error{
+			background:#fdecec;
+			color:#8a1f1f;
+		}
+
+		.vacio{
+			color:var(--texto-secundario);
+			text-align:center;
+			padding:40px 10px;
+		}
+
+		footer{
+			margin-top:40px;
+			padding:30px 20px;
+			text-align:center;
+			color:var(--texto-secundario);
+			font-size:14px;
+			border-top:1px solid var(--borde);
+			background:var(--superficie);
+		}
+
+		@media (max-width:768px){
+			.header-contenido{
+				padding:16px;
+			}
+
+			header h1{
+				font-size:24px;
+			}
+
+			main{
+				margin:24px auto;
+				padding:0 16px;
+				gap:16px;
+			}
+
+			article{
+				padding:18px;
+			}
+
+			aside#panelCarrito{
+				width:100%;
+			}
+
+			.botones-formulario,
+			.acciones-carrito{
+				flex-direction:column;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-contenido">
+			<h1>Tienda de artículos deportivos</h1>
+			<button class="boton-carrito" id="abrirCarrito">Carrito (<span id="contadorCarrito">0</span>)</button>
+		</div>
+	</header>
+
+	<main>
+		<?php foreach($datos as $articulo): ?>
+			<article>
+				<h3><?php echo htmlspecialchars($articulo['nombre']); ?></h3>
+				<p><?php echo htmlspecialchars($articulo['descripcion']); ?></p>
+				<p class="precio"><?php echo number_format((float)$articulo['precio'], 2, ',', '.'); ?> €</p>
+				<button
+					class="boton-anadir"
+					data-nombre="<?php echo htmlspecialchars($articulo['nombre'], ENT_QUOTES); ?>"
+					data-descripcion="<?php echo htmlspecialchars($articulo['descripcion'], ENT_QUOTES); ?>"
+					data-precio="<?php echo (float)$articulo['precio']; ?>"
+				>
+					Añadir al carrito
+				</button>
+			</article>
+		<?php endforeach; ?>
+	</main>
+
+	<aside id="panelCarrito">
+		<div class="carrito-cabecera">
+			<h2>Carrito</h2>
+			<button class="cerrar" id="cerrarCarrito">&times;</button>
+		</div>
+
+		<div class="carrito-contenido" id="lineasCarrito"></div>
+
+		<div class="carrito-pie">
+			<div class="total">
+				<span>Total</span>
+				<span id="totalCarrito">0,00 €</span>
+			</div>
+			<div class="acciones-carrito">
+				<button id="vaciarCarrito">Vaciar</button>
+				<button id="comprar">Comprar</button>
+			</div>
+		</div>
+	</aside>
+
+	<div id="overlay"></div>
+
+	<div id="checkoutOverlay"></div>
+	<div id="checkoutModal">
+		<div class="modal-cabecera">
+			<h2>Datos del cliente</h2>
+			<button class="cerrar" id="cerrarCheckout">&times;</button>
+		</div>
+		<div class="modal-cuerpo">
+			<div class="resumen-pedido">
+				<h3>Resumen del pedido</h3>
+				<ul id="resumenPedido"></ul>
+				<p style="margin-top:10px;font-weight:700;">Total: <span id="resumenTotal">0,00 €</span></p>
+			</div>
+
+			<form id="formularioCompra">
+				<div>
+					<label for="nombreCliente">Nombre completo</label>
+					<input type="text" id="nombreCliente" name="nombreCliente" required>
+				</div>
+
+				<div>
+					<label for="emailCliente">Correo electrónico</label>
+					<input type="email" id="emailCliente" name="emailCliente" required>
+				</div>
+
+				<div>
+					<label for="telefonoCliente">Teléfono</label>
+					<input type="text" id="telefonoCliente" name="telefonoCliente" required>
+				</div>
+
+				<div>
+					<label for="direccionCliente">Dirección</label>
+					<textarea id="direccionCliente" name="direccionCliente" required></textarea>
+				</div>
+
+				<div class="botones-formulario">
+					<button type="button" class="cancelar" id="cancelarCheckout">Cancelar</button>
+					<button type="submit" class="enviar">Confirmar compra</button>
+				</div>
+			</form>
+
+			<div class="mensaje" id="mensajeCompra"></div>
+		</div>
+	</div>
+
+	<footer>
+		(c) 2026 Jose Vicente Carratala
+	</footer>
+
+	<script>
+		const carrito = [];
+		const contadorCarrito = document.getElementById("contadorCarrito");
+		const totalCarrito = document.getElementById("totalCarrito");
+		const lineasCarrito = document.getElementById("lineasCarrito");
+		const panelCarrito = document.getElementById("panelCarrito");
+		const overlay = document.getElementById("overlay");
+
+		const checkoutOverlay = document.getElementById("checkoutOverlay");
+		const checkoutModal = document.getElementById("checkoutModal");
+		const resumenPedido = document.getElementById("resumenPedido");
+		const resumenTotal = document.getElementById("resumenTotal");
+		const formularioCompra = document.getElementById("formularioCompra");
+		const mensajeCompra = document.getElementById("mensajeCompra");
+
+		function formatoEuros(valor){
+			return valor.toLocaleString("es-ES", {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			}) + " €";
+		}
+
+		function totalUnidades(){
+			return carrito.reduce((acumulado, item) => acumulado + item.cantidad, 0);
+		}
+
+		function totalImporte(){
+			return carrito.reduce((acumulado, item) => acumulado + (item.precio * item.cantidad), 0);
+		}
+
+		function abrirCarrito(){
+			panelCarrito.classList.add("abierto");
+			overlay.classList.add("visible");
+		}
+
+		function cerrarCarrito(){
+			panelCarrito.classList.remove("abierto");
+			overlay.classList.remove("visible");
+		}
+
+		function abrirCheckout(){
+			if(carrito.length === 0){
+				alert("El carrito está vacío.");
+				return;
+			}
+
+			resumenPedido.innerHTML = "";
+			carrito.forEach(item => {
+				const li = document.createElement("li");
+				li.textContent = item.nombre + " x " + item.cantidad + " = " + formatoEuros(item.precio * item.cantidad);
+				resumenPedido.appendChild(li);
+			});
+
+			resumenTotal.textContent = formatoEuros(totalImporte());
+			checkoutOverlay.classList.add("visible");
+			checkoutModal.classList.add("visible");
+		}
+
+		function cerrarCheckout(){
+			checkoutOverlay.classList.remove("visible");
+			checkoutModal.classList.remove("visible");
+		}
+
+		function renderCarrito(){
+			contadorCarrito.textContent = totalUnidades();
+			totalCarrito.textContent = formatoEuros(totalImporte());
+
+			if(carrito.length === 0){
+				lineasCarrito.innerHTML = '<div class="vacio">Todavía no has añadido productos.</div>';
+				return;
+			}
+
+			lineasCarrito.innerHTML = "";
+
+			carrito.forEach((item, indice) => {
+				const linea = document.createElement("div");
+				linea.className = "linea-carrito";
+
+				linea.innerHTML = `
+					<h4>${item.nombre}</h4>
+					<p>${item.descripcion}</p>
+					<p><strong>${formatoEuros(item.precio)}</strong> por unidad</p>
+					<div class="controles-linea">
+						<div class="cantidad">
+							<button type="button" data-accion="restar" data-indice="${indice}">-</button>
+							<span>${item.cantidad}</span>
+							<button type="button" data-accion="sumar" data-indice="${indice}">+</button>
+						</div>
+						<button type="button" class="borrar" data-accion="borrar" data-indice="${indice}">Eliminar</button>
+					</div>
+				`;
+
+				lineasCarrito.appendChild(linea);
+			});
+		}
+
+		function anadirProducto(nombre, descripcion, precio){
+			const existente = carrito.find(item => item.nombre === nombre);
+
+			if(existente){
+				existente.cantidad++;
+			}else{
+				carrito.push({
+					nombre,
+					descripcion,
+					precio: parseFloat(precio),
+					cantidad: 1
+				});
+			}
+
+			renderCarrito();
+			abrirCarrito();
+		}
+
+		document.querySelectorAll(".boton-anadir").forEach(boton => {
+			boton.addEventListener("click", function(){
+				anadirProducto(
+					this.dataset.nombre,
+					this.dataset.descripcion,
+					this.dataset.precio
+				);
+			});
+		});
+
+		document.getElementById("abrirCarrito").addEventListener("click", abrirCarrito);
+		document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+		overlay.addEventListener("click", cerrarCarrito);
+
+		lineasCarrito.addEventListener("click", function(e){
+			const accion = e.target.dataset.accion;
+			const indice = parseInt(e.target.dataset.indice);
+
+			if(isNaN(indice)) return;
+
+			if(accion === "sumar"){
+				carrito[indice].cantidad++;
+			}
+
+			if(accion === "restar"){
+				carrito[indice].cantidad--;
+				if(carrito[indice].cantidad <= 0){
+					carrito.splice(indice, 1);
+				}
+			}
+
+			if(accion === "borrar"){
+				carrito.splice(indice, 1);
+			}
+
+			renderCarrito();
+		});
+
+		document.getElementById("vaciarCarrito").addEventListener("click", function(){
+			carrito.length = 0;
+			renderCarrito();
+		});
+
+		document.getElementById("comprar").addEventListener("click", abrirCheckout);
+		document.getElementById("cerrarCheckout").addEventListener("click", cerrarCheckout);
+		document.getElementById("cancelarCheckout").addEventListener("click", cerrarCheckout);
+		checkoutOverlay.addEventListener("click", cerrarCheckout);
+
+		formularioCompra.addEventListener("submit", async function(e){
+			e.preventDefault();
+
+			if(carrito.length === 0){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "El carrito está vacío.";
+				return;
+			}
+
+			const productosPedido = carrito.map(item => ({
+				nombre: item.nombre,
+				descripcion: item.descripcion,
+				precio: item.precio,
+				cantidad: item.cantidad
+			}));
+
+			const pedido = {
+				cliente: {
+					nombre: document.getElementById("nombreCliente").value,
+					email: document.getElementById("emailCliente").value,
+					telefono: document.getElementById("telefonoCliente").value,
+					direccion: document.getElementById("direccionCliente").value
+				},
+				productos: productosPedido,
+				total: totalImporte(),
+				fecha: new Date().toISOString()
+			};
+
+			try{
+				const respuesta = await fetch(window.location.href, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(pedido)
+				});
+
+				const resultado = await respuesta.json();
+
+				if(resultado.ok){
+					mensajeCompra.className = "mensaje ok";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje;
+
+					formularioCompra.reset();
+					carrito.length = 0;
+					renderCarrito();
+
+					setTimeout(() => {
+						cerrarCheckout();
+						mensajeCompra.style.display = "none";
+						mensajeCompra.textContent = "";
+					}, 1800);
+				}else{
+					mensajeCompra.className = "mensaje error";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje || "No se pudo procesar el pedido.";
+				}
+			}catch(error){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "Error de comunicación con el servidor.";
+			}
+		});
+
+		renderCarrito();
+	</script>
+</body>
+</html>
+```
+
+### comprobacion
+<small>Creado: 2026-04-16 17:39</small>
+
+`011-comprobacion.php`
+
+```
+<?php
+echo $MI_SERVIDORSMTP_CORREO_JOCARSA;
+?>
+```
+
+### obtener imagenes de carpeta
+<small>Creado: 2026-04-16 17:39</small>
+
+`012-obtener imagenes de carpeta.php`
+
+```
+<?php
+
+$folderUrl = "https://drive.google.com/drive/folders/138MaEADdrCQsVwAnEfihxvXwQs86rGyM?usp=sharing";
+
+function extraerFolderId($url) {
+    if (preg_match('/\/folders\/([a-zA-Z0-9_-]+)/', $url, $m)) {
+        return $m[1];
+    }
+    return trim($url);
+}
+
+function descargar($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+    $respuesta = curl_exec($ch);
+    $error = curl_error($ch);
+    $http = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    curl_close($ch);
+
+    if ($respuesta === false) {
+        return [false, $error];
+    }
+
+    if ($http < 200 || $http >= 300) {
+        return [false, "HTTP $http"];
+    }
+
+    return [$respuesta, null];
+}
+
+$folderId = extraerFolderId($folderUrl);
+$imagenes = [];
+$error = "";
+
+if (!$folderId) {
+    $error = "No se pudo extraer el ID de la carpeta.";
+} else {
+    $embeddedUrl = "https://drive.google.com/embeddedfolderview?id=" . $folderId . "#grid";
+
+    // IMPORTANTE: aquí va la URL completa, con http:// delante
+    $proxyUrl = "https://r.jina.ai/http://" . ltrim($embeddedUrl, '/');
+    $proxyUrl = str_replace("http://https://", "https://", $proxyUrl);
+
+    list($contenido, $fallo) = descargar($proxyUrl);
+
+    if ($contenido === false) {
+        $error = "No se pudo leer la carpeta: " . $fallo;
+    } else {
+        preg_match_all(
+            '/https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)\/view/',
+            $contenido,
+            $matches
+        );
+
+        if (!empty($matches[1])) {
+            $ids = array_unique($matches[1]);
+
+            foreach ($ids as $id) {
+                $imagenes[] = [
+                    "id" => $id,
+                    "preview" => "https://drive.google.com/file/d/$id/preview",
+                    "view" => "https://drive.google.com/file/d/$id/view"
+                ];
+            }
+        } else {
+            $error = "No se encontraron imágenes en la respuesta.";
+        }
+    }
+}
+?>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería Drive</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f5f5;margin:0;padding:24px}
+h1{margin:0 0 10px 0}
+.estado{margin:0 0 20px 0;color:#666}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.tarjeta{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+iframe{width:100%;height:260px;border:0;display:block;background:#ddd}
+.acciones{padding:10px}
+.acciones a{display:inline-block;text-decoration:none;color:#fff;background:#333;padding:8px 10px;border-radius:6px;font-size:13px}
+</style>
+</head>
+<body>
+
+<h1>Imágenes de carpeta pública de Drive</h1>
+
+<p class="estado">
+<?php
+if ($error) {
+    echo htmlspecialchars($error);
+} else {
+    echo count($imagenes) . " archivo(s) cargado(s).";
+}
+?>
+</p>
+
+<div class="galeria">
+<?php foreach ($imagenes as $imagen): ?>
+    <div class="tarjeta">
+        <iframe src="<?= htmlspecialchars($imagen["preview"]) ?>" loading="lazy"></iframe>
+        <div class="acciones">
+            <a href="<?= htmlspecialchars($imagen["view"]) ?>" target="_blank">Abrir</a>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+
+</body>
+</html>
+```
+
+### tienda con imagenes
+<small>Creado: 2026-04-16 17:39</small>
+
+`013-tienda con imagenes.php`
+
+```
+<?php
+
+// --------------------------------------------------
+// CONFIGURACIÓN SMTP DESDE VARIABLES DE ENTORNO
+// --------------------------------------------------
+define('SMTP_HOST', getenv('MI_SERVIDORSMTP_CORREO_JOCARSA'));
+define('SMTP_PORT', 587);
+define('SMTP_USER', getenv('MI_CORREO_JOCARSA'));
+define('SMTP_PASS', getenv('MI_CONTRASENA_CORREO_JOCARSA'));
+define('SMTP_FROM_EMAIL', getenv('MI_CORREO_JOCARSA'));
+define('SMTP_FROM_NAME', 'Tienda deportiva');
+define('SMTP_TO_EMAIL', "jocarsa2@gmail.com");
+define('SMTP_SECURE', 'tls');
+
+
+// --------------------------------------------------
+// FUNCIÓN SMTP POR SOCKETS
+// --------------------------------------------------
+function smtp_read($socket) {
+    $data = '';
+    while ($str = fgets($socket, 515)) {
+        $data .= $str;
+        if (preg_match('/^\d{3}\s/', $str)) {
+            break;
+        }
+    }
+    return $data;
+}
+
+function smtp_expect($response, $codes) {
+    foreach ((array)$codes as $code) {
+        if (strpos($response, (string)$code) === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function smtp_cmd($socket, $command, $expectCodes) {
+    fwrite($socket, $command . "\r\n");
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, $expectCodes)) {
+        throw new Exception("Error SMTP en comando [$command]: $response");
+    }
+    return $response;
+}
+
+function smtp_send_mail($toEmail, $toName, $subject, $htmlBody, $textBody = '') {
+    $host = SMTP_HOST;
+    $port = SMTP_PORT;
+    $user = SMTP_USER;
+    $pass = SMTP_PASS;
+    $fromEmail = SMTP_FROM_EMAIL;
+    $fromName = SMTP_FROM_NAME;
+    $secure = SMTP_SECURE;
+
+    $socket = fsockopen($host, $port, $errno, $errstr, 20);
+    if (!$socket) {
+        throw new Exception("No se pudo conectar al servidor SMTP: $errstr ($errno)");
+    }
+
+    stream_set_timeout($socket, 20);
+
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 220)) {
+        fclose($socket);
+        throw new Exception("Respuesta inicial SMTP no válida: $response");
+    }
+
+    smtp_cmd($socket, "EHLO localhost", 250);
+
+    if ($secure === 'tls') {
+        smtp_cmd($socket, "STARTTLS", 220);
+
+        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            fclose($socket);
+            throw new Exception("No se pudo activar TLS.");
+        }
+
+        smtp_cmd($socket, "EHLO localhost", 250);
+    }
+
+    smtp_cmd($socket, "AUTH LOGIN", 334);
+    smtp_cmd($socket, base64_encode($user), 334);
+    smtp_cmd($socket, base64_encode($pass), 235);
+
+    smtp_cmd($socket, "MAIL FROM:<$fromEmail>", 250);
+    smtp_cmd($socket, "RCPT TO:<$toEmail>", [250, 251]);
+    smtp_cmd($socket, "DATA", 354);
+
+    $boundary = 'b1_' . md5(uniqid((string)mt_rand(), true));
+
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    $encodedFromName = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+    $encodedToName = '=?UTF-8?B?' . base64_encode($toName) . '?=';
+
+    if ($textBody === '') {
+        $textBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $htmlBody));
+    }
+
+    $headers = [];
+    $headers[] = "From: $encodedFromName <$fromEmail>";
+    $headers[] = "To: $encodedToName <$toEmail>";
+    $headers[] = "Subject: $encodedSubject";
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: multipart/alternative; boundary=\"$boundary\"";
+    $headers[] = "Date: " . date('r');
+    $headers[] = "Message-ID: <" . uniqid() . "@localhost>";
+
+    $message  = implode("\r\n", $headers) . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $textBody . "\r\n\r\n";
+    $message .= "--$boundary\r\n";
+    $message .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $message .= $htmlBody . "\r\n\r\n";
+    $message .= "--$boundary--\r\n.\r\n";
+
+    fwrite($socket, $message);
+    $response = smtp_read($socket);
+    if (!smtp_expect($response, 250)) {
+        fclose($socket);
+        throw new Exception("Error al enviar el cuerpo del mensaje: $response");
+    }
+
+    smtp_cmd($socket, "QUIT", 221);
+    fclose($socket);
+
+    return true;
+}
+
+
+// --------------------------------------------------
+// FUNCIONES PARA GOOGLE DRIVE
+// --------------------------------------------------
+function extraerFolderId($url) {
+    if (preg_match('/\/folders\/([a-zA-Z0-9_-]+)/', $url, $m)) {
+        return $m[1];
+    }
+    return trim($url);
+}
+
+function descargar($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+    $respuesta = curl_exec($ch);
+    $error = curl_error($ch);
+    $http = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    curl_close($ch);
+
+    if ($respuesta === false) {
+        return [false, $error];
+    }
+
+    if ($http < 200 || $http >= 300) {
+        return [false, "HTTP $http"];
+    }
+
+    return [$respuesta, null];
+}
+
+function cargarImagenesDrive($folderUrl) {
+    $folderId = extraerFolderId($folderUrl);
+
+    if (!$folderId) {
+        return [[], "No se pudo extraer el ID de la carpeta."];
+    }
+
+    $embeddedUrl = "https://drive.google.com/embeddedfolderview?id=" . $folderId . "#grid";
+    $proxyUrl = "https://r.jina.ai/http://" . ltrim($embeddedUrl, '/');
+    $proxyUrl = str_replace("http://https://", "https://", $proxyUrl);
+
+    list($contenido, $fallo) = descargar($proxyUrl);
+
+    if ($contenido === false) {
+        return [[], "No se pudo leer la carpeta: " . $fallo];
+    }
+
+    $imagenes = [];
+
+    preg_match_all(
+        '/\[(.*?)\]\(https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)\/view/',
+        $contenido,
+        $matches,
+        PREG_SET_ORDER
+    );
+
+    if (empty($matches)) {
+        return [[], "No se encontraron imágenes en la respuesta."];
+    }
+
+    foreach ($matches as $match) {
+        $textoEnlace = trim($match[1]);
+        $id = trim($match[2]);
+
+        $nombreArchivo = $textoEnlace;
+
+        if (preg_match('/([^\]]+\.(png|jpg|jpeg|webp))/i', $textoEnlace, $mNombre)) {
+            $nombreArchivo = trim($mNombre[1]);
+        }
+
+        $imagenes[] = [
+            "id" => $id,
+            "filename" => $nombreArchivo,
+            "thumb" => "https://drive.google.com/thumbnail?id=$id&sz=w1200",
+            "view" => "https://drive.google.com/file/d/$id/view"
+        ];
+    }
+
+    return [$imagenes, ""];
+}
+
+function normalizarNombreArchivo($texto) {
+    $texto = trim($texto);
+    $texto = preg_replace('/\s+/', ' ', $texto);
+    return mb_strtolower($texto, 'UTF-8');
+}
+
+
+// --------------------------------------------------
+// PROCESAR PEDIDO AJAX
+// --------------------------------------------------
+if (
+    $_SERVER['REQUEST_METHOD'] === 'POST' &&
+    isset($_SERVER['CONTENT_TYPE']) &&
+    str_contains($_SERVER['CONTENT_TYPE'], 'application/json')
+) {
+    header('Content-Type: application/json; charset=utf-8');
+
+    try {
+        $raw = file_get_contents("php://input");
+        $pedido = json_decode($raw, true);
+
+        if (!$pedido) {
+            throw new Exception("No se ha recibido un pedido válido.");
+        }
+
+        $cliente = $pedido['cliente'] ?? [];
+        $productos = $pedido['productos'] ?? [];
+        $total = (float)($pedido['total'] ?? 0);
+        $fecha = $pedido['fecha'] ?? date('c');
+
+        if (empty($cliente['nombre']) || empty($cliente['email']) || empty($cliente['telefono']) || empty($cliente['direccion'])) {
+            throw new Exception("Faltan datos del cliente.");
+        }
+
+        if (empty($productos)) {
+            throw new Exception("El pedido no contiene productos.");
+        }
+
+        $filasHtml = '';
+        $filasTexto = '';
+
+        foreach ($productos as $producto) {
+            $nombre = htmlspecialchars($producto['nombre'] ?? '');
+            $descripcion = htmlspecialchars($producto['descripcion'] ?? '');
+            $precio = (float)($producto['precio'] ?? 0);
+            $cantidad = (int)($producto['cantidad'] ?? 0);
+            $subtotal = $precio * $cantidad;
+
+            $filasHtml .= "
+                <tr>
+                    <td style='padding:8px;border:1px solid #ddd;'>$nombre</td>
+                    <td style='padding:8px;border:1px solid #ddd;'>$descripcion</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($precio, 2, ',', '.') . " €</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:center;'>$cantidad</td>
+                    <td style='padding:8px;border:1px solid #ddd;text-align:right;'>" . number_format($subtotal, 2, ',', '.') . " €</td>
+                </tr>
+            ";
+
+            $filasTexto .= "- $nombre | $descripcion | " . number_format($precio, 2, ',', '.') . " € | Cantidad: $cantidad | Subtotal: " . number_format($subtotal, 2, ',', '.') . " €\n";
+        }
+
+        $html = "
+            <html>
+            <body style='font-family:Arial,Helvetica,sans-serif;color:#1f2933;'>
+                <h2>Nuevo pedido recibido</h2>
+
+                <h3>Datos del cliente</h3>
+                <p><strong>Nombre:</strong> " . htmlspecialchars($cliente['nombre']) . "</p>
+                <p><strong>Email:</strong> " . htmlspecialchars($cliente['email']) . "</p>
+                <p><strong>Teléfono:</strong> " . htmlspecialchars($cliente['telefono']) . "</p>
+                <p><strong>Dirección:</strong><br>" . nl2br(htmlspecialchars($cliente['direccion'])) . "</p>
+                <p><strong>Fecha:</strong> " . htmlspecialchars($fecha) . "</p>
+
+                <h3>Productos</h3>
+                <table cellspacing='0' cellpadding='0' style='border-collapse:collapse;width:100%;'>
+                    <thead>
+                        <tr>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Nombre</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:left;'>Descripción</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Precio</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:center;'>Cantidad</th>
+                            <th style='padding:8px;border:1px solid #ddd;background:#f5f7fa;text-align:right;'>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        $filasHtml
+                    </tbody>
+                </table>
+
+                <p style='margin-top:20px;font-size:18px;'><strong>Total:</strong> " . number_format($total, 2, ',', '.') . " €</p>
+            </body>
+            </html>
+        ";
+
+        $texto = "Nuevo pedido recibido\n\n";
+        $texto .= "DATOS DEL CLIENTE\n";
+        $texto .= "Nombre: " . $cliente['nombre'] . "\n";
+        $texto .= "Email: " . $cliente['email'] . "\n";
+        $texto .= "Teléfono: " . $cliente['telefono'] . "\n";
+        $texto .= "Dirección: " . $cliente['direccion'] . "\n";
+        $texto .= "Fecha: " . $fecha . "\n\n";
+        $texto .= "PRODUCTOS\n";
+        $texto .= $filasTexto . "\n";
+        $texto .= "TOTAL: " . number_format($total, 2, ',', '.') . " €\n";
+
+        smtp_send_mail(
+            SMTP_TO_EMAIL,
+            'Administrador',
+            'Nuevo pedido de la tienda deportiva',
+            $html,
+            $texto
+        );
+
+        echo json_encode([
+            'ok' => true,
+            'mensaje' => 'Compra registrada y enviada por correo correctamente.'
+        ]);
+        exit;
+
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode([
+            'ok' => false,
+            'mensaje' => $e->getMessage()
+        ]);
+        exit;
+    }
+}
+
+
+// --------------------------------------------------
+// CARGA DEL CSV
+// --------------------------------------------------
+$url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv";
+
+$datos = [];
+
+if (($handle = fopen($url, "r")) !== false) {
+    $cabeceras = fgetcsv($handle, 1000, ",");
+
+    while (($fila = fgetcsv($handle, 1000, ",")) !== false) {
+        if (count($cabeceras) === count($fila)) {
+            $datos[] = array_combine($cabeceras, $fila);
+        }
+    }
+
+    fclose($handle);
+}
+
+
+// --------------------------------------------------
+// CARGA Y EMPAREJADO DE IMÁGENES
+// --------------------------------------------------
+$folderUrl = "https://drive.google.com/drive/folders/1EoZM-6uTUx5s3Y-qiec8o-ddmbwwhmSX?usp=sharing";
+list($imagenesDrive, $errorImagenesDrive) = cargarImagenesDrive($folderUrl);
+
+$imagenesPorNombre = [];
+
+foreach ($imagenesDrive as $imagen) {
+    $clave = normalizarNombreArchivo($imagen['filename']);
+    $imagenesPorNombre[$clave] = $imagen;
+}
+
+foreach ($datos as $i => $articulo) {
+    $nombreEsperado = trim($articulo['nombre']) . ".png";
+    $claveBusqueda = normalizarNombreArchivo($nombreEsperado);
+
+    if (isset($imagenesPorNombre[$claveBusqueda])) {
+        $datos[$i]['imagen'] = $imagenesPorNombre[$claveBusqueda]['thumb'];
+        $datos[$i]['imagen_view'] = $imagenesPorNombre[$claveBusqueda]['view'];
+    } else {
+        $datos[$i]['imagen'] = '';
+        $datos[$i]['imagen_view'] = '';
+    }
+}
+?>
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tienda de artículos deportivos</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+
+		:root{
+			--fondo:#f5f7fa;
+			--superficie:#ffffff;
+			--borde:#d9e1e8;
+			--texto:#1f2933;
+			--texto-secundario:#52606d;
+			--primario:#2d6cdf;
+			--primario-hover:#1f5ac7;
+			--exito:#1f9d55;
+			--peligro:#d64545;
+			--sombra:0 8px 24px rgba(15, 23, 42, 0.08);
+			--radio:12px;
+			--ancho:1200px;
+		}
+
+		body{
+			font-family:Arial, Helvetica, sans-serif;
+			background:var(--fondo);
+			color:var(--texto);
+			line-height:1.5;
+		}
+
+		header{
+			background:var(--superficie);
+			border-bottom:1px solid var(--borde);
+			box-shadow:0 2px 10px rgba(0,0,0,0.03);
+			position:sticky;
+			top:0;
+			z-index:20;
+		}
+
+		.header-contenido{
+			max-width:var(--ancho);
+			margin:auto;
+			padding:20px;
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:20px;
+		}
+
+		header h1{
+			font-size:32px;
+			font-weight:700;
+			color:var(--texto);
+		}
+
+		.boton-carrito{
+			border:none;
+			background:var(--primario);
+			color:white;
+			padding:12px 18px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-carrito:hover{
+			background:var(--primario-hover);
+		}
+
+		.aviso-imagenes{
+			max-width:var(--ancho);
+			margin:20px auto 0 auto;
+			padding:0 20px;
+		}
+
+		.aviso-imagenes div{
+			background:#fff7e6;
+			border:1px solid #f5d08a;
+			color:#8a5a00;
+			padding:14px 16px;
+			border-radius:10px;
+		}
+
+		main{
+			max-width:var(--ancho);
+			margin:40px auto;
+			padding:0 20px;
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+			gap:24px;
+		}
+
+		article{
+			background:var(--superficie);
+			border:1px solid var(--borde);
+			border-radius:var(--radio);
+			overflow:hidden;
+			box-shadow:var(--sombra);
+			transition:transform 0.2s ease, box-shadow 0.2s ease;
+			display:flex;
+			flex-direction:column;
+		}
+
+		article:hover{
+			transform:translateY(-4px);
+			box-shadow:0 12px 30px rgba(15, 23, 42, 0.12);
+		}
+
+		.producto-imagen{
+			width:100%;
+			height:220px;
+			background:#eef2f6;
+			display:block;
+			object-fit:cover;
+			border-bottom:1px solid var(--borde);
+		}
+
+		.producto-imagen-placeholder{
+			width:100%;
+			height:220px;
+			background:linear-gradient(135deg, #eef2f6, #dde6ef);
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			color:var(--texto-secundario);
+			font-size:14px;
+			text-align:center;
+			padding:20px;
+		}
+
+		.producto-cuerpo{
+			padding:24px;
+			display:flex;
+			flex-direction:column;
+			flex:1;
+		}
+
+		article h3{
+			font-size:22px;
+			margin-bottom:12px;
+			color:var(--texto);
+		}
+
+		article p{
+			font-size:15px;
+			color:var(--texto-secundario);
+			margin-bottom:10px;
+		}
+
+		.precio{
+			margin-top:auto;
+			font-size:26px;
+			font-weight:700;
+			color:var(--primario);
+			margin-bottom:18px;
+		}
+
+		.boton-anadir{
+			border:none;
+			background:var(--texto);
+			color:white;
+			padding:12px 16px;
+			border-radius:10px;
+			cursor:pointer;
+			font-size:15px;
+			font-weight:700;
+			transition:background 0.2s ease;
+		}
+
+		.boton-anadir:hover{
+			background:#101820;
+		}
+
+		aside#panelCarrito{
+			position:fixed;
+			top:0;
+			right:-420px;
+			width:420px;
+			max-width:100%;
+			height:100vh;
+			background:var(--superficie);
+			box-shadow:-10px 0 30px rgba(0,0,0,0.12);
+			border-left:1px solid var(--borde);
+			transition:right 0.3s ease;
+			z-index:50;
+			display:flex;
+			flex-direction:column;
+		}
+
+		aside#panelCarrito.abierto{
+			right:0;
+		}
+
+		.carrito-cabecera{
+			padding:22px 20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.carrito-cabecera h2{
+			font-size:24px;
+		}
+
+		.cerrar{
+			border:none;
+			background:transparent;
+			font-size:28px;
+			cursor:pointer;
+			color:var(--texto-secundario);
+		}
+
+		.carrito-contenido{
+			padding:20px;
+			overflow:auto;
+			flex:1;
+		}
+
+		.linea-carrito{
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:12px;
+			background:#fafbfd;
+		}
+
+		.linea-carrito h4{
+			font-size:17px;
+			margin-bottom:6px;
+		}
+
+		.linea-carrito p{
+			font-size:14px;
+			color:var(--texto-secundario);
+			margin-bottom:4px;
+		}
+
+		.controles-linea{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+			margin-top:10px;
+		}
+
+		.cantidad{
+			display:flex;
+			align-items:center;
+			gap:8px;
+		}
+
+		.cantidad button{
+			width:32px;
+			height:32px;
+			border:none;
+			border-radius:8px;
+			background:#e9eef5;
+			cursor:pointer;
+			font-size:18px;
+		}
+
+		.borrar{
+			border:none;
+			background:var(--peligro);
+			color:white;
+			padding:8px 10px;
+			border-radius:8px;
+			cursor:pointer;
+			font-size:13px;
+		}
+
+		.carrito-pie{
+			border-top:1px solid var(--borde);
+			padding:20px;
+			background:#fbfcfe;
+		}
+
+		.total{
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			font-size:20px;
+			font-weight:700;
+			margin-bottom:16px;
+		}
+
+		.acciones-carrito{
+			display:flex;
+			gap:10px;
+		}
+
+		.acciones-carrito button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		#vaciarCarrito{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		#comprar{
+			background:var(--exito);
+			color:white;
+		}
+
+		#overlay,
+		#checkoutOverlay{
+			position:fixed;
+			inset:0;
+			background:rgba(15, 23, 42, 0.45);
+			opacity:0;
+			pointer-events:none;
+			transition:opacity 0.25s ease;
+			z-index:40;
+		}
+
+		#overlay.visible,
+		#checkoutOverlay.visible{
+			opacity:1;
+			pointer-events:auto;
+		}
+
+		#checkoutModal{
+			position:fixed;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%) scale(0.96);
+			width:560px;
+			max-width:calc(100% - 30px);
+			background:var(--superficie);
+			border-radius:16px;
+			box-shadow:0 20px 50px rgba(0,0,0,0.2);
+			z-index:60;
+			opacity:0;
+			pointer-events:none;
+			transition:all 0.25s ease;
+		}
+
+		#checkoutModal.visible{
+			opacity:1;
+			pointer-events:auto;
+			transform:translate(-50%, -50%) scale(1);
+		}
+
+		.modal-cabecera{
+			padding:20px;
+			border-bottom:1px solid var(--borde);
+			display:flex;
+			align-items:center;
+			justify-content:space-between;
+			gap:10px;
+		}
+
+		.modal-cuerpo{
+			padding:20px;
+		}
+
+		form{
+			display:grid;
+			gap:14px;
+		}
+
+		label{
+			font-weight:700;
+			font-size:14px;
+			display:block;
+			margin-bottom:6px;
+		}
+
+		input, textarea{
+			width:100%;
+			padding:12px 14px;
+			border:1px solid var(--borde);
+			border-radius:10px;
+			font-size:15px;
+			outline:none;
+			background:white;
+		}
+
+		textarea{
+			min-height:90px;
+			resize:vertical;
+		}
+
+		.resumen-pedido{
+			background:#f8fafc;
+			border:1px solid var(--borde);
+			border-radius:12px;
+			padding:14px;
+			margin-bottom:8px;
+		}
+
+		.resumen-pedido h3{
+			font-size:18px;
+			margin-bottom:10px;
+		}
+
+		.resumen-pedido ul{
+			padding-left:18px;
+			color:var(--texto-secundario);
+		}
+
+		.resumen-pedido li{
+			margin-bottom:4px;
+		}
+
+		.botones-formulario{
+			display:flex;
+			gap:10px;
+			margin-top:8px;
+		}
+
+		.botones-formulario button{
+			flex:1;
+			border:none;
+			padding:12px 14px;
+			border-radius:10px;
+			cursor:pointer;
+			font-weight:700;
+			font-size:15px;
+		}
+
+		.cancelar{
+			background:#e9eef5;
+			color:var(--texto);
+		}
+
+		.enviar{
+			background:var(--primario);
+			color:white;
+		}
+
+		.mensaje{
+			margin-top:14px;
+			padding:12px 14px;
+			border-radius:10px;
+			display:none;
+		}
+
+		.mensaje.ok{
+			background:#edf7ed;
+			color:#1b5e20;
+		}
+
+		.mensaje.error{
+			background:#fdecec;
+			color:#8a1f1f;
+		}
+
+		.vacio{
+			color:var(--texto-secundario);
+			text-align:center;
+			padding:40px 10px;
+		}
+
+		footer{
+			margin-top:40px;
+			padding:30px 20px;
+			text-align:center;
+			color:var(--texto-secundario);
+			font-size:14px;
+			border-top:1px solid var(--borde);
+			background:var(--superficie);
+		}
+
+		@media (max-width:768px){
+			.header-contenido{
+				padding:16px;
+			}
+
+			header h1{
+				font-size:24px;
+			}
+
+			main{
+				margin:24px auto;
+				padding:0 16px;
+				gap:16px;
+			}
+
+			.producto-cuerpo{
+				padding:18px;
+			}
+
+			aside#panelCarrito{
+				width:100%;
+			}
+
+			.botones-formulario,
+			.acciones-carrito{
+				flex-direction:column;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-contenido">
+			<h1>Tienda de artículos deportivos</h1>
+			<button class="boton-carrito" id="abrirCarrito">Carrito (<span id="contadorCarrito">0</span>)</button>
+		</div>
+	</header>
+
+	<?php if (!empty($errorImagenesDrive)): ?>
+	<div class="aviso-imagenes">
+		<div><?php echo htmlspecialchars($errorImagenesDrive); ?></div>
+	</div>
+	<?php endif; ?>
+
+	<main>
+		<?php foreach($datos as $articulo): ?>
+			<article>
+				<?php if (!empty($articulo['imagen'])): ?>
+					<a href="<?php echo htmlspecialchars($articulo['imagen_view']); ?>" target="_blank" rel="noopener">
+						<img
+							class="producto-imagen"
+							src="<?php echo htmlspecialchars($articulo['imagen']); ?>"
+							alt="<?php echo htmlspecialchars($articulo['nombre']); ?>"
+							loading="lazy"
+						>
+					</a>
+				<?php else: ?>
+					<div class="producto-imagen-placeholder">Imagen no disponible</div>
+				<?php endif; ?>
+
+				<div class="producto-cuerpo">
+					<h3><?php echo htmlspecialchars($articulo['nombre']); ?></h3>
+					<p><?php echo htmlspecialchars($articulo['descripcion']); ?></p>
+					<p class="precio"><?php echo number_format((float)$articulo['precio'], 2, ',', '.'); ?> €</p>
+					<button
+						class="boton-anadir"
+						data-nombre="<?php echo htmlspecialchars($articulo['nombre'], ENT_QUOTES); ?>"
+						data-descripcion="<?php echo htmlspecialchars($articulo['descripcion'], ENT_QUOTES); ?>"
+						data-precio="<?php echo (float)$articulo['precio']; ?>"
+					>
+						Añadir al carrito
+					</button>
+				</div>
+			</article>
+		<?php endforeach; ?>
+	</main>
+
+	<aside id="panelCarrito">
+		<div class="carrito-cabecera">
+			<h2>Carrito</h2>
+			<button class="cerrar" id="cerrarCarrito">&times;</button>
+		</div>
+
+		<div class="carrito-contenido" id="lineasCarrito"></div>
+
+		<div class="carrito-pie">
+			<div class="total">
+				<span>Total</span>
+				<span id="totalCarrito">0,00 €</span>
+			</div>
+			<div class="acciones-carrito">
+				<button id="vaciarCarrito">Vaciar</button>
+				<button id="comprar">Comprar</button>
+			</div>
+		</div>
+	</aside>
+
+	<div id="overlay"></div>
+
+	<div id="checkoutOverlay"></div>
+	<div id="checkoutModal">
+		<div class="modal-cabecera">
+			<h2>Datos del cliente</h2>
+			<button class="cerrar" id="cerrarCheckout">&times;</button>
+		</div>
+		<div class="modal-cuerpo">
+			<div class="resumen-pedido">
+				<h3>Resumen del pedido</h3>
+				<ul id="resumenPedido"></ul>
+				<p style="margin-top:10px;font-weight:700;">Total: <span id="resumenTotal">0,00 €</span></p>
+			</div>
+
+			<form id="formularioCompra">
+				<div>
+					<label for="nombreCliente">Nombre completo</label>
+					<input type="text" id="nombreCliente" name="nombreCliente" required>
+				</div>
+
+				<div>
+					<label for="emailCliente">Correo electrónico</label>
+					<input type="email" id="emailCliente" name="emailCliente" required>
+				</div>
+
+				<div>
+					<label for="telefonoCliente">Teléfono</label>
+					<input type="text" id="telefonoCliente" name="telefonoCliente" required>
+				</div>
+
+				<div>
+					<label for="direccionCliente">Dirección</label>
+					<textarea id="direccionCliente" name="direccionCliente" required></textarea>
+				</div>
+
+				<div class="botones-formulario">
+					<button type="button" class="cancelar" id="cancelarCheckout">Cancelar</button>
+					<button type="submit" class="enviar">Confirmar compra</button>
+				</div>
+			</form>
+
+			<div class="mensaje" id="mensajeCompra"></div>
+		</div>
+	</div>
+
+	<footer>
+		(c) 2026 Jose Vicente Carratala
+	</footer>
+
+	<script>
+		const carrito = [];
+		const contadorCarrito = document.getElementById("contadorCarrito");
+		const totalCarrito = document.getElementById("totalCarrito");
+		const lineasCarrito = document.getElementById("lineasCarrito");
+		const panelCarrito = document.getElementById("panelCarrito");
+		const overlay = document.getElementById("overlay");
+
+		const checkoutOverlay = document.getElementById("checkoutOverlay");
+		const checkoutModal = document.getElementById("checkoutModal");
+		const resumenPedido = document.getElementById("resumenPedido");
+		const resumenTotal = document.getElementById("resumenTotal");
+		const formularioCompra = document.getElementById("formularioCompra");
+		const mensajeCompra = document.getElementById("mensajeCompra");
+
+		function formatoEuros(valor){
+			return valor.toLocaleString("es-ES", {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			}) + " €";
+		}
+
+		function totalUnidades(){
+			return carrito.reduce((acumulado, item) => acumulado + item.cantidad, 0);
+		}
+
+		function totalImporte(){
+			return carrito.reduce((acumulado, item) => acumulado + (item.precio * item.cantidad), 0);
+		}
+
+		function abrirCarrito(){
+			panelCarrito.classList.add("abierto");
+			overlay.classList.add("visible");
+		}
+
+		function cerrarCarrito(){
+			panelCarrito.classList.remove("abierto");
+			overlay.classList.remove("visible");
+		}
+
+		function abrirCheckout(){
+			if(carrito.length === 0){
+				alert("El carrito está vacío.");
+				return;
+			}
+
+			resumenPedido.innerHTML = "";
+			carrito.forEach(item => {
+				const li = document.createElement("li");
+				li.textContent = item.nombre + " x " + item.cantidad + " = " + formatoEuros(item.precio * item.cantidad);
+				resumenPedido.appendChild(li);
+			});
+
+			resumenTotal.textContent = formatoEuros(totalImporte());
+			checkoutOverlay.classList.add("visible");
+			checkoutModal.classList.add("visible");
+		}
+
+		function cerrarCheckout(){
+			checkoutOverlay.classList.remove("visible");
+			checkoutModal.classList.remove("visible");
+		}
+
+		function renderCarrito(){
+			contadorCarrito.textContent = totalUnidades();
+			totalCarrito.textContent = formatoEuros(totalImporte());
+
+			if(carrito.length === 0){
+				lineasCarrito.innerHTML = '<div class="vacio">Todavía no has añadido productos.</div>';
+				return;
+			}
+
+			lineasCarrito.innerHTML = "";
+
+			carrito.forEach((item, indice) => {
+				const linea = document.createElement("div");
+				linea.className = "linea-carrito";
+
+				linea.innerHTML = `
+					<h4>${item.nombre}</h4>
+					<p>${item.descripcion}</p>
+					<p><strong>${formatoEuros(item.precio)}</strong> por unidad</p>
+					<div class="controles-linea">
+						<div class="cantidad">
+							<button type="button" data-accion="restar" data-indice="${indice}">-</button>
+							<span>${item.cantidad}</span>
+							<button type="button" data-accion="sumar" data-indice="${indice}">+</button>
+						</div>
+						<button type="button" class="borrar" data-accion="borrar" data-indice="${indice}">Eliminar</button>
+					</div>
+				`;
+
+				lineasCarrito.appendChild(linea);
+			});
+		}
+
+		function anadirProducto(nombre, descripcion, precio){
+			const existente = carrito.find(item => item.nombre === nombre);
+
+			if(existente){
+				existente.cantidad++;
+			}else{
+				carrito.push({
+					nombre,
+					descripcion,
+					precio: parseFloat(precio),
+					cantidad: 1
+				});
+			}
+
+			renderCarrito();
+			abrirCarrito();
+		}
+
+		document.querySelectorAll(".boton-anadir").forEach(boton => {
+			boton.addEventListener("click", function(){
+				anadirProducto(
+					this.dataset.nombre,
+					this.dataset.descripcion,
+					this.dataset.precio
+				);
+			});
+		});
+
+		document.getElementById("abrirCarrito").addEventListener("click", abrirCarrito);
+		document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+		overlay.addEventListener("click", cerrarCarrito);
+
+		lineasCarrito.addEventListener("click", function(e){
+			const accion = e.target.dataset.accion;
+			const indice = parseInt(e.target.dataset.indice);
+
+			if(isNaN(indice)) return;
+
+			if(accion === "sumar"){
+				carrito[indice].cantidad++;
+			}
+
+			if(accion === "restar"){
+				carrito[indice].cantidad--;
+				if(carrito[indice].cantidad <= 0){
+					carrito.splice(indice, 1);
+				}
+			}
+
+			if(accion === "borrar"){
+				carrito.splice(indice, 1);
+			}
+
+			renderCarrito();
+		});
+
+		document.getElementById("vaciarCarrito").addEventListener("click", function(){
+			carrito.length = 0;
+			renderCarrito();
+		});
+
+		document.getElementById("comprar").addEventListener("click", abrirCheckout);
+		document.getElementById("cerrarCheckout").addEventListener("click", cerrarCheckout);
+		document.getElementById("cancelarCheckout").addEventListener("click", cerrarCheckout);
+		checkoutOverlay.addEventListener("click", cerrarCheckout);
+
+		formularioCompra.addEventListener("submit", async function(e){
+			e.preventDefault();
+
+			if(carrito.length === 0){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "El carrito está vacío.";
+				return;
+			}
+
+			const productosPedido = carrito.map(item => ({
+				nombre: item.nombre,
+				descripcion: item.descripcion,
+				precio: item.precio,
+				cantidad: item.cantidad
+			}));
+
+			const pedido = {
+				cliente: {
+					nombre: document.getElementById("nombreCliente").value,
+					email: document.getElementById("emailCliente").value,
+					telefono: document.getElementById("telefonoCliente").value,
+					direccion: document.getElementById("direccionCliente").value
+				},
+				productos: productosPedido,
+				total: totalImporte(),
+				fecha: new Date().toISOString()
+			};
+
+			try{
+				const respuesta = await fetch(window.location.href, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(pedido)
+				});
+
+				const resultado = await respuesta.json();
+
+				if(resultado.ok){
+					mensajeCompra.className = "mensaje ok";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje;
+
+					formularioCompra.reset();
+					carrito.length = 0;
+					renderCarrito();
+
+					setTimeout(() => {
+						cerrarCheckout();
+						mensajeCompra.style.display = "none";
+						mensajeCompra.textContent = "";
+					}, 1800);
+				}else{
+					mensajeCompra.className = "mensaje error";
+					mensajeCompra.style.display = "block";
+					mensajeCompra.textContent = resultado.mensaje || "No se pudo procesar el pedido.";
+				}
+			}catch(error){
+				mensajeCompra.className = "mensaje error";
+				mensajeCompra.style.display = "block";
+				mensajeCompra.textContent = "Error de comunicación con el servidor.";
+			}
+		});
+
+		renderCarrito();
+	</script>
+</body>
+</html>
+```
+
+
+<a id="consumo-energetico"></a>
+## Consumo energetico
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/011-Consumo%20energetico)
+
+### bucle en python
+<small>Creado: 2026-04-16 17:39</small>
+
+`001-bucle en python.py`
+
+```python
+import time
+
+inicio = time.time()
+
+for i in range(2000000000):
+    pass
+
+print("Tiempo:", time.time() - inicio)
+```
+
+### bucle en c
+<small>Creado: 2026-04-16 17:39</small>
+
+`002-bucle en c.c`
+
+```
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    clock_t inicio, fin;
+    double tiempo;
+
+    inicio = clock();
+
+    for (long long i = 0; i < 2000000000LL; i++) {
+        ;
+    }
+
+    fin = clock();
+
+    tiempo = (double)(fin - inicio) / CLOCKS_PER_SEC;
+
+    printf("Tiempo: %f segundos\n", tiempo);
+
+    return 0;
+}
+```
+
+
+<a id="informatica-grafica"></a>
+## Informatica grafica
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/012-Informatica%20grafica)
+
+### lienzo
+<small>Creado: 2026-04-16 17:39</small>
+
+`001-lienzo.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+		</script>
+	</body>
+</html>
+```
+
+### contexto
+<small>Creado: 2026-04-16 17:39</small>
+
+`002-contexto.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			
+			
+		</script>
+	</body>
+</html>
+```
+
+### pongo el color
+<small>Creado: 2026-04-16 17:39</small>
+
+`003-pongo el color.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			
+			contexto.fillStyle = "red"
+		</script>
+	</body>
+</html>
+```
+
+### dibujo un rectangulo
+<small>Creado: 2026-04-16 17:39</small>
+
+`004-dibujo un rectangulo.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			
+			contexto.fillStyle = "red"
+			contexto.fillRect(30,30,4,4);
+			
+		</script>
+	</body>
+</html>
+```
+
+### muchos rectangulos
+<small>Creado: 2026-04-16 17:39</small>
+
+`005-muchos rectangulos.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.fillStyle = "red"
+			for(let i = 0;i<50;i++){
+				contexto.fillRect(Math.random()*512,Math.random()*512,4,4);
+			}
+		</script>
+	</body>
+</html>
+```
+
+### ahora quiero un rectangulo vacio
+<small>Creado: 2026-04-16 17:39</small>
+
+`006-ahora quiero un rectangulo vacio.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.strokeStyle = "red"
+			contexto.beginPath()
+			contexto.strokeRect(30,30,50,50)
+			contexto.stroke()
+		</script>
+	</body>
+</html>
+```
+
+### circulo
+<small>Creado: 2026-04-16 17:39</small>
+
+`007-circulo.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.strokeStyle = "red"
+			contexto.beginPath()
+			contexto.arc(100,100,40,0,Math.PI*2)
+			contexto.stroke()
+		</script>
+	</body>
+</html>
+```
+
+### circulo relleno
+<small>Creado: 2026-04-16 17:39</small>
+
+`008-circulo relleno.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.fillStyle = "red"
+			contexto.beginPath()
+			contexto.arc(100,100,40,0,Math.PI*2)
+			contexto.fill()
+		</script>
+	</body>
+</html>
+```
+
+### linea
+<small>Creado: 2026-04-16 17:39</small>
+
+`009-linea.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.beginPath()
+			contexto.moveTo(300,300)
+			contexto.lineTo(500,500)
+			contexto.stroke()
+		</script>
+	</body>
+</html>
+```
+
+### muchas lineas
+<small>Creado: 2026-04-16 17:39</small>
+
+`010-muchas lineas.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.beginPath()
+			contexto.moveTo(300,300)
+			for(let i = 0;i<1000;i++){
+				contexto.lineTo(Math.random()*512,Math.random()*512)
+			}
+			contexto.stroke()
+		</script>
+	</body>
+</html>
+```
+
+### texto
+<small>Creado: 2026-04-16 17:39</small>
+
+`011-texto.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.beginPath()
+			contexto.fillText("hola",20,20)
+		</script>
+	</body>
+</html>
+```
+
+### muchos textos
+<small>Creado: 2026-04-16 17:39</small>
+
+`012-muchos textos.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.beginPath()
+			for(let i = 0;i<100;i++){
+				contexto.fillText("hola",Math.random()*512,Math.random()*512)
+			}
+		</script>
+	</body>
+</html>
+```
+
+### porcion de tarta
+<small>Creado: 2026-04-16 17:39</small>
+
+`013-porcion de tarta.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.beginPath()
+			contexto.moveTo(256,256)
+			contexto.arc(256,256,200,0,Math.PI/6)
+			contexto.fill()
+		</script>
+	</body>
+</html>
+```
+
+### porcion pintada
+<small>Creado: 2026-04-16 17:39</small>
+
+`014-porcion pintada.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.fillStyle = "red"
+			contexto.beginPath()
+			contexto.moveTo(256,256)
+			contexto.arc(256,256,200,0,Math.PI/6)
+			contexto.fill()
+		</script>
+	</body>
+</html>
+```
+
+### grafico de tarta
+<small>Creado: 2026-04-16 17:39</small>
+
+`015-grafico de tarta.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{border:1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+		<script>
+			let lista = [30,50,60,80,40,30,20]
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+			
+			let contexto = lienzo.getContext("2d")
+			contexto.fillStyle = "red"
+			contexto.beginPath()
+			contexto.moveTo(256,256)
+			contexto.arc(256,256,200,0,Math.PI/6)
+			contexto.fill()
+		</script>
+	</body>
+</html>
+```
+
+### porciones de la tarta
+<small>Creado: 2026-04-16 17:39</small>
+
+`016-porciones de la tarta.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{
+				border:1px solid grey;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+
+		<script>
+			let lista = [30,50,60,800,40,30,20]
+
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+
+			let contexto = lienzo.getContext("2d")
+
+			let total = 0
+			for(let i = 0; i < lista.length; i++){
+				total += lista[i]
+			}
+
+			let anguloInicio = 0
+
+			for(let i = 0; i < lista.length; i++){
+
+				let proporcion = lista[i] / total
+				let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+
+				contexto.fillStyle = `hsl(${i*50},80%,50%)`
+
+				contexto.beginPath()
+				contexto.moveTo(256,256)
+				contexto.arc(256,256,200,anguloInicio,anguloFinal)
+				contexto.closePath()
+				contexto.fill()
+
+				anguloInicio = anguloFinal
+			}
+		</script>
+	</body>
+</html>
+```
+
+### datos con texto
+<small>Creado: 2026-04-16 17:39</small>
+
+`017-datos con texto.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gráfico circular con etiquetas alineadas</title>
+		<style>
+			body{
+				margin:0;
+				padding:20px;
+				font-family:Arial, sans-serif;
+				background:white;
+			}
+			canvas{
+				border:1px solid grey;
+				display:block;
+				margin:auto;
+				background:white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+
+		<script>
+			let datos = [
+				{"nombre":"Producto A","valor":30},
+				{"nombre":"Producto B","valor":50},
+				{"nombre":"Producto C","valor":60},
+				{"nombre":"Producto D","valor":800},
+				{"nombre":"Producto E","valor":40},
+				{"nombre":"Producto F","valor":30},
+				{"nombre":"Producto G","valor":20}
+			]
+
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 1200
+			lienzo.height = 650
+
+			let contexto = lienzo.getContext("2d")
+
+			let centroX = lienzo.width / 2
+			let centroY = lienzo.height / 2
+			let radio = 180
+
+			let total = 0
+			for(let i = 0; i < datos.length; i++){
+				total += datos[i].valor
+			}
+
+			let anguloInicio = 0
+			let etiquetasDerecha = []
+			let etiquetasIzquierda = []
+
+			for(let i = 0; i < datos.length; i++){
+				let proporcion = datos[i].valor / total
+				let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+				let color = `hsl(${i * 50},80%,50%)`
+
+				// sector
+				contexto.fillStyle = color
+				contexto.beginPath()
+				contexto.moveTo(centroX, centroY)
+				contexto.arc(centroX, centroY, radio, anguloInicio, anguloFinal)
+				contexto.closePath()
+				contexto.fill()
+
+				// cálculo de etiqueta
+				let anguloMedio = (anguloInicio + anguloFinal) / 2
+				let xBorde = centroX + Math.cos(anguloMedio) * radio
+				let yBorde = centroY + Math.sin(anguloMedio) * radio
+
+				let xFuera = centroX + Math.cos(anguloMedio) * (radio + 30)
+				let yFuera = centroY + Math.sin(anguloMedio) * (radio + 30)
+
+				let porcentaje = ((datos[i].valor / total) * 100).toFixed(2) + "%"
+				let texto = datos[i].nombre + " - " + datos[i].valor + " (" + porcentaje + ")"
+
+				let etiqueta = {
+					nombre: datos[i].nombre,
+					valor: datos[i].valor,
+					porcentaje: porcentaje,
+					texto: texto,
+					color: color,
+					xBorde: xBorde,
+					yBorde: yBorde,
+					xFuera: xFuera,
+					yFuera: yFuera,
+					lado: xFuera >= centroX ? "derecha" : "izquierda"
+				}
+
+				if(etiqueta.lado === "derecha"){
+					etiquetasDerecha.push(etiqueta)
+				}else{
+					etiquetasIzquierda.push(etiqueta)
+				}
+
+				anguloInicio = anguloFinal
+			}
+
+			function repartirEtiquetas(lista, lado){
+				lista.sort((a,b) => a.yFuera - b.yFuera)
+
+				let separacionMinima = 24
+				let margenSuperior = 40
+				let margenInferior = lienzo.height - 40
+
+				if(lista.length > 0){
+					if(lista[0].yFuera < margenSuperior){
+						lista[0].yFuera = margenSuperior
+					}
+
+					for(let i = 1; i < lista.length; i++){
+						if(lista[i].yFuera < lista[i - 1].yFuera + separacionMinima){
+							lista[i].yFuera = lista[i - 1].yFuera + separacionMinima
+						}
+					}
+
+					if(lista[lista.length - 1].yFuera > margenInferior){
+						lista[lista.length - 1].yFuera = margenInferior
+
+						for(let i = lista.length - 2; i >= 0; i--){
+							if(lista[i].yFuera > lista[i + 1].yFuera - separacionMinima){
+								lista[i].yFuera = lista[i + 1].yFuera - separacionMinima
+							}
+						}
+					}
+				}
+
+				contexto.font = "14px Arial"
+				contexto.textBaseline = "middle"
+
+				for(let i = 0; i < lista.length; i++){
+					let e = lista[i]
+					let anchoTexto = contexto.measureText(e.texto).width
+					let tamCuadrado = 14
+					let separacionCuadradoTexto = 8
+
+					let xLineaFinal
+					let xCuadrado
+					let xTexto
+
+					if(lado === "derecha"){
+						xCuadrado = centroX + radio + 140
+						xTexto = xCuadrado + tamCuadrado + separacionCuadradoTexto
+						xLineaFinal = xCuadrado - 10
+					}else{
+						xTexto = centroX - radio - 140 - anchoTexto - tamCuadrado - separacionCuadradoTexto
+						xCuadrado = xTexto + anchoTexto + separacionCuadradoTexto
+						xLineaFinal = xCuadrado + tamCuadrado + 10
+					}
+
+					// línea guía
+					contexto.strokeStyle = e.color
+					contexto.lineWidth = 1.5
+					contexto.beginPath()
+					contexto.moveTo(e.xBorde, e.yBorde)
+					contexto.lineTo(e.xFuera, e.yFuera)
+					contexto.lineTo(xLineaFinal, e.yFuera)
+					contexto.stroke()
+
+					// cuadrado
+					contexto.fillStyle = e.color
+					contexto.fillRect(xCuadrado, e.yFuera - tamCuadrado / 2, tamCuadrado, tamCuadrado)
+
+					// texto
+					contexto.fillStyle = "black"
+					contexto.textAlign = "left"
+					contexto.fillText(e.texto, xTexto, e.yFuera)
+				}
+			}
+
+			repartirEtiquetas(etiquetasDerecha, "derecha")
+			repartirEtiquetas(etiquetasIzquierda, "izquierda")
+		</script>
+	</body>
+</html>
+```
+
+### encapsulamiento
+<small>Creado: 2026-04-16 17:39</small>
+
+`018-encapsulamiento.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gráficas reutilizables</title>
+		<style>
+			body{
+				margin:0;
+				padding:20px;
+				font-family:Arial, sans-serif;
+				background:white;
+			}
+			.grafica{
+				width:1200px;
+				margin:20px auto;
+				padding:20px;
+				border:1px solid #ccc;
+				background:white;
+			}
+			.grafica canvas{
+				display:block;
+				width:100%;
+				height:auto;
+				background:white;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="grafica" data-datos='[
+			{"nombre":"Producto A","valor":30},
+			{"nombre":"Producto B","valor":50},
+			{"nombre":"Producto C","valor":60},
+			{"nombre":"Producto D","valor":800},
+			{"nombre":"Producto E","valor":40},
+			{"nombre":"Producto F","valor":30},
+			{"nombre":"Producto G","valor":20}
+		]'></div>
+
+		<div class="grafica" data-datos='[
+			{"nombre":"Rojo","valor":120},
+			{"nombre":"Azul","valor":90},
+			{"nombre":"Verde","valor":60},
+			{"nombre":"Amarillo","valor":40}
+		]'></div>
+
+		<script>
+			class GraficaCircular {
+				constructor(contenedor, datos){
+					this.contenedor = contenedor
+					this.datos = datos
+
+					this.lienzo = document.createElement("canvas")
+					this.lienzo.width = 1200
+					this.lienzo.height = 650
+					this.contenedor.innerHTML = ""
+					this.contenedor.appendChild(this.lienzo)
+
+					this.contexto = this.lienzo.getContext("2d")
+					this.centroX = this.lienzo.width / 2
+					this.centroY = this.lienzo.height / 2
+					this.radio = 180
+				}
+
+				dibujar(){
+					let contexto = this.contexto
+					let datos = this.datos
+					let lienzo = this.lienzo
+					let centroX = this.centroX
+					let centroY = this.centroY
+					let radio = this.radio
+
+					let total = 0
+					for(let i = 0; i < datos.length; i++){
+						total += Number(datos[i].valor)
+					}
+
+					let anguloInicio = 0
+					let etiquetasDerecha = []
+					let etiquetasIzquierda = []
+
+					for(let i = 0; i < datos.length; i++){
+						let proporcion = datos[i].valor / total
+						let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+						let color = `hsl(${i * 50},80%,50%)`
+
+						// sector
+						contexto.fillStyle = color
+						contexto.beginPath()
+						contexto.moveTo(centroX, centroY)
+						contexto.arc(centroX, centroY, radio, anguloInicio, anguloFinal)
+						contexto.closePath()
+						contexto.fill()
+
+						// cálculo de etiqueta
+						let anguloMedio = (anguloInicio + anguloFinal) / 2
+						let xBorde = centroX + Math.cos(anguloMedio) * radio
+						let yBorde = centroY + Math.sin(anguloMedio) * radio
+
+						let xFuera = centroX + Math.cos(anguloMedio) * (radio + 30)
+						let yFuera = centroY + Math.sin(anguloMedio) * (radio + 30)
+
+						let porcentaje = ((datos[i].valor / total) * 100).toFixed(2) + "%"
+						let texto = datos[i].nombre + " - " + datos[i].valor + " (" + porcentaje + ")"
+
+						let etiqueta = {
+							nombre: datos[i].nombre,
+							valor: datos[i].valor,
+							porcentaje: porcentaje,
+							texto: texto,
+							color: color,
+							xBorde: xBorde,
+							yBorde: yBorde,
+							xFuera: xFuera,
+							yFuera: yFuera,
+							lado: xFuera >= centroX ? "derecha" : "izquierda"
+						}
+
+						if(etiqueta.lado === "derecha"){
+							etiquetasDerecha.push(etiqueta)
+						}else{
+							etiquetasIzquierda.push(etiqueta)
+						}
+
+						anguloInicio = anguloFinal
+					}
+
+					this.repartirEtiquetas(etiquetasDerecha, "derecha")
+					this.repartirEtiquetas(etiquetasIzquierda, "izquierda")
+				}
+
+				repartirEtiquetas(lista, lado){
+					let contexto = this.contexto
+					let lienzo = this.lienzo
+					let centroX = this.centroX
+					let radio = this.radio
+
+					lista.sort((a,b) => a.yFuera - b.yFuera)
+
+					let separacionMinima = 24
+					let margenSuperior = 40
+					let margenInferior = lienzo.height - 40
+
+					if(lista.length > 0){
+						if(lista[0].yFuera < margenSuperior){
+							lista[0].yFuera = margenSuperior
+						}
+
+						for(let i = 1; i < lista.length; i++){
+							if(lista[i].yFuera < lista[i - 1].yFuera + separacionMinima){
+								lista[i].yFuera = lista[i - 1].yFuera + separacionMinima
+							}
+						}
+
+						if(lista[lista.length - 1].yFuera > margenInferior){
+							lista[lista.length - 1].yFuera = margenInferior
+
+							for(let i = lista.length - 2; i >= 0; i--){
+								if(lista[i].yFuera > lista[i + 1].yFuera - separacionMinima){
+									lista[i].yFuera = lista[i + 1].yFuera - separacionMinima
+								}
+							}
+						}
+					}
+
+					contexto.font = "14px Arial"
+					contexto.textBaseline = "middle"
+
+					for(let i = 0; i < lista.length; i++){
+						let e = lista[i]
+						let anchoTexto = contexto.measureText(e.texto).width
+						let tamCuadrado = 14
+						let separacionCuadradoTexto = 8
+
+						let xLineaFinal
+						let xCuadrado
+						let xTexto
+
+						if(lado === "derecha"){
+							xCuadrado = centroX + radio + 140
+							xTexto = xCuadrado + tamCuadrado + separacionCuadradoTexto
+							xLineaFinal = xCuadrado - 10
+						}else{
+							xTexto = centroX - radio - 140 - anchoTexto - tamCuadrado - separacionCuadradoTexto
+							xCuadrado = xTexto + anchoTexto + separacionCuadradoTexto
+							xLineaFinal = xCuadrado + tamCuadrado + 10
+						}
+
+						// línea guía
+						contexto.strokeStyle = e.color
+						contexto.lineWidth = 1.5
+						contexto.beginPath()
+						contexto.moveTo(e.xBorde, e.yBorde)
+						contexto.lineTo(e.xFuera, e.yFuera)
+						contexto.lineTo(xLineaFinal, e.yFuera)
+						contexto.stroke()
+
+						// cuadrado
+						contexto.fillStyle = e.color
+						contexto.fillRect(xCuadrado, e.yFuera - tamCuadrado / 2, tamCuadrado, tamCuadrado)
+
+						// texto
+						contexto.fillStyle = "black"
+						contexto.textAlign = "left"
+						contexto.fillText(e.texto, xTexto, e.yFuera)
+					}
+				}
+			}
+
+			function iniciarGraficas(){
+				let graficas = document.querySelectorAll(".grafica")
+
+				graficas.forEach(function(div){
+					let textoJSON = div.getAttribute("data-datos")
+
+					if(!textoJSON){ return }
+
+					try{
+						let datos = JSON.parse(textoJSON)
+						let grafica = new GraficaCircular(div, datos)
+						grafica.dibujar()
+					}catch(error){
+						div.innerHTML = "<p style='color:red;'>JSON no válido en data-datos</p>"
+						console.error(error)
+					}
+				})
+			}
+
+			document.addEventListener("DOMContentLoaded", iniciarGraficas)
+		</script>
+	</body>
+</html>
+```
+
+### panel de control
+<small>Creado: 2026-04-16 17:39</small>
+
+`019-panel de control.html`
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Panel de control con gráficos circulares</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+			}
+			body{
+				font-family:Arial,sans-serif;
+				background:#eef2f7;
+				color:#1f2937;
+				padding:30px;
+			}
+			.panel{
+				max-width:1600px;
+				margin:auto;
+			}
+			.cabecera{
+				margin-bottom:25px;
+			}
+			.cabecera h1{
+				font-size:32px;
+				margin-bottom:8px;
+			}
+			.cabecera p{
+				color:#6b7280;
+				font-size:15px;
+			}
+			.resumen{
+				display:grid;
+				grid-template-columns:repeat(4,1fr);
+				gap:20px;
+				margin-bottom:25px;
+			}
+			.tarjeta-resumen{
+				background:white;
+				border:1px solid #dbe3ec;
+				border-radius:14px;
+				padding:18px;
+				box-shadow:0 4px 12px rgba(0,0,0,0.05);
+			}
+			.tarjeta-resumen h3{
+				font-size:14px;
+				color:#6b7280;
+				margin-bottom:10px;
+				font-weight:normal;
+			}
+			.tarjeta-resumen .valor{
+				font-size:32px;
+				font-weight:bold;
+				margin-bottom:6px;
+			}
+			.tarjeta-resumen .detalle{
+				font-size:13px;
+				color:#6b7280;
+			}
+			.galeria{
+				display:grid;
+				grid-template-columns:repeat(2,1fr);
+				gap:24px;
+			}
+			.grafica{
+				background:white;
+				border:1px solid #dbe3ec;
+				border-radius:16px;
+				padding:20px;
+				box-shadow:0 4px 12px rgba(0,0,0,0.05);
+			}
+			.grafica .titulo{
+				font-size:20px;
+				font-weight:bold;
+				margin-bottom:6px;
+			}
+			.grafica .subtitulo{
+				font-size:14px;
+				color:#6b7280;
+				margin-bottom:16px;
+			}
+			.grafica canvas{
+				display:block;
+				width:100%;
+				height:auto;
+				background:white;
+			}
+			@media (max-width:1200px){
+				.galeria{
+					grid-template-columns:1fr;
+				}
+				.resumen{
+					grid-template-columns:repeat(2,1fr);
+				}
+			}
+			@media (max-width:700px){
+				.resumen{
+					grid-template-columns:1fr;
+				}
+				body{
+					padding:15px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="panel">
+			<div class="cabecera">
+				<h1>Panel de control</h1>
+				<p>Ejemplo de dashboard construido con múltiples gráficos circulares reutilizables</p>
+			</div>
+
+			<div class="resumen">
+				<div class="tarjeta-resumen">
+					<h3>Ventas del mes</h3>
+					<div class="valor">128.450 €</div>
+					<div class="detalle">+12,6% respecto al mes anterior</div>
+				</div>
+				<div class="tarjeta-resumen">
+					<h3>Pedidos</h3>
+					<div class="valor">2.381</div>
+					<div class="detalle">Promedio diario: 79,3</div>
+				</div>
+				<div class="tarjeta-resumen">
+					<h3>Clientes activos</h3>
+					<div class="valor">864</div>
+					<div class="detalle">74 nuevos esta semana</div>
+				</div>
+				<div class="tarjeta-resumen">
+					<h3>Incidencias abiertas</h3>
+					<div class="valor">19</div>
+					<div class="detalle">Resolución media: 1,4 días</div>
+				</div>
+			</div>
+
+			<div class="galeria">
+
+				<div class="grafica" data-datos='[
+					{"nombre":"Completados","valor":720},
+					{"nombre":"En progreso","valor":180},
+					{"nombre":"Pendientes","valor":95},
+					{"nombre":"Bloqueados","valor":35}
+				]'>
+					<div class="titulo">Estado de tareas</div>
+					<div class="subtitulo">Distribución general del flujo de trabajo</div>
+				</div>
+
+				<div class="grafica" data-datos='[
+					{"nombre":"Web","valor":420},
+					{"nombre":"Tienda","valor":290},
+					{"nombre":"Marketplace","valor":210},
+					{"nombre":"Distribuidores","valor":95}
+				]'>
+					<div class="titulo">Ventas por canal</div>
+					<div class="subtitulo">Origen de las operaciones registradas</div>
+				</div>
+
+				<div class="grafica" data-datos='[
+					{"nombre":"España","valor":530},
+					{"nombre":"Portugal","valor":120},
+					{"nombre":"Francia","valor":90},
+					{"nombre":"Italia","valor":65},
+					{"nombre":"Otros","valor":40}
+				]'>
+					<div class="titulo">Clientes por país</div>
+					<div class="subtitulo">Mercados activos durante el trimestre</div>
+				</div>
+
+				<div class="grafica" data-datos='[
+					{"nombre":"CPU","valor":62},
+					{"nombre":"RAM","valor":23},
+					{"nombre":"Disco","valor":10},
+					{"nombre":"Libre","valor":5}
+				]'>
+					<div class="titulo">Uso de infraestructura</div>
+					<div class="subtitulo">Consumo relativo de recursos del sistema</div>
+				</div>
+
+				<div class="grafica" data-datos='[
+					{"nombre":"Alta prioridad","valor":26},
+					{"nombre":"Media prioridad","valor":54},
+					{"nombre":"Baja prioridad","valor":31}
+				]'>
+					<div class="titulo">Incidencias por prioridad</div>
+					<div class="subtitulo">Clasificación de tickets abiertos</div>
+				</div>
+
+				<div class="grafica" data-datos='[
+					{"nombre":"Satisfechos","valor":640},
+					{"nombre":"Neutros","valor":120},
+					{"nombre":"Insatisfechos","valor":38}
+				]'>
+					<div class="titulo">Satisfacción del cliente</div>
+					<div class="subtitulo">Encuestas respondidas este mes</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script>
+			class GraficaCircular {
+				constructor(contenedor, datos){
+					this.contenedor = contenedor
+					this.datos = datos
+					this.ancho = 1200
+					this.alto = 620
+
+					this.lienzo = document.createElement("canvas")
+					this.lienzo.width = this.ancho
+					this.lienzo.height = this.alto
+
+					this.contexto = this.lienzo.getContext("2d")
+					this.centroX = this.lienzo.width / 2
+					this.centroY = this.lienzo.height / 2 + 10
+					this.radio = 170
+				}
+
+				insertarCanvas(){
+					this.contenedor.appendChild(this.lienzo)
+				}
+
+				dibujar(){
+					let contexto = this.contexto
+					let datos = this.datos
+					let centroX = this.centroX
+					let centroY = this.centroY
+					let radio = this.radio
+
+					contexto.clearRect(0,0,this.lienzo.width,this.lienzo.height)
+
+					let total = 0
+					for(let i = 0; i < datos.length; i++){
+						total += Number(datos[i].valor)
+					}
+
+					let anguloInicio = 0
+					let etiquetasDerecha = []
+					let etiquetasIzquierda = []
+
+					for(let i = 0; i < datos.length; i++){
+						let proporcion = datos[i].valor / total
+						let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+						let color = `hsl(${(i * 67) % 360},75%,55%)`
+
+						contexto.fillStyle = color
+						contexto.beginPath()
+						contexto.moveTo(centroX, centroY)
+						contexto.arc(centroX, centroY, radio, anguloInicio, anguloFinal)
+						contexto.closePath()
+						contexto.fill()
+
+						let anguloMedio = (anguloInicio + anguloFinal) / 2
+						let xBorde = centroX + Math.cos(anguloMedio) * radio
+						let yBorde = centroY + Math.sin(anguloMedio) * radio
+
+						let xFuera = centroX + Math.cos(anguloMedio) * (radio + 30)
+						let yFuera = centroY + Math.sin(anguloMedio) * (radio + 30)
+
+						let porcentaje = ((datos[i].valor / total) * 100).toFixed(1) + "%"
+						let texto = datos[i].nombre + " - " + datos[i].valor + " (" + porcentaje + ")"
+
+						let etiqueta = {
+							texto:texto,
+							color:color,
+							xBorde:xBorde,
+							yBorde:yBorde,
+							xFuera:xFuera,
+							yFuera:yFuera,
+							lado:xFuera >= centroX ? "derecha" : "izquierda"
+						}
+
+						if(etiqueta.lado === "derecha"){
+							etiquetasDerecha.push(etiqueta)
+						}else{
+							etiquetasIzquierda.push(etiqueta)
+						}
+
+						anguloInicio = anguloFinal
+					}
+
+					this.dibujarCentro(total)
+					this.repartirEtiquetas(etiquetasDerecha,"derecha")
+					this.repartirEtiquetas(etiquetasIzquierda,"izquierda")
+				}
+
+				dibujarCentro(total){
+					let contexto = this.contexto
+
+					contexto.fillStyle = "white"
+					contexto.beginPath()
+					contexto.arc(this.centroX, this.centroY, 75, 0, Math.PI * 2)
+					contexto.fill()
+
+					contexto.strokeStyle = "#d1d9e2"
+					contexto.lineWidth = 2
+					contexto.stroke()
+
+					contexto.textAlign = "center"
+					contexto.textBaseline = "middle"
+
+					contexto.fillStyle = "#6b7280"
+					contexto.font = "16px Arial"
+					contexto.fillText("TOTAL", this.centroX, this.centroY - 18)
+
+					contexto.fillStyle = "#111827"
+					contexto.font = "bold 30px Arial"
+					contexto.fillText(total, this.centroX, this.centroY + 12)
+				}
+
+				repartirEtiquetas(lista, lado){
+					let contexto = this.contexto
+					let centroX = this.centroX
+					let radio = this.radio
+
+					lista.sort((a,b) => a.yFuera - b.yFuera)
+
+					let separacionMinima = 24
+					let margenSuperior = 50
+					let margenInferior = this.lienzo.height - 40
+
+					if(lista.length > 0){
+						if(lista[0].yFuera < margenSuperior){
+							lista[0].yFuera = margenSuperior
+						}
+
+						for(let i = 1; i < lista.length; i++){
+							if(lista[i].yFuera < lista[i - 1].yFuera + separacionMinima){
+								lista[i].yFuera = lista[i - 1].yFuera + separacionMinima
+							}
+						}
+
+						if(lista[lista.length - 1].yFuera > margenInferior){
+							lista[lista.length - 1].yFuera = margenInferior
+
+							for(let i = lista.length - 2; i >= 0; i--){
+								if(lista[i].yFuera > lista[i + 1].yFuera - separacionMinima){
+									lista[i].yFuera = lista[i + 1].yFuera - separacionMinima
+								}
+							}
+						}
+					}
+
+					contexto.font = "14px Arial"
+					contexto.textBaseline = "middle"
+
+					for(let i = 0; i < lista.length; i++){
+						let e = lista[i]
+						let anchoTexto = contexto.measureText(e.texto).width
+						let tamCuadrado = 14
+						let separacionCuadradoTexto = 8
+
+						let xLineaFinal
+						let xCuadrado
+						let xTexto
+
+						if(lado === "derecha"){
+							xCuadrado = centroX + radio + 145
+							xTexto = xCuadrado + tamCuadrado + separacionCuadradoTexto
+							xLineaFinal = xCuadrado - 12
+						}else{
+							xTexto = centroX - radio - 145 - anchoTexto - tamCuadrado - separacionCuadradoTexto
+							xCuadrado = xTexto + anchoTexto + separacionCuadradoTexto
+							xLineaFinal = xCuadrado + tamCuadrado + 12
+						}
+
+						contexto.strokeStyle = e.color
+						contexto.lineWidth = 1.5
+						contexto.beginPath()
+						contexto.moveTo(e.xBorde, e.yBorde)
+						contexto.lineTo(e.xFuera, e.yFuera)
+						contexto.lineTo(xLineaFinal, e.yFuera)
+						contexto.stroke()
+
+						contexto.fillStyle = e.color
+						contexto.fillRect(xCuadrado, e.yFuera - tamCuadrado / 2, tamCuadrado, tamCuadrado)
+
+						contexto.fillStyle = "#111827"
+						contexto.textAlign = "left"
+						contexto.fillText(e.texto, xTexto, e.yFuera)
+					}
+				}
+			}
+
+			function iniciarGraficas(){
+				let graficas = document.querySelectorAll(".grafica")
+
+				graficas.forEach(function(div){
+					let textoJSON = div.getAttribute("data-datos")
+					if(!textoJSON){ return }
+
+					try{
+						let datos = JSON.parse(textoJSON)
+						let grafica = new GraficaCircular(div, datos)
+						grafica.insertarCanvas()
+						grafica.dibujar()
+					}catch(error){
+						let errorDiv = document.createElement("p")
+						errorDiv.style.color = "red"
+						errorDiv.textContent = "JSON no válido"
+						div.appendChild(errorDiv)
+						console.error(error)
+					}
+				})
+			}
+
+			document.addEventListener("DOMContentLoaded", iniciarGraficas)
+		</script>
+	</body>
+</html>
+```
+
+
+<a id="motivando-a-dario"></a>
+## Motivando a Darío
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/013-Motivando%20a%20Dar%C3%ADo)
+
+### canvas mousemove
+<small>Creado: 2026-04-16 17:39</small>
+
+`001-canvas mousemove.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Draw line with mouse</title>
+	<style>
+		body{
+			margin:0;
+			background:#f0f0f0;
+			font-family:Arial,sans-serif;
+		}
+		canvas{
+			display:block;
+			margin:20px auto;
+			border:1px solid #999;
+			background:white;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="lienzo" width="800" height="500"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d")
+
+		let dibujando = false
+		let anteriorX = 0
+		let anteriorY = 0
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(dibujando == false){return}
+
+			contexto.beginPath()
+			contexto.moveTo(anteriorX, anteriorY)
+			contexto.lineTo(e.offsetX, e.offsetY)
+			contexto.stroke()
+
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+		})
+
+		canvas.addEventListener("mouseup", function(){
+			dibujando = false
+		})
+
+		canvas.addEventListener("mouseleave", function(){
+			dibujando = false
+		})
+	</script>
+</body>
+</html>
+```
+
+### mas controles
+<small>Creado: 2026-04-16 17:39</small>
+
+`002-mas controles.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas draw</title>
+	<style>
+		body{
+			margin:0;
+			padding:20px;
+			background:#f0f0f0;
+			font-family:Arial,sans-serif;
+		}
+		.controls{
+			width:800px;
+			margin:0 auto 20px auto;
+			padding:15px;
+			background:white;
+			border:1px solid #ccc;
+			display:flex;
+			gap:20px;
+			align-items:center;
+		}
+		canvas{
+			display:block;
+			margin:0 auto;
+			border:1px solid #999;
+			background:white;
+			cursor:crosshair;
+		}
+		label{
+			display:flex;
+			align-items:center;
+			gap:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<label>
+			Color:
+			<input type="color" id="color" value="#000000">
+		</label>
+
+		<label>
+			Width:
+			<input type="range" id="width" min="1" max="50" value="2">
+			<span id="widthValue">2</span>
+		</label>
+	</div>
+
+	<canvas id="lienzo" width="800" height="500"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d")
+
+		let colorInput = document.getElementById("color")
+		let widthInput = document.getElementById("width")
+		let widthValue = document.getElementById("widthValue")
+
+		let dibujando = false
+		let anteriorX = 0
+		let anteriorY = 0
+
+		widthInput.addEventListener("input", function(){
+			widthValue.textContent = widthInput.value
+		})
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(dibujando == false){return}
+
+			contexto.strokeStyle = colorInput.value
+			contexto.lineWidth = widthInput.value
+			contexto.lineCap = "round"
+			contexto.lineJoin = "round"
+
+			contexto.beginPath()
+			contexto.moveTo(anteriorX, anteriorY)
+			contexto.lineTo(e.offsetX, e.offsetY)
+			contexto.stroke()
+
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+		})
+
+		canvas.addEventListener("mouseup", function(){
+			dibujando = false
+		})
+
+		canvas.addEventListener("mouseleave", function(){
+			dibujando = false
+		})
+	</script>
+</body>
+</html>
+```
+
+### oleo
+<small>Creado: 2026-04-16 17:39</small>
+
+`003-oleo.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas pintura</title>
+	<style>
+		body{
+			margin:0;
+			padding:20px;
+			background:#f0f0f0;
+			font-family:Arial,sans-serif;
+		}
+		.controls{
+			width:900px;
+			margin:0 auto 20px auto;
+			padding:15px;
+			background:white;
+			border:1px solid #ccc;
+			display:flex;
+			flex-wrap:wrap;
+			gap:20px;
+			align-items:center;
+		}
+		canvas{
+			display:block;
+			margin:0 auto;
+			border:1px solid #999;
+			background:white;
+			cursor:crosshair;
+		}
+		label{
+			display:flex;
+			align-items:center;
+			gap:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<label>
+			Color:
+			<input type="color" id="color" value="#000000">
+		</label>
+
+		<label>
+			Grosor:
+			<input type="range" id="width" min="1" max="80" value="20">
+			<span id="widthValue">20</span>
+		</label>
+
+		<label>
+			Óleo:
+			<input type="checkbox" id="oleo">
+		</label>
+	</div>
+
+	<canvas id="lienzo" width="900" height="550"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d")
+
+		let colorInput = document.getElementById("color")
+		let widthInput = document.getElementById("width")
+		let widthValue = document.getElementById("widthValue")
+		let oleoInput = document.getElementById("oleo")
+
+		let dibujando = false
+		let anteriorX = 0
+		let anteriorY = 0
+
+		let pasosTrazo = 0
+		let maxPasosOleo = 80
+
+		widthInput.addEventListener("input", function(){
+			widthValue.textContent = widthInput.value
+		})
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+			pasosTrazo = 0
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(dibujando == false){return}
+
+			let x = e.offsetX
+			let y = e.offsetY
+
+			contexto.lineCap = "round"
+			contexto.lineJoin = "round"
+			contexto.strokeStyle = colorInput.value
+
+			if(oleoInput.checked){
+				let grosorInicial = parseFloat(widthInput.value)
+
+				let progreso = pasosTrazo / maxPasosOleo
+				if(progreso > 1){progreso = 1}
+
+				let grosorActual = grosorInicial * (1 - progreso)
+				let opacidadActual = 1 - progreso
+
+				if(grosorActual < 1){grosorActual = 1}
+				if(opacidadActual < 0.05){opacidadActual = 0.05}
+
+				contexto.lineWidth = grosorActual
+				contexto.globalAlpha = opacidadActual
+			}else{
+				contexto.lineWidth = parseFloat(widthInput.value)
+				contexto.globalAlpha = 1
+			}
+
+			contexto.beginPath()
+			contexto.moveTo(anteriorX, anteriorY)
+			contexto.lineTo(x, y)
+			contexto.stroke()
+
+			anteriorX = x
+			anteriorY = y
+			pasosTrazo++
+		})
+
+		function terminarTrazo(){
+			dibujando = false
+			contexto.globalAlpha = 1
+		}
+
+		canvas.addEventListener("mouseup", terminarTrazo)
+		canvas.addEventListener("mouseleave", terminarTrazo)
+	</script>
+</body>
+</html>
+```
+
+### contaminacion
+<small>Creado: 2026-04-16 17:39</small>
+
+`004-contaminacion.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas pintura al óleo</title>
+	<style>
+		body{
+			margin:0;
+			padding:20px;
+			background:#f0f0f0;
+			font-family:Arial,sans-serif;
+		}
+		.controls{
+			width:980px;
+			margin:0 auto 20px auto;
+			padding:15px;
+			background:white;
+			border:1px solid #ccc;
+			display:flex;
+			flex-wrap:wrap;
+			gap:20px;
+			align-items:center;
+		}
+		canvas{
+			display:block;
+			margin:0 auto;
+			border:1px solid #999;
+			background:white;
+			cursor:crosshair;
+		}
+		label{
+			display:flex;
+			align-items:center;
+			gap:10px;
+		}
+		button{
+			padding:8px 14px;
+			border:1px solid #999;
+			background:white;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<label>
+			Color:
+			<input type="color" id="color" value="#cc5500">
+		</label>
+
+		<label>
+			Grosor:
+			<input type="range" id="width" min="1" max="80" value="24">
+			<span id="widthValue">24</span>
+		</label>
+
+		<label>
+			Óleo:
+			<input type="checkbox" id="oleo" checked>
+		</label>
+
+		<label>
+			Arrastre:
+			<input type="range" id="drag" min="0" max="1" step="0.01" value="0.55">
+			<span id="dragValue">0.55</span>
+		</label>
+
+		<label>
+			Contaminación:
+			<input type="range" id="contaminacion" min="0" max="1" step="0.01" value="0.18">
+			<span id="contaminacionValue">0.18</span>
+		</label>
+
+		<button id="limpiar">Limpiar</button>
+	</div>
+
+	<canvas id="lienzo" width="980" height="560"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d", { willReadFrequently:true })
+
+		let colorInput = document.getElementById("color")
+		let widthInput = document.getElementById("width")
+		let widthValue = document.getElementById("widthValue")
+		let oleoInput = document.getElementById("oleo")
+		let dragInput = document.getElementById("drag")
+		let dragValue = document.getElementById("dragValue")
+		let contaminacionInput = document.getElementById("contaminacion")
+		let contaminacionValue = document.getElementById("contaminacionValue")
+		let limpiarBtn = document.getElementById("limpiar")
+
+		let dibujando = false
+		let anteriorX = 0
+		let anteriorY = 0
+		let distanciaTrazo = 0
+
+		let pincel = {r:204,g:85,b:0,a:1}
+
+		widthInput.addEventListener("input", function(){
+			widthValue.textContent = widthInput.value
+		})
+
+		dragInput.addEventListener("input", function(){
+			dragValue.textContent = dragInput.value
+		})
+
+		contaminacionInput.addEventListener("input", function(){
+			contaminacionValue.textContent = contaminacionInput.value
+		})
+
+		limpiarBtn.addEventListener("click", function(){
+			contexto.clearRect(0,0,canvas.width,canvas.height)
+		})
+
+		function hexARgba(hex){
+			hex = hex.replace("#","")
+			return {
+				r:parseInt(hex.substring(0,2),16),
+				g:parseInt(hex.substring(2,4),16),
+				b:parseInt(hex.substring(4,6),16),
+				a:1
+			}
+		}
+
+		function mezclarColor(c1, c2, t){
+			return {
+				r:c1.r*(1-t) + c2.r*t,
+				g:c1.g*(1-t) + c2.g*t,
+				b:c1.b*(1-t) + c2.b*t,
+				a:c1.a*(1-t) + c2.a*t
+			}
+		}
+
+		function colorCss(c){
+			return "rgba(" +
+				Math.round(c.r) + "," +
+				Math.round(c.g) + "," +
+				Math.round(c.b) + "," +
+				c.a + ")"
+		}
+
+		function colorPixel(x,y){
+			if(x < 0 || y < 0 || x >= canvas.width || y >= canvas.height){
+				return {r:255,g:255,b:255,a:0}
+			}
+			let data = contexto.getImageData(Math.floor(x), Math.floor(y), 1, 1).data
+			return {
+				r:data[0],
+				g:data[1],
+				b:data[2],
+				a:data[3]/255
+			}
+		}
+
+		function estampar(x,y,radio,color,alpha){
+			contexto.save()
+			contexto.globalAlpha = alpha
+			let grad = contexto.createRadialGradient(x,y,0,x,y,radio)
+			grad.addColorStop(0, colorCss(color))
+			grad.addColorStop(0.7, colorCss({...color, a:color.a*0.7}))
+			grad.addColorStop(1, "rgba(0,0,0,0)")
+			contexto.fillStyle = grad
+			contexto.beginPath()
+			contexto.arc(x,y,radio,0,Math.PI*2)
+			contexto.fill()
+			contexto.restore()
+		}
+
+		function pintarSegmentoOleo(x1,y1,x2,y2){
+			let dx = x2 - x1
+			let dy = y2 - y1
+			let distancia = Math.hypot(dx,dy)
+			let pasos = Math.max(1, Math.ceil(distancia / 1.5))
+			let grosorBase = parseFloat(widthInput.value)
+			let arrastre = parseFloat(dragInput.value)
+			let contaminacion = parseFloat(contaminacionInput.value)
+			let colorUsuario = hexARgba(colorInput.value)
+
+			for(let i=0;i<=pasos;i++){
+				let t = i / pasos
+				let x = x1 + dx * t
+				let y = y1 + dy * t
+
+				distanciaTrazo += distancia / pasos
+
+				let progreso = Math.min(1, distanciaTrazo / 220)
+				let grosorActual = Math.max(1, grosorBase * (1 - progreso))
+				let opacidadActual = Math.max(0.04, 1 - progreso)
+
+				let angulo = Math.atan2(dy,dx)
+				let normalX = -Math.sin(angulo)
+				let normalY = Math.cos(angulo)
+
+				let muestras = Math.max(3, Math.floor(grosorActual * 0.9))
+
+				for(let j=0;j<muestras;j++){
+					let franja = muestras === 1 ? 0 : (j/(muestras-1))*2 - 1
+					let desplazamiento = franja * grosorActual * 0.45
+
+					let px = x + normalX * desplazamiento
+					let py = y + normalY * desplazamiento
+
+					let debajo = colorPixel(px,py)
+
+					if(debajo.a > 0.01){
+						pincel = mezclarColor(pincel, debajo, contaminacion)
+					}
+
+					pincel = mezclarColor(pincel, colorUsuario, 0.02)
+
+					let radioDeposito = Math.max(0.6, grosorActual * 0.12)
+
+					if(debajo.a > 0.01){
+						let arrastreColor = mezclarColor(debajo, pincel, arrastre)
+						estampar(
+							px + dx * 0.08,
+							py + dy * 0.08,
+							radioDeposito * 1.15,
+							arrastreColor,
+							opacidadActual * 0.55
+						)
+					}
+
+					let colorFinal = mezclarColor(pincel, debajo, 0.12)
+					estampar(px, py, radioDeposito, colorFinal, opacidadActual)
+				}
+			}
+		}
+
+		function pintarSegmentoNormal(x1,y1,x2,y2){
+			contexto.save()
+			contexto.strokeStyle = colorInput.value
+			contexto.lineWidth = parseFloat(widthInput.value)
+			contexto.lineCap = "round"
+			contexto.lineJoin = "round"
+			contexto.globalAlpha = 1
+			contexto.beginPath()
+			contexto.moveTo(x1,y1)
+			contexto.lineTo(x2,y2)
+			contexto.stroke()
+			contexto.restore()
+		}
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+			distanciaTrazo = 0
+			pincel = hexARgba(colorInput.value)
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(dibujando == false){return}
+
+			let x = e.offsetX
+			let y = e.offsetY
+
+			if(oleoInput.checked){
+				pintarSegmentoOleo(anteriorX, anteriorY, x, y)
+			}else{
+				pintarSegmentoNormal(anteriorX, anteriorY, x, y)
+			}
+
+			anteriorX = x
+			anteriorY = y
+		})
+
+		function terminarTrazo(){
+			dibujando = false
+		}
+
+		canvas.addEventListener("mouseup", terminarTrazo)
+		canvas.addEventListener("mouseleave", terminarTrazo)
+	</script>
+</body>
+</html>
+```
+
+### longitud de trazo
+<small>Creado: 2026-04-16 17:39</small>
+
+`005-longitud de trazo.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas pintura al óleo</title>
+	<style>
+		body{
+			margin:0;
+			padding:20px;
+			background:#f0f0f0;
+			font-family:Arial,sans-serif;
+		}
+		.controls{
+			width:980px;
+			margin:0 auto 20px auto;
+			padding:15px;
+			background:white;
+			border:1px solid #ccc;
+			display:flex;
+			flex-wrap:wrap;
+			gap:20px;
+			align-items:center;
+		}
+		canvas{
+			display:block;
+			margin:0 auto;
+			border:1px solid #999;
+			background:white;
+			cursor:crosshair;
+		}
+		label{
+			display:flex;
+			align-items:center;
+			gap:10px;
+		}
+		button{
+			padding:8px 14px;
+			border:1px solid #999;
+			background:white;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<label>
+			Color:
+			<input type="color" id="color" value="#cc5500">
+		</label>
+
+		<label>
+			Grosor:
+			<input type="range" id="width" min="1" max="80" value="24">
+			<span id="widthValue">24</span>
+		</label>
+
+		<label>
+			Óleo:
+			<input type="checkbox" id="oleo" checked>
+		</label>
+
+		<label>
+			Arrastre:
+			<input type="range" id="drag" min="0" max="1" step="0.01" value="0.55">
+			<span id="dragValue">0.55</span>
+		</label>
+
+		<label>
+			Contaminación:
+			<input type="range" id="contaminacion" min="0" max="1" step="0.01" value="0.18">
+			<span id="contaminacionValue">0.18</span>
+		</label>
+
+		<label>
+			Duración pincel:
+			<input type="range" id="duracion" min="20" max="600" step="1" value="220">
+			<span id="duracionValue">220</span>
+		</label>
+
+		<button id="limpiar">Limpiar</button>
+	</div>
+
+	<canvas id="lienzo" width="980" height="560"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d", { willReadFrequently:true })
+
+		let colorInput = document.getElementById("color")
+		let widthInput = document.getElementById("width")
+		let widthValue = document.getElementById("widthValue")
+		let oleoInput = document.getElementById("oleo")
+		let dragInput = document.getElementById("drag")
+		let dragValue = document.getElementById("dragValue")
+		let contaminacionInput = document.getElementById("contaminacion")
+		let contaminacionValue = document.getElementById("contaminacionValue")
+		let duracionInput = document.getElementById("duracion")
+		let duracionValue = document.getElementById("duracionValue")
+		let limpiarBtn = document.getElementById("limpiar")
+
+		let dibujando = false
+		let anteriorX = 0
+		let anteriorY = 0
+		let distanciaTrazo = 0
+
+		let pincel = {r:204,g:85,b:0,a:1}
+
+		widthInput.addEventListener("input", function(){
+			widthValue.textContent = widthInput.value
+		})
+
+		dragInput.addEventListener("input", function(){
+			dragValue.textContent = dragInput.value
+		})
+
+		contaminacionInput.addEventListener("input", function(){
+			contaminacionValue.textContent = contaminacionInput.value
+		})
+
+		duracionInput.addEventListener("input", function(){
+			duracionValue.textContent = duracionInput.value
+		})
+
+		limpiarBtn.addEventListener("click", function(){
+			contexto.clearRect(0,0,canvas.width,canvas.height)
+		})
+
+		function hexARgba(hex){
+			hex = hex.replace("#","")
+			return {
+				r:parseInt(hex.substring(0,2),16),
+				g:parseInt(hex.substring(2,4),16),
+				b:parseInt(hex.substring(4,6),16),
+				a:1
+			}
+		}
+
+		function mezclarColor(c1, c2, t){
+			return {
+				r:c1.r*(1-t) + c2.r*t,
+				g:c1.g*(1-t) + c2.g*t,
+				b:c1.b*(1-t) + c2.b*t,
+				a:c1.a*(1-t) + c2.a*t
+			}
+		}
+
+		function colorCss(c){
+			return "rgba(" +
+				Math.round(c.r) + "," +
+				Math.round(c.g) + "," +
+				Math.round(c.b) + "," +
+				c.a + ")"
+		}
+
+		function colorPixel(x,y){
+			if(x < 0 || y < 0 || x >= canvas.width || y >= canvas.height){
+				return {r:255,g:255,b:255,a:0}
+			}
+			let data = contexto.getImageData(Math.floor(x), Math.floor(y), 1, 1).data
+			return {
+				r:data[0],
+				g:data[1],
+				b:data[2],
+				a:data[3]/255
+			}
+		}
+
+		function estamparElipse(x,y,radioX,radioY,angulo,color,alpha){
+			contexto.save()
+			contexto.translate(x,y)
+			contexto.rotate(angulo)
+			contexto.scale(radioX, radioY)
+
+			contexto.globalAlpha = alpha
+			let grad = contexto.createRadialGradient(0,0,0,0,0,1)
+			grad.addColorStop(0, colorCss(color))
+			grad.addColorStop(0.65, colorCss({...color, a:color.a*0.7}))
+			grad.addColorStop(1, "rgba(0,0,0,0)")
+
+			contexto.fillStyle = grad
+			contexto.beginPath()
+			contexto.arc(0,0,1,0,Math.PI*2)
+			contexto.fill()
+			contexto.restore()
+		}
+
+		function pintarSegmentoOleo(x1,y1,x2,y2){
+			let dx = x2 - x1
+			let dy = y2 - y1
+			let distancia = Math.hypot(dx,dy)
+			if(distancia === 0){return}
+
+			let pasos = Math.max(1, Math.ceil(distancia / 1.5))
+			let grosorBase = parseFloat(widthInput.value)
+			let arrastre = parseFloat(dragInput.value)
+			let contaminacion = parseFloat(contaminacionInput.value)
+			let duracion = parseFloat(duracionInput.value)
+			let colorUsuario = hexARgba(colorInput.value)
+			let angulo = Math.atan2(dy,dx)
+
+			for(let i=0;i<=pasos;i++){
+				let t = i / pasos
+				let x = x1 + dx * t
+				let y = y1 + dy * t
+
+				distanciaTrazo += distancia / pasos
+
+				let progreso = Math.min(1, distanciaTrazo / duracion)
+				let grosorActual = Math.max(1, grosorBase * (1 - progreso))
+				let opacidadActual = Math.max(0.04, 1 - progreso)
+
+				let radioMayor = Math.max(1, grosorActual * 0.55)
+				let radioMenor = Math.max(0.8, grosorActual * 0.22)
+
+				let normalX = -Math.sin(angulo)
+				let normalY = Math.cos(angulo)
+
+				let muestras = Math.max(3, Math.floor(grosorActual * 0.9))
+
+				for(let j=0;j<muestras;j++){
+					let franja = muestras === 1 ? 0 : (j/(muestras-1))*2 - 1
+					let desplazamiento = franja * radioMayor * 0.7
+
+					let px = x + normalX * desplazamiento
+					let py = y + normalY * desplazamiento
+
+					let debajo = colorPixel(px,py)
+
+					if(debajo.a > 0.01){
+						pincel = mezclarColor(pincel, debajo, contaminacion)
+					}
+
+					pincel = mezclarColor(pincel, colorUsuario, 0.008)
+
+					let radioX = Math.max(0.8, radioMayor * (0.95 - Math.abs(franja)*0.15))
+					let radioY = Math.max(0.5, radioMenor * (0.9 - Math.abs(franja)*0.1))
+
+					if(debajo.a > 0.01){
+						let arrastreColor = mezclarColor(debajo, pincel, arrastre)
+						estamparElipse(
+							px + dx * 0.10,
+							py + dy * 0.10,
+							radioX * 1.05,
+							radioY * 1.05,
+							angulo,
+							arrastreColor,
+							opacidadActual * 0.45
+						)
+					}
+
+					let colorFinal = mezclarColor(pincel, debajo, 0.12)
+
+					estamparElipse(
+						px,
+						py,
+						radioX,
+						radioY,
+						angulo,
+						colorFinal,
+						opacidadActual
+					)
+				}
+			}
+		}
+
+		function pintarSegmentoNormal(x1,y1,x2,y2){
+			contexto.save()
+			contexto.strokeStyle = colorInput.value
+			contexto.lineWidth = parseFloat(widthInput.value)
+			contexto.lineCap = "round"
+			contexto.lineJoin = "round"
+			contexto.globalAlpha = 1
+			contexto.beginPath()
+			contexto.moveTo(x1,y1)
+			contexto.lineTo(x2,y2)
+			contexto.stroke()
+			contexto.restore()
+		}
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			anteriorX = e.offsetX
+			anteriorY = e.offsetY
+			distanciaTrazo = 0
+			pincel = hexARgba(colorInput.value)
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(dibujando == false){return}
+
+			let x = e.offsetX
+			let y = e.offsetY
+
+			if(oleoInput.checked){
+				pintarSegmentoOleo(anteriorX, anteriorY, x, y)
+			}else{
+				pintarSegmentoNormal(anteriorX, anteriorY, x, y)
+			}
+
+			anteriorX = x
+			anteriorY = y
+		})
+
+		function terminarTrazo(){
+			dibujando = false
+		}
+
+		canvas.addEventListener("mouseup", terminarTrazo)
+		canvas.addEventListener("mouseleave", terminarTrazo)
+	</script>
+</body>
+</html>
+```
+
+### jocarsa CAD
+<small>Creado: 2026-04-16 17:39</small>
+
+`006-jocarsa CAD.html`
+
+```html
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mini CAD</title>
+	<style>
+		*{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		body{
+			font-family:Arial,sans-serif;
+			background:#f0f2f5;
+			color:#222;
+		}
+		header{
+			background:white;
+			border-bottom:1px solid #ccc;
+			padding:15px 20px;
+		}
+		header h1{
+			font-size:20px;
+		}
+		.barra{
+			display:flex;
+			flex-wrap:wrap;
+			gap:12px;
+			align-items:center;
+			padding:15px 20px;
+			background:white;
+			border-bottom:1px solid #ccc;
+		}
+		.barra label{
+			display:flex;
+			align-items:center;
+			gap:8px;
+			font-size:14px;
+		}
+		.barra button{
+			padding:8px 12px;
+			border:1px solid #999;
+			background:#fff;
+			cursor:pointer;
+		}
+		.barra button.activo{
+			background:#222;
+			color:white;
+			border-color:#222;
+		}
+		#lienzo{
+			display:block;
+			margin:20px auto;
+			background:white;
+			border:1px solid #999;
+			cursor:crosshair;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Mini programa CAD</h1>
+	</header>
+
+	<div class="barra">
+		<button class="herramienta activo" data-tool="linea">Línea</button>
+		<button class="herramienta" data-tool="rectangulo">Rectángulo</button>
+		<button class="herramienta" data-tool="circulo">Círculo</button>
+
+		<label>
+			Color:
+			<input type="color" id="color" value="#000000">
+		</label>
+
+		<label>
+			Grosor:
+			<input type="range" id="grosor" min="1" max="10" value="2">
+			<span id="valorGrosor">2</span>
+		</label>
+
+		<button id="limpiar">Limpiar</button>
+	</div>
+
+	<canvas id="lienzo" width="1200" height="700"></canvas>
+
+	<script>
+		let canvas = document.getElementById("lienzo")
+		let contexto = canvas.getContext("2d")
+
+		let colorInput = document.getElementById("color")
+		let grosorInput = document.getElementById("grosor")
+		let valorGrosor = document.getElementById("valorGrosor")
+		let botonesHerramienta = document.querySelectorAll(".herramienta")
+		let botonLimpiar = document.getElementById("limpiar")
+
+		let herramientaActual = "linea"
+		let dibujando = false
+		let inicioX = 0
+		let inicioY = 0
+
+		let figuras = []
+
+		grosorInput.addEventListener("input", function(){
+			valorGrosor.textContent = grosorInput.value
+		})
+
+		botonesHerramienta.forEach(function(boton){
+			boton.addEventListener("click", function(){
+				botonesHerramienta.forEach(function(otro){
+					otro.classList.remove("activo")
+				})
+				boton.classList.add("activo")
+				herramientaActual = boton.dataset.tool
+			})
+		})
+
+		botonLimpiar.addEventListener("click", function(){
+			figuras = []
+			redibujar()
+		})
+
+		canvas.addEventListener("mousedown", function(e){
+			dibujando = true
+			inicioX = e.offsetX
+			inicioY = e.offsetY
+		})
+
+		canvas.addEventListener("mousemove", function(e){
+			if(!dibujando){return}
+
+			let actualX = e.offsetX
+			let actualY = e.offsetY
+
+			redibujar()
+			dibujarFiguraTemporal(inicioX, inicioY, actualX, actualY)
+		})
+
+		canvas.addEventListener("mouseup", function(e){
+			if(!dibujando){return}
+			dibujando = false
+
+			let finX = e.offsetX
+			let finY = e.offsetY
+
+			figuras.push({
+				tipo:herramientaActual,
+				x1:inicioX,
+				y1:inicioY,
+				x2:finX,
+				y2:finY,
+				color:colorInput.value,
+				grosor:parseInt(grosorInput.value)
+			})
+
+			redibujar()
+		})
+
+		canvas.addEventListener("mouseleave", function(){
+			if(dibujando){
+				dibujando = false
+				redibujar()
+			}
+		})
+
+		function redibujar(){
+			contexto.clearRect(0,0,canvas.width,canvas.height)
+
+			figuras.forEach(function(figura){
+				dibujarFigura(figura)
+			})
+		}
+
+		function prepararTrazo(figura){
+			contexto.strokeStyle = figura.color
+			contexto.lineWidth = figura.grosor
+			contexto.lineCap = "round"
+			contexto.lineJoin = "round"
+		}
+
+		function dibujarFigura(figura){
+			prepararTrazo(figura)
+
+			if(figura.tipo == "linea"){
+				contexto.beginPath()
+				contexto.moveTo(figura.x1, figura.y1)
+				contexto.lineTo(figura.x2, figura.y2)
+				contexto.stroke()
+			}
+
+			if(figura.tipo == "rectangulo"){
+				let x = Math.min(figura.x1, figura.x2)
+				let y = Math.min(figura.y1, figura.y2)
+				let ancho = Math.abs(figura.x2 - figura.x1)
+				let alto = Math.abs(figura.y2 - figura.y1)
+				contexto.strokeRect(x, y, ancho, alto)
+			}
+
+			if(figura.tipo == "circulo"){
+				let dx = figura.x2 - figura.x1
+				let dy = figura.y2 - figura.y1
+				let radio = Math.sqrt(dx * dx + dy * dy)
+
+				contexto.beginPath()
+				contexto.arc(figura.x1, figura.y1, radio, 0, Math.PI * 2)
+				contexto.stroke()
+			}
+		}
+
+		function dibujarFiguraTemporal(x1, y1, x2, y2){
+			let figura = {
+				tipo:herramientaActual,
+				x1:x1,
+				y1:y1,
+				x2:x2,
+				y2:y2,
+				color:colorInput.value,
+				grosor:parseInt(grosorInput.value)
+			}
+			dibujarFigura(figura)
+		}
+	</script>
+</body>
+</html>
+```
+
+
+<a id="fundamentos-de-blender"></a>
+## Fundamentos de Blender
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/014-Fundamentos%20de%20Blender)
+
+
+<a id="cliente-de-correo-electronico"></a>
+## cliente de correo electronico
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/015-cliente%20de%20correo%20electronico)
+
+
+<a id="wysiwyg"></a>
+## wysiwyg
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/016-wysiwyg)
+
+
+<a id="minibot"></a>
+## minibot
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/017-minibot)
+
+
+<a id="estadisticas-apache"></a>
+## estadisticas apache
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/018-estadisticas%20apache)
+
+
+<a id="cuestionario-online-ingles"></a>
+## cuestionario online inglés
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/019-cuestionario%20online%20ingl%C3%A9s)
+
+
+<a id="correos-de-cumpleanos"></a>
+## correos de cumpleaños
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/020-correos%20de%20cumplea%C3%B1os)
+
+
+<a id="proyecto-agente-whatsapp"></a>
+## proyecto agente whatsapp
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/021-proyecto%20agente%20whatsapp)
+
+
+<a id="me-gustan-los-pdf"></a>
+## me gustan los pdf
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/022-me%20gustan%20los%20pdf)
+
+
+<a id="varias-ia-en-un-mismo-proyecto"></a>
+## varias IA en un mismo proyecto
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/023-varias%20IA%20en%20un%20mismo%20proyecto)
+
+
+<a id="formularios-condicionales"></a>
+## formularios condicionales
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/024-formularios%20condicionales)
+
+
+<a id="multiformularios-condicionales"></a>
+## multiformularios condicionales
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/025-multiformularios%20condicionales)
+
+
+<a id="resumen-de-publicacion-en-servidores"></a>
+## Resumen de publicación en servidores
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/026-Resumen%20de%20publicaci%C3%B3n%20en%20servidores)
+
+
 
 <a id="carpeta-sin-titulo"></a>
 # Carpeta sin título
+
+
+<a id="new-folder"></a>
+# New Folder

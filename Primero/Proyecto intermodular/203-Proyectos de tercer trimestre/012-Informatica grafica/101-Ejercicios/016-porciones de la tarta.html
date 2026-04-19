@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			canvas{
+				border:1px solid grey;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+
+		<script>
+			let lista = [30,50,60,800,40,30,20]
+
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 512
+			lienzo.height = 512
+
+			let contexto = lienzo.getContext("2d")
+
+			let total = 0
+			for(let i = 0; i < lista.length; i++){
+				total += lista[i]
+			}
+
+			let anguloInicio = 0
+
+			for(let i = 0; i < lista.length; i++){
+
+				let proporcion = lista[i] / total
+				let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+
+				contexto.fillStyle = `hsl(${i*50},80%,50%)`
+
+				contexto.beginPath()
+				contexto.moveTo(256,256)
+				contexto.arc(256,256,200,anguloInicio,anguloFinal)
+				contexto.closePath()
+				contexto.fill()
+
+				anguloInicio = anguloFinal
+			}
+		</script>
+	</body>
+</html>
