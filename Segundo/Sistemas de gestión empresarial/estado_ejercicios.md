@@ -1,6 +1,6 @@
 # Sistemas de gestión empresarial — Estado de ejercicios
 
-Generado: 2026-04-18 21:00
+Generado: 2026-04-20 17:00
 
 ---
 

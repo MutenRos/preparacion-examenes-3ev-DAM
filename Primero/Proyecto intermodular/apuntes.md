@@ -106,6 +106,7 @@
   - [formularios condicionales](#formularios-condicionales)
   - [multiformularios condicionales](#multiformularios-condicionales)
   - [Resumen de publicación en servidores](#resumen-de-publicacion-en-servidores)
+  - [Panel de control de ventas](#panel-de-control-de-ventas)
 - [Carpeta sin título](#carpeta-sin-titulo)
 - [New Folder](#new-folder)
 
@@ -22209,6 +22210,12 @@ int main() {
 ## Resumen de publicación en servidores
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/026-Resumen%20de%20publicaci%C3%B3n%20en%20servidores)
+
+
+<a id="panel-de-control-de-ventas"></a>
+## Panel de control de ventas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/027-Panel%20de%20control%20de%20ventas)
 
 
 
