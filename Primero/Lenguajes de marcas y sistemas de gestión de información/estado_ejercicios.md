@@ -1,6 +1,6 @@
 # Lenguajes de marcas y sistemas de gestión de información — Estado de ejercicios
 
-Generado: 2026-04-20 18:00
+Generado: 2026-04-23 19:00
 
 ---
 

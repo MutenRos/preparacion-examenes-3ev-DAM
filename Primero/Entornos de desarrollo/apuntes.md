@@ -88,7 +88,7 @@
 En esta carpeta de ejercicios, los estudiantes encontrarán una introducción teórica a lo que es un programa informático y cómo funciona en relación con el procesador. El archivo markdown explica de manera sencilla la diferencia entre un proceso y un programa, enfatizando cómo estos elementos interactúan para ejecutar tareas computacionales. Como complemento práctico a esta teoría, se incluye un sencillo script en Python que imprime "Hola mundo", lo cual sirve como ejemplo de lo básico de la interacción entre un programa y el sistema operativo al generar y ejecutar un proceso. Esta actividad permite a los estudiantes comprender y aplicar conceptos fundamentales sobre programas informáticos, su funcionamiento y cómo estos generan acciones en la computadora.
 
 ### holamundo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -145,7 +145,7 @@ print("Hola mundo")
 En esta carpeta se encuentran ejercicios relacionados con los conceptos fundamentales del desarrollo de software, específicamente sobre cómo funcionan los diferentes tipos de lenguajes: interpretados, compilados y aquellos que utilizan máquinas virtuales. Los archivos proporcionan un marco teórico para entender las diferencias clave entre estos enfoques, como la forma en que se generan sus ejecutables y cómo interactúan con el sistema operativo. A través de ejemplos en Python y C++, los estudiantes podrán observar directamente estas distinciones prácticas. La idea es familiarizarse con las ventajas y desventajas de cada método para tomar decisiones informadas sobre la elección del lenguaje adecuado según las necesidades del proyecto.
 
 ### Lenguaje interpretado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -162,7 +162,7 @@ print("Hola mundo")
 ```
 
 ### lenguaje compilado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -329,7 +329,7 @@ Este archivo introduce una visión general sobre los lenguajes de programación 
 Este conjunto de ejercicios aborda el ciclo completo del desarrollo de software, desde la fase inicial de análisis hasta las etapas posteriores como pruebas y mantenimiento. Los estudiantes aprenderán a identificar necesidades del mercado y diseñar soluciones informáticas adecuadas, además de codificar programas simples en Python para resolver problemas concretos, como un programa básico de lista de la compra. También se practicará la importancia de las pruebas y la refactorización del código para mejorar su calidad y legibilidad. Además, se introducirá la documentación del software y cómo mantenerlo una vez que está en uso por los usuarios finales.
 
 ### programa lista de la compra
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -362,7 +362,7 @@ while True:
 ```
 
 ### pruebas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -397,7 +397,7 @@ while True:
 ```
 
 ### modificacion tras prueba fallida
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -439,7 +439,7 @@ while True:
 ```
 
 ### vamos a comentar el software
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -483,7 +483,7 @@ while True:
 ```
 
 ### Archivo sin título
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -496,7 +496,7 @@ El código que se está intentando analizar parece estar vacío o no ha sido pro
 ```
 
 ### listadelacompra
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -572,7 +572,7 @@ Estas actividades están diseñadas para cubrir desde la conceptualización hast
 En esta carpeta, encontrarás ejercicios que te introducirán al proceso de obtención del código ejecutable a partir del código fuente en diferentes entornos y lenguajes. Se analizará cómo Python, un lenguaje interpretado, no genera archivos ejecutables binarios al lanzarse directamente contra el intérprete, contrastándolo con C o C++, que requieren ser compilados para generar archivos ejecutables. Estos ejercicios te ayudarán a comprender las diferencias en la implementación y ejecución de programas en diferentes lenguajes de programación.
 
 ### Ejemplo en python
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -585,7 +585,7 @@ print("Hola mundo")
 ```
 
 ### hola mundo en C
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -945,7 +945,7 @@ El conjunto de ejercicios en esta carpeta se enfoca en la personalización del e
 Esta carpeta contiene ejercicios diseñados para introducir a los estudiantes al uso y configuración de entornos de desarrollo, específicamente enfocándose en la edición de programas utilizando herramientas como Visual Studio Code. Se destacan las capacidades auxiliares proporcionadas por tecnologías de inteligencia artificial (IA) integradas en estos entornos, aunque se subraya la importancia del aprendizaje autónomo y práctico sobre el mero uso de estas herramientas. Los ejercicios incluyen tanto conceptos básicos de programación con Python como reflexiones sobre las implicaciones éticas y pedagógicas del empleo de IA en desarrollo.
 
 ### construyo un programa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1016,7 +1016,7 @@ else:
 En esta carpeta se encuentran ejercicios orientados a la instalación y uso de entornos de desarrollo para crear y ejecutar programas simples, específicamente en lenguaje C. El objetivo principal es familiarizarte con el proceso completo desde la creación del proyecto hasta la generación del ejecutable en un entorno como Visual Studio. Además, se practica cómo configurar herramientas adicionales como Copilot y los compiladores necesarios para garantizar que puedas compilar y ejecutar tu código sin problemas. Estos ejercicios te ayudarán a adquirir competencias esenciales para el desarrollo de software en entornos profesionales.
 
 ### ejemplo en C
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1209,7 +1209,7 @@ Esta carpeta contiene un conjunto de ejercicios diseñados para estudiantes del 
 Esta carpeta contiene ejercicios orientados a la planificación y realización de pruebas en entornos de desarrollo para DAM (Desarrollo de Aplicaciones Multiplataforma). Los archivos incluyen una introducción teórica sobre la importancia de aislar bloques de código para su prueba individual, así como dos ejemplos prácticos que muestran cómo realizar operaciones básicas y cómo encapsular esas operaciones en funciones. A través de estos ejercicios, se practica la comprensión del diseño modular de software y las técnicas básicas de pruebas unitarias.
 
 ### operaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1226,7 +1226,7 @@ print(division)
 ```
 
 ### encapsulacion a funcion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1301,7 +1301,7 @@ print(division)
 Esta carpeta contiene una serie de ejercicios en Python que buscan familiarizarte con diferentes tipos de pruebas funcionales y estructurales. Los ejercicios inician presentando una función básica para realizar operaciones matemáticas simples y progresan hasta incluir múltiples casos y manejo de errores. A través de estos ejemplos, practicarás cómo ampliar la funcionalidad existente, gestionar parámetros adicionales y asegurar que tu código sea robusto ante diversas situaciones. Esto te permitirá entender mejor cómo realizar pruebas regresivas para mantener la compatibilidad con versiones anteriores del software mientras introduces nuevas características o correcciones de errores.
 
 ### regresion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1322,7 +1322,7 @@ print(operacionMatematica(1,2))
 ```
 
 ### aumento la capacidad
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1350,7 +1350,7 @@ print(operacionMatematica(1,2))
 ```
 
 ### arreglo para version anterior
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1382,7 +1382,7 @@ print(operacionMatematica(1,2))
 ```
 
 ### controlo todos los casos posibles
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1578,7 +1578,7 @@ Este conjunto de ejercicios se centra en la refactorización y optimización de 
 Los ejercicios practican competencias clave como la creación y uso efectivo de funciones, manejo de variables globales, bucles infinitos y organización del código en módulos externos. A través de estos problemas, los estudiantes aprenderán a refactorizar un código inicialmente monolítico en una estructura modular y fácil de mantener, mejorando su capacidad para escribir programas limpios y escalables.
 
 ### creo un programa sin funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1609,7 +1609,7 @@ opcion = int(opcion)
 ```
 
 ### codigo para cada una de las acciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1657,7 +1657,7 @@ elif opcion == 4:
 ```
 
 ### bucle infinito
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1704,7 +1704,7 @@ while True:
 ```
 
 ### funcion de eliminnar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1761,7 +1761,7 @@ while True:
 ```
 
 ### extraccion a funcion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1819,7 +1819,7 @@ while True:
 ```
 
 ### extraigo menu
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1875,7 +1875,7 @@ while True:
 ```
 
 ### extraigo los bloques
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1959,7 +1959,7 @@ while True:
 ```
 
 ### solucion global
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2039,7 +2039,7 @@ while True:
 ```
 
 ### extraer a archivo externo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2085,7 +2085,7 @@ while True:
 ```
 
 ### partir en funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2126,7 +2126,7 @@ print(totalFactura(1000))
 ```
 
 ### divido funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2172,7 +2172,7 @@ print(totalFactura(1000))
 ```
 
 ### sigo dividiendo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2222,7 +2222,7 @@ print(totalFactura(1000))
 ```
 
 ### sigo dividiendo mas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2272,7 +2272,7 @@ print(totalFactura(1000))
 ```
 
 ### funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2439,7 +2439,7 @@ Esta carpeta contiene una serie de ejercicios diseñados para familiarizarte con
 Esta carpeta contiene una serie de ejercicios diseñados para introducirte al uso de herramientas de control de versiones, con un énfasis especial en Git y GitHub. Los ejercicios te guiarán por los pasos básicos de cómo configurar un repositorio en GitHub, clonarlo en tu equipo local, realizar commits (grabar cambios), hacer push (subir cambios al servidor remoto) y pull (recuperar cambios desde el servidor). A través de estos problemas, aprenderás a gestionar versiones de tus proyectos de manera eficiente y a mantener un historial claro de las modificaciones que realizas en tu código. Además, te familiarizarás con la importancia de tener un perfil público y actualizado en GitHub como parte integral del desarrollo profesional.
 
 ### primera version
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2454,7 +2454,7 @@ print("Hola mundo desde Python")
 ```
 
 ### segund version
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2555,7 +2555,7 @@ En esta carpeta encontrarás una serie de ejercicios diseñados para ayudarte a 
 A través de estos ejercicios, adquirirás competencias esenciales como la administración de estructuras de datos relacionales, gestión de relaciones entre tablas, optimización de consultas y control del acceso a las bases de datos.
 
 ### crear tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2592,7 +2592,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2624,7 +2624,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2645,7 +2645,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2664,7 +2664,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2685,7 +2685,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2714,7 +2714,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3137,7 +3137,7 @@ crear_tabla()
 By refactoring the code in this manner, you can significantly improve its maintainability, testability, and overall structure.
 
 ### ejemplo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3185,7 +3185,7 @@ mostrar_arbol_directorio(ruta)
 ```
 
 ### docstring en las funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3236,7 +3236,7 @@ mostrar_arbol_directorio(ruta)
 ```
 
 ### comentarios en linea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3289,7 +3289,7 @@ mostrar_arbol_directorio(ruta)
 ```
 
 ### cambio la peticion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3342,7 +3342,7 @@ mostrar_arbol_directorio(ruta)
 ```
 
 ### programa python de programacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3406,7 +3406,7 @@ basededatos.close()
 ```
 
 ### aplicamos refactorizacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3479,7 +3479,7 @@ basededatos.close()
 ```
 
 ### seguimos refactorizando
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3558,7 +3558,7 @@ basededatos.close()
 ```
 
 ### documentamos dostring
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3642,7 +3642,7 @@ basededatos.close()
 ```
 
 ### documentamos las funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3739,7 +3739,7 @@ basededatos.close()
 ```
 
 ### ambito de la informacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3763,7 +3763,7 @@ print(sumar())  # Imprime 15
 ```
 
 ### ahora externalizo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3787,7 +3787,7 @@ print(sumar())  # Imprime 15
 ```
 
 ### llamada buena a sumar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3809,7 +3809,7 @@ print(sumar(operando1,operando2))  # Imprime 15
 ```
 
 ### refactorizamos mas alla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3848,7 +3848,7 @@ while True:                                     # Bucle principal del programa
 ```
 
 ### refactorizacion en archivos individuales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3892,7 +3892,7 @@ while True:                                     # Bucle principal del programa
 ```
 
 ### fcreartabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3927,7 +3927,7 @@ def crear_tabla():
 ```
 
 ### fimprimemenu
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3951,7 +3951,7 @@ def imprimeMenu():
 ```
 
 ### finsertarcliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3988,7 +3988,7 @@ def insertar_cliente():
 ```
 
 ### fseleccionaclientes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4017,7 +4017,7 @@ def seleccionarClientes():
 ```
 
 ### funcionesbasededatos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4098,7 +4098,7 @@ def crear_tabla():
 ```
 
 ### sumar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4123,7 +4123,7 @@ def sumar():
 ```
 
 ### sumarbueno
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4275,7 +4275,7 @@ Este conjunto de ejercicios está diseñado para familiarizarte con la refactori
 Estos ejercicios te permitirán practicar competencias clave como refactorización de código, modularización, uso eficiente de bases de datos, documentación detallada y manejo avanzado de control de versiones.
 
 ### base del examen
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4349,7 +4349,7 @@ while True:
 ```
 
 ### extraccion a funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4431,7 +4431,7 @@ while True:
 ```
 
 ### importacion de archivo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4464,7 +4464,7 @@ while True:
 ```
 
 ### documentacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4502,7 +4502,7 @@ while True:                                       # Usamos while para entrar en 
 ```
 
 ### funcionesbasededatos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4676,7 +4676,7 @@ Este tipo de actividades son fundamentales para los estudiantes de Formación Pr
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Entornos%20de%20desarrollo/006-Elaboraci%C3%B3n%20de%20diagramas%20de%20clases/001-Clases.%20Atributos%2C%20m%C3%A9todos%20y%20visibilidad)
 
 ### diagrama inicial cliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama inicial cliente.html`
 
@@ -4934,7 +4934,7 @@ body {
 ```
 
 ### diagrama inicial cliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama inicial cliente.json`
 
@@ -4978,7 +4978,7 @@ body {
 ```
 
 ### diagrama inicial cliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama inicial cliente.py`
 
@@ -4998,7 +4998,7 @@ class Cliente:
 ```
 
 ### diagrama inicial cliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama inicial cliente.sql`
 
@@ -5014,7 +5014,7 @@ CREATE TABLE cliente (
 ```
 
 ### diagrama inicial cliente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama inicial cliente.svg`
 
@@ -5065,7 +5065,7 @@ CREATE TABLE cliente (
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Entornos%20de%20desarrollo/006-Elaboraci%C3%B3n%20de%20diagramas%20de%20clases/003-Relaciones.%20Asociaci%C3%B3n%2C%20navegabilidad%20y%20multiplicidad.%20Herencia%2C%20composici%C3%B3n%2C%20agregaci%C3%B3n.%20Realizaci%C3%B3n%20y%20dependencia)
 
 ### diagrama relaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama relaciones.html`
 
@@ -5396,7 +5396,7 @@ body {
 ```
 
 ### diagrama relaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama relaciones.json`
 
@@ -5560,7 +5560,7 @@ body {
 ```
 
 ### diagrama relaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama relaciones.py`
 
@@ -5614,7 +5614,7 @@ class Lineapedido:
 ```
 
 ### diagrama relaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama relaciones.sql`
 
@@ -5656,7 +5656,7 @@ CREATE TABLE lineapedido (
 ```
 
 ### diagrama relaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama relaciones.svg`
 
@@ -5746,7 +5746,7 @@ CREATE TABLE lineapedido (
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Entornos%20de%20desarrollo/007-Elaboraci%C3%B3n%20de%20diagramas%20de%20comportamiento/001-Clases.%20Atributos%2C%20m%C3%A9todos%20y%20visibilidad)
 
 ### diagrama de flujo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama de flujo.html`
 
@@ -5997,7 +5997,7 @@ body {
 ```
 
 ### diagrama de flujo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama de flujo.json`
 
@@ -6273,7 +6273,7 @@ body {
 ```
 
 ### diagrama de flujo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `diagrama de flujo.svg`
 
@@ -6377,7 +6377,7 @@ body {
 Este conjunto de ejercicios está diseñado para ayudarte a familiarizarte con la programación en PHP, un lenguaje de scripting del lado del servidor muy popular. Los problemas abarcan desde conceptos básicos como declaraciones y variables hasta estructuras más avanzadas como bucles, condicionales y objetos orientados a objetos. A través de estos ejercicios, aprenderás a crear scripts simples, trabajar con funciones, manejar arrays y clases, así como a integrar PHP con HTML para generar contenido dinámico en una página web. Es importante tener configurado tu entorno de desarrollo (se proporcionan instrucciones tanto para Windows como Linux) antes de comenzar estos ejercicios.
 
 ### hola mundo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6408,7 +6408,7 @@ hola mundo desde PHP
 ```
 
 ### abrimos bloque
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6427,7 +6427,7 @@ Esto es HTML
 ```
 
 ### comentarios de una linea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6443,7 +6443,7 @@ Este fragmento de código muestra cómo se utilizan los comentarios en PHP. Los 
 ```
 
 ### comentarios multilinea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6462,7 +6462,7 @@ Este fragmento de código PHP muestra cómo se utilizan los comentarios multilin
 ```
 
 ### salidas con echo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6477,7 +6477,7 @@ Este fragmento de código muestra cómo integrar contenido HTML dentro de un scr
 ```
 
 ### print
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6492,7 +6492,7 @@ Este fragmento de código muestra cómo se puede incorporar código HTML directa
 ```
 
 ### variable
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6508,7 +6508,7 @@ Este fragmento de código PHP crea una variable llamada `$nombre` y le asigna el
 ```
 
 ### operadores aritmeticos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6539,7 +6539,7 @@ Entre cada operación, se usa `echo "<br>";` para agregar una nueva línea en el
 ```
 
 ### operadores de comparacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6569,7 +6569,7 @@ Este código es importante porque enseña cómo evaluar condiciones y realizar c
 ```
 
 ### operadores booleanos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6604,7 +6604,7 @@ Este tipo de ejercicios ayuda a entender cómo PHP evalúa y combina diferentes 
 ```
 
 ### operadores aritmeticos abreviados
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6630,7 +6630,7 @@ Este código PHP muestra cómo modificar un valor almacenado en una variable usa
 ```
 
 ### operadores de incremento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6650,7 +6650,7 @@ Este código es un ejemplo básico de cómo usar operadores de incremento y decr
 ```
 
 ### estructura for
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6669,7 +6669,7 @@ Es importante porque te enseña cómo iterar y hacer acciones repetitivas en PHP
 ```
 
 ### for con estructura y estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6700,7 +6700,7 @@ Es importante destacar que el código se ejecuta entre las etiquetas PHP `<?php`
 ```
 
 ### ahora le pongo estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6739,7 +6739,7 @@ En el cuerpo del documento (body), se utiliza un bucle PHP (`for`) para imprimir
 ```
 
 ### while
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6762,7 +6762,7 @@ En resumen, esta estructura es útil cuando necesitas realizar una acción repet
 ```
 
 ### declarar la variable antes de entrar en el while
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6784,7 +6784,7 @@ Es crucial declarar la variable `$dia` antes de entrar al bucle `while`, ya que 
 ```
 
 ### incremento dentro del bucle
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6803,7 +6803,7 @@ Este código PHP muestra cómo utilizar un bucle `while` para imprimir los días
 ```
 
 ### if
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6825,7 +6825,7 @@ Este tipo de estructura condicional es fundamental en programación ya que permi
 ```
 
 ### else
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6849,7 +6849,7 @@ Esta estructura de control es importante porque permite tomar decisiones basadas
 ```
 
 ### case else if
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6877,7 +6877,7 @@ Este tipo de estructuras condicionales son útiles para categorizar información
 ```
 
 ### switch
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6918,7 +6918,7 @@ Esta estructura `switch` es útil para manejar múltiples opciones con una sinta
 ```
 
 ### funcion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6939,7 +6939,7 @@ Es importante porque las funciones ayudan a organizar el código y hacerlo más 
 ```
 
 ### llamada a la funcion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6961,7 +6961,7 @@ Esta estructura es fundamental para entender cómo organizar funciones más comp
 ```
 
 ### personalizacion con parametros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6984,7 +6984,7 @@ Esta práctica es importante porque ayuda a organizar y simplificar el código, 
 ```
 
 ### tantos parametros como sea necesario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7010,7 +7010,7 @@ Finalmente, la función `diHola()` se llama nuevamente pero esta vez con paráme
 ```
 
 ### salida con return
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7032,7 +7032,7 @@ Esta práctica es importante porque demuestra cómo utilizar funciones con pará
 ```
 
 ### arrays
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7054,7 +7054,7 @@ Este código es útil para introducir los conceptos básicos de cómo se crean y
 ```
 
 ### vomitamos arrays
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7074,7 +7074,7 @@ Este fragmento de código ilustra cómo declarar e inicializar arrays en PHP y c
 ```
 
 ### creacion de una clase
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7095,7 +7095,7 @@ Crear una clase, aunque inicialmente vacía, es fundamental porque permite exten
 ```
 
 ### creamos propiedades
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7136,7 +7136,7 @@ Es importante entender cómo declarar propiedades correctamente dentro de una cl
 ```
 
 ### creamos un constructor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7162,7 +7162,7 @@ Es importante corregir el nombre del método para hacerlo un constructor válido
 ```
 
 ### creamos dos gatos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7193,7 +7193,7 @@ Este código es un buen punto de partida para aprender cómo crear clases y obje
 ```
 
 ### lectura y escritura
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7230,7 +7230,7 @@ Es importante notar que este ejemplo tiene un error en la declaración del const
 ```
 
 ### propiedades privadas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7272,7 +7272,7 @@ Es importante entender que, aunque las propiedades están declaradas como privad
 ```
 
 ### metodos set y get
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7323,7 +7323,7 @@ Este tipo de diseño, que usa métodos públicos para manipular propiedades priv
 ```
 
 ### constructor con parametros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7418,7 +7418,7 @@ Estas actividades ayudarán a los estudiantes a familiarizarse gradualmente con 
 Este conjunto de ejercicios está diseñado para que los estudiantes practiquen la conexión a una base de datos MySQL desde PHP y el manejo de resultados en un entorno web. Los problemas van desde conectarse básicamente a la base de datos y recuperar información, hasta formatearla y mostrarla en una página web con estilos básicos y estructuras HTML más complejas como tablas y navegación. Se trabajan competencias esenciales como el uso del lenguaje PHP para consultas SQL, la integración de código PHP dentro de documentos HTML, y la aplicación de CSS básico para mejorar la presentación visual de los datos.
 
 ### conecto a la base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7446,7 +7446,7 @@ while ($row = $result->fetch_assoc()) {
 ```
 
 ### formateo algo mejor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7480,7 +7480,7 @@ while ($fila = $resultado->fetch_assoc()) {
 ```
 
 ### rodeo al blog de html
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7532,7 +7532,7 @@ Esta práctica es crucial para permitir a los usuarios interactuar con datos alm
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7590,7 +7590,7 @@ Esta técnica combina HTML para estructurar y presentar datos, CSS para dar esti
 ```
 
 ### panel de control con PHP
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7627,7 +7627,7 @@ Este diseño es útil para crear interfaces web sencillas donde se requiera una 
 ```
 
 ### pongo los botones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7671,7 +7671,7 @@ El uso del CSS permite organizar visualmente estos elementos, asegurando que tan
 ```
 
 ### un poco de estilo para el menu
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7720,7 +7720,7 @@ Este código es importante porque demuestra cómo integrar PHP y MySQL para gene
 ```
 
 ### creo una tabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7778,7 +7778,7 @@ Este código es útil para estudiantes que están aprendiendo a interactuar con 
 ```
 
 ### estilo de la tabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7836,7 +7836,7 @@ Este ejemplo es importante porque combina varios conceptos clave: cómo conectar
 ```
 
 ### muestro las cabeceras de las tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7963,7 +7963,7 @@ Esta página es útil para visualizar rápidamente cómo se estructuran los dato
 Esta carpeta contiene una serie de ejercicios en PHP que se centran en el manejo de formularios y la interacción con bases de datos. Los problemas abordan cómo capturar y procesar datos enviados mediante métodos GET y POST, así como cómo estructurar y mejorar la presentación de información desde una base de datos en páginas web. Estos ejercicios permiten a los estudiantes practicar habilidades fundamentales de programación en PHP, incluyendo el uso de variables superglobales, consultas SQL básicas y técnicas de diseño web para mejorar la estética de las aplicaciones.
 
 ### get
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7985,7 +7985,7 @@ Es importante porque permite que los sitios web interactúen dinámicamente con 
 ```
 
 ### pasar varios parametros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8009,7 +8009,7 @@ Este tipo de práctica es fundamental cuando se trabaja con formularios y necesi
 ```
 
 ### metodo post
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8030,7 +8030,7 @@ Esta técnica es importante porque permite a las aplicaciones web recoger inform
 ```
 
 ### procesa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8051,7 +8051,7 @@ El uso del método POST es importante porque permite enviar información sensibl
 ```
 
 ### continuamos con el panel de control
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8131,7 +8131,7 @@ Este tipo de página es útil para administradores o usuarios con permisos adecu
 ```
 
 ### ajustes esteticos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8221,7 +8221,7 @@ Este código es útil para explorar fácilmente diferentes tablas de una base de
 ```
 
 ### mas ajustes esteticos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8515,7 +8515,7 @@ imap_close($inbox);
 Estas mejoras harán que tu código sea más modular, mantenible y legible.
 
 ### leercorreos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8779,7 +8779,7 @@ $emails = imap_search($inbox, 'ALL');
 ```
 
 ### correos como blog
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9192,7 +9192,7 @@ $emails = imap_search($inbox, 'ALL');
 ```
 
 ### leer correos con mejoras
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9696,7 +9696,7 @@ if ($selectedId) {
 ```
 
 ### personalizar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10195,7 +10195,7 @@ if ($selectedId) {
 ```
 
 ### version movil
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10708,7 +10708,7 @@ if ($selectedId) {
 ```
 
 ### vinculos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 

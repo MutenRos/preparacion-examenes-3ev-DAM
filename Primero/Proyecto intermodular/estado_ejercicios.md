@@ -1,6 +1,6 @@
 # Proyecto intermodular — Estado de ejercicios
 
-Generado: 2026-04-20 18:00
+Generado: 2026-04-23 19:00
 
 ---
 
@@ -135,6 +135,10 @@ Generado: 2026-04-20 18:00
 - 🔴 multiformularios condicionales
 - 🔴 Resumen de publicación en servidores
 - 🔴 Panel de control de ventas
+- 🔴 geolocalizacion
+- 🔴 API rotation
+- 🔴 scrapear web con IA
+- 🔴 modelos multimodales
 
 
 ## Carpeta sin título

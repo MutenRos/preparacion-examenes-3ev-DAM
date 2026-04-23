@@ -107,6 +107,10 @@
   - [multiformularios condicionales](#multiformularios-condicionales)
   - [Resumen de publicación en servidores](#resumen-de-publicacion-en-servidores)
   - [Panel de control de ventas](#panel-de-control-de-ventas)
+  - [geolocalizacion](#geolocalizacion)
+  - [API rotation](#api-rotation)
+  - [scrapear web con IA](#scrapear-web-con-ia)
+  - [modelos multimodales](#modelos-multimodales)
 - [Carpeta sin título](#carpeta-sin-titulo)
 - [New Folder](#new-folder)
 
@@ -535,7 +539,7 @@ En esta carpeta de ejercicios se aborda la planificación y valoración de recur
 Esta carpeta contiene un conjunto de ejercicios en Python utilizando la biblioteca Flask para generar contenido HTML y CSS dinámicamente. Los ejercicios comienzan con la creación básica de una página web usando Flask, pasando a crear un calendario completo y finalmente desarrollar el tablero de ajedrez mediante manipulaciones condicionales del CSS. A través de estos ejercicios, se aprenden conceptos clave como la estructura de rutas en Flask, construcción de cadenas HTML dinámicas con bucles y condicionales, y aplicación de estilos CSS para diseño gráfico. Estos ejercicios son especialmente útiles para aprender a integrar lógica back-end con presentación front-end utilizando un framework web como Flask.
 
 ### flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -549,7 +553,7 @@ Este fragmento de código es más bien un comentario que te indica cómo configu
 ```
 
 ### arrancar flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -577,7 +581,7 @@ def raiz():
 ```
 
 ### ahora arranco el servidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -609,7 +613,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora imprimo html real
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -643,7 +647,7 @@ if __name__ == "__main__":
 ```
 
 ### html completo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -688,7 +692,7 @@ if __name__ == "__main__":
 ```
 
 ### ademas puedo poner css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -734,7 +738,7 @@ if __name__ == "__main__":
 ```
 
 ### contenido dinamico
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -782,7 +786,7 @@ if __name__ == "__main__":
 ```
 
 ### calendario con python y html
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -831,7 +835,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora hago un for de dias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -891,7 +895,7 @@ if __name__ == "__main__":
 ```
 
 ### el poder del css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -956,7 +960,7 @@ if __name__ == "__main__":
 ```
 
 ### usamos grid
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1022,7 +1026,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora quiero todo el año
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1095,7 +1099,7 @@ if __name__ == "__main__":
 ```
 
 ### creo un tablero de ajedrez
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1127,7 +1131,7 @@ if __name__ == "__main__":
 ```
 
 ### celdas declaracion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1176,7 +1180,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de css aunque poco legal
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1227,7 +1231,7 @@ if __name__ == "__main__":
 ```
 
 ### grid en el body
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1273,7 +1277,7 @@ if __name__ == "__main__":
 ```
 
 ### condicional
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1319,7 +1323,7 @@ if __name__ == "__main__":
 ```
 
 ### regla diferente en cada fila
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1371,7 +1375,7 @@ if __name__ == "__main__":
 ```
 
 ### comentarios en el ejercicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1722,7 +1726,7 @@ Estas actividades buscan capacitar a los estudiantes no solo técnicamente sino 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/003-Informaci%C3%B3n%20relativa%20a%20las%20soluciones)
 
 ### producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `producto.php`
 
@@ -2348,7 +2352,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `producto.xml`
 
@@ -2606,7 +2610,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `producto.xsd`
 
@@ -2953,7 +2957,7 @@ function render_article_image(array $img){
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/006-Partes%20del%20proyecto)
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `index.php`
 
@@ -3076,7 +3080,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `producto.php`
 
@@ -3708,7 +3712,7 @@ function render_article_image(array $img){
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/002-Selecci%C3%B3n%20de%20un%20servicio%20o%20producto/007-Recursos%20materiales%20y%20humanos%20necesarios)
 
 ### contacto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `contacto.php`
 
@@ -4102,7 +4106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `index.php`
 
@@ -4227,7 +4231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ### pagina
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `pagina.php`
 
@@ -4636,7 +4640,7 @@ function render_article_image(array $img){
 ```
 
 ### producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `producto.php`
 
@@ -5456,7 +5460,7 @@ It seems you've been working through a series of steps involving Flask web appli
 Would you like to proceed further into these steps or address any specific issues?
 
 ### crear una aplicación de prueba en el servidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -5488,7 +5492,7 @@ if __name__ == "__main__":
 ```
 
 ### intentamos ejecutarlo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6006,7 +6010,7 @@ josevicente@ubuntuserver:~$
 ```
 
 ### ahora si que ejecutamos de verdad
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6040,7 +6044,7 @@ Pero la IP no es la correcta (192.168.1.78)
 ```
 
 ### cambiamos la IP de escucha
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6070,7 +6074,7 @@ if __name__ == "__main__":
 ```
 
 ### ejecutamos de nuevo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6087,7 +6091,7 @@ En el servidor paro la versión 2, y lanzo la versión 7
 ```
 
 ### escuchamos en el puerto 80
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6119,7 +6123,7 @@ if __name__ == "__main__":
 ```
 
 ### escuchamos en el puerto 8080
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6147,7 +6151,7 @@ if __name__ == "__main__":
 ```
 
 ### escuchamos en el puerto 8080
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6177,7 +6181,7 @@ if __name__ == "__main__":
 ```
 
 ### creo un microblog
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6229,7 +6233,7 @@ if __name__ == "__main__":
 ```
 
 ### apunto al servidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6279,7 +6283,7 @@ if __name__ == "__main__":
 ```
 
 ### Archivo sin título
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6467,7 +6471,7 @@ if __name__ == "__main__":
 Este código crea un servidor web básico con Flask que muestra artículos desde una base de datos SQLite y presenta los resultados en HTML generado dinámicamente.
 
 ### esquema
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6671,7 +6675,7 @@ Este tipo de diagrama es útil para mostrar relaciones y dependencias en sistema
 ```
 
 ### crear tabla de articulos de blog
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6695,7 +6699,7 @@ CREATE TABLE "articulos" (
 ```
 
 ### insertar articulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6722,7 +6726,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### insertar mas articulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6764,7 +6768,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### quiero hacer un select
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6781,7 +6785,7 @@ SELECT * FROM articulos;
 ```
 
 ### conexion con sqlite
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6818,7 +6822,7 @@ print(filas)
 ```
 
 ### algo mas fino
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6852,7 +6856,7 @@ for fila in filas:
 ```
 
 ### ahora quiero diccionario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6881,7 +6885,7 @@ for fila in filas:
 ```
 
 ### controlo el diccionario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6914,7 +6918,7 @@ for fila in filas:
 ```
 
 ### extraigo la informacion limpia
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6947,7 +6951,7 @@ for fila in filas:
 ```
 
 ### ahora traigo flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6994,7 +6998,7 @@ if __name__ == "__main__":
 ```
 
 ### html y css minimo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7058,7 +7062,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora css minimo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7129,7 +7133,7 @@ if __name__ == "__main__":
 ```
 
 ### imagenes en static
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7202,7 +7206,7 @@ if __name__ == "__main__":
 ```
 
 ### nuevas entradas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7240,7 +7244,7 @@ INSERT INTO articulos VALUES(
 ```
 
 ### imagenes en static
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7311,7 +7315,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de grid
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7384,7 +7388,7 @@ if __name__ == "__main__":
 ```
 
 ### texto alternativo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7457,7 +7461,7 @@ if __name__ == "__main__":
 ```
 
 ### adapto ip
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7795,7 +7799,7 @@ By following these steps, you will have a Flask application that serves multiple
 Let me know if you need further assistance or specific configurations!
 
 ### Esquema full stack
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8399,7 +8403,7 @@ The SVG is a well-structured visual representation of skill domains. By enhancin
 ```
 
 ### flask hola mundo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8430,7 +8434,7 @@ if __name__ == "__main__":
 ```
 
 ### html más válido
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8470,7 +8474,7 @@ if __name__ == "__main__":
 ```
 
 ### simulo una tienda online
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8573,7 +8577,7 @@ if __name__ == "__main__":
 ```
 
 ### un poco de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8682,7 +8686,7 @@ if __name__ == "__main__":
 ```
 
 ### traigo sqlite
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8798,7 +8802,7 @@ if __name__ == "__main__":
 ```
 
 ### separo en tres bloques
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8878,7 +8882,7 @@ if __name__ == "__main__":
 ```
 
 ### 20 productos mas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8915,7 +8919,7 @@ INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES
 ```
 
 ### flask multipagina
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8941,7 +8945,7 @@ if __name__ == "__main__":
 ```
 
 ### muchas rutas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8979,7 +8983,7 @@ if __name__ == "__main__":
 ```
 
 ### pagina mas elaborada
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9019,7 +9023,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora con estilo y menu
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9072,7 +9076,7 @@ if __name__ == "__main__":
 ```
 
 ### ahora con css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9127,7 +9131,7 @@ if __name__ == "__main__":
 ```
 
 ### plantillas flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9155,7 +9159,7 @@ if __name__ == "__main__":
 ```
 
 ### varias paginas y varias plantillas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9191,7 +9195,7 @@ if __name__ == "__main__":
 ```
 
 ### blog
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9618,7 +9622,7 @@ Y podrás acceder a la aplicación a través de `http://127.0.0.1:5000/` o desde
 ¡Espero que esto sea lo que necesitas!
 
 ### creacion de tabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9646,7 +9650,7 @@ CREATE TABLE "productos" (
 ```
 
 ### insercion de 20 productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9683,7 +9687,7 @@ INSERT INTO productos (nombre, descripcion, imagen, precio) VALUES
 ```
 
 ### controlar de leer
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9716,7 +9720,7 @@ basededatos.close()
 ```
 
 ### maqueta visual de tienda online
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9779,7 +9783,7 @@ Por último, en la parte inferior de la página se encuentra el `footer`, que co
 ```
 
 ### estilo de la tienda
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10049,7 +10053,7 @@ El código es importante porque proporciona una estructura clara y estética par
 ```
 
 ### generar web
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10214,7 +10218,7 @@ if __name__ == '__main__':
 ```
 
 ### revisamos url de las iagenes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10379,7 +10383,7 @@ if __name__ == '__main__':
 ```
 
 ### comentarios en el software
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10593,7 +10597,7 @@ if __name__ == '__main__':                                      # Si este archiv
 ```
 
 ### escuchar en todas las interfaces
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11032,7 +11036,7 @@ Al ejecutar este código, tu servidor Flask será accesible desde cualquier dire
 Esta carpeta contiene un conjunto de ejercicios diseñados para ayudarte a prepararte para el examen intermodular, enfocándose en la integración entre bases de datos MySQL y aplicaciones web Flask. Los problemas trabajan con la extracción y manipulación de datos desde una base de datos y su visualización en formato HTML vía una aplicación web simple. A lo largo de los ejercicios, practicarás habilidades como consultas SQL básicas, manejo de conexiones a bases de datos, uso del framework Flask para crear rutas web, y construcción básica de páginas web con HTML.
 
 ### seleccionar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11066,7 +11070,7 @@ for linea in lineas:
 ```
 
 ### importamos flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11115,7 +11119,7 @@ if __name__ == "__main__":
 ```
 
 ### que lo saque en la web
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11155,7 +11159,7 @@ if __name__ == "__main__":
 ```
 
 ### creamos un articulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11206,7 +11210,7 @@ if __name__ == "__main__":
 ```
 
 ### estilo mas consistente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11355,7 +11359,7 @@ Estas actividades buscan cubrir desde el manejo básico hasta aspectos más avan
 En esta carpeta, encontrarás una serie de ejercicios diseñados para repasar y consolidar tus conocimientos en SQL, centrándote principalmente en el manejo de bases de datos relacionales. Los problemas abordan la creación de tablas con relaciones entre ellas, inserción de datos, definición de claves foráneas, selección de datos mediante consultas simples y avanzadas, y gestión de usuarios y privilegios en MySQL. A través de estos ejercicios, aprenderás a estructurar correctamente una base de datos, realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar), y trabajar con vistas para simplificar la consulta y visualización de datos complejos.
 
 ### crear tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11392,7 +11396,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11422,7 +11426,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11443,7 +11447,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11460,7 +11464,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11477,7 +11481,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11508,7 +11512,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11642,7 +11646,7 @@ Para mejorar la robustez del scraper:
 - También podrías considerar usar una librería más especializada como Selenium que permite controlar un navegador web de forma programática, lo cual podría hacer el comportamiento del scraper aún más similar al humano.
 
 ### peticiones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11657,7 +11661,7 @@ import requests
 ```
 
 ### pido mi propia web
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11685,7 +11689,7 @@ print(html)
 ```
 
 ### guardar mis propias imagenes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11785,7 +11789,7 @@ print("\nTerminado.")
 ```
 
 ### scrapeo google
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11883,7 +11887,7 @@ print("\nTerminado.")
 ```
 
 ### probamos con deepseek
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12116,7 +12120,7 @@ if __name__ == "__main__":
 ```
 
 ### parametro personalizado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12442,7 +12446,7 @@ Si necesitas usar las imágenes en un proyecto público o comercial, es mejor bu
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/007-Ejercicios%20segundo%20trimestre/006-creador%20de%20muchos%20articulso%20de%20blog)
 
 ### generar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `generar.py`
 
@@ -12850,7 +12854,7 @@ if __name__ == "__main__":
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/007-Ejercicios%20segundo%20trimestre/008-Multimedia)
 
 ### audio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-audio.html`
 
@@ -12866,7 +12870,7 @@ if __name__ == "__main__":
 ```
 
 ### le pongo los controles
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-le pongo los controles.html`
 
@@ -12882,7 +12886,7 @@ if __name__ == "__main__":
 ```
 
 ### varias ondas de audio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-varias ondas de audio.html`
 
@@ -12901,7 +12905,7 @@ if __name__ == "__main__":
 ```
 
 ### esquema
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-esquema.html`
 
@@ -12941,7 +12945,7 @@ if __name__ == "__main__":
 ```
 
 ### fuentes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-fuentes.html`
 
@@ -12997,7 +13001,7 @@ if __name__ == "__main__":
 ```
 
 ### imagen heroe
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-imagen heroe.html`
 
@@ -13060,7 +13064,7 @@ if __name__ == "__main__":
 ```
 
 ### fondo en degradado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-fondo en degradado.html`
 
@@ -13130,7 +13134,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### contenido del heroe
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-contenido del heroe.html`
 
@@ -13218,7 +13222,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### textura de fondo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-textura de fondo.html`
 
@@ -13306,7 +13310,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### discos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-discos.html`
 
@@ -13452,7 +13456,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### retocado IA
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-retocado IA.html`
 
@@ -13628,7 +13632,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### complementamos poniendo las canciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-complementamos poniendo las canciones.html`
 
@@ -13804,7 +13808,7 @@ background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 28%, 
 ```
 
 ### style
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `style.css`
 
@@ -14391,7 +14395,7 @@ Estas actividades están diseñadas para complementar los conocimientos ya adqui
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/009-Portafolios%20Serena)
 
 ### llamada con PHP
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-llamada con PHP.php`
 
@@ -14433,7 +14437,7 @@ if (isset($resultado['response'])) {
 ```
 
 ### afinamos el prompt
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-afinamos el prompt.php`
 
@@ -14481,7 +14485,7 @@ if (isset($resultado['response'])) {
 ```
 
 ### usuario elige
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-usuario elige.php`
 
@@ -14533,7 +14537,7 @@ if (isset($resultado['response'])) {
 ```
 
 ### interfaz más bonita
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-interfaz más bonita.php`
 
@@ -14599,7 +14603,7 @@ if (isset($resultado['response'])) {
 ```
 
 ### formulario desplazable
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-formulario desplazable.php`
 
@@ -14948,7 +14952,7 @@ pre{white-space:pre-wrap;background:#111827;padding:15px;border-radius:8px;}
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/010-Drive%20como%20base%20de%20datos)
 
 ### leer csv
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-leer csv.php`
 
@@ -14970,7 +14974,7 @@ if (($handle = fopen($url, "r")) !== false) {
 ```
 
 ### array con columnas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-array con columnas.php`
 
@@ -14995,7 +14999,7 @@ print_r($rows);
 ```
 
 ### array nombrado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-array nombrado.php`
 
@@ -15028,7 +15032,7 @@ echo "</pre>";
 ```
 
 ### ahora formateo una tienda online
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-ahora formateo una tienda online.php`
 
@@ -15083,7 +15087,7 @@ if (($handle = fopen($url, "r")) !== false) {
 ```
 
 ### con css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-con css.php`
 
@@ -15249,7 +15253,7 @@ footer{
 ```
 
 ### tienda javascript
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-tienda javascript.php`
 
@@ -16026,7 +16030,7 @@ if (($handle = fopen($url, "r")) !== false) {
 ```
 
 ### enviar correo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-enviar correo.php`
 
@@ -17101,7 +17105,7 @@ if (($handle = fopen($url, "r")) !== false) {
 ```
 
 ### uso de variables de entorno
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-uso de variables de entorno.php`
 
@@ -18176,7 +18180,7 @@ if (($handle = fopen($url, "r")) !== false) {
 ```
 
 ### comprobacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-comprobacion.php`
 
@@ -18187,7 +18191,7 @@ echo $MI_SERVIDORSMTP_CORREO_JOCARSA;
 ```
 
 ### obtener imagenes de carpeta
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-obtener imagenes de carpeta.php`
 
@@ -18315,7 +18319,7 @@ if ($error) {
 ```
 
 ### tienda con imagenes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `013-tienda con imagenes.php`
 
@@ -19584,7 +19588,7 @@ foreach ($datos as $i => $articulo) {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/011-Consumo%20energetico)
 
 ### bucle en python
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-bucle en python.py`
 
@@ -19600,7 +19604,7 @@ print("Tiempo:", time.time() - inicio)
 ```
 
 ### bucle en c
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-bucle en c.c`
 
@@ -19635,7 +19639,7 @@ int main() {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/012-Informatica%20grafica)
 
 ### lienzo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-lienzo.html`
 
@@ -19659,7 +19663,7 @@ int main() {
 ```
 
 ### contexto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-contexto.html`
 
@@ -19687,7 +19691,7 @@ int main() {
 ```
 
 ### pongo el color
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-pongo el color.html`
 
@@ -19715,7 +19719,7 @@ int main() {
 ```
 
 ### dibujo un rectangulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-dibujo un rectangulo.html`
 
@@ -19745,7 +19749,7 @@ int main() {
 ```
 
 ### muchos rectangulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-muchos rectangulos.html`
 
@@ -19775,7 +19779,7 @@ int main() {
 ```
 
 ### ahora quiero un rectangulo vacio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-ahora quiero un rectangulo vacio.html`
 
@@ -19805,7 +19809,7 @@ int main() {
 ```
 
 ### circulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-circulo.html`
 
@@ -19835,7 +19839,7 @@ int main() {
 ```
 
 ### circulo relleno
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-circulo relleno.html`
 
@@ -19865,7 +19869,7 @@ int main() {
 ```
 
 ### linea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-linea.html`
 
@@ -19895,7 +19899,7 @@ int main() {
 ```
 
 ### muchas lineas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-muchas lineas.html`
 
@@ -19927,7 +19931,7 @@ int main() {
 ```
 
 ### texto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-texto.html`
 
@@ -19955,7 +19959,7 @@ int main() {
 ```
 
 ### muchos textos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-muchos textos.html`
 
@@ -19985,7 +19989,7 @@ int main() {
 ```
 
 ### porcion de tarta
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `013-porcion de tarta.html`
 
@@ -20015,7 +20019,7 @@ int main() {
 ```
 
 ### porcion pintada
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `014-porcion pintada.html`
 
@@ -20046,7 +20050,7 @@ int main() {
 ```
 
 ### grafico de tarta
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `015-grafico de tarta.html`
 
@@ -20078,7 +20082,7 @@ int main() {
 ```
 
 ### porciones de la tarta
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `016-porciones de la tarta.html`
 
@@ -20132,7 +20136,7 @@ int main() {
 ```
 
 ### datos con texto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `017-datos con texto.html`
 
@@ -20316,7 +20320,7 @@ int main() {
 ```
 
 ### encapsulamiento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `018-encapsulamiento.html`
 
@@ -20556,7 +20560,7 @@ int main() {
 ```
 
 ### panel de control
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `019-panel de control.html`
 
@@ -20980,7 +20984,7 @@ int main() {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/013-Motivando%20a%20Dar%C3%ADo)
 
 ### canvas mousemove
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-canvas mousemove.html`
 
@@ -21046,7 +21050,7 @@ int main() {
 ```
 
 ### mas controles
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-mas controles.html`
 
@@ -21155,7 +21159,7 @@ int main() {
 ```
 
 ### oleo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-oleo.html`
 
@@ -21297,7 +21301,7 @@ int main() {
 ```
 
 ### contaminacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-contaminacion.html`
 
@@ -21582,7 +21586,7 @@ int main() {
 ```
 
 ### longitud de trazo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-longitud de trazo.html`
 
@@ -21902,7 +21906,7 @@ int main() {
 ```
 
 ### jocarsa CAD
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-jocarsa CAD.html`
 
@@ -22216,6 +22220,30 @@ int main() {
 ## Panel de control de ventas
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/027-Panel%20de%20control%20de%20ventas)
+
+
+<a id="geolocalizacion"></a>
+## geolocalizacion
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/028-geolocalizacion)
+
+
+<a id="api-rotation"></a>
+## API rotation
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/029-API%20rotation)
+
+
+<a id="scrapear-web-con-ia"></a>
+## scrapear web con IA
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/030-scrapear%20web%20con%20IA)
+
+
+<a id="modelos-multimodales"></a>
+## modelos multimodales
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/031-modelos%20multimodales)
 
 
 

@@ -131,7 +131,7 @@ En este conjunto de ejercicios, estás explorando los fundamentos del lenguaje d
 En esta carpeta, encontrarás ejercicios que te ayudarán a familiarizarte con varios lenguajes de marcado esenciales como HTML, XML, Markdown, JSON, y SVG. Los problemas se enfocan en la creación de documentos estructurados y páginas web básicas utilizando estas tecnologías. A través de estos ejercicios, practicarás habilidades fundamentales como la escritura correcta de sintaxis, la organización de datos anidados, el estilo visual básico para HTML con CSS, y la representación gráfica simple en SVG. Estos ejercicios te preparan para entender las características y aplicaciones específicas de cada lenguaje de marcado, permitiéndote seleccionar adecuadamente la herramienta más apropiada según el tipo de documento o interfaz web que deseas crear.
 
 ### Crear webs con HTML
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -155,7 +155,7 @@ En este ejemplo, dentro del `<body>...</body>` hay un elemento `<p>Esto es una p
 ```
 
 ### crear documentos con XML
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -186,7 +186,7 @@ XML es importante porque permite estructurar datos de una manera que sea fácilm
 ```
 
 ### CSS nos permite añadir estilo a HTML
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -213,7 +213,7 @@ Esta práctica es fundamental en desarrollo web ya que permite un manejo más fl
 ```
 
 ### JSON para guardar documentos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -236,7 +236,7 @@ JSON es útil porque permite representar datos de manera clara y estructurada. E
 ```
 
 ### json anidado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -263,7 +263,7 @@ Este tipo de estructura es importante porque permite organizar la información d
 ```
 
 ### SVG para crear gráficos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -327,7 +327,7 @@ Estas actividades están diseñadas para cubrir los conceptos básicos de cada u
 Esta carpeta contiene una serie de ejercicios diseñados para introducir a los estudiantes del DAM al lenguaje XML y sus características básicas. Los problemas abordan desde la comprensión general de lo que es XML hasta conceptos más específicos como la declaración del documento, el uso de etiquetas simples y anidadas, atributos en las etiquetas y cómo incorporar comentarios en archivos XML. A través de estos ejercicios, los estudiantes podrán practicar sus habilidades para estructurar datos de manera jerárquica y comprender la sintaxis básica requerida por este lenguaje de marcado.
 
 ### declaracion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -344,7 +344,7 @@ En resumen, este pequeño bloque de código establece las bases para que cualqui
 ```
 
 ### etiquetas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -363,7 +363,7 @@ Este código sirve como punto de partida para empezar a añadir elementos más c
 ```
 
 ### etiquetas anidadas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -385,7 +385,7 @@ La estructura anidada de los elementos en XML permite representar claramente las
 ```
 
 ### atributos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -414,7 +414,7 @@ Esta estructura XML es importante porque permite organizar y describir datos de 
 ```
 
 ### comentarios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -540,7 +540,7 @@ En esta carpeta, encontrarás ejercicios diseñados para que reconozcas y trabaj
 Estos ejercicios te ayudarán a desarrollar competencias clave como la capacidad para estructurar datos correctamente, validar documentos XML con herramientas online y asegurarte de que tus archivos estén conformes con esquemas definidos por XSD.
 
 ### documento bien formado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -572,7 +572,7 @@ Este tipo de estructura es importante porque permite organizar y clasificar info
 ```
 
 ### elemento que no esta bien formado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -616,7 +616,7 @@ Esto asegura que el documento XML cumple con la estructura válida y es procesab
 ```
 
 ### solucion con nodo raiz
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -653,7 +653,7 @@ Esta estructura ayuda a organizar datos de manera clara y jerárquica, lo cual f
 ```
 
 ### persona con xsd
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -691,7 +691,7 @@ Esta estructura XML permite una representación clara y detallada de informació
 ```
 
 ### validar xml
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -784,7 +784,7 @@ Estas actividades ayudarán a los estudiantes a familiarizarse con la sintaxis b
 En esta carpeta, trabajamos con ejercicios que centran la atención en el uso de espacios de nombres (namespaces) en XML. El objetivo principal es comprender cómo utilizar namespaces para evitar conflictos entre elementos con los mismos nombres pero diferentes propósitos o orígenes. A través de este ejercicio, aprenderás a declarar y aplicar namespaces en documentos XML para organizar mejor la información estructurada, lo que es crucial en el manejo eficiente de lenguajes de marcas.
 
 ### espacio de nombre persona
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -863,7 +863,7 @@ Este formato de XML ayuda a organizar claramente la información sobre varias pe
 Este conjunto de ejercicios se centra en la estructura y uso del lenguaje XML para representar información personal detallada, como datos personales, experiencia laboral y formación académica. Los archivos progresivamente incorporan más detalles y elementos complejos, desde una simple descripción básica hasta incluir múltiples experiencias laborales y títulos educativos. A través de estos ejercicios, los estudiantes practicarán la creación de estructuras XML bien formadas, el manejo de diferentes niveles de anidamiento de etiquetas y la representación adecuada de información variada en un formato consistente.
 
 ### persona
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -888,7 +888,7 @@ Este tipo de estructura es muy útil cuando se necesita manejar datos personales
 ```
 
 ### telefono
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -917,7 +917,7 @@ Este tipo de estructura es importante en sistemas de gestión de información po
 ```
 
 ### varios telefonos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -950,7 +950,7 @@ Este tipo de archivo XML es útil en sistemas de gestión de información porque
 ```
 
 ### datos personales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -991,7 +991,7 @@ Las otras categorías (`experiencialaboral` y `formacion`) están presentes pero
 ```
 
 ### experiencias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1045,7 +1045,7 @@ Este tipo de estructura XML es útil para organizar y almacenar información per
 ```
 
 ### muchas experiencias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1133,7 +1133,7 @@ Este tipo de estructura XML es útil en sistemas de gestión de información per
 ```
 
 ### titulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1301,7 +1301,7 @@ Este formato XML es muy útil para estructurar datos complejos y jerárquicos, p
 Este conjunto de ejercicios te permitirá familiarizarte con la estructura y el uso del formato JSON para almacenar información personal, profesional y académica. Los archivos proporcionan datos estructurados sobre un perfil profesional, incluyendo detalles personales, experiencia laboral, formación, habilidades informáticas e idiomas. A través de estos ejercicios, aprenderás a organizar y manejar información compleja utilizando arrays y objetos en JSON, así como a incluir elementos multimedia como fotografías. Este trabajo te ayudará a comprender cómo los lenguajes de marcado se utilizan para representar datos estructurados y a mejorar tus habilidades en la gestión y presentación de información profesional.
 
 ### datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1325,7 +1325,7 @@ Es importante destacar que JSON permite organizar los datos de manera clara y le
 ```
 
 ### categorias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1355,7 +1355,7 @@ Este formato JSON es muy útil porque permite organizar datos de manera estructu
 ```
 
 ### arrays para conjuntos de información
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1407,7 +1407,7 @@ Es importante destacar que este archivo JSON no está completo, ya que los campo
 ```
 
 ### experiencia laboral
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1493,7 +1493,7 @@ Esta estructura es muy útil porque permite organizar claramente la información
 ```
 
 ### formacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1586,7 +1586,7 @@ Este tipo de estructura JSON es útil para almacenar datos personales y profesio
 ```
 
 ### json limpio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1701,7 +1701,7 @@ Este tipo de estructura JSON es común en currículums o perfiles profesionales 
 ```
 
 ### pongo la foto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -1819,7 +1819,7 @@ Este formato JSON permite organizar de manera clara e informativa toda la inform
 ```
 
 ### resumen profesional
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2088,7 +2088,7 @@ Los estudiantes deben crear un informe completo que no solo muestre los datos b�
 Esta carpeta contiene un conjunto de ejercicios diseñados para ayudarte a familiarizarte con la estructura básica y los elementos esenciales del lenguaje HTML. Los ejercicios van desde una simple definición de documento hasta la inclusión de metadatos como el idioma y la codificación, pasando por la creación de títulos. A través de estos ejercicios, practicarás tus habilidades en la estructuración de documentos web utilizando HTML, lo que te permitirá entender cómo se organiza un sitio web desde una perspectiva técnica.
 
 ### documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2105,7 +2105,7 @@ Este es un ejemplo muy básico pero fundamental para entender la estructura bás
 ```
 
 ### etiquetas html
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2125,7 +2125,7 @@ Este es un punto de partida muy básico para una página web y es importante com
 ```
 
 ### lenguage
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2145,7 +2145,7 @@ Aunque este código solo contiene las etiquetas de inicio, se requiere cerrar co
 ```
 
 ### cabeza y cuerpo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2165,7 +2165,7 @@ Este código es fundamental porque establece las bases para cualquier página we
 ```
 
 ### titulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2193,7 +2193,7 @@ En este ejemplo, la sección `<body>` está vacía, por lo que no hay contenido 
 ```
 
 ### codificacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2333,7 +2333,7 @@ Si deseas mejorar aún más tu página, puedes considerar:
 ¡Felicidades por tu trabajo! Continúa mejorando y manteniendo tus estándares de calidad en el desarrollo web.
 
 ### correccion sobre la validacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2598,7 +2598,7 @@ Este código es crucial porque proporciona una estructura clara y visualmente at
 ```
 
 ### corregimos la familia de la fuente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -2865,7 +2865,7 @@ Este tipo de diseño es importante porque mejora la presentación visual del sit
 ```
 
 ### las imagenes tienen que tener alt
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3160,7 +3160,7 @@ Si quieres mejorar tu sitio web más allá de la simple validación, aquí hay a
 En esta carpeta de ejercicios, encontrarás dos tipos principales de archivos: uno relacionado con la sindicación de contenidos a través del estándar RSS y otro que trata sobre el mapeo de sitios web (sitemaps) utilizando XML. Estos ejercicios están diseñados para ayudarte a comprender cómo estructurar información web para mejorar la visibilidad en motores de búsqueda, así como para proporcionar contenido actualizado a los suscriptores mediante RSS. Los archivos "001-RSS.md" y "sindication.rss" te guiarán en la creación de un archivo RSS que permite a las personas seguir tu sitio web para recibir notificaciones sobre nuevos artículos o cambios. Por otro lado, el archivo "sitemap.xml" te ayudará a generar una lista detallada de todas las páginas de tu sitio web, facilitando así su indexación por parte de motores como Google. Estos ejercicios fortalecerán tus habilidades en la estructuración y utilización efectiva del XML para mejorar el SEO y la distribución de contenido en línea.
 
 ### sindicacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3245,7 +3245,7 @@ Este archivo RSS es importante porque facilita la indexación de contenidos web 
 ```
 
 ### sitemap
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3510,7 +3510,7 @@ Aquí está una versión final del código HTML y CSS con todos los mejoramiento
 Este currículum es ahora más profesional, fácil de leer y adaptable a diferentes dispositivos.
 
 ### plantilla curriculum
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3543,7 +3543,7 @@ Esta estructura básica es importante porque proporciona un marco coherente dond
 ```
 
 ### dos secciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3574,7 +3574,7 @@ Esta estructura simple permite a los desarrolladores de sitios web añadir conte
 ```
 
 ### articulos en la izquierda
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3616,7 +3616,7 @@ Esta plantilla es útil porque proporciona una base sólida desde la cual puedes
 ```
 
 ### listas con elementos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3677,7 +3677,7 @@ Esta estructura es útil para presentar información organizada y fácilmente le
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3742,7 +3742,7 @@ La sección derecha (`<section id="derecha">`) está vacía en este momento, pos
 ```
 
 ### un poco de estilo para la foto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3808,7 +3808,7 @@ Este diseño con flexbox permite organizar visualmente el contenido de una maner
 ```
 
 ### familia de fuentes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -3876,7 +3876,7 @@ Este tipo de diseño es útil para mostrar información personal o profesional d
 ```
 
 ### parte derecha
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4014,7 +4014,7 @@ Este tipo de diseño es común en sitios web profesionales y demuestra cómo HTM
 ```
 
 ### margen
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4146,7 +4146,7 @@ La primera sección (`#izquierda`) está dedicada a una imagen圆形スタン普
 ```
 
 ### css reset
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4285,7 +4285,7 @@ Este tipo de diseño es común en currículos o portafolios web ya que permite p
 ```
 
 ### linea separadora en articulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4422,7 +4422,7 @@ La columna izquierda contiene una imagen圆形スタン普（结束这个对话�
 ```
 
 ### bajar tamaño de texto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4567,7 +4567,7 @@ Este tipo de estructuración y estilización ayuda a destacar información impor
 ```
 
 ### mas margen interior
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4708,7 +4708,7 @@ Este diseño proporciona una estructura clara y atractiva que permite presentar 
 ```
 
 ### subtitulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4846,7 +4846,7 @@ Este diseño es importante porque proporciona una presentación visual clara y o
 ```
 
 ### flexbos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -4986,7 +4986,7 @@ Este tipo de diseño es importante en la creación de currículums web porque ay
 ```
 
 ### flexbox
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -5128,7 +5128,7 @@ La principal diferencia con respecto a la versión anterior es que ahora se ha u
 ```
 
 ### curriculum completo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `016-curriculum completo.html`
 
@@ -5645,7 +5645,7 @@ La principal diferencia con respecto a la versión anterior es que ahora se ha u
 ```
 
 ### optimizacion recursos humanos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `017-optimizacion recursos humanos.html`
 
@@ -6485,7 +6485,7 @@ Para mejorar el aspecto del currículum vitae, hay varios ajustes que podemos ha
 Esto debería proporcionarte un diseño más profesional y fácil de leer. Si tienes alguna otra preferencia o ajuste específico en mente, no dudes en mencionarlo.
 
 ### cv
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6522,7 +6522,7 @@ Esta estructura básica permite presentar información de manera clara y organiz
 ```
 
 ### un poco de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6580,7 +6580,7 @@ Este diseño es útil para proyectos web como currículos o presentaciones perso
 ```
 
 ### imagen de fondo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6644,7 +6644,7 @@ Este diseño sencillo pero efectivo ayuda a centrar visualmente los contenidos d
 ```
 
 ### tamaño del fono
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6705,7 +6705,7 @@ La imagen de perfil (`foto.jpg`) se muestra en la parte izquierda junto con el t
 ```
 
 ### imagen en el sitio correcto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6772,7 +6772,7 @@ Esta estructura es importante porque proporciona una presentación clara y profe
 ```
 
 ### titulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6851,7 +6851,7 @@ Este diseño es importante porque proporciona un layout visual atractivo y bien 
 ```
 
 ### parte izquierda
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -6960,7 +6960,7 @@ Este diseño es importante porque proporciona una estructura clara y profesional
 ```
 
 ### parte derecha
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7084,7 +7084,7 @@ Esta página web es importante porque demuestra cómo estructurar una CV visualm
 ```
 
 ### distancia con gap
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7212,7 +7212,7 @@ Este diseño es importante porque permite una presentación visual clara y estru
 ```
 
 ### margen interior
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7349,7 +7349,7 @@ Este diseño ayuda a organizar información importante de manera clara y estéti
 ```
 
 ### editando la parte izquierda
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7492,7 +7492,7 @@ Este tipo de diseño es importante en el campo web ya que permite crear páginas
 ```
 
 ### fuentes personalizadas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -7650,7 +7650,7 @@ Este tipo de diseño es importante para destacar el contenido de un CV en línea
 ```
 
 ### retoques
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8066,7 +8066,7 @@ Estas actividades están diseñadas para mejorar la comprensión y aplicación p
 Esta carpeta contiene una serie de ejercicios diseñados para introducir y consolidar los conceptos básicos del lenguaje de programación JavaScript. Los problemas abordan temas como la inclusión de scripts en HTML, estructuras de control (condicionales e iteraciones), manipulación de datos (arrays y objetos), funciones, y programación orientada a objetos mediante clases. A lo largo de los ejercicios, se exploran fundamentos esenciales del JavaScript, desde operadores básicos hasta la creación y uso de clases para instanciar objetos. Los ejemplos van incrementando gradualmente en complejidad, permitiendo al estudiante adquirir confianza y habilidades a medida que progresa. Este conjunto de actividades es ideal para principiantes o estudiantes que desean refrescar sus conocimientos sobre JavaScript.
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8090,7 +8090,7 @@ Esta estructura básica es fundamental para cualquier página web ya que estable
 ```
 
 ### javascript interno
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8120,7 +8120,7 @@ Este archivo es un buen punto de partida para estudiantes que están empezando a
 ```
 
 ### comentarios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8149,7 +8149,7 @@ Este ejercicio destaca la importancia de entender las reglas básicas del lengua
 ```
 
 ### comentarios multilinea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8182,7 +8182,7 @@ La presencia de estos comentarios ayuda a mantener el código limpio y fácil de
 ```
 
 ### salidas por consola y por documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8215,7 +8215,7 @@ Esta práctica combina técnicas tanto para depuración como para mostrar inform
 ```
 
 ### entradas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8243,7 +8243,7 @@ Es importante entender que este tipo de interacción básica entre un programa w
 ```
 
 ### operadores aritmeticos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8271,7 +8271,7 @@ Este código HTML contiene un bloque de script en el que se utilizan operadores 
 ```
 
 ### operadores de comparacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8311,7 +8311,7 @@ Cada uno de estos operadores genera un resultado booleano (`true` o `false`) que
 ```
 
 ### operadores logicos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8347,7 +8347,7 @@ Este tipo de ejercicios ayuda a entender cómo funcionan los operadores lógicos
 ```
 
 ### declaracion de variables
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8375,7 +8375,7 @@ Este tipo de integración es fundamental porque permite a los desarrolladores cr
 ```
 
 ### salidas de variables
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8404,7 +8404,7 @@ Es importante entender cómo declarar variables y mostrar información sobre ell
 ```
 
 ### variar variables
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8433,7 +8433,7 @@ A continuación, la variable `edad` se modifica cambiando su valor a 48 y nuevam
 ```
 
 ### declaracion de constantes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8462,7 +8462,7 @@ La declaración de constantes en JavaScript utilizando `const` es importante por
 ```
 
 ### error al reasignar valor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8493,7 +8493,7 @@ Este código es importante porque te enseña sobre las características inmutabl
 ```
 
 ### operadores de incremento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8526,7 +8526,7 @@ Finalmente, se aplica el operador de decremento (`--`) para disminuir en uno el 
 ```
 
 ### operadores aritméticos abreviados
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8563,7 +8563,7 @@ Estos operadores abreviados son útiles porque permiten realizar cálculos matem
 ```
 
 ### estructura for de bucle
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8593,7 +8593,7 @@ Este ejemplo es útil para enseñar cómo crear y controlar ciclos en JavaScript
 ```
 
 ### while
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8625,7 +8625,7 @@ Este código es útil para entender cómo funcionan los ciclos en JavaScript y c
 ```
 
 ### if en la edad
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8654,7 +8654,7 @@ Esta estructura condicional es importante porque permite a los programas tomar d
 ```
 
 ### clausula else
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8687,7 +8687,7 @@ Esta estructura condicional `if...else` es una forma sencilla de tomar decisione
 ```
 
 ### if else
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8724,7 +8724,7 @@ Esta estructura de control permite clasificar a una persona en diferentes etapas
 ```
 
 ### switch
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8778,7 +8778,7 @@ La importancia del uso del bloque `switch` radica en que proporciona un enfoque 
 ```
 
 ### arrays
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8813,7 +8813,7 @@ Este ejemplo es útil porque muestra cómo declarar y manipular diferentes tipos
 ```
 
 ### funciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8844,7 +8844,7 @@ El cuerpo del documento contiene un bloque de script que incluye una función ll
 ```
 
 ### llamada a la funcion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8875,7 +8875,7 @@ La importancia de este fragmento radica en cómo ilustra los conceptos básicos 
 ```
 
 ### un parametro
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8908,7 +8908,7 @@ El uso de funciones es crucial en JavaScript porque permite encapsular bloques d
 ```
 
 ### muchos parametros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8939,7 +8939,7 @@ El código muestra cómo llamar a esta función `diHola` proporcionando valores 
 ```
 
 ### las funciones deben hacer return
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -8972,7 +8972,7 @@ La importancia de usar `return` en una función es para permitir que la función
 ```
 
 ### clases
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9002,7 +9002,7 @@ Este código HTML contiene un script que define una clase llamada `Gato` en Java
 ```
 
 ### instanciar un gato
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9035,7 +9035,7 @@ Este código es importante porque ilustra cómo definir y usar clases en JavaScr
 ```
 
 ### podemos tener metodos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9078,7 +9078,7 @@ Este ejemplo es útil para entender cómo crear y utilizar clases con métodos e
 ```
 
 ### demostracion javascript
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9306,7 +9306,7 @@ Este archivo contiene una serie de pasos para crear y mejorar una calculadora si
 Estos pasos cubren desde una calculadora básica hasta una completa con funciones avanzadas y estilos personalizados.
 
 ### escribir contenido en el DOM facil
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9333,7 +9333,7 @@ Es importante destacar que aunque este método es sencillo y fácil de entender 
 ```
 
 ### seleccion nueva
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9361,7 +9361,7 @@ Esta técnica es importante porque permite que las páginas web sean más intera
 ```
 
 ### seleccion por etiqueta
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9394,7 +9394,7 @@ Este código es importante porque muestra cómo JavaScript puede interactuar con
 ```
 
 ### seleccionar por id
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9425,7 +9425,7 @@ Este ejemplo es importante porque demuestra cómo JavaScript puede interactuar d
 ```
 
 ### seleccionar por clase
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9454,7 +9454,7 @@ Es importante destacar que `querySelector()` es una herramienta muy útil en Jav
 ```
 
 ### multiples elementos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9483,7 +9483,7 @@ Este ejemplo es útil porque ilustra cómo interactuar con el Document Object Mo
 ```
 
 ### seleccion de multipes elementos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9520,7 +9520,7 @@ Este tipo de operación es útil cuando necesitas modificar múltiples elementos
 ```
 
 ### escribir
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9551,7 +9551,7 @@ Es relevante destacar que el texto "hola mundo y escribro" tiene un error ortogr
 ```
 
 ### leer
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9586,7 +9586,7 @@ Este tipo de operación es importante porque muestra cómo interactuar con eleme
 ```
 
 ### solo texto puro
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9616,7 +9616,7 @@ Este código demuestra cómo interactuar con los elementos del DOM (Document Obj
 ```
 
 ### textocontent no soporta html
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9646,7 +9646,7 @@ Es importante entender esta diferencia entre `.textContent` para texto puro y m�
 ```
 
 ### escribir contenido HTML
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9674,7 +9674,7 @@ Esta técnica es importante porque te permite interactuar dinámicamente con los
 ```
 
 ### formularios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9703,7 +9703,7 @@ Este fragmento es importante porque demuestra la integración básica entre HTML
 ```
 
 ### cojo el valor del campo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9737,7 +9737,7 @@ Esta técnica es importante porque permite interactuar con los datos introducido
 ```
 
 ### ejercicio calculadora sencilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9784,7 +9784,7 @@ Este ejercicio es muy útil para aprender cómo seleccionar elementos en el DOM 
 ```
 
 ### cambio de tipo implicito
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9830,7 +9830,7 @@ Esta técnica es fundamental para entender cómo se integran las consultas al DO
 ```
 
 ### select con tipo de operacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9881,7 +9881,7 @@ Este tipo de programa es importante porque demuestra cómo interactuar con los e
 ```
 
 ### if para seleccion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -9949,7 +9949,7 @@ Finalmente, este resultado es mostrado en la pantalla dentro del elemento div co
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10022,7 +10022,7 @@ Este tipo de código es importante porque demuestra cómo combinar HTML para est
 ```
 
 ### calculadora completa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10053,7 +10053,7 @@ Este archivo HTML vacío está preparado para ser llenado con contenido específ
 ```
 
 ### primero creo la interfaz
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10127,7 +10127,7 @@ Esta estructura HTML es la base visual sobre la que se construirá la funcionali
 ```
 
 ### un poco de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10229,7 +10229,7 @@ Este código es importante porque demuestra cómo combinar HTML y CSS para crear
 ```
 
 ### ahora viene javascript
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10341,7 +10341,7 @@ En lo que respecta al bloque de JavaScript, este código selecciona los elemento
 ```
 
 ### resolver la operacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10465,7 +10465,7 @@ Este código es importante porque demuestra cómo se pueden manipular elementos 
 ```
 
 ### que funcione el boton borrar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10587,7 +10587,7 @@ Además, hay un botón especial identificado por "borrar" (representado por la l
 ```
 
 ### estilizar pantalla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10862,7 +10862,7 @@ Finalmente, los ejercicios avanzan hacia la integración con datos externos en f
 Estos ejercicios son esenciales para desarrolladores web que buscan automatizar la generación de contenido en sus sitios y mejorar su capacidad para crear interfaces dinámicas y atractivas.
 
 ### crear elementos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10890,7 +10890,7 @@ Este tipo de código es importante porque muestra cómo manipular y crear elemen
 ```
 
 ### añado a otro elemento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10926,7 +10926,7 @@ Este método es importante porque permite modificar y ampliar la página web din
 ```
 
 ### mover un elemento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -10962,7 +10962,7 @@ Finalmente, el código inserta el elemento `<h1>` que se creó en el principio d
 ```
 
 ### eliminar y mover
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11002,7 +11002,7 @@ Esta técnica es útil cuando necesitas manipular dinámicamente el contenido de
 ```
 
 ### voy a crear un articulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11046,7 +11046,7 @@ Esta técnica es importante porque muestra cómo se pueden manipular dinámicame
 ```
 
 ### plantilla articulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11084,7 +11084,7 @@ Finalmente, el script encargado de manipular esta plantilla se coloca dentro de 
 ```
 
 ### uso de la plantilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11134,7 +11134,7 @@ Este tipo de técnica es muy útil cuando necesitas crear varias entradas simila
 ```
 
 ### plantilla personalizada
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11189,7 +11189,7 @@ Este método es útil para personalizar y repetir bloques estructurales sin tene
 ```
 
 ### blog html
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11238,7 +11238,7 @@ Este archivo HTML sirve como base estructural para ejercicios más avanzados que
 ```
 
 ### vamos a leer el json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11289,7 +11289,7 @@ En particular, lo interesante es el código JavaScript ubicado al final del docu
 ```
 
 ### ahora clono la plantilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11350,7 +11350,7 @@ Esta técnica es importante porque permite reutilizar código y mantener la estr
 ```
 
 ### personalizo el contenido del clon
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11412,7 +11412,7 @@ Este método es útil porque permite separar completamente la lógica y el conte
 ```
 
 ### personalizo mas propiedades
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11481,7 +11481,7 @@ Este enfoque permite a la página dinámicamente cargar y mostrar contenido basa
 ```
 
 ### un poco de css para acabar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11555,7 +11555,7 @@ Este método es importante porque permite mantener el diseño (HTML/CSS) y el co
 ```
 
 ### blog
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11762,7 +11762,7 @@ Estas actividades ayudarán a los estudiantes a desarrollar habilidades fundamen
 En esta carpeta de ejercicios, trabajarás con la manipulación y eliminación de elementos HTML mediante JavaScript. Los ejercicios te enseñarán cómo seleccionar elementos del DOM (Modelo de Objeto del Documento), eliminar estos elementos visibles en la página web e incluso gestionar su estado en memoria una vez han sido eliminados. Aprenderás a usar métodos como `remove()` y a manipular variables para mantener o eliminar referencias a los elementos después de su eliminación visual, lo que es fundamental para entender cómo JavaScript gestiona el DOM dinámicamente.
 
 ### estatico
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11787,7 +11787,7 @@ Este fragmento de código HTML es una página web muy básica que contiene tres 
 ```
 
 ### elimino un elemento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11817,7 +11817,7 @@ Esta técnica es muy útil para manipular dinámicamente los elementos de una p�
 ```
 
 ### sigue en la memoria
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11850,7 +11850,7 @@ Este tipo de manipulación es muy útil cuando necesitas actualizar dinámicamen
 ```
 
 ### lo pongo en otra parte
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11887,7 +11887,7 @@ Este ejemplo muestra cómo puedes manipular la estructura de una página web din
 ```
 
 ### lo elimino pero de verdad
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -11979,7 +11979,7 @@ Este ejercicio es importante porque demuestra cómo funciona realmente la elimin
 Este conjunto de ejercicios se centra en la manipulación dinámica del estilo y contenido de documentos web utilizando JavaScript. A lo largo de los diferentes archivos, los estudiantes aprenderán a modificar propiedades CSS como el color de texto, fondo y relleno de elementos HTML, así como a gestionar eventos como clics o cambios de foco para actualizar estilos en tiempo real. Además, se trabajan con la adición y eliminación de clases CSS para mejorar la interactividad y retroalimentación del usuario, culminando en un ejercicio práctico que calcula y muestra la letra correspondiente a un número de DNI español basándose en los cambios de estilo según la validez del dato ingresado.
 
 ### ejercicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12007,7 +12007,7 @@ Esta técnica es útil cuando deseas aplicar cambios visuales basados en eventos
 ```
 
 ### color de fondo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12034,7 +12034,7 @@ En la parte inferior del cuerpo, justo antes de cerrar la etiqueta `</html>`, ha
 ```
 
 ### ahora pongo padding
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12060,7 +12060,7 @@ Este fragmento de código HTML crea una página web simple que modifica el estil
 ```
 
 ### estilo en campo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12088,7 +12088,7 @@ Este código es útil para enseñar cómo manipular los estilos de elementos HTM
 ```
 
 ### estilo con evento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12119,7 +12119,7 @@ Esta técnica es muy útil en diseño web ya que ayuda a mejorar la interactivid
 ```
 
 ### varios eventos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12157,7 +12157,7 @@ Esta técnica de cambiar los estilos basada en eventos interactivos es muy comú
 ```
 
 ### clases css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12199,7 +12199,7 @@ Esta técnica es útil en la creación de interfaces de usuario dinámicas, dond
 ```
 
 ### quitar clase css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12244,7 +12244,7 @@ Este tipo de interacción mejora la experiencia del usuario, ya que proporciona 
 ```
 
 ### validador de dni
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12283,7 +12283,7 @@ Esta validación es importante porque asegura que el DNI introducido por el usua
 ```
 
 ### numero dinámico
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12327,7 +12327,7 @@ Además, se seleccionan dos elementos del DOM: `entrada`, que es el cuadro de te
 ```
 
 ### clases de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12386,7 +12386,7 @@ Esta página web es un ejemplo práctico de cómo combinar HTML, CSS y JavaScrip
 ```
 
 ### supedito el calculo a solo cuando es correcto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12440,7 +12440,7 @@ Este código es importante porque demuestra cómo interactuar con elementos del 
 ```
 
 ### estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12515,7 +12515,7 @@ Este código es importante porque demuestra cómo integrar JavaScript con HTML y
 ```
 
 ### mejoramos mas el estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12806,7 +12806,7 @@ document.addEventListener("DOMContentLoaded", function() {
 Esto debería proporcionar una mejor experiencia de usuario con tu ventana modal.
 
 ### inicio portafolio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12839,7 +12839,7 @@ Esta estructura es importante porque ayuda a los motores de búsqueda y lectores
 ```
 
 ### fondo negro
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12879,7 +12879,7 @@ Este tipo de diseño con un fondo oscuro es común en sitios web modernos y pued
 ```
 
 ### bloques principales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12923,7 +12923,7 @@ Esta estructura HTML es fundamental para entender cómo están organizados los e
 ```
 
 ### creo un elemento de portafolio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -12970,7 +12970,7 @@ Este diseño básico es muy útil como punto de partida para desarrollar un port
 ```
 
 ### muchos articulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -13075,7 +13075,7 @@ Este tipo de diseño es importante porque ayuda a organizar visualmente la infor
 ```
 
 ### uso grid
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -13190,7 +13190,7 @@ Cada imagen dentro del main tiene algunas propiedades específicas, como el tama
 ```
 
 ### modal
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -13325,7 +13325,7 @@ Este diseño es relevante porque demuestra cómo combinar HTML y CSS para crear 
 ```
 
 ### Ahora el modal
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -13466,7 +13466,7 @@ Este diseño es útil para mostrar imágenes de manera organizada y permitir al 
 ```
 
 ### javascipt ventana modal
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -13617,7 +13617,7 @@ Esta interacción mejora significativamente la experiencia del usuario al permit
 ```
 
 ### mejoras en el estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14022,7 +14022,7 @@ Aquí está el código finalizado que crea un portfolio dinámico:
 Este código crea una página que dinámicamente renderiza las entradas del portfolio utilizando la estructura y los datos proporcionados, dando como resultado un sitio web de portfolio funcional y estilizado.
 
 ### estructura inicial
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14062,7 +14062,7 @@ Esta estructura es importante porque sigue una buena práctica web llamada "estr
 ```
 
 ### titulos y contacto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14097,7 +14097,7 @@ Esta estructura es importante porque ayuda a los motores de búsqueda y las pers
 ```
 
 ### articulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14179,7 +14179,7 @@ La sección `<footer>`, aunque en este momento está vacía, sirve para agregar 
 ```
 
 ### pie de pagina
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14260,7 +14260,7 @@ Este código es importante porque establece una estructura clara para la página
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14347,7 +14347,7 @@ Este tipo de estructura ayuda a los visitantes a navegar fácilmente por el cont
 ```
 
 ### estilo de los articulos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14435,7 +14435,7 @@ Esta estructura ayuda a organizar visualmente las obras del portafolio en una di
 ```
 
 ### tocamos el estilo de las imagenes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14526,7 +14526,7 @@ Esta estructura y estilo son fundamentales para presentar visualmente un conjunt
 ```
 
 ### cargamos json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14581,7 +14581,7 @@ Este código es importante porque demuestra cómo integrar archivos externos y c
 ```
 
 ### vamos a crear un template
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14637,7 +14637,7 @@ Finalmente, hay un script al final del cuerpo (`<body>`) que utiliza la función
 ```
 
 ### definimos origen y destino
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14695,7 +14695,7 @@ Esta técnica es importante porque permite separar claramente el contenido diná
 ```
 
 ### clon ciego
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14756,7 +14756,7 @@ Este enfoque es importante porque permite mantener la estructura de la página s
 ```
 
 ### clon con datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -14822,7 +14822,7 @@ Esta técnica es útil para mantener la separación entre presentación y datos,
 ```
 
 ### portafolio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15028,7 +15028,7 @@ En esta actividad se trabajará sobre un script en Python que actúa como un pla
 Este conjunto de ejercicios se centra en la creación y manipulación de una base de datos SQL para gestionar un portafolio web. Los estudiantes aprenderán a crear tablas, establecer relaciones entre ellas mediante claves foráneas y realizar consultas que incluyen operaciones JOIN para combinar información de múltiples tablas. Además, se introducirá la creación de vistas para facilitar el acceso a datos combinados y la gestión de usuarios con privilegios específicos sobre la base de datos. Estos ejercicios son esenciales para desarrollar competencias en diseño de bases de datos relacionales, consultas SQL avanzadas y seguridad de la información.
 
 ### crear tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15065,7 +15065,7 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15095,7 +15095,7 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15116,7 +15116,7 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15135,7 +15135,7 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15156,7 +15156,7 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15187,7 +15187,7 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15278,7 +15278,7 @@ Estas actividades están diseñadas para proporcionar una práctica continua y a
 En esta carpeta de ejercicios, trabajaremos con diferentes lenguajes de marcado como HTML, JSON y XML para comprender cómo definir la estructura y sintaxis de documentos. Los ejercicios se centran en crear archivos basados en estas tecnologías, lo que permite a los estudiantes familiarizarse con sus particularidades y usos específicos. A través de estos ejemplos prácticos, se fortalecerán habilidades esenciales como la definición de estructuras de datos, el manejo de etiquetas y atributos en documentos XML y HTML, así como la representación de datos en formato JSON.
 
 ### archivo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15304,7 +15304,7 @@ Este esquema básico es crucial para entender cómo se estructuran las páginas 
 ```
 
 ### documento json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15324,7 +15324,7 @@ Este tipo de formato es muy importante porque permite almacenar y transmitir dat
 ```
 
 ### documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15345,7 +15345,7 @@ Este tipo de definición es fundamental en la gestión de datos, ya que ayuda a 
 ```
 
 ### otro documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15408,7 +15408,7 @@ Este tipo de estructura es importante en XML porque permite organizar datos de u
 En esta carpeta de ejercicios, trabajarás con la definición y validación de esquemas XML utilizando XSD (XML Schema Definition). El objetivo principal es aprender a crear un esquema que describa el formato estructural de documentos XML específicos. A través del archivo `002-plantilla.xsd`, establecerás las reglas para elementos como nombre, apellidos, profesión, roles, proyectos destacados e intereses técnicos. Luego, utilizando Python y la librería `xmlschema`, validarás si un documento XML (`001-documento.xml`) cumple con este esquema. También revisarás el caso de un documento no válido (`004-documento no valido.xml`) para comprender cómo manejar errores en la validación. Este conjunto de ejercicios te ayudará a desarrollar competencias clave en la definición y aplicación de esquemas XML, asegurando así la integridad estructural de tus documentos XML futuros.
 
 ### documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15453,7 +15453,7 @@ El uso de XML para almacenar esta información tiene la ventaja de ser legible t
 ```
 
 ### plantilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15518,7 +15518,7 @@ Este tipo de esquemas son muy útiles en entornos profesionales donde se manejan
 ```
 
 ### validador
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15542,7 +15542,7 @@ except xmlschema.exceptions.XMLSchemaValidationError as e:
 ```
 
 ### documento no valido
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15587,7 +15587,7 @@ Este tipo de estructura XML es importante porque permite organizar datos de mane
 ```
 
 ### validar de nuevo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15667,7 +15667,7 @@ except xmlschema.exceptions.XMLSchemaValueError as e:
 En esta carpeta, trabajaremos con la validación de documentos XML utilizando esquemas XSD. El objetivo principal es entender cómo se definen y aplican restricciones estructurales en archivos XML a través del uso de un esquema XSD. Los ejercicios te guiarán para crear una plantilla XML basada en un esquema definido, luego validar un documento XML contra este esquema utilizando Python y la biblioteca `xmlschema`. A través de esta práctica, adquirirás competencias clave como el manejo de estructuras complejas en XML, la creación y uso efectivo de esquemas XSD, y la validación programática de documentos XML.
 
 ### plantilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15738,7 +15738,7 @@ Este tipo de esquemas XSD son importantes porque garantizan la consistencia y va
 ```
 
 ### documento no valido
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15783,7 +15783,7 @@ Es relevante destacar que este archivo ha sido mencionado como "no válido", lo 
 ```
 
 ### validar de nuevo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15859,7 +15859,7 @@ Estas actividades están diseñadas para que los alumnos entiendan tanto la estr
 Esta carpeta contiene ejercicios que te ayudarán a comprender y trabajar con esquemas XML (XSD) para definir estructuras de datos y crear instancias XML basadas en esos esquemas. Los ejercicios inician por analizar un esquema XML existente llamado "esquema.xsd" y extraer información sobre los campos necesarios para una entidad específica, como la etiqueta `<persona>`. A medida que avanzas, te pedirán capturar datos del usuario para crear instancias de este esquema en formato XML, con énfasis en cómo validar e imprimir estos archivos de manera legible. Estos ejercicios mejoran tus habilidades en procesamiento de XML y XSD, manejo de estructuras de datos y formateo de salida.
 
 ### generador esquema
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15899,7 +15899,7 @@ print("Campos de <persona>:", fields)
 ```
 
 ### preguntas dinamicas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -15939,7 +15939,7 @@ for campo in fields:
 ```
 
 ### guardar xml
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16004,7 +16004,7 @@ print(f"XML guardado en {output_file}")
 ```
 
 ### pretty print
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16077,7 +16077,7 @@ print(f"XML formateado guardado en {output_file}")
 ```
 
 ### persona
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16162,7 +16162,7 @@ Estas actividades están diseñadas para proporcionar una experiencia práctica 
 Este conjunto de ejercicios te permitirá entender cómo interactuar con una base de datos MySQL desde Python, convertir los resultados obtenidos en diccionarios y JSON, y finalmente utilizar la librería Flask para crear un servicio web simple que pueda servir estos datos. Los ejercicios inician mostrándote cómo conectarte a la base de datos y recuperar registros, luego avanzan explicando cómo obtener esos mismos datos en formato de diccionario y JSON. Finalmente, te enseñan a utilizar Flask para crear endpoints que devuelvan los datos en JSON y cómo integrar plantillas HTML para mejorar la presentación del contenido. Estos ejercicios te ayudarán a desarrollar competencias clave en manejo de bases de datos, transformación de datos y desarrollo web básico utilizando Python.
 
 ### me conecto a la base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16194,7 +16194,7 @@ print(lineas)
 ```
 
 ### quiero un diccionario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16220,7 +16220,7 @@ print(lineas)
 ```
 
 ### convierto diccionario a json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16253,7 +16253,7 @@ print(lineas_json)
 ```
 
 ### le pongo un poco de flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16296,7 +16296,7 @@ if __name__ == "__main__":
 ```
 
 ### trabajo con templates
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16390,7 +16390,7 @@ Estas actividades están diseñadas para permitir a los estudiantes adquirir exp
 Este conjunto de ejercicios está diseñado para que comprendas cómo estructurar y convertir datos almacenados en una base de datos MySQL a diferentes formatos, principalmente JSON. Los ejercicios comienzan con la simple visualización de tablas en una base de datos y avanzan hasta crear una aplicación web básica usando Flask que muestra estos datos de forma estética. A lo largo del proceso, trabajarás con conceptos como la manipulación de datos en Python, el uso de librerías como MySQL Connector para interactuar con bases de datos, la conversión de datos a JSON y finalmente cómo servir este contenido a través de una API web con Flask. Estos ejercicios te ayudarán a familiarizarte con la estructura y sintaxis del manejo de datos en programación, así como con el desarrollo web básico para su intercambio eficiente.
 
 ### quiero ver las tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16418,7 +16418,7 @@ print(lineas)
 ```
 
 ### formateo el documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16453,7 +16453,7 @@ print(documento)
 ```
 
 ### ahora quiero cada una de las tablas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16491,7 +16491,7 @@ print(documento)
 ```
 
 ### tengo que convertir a json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16531,7 +16531,7 @@ print(documento_json)
 ```
 
 ### pretty
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16571,7 +16571,7 @@ print(documento_json)
 ```
 
 ### ahora lo saco con flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16628,7 +16628,7 @@ if __name__ == "__main__":
 ```
 
 ### creo dos endpoints
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16731,7 +16731,7 @@ En esta carpeta, encontrarás ejercicios que te ayudarán a entender cómo estru
 Estos ejercicios te permitirán practicar tus habilidades en el uso de etiquetas HTML semánticas y en la creación de estilos utilizando hojas de estilo en cascada (CSS) directamente en el documento, lo que es fundamental para desarrollar páginas web dinámicas e interactivas.
 
 ### panel
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16765,7 +16765,7 @@ Esta estructura HTML es importante porque sigue las mejores prácticas para crea
 ```
 
 ### un poco de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16865,7 +16865,7 @@ Let's break down what each part does:
 If you have any specific questions or need further assistance with these files (such as expanding functionality, debugging issues, or improving performance), feel free to ask! What would you like to do next?
 
 ### json a xml
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16904,7 +16904,7 @@ tree.write("persona.xml", encoding="utf-8", xml_declaration=True)
 ```
 
 ### conversor avanzado de json a xml
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -16979,7 +16979,7 @@ tree.write("persona.xml", encoding="utf-8", xml_declaration=True)
 ```
 
 ### conversor de xml a json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17023,7 +17023,7 @@ if __name__ == "__main__":
 ```
 
 ### leer excel
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17043,7 +17043,7 @@ print(df.head())
 ```
 
 ### leemos ods
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17059,7 +17059,7 @@ print(df.head())
 ```
 
 ### conversor bidireccional xlsx a ods
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17110,7 +17110,7 @@ convert("empresa.ods", "empresaconvertida.xlsx")
 ```
 
 ### unir dos pdf
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17139,7 +17139,7 @@ merger.close()
 ```
 
 ### unir array de pdf
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17170,7 +17170,7 @@ merger.close()
 ```
 
 ### separar pdf
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17196,7 +17196,7 @@ for i, page in enumerate(reader.pages):
 ```
 
 ### separar pdf a jpg
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17225,7 +17225,7 @@ for i, page in enumerate(pages):
 ```
 
 ### separar pdf a png
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17252,7 +17252,7 @@ for i, page in enumerate(pages):
 ```
 
 ### comprimir pdf
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17293,7 +17293,7 @@ print("Compressed:", output_pdf)
 ```
 
 ### grid en HTML
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17333,7 +17333,7 @@ Esta página sirve como una interfaz básica para seleccionar funciones relacion
 ```
 
 ### miniservidor flask
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17363,7 +17363,7 @@ if __name__ == "__main__":
 ```
 
 ### superservidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17519,7 +17519,7 @@ if __name__ == "__main__":
 ```
 
 ### empresa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17585,7 +17585,7 @@ Rotulador Permanente,Rotulador negro resistente al agua,1.50
 ```
 
 ### persona
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17607,7 +17607,7 @@ Este fragmento de código es un archivo JSON que contiene información sobre una
 ```
 
 ### persona
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17632,7 +17632,7 @@ Este tipo de estructura XML es útil porque permite representar datos jerárquic
 ```
 
 ### persona2
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -17658,7 +17658,7 @@ Es importante destacar cómo se organiza la información en JSON para facilitar 
 ```
 
 ### pip
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18064,7 +18064,7 @@ table td, table th { padding:5px; }
 Con estos cambios, tu aplicación web será más robusta y proporcionará una experiencia de usuario mejorada.
 
 ### discos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18090,7 +18090,7 @@ Este archivo HTML vacío sirve como punto de partida para desarrollar cualquier 
 ```
 
 ### crear base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18146,7 +18146,7 @@ VALUES
 ```
 
 ### pequeño formulario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18179,7 +18179,7 @@ Cuando un usuario completa todos los campos del formulario y hace clic en "Envia
 ```
 
 ### insertadisco
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18212,7 +18212,7 @@ $result = $mysqli->query($sql);
 ```
 
 ### todo en un mismo archivo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18264,7 +18264,7 @@ Este tipo de implementación es importante porque combina la lógica del servido
 ```
 
 ### ahora quiero leer
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18334,7 +18334,7 @@ Este tipo de página es importante para estudiantes porque demuestra cómo se in
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18421,7 +18421,7 @@ Este tipo de estructura es importante porque permite a los usuarios interactuar 
 ```
 
 ### boton de eliminar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18508,7 +18508,7 @@ Este script es importante porque demuestra cómo interactuar con una base de dat
 ```
 
 ### procesar eliminar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18612,7 +18612,7 @@ Este fragmento es importante porque demuestra cómo interactuar con bases de dat
 ```
 
 ### cabeceras de la tabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -18975,7 +18975,7 @@ Para combinar los datos del archivo SVG, HTML y JSON en un solo diagrama coheren
 Este diagrama consolidado debería representar adecuadamente tus elementos y conexiones. Si necesitas ajustes adicionales, puedes modificar las coordenadas de los shapes o el recorrido de las flechas según sea necesario.
 
 ### formulario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19012,7 +19012,7 @@ Este tipo de formulario es importante porque permite recoger datos del usuario e
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19062,7 +19062,7 @@ Este tipo de diseño es importante porque mejora la interacción con la página 
 ```
 
 ### vamos a crear muchos elementos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19110,7 +19110,7 @@ Esta técnica es útil cuando necesitas generar múltiples elementos similares a
 ```
 
 ### panel de administracion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19163,7 +19163,7 @@ Este ejemplo demuestra cómo combinar HTML y PHP para crear una página web inte
 ```
 
 ### acordar un modelo de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19235,7 +19235,7 @@ INSERT INTO inscripciones (
 ```
 
 ### crear_usuario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19274,7 +19274,7 @@ FLUSH PRIVILEGES;
 ```
 
 ### saco el modelo de datos de la base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19326,7 +19326,7 @@ Esta técnica es útil porque permite crear formularios sin necesidad de escribi
 ```
 
 ### quitar el id
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19385,7 +19385,7 @@ Este código es importante porque permite generar formularios automáticamente b
 ```
 
 ### personalizar campos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19446,7 +19446,7 @@ Este tipo de enfoque es muy útil cuando se necesita crear formularios dinámico
 ```
 
 ### mas tipos de campo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19516,7 +19516,7 @@ Esta técnica de generación dinámica de formularios es útil porque permite cr
 ```
 
 ### textarea
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19609,7 +19609,7 @@ El estilo CSS incluido en la cabecera del documento HTML se encarga de dar un di
 ```
 
 ### campos de tipo documento
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19685,7 +19685,7 @@ Esta técnica es muy útil porque permite generar formularios complejos basados 
 ```
 
 ### estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19909,7 +19909,7 @@ En resumen, este código combina HTML, CSS y PHP para crear un formulario adapta
 ```
 
 ### comentarios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -19985,7 +19985,7 @@ ALTER TABLE inscripciones
 ```
 
 ### usar comentarios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20214,7 +20214,7 @@ En comparación con el archivo `014-comentarios.sql`, este código se centra en 
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20453,7 +20453,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20568,7 +20568,7 @@ Este tipo de archivo JSON es útil para almacenar y manipular gráficos en aplic
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20842,7 +20842,7 @@ El código SVG representa la forma gráfica del diagrama:
 En resumen, el diagrama representa un flujo de trabajo que tiene cuatro etapas: Home, Página de producto, Carrito y Finalizacion. Las flechas conectan estas etapas para indicar la secuencia de acciones.
 
 ### tienda online
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20881,7 +20881,7 @@ También tenemos una sección `<footer>` vacía, lo cual no es necesario para un
 ```
 
 ### muchos productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20928,7 +20928,7 @@ En resumen, este código proporciona una estructura básica para una página web
 ```
 
 ### muchos productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -20971,7 +20971,7 @@ Este tipo de código es importante porque permite a los desarrolladores generar 
 ```
 
 ### css basicos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21018,7 +21018,7 @@ El código PHP también es importante, ya que utiliza un bucle `for` para genera
 ```
 
 ### cabecera
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21069,7 +21069,7 @@ En general, este código es importante porque muestra cómo se puede estructurar
 ```
 
 ### operacion comprar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21129,7 +21129,7 @@ Si se ha enviado la variable `producto`, el código cambia el contenido del cicl
 ```
 
 ### pagina de producto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21203,7 +21203,7 @@ También hay otro producto que no puedes comprar porque lo compras en la pestañ
 ```
 
 ### catalogo de operaciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21279,7 +21279,7 @@ Este código es importante porque demuestra cómo se pueden integrar diferentes 
 ```
 
 ### pagina de finalizacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21361,7 +21361,7 @@ El código utiliza PHP para manejar la lógica de negocio y generar el contenido
 ```
 
 ### desarrollamos el carrito
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21474,7 +21474,7 @@ En resumen, este código permite mostrar diferentes tipos de contenido en funci�
 ```
 
 ### pantalla de confirmacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21597,7 +21597,7 @@ Este código es importante en el desarrollo web ya que demuestra cómo se puede 
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21845,7 +21845,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -21959,7 +21959,7 @@ La segunda parte del bloque de código se refiere a las flechas que conectan est
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -22052,7 +22052,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/006-Almacenamiento%20de%20informaci%C3%B3n/004-Importaci%C3%B3n%20y%20exportaci%C3%B3n%20de%20bases%20de%20datos%20relacionales%20en%20diferentes%20formatos)
 
 ### inicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-inicio.php`
 
@@ -22076,7 +22076,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### header
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-header.php`
 
@@ -22103,7 +22103,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### estilo del header
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-estilo del header.php`
 
@@ -22138,7 +22138,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### elementos principales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-elementos principales.php`
 
@@ -22175,7 +22175,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-productos.php`
 
@@ -22219,7 +22219,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### maquetacion de los productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-maquetacion de los productos.php`
 
@@ -22267,7 +22267,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### grid a continuacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-grid a continuacion.php`
 
@@ -22364,7 +22364,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### fuentes personalizadas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-fuentes personalizadas.php`
 
@@ -22463,7 +22463,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-productos.php`
 
@@ -22568,7 +22568,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### organizar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-organizar.php`
 
@@ -22673,7 +22673,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### pie de pagina
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-pie de pagina.php`
 
@@ -22788,7 +22788,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### pie de pagina desde json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-pie de pagina desde json.php`
 
@@ -22911,7 +22911,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### categorias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `categorias.json`
 
@@ -22924,7 +22924,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### productos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `productos.json`
 
@@ -22980,7 +22980,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/006-Almacenamiento%20de%20informaci%C3%B3n/005-Herramientas%20de%20tratamiento%20y%20almacenamiento%20de%20informaci%C3%B3n%20en%20sistemas%20nativos)
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-index.html`
 
@@ -23007,7 +23007,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### numero y nombre del mes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-numero y nombre del mes.html`
 
@@ -23037,7 +23037,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### numero de dias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-numero de dias.html`
 
@@ -23073,7 +23073,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### un poco de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-un poco de css.html`
 
@@ -23113,7 +23113,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### nombres de los meses
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-nombres de los meses.html`
 
@@ -23160,7 +23160,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### dia en el que empieza el mes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-dia en el que empieza el mes.html`
 
@@ -23216,7 +23216,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### un poco mas de css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-un poco mas de css.html`
 
@@ -23272,7 +23272,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### Ahora añado horas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-Ahora añado horas.html`
 
@@ -23334,7 +23334,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### flex para los dias
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-flex para los dias.html`
 
@@ -23397,7 +23397,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### mas css
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-mas css.html`
 
@@ -23463,7 +23463,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### evento crear nuevo dia
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-evento crear nuevo dia.html`
 
@@ -23536,7 +23536,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### me meto dentro del evento y puedo escribir
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-me meto dentro del evento y puedo escribir.html`
 
@@ -23616,7 +23616,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### boton de guardar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `013-boton de guardar.html`
 
@@ -23698,7 +23698,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### les pongo año mes y dia a los eventos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `014-les pongo año mes y dia a los eventos.html`
 
@@ -23784,7 +23784,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### creo calendarios
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `015-creo calendarios.html`
 
@@ -23883,7 +23883,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### localstorage
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `016-localstorage.html`
 
@@ -23984,7 +23984,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### guardar pero bien
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `017-guardar pero bien.html`
 
@@ -24097,7 +24097,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### Recuperar localstorage
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `018-Recuperar localstorage.html`
 
@@ -24255,7 +24255,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### detecto teclas en los eventos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `019-detecto teclas en los eventos.html`
 
@@ -24423,7 +24423,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### realmente suprimo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `020-realmente suprimo.html`
 
@@ -24591,7 +24591,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### latido del corazon
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `021-latido del corazon.html`
 
@@ -24782,7 +24782,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### vistas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `022-vistas.html`
 
@@ -25010,7 +25010,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### mejoras
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `023-mejoras.html`
 
@@ -25924,7 +25924,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### finalizacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `024-finalizacion.html`
 
@@ -27171,7 +27171,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### mejoras
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `025-mejoras.html`
 
@@ -29237,7 +29237,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### Archivo sin título
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `Archivo sin título`
 
@@ -29252,7 +29252,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/006-Almacenamiento%20de%20informaci%C3%B3n/006-Almacenamiento%20y%20manipulaci%C3%B3n%20de%20informaci%C3%B3n%20en%20sistemas%20nativos)
 
 ### inicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-inicio.html`
 
@@ -29272,7 +29272,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### anchura400
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-anchura400.html`
 
@@ -29294,7 +29294,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### ahora abreviamos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-ahora abreviamos.html`
 
@@ -29316,7 +29316,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### externalizar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-externalizar.html`
 
@@ -29333,7 +29333,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### externo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-externo.css`
 
@@ -29345,7 +29345,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### usamos JVestilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-usamos JVestilo.php`
 
@@ -29364,7 +29364,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### dos parameteros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-dos parameteros.php`
 
@@ -29383,7 +29383,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### varios parametros
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-varios parametros.php`
 
@@ -29402,7 +29402,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### creamos web completa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-creamos web completa.php`
 
@@ -29429,7 +29429,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### secciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-secciones.php`
 
@@ -29499,7 +29499,7 @@ Sin embargo, sin más información, es difícil determinar con certeza qué es l
 ```
 
 ### colores
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `colores.php`
 
@@ -29659,7 +29659,7 @@ $colores = [
 ```
 
 ### familiasfuentes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `familiasfuentes.php`
 
@@ -29677,7 +29677,7 @@ $familias = [
 ```
 
 ### JVestilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `JVestilo.php`
 
@@ -29734,7 +29734,7 @@ $familias = [
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/001-Aplicaciones%20de%20gesti%C3%B3n%20empresarial.%20Tipos.%20Caracter%C3%ADsticas)
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-diagrama.html`
 
@@ -29984,7 +29984,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-diagrama.json`
 
@@ -30216,7 +30216,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-diagrama.svg`
 
@@ -30278,7 +30278,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-diagrama.html`
 
@@ -30521,7 +30521,7 @@ body {
 ```
 
 ### diagrama
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-diagrama.json`
 
@@ -30700,7 +30700,7 @@ body {
 ```
 
 ### diagrama.json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-diagrama.json.svg`
 
@@ -30761,7 +30761,7 @@ body {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/002-Instalaci%C3%B3n)
 
 ### web estatica
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-web estatica.html`
 
@@ -30877,7 +30877,7 @@ body {
 ```
 
 ### con estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-con estilo.html`
 
@@ -31120,7 +31120,7 @@ body {
 ```
 
 ### soloplantilla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-soloplantilla.html`
 
@@ -31358,7 +31358,7 @@ body {
 ```
 
 ### plantillaSEO
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-plantillaSEO.html`
 
@@ -31688,7 +31688,7 @@ body {
 ```
 
 ### datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `datos.json`
 
@@ -31802,7 +31802,7 @@ body {
 ```
 
 ### estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `estilo.css`
 
@@ -32286,7 +32286,7 @@ body {
 ```
 
 ### estilochatgpt
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `estilochatgpt.css`
 
@@ -32792,7 +32792,7 @@ footer{
 ```
 
 ### estiloclaude
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `estiloclaude.css`
 
@@ -33346,7 +33346,7 @@ footer{
 ```
 
 ### estilomistral
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `estilomistral.css`
 
@@ -33936,7 +33936,7 @@ footer {
 ```
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `index.php`
 
@@ -34114,7 +34114,7 @@ function apply_placeholders(string $template, array $data): string {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/003-Administraci%C3%B3n%20y%20configuraci%C3%B3n)
 
 ### index
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-index.html`
 
@@ -34137,7 +34137,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-un poco de estilo.html`
 
@@ -34185,7 +34185,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### menu sacado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-menu sacado.html`
 
@@ -34237,7 +34237,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### js para comportamiento dinamico
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-js para comportamiento dinamico.html`
 
@@ -34296,7 +34296,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### cambiamos el estado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-cambiamos el estado.html`
 
@@ -34356,7 +34356,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### creamos variable de estado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-creamos variable de estado.html`
 
@@ -34426,7 +34426,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### fondo oscuro letra clara
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-fondo oscuro letra clara.html`
 
@@ -34499,7 +34499,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### secciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-secciones.html`
 
@@ -34667,7 +34667,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### css en las  secciones
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-css en las  secciones.html`
 
@@ -34844,7 +34844,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### creo una flecha
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-creo una flecha.html`
 
@@ -35054,7 +35054,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### comportamiento de las flechas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-comportamiento de las flechas.html`
 
@@ -35284,7 +35284,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### un poco de css para las flechas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-un poco de css para las flechas.html`
 
@@ -35521,7 +35521,7 @@ function apply_placeholders(string $template, array $data): string {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/004-Integraci%C3%B3n%20de%20m%C3%B3dulos)
 
 ### inicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-inicio.html`
 
@@ -35537,7 +35537,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### datos iniciales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-datos iniciales.html`
 
@@ -35588,7 +35588,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### heroe
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-heroe.html`
 
@@ -35643,7 +35643,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### categorias principales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-categorias principales.html`
 
@@ -35729,7 +35729,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### reccotables destacados
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-reccotables destacados.html`
 
@@ -35838,7 +35838,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### galeria
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-galeria.html`
 
@@ -35962,7 +35962,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### informacion
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-informacion.html`
 
@@ -36091,7 +36091,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### importo fuente
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-importo fuente.html`
 
@@ -36229,7 +36229,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### heroe
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-heroe.html`
 
@@ -36371,7 +36371,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### categorias principales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-categorias principales.html`
 
@@ -36530,7 +36530,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### destacados
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-destacados.html`
 
@@ -36703,7 +36703,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### css galeria
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-css galeria.html`
 
@@ -36905,7 +36905,7 @@ function apply_placeholders(string $template, array $data): string {
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/005-Mecanismos%20de%20acceso%20seguro%20a%20la%20informaci%C3%B3n.%20Roles%20y%20privilegios)
 
 ### selector
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `001-selector.html`
 
@@ -36924,7 +36924,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### varios idiomas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-varios idiomas.html`
 
@@ -36967,7 +36967,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### envio el idioma
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-envio el idioma.php`
 
@@ -37016,7 +37016,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### selecciono el activo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-selecciono el activo.php`
 
@@ -37069,7 +37069,7 @@ function apply_placeholders(string $template, array $data): string {
 ```
 
 ### pongo el activo en php
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-pongo el activo en php.php`
 
@@ -37147,7 +37147,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### creo una web
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-creo una web.php`
 
@@ -37229,7 +37229,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### clave español como base
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-clave español como base.php`
 
@@ -37311,7 +37311,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### cogemos clave
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-cogemos clave.php`
 
@@ -37442,7 +37442,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### quitamos redundancia
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-quitamos redundancia.php`
 
@@ -37573,7 +37573,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### archivo limpio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-archivo limpio.php`
 
@@ -37607,7 +37607,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### idiomas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `idiomas.csv`
 
@@ -37619,7 +37619,7 @@ document.getElementById("idioma").addEventListener("change", function () {
 ```
 
 ### motoridioma
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `motoridioma.php`
 
@@ -37740,7 +37740,7 @@ function selectorIdioma(){
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/006-Elaboraci%C3%B3n%20de%20informes)
 
 ### alumno
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `002-alumno.html`
 
@@ -37772,7 +37772,7 @@ function selectorIdioma(){
 ```
 
 ### diseño movil
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `003-diseño movil.html`
 
@@ -37813,7 +37813,7 @@ function selectorIdioma(){
 ```
 
 ### mostrar escenario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `004-mostrar escenario.html`
 
@@ -37865,7 +37865,7 @@ function selectorIdioma(){
 ```
 
 ### contenido del escenario
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-contenido del escenario.html`
 
@@ -37926,7 +37926,7 @@ function selectorIdioma(){
 ```
 
 ### cargo desde json
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-cargo desde json.html`
 
@@ -37992,7 +37992,7 @@ function selectorIdioma(){
 ```
 
 ### relleno los datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-relleno los datos.html`
 
@@ -38066,7 +38066,7 @@ function selectorIdioma(){
 ```
 
 ### latido de corazon
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-latido de corazon.html`
 
@@ -38150,7 +38150,7 @@ function selectorIdioma(){
 ```
 
 ### comprobacion de si debo cambiar
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-comprobacion de si debo cambiar.html`
 
@@ -38238,7 +38238,7 @@ function selectorIdioma(){
 ```
 
 ### el usuario solo puede responder una vez
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-el usuario solo puede responder una vez.html`
 
@@ -38331,7 +38331,7 @@ function selectorIdioma(){
 ```
 
 ### pistas visuales
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-pistas visuales.html`
 
@@ -38430,7 +38430,7 @@ function selectorIdioma(){
 ```
 
 ### envio respuesta al servidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-envio respuesta al servidor.html`
 
@@ -38530,7 +38530,7 @@ function selectorIdioma(){
 ```
 
 ### b-envio respuesta al servidor
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012b-envio respuesta al servidor.html`
 
@@ -38824,7 +38824,7 @@ function selectorIdioma(){
 ```
 
 ### informes
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `013-informes.html`
 
@@ -38852,7 +38852,7 @@ function selectorIdioma(){
 ```
 
 ### barras de progreso
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `014-barras de progreso.html`
 
@@ -38912,7 +38912,7 @@ function selectorIdioma(){
 ```
 
 ### informe dinamico
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `015-informe dinamico.html`
 
@@ -39226,7 +39226,7 @@ function selectorIdioma(){
 ```
 
 ### informe con todas las respuestas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `016-informe con todas las respuestas.html`
 
@@ -39606,7 +39606,7 @@ function selectorIdioma(){
 ```
 
 ### creador de preguntas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `017-creador de preguntas.php`
 
@@ -39640,7 +39640,7 @@ function selectorIdioma(){
 ```
 
 ### guarda preguntas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `018-guarda preguntas.php`
 
@@ -39716,7 +39716,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ```
 
 ### login
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `019-login.php`
 
@@ -39865,7 +39865,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && empty($_POST["accion"])) {
 ```
 
 ### pregunto a la IA
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `020-pregunto a la IA.py`
 
@@ -39888,7 +39888,7 @@ print(data["response"])
 ```
 
 ### cargo las respuestas en el CSV
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `021-cargo las respuestas en el CSV.py`
 
@@ -39944,7 +39944,7 @@ print(data["response"])
 ```
 
 ### mejoramos el prompt
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `022-mejoramos el prompt.py`
 
@@ -40171,7 +40171,7 @@ print(report)
 ```
 
 ### multiexamen
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `023-multiexamen.py`
 
@@ -40306,7 +40306,7 @@ print(output)
 ```
 
 ### guarda
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `guarda.php`
 
@@ -40343,7 +40343,7 @@ fclose($fp);
 ```
 
 ### preguntas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `preguntas.json`
 
@@ -40359,7 +40359,7 @@ fclose($fp);
 ```
 
 ### respuestas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `respuestas.csv`
 
@@ -40391,7 +40391,7 @@ Diego,"While es una estructura de:",Bucle,"[""Bucle"",""Condicional"",""Es una f
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/007-Sistemas%20de%20gesti%C3%B3n%20empresarial/007-Exportaci%C3%B3n%20de%20informaci%C3%B3n)
 
 ### variable server
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `005-variable server.php`
 
@@ -40402,7 +40402,7 @@ Diego,"While es una estructura de:",Bucle,"[""Bucle"",""Condicional"",""Es una f
 ```
 
 ### desgranamos foreach
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `006-desgranamos foreach.php`
 
@@ -40417,7 +40417,7 @@ Diego,"While es una estructura de:",Bucle,"[""Bucle"",""Condicional"",""Es una f
 ```
 
 ### nos quedamos con lo que me interesa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `007-nos quedamos con lo que me interesa.php`
 
@@ -40437,7 +40437,7 @@ Diego,"While es una estructura de:",Bucle,"[""Bucle"",""Condicional"",""Es una f
 ```
 
 ### guardamos en SQLite
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `008-guardamos en SQLite.php`
 
@@ -40471,7 +40471,7 @@ Diego,"While es una estructura de:",Bucle,"[""Bucle"",""Condicional"",""Es una f
 ```
 
 ### leer base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `009-leer base de datos.php`
 
@@ -40497,7 +40497,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### lo pongo bonito
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `010-lo pongo bonito.php`
 
@@ -40523,7 +40523,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### grafica muy basica
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `011-grafica muy basica.php`
 
@@ -40552,7 +40552,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### texto en la barra
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `012-texto en la barra.php`
 
@@ -40592,7 +40592,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### contenedor y titulo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `013-contenedor y titulo.php`
 
@@ -40664,7 +40664,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### varias graficas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `014-varias graficas.php`
 
@@ -40795,7 +40795,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### progress
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `015-progress.php`
 
@@ -40818,7 +40818,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### grafica con progreso
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `016-grafica con progreso.php`
 
@@ -40897,7 +40897,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### canvas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `017-canvas.php`
 
@@ -40930,7 +40930,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### grafica estatica
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `018-grafica estatica.php`
 
@@ -40960,7 +40960,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### contenido de la grafica
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `019-contenido de la grafica.php`
 
@@ -40994,7 +40994,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### funcion de grafica
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `020-funcion de grafica.php`
 
@@ -41033,7 +41033,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `021-datos.php`
 
@@ -41073,7 +41073,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### grafica adaptativa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `022-grafica adaptativa.php`
 
@@ -41120,7 +41120,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### valor maximo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `023-valor maximo.php`
 
@@ -41172,7 +41172,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### añadimos texto
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `024-añadimos texto.php`
 
@@ -41231,7 +41231,7 @@ while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ```
 
 ### combinamos con la base de datos
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `025-combinamos con la base de datos.php`
 
@@ -41310,7 +41310,7 @@ $datos = json_encode($datos);
 ```
 
 ### rotamos texto en barras
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `026-rotamos texto en barras.php`
 
@@ -41356,7 +41356,7 @@ $datos = json_encode($datos);
 ```
 
 ### traigo la libreria
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `027-traigo la libreria.php`
 
@@ -41426,7 +41426,7 @@ $datos2 = json_encode($datos2);
 ```
 
 ### acepto un tercer parametro
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `028-acepto un tercer parametro.php`
 
@@ -41499,7 +41499,7 @@ $datos2 = json_encode($datos2);
 ```
 
 ### reutilizar php
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `029-reutilizar php.php`
 
@@ -41575,7 +41575,7 @@ $sql_por_dia_semana = "
 ```
 
 ### completamos panel de control
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `030-completamos panel de control.php`
 
@@ -42214,7 +42214,7 @@ $filtersLine = (count($activeFilters) > 0) ? implode('&', $activeFilters) : '(no
 ```
 
 ### super panel
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `031-super panel.php`
 
@@ -42971,7 +42971,7 @@ $charts = [
 ```
 
 ### analytics
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `analytics.js`
 
@@ -43558,7 +43558,7 @@ $charts = [
 ```
 
 ### graficas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 `graficas.js`
 
@@ -43728,7 +43728,7 @@ Sus datos no se cederán a terceros salvo obligación legal. Para más informaci
 This should improve the overall appearance and functionality of your HTML email template across different clients.
 
 ### tabla de inicio
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -43758,7 +43758,7 @@ La estructura principal de la tabla se define dentro de la etiqueta `<table>` co
 ```
 
 ### anchura de las celdas
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -43788,7 +43788,7 @@ Este código es importante porque muestra cómo controlar visualmente las dimens
 ```
 
 ### subtabla
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -43834,7 +43834,7 @@ Esta forma de organizar el contenido con subtablas dentro de celdas de tabla má
 ```
 
 ### imagen corporativa
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -43896,7 +43896,7 @@ El uso de tablas permite organizar la disposición del contenido de manera clara
 ```
 
 ### creamos el destacado
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -43970,7 +43970,7 @@ Este tipo de estructura es común en marketing digital debido a su capacidad par
 ```
 
 ### insercion de imagen
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -44047,7 +44047,7 @@ El uso de CSS dentro del atributo `style` ayuda a personalizar la apariencia, co
 ```
 
 ### destacados
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -44283,7 +44283,7 @@ These changes should help ensure your email template is more user-friendly acros
 ```
 
 ### ampliamos un poco
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
@@ -44526,7 +44526,7 @@ This should make your email template more responsive on various devices, includi
 ```
 
 ### pie de pagina normativo
-<small>Creado: 2026-04-16 17:39</small>
+<small>Creado: 2026-04-20 18:32</small>
 
 #### Explicación
 
