@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "jocarsa | darksalmon",
+    "profiles": [
+      {
+        "name": "Empleados",
+        "fit": "Usan la app para registrar el inicio y final de su jornada laboral, así como gestionar sus ausencias."
+      },
+      {
+        "name": "Administradores",
+        "fit": "Administran los registros de las jornadas de los empleados y pueden monitorear cualquier error o actualizar la información del perfil."
+      },
+      {
+        "name": "Técnicos de Soporte",
+        "fit": "Ayudan a resolver problemas técnicos que puedan surgir con la app, como problemas de inicio de sesión o errores en el registro de jornada."
+      }
+    ]
+  }
+}

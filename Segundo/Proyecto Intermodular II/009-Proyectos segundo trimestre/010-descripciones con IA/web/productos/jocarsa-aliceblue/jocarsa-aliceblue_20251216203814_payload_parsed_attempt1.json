@@ -1,0 +1,185 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "Jocarsa AliceBlue: Administrador de Recursos Digitales para Empresas",
+    "category": "Educación Online y Gestión Empresarial",
+    "audience_segments": [
+      "Gerentes de Recursos Humanos",
+      "Administradores de Proyectos"
+    ],
+    "ctaPrimary": "Iniciar Sesión",
+    "ctaSecondary": "Explorar Más"
+  },
+  "hero": {
+    "name": "Jocarsa AliceBlue",
+    "valueProposition": "Solución integral para la gestión y mejora de recursos digitales en empresas",
+    "subtitle": "Gestiona tus proyectos, fotos y documentos con eficiencia",
+    "badges": [
+      "Inteligente",
+      "Seguro",
+      "Personalizado"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Iniciar Sesión"
+      },
+      {
+        "type": "secondary",
+        "text": "Explorar Más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Problemas en la gestión de recursos digitales",
+    "items": [
+      "Desorganización de documentos y fotos",
+      "Falta de seguimiento de proyectos",
+      "Acceso limitado a información crucial"
+    ]
+  },
+  "solution": {
+    "title": "Solución con Jocarsa AliceBlue",
+    "overview": "Gestiona tus proyectos, fotos y documentos con un sistema eficiente y seguro.",
+    "whatChanges": [
+      "Organización centralizada de todos los recursos digitales",
+      "Seguimiento real-time de proyectos",
+      "Acceso a información crucial desde cualquier lugar"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características Principales",
+    "features": [
+      {
+        "name": "Gestión Centralizada",
+        "benefit": "Todas tus fotos, documentos y proyectos en un solo lugar"
+      },
+      {
+        "name": "Seguridad Avanzada",
+        "benefit": "Cifrado SSL, acceso controlado y copias de seguridad automática"
+      },
+      {
+        "name": "Integración Facilidad",
+        "benefit": "Facilita la integración con otras herramientas empresariales"
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para Quién Es",
+    "profiles": [
+      {
+        "name": "Gerentes de Recursos Humanos",
+        "fit": "Necesitan gestionar documentos y fotos del equipo"
+      },
+      {
+        "name": "Administradores de Proyectos",
+        "fit": "Necesitan un seguimiento real-time de proyectos"
+      },
+      {
+        "name": "Personal Administrativo",
+        "fit": "Beneficianse de una gestión centralizada de recursos"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Gestión de Fotos de Eventos",
+        "description": "Centraliza y gestiona todas las fotos de eventos"
+      },
+      {
+        "name": "Seguimiento de Proyectos",
+        "description": "Monitorea el progreso real-time de todos tus proyectos"
+      },
+      {
+        "name": "Acceso a Documentos Importantes",
+        "description": "Asegúra el acceso a documentos críticos desde cualquier dispositivo"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "items": [
+      "Mayor eficiencia en la gestión de recursos digitales",
+      "Mejora la colaboración y la comunicación dentro de la empresa",
+      "Seguridad robusta para proteger tus datos"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Opcionales",
+    "notes": "Extiende las funcionalidades de Jocarsa AliceBlue con otras herramientas empresariales.",
+    "items": [
+      "Microsoft Office 365",
+      "Google Drive",
+      "Slack"
+    ]
+  },
+  "trust": {
+    "title": "Confianza",
+    "points": [
+      "Seguridad SSL en todos los niveles",
+      "Copia de seguridad automática y restauración rápida",
+      "Soporte técnico dedicado a clientes"
+    ]
+  },
+  "finalCTA": {
+    "title": "Únete a Jocarsa AliceBlue hoy!",
+    "description": "Comienza a gestionar tus proyectos, fotos y documentos de manera eficiente.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Iniciar Sesión"
+      },
+      {
+        "type": "secondary",
+        "text": "Explorar Más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo puedo empezar con Jocarsa AliceBlue?",
+        "a": "Regístrate y crea una cuenta para comenzar a gestionar tus recursos digitales."
+      },
+      {
+        "q": "¿Es seguro usar Jocarsa AliceBlue?",
+        "a": "Sí, nuestro sistema está protegido por SSL y tiene copias de seguridad automáticas."
+      },
+      {
+        "q": "Puedo integrar Jocarsa AliceBlue con otras herramientas?",
+        "a": "Sí, podemos ayudarte a integrarlo con Microsoft Office 365, Google Drive o Slack."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Jocarsa AliceBlue: Tu solución integral para la gestión de recursos digitales."
+  }
+}

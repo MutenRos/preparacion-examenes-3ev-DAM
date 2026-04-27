@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Estructura y diseño de la interfaz administrativa","items":["Falta una descripción clara del propósito de cada sección del código CSS y PHP","No está definido cómo se integran las imágenes o los widgets en el layout general","La implementación de la función de inicio y parada de captura no está claramente descrita"],"slug":"jocarsa-aliceblue"}
+}

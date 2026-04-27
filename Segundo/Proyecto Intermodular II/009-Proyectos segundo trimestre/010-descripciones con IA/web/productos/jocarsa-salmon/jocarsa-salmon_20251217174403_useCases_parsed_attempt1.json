@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "jocarsa | salmon",
+    "cases": [
+      {
+        "name": "Gestión de Sesiones Virtuales",
+        "description": "Permite a los administradores crear y gestionar sesiones virtuales, proporcionando invitaciones personalizadas con o sin contraseñas. Los usuarios pueden unirse a las sesiones utilizando el enlace proporcionado, permitiendo así la colaboración remota en tiempo real."
+      },
+      {
+        "name": "Seguridad Elevada",
+        "description": "Incorpora medidas de seguridad para proteger las sesiones virtuales, incluyendo la autenticación y hashificación seguras de las contraseñas. Los administradores pueden generar invitaciones con o sin contraseña según sea necesario para cada sesión."
+      },
+      {
+        "name": "Monitoreo y Mantenimiento Sencillo",
+        "description": "Ofrece una interfaz administrativa fácil de usar para crear, actualizar y eliminar sesiones virtuales. El sistema registra automáticamente la creación y actualización de las sesiones, facilitando el seguimiento del uso y el mantenimiento."
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Educadores y administradores de centros educativos","profiles":[{"name":"Educadores","fit":"Están buscando un software intuitivo para gestionar sus salas de aula, permitiendo la grabación y visualización de sesiones de enseñanza."},{"name":"Administradores de centros educativos","fit":"Requieren una herramienta que les permita supervisar el contenido grabado en tiempo real y acceder a información detallada sobre las sesiones."}]}
+}

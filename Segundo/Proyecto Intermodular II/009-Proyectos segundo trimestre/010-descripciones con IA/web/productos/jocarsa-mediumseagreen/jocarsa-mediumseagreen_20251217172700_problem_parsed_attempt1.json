@@ -1,0 +1,11 @@
+{
+  "problem": {
+    "title": "Procesamiento de contenido educativo desde videos y textos",
+    "items": [
+      "Extraer y estructurar temas (Unidades, Subunidades) de documentos markdown y transcripciones de video",
+      "Implementar descarga e integración de subtítulos en español y auto-generados",
+      "Convertir subtítulos .vtt a texto sólido sin timestamps/etiquetas/roll-up",
+      "Usar una API remota para sintetizar contenido didáctico a partir de transcripciones"
+    ]
+  }
+}

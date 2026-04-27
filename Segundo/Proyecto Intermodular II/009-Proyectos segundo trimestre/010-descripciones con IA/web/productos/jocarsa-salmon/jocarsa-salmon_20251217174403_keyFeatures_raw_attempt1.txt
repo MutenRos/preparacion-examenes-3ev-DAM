@@ -1,0 +1,5 @@
+[
+  {"name":"Autenticación de administrador","benefit":"Se requiere una contraseña para acceder, asegurando que solo los usuarios autorizados puedan gestionar las salas."},
+  {"name":"Generación de invitaciones personalizadas","benefit":"Se pueden generar mensajes de invitación personalizados con el título del espacio y las credenciales necesarias para unirse o presentarse."},
+  {"name":"Administración de salas en tiempo real","benefit":"Permite la creación, actualización y eliminación de salas a través de una interfaz sencilla y eficiente."}
+]

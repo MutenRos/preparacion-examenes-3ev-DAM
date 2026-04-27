@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Confiable y Seguro","points":[" Diseño responsivo y adaptable a diferentes dispositivos."," Implementación de medidas de seguridad avanzadas para proteger datos importantes."," Interfaz intuitiva que facilita la navegación y uso del software educativo."]}
+}

@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"jocarsa | salmon","points":["Estructura clara y organizada del proyecto con archivos bien definidos.","Implementación de autenticación para el administrador en `admin.php`.","Uso efectivo de constantes para configuraciones fijas como los credenciales del administrador.","Incorporación de funciones auxiliares para mejorar la legibilidad y mantenimiento, como `make_invite_msg`, `csrf_token`, y `b64e`."]}
+}
+```

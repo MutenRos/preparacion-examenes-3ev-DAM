@@ -1,0 +1,6 @@
+[
+  {"name":"Automatización del proceso de descarga de subtítulos","benefit":"Reduce la necesidad manual de búsqueda e instalación de subtítulos, ahorrando tiempo y asegurando consistencia."},
+  {"name":"Integración con Ollama para análisis semánticos","benefit":"Permite una mayor precisión en el procesamiento y análisis del contenido, mejorando la calidad de los resúmenes y notas didácticas."},
+  {"name":"Adaptabilidad a diferentes formatos de documentos y videos","benefit":"Soporta el procesamiento de多种语言:
+支持不同格式的文档和视频处理，确保从文本到多媒体内容的一致性和适应性。"}
+]

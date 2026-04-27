@@ -1,0 +1,229 @@
+TITLE: jocarsa | darksalmon · App
+H1: jocarsa | darksalmon
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-darksalmon
+# jocarsa-darksalmon
+## admin
+### aplicaciones
+#### calendario_semanal
+#### horario_semanal
+#total { margin: 10px 0; font-weight: bold; }
+#### resumen_sesiones
+### mobile
+### partes
+* {
+### supercontrolador
+#### acciones
+##### componenteslistar
+#### estilo
+#### funciones
+## api
+## front
+#appContainer{ min-height:100dvh; }
+#appHeader{
+#appHeader h1{
+#logoutButton{
+#logoutButton:hover{ filter: brightness(1.05) }
+#appContainer{
+#appHeader{ grid-area: header; z-index: 1; }
+#bottomNav{
+#bottomNav ul{
+#bottomNav li{
+#bottomNav li.active, #bottomNav li:hover{ background: #fff }
+#bottomNav{
+#bottomNav ul{ margin:0; padding:0; list-style:none; display:flex }
+#bottomNav li{
+#bottomNav li.active, #bottomNav li:hover{ background: #fff }
+#ausenciasScreen form{
+#ausenciasScreen form label{
+#ausenciasScreen input[type="date"],
+#ausenciasScreen select,
+#ausenciasScreen textarea{
+#ausenciasScreen textarea{ min-height: 90px; resize: vertical; }
+#ausenciasScreen input:focus,
+#ausenciasScreen select:focus,
+#ausenciasScreen textarea:focus{
+#ausenciasScreen form button[type="submit"]{
+#ausenciasScreen form button[type="submit"]:hover{ filter: brightness(1.05) }
+#loginScreen{
+* { box-sizing: border-box; }
+### ayuda
+# Manual de Usuario · jocarsa | darksalmon
+## 1. Inicio de sesión
+## 2. Inicio
+- **Iniciar jornada**: pulsa este botón al empezar tu trabajo.
+- Si tu jornada es partida, púlsalo tanto en el inicio de la mañana como en el inicio de la tarde.
+- **Finalizar jornada**: pulsa este botón al terminar tu jornada.
+- Si tu jornada es partida, púlsalo al final de la mañana y al final de la tarde.
+- Información de tus registros del día.
+- Un mapa con tu ubicación de fichaje (si está habilitado por la empresa).
+## 3. Jornadas
+- Se muestran todas las jornadas registradas.
+- Si detectas algún error, comunícalo a los administradores.
+## 4. Perfil
+- Nombre y apellidos.
+- Datos de contacto.
+- Otra información relevante cargada por administración.
+## 5. Ausencias
+## 6. FAQs
+- Revisa que el usuario y la contraseña sean correctos.
+- Comprueba que no tengas activadas mayúsculas en el teclado.
+- Si el problema continúa, contacta con el administrador.
+- Espera unos minutos, puede tardar en sincronizarse.
+- Si no aparece después de un día, informa a tu responsable.
+- Significa que aún no ha sido revisada por el responsable.
+- Una vez aprobada o denegada, el estado cambiará automáticamente.
+## 7. Troubleshooting
+- Revisa tu conexión a internet.
+- Prueba a actualizar la página (Ctrl+R o F5).
+- Si persiste, contacta con soporte.
+- Cierra sesión y vuelve a entrar.
+- Asegúrate de permitir el acceso a la ubicación si la empresa lo requiere.
+- Contacta con administración si no se soluciona.
+- Revisa que todos los campos del formulario estén completos.
+- Intenta de nuevo.
+- Si sigue fallando, informa a soporte.
+* Pure PHP Markdown to HTML Converter with Hierarchical Index
+#### img
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-darksalmon
+├── .gitignore
+├── README.md
+├── admin
+│ ├── aplicaciones
+│ │ ├── calendario_semanal
+│ │ │ └── index.php
+│ │ ├── horario_semanal
+│ │ │ └── index.php
+│ │ └── resumen_sesiones
+│ │ ├── conexion.php
+│ │ └── index.php
+│ ├── config.php
+│ ├── darksalmon.png
+│ ├── estilo.php
+│ ├── index.php
+│ ├── mobile
+│ ├── partes
+│ │ └── login.php
+│ └── supercontrolador
+│ ├── acciones
+│ │ ├── componenteslistar
+│ │ │ ├── cabezatabla.php
+│ │ │ ├── calendariomensual.php
+│ │ │ ├── calendariosemanal.php
+│ │ │ └── cuerpotabla.php
+│ │ ├── crear.php
+│ │ ├── crearapp.php
+│ │ ├── editar.php
+│ │ ├── eliminar.php
+│ │ ├── foreign.php
+│ │ └── listar.php
+│ ├── estilo
+│ │ └── estilo.css
+│ ├── funciones
+│ │ └── getInputAttributes.php
+│ └── supercontrolador.php
+├── api
+├── app.html
+├── config.php
+├── front
+│ ├── ayuda
+│ │ ├── darksalmon.md
+│ │ ├── img
+│ │ │ ├── Captura desde 2025-08-24 16-50-47.png
+│ │ │ ├── Captura desde 2025-08-24 16-55-04.png
+│ │ │ ├── Captura desde 2025-08-24 16-55-10.png
+│ │ │ └── Captura desde 2025-08-24 16-55-13.png
+│ │ └── index.php
+│ ├── config.json
+│ ├── darksalmon.png
+│ ├── dashboard.css
+│ ├── dashboard.html
+│ ├── dashboard.js
+│ ├── index.html
+│ ├── login.css
+│ ├── login.js
+│ ├── mobile_api.php
+│ ├── script.js
+│ └── styles.css
+└── sections.json
+```
+
+## Código (intercalado)
+
+# jocarsa-darksalmon
+**README.md**
+```markdown
+# jocarsa-darksalmon
+```
+**app.html**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>jocarsa | darksalmon · App</title>
+ <link rel="icon" type="image/png" href="darksalmon.png" />
+ <link rel="stylesheet" href="styles.css" />
+
+ <!-- If your original uses Leaflet & Font Awesome, keep them: -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body class="bg-pattern">
+ <!-- 1) Auth helpers first -->
+ <script src="auth.js"></script>
+
+ <!-- 2) Gatekeeper: if not logged, it will send to index.html -->
+ <script src="gate.js"></script>
+
+ <!-- 3) Actual dashboard DOM (keeps your original structure/IDs) -->
+ <div id="appContainer" class="screen">
+ <header id="appHeader">
+ <h1>jocarsa | darksalmon</h1>
+ <button id="logoutButton" title="Pulsa este botón para cerrar activamente tu sesión">Cerrar</button>
+ </header>
+
+ <main>
+ <!-- Home Screen (start/end shift + map) -->
+ <section id="homeScreen" class="appScreen">
+ <h2>Home</h2>
+ <p>En esta sección, puedes registrar el inicio y el final de tu jornada laboral. Para ello, pulsa los botones que se presentan a continuación</p>
+
+ <div class="buttonContainer">
+ <h3>Inicio de jornada</h3>
+ <p>Pulsa este botón al inicio de tu jornada. Si es jornada partida, púlsalo al inicio del bloque de la mañana y al inicio del bloque de la tarde</p>
+ <button id="btnStartShift" title="Pulsa este botón al iniciar tu jornada">Iniciar Jornada</button>
+
+ <h3>Final de jornada</h3>
+ <p>Pulsa este botón al final de tu jornada. Si es jornada partida, púlsalo al final del bloque de la mañana y al final del bloque de la tarde</p>
+ <button id="btnEndShift" title="Pulsa este botón al finalizar tu jornada">Finalizar Jornada</button>
+ </div>
+
+ <div id="shiftInfo" class="infoContainer"></div>
+ <div id="map" style="height: 300px; margin-top: 10px;"></div>
+ </section>
+
+ <!-- Jornadas -->
+ <section id="newsScreen" class="appScreen hidden">
+ <h2>Jornadas Registradas</h2>
+ <br />
+ <p>En esta sección puedes obtener un listado de tus registros de inicio y finalización de jornada laboral. Si algo no es correcto, por favor ponte en contacto con los administradores de la aplicación.</p>
+ <br />
+ <div id="jornadasContainer"></div>
+ </section>
+
+ <!-- Perfil -->
+ <section id="profileScreen" class="appScreen hidden">
+ <h2>Perfil</h2>
+ <p>En esta sección puedes ver

@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Solicite una Demo",
+    "description": "Descubra cómo nuestro Calendario SaaS puede mejorar la gestión de su evento. Contáctenos para obtener más información o una demostración.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Obtener Demo"
+      },
+      {
+        "type": "secondary",
+        "text": "Más Información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="topbar">
+    {% if tab == 'B' %}
+      <h1>Importantes</h1>
+      <p class="muted">Ordenados por prioridad (10 → 0).</p>
+    {% else %}
+      <h1>Publicidad / Automáticos</h1>
+      <p class="muted">Correos informativos, notificaciones y promociones.</p>
+    {% endif %}
+  </header>
+
+  <section class="list">
+    {% if items|length == 0 %}
+      <div class="empty">
+        No hay correos en esta categoría.
+      </div>
+    {% endif %}
+
+    {% for e in items %}
+      <a class="card" href="/email/{{ e.id }}?n={{n}}">
+        <div class="card-head">
+          <div class="from">{{ e.from }}</div>
+
+          {% if tab == 'B' %}
+            <div class="pill p{{ e.priority if e.priority is not none else 0 }}">
+              Prioridad {{ e.priority }}/10
+            </div>
+          {% else %}
+            <div class="pill neutral">Auto</div>
+          {% endif %}
+        </div>
+
+        <div class="subject">{{ e.subject or "(Sin asunto)" }}</div>
+        <div class="meta">
+          <span class="date">{{ e.date }}</span>
+        </div>
+
+        <div class="summary">{{ e.summary }}</div>
+      </a>
+    {% endfor %}
+  </section>
+{% endblock %}

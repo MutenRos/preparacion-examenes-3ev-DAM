@@ -1,0 +1,10 @@
+{
+  "problem": {
+    "title": "jocarsa | salmon",
+    "items": [
+      "Implementar autenticación y autorización seguras para el acceso al sistema.",
+      "mejorar la generación de mensajes de invitación para mejorar la experiencia del usuario.",
+      "Refactorizar el código para una mejor legibilidad y mantenimiento."
+    ]
+  }
+}

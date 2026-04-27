@@ -1,0 +1,5 @@
+[
+  {"name":"Interactividad en la captura de pantalla","benefit":"Permite a los usuarios iniciar y detener el recorrido visual, mejorando la experiencia de aprendizaje."},
+  {"name":"Visualización detallada de las imágenes","benefit":"Ofrece una vista clara y fácil de entender de cada imagen capturada, facilitando la revisión de contenido."},
+  {"name":"Interfaz amigable para administradores","benefit":"Incluye un diseño atractivo y fácil de usar, que simplifica el proceso de administración del contenido educativo."}
+]

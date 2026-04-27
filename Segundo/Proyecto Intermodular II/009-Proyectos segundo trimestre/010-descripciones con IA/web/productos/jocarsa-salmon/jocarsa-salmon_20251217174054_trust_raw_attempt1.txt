@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"jocarsa | salmon","points":["Estructura clara y organizada del proyecto con archivos bien definidos.","Código PHP limpio y funcional con autenticación de administrador.","Uso efectivo de variables constantes para configuraciones fijas.","Incorporación de funciones auxiliares para mejorar la legibilidad y mantenimiento.""]}
+}
+```

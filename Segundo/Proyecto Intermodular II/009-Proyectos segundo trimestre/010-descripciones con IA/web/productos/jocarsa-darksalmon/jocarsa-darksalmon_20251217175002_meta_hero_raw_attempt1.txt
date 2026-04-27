@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon - Sistematiza tus Jornadas de Trabajo",
+    "category": "softwareEducativo",
+    "audience_segments": ["Administradores", "Trabajadores"],
+    "ctaPrimary": "Inicia tu Jornada",
+    "ctaSecondary": "Conoce más"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Sistema todo-en-uno para administrar y supervisar las jornadas de trabajo, garantizando eficiencia y transparencia.",
+    "subtitle": "Gestiona tus registros de entrada y salida con precisión",
+    "badges": ["Integración completa", "Seguimiento en tiempo real"],
+    "actions": [
+      {"type":"primary","text":"Inicia tu Jornada"},
+      {"type":"secondary","text":"Conoce más"},
+      {"type":"tertiary","text":"Pruébalo gratis"}
+    ]
+  }
+}

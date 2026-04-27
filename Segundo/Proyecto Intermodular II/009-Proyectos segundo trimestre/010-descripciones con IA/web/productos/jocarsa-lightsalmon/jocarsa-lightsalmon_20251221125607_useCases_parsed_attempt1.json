@@ -1,0 +1,27 @@
+{
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Registro de Usuario",
+        "description": "Permitir a los usuarios crear una cuenta y registrar sus datos personales"
+      },
+      {
+        "name": "Iniciar Sesión",
+        "description": "Autenticar al usuario con su nombre de usuario y contraseña para acceder a la plataforma"
+      },
+      {
+        "name": "Registrar Eventos",
+        "description": "Permitir el registro, actualización y eliminación de eventos en el calendario"
+      },
+      {
+        "name": "Cargar Calendarios Guardados",
+        "description": "Cargar los calendarios previamente guardados por cada usuario"
+      },
+      {
+        "name": "Guardar Calendarios",
+        "description": "Guardar los cambios realizados en el calendario para su uso futuro"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "finalCTA": {
+    "title":"Conéctate Ahora",
+    "description":"Descubre cómo gestionar tus eventos con precisión y facilidad. Regístrate para probar.",
+    "actions":[{"type":"primary","text":"Regístrate"},{"type":"secondary","text":"¡Más Información!"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"true"}]}
+  }
+}

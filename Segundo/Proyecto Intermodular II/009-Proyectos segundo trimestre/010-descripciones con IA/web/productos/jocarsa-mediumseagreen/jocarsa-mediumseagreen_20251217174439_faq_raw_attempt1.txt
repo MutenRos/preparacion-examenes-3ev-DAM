@@ -1,0 +1,29 @@
+```json
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo funciona la transición de idiomas en el software?",
+        "a": "El software intenta primero obtener subtítulos en español (es, es-ES, es-419). Si no se encuentran, busca alternativas como los auto-caption disponibles. Como último recurso, utiliza todos los subtítulos disponibles y selecciona el mejor candidato."
+      },
+      {
+        "q": "¿Cuál es el proceso para convertir los subtítulos .vtt a texto sólido?",
+        "a": "Se convierten los subtítulos .vtt a un único párrafo sin timestamps, etiquetas ni roll-up. Si no hay 'es-orig', se registra en un archivo de log y puede caer a idiomas en español o elegir el mejor candidato si se activa el fallback."
+      },
+      {
+        "q": "¿Qué hace el software con los archivos .txt para crear contenido didáctico?",
+        "a": "Los archivos .txt se extraen de su cuerpo (ignorando la cabecera hasta la línea de guiones). Se chunking por caracteres y se generan notas en español para cada fragmento. Luego, se sintetiza un único archivo .md didáctico."
+      },
+      {
+        "q": "¿Cómo se maneja el proceso de ollama en la aplicación?",
+        "a": "Ollama se ejecuta en http://localhost:11434 y utiliza modelos instructivos como 'ollama pull llama3.1:8b-instruct-q4_0'. Se envían prompts al modelo con el cuerpo del video para obtener matches (topic, score 0..1) que luego se filtran por un umbral."
+      },
+      {
+        "q": "¿Cuál es la función de la variable `TOPIC_BATCH`?",
+        "a": "La variable `TOPIC_BATCH` divide los temas en lotes y envía prompts al modelo para cada lote. Esto ayuda a no saturar el contexto del modelo y optimiza la eficiencia del proceso."
+      }
+    ]
+  }
+}
+```

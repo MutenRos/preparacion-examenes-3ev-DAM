@@ -1,0 +1,192 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-lightsalmon",
+    "title": "jocarsa | lightsalmon - Gestiona tu calendario con precisión y seguridad",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Administradores de Proyectos",
+      "Profesores",
+      "Estudiantes"
+    ],
+    "ctaPrimary": "Iniciar Sesión",
+    "ctaSecondary": "Regístrate Ahora"
+  },
+  "hero": {
+    "name": "jocarsa | lightsalmon",
+    "valueProposition": "Gestiona tus eventos, categorías y festivos con total control y seguridad en tu calendario personalizado.",
+    "subtitle": "Accede a todas tus funciones desde un solo lugar. Crea, edita y comparte fácilmente tus eventos.",
+    "badges": [
+      "Seguro",
+      "Personalizado",
+      "Sencillo de Usar"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Iniciar Sesión"
+      },
+      {
+        "type": "secondary",
+        "text": "Regístrate Ahora"
+      },
+      {
+        "type": "tertiary",
+        "text": "Descubre más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Calendario",
+    "items": [
+      "Calendar API backend implemented with single-file PHP + SQLite",
+      "Backend endpoints include registration, login, logout, and calendar data management (load/save)",
+      "User authentication is required for load/save actions; otherwise, fallback to localStorage",
+      "API validates/normalizes incoming calendar data payload"
+    ]
+  },
+  "solution": {
+    "title": "Calendario jocarsa | lightsalmon",
+    "overview": "Este software educativo proporciona una interfaz para gestionar eventos, categorías y festivos a través de un API RESTful. Permite el registro, login y logout de usuarios, así como la carga y guardado de datos calendarios en formato JSON.",
+    "whatChanges": [
+      "Implementación de autenticación e inicios de sesión",
+      "Gestión de eventos, categorías y festivos en una base de datos SQLite",
+      "Exposición de endpoints RESTful para intercambio de datos con el cliente"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / Calendario / jocarsa / lightSalmon / Reporte / proyecto."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educadores y Administradores de Escuelas",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "Proporciona una herramienta eficiente para organizar eventos, horarios escolares y festivos. Facilita la gestión del calendario académico a través de un API fácilmente integrable con sistemas educativos existentes."
+      },
+      {
+        "name": "Administradores de Escuelas",
+        "fit": "Permite la creación, edición y eliminación de eventos y categorías en el calendario escolar. Proporciona un seguimiento detallado de los cambios realizados en el calendario por parte del personal administrativo."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Uso Cases del Calendario jocarsa | lightsalmon",
+    "cases": [
+      {
+        "name": "Registro de Usuario",
+        "description": "Permite a los usuarios registrarse en el sistema proporcionando un nombre de usuario y una contraseña."
+      },
+      {
+        "name": "Inicio de Sesión",
+        "description": "Los usuarios pueden iniciar sesión en su cuenta utilizando su nombre de usuario y contraseña para acceder a sus eventos y configuraciones personales."
+      },
+      {
+        "name": "Carga y Descarga de Eventos",
+        "description": "Los usuarios tienen la capacidad de cargar o descargar información de sus eventos, incluyendo categorías, fechas especiales y acontecimientos, directamente desde el sistema."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Compatibilidad y Simplicidad",
+    "items": [
+      "Permite a los usuarios registrar, iniciar sesión y administrar eventos de manera segura y eficiente",
+      "Ofrece una interfaz clara con panel de control para agregar, modificar y eliminar eventos en su calendario personal",
+      "Facilita la sincronización entre el backend y el frontend mediante API's RESTful, permitiendo un uso fluido sin interrupciones"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones con Calendario",
+    "notes": "Permite la integración de eventos y calendarios externos.",
+    "items": [
+      "Google Calendar",
+      "Outlook Calendar",
+      "iCal Feeds"
+    ]
+  },
+  "trust": {
+    "title": "Seguro y confiable API para calendarios",
+    "points": [
+      "Creado con PHP y SQLite para seguridad y eficiencia",
+      "Autenticación en cada solicitud garantiza la privacidad de los datos",
+      "Endpoints bien documentados y seguros, evitando el uso innecesario de localStorage"
+    ],
+    "slug": "jocarsa-lightsalmon"
+  },
+  "finalCTA": {
+    "title": "Conéctate Ahora",
+    "description": "Descubre cómo gestionar tus eventos con precisión y facilidad. Regístrate para probar.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Regístrate"
+      },
+      {
+        "type": "secondary",
+        "text": "¡Más Información!"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "jocarsa | lightsalmon",
+    "qas": [
+      {
+        "q": "¿Cómo registro un nuevo usuario?",
+        "a": "Puedes usar la acción POST ?action=register con los campos {username,password}. Asegúrate de que el username tenga entre 3 y 48 caracteres, y la password tenga al menos 6 caracteres."
+      },
+      {
+        "q": "¿Cómo inicio sesión en mi cuenta?",
+        "a": "Para iniciar sesión, usa la acción POST ?action=login con los campos {username,password}. Verifica que los datos sean correctos para evitar errores de autenticación."
+      },
+      {
+        "q": "¿Qué ocurre si no estoy logueado y hago una solicitud POST o GET para cargar o guardar eventos?",
+        "a": "Si no estás logueado, las solicitudes POST para 'save' y GET para 'load' devolverán un código 401. El frontend debería recurrir a localStorage en estos casos."
+      },
+      {
+        "q": "¿Cómo modifico mis datos de usuario o salgo del sistema?",
+        "a": "Para modificar tus datos de usuario, usa la acción POST ?action=save con los nuevos detalles. Para salir del sistema, realiza una solicitud POST ?action=logout."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa | lightSalmon"
+  }
+}

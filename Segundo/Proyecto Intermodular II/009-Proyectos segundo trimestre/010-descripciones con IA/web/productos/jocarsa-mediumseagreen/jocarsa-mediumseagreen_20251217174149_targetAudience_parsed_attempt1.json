@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "Estudiantes universitarios y profesores de programación",
+    "profiles": [
+      {
+        "name": "Profesores de Ciencias de la Computación",
+        "fit": "mejora el contenido para facilitar la creación de lecciones interactivas y didácticas."
+      },
+      {
+        "name": "Estudiantes avanzados en programación",
+        "fit": "Proporciona herramientas para aprender a través del análisis estructurado y automatizado de videos educativos."
+      },
+      {
+        "name": "Desarrolladores web principiantes",
+        "fit": "Facilita la comprensión y aplicación de HTML, XML y Markdown a través de recursos personalizados."
+      }
+    ]
+  }
+}

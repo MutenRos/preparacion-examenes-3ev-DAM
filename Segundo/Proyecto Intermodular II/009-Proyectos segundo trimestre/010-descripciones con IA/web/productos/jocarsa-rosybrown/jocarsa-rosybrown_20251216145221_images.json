@@ -1,0 +1,46 @@
+{
+  "hero": [
+    "img/jocarsa-rosybrown_20251216145221_hero.jpg",
+    "Producto software"
+  ],
+  "problem": [
+    "img/jocarsa-rosybrown_20251216145221_problem.jpg",
+    "Problemas habituales"
+  ],
+  "solution": [
+    "img/jocarsa-rosybrown_20251216145221_solution.jpg",
+    "Solución"
+  ],
+  "features": [
+    "img/jocarsa-rosybrown_20251216145221_features.jpg",
+    "Funcionalidades"
+  ],
+  "audience": [
+    "img/jocarsa-rosybrown_20251216145221_audience.jpg",
+    "Público objetivo"
+  ],
+  "usecases": [
+    "img/jocarsa-rosybrown_20251216145221_usecases.jpg",
+    "Casos de uso"
+  ],
+  "benefits": [
+    "img/jocarsa-rosybrown_20251216145221_benefits.jpg",
+    "Beneficios"
+  ],
+  "integrations": [
+    "img/jocarsa-rosybrown_20251216145221_integrations.jpg",
+    "Integraciones"
+  ],
+  "trust": [
+    "img/jocarsa-rosybrown_20251216145221_trust.jpg",
+    "Confianza"
+  ],
+  "cta": [
+    "img/jocarsa-rosybrown_20251216145221_cta.jpg",
+    "Solicitar demo"
+  ],
+  "faq": [
+    "img/jocarsa-rosybrown_20251216145221_faq.jpg",
+    "Preguntas frecuentes"
+  ]
+}

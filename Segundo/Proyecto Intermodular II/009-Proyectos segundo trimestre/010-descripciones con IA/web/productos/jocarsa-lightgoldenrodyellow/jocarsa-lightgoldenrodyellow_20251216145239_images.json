@@ -1,0 +1,46 @@
+{
+  "hero": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_hero.jpg",
+    "Producto software"
+  ],
+  "problem": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_problem.jpg",
+    "Problemas habituales"
+  ],
+  "solution": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_solution.jpg",
+    "Solución"
+  ],
+  "features": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_features.jpg",
+    "Funcionalidades"
+  ],
+  "audience": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_audience.jpg",
+    "Público objetivo"
+  ],
+  "usecases": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_usecases.jpg",
+    "Casos de uso"
+  ],
+  "benefits": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_benefits.jpg",
+    "Beneficios"
+  ],
+  "integrations": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_integrations.jpg",
+    "Integraciones"
+  ],
+  "trust": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_trust.jpg",
+    "Confianza"
+  ],
+  "cta": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_cta.jpg",
+    "Solicitar demo"
+  ],
+  "faq": [
+    "img/jocarsa-lightgoldenrodyellow_20251216145239_faq.jpg",
+    "Preguntas frecuentes"
+  ]
+}

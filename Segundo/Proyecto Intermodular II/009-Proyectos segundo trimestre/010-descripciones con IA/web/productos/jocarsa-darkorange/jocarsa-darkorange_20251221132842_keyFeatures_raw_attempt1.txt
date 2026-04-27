@@ -1,0 +1,5 @@
+[
+  {"name":"Personalizado de contenido","benefit":"Permite enviar texto y HTML en una campaña, adaptándose a las capacidades del destinatario."},
+  {"name":"Seguimiento detallado","benefit":"Mantiene registro de los correos enviados, incluyendo adjuntos y reanudaciones, asegurando un seguimiento claro de la eficacia de la campaña."},
+  {"name":"Configuración flexible","benefit":"Ofrece opciones personalizadas para SMTP, retardo entre envíos y seguridad en el manejo de correos electrónicos"}
+]

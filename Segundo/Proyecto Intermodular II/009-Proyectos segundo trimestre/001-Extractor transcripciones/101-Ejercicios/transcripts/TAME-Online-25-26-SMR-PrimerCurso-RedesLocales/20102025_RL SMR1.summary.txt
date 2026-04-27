@@ -1,0 +1,54 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 20102025_RL SMR1.txt
+------------------------------------------------------------
+
+Vamos a resumir y organizar los pasos que se describen en el texto para configurar DHCP en un router utilizando el comando `enable`:
+
+### 1. **Configuración del Router**
+   - **Paso 1:** Vamos al router y activamos la configuración mediante el comando `enable`.
+     ```shell
+     enable
+     ```
+   - **Paso 2:** Entramos en modo de red.
+     ```shell
+     configure terminal
+     ```
+
+### 2. **Configuración del Adaptador Ethernet**
+   - **Paso 3:** Activamos la interfaz Ethernet (en este caso, Fast Ethernet) utilizando el comando `no shutdown`.
+     ```shell
+     interface fastethernet 0/0
+     no shutdown
+     ```
+   - **Paso 4:** Configuramos la dirección IP de la red.
+     ```shell
+     ip address 192.168.40.40 255.255.255.0
+     ```
+   - **Paso 5:** Activamos la interfaz Ethernet.
+     ```shell
+     no shutdown
+     exit
+     ```
+
+### 3. **Configuración del DHCP Server**
+   - **Paso 6:** Entramos en configuración de DHCP (por ejemplo, utilizando `ip dhcp pool`).
+     ```shell
+     ip dhcp pool MY_POOL_NAME
+     ```
+   - **Paso 7:** Configuramos la dirección IP de la red como primer paquete del pool.
+     ```shell
+     network 192.168.40.0 255.255.255.0
+     exit
+     ```
+
+### 4. **Verificar Configuración**
+   - Podríamos usar el comando `show ip dhcp pool MY_POOL_NAME` para verificar la configuración.
+     ```shell
+     show ip dhcp pool MY_POOL_NAME
+     ```
+
+### Pasos Siguientes
+
+- Si se ha realizado correctamente, los dispositivos en la red podrán obtener sus direcciones IP de manera automática a través del DHCP Server.
+
+Si necesitas más detalles o tienes alguna pregunta específica sobre estos pasos, házmelo saber!

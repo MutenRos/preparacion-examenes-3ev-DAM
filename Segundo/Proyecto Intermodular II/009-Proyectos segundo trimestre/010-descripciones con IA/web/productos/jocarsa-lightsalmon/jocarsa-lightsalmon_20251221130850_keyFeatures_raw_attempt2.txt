@@ -1,0 +1,5 @@
+[
+  {"name":"Registro y autenticación de usuarios","benefit":"Permite a los usuarios registrarse y acceder a sus eventos personales con seguridad."},
+  {"name":"Carga y descarga de calendarios","benefit":"Ofrece una interfaz segura para cargar y guardar el estado del calendario localmente o en la nube."},
+  {"name":"Manejo de eventos y categorías","benefit":"Permite organizar y gestionar eventos en diferentes categorías, facilitando el seguimiento y la planificación."}
+]

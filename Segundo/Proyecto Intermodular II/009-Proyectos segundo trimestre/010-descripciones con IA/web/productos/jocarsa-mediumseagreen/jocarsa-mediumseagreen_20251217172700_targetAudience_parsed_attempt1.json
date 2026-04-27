@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "Estudiantes universitarios",
+    "profiles": [
+      {
+        "name": "Educación Superior",
+        "fit": "Este software está diseñado para proporcionar contenido educativo estructurado y fácil de entender, ideal para estudiantes universitarios que necesitan material didáctico en línea."
+      },
+      {
+        "name": "Profesores y Tutoriales",
+        "fit": "Facilita la creación y organización de contenido educativo, permitiendo a profesores y tutores crear recursos didácticos personalizados para sus clases."
+      },
+      {
+        "name": "Administradores Educativos",
+        "fit": "Ayuda a los administradores educativos en la gestión y supervisión del contenido de aprendizaje, asegurando que se cumplan los objetivos pedagógicos estipulados."
+      }
+    ]
+  }
+}

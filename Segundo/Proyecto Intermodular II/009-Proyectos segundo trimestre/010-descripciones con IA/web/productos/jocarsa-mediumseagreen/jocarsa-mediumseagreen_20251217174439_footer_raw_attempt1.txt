@@ -1,0 +1,3 @@
+{
+  "footer": {"summary": "jocarsa-mediumseagreen | Desarrollado para facilitar la edificación de contenido educativo, este software combina el procesamiento de videos y texto en una experiencia interactiva. Se utiliza yt-dlp para descargar subtítulos, luego se procesan para extraer información relevante y estructurarla en formatos didácticos como .md o JSON. La plataforma soporta múltiples idiomas, incluyendo el español y auto-capturados, asegurando la accesibilidad del contenido a través de diferentes clientes como web, móvil y TV."}
+}

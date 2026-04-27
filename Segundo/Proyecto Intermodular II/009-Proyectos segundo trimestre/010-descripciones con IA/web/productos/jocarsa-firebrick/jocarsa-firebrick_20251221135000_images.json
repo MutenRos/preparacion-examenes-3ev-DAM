@@ -1,0 +1,46 @@
+{
+  "hero": [
+    "img/jocarsa-firebrick_20251221135000_hero.jpg",
+    "Producto software"
+  ],
+  "problem": [
+    "img/jocarsa-firebrick_20251221135000_problem.jpg",
+    "Problemas habituales"
+  ],
+  "solution": [
+    "img/jocarsa-firebrick_20251221135000_solution.jpg",
+    "Solución"
+  ],
+  "features": [
+    "img/jocarsa-firebrick_20251221135000_features.jpg",
+    "Funcionalidades"
+  ],
+  "audience": [
+    "img/jocarsa-firebrick_20251221135000_audience.jpg",
+    "Público objetivo"
+  ],
+  "usecases": [
+    "img/jocarsa-firebrick_20251221135000_usecases.jpg",
+    "Casos de uso"
+  ],
+  "benefits": [
+    "img/jocarsa-firebrick_20251221135000_benefits.jpg",
+    "Beneficios"
+  ],
+  "integrations": [
+    "img/jocarsa-firebrick_20251221135000_integrations.jpg",
+    "Integraciones"
+  ],
+  "trust": [
+    "img/jocarsa-firebrick_20251221135000_trust.jpg",
+    "Confianza"
+  ],
+  "cta": [
+    "img/jocarsa-firebrick_20251221135000_cta.jpg",
+    "Solicitar demo"
+  ],
+  "faq": [
+    "img/jocarsa-firebrick_20251221135000_faq.jpg",
+    "Preguntas frecuentes"
+  ]
+}

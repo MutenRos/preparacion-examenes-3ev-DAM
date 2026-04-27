@@ -1,0 +1,5 @@
+[
+  {"name":"Automatización de la búsqueda de subtítulos","benefit":"Busca y utiliza automáticamente los subtítulos en español, asegurando una experiencia didáctica fluida."},
+  {"name":"Análisis semántico para categorizar el contenido audiovisual","benefit":"Categoriza el contenido en unidades y subunidades, facilitando su organización y búsqueda."},
+  {"name":"Generación automática de notas didácticas","benefit":"Sintetiza notas basadas en el análisis del contenido audiovisual, proporcionando material adicional para la enseñanza."}
+]

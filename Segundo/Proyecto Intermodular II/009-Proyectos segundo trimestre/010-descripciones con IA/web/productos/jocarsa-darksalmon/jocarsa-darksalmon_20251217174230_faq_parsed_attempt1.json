@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo iniciar o finalizar mi jornada?",
+        "a": "Para iniciar tu jornada, pulsa el botón ‘Iniciar Jornada’. Para finalizarla, haz lo mismo con la opción ‘Finalizar Jornada’. Si tienes una jornada partida, repite estos pasos al inicio y final de ambos bloques."
+      },
+      {
+        "q": "¿Cómo reviso mi historial de jornadas?",
+        "a": "Pulsa el botón que dice ‘Jornadas’ para ver todos los registros de tu jornada laboral. Si notas algún error, comunícate con los administradores para solucionarlo."
+      },
+      {
+        "q": "¿Qué debo hacer si no puedo iniciar o finalizar mi jornada?",
+        "a": "Verifica que el usuario y la contraseña sean correctos. Comprueba también que no estés utilizando mayúsculas en el teclado. Si el problema persiste, espera unos minutos para que se sincronice automáticamente, o informa a tu responsable si el error sigue presente."
+      },
+      {
+        "q": "¿Qué significa un estado de ausencia sin revisar?",
+        "a": "Un estado de ausencia sin revisar indica que la solicitud aún no ha sido analizada por un administrador. Una vez aprobada o denegada, cambiará automáticamente a un estado final."
+      },
+      {
+        "q": "¿Cómo resuelvo problemas técnicos del sistema?",
+        "a": "Comprueba tu conexión a internet y trata de actualizar la página (Ctrl+R o F5). Si el problema persiste, intenta cerrar y volver a iniciar sesión. Contacta con el soporte técnico si los errores continúan."
+      }
+    ]
+  }
+}

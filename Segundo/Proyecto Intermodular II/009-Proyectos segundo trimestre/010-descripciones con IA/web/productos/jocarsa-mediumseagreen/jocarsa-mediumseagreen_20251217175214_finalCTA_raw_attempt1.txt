@@ -1,0 +1,8 @@
+{
+  "finalCTA": {
+    "title":"Transforma tu Contenido Educativo",
+    "description":"Descubre cómo convertir tus videos en didácticos recursos con nuestros sofisticados algoritmos. ¡Haga clic para obtener más información!",
+    "actions":[{"type":"primary","text":"Más Información"},{"type":"secondary","text":"¡Prueba Ahora!"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"true"}]}
+  }
+}

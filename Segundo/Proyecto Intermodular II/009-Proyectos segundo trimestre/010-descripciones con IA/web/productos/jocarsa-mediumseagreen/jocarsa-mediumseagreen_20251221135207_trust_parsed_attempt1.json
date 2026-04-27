@@ -1,0 +1,10 @@
+{
+  "trust": {
+    "title": "Título",
+    "points": [
+      "Implementa un flujo de descarga de subtítulos prioritario para idiomas españoles (es, es-ES, es-419) y un fallback a auto-captions en español o el mejor candidato no español.",
+      "Transforma los subtítulos .vtt a texto sólido sin timestamps ni etiquetas de tiempo, facilitando su lectura e integración en la estructura didáctica del contenido educativo.",
+      "Utiliza un modelo de embeddings para clasificar automáticamente la pertinencia de cada tema o subtema con respecto al contenido de los videos, mejorando la calidad del resumen y el aprendizaje."
+    ]
+  }
+}

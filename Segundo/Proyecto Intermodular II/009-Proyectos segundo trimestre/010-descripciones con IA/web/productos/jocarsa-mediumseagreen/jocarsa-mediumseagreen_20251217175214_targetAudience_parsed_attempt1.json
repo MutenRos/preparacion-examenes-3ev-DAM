@@ -1,0 +1,23 @@
+{
+  "targetAudience": {
+    "title": "Estudiantes y educadores de nivel medio superior y universitario",
+    "profiles": [
+      {
+        "name": "Profesores de Tecnología",
+        "fit": "Ofrece herramientas para analizar y organizar contenido multimedia de videos, mejorando la enseñanza y el aprendizaje"
+      },
+      {
+        "name": "Estudiantes de Tecnología e Informática",
+        "fit": "Facilita el acceso a recursos educativos en formato digital, permitiendo una mayor interacción y comprensión del material"
+      },
+      {
+        "name": "Coordinadores académicos",
+        "fit": "Permite gestionar y personalizar la distribución de contenido para mejorar la experiencia educativa"
+      },
+      {
+        "name": "Desarrolladores web y front-end",
+        "fit": "Proporciona scripts y herramientas para automatizar el procesamiento y análisis de contenidos multimedia, facilitando su integración en plataformas digitales"
+      }
+    ]
+  }
+}

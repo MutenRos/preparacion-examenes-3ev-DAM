@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"jocarsa | salmon","items":["Simplifica la creación y gestión de salas virtuales para presentaciones y talleres","Permite a los usuarios acceder con una interfaz intuitiva, sin necesidad de complicados pasos técnicos","Facilita el envío de invitaciones personalizadas con o sin contraseña, asegurando la seguridad del contenido"]}
+}

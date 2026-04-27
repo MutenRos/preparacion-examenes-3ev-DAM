@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Tu SaaS Educativo para Gestión de Sesiones Virtuales",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "docentes",
+      "administradores escolares"
+    ],
+    "ctaPrimary": "Conoce jocarsa | salmon ahora",
+    "ctaSecondary": "Preguntas frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Sistema integral para la gestión de sesiones virtuales en educación, asegurando una experiencia inmersiva y segura.",
+    "subtitle": "Crea, gestiona y monitorea sesiones virtuales con facilidad.",
+    "badges": [
+      "Seguro",
+      "Inmersivo",
+      "Fácil de usar"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Conoce más"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas frecuentes"
+      },
+      {
+        "type": "tertiary",
+        "text": "Prueba gratis"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Nueva campaña","items":["PATHS","CONFIG","LOGS JSONL (se mantienen tal cual internamente)","SQLITE","migraciones suaves","CSV","TEMPLATE {{columna}}","case-insensitive fallback","EMAIL HTML NORMALIZATION (evita “doble interlineado” por <p>)","Reset estable para clientes de correo (Gmail/Outlook/Apple Mail)"]}
+}

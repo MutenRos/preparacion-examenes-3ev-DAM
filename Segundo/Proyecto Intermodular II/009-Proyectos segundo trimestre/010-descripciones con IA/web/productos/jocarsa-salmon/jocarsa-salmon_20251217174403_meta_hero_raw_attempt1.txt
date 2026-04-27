@@ -1,0 +1,23 @@
+```json
+{
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Invitación y Gestión de Sesiones en TimeOut",
+    "category": "Software Educativo",
+    "audience_segments": ["Profesores", "Estudiantes", "Admins"],
+    "ctaPrimary": "Crear Sesión",
+    "ctaSecondary": "Iniciar Sesión"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Facilite la creación y gestión de sesiones en tiempo real, con invitaciones personalizadas y seguridad robusta.",
+    "subtitle": "Invitar a estudiantes y profesores fácilmente. Seguridad por defecto con autenticación única.",
+    "badges": ["Sesiones Personalizadas", "Autenticación Segura", "Compatibilidad Multi-Navegador"],
+    "actions": [
+      {"type":"primary","text":"Crear Sesión"},
+      {"type":"secondary","text":"Iniciar Sesión"},
+      {"type":"tertiary","text":"Descubre Más"}
+    ]
+  }
+}
+```

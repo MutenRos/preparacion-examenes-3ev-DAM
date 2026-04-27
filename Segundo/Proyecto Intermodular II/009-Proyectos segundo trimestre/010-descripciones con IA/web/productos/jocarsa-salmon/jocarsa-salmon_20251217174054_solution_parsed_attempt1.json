@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | salmon",
+    "overview": "Este software educativo, jocarsa | salmon, ofrece una plataforma de invitación y gestión de sesiones en línea. Permite a los usuarios crear y gestionar salas de videoconferencia con diferentes roles y contraseñas. La interfaz web genera invitaciones detalladas para cada rol, incluyendo los pasos necesarios para unirse a la sala.",
+    "whatChanges": [
+      "Implementación de roles diferenciados (usario/presentador)",
+      "Generación automatizada de invitaciones con detalles específicos",
+      "Gestión segura de contraseñas en formato plano y hash"
+    ]
+  }
+}

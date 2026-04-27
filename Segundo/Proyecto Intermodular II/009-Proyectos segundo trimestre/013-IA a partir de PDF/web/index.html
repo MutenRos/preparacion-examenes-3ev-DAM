@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chatbot Cursos de Inglés</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <div class="title">Asistente de cursos de inglés</div>
+      <div class="sub">Basado únicamente en el material entrenado</div>
+    </div>
+    <button id="reset" type="button">Nuevo chat</button>
+  </header>
+
+  <main id="chat"></main>
+
+  <footer>
+    <form id="form">
+      <input id="prompt" placeholder="Escribe tu pregunta..." autocomplete="off" />
+      <button id="send" type="submit">Enviar</button>
+    </form>
+    <div class="hint">Ejemplos: grupos disponibles, niveles, metodología, duración, etc. (si está en el material).</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

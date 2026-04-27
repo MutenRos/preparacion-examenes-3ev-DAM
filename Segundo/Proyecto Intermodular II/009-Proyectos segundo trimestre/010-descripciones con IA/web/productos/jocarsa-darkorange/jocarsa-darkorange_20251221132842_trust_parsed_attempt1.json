@@ -1,0 +1,10 @@
+{
+  "trust": {
+    "title": "Nueva campaña",
+    "points": [
+      "Se envía texto y HTML (si el cliente soporta HTML, lo mostrará).",
+      "Los adjuntos se asocian a la campaña y se adjuntan en todos los envíos.",
+      "Reanudar salta emails ya enviados en esa campaña."
+    ]
+  }
+}

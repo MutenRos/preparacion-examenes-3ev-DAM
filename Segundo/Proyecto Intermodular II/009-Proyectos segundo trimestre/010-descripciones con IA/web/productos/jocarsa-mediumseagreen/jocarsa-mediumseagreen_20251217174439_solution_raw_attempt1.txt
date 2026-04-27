@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Generador de Contenido Educativo a partir de Subtítulos y Temarios",
+    "overview": "Este software educaativo se encarga de procesar subtítulos de videos en formato VTT, convirtiéndolos en un texto sólido y analizando los temas mencionados para crear contenido didáctico. También puede identificar y estructurar temarios de cursos utilizando lenguajes de marcas como HTML, XML y Markdown.",
+    "whatChanges": [
+      "Convierte subtítulos VTT a texto sólido sin timestamps ni etiquetas.",
+      "Analiza los temas mencionados en los videos para generar contenido didáctico.",
+      "Identifica y estructura temarios de cursos utilizando lenguajes de marcas."
+    ]
+  }
+}

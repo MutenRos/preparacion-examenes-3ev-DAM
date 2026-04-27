@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Calendario de horas con control de acceso","points":["Incluye funcionalidad para la gestión de usuarios con inicio y finalización de sesión.","Implementa mecanismos de seguridad como el hashing del password y la autenticación por usuario e identificación.","Permite gestionar entradas de calendario en fechas específicas, asegurando su existencia o creándolas si no existen.","Ofrece funcionalidad para generar rangos de fechas para meses especificados y entre dos fechas determinadas.","Incluye validación para evitar la modificación fuera del periodo permitido (antes de 3-mar-2025 y después del 13-jun-2025)."]}
+}

@@ -1,0 +1,12 @@
+```json
+{
+  "targetAudience": {
+    "title": "jocarsa | darksalmon",
+    "profiles": [
+      {"name": "Administradores", "fit": "Mantenimiento y configuración de las aplicaciones del sistema."},
+      {"name": "Trabajadores", "fit": "Registro y gestión de sus jornadas laborales."},
+      {"name": "Responsables de Jornada", "fit": "Supervisión y revisión de registros de asistencia."}
+    ]
+  }
+}
+```

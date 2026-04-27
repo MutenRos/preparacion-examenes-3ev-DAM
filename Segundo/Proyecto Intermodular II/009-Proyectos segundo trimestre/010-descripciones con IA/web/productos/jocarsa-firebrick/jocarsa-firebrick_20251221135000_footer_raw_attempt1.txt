@@ -1,0 +1,3 @@
+{
+  "footer": {"summary":"Este software es una plataforma que organiza proyectos en diferentes carpetas, permitiendo mantener iteraciones o versiones de videos asociados a cada proyecto. Está pensado para que los administradores creen y administren carpetas, proyectos e iteraciones, así como registrar y gestionar clientes. Los clientes pueden acceder a los proyectos y sus iteraciones para visualizar los videos y dejar comentarios, pero no tienen permisos de administración."}
+}

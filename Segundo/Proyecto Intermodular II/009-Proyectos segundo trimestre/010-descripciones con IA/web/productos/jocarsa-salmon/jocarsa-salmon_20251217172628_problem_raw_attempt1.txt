@@ -1,0 +1,5 @@
+```json
+{
+  "problem": {"title":"jocarsa | salmon","items":["Incorporar un sistema de autenticación más robusto y seguro","Implementar una base de datos mejor estructurada y segura","Asegurar la privacidad y confidencialidad de las contraseñas en la base de datos"]}
+}
+```

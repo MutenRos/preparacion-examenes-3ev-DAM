@@ -1,0 +1,8 @@
+{
+  "finalCTA": {
+    "title":"Descubre Cómo Optimizar Tu Proyecto",
+    "description":"Conéctate con nuestro equipo para obtener asesoramiento personalizado y ver cómo nuestro software educativo puede mejorar la eficiencia de tu trabajo.",
+    "actions":[{"type":"primary","text":"Obtener Asesoramiento"},{"type":"secondary","text":"¡Prueba Ahora!"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"true"}]}
+  }
+}

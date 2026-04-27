@@ -1,0 +1,240 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-khaki",
+    "title": "jocarsa | khaki - Gestiona tus tareas y horas de trabajo con precisión y facilidad",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Profesores",
+      "Educadores",
+      "Personal administrativo educativo"
+    ],
+    "ctaPrimary": "Comienza a gestionar",
+    "ctaSecondary": "Sobre nosotros"
+  },
+  "hero": {
+    "name": "jocarsa | khaki",
+    "valueProposition": "Plataforma de gestión educativa que facilita la administración de tareas y horas trabajadas, diseñada para profesores e instituciones.",
+    "subtitle": "Organiza tus calendarios y supervisa las horas laboradas con una interfaz intuitiva.",
+    "badges": [
+      "Sistema personalizado",
+      "Compatibilidad multi-plataforma",
+      "Seguridad encriptada"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comienza a gestionar"
+      },
+      {
+        "type": "secondary",
+        "text": "Sobre nosotros"
+      },
+      {
+        "type": "tertiary",
+        "text": "Preguntas frecuentes"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Implementación de funciones para manejo de usuarios y calendario",
+    "items": [
+      "Conexión SQLite + creación de tablas si no existen",
+      "Obtener usuario por username",
+      "Registrar usuario (password_hash)",
+      "Iniciar sesión (password_verify)",
+      "Verifica si hay sesión iniciada",
+      "Cierra la sesión",
+      "Genera array de fechas 'YYYY-MM-DD' para los meses indicados",
+      "Genera array de fechas 'YYYY-MM-DD' entre $start y $end (inclusive)",
+      "Crea (si no existe) y obtiene entradas de calendario en las fechas",
+      "Actualizar horas",
+      "Suma total de horas en las fechas",
+      "Todos los usuarios que tengan alguna fila en calendars",
+      "Obtiene estadísticas del calendario de un usuario: primer día con horas != 0, último día con horas != 0, total de horas",
+      "Imprime el calendario mensual en formato de cuadrícula (lunes-domingo)",
+      "Resalta en amarillo del 1-jun al 13-jun",
+      "Solo editable del 3-mar al 13-jun",
+      "Los días con 0 horas se muestran en gris, días con >0 horas se muestran en blanco, excepto los días de junio dentro de 1-13 que se resaltan en amarillo"
+    ]
+  },
+  "solution": {
+    "title": "Implementación de un sistema educativo para gestionar el calendario de horas trabajadas",
+    "overview": "El software educativo jocarsa | khaki proporciona una interfaz para administrar y visualizar las horas laborales de los usuarios. Incluye funciones como registro de usuarios, inicio de sesión, gestión de sesiones, generación de fechas en rangos específicos, y actualización y visualización del calendario de horas trabajadas.",
+    "whatChanges": [
+      "Conexión a base de datos SQLite para almacenar usuarios e historial de horas",
+      "Registro y autenticación de usuarios con contraseña hash",
+      "Gestión de sesiones de usuario (inicio, cierre)",
+      "Generación dinámica de fechas para los meses especificados",
+      "Administración de calendarios de entrada de horas para cada usuario",
+      "Visualización del calendario en formato de cuadrícula con resaltados y restricciones temporales"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a Reporte / proyecto / Estructura / proyecto / Código / intercalado."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educational Software Users",
+    "profiles": [
+      {
+        "name": "Teachers",
+        "fit": "Utilizan la plataforma para gestionar el tiempo de sus alumnos y establecer metas educativas"
+      },
+      {
+        "name": "Students",
+        "fit": "Se registran y realizan seguimiento de su progreso académico"
+      },
+      {
+        "name": "Administrators",
+        "fit": "Monitorean y administran las actividades y horarios de los estudiantes"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Usos del Software Educativo jocarsa | khaki",
+    "cases": [
+      {
+        "name": "Registro de Usuarios",
+        "description": "Permite registrar nuevos usuarios con nombre, correo electrónico y contraseña. La contraseña es almacenada en formato hasheado para seguridad."
+      },
+      {
+        "name": "Inicio de Sesión",
+        "description": "Autoriza a los usuarios registrados a iniciar sesión mediante la validación de su usuario y contraseña."
+      },
+      {
+        "name": "Administrar Horas del Calendario",
+        "description": "Permite a los usuarios registrar horas trabajadas por día. Las fechas se manejan en formato 'YYYY-MM-DD' y son verificadas para asegurar que no están fuera del período permitido (marzo 3 - junio 13)."
+      },
+      {
+        "name": "Generar Tablas de Horas",
+        "description": "Crea tablas con horas trabajadas por día, resaltando las fechas en el rango especial (1-jun a 13-jun) y diferenciando entre días con cero horas y los demás."
+      },
+      {
+        "name": "Ver Estadísticas del Calendario",
+        "description": "Proporciona estadísticas como el primer y último día con horas trabajadas, total de horas acumuladas por usuario."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Calendario Educativo con Control de Horas",
+    "items": [
+      "Permite la creación y gestión de calendarios personalizados para cada usuario",
+      "Ofrece funcionalidades para iniciar, cerrar sesión e identificar usuarios registrados",
+      "Proporciona herramientas para verificación y suma total de horas trabajadas por mes o rango de fechas",
+      "Resalta fechas especiales con amarillo y limita la edición en ciertas fechas",
+      "Muestra visualmente las estadísticas del uso del calendario a través de un formato cuadrícula fácil de entender"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones adicionales para jocarsa-khaki",
+    "notes": "Incluye conexiones y funcionalidades adicionales a las bases de datos SQLite.",
+    "items": [
+      "Conexión a SQLite con creación de tablas si no existen",
+      "Obtener usuario por username",
+      "Registrar nuevo usuario con hash del password",
+      "Iniciar sesión verificando el password",
+      "Verificar si hay sesión iniciada",
+      "Cerrar la sesión",
+      "Generar array de fechas 'YYYY-MM-DD' para los meses indicados",
+      "Generar array de fechas 'YYYY-MM-DD' entre $start y $end (inclusive)",
+      "Crear y obtener entradas de calendario en las fechas",
+      "Actualizar horas en el calendario",
+      "Obtener estadísticas del calendario de un usuario: primer día con horas != 0, último día con horas != 0, total de horas",
+      "Imprimir el calendario mensual en formato de cuadrícula resaltando junio 1-13 en amarillo y habilitando edición solo desde marzo 3 hasta junio 13"
+    ]
+  },
+  "trust": {
+    "title": "Calendario de horas con control de acceso",
+    "points": [
+      "Incluye funcionalidad para la gestión de usuarios con inicio y finalización de sesión.",
+      "Implementa mecanismos de seguridad como el hashing del password y la autenticación por usuario e identificación.",
+      "Permite gestionar entradas de calendario en fechas específicas, asegurando su existencia o creándolas si no existen.",
+      "Ofrece funcionalidad para generar rangos de fechas para meses especificados y entre dos fechas determinadas.",
+      "Incluye validación para evitar la modificación fuera del periodo permitido (antes de 3-mar-2025 y después del 13-jun-2025)."
+    ]
+  },
+  "finalCTA": {
+    "title": "Descubre cómo mejorar tu tiempo con jocarsa | khaki",
+    "description": "Gestiona tus calendarios de manera fácil y segura. Regístrate ahora para comenzar a controlar mejor tu tiempo.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Regístrate"
+      },
+      {
+        "type": "secondary",
+        "text": "Más información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo se conecta a SQLite y crea tablas si no existen?",
+        "a": "La función `getDBConnection()` establece la conexión a la base de datos SQLite. Si el archivo de base de datos no existe, las tablas 'users' y 'calendars' son creadas. Además, un usuario inicial (admin) se registra con contraseñas hasheadas."
+      },
+      {
+        "q": "¿Cómo obtiene un usuario por su nombre de usuario?",
+        "a": "La función `getUserByUsername()` busca en la base de datos a un usuario que coincida con el nombre de usuario proporcionado y devuelve sus detalles si existe."
+      },
+      {
+        "q": "¿Cómo se registra un nuevo usuario?",
+        "a": "La función `registerUser()` verifica si el nombre de usuario ya está registrado. Si no, crea un nuevo registro para el usuario proporcionado con su contraseña hasheada."
+      },
+      {
+        "q": "¿Cómo se inicia una sesión de usuario?",
+        "a": "La función `loginUser()` verifica la existencia y validadidad del usuario a través de la base de datos utilizando `password_verify()`. Si todo es correcto, inicia la sesión almacenando el ID del usuario en `$_SESSION`."
+      },
+      {
+        "q": "¿Cómo se verifica si una sesión está iniciada?",
+        "a": "La función `isLoggedIn()` simplemente verifica si existe la variable `$_SESSION['user_id']`, indicando que la sesión de un usuario está activa."
+      },
+      {
+        "q": "¿Cómo se cierra una sesión de usuario?",
+        "a": "La función `logoutUser()` elimina todos los datos de la sesión con `session_unset()` y luego destruye la sesión con `session_destroy()`, cerrando así la sesión del usuario."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Implementa una serie de funciones para gestionar usuarios y horas trabajadas en un sistema SaaS educativo. Se conecta a SQLite, registra y autentica usuarios, maneja sesiones, y permite el seguimiento de las horas laborales por fechas específicas, con características como resaltado y edición condicionales del calendario."
+  }
+}

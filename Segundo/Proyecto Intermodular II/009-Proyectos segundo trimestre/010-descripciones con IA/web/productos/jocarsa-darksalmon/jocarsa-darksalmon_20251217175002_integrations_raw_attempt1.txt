@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones adicionales", "notes":"Incluye opciones para conectar tu aplicación con otras herramientas de gestión y control.", "items":["Google Calendar","Slack","Microsoft Teams"]}
+}

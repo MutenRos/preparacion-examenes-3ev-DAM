@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Calendario","items":["Calendar API backend implemented with single-file PHP + SQLite","Backend endpoints include registration, login, logout, and calendar data management (load/save)","User authentication is required for load/save actions; otherwise, fallback to localStorage","API validates/normalizes incoming calendar data payload"]}
+}

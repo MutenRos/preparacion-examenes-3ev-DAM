@@ -1,0 +1,5 @@
+```json
+{
+  "problem": {"title":"Desafíos en la Interfaz de Usuario y Funcionalidades del SaaS jocarsa | darksalmon · App","items":["Necesidad de una Introducción Clara a las Funciones Principales","Definición Inconsistente de los Botones de Inicio y Finalización de Jornada","Desafío en el Mapeo Preciso de las Ausencias y su Estado","Información Compleja sin una Explicación Directa","Funcionalidad de Troubleshooting Falta de Unificación y Mejora"]}
+}
+```

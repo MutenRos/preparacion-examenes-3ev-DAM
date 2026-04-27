@@ -1,0 +1,31 @@
+{
+    "lang": "es",
+    "type": "softwareEducativo",
+    "version": "1.1",
+    "meta": {
+        "slug": "jocarsa-darksalmon",
+        "title": "Jocarsa DarkSalmon - Tu Aplicación de Gestión de Horarios",
+        "category": "Educational Management Software",
+        "audience_segments": ["Administradores", "Docentes", "Personal de Apoyo"],
+        "ctaPrimary": "Descubre Más",
+        "ctaSecondary": "Prueba Gratuita"
+    },
+    "hero": {
+        "name": "Gestiona tus Horarios con Facilidad",
+        "valueProposition": "Jocarsa DarkSalmon es la herramienta perfecta para administrar y supervisar los horarios laborales de tu institución. Simplifica la gestión de jornadas, ausencias y más.",
+        "subtitle": "Agiliza la administración diaria con nuestra aplicación intuitiva.",
+        "badges": ["Horario Semanal", "Ingreso Salida", "Ausencias"],
+        "actions": [
+            {
+                "type": "primary",
+                "text": "Descubre Más",
+                "url": "#"
+            },
+            {
+                "type": "secondary",
+                "text": "Prueba Gratuita",
+                "url": "#"
+            }
+        ]
+    }
+}

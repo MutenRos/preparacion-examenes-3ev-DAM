@@ -1,0 +1,5 @@
+{
+  "footer": {
+    "summary": "Implementa una serie de funciones para gestionar usuarios y horas trabajadas en un sistema SaaS educativo. Se conecta a SQLite, registra y autentica usuarios, maneja sesiones, y permite el seguimiento de las horas laborales por fechas específicas, con características como resaltado y edición condicionales del calendario."
+  }
+}

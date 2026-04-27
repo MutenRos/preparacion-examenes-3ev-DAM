@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "jocarsa | salmon",
+    "cases": [
+      {
+        "name": "Admin Login",
+        "description": "Permite a los administradores acceder al panel de control usando credenciales predefinidas. Ofrece un mensaje de error para las contraseñas incorrectas."
+      },
+      {
+        "name": "Room Management",
+        "description": "Permiten crear, modificar y eliminar salas de videoconferencia. Las salas pueden ser invitas con diferentes roles (usuario o presentador) y opciones para establecer una contraseña."
+      },
+      {
+        "name": "Invitation Messages",
+        "description": "Genera mensajes de invitación personalizados que se envían a los usuarios con instrucciones detalladas sobre cómo unirse a una sala, incluyendo el ID de la sala y posiblemente la contraseña."
+      }
+    ]
+  }
+}

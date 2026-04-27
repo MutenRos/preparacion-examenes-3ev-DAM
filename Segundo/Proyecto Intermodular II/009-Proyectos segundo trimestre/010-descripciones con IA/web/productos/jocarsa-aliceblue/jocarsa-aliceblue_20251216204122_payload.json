@@ -1,0 +1,186 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "Jocarsa Alice Blue - Solución Educativa Personalizada",
+    "category": "Soluciones Educativas",
+    "audience_segments": [
+      "Educadores",
+      "Administradores de Colegios",
+      "Alumnos"
+    ],
+    "ctaPrimary": "Descubre Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "Jocarsa Alice Blue",
+    "valueProposition": "Transforme el Aprendizaje con Jocarsa Alice Blue, la plataforma educativa que combina personalización y eficiencia para mejorar las experiencias de aprendizaje.",
+    "subtitle": "Pioneira en tecnología educativa, diseñada para transformar la educación del siglo XXI",
+    "badges": [
+      "Personalizada",
+      "Eficiente",
+      "Innovadora"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Descubre Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas Frecuentes"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Desafíos en la Educación Tradicional",
+    "items": [
+      "Burocracia y procesos ineficientes",
+      "Falta de personalización del aprendizaje",
+      "Dificultad para medir el progreso efectivamente"
+    ]
+  },
+  "solution": {
+    "title": "Solución Jocarsa Alice Blue",
+    "overview": "Jocarsa Alice Blue ofrece una solución integral que permite a los educadores y administradores mejorar su tiempo, mejorar la experiencia de aprendizaje e impulsar un enfoque personalizado para cada estudiante.",
+    "whatChanges": [
+      "Mejora del flujo de trabajo",
+      "Personalización del aprendizaje basada en datos",
+      "Medición y análisis detallados del progreso"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características Principales",
+    "features": [
+      {
+        "name": "Flujo de Trabajo Simplificado",
+        "benefit": "Elimina la necesidad de procesos burocráticos, permitiendo un enfoque más flexible para el aprendizaje"
+      },
+      {
+        "name": "Personalización del Aprendizaje",
+        "benefit": "Ofrece herramientas avanzadas para personalizar el contenido y los métodos de enseñanza a las necesidades específicas de cada estudiante"
+      },
+      {
+        "name": "Análisis Detallados del Progreso",
+        "benefit": "Proporciona informes detallados sobre el progreso, permitiendo a los educadores tomar decisiones basadas en datos"
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para Quién es Jocarsa Alice Blue?",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "mejora su tiempo y mejora la calidad del aprendizaje para sus estudiantes"
+      },
+      {
+        "name": "Administradores de Colegios",
+        "fit": "Mantiene a todos los participantes en una misma hoja de ruta, mejorando la gestión escolar"
+      },
+      {
+        "name": "Alumnos",
+        "fit": "Benefician de un aprendizaje personalizado que se adapta a su ritmo y estilos únicos"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Gestión del Aprendizaje Personalizada",
+        "description": "Jocarsa Alice Blue permite a los educadores adaptar el contenido y los métodos de enseñanza al ritmo individual y estilo de aprendizaje de cada estudiante"
+      },
+      {
+        "name": "Medición del Progreso en Tiempo Real",
+        "description": "Los administradores pueden monitorear el progreso de todos los estudiantes en tiempo real, con informes detallados y análisis predictivos"
+      },
+      {
+        "name": "Simplificación del Flujo de Trabajo",
+        "description": "Elimina procesos burocráticos y simplifica las tareas diarias para los educadores"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Ventajas de Jocarsa Alice Blue",
+    "items": [
+      "Mejora significativa en la eficiencia del proceso de aprendizaje",
+      "Mejor experiencia de aprendizaje personalizada",
+      "Análisis precisos y confiables del progreso de los estudiantes"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Flexibles",
+    "notes": "Jocarsa Alice Blue ofrece una amplia gama de integraziones que pueden ser personalizadas para satisfacer las necesidades únicas de cada institución.",
+    "items": [
+      "Google Classroom",
+      "Microsoft Teams",
+      "SAP SuccessFactors"
+    ]
+  },
+  "trust": {
+    "title": "Confianza y Soporte",
+    "points": [
+      "Equipo experto en educación",
+      "Seguridad avanzada para datos escolares",
+      "Soporte personalizado y rápido"
+    ]
+  },
+  "finalCTA": {
+    "title": "Transforme su Enfoque Educativo",
+    "description": "Descubra cómo Jocarsa Alice Blue puede transformar el aprendizaje en su institución con una experiencia de uso intuitiva y herramientas avanzadas.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Pruebe Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Más Información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "false"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo personaliza Jocarsa Alice Blue el aprendizaje?",
+        "a": "Jocarsa Alice Blue utiliza análisis de datos para adaptar contenido y métodos de enseñanza a las necesidades individuales de los estudiantes."
+      },
+      {
+        "q": "¿Es seguro mi información en Jocarsa Alice Blue?",
+        "a": "Sí, utilizamos medidas avanzadas de seguridad para proteger los datos escolares y personales."
+      },
+      {
+        "q": "¿Puedo probar Jocarsa Alice Blue sin comprometerme?",
+        "a": "Claro, proporcionamos una prueba gratuita que le permite experimentar todas las funciones de Jocarsa Alice Blue sin costo."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Conéctese con nosotros para descubrir cómo Jocarsa Alice Blue puede transformar la educación en su institución. Contacte a nuestro equipo de expertos hoy mismo!"
+  }
+}

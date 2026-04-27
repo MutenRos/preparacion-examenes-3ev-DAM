@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Calendario","points":["Backend API única en PHP + SQLite para registro, inicio de sesión y gestión de eventos","Autenticación requerida para funciones de carga y guardado","Normalización y validación del payload del calendario asegurando un formato uniforme"]}
+}

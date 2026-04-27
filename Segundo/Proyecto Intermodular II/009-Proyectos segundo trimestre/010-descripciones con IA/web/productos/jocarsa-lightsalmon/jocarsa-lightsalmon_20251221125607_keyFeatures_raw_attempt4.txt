@@ -1,0 +1,5 @@
+[
+  {"name":"Registro y Autenticación","benefit":"Permite a los usuarios crear cuentas, iniciar sesión y cerrar sesiones de manera segura para gestionar su calendario."},
+  {"name":"Carga y Guardado Automáticos","benefit":"Los datos del calendario se normalizan y se almacenan en formato JSON, asegurando la integridad y facilitando el uso."},
+  {"name":"Interfaz Intuitiva","benefit":"Una interfaz fácil de usar con paneles y formularios bien estructurados que facilita la adición, actualización y eliminación de eventos."}
+]

@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Educadores y Administrativos","profiles":[{"name":"Docentes","fit":"Necesitan gestionar eventos y fechas importantes de manera eficiente"},{"name":"Coordinadores","fit":"Requieren acceder a información detallada sobre los calendarios"},{"name":"Directivos","fit":"Tienen la responsabilidad de administrar todos los eventos en una institución"}]}
+}

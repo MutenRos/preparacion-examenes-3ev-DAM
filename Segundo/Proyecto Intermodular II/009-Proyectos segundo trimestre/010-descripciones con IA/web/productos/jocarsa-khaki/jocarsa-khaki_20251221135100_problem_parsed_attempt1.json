@@ -1,0 +1,24 @@
+{
+  "problem": {
+    "title": "Implementación de funciones para manejo de usuarios y calendario",
+    "items": [
+      "Conexión SQLite + creación de tablas si no existen",
+      "Obtener usuario por username",
+      "Registrar usuario (password_hash)",
+      "Iniciar sesión (password_verify)",
+      "Verifica si hay sesión iniciada",
+      "Cierra la sesión",
+      "Genera array de fechas 'YYYY-MM-DD' para los meses indicados",
+      "Genera array de fechas 'YYYY-MM-DD' entre $start y $end (inclusive)",
+      "Crea (si no existe) y obtiene entradas de calendario en las fechas",
+      "Actualizar horas",
+      "Suma total de horas en las fechas",
+      "Todos los usuarios que tengan alguna fila en calendars",
+      "Obtiene estadísticas del calendario de un usuario: primer día con horas != 0, último día con horas != 0, total de horas",
+      "Imprime el calendario mensual en formato de cuadrícula (lunes-domingo)",
+      "Resalta en amarillo del 1-jun al 13-jun",
+      "Solo editable del 3-mar al 13-jun",
+      "Los días con 0 horas se muestran en gris, días con >0 horas se muestran en blanco, excepto los días de junio dentro de 1-13 que se resaltan en amarillo"
+    ]
+  }
+}

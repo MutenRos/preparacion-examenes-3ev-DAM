@@ -1,0 +1,10 @@
+{
+  "benefits": {
+    "title": "Compatibilidad y Simplicidad",
+    "items": [
+      "Permite a los usuarios registrar, iniciar sesión y administrar eventos de manera segura y eficiente",
+      "Ofrece una interfaz clara con panel de control para agregar, modificar y eliminar eventos en su calendario personal",
+      "Facilita la sincronización entre el backend y el frontend mediante API's RESTful, permitiendo un uso fluido sin interrupciones"
+    ]
+  }
+}

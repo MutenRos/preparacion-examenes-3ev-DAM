@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones Adicionales", "notes":"Las integraiones adicionales son opcionales y pueden mejorar la funcionalidad del software educativo.", "items":["API de Notificación","Autenticación Social","Sincronización con Calendarios"]}
+}

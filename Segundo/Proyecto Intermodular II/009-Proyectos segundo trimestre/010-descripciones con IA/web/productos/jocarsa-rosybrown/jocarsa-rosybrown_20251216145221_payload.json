@@ -1,0 +1,176 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-rosybrown",
+    "title": "Gestiona tu facturación y administración con total eficiencia",
+    "category": "Software de Facturación",
+    "audience_segments": [
+      "Empresarios",
+      "Administradores Financieros",
+      "Contables"
+    ],
+    "ctaPrimary": "Acceder al Panel de Administración",
+    "ctaSecondary": "Consulta Precios"
+  },
+  "hero": {
+    "name": "Gestiona tu facturación y administración con total eficiencia",
+    "valueProposition": "Emite facturas profesionales, gestiona clientes e informes financieros interactivos.",
+    "subtitle": "Con jocarsa | rosybrown, mejora tu negocio con una herramienta integral de facturación y gestión contable.",
+    "badges": [
+      "Sencilla",
+      "Interactiva",
+      "Personalizada"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Acceder al Panel de Administración"
+      },
+      {
+        "type": "secondary",
+        "text": "Consulta Precios"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Desafíos en la Facturación y Gestion",
+    "items": [
+      "Retenciones y epígrafes complejos",
+      "Gestión tradicional detallada",
+      "Informes desactualizados"
+    ]
+  },
+  "solution": {
+    "title": "Solución Integral",
+    "overview": "Con jocarsa | rosybrown, simplifica la facturación y la gestión administrativa con herramientas intuitivas y poderosas.",
+    "whatChanges": [
+      "Automatización de facturación",
+      "Gestión eficiente de clientes e inventario",
+      "Generación de informes interactivos"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características Destacadas",
+    "features": [
+      {
+        "name": "Facturación Completa",
+        "benefit": "Crea, edita y gestiona facturas sencillamente, con soporte para retenciones y epígrafes."
+      },
+      {
+        "name": "Gestión de Clientes y Productos",
+        "benefit": "Administra toda la información de tus clientes e inventario. Busca y actualiza registros fácilmente."
+      },
+      {
+        "name": "Informes Financieros",
+        "benefit": "Genera informes detallados y visualiza datos interactivamente en gráficos de línea, barra y pastel."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para Quién",
+    "profiles": [
+      {
+        "name": "Empresarios",
+        "fit": "mejora tus procesos administrativos con una solución integral."
+      },
+      {
+        "name": "Administradores Financieros",
+        "fit": "Gestiona eficientemente facturación y gastos con informes detallados."
+      },
+      {
+        "name": "Contables",
+        "fit": "Facilita la gestión contable con una herramienta intuitiva e interactiva."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Facturación Profesional",
+        "description": "Emitir facturas profesionales y detalladas, con soporte para retenciones y epígrafes."
+      },
+      {
+        "name": "Gestión de Clientes e Inventario",
+        "description": "Administrar clientes e inventario de productos. Buscar, filtrar y actualizar registros fácilmente."
+      },
+      {
+        "name": "Análisis Financiero",
+        "description": "Generar informes detallados con gráficos interactivos para analizar ingresos y gastos."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios y Ventajas",
+    "items": [
+      {
+        "text": "Eficiencia y productividad: Automatiza tareas administrativas y reduce tiempo en gestión tradicional."
+      },
+      {
+        "text": "Interfaz intuitiva: Diseñada para usuarios sin conocimientos técnicos."
+      },
+      {
+        "text": "Seguridad y control: Acceso restringido y gestión de múltiples usuarios, garantizando confidencialidad."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Precios",
+    "cards": [
+      {
+        "title": "Básico",
+        "price": "$50/mes",
+        "features": [
+          "Funcionalidades básicas",
+          "Soporte por email"
+        ]
+      },
+      {
+        "title": "Avanzado",
+        "price": "$120/mes",
+        "features": [
+          "Todo lo del Básico",
+          "Funcionalidades avanzadas",
+          "Soporte prioritario"
+        ]
+      },
+      {
+        "title": "Dedicado",
+        "price": "$250/mes",
+        "features": [
+          "Todo lo del Avanzado",
+          "Soporte dedicado"
+        ]
+      }
+    ]
+  },
+  "demo": {
+    "title": "Ver Demo",
+    "description": "Mira cómo jocarsa | rosybrown simplifica tu facturación y gestión contable.",
+    "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "form": {
+      "method": "submit",
+      "action": "/contacto"
+    },
+    "fields": [
+      {
+        "type": "text",
+        "label": "Nombre"
+      },
+      {
+        "type": "email",
+        "label": "Email"
+      },
+      {
+        "type": "textarea",
+        "label": "Mensaje"
+      }
+    ],
+    "submit": "Enviar"
+  }
+}

@@ -1,0 +1,5 @@
+[
+  {"name":"Registra inicio y final de jornada","benefit":"Permite a los usuarios iniciar y terminar su jornada laboral con un solo clic, garantizando la precisión de las horas trabajadas."},
+  {"name":"Mapeo de ubicación en tiempo real","benefit":"Ofrece un mapa que muestra el lugar donde se registró la asistencia, facilitando la verificación del cumplimiento de las políticas de asistencia."},
+  {"name":"Ver historial completo de jornadas laborales","benefit":"Permite a los usuarios revisar todos sus registros anteriores para asegurarse de su precisión y corregir cualquier error si es necesario."}
+]

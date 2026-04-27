@@ -1,0 +1,48 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Mejora la Interacción en tu Aula",
+    "category": "Educación",
+    "audience_segments": ["Profesores", "Directivos Escolares", "Estudiantes"],
+    "ctaPrimary": "Descubre ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "Aumenta la motivación y el aprendizaje interactivo en tu aula con aliceblue, un sistema integral de captura y gestión de contenido educativo.",
+    "subtitle": "Transforma las clases tradicionales en experiencias de aprendizaje modernas e interactivas.",
+    "badges": ["Fácil de usar", "Seguro para niños", "Adaptado a cualquier dispositivo"],
+    "actions": [
+      {"type":"primary","text":"Descubre aliceblue"},
+      {"type":"secondary","text":"Ver cases de uso"},
+      {"type":"tertiary","text":"Contactar"}
+    ]
+  },
+  "problem": {"title": "Desafíos en la enseñanza interactiva","items": ["Materiales didácticos limitados", "Dificultad para organizar el contenido de forma eficiente", "Falta de herramientas que permitan interactuar con los estudiantes"]},
+  "solution": {"title": "aliceblue como solución a estos desafíos","overview": "aliceblue es una plataforma integral que permite la captura, organización y presentación de materiales didácticos en entornos educativos. Proporciona un espacio seguro para el aprendizaje interactivo, facilitando la colaboración entre estudiantes y maestros.", "whatChanges": ["Ofrece una interfaz intuitiva", "Almacena de manera segura todo tipo de contenido educativo", "Permite la interacción en tiempo real con los alumnos"]},
+  "keyFeatures": {"title": "Características principales","features": [{"name":"Interfaz intuitiva","benefit":"Fácil aprendizaje y uso"},{"name":"Seguridad para niños","benefit":"Ambiente seguro y monitoreado"},{"name":"Adaptabilidad a cualquier dispositivo","benefit":"Acceso al contenido desde cualquier lugar"}]},
+  "targetAudience": {"title": "Perfiles de usuarios objetivo","profiles": [{"name":"Profesores","fit":"aliceblue facilita la creación, organización e intercambio de recursos didácticos para mejorar el aprendizaje"},{"name":"Directivos escolares","fit":"Aumentan la eficiencia en la gestión del contenido educativo y fomentan un ambiente interactivo para los estudiantes"},{"name":"Estudiantes","fit":"Participan activamente en el aula con herramientas interactivas que mantienen su atención"}]},
+  "useCases": {"title": "Casos de uso","cases": [{"name":"Captura e intercambio de recursos didácticos","description":"Los profesores pueden capturar y compartir fácilmente materiales educativos, facilitando la colaboración entre colegas"},{"name":"Organización y gestión del contenido","description":"La plataforma permite organizar todo el material educativo en un espacio seguro y accesible para todos los miembros de la comunidad escolar"},{"name":"Interacción en tiempo real con estudiantes","description":"Los profesores pueden interactuar directamente con sus alumnos durante las lecciones, mejorando así su participación e interés"}]},
+  "benefits": {"title": "Ventajas de aliceblue","items": ["Mejora la experiencia educativa", "Fomenta el aprendizaje activo", "Aumenta la motivación del estudiante"]},
+  "integrations": {"include": true,"optional": "true","title": "Integraciones con otras herramientas educativas","notes": "aliceblue puede ser integrada con otras plataformas para una experiencia de aprendizaje más completa. Las integraziones son opcionales y se pueden configurar según las necesidades del cliente."},
+  "trust": {"title": "Confianza y seguridad","points": ["Certificado de seguridad", "Política de privacidad transparente", "Soporte técnico dedicado"]},
+  "finalCTA": {
+    "title": "Descubre aliceblue",
+    "description": "Transforma la forma en que enseñas e aprendes con aliceblue. Póngase en contacto para una demostración personalizada.",
+    "actions": [{"type":"primary","text":"Contactar a aliceblue"}, {"type":"secondary","text":"Ver cases de uso"}],
+    "contact": {
+      "email": "info@aliceblue.com",
+      "phone": "+1234567890"
+    }
+  },
+  "faq": [
+    {"question": "¿Cómo funciona aliceblue?", "answer": "aliceblue es una plataforma que permite a los profesores capturar, organizar y presentar contenido educativo de manera interactiva. Proporciona herramientas para facilitar la colaboración entre estudiantes y maestros."},
+    {"question": "¿Es seguro para niños usar aliceblue?", "answer": "Sí, aliceblue está diseñado con una interfaz segura que protege a los niños mientras aprenden y participan en actividades educativas interactivas."},
+    {"question": "¿Qué dispositivos se pueden utilizar con aliceblue?", "answer": "aliceblue es adaptable a cualquier dispositivo. Los usuarios pueden acceder al contenido desde computadoras, tabletas o smartphones, facilitando el acceso a la educación de calidad dondequiera que estén."},
+    {"question": "¿Cuál es la diferencia entre la versión básica y premium de aliceblue?", "answer": "La versión premium ofrece más funcionalidades como características avanzadas de gestión de contenido y herramientas de interacción más sofisticadas, además de soporte prioritario."},
+    {"question": "¿Cómo puedo suscribirme a aliceblue?", "answer": "Para acceder a aliceblue, por favor póngase en contacto con nuestro equipo de ventas para discutir las opciones de suscripción y recibir una demostración personalizada."}
+  ]
+}

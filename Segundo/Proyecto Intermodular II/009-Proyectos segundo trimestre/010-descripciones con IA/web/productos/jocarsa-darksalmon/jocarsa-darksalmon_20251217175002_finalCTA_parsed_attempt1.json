@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Adquiere jocarsa | darksalmon",
+    "description": "Empoderate con nuestra plataforma educativa de vanguardia. Permite a tus estudiantes y profesores gestionar sus horarios, ausencias y registros laborales de manera sencilla.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Descubre más"
+      },
+      {
+        "type": "secondary",
+        "text": "Contáctenos"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

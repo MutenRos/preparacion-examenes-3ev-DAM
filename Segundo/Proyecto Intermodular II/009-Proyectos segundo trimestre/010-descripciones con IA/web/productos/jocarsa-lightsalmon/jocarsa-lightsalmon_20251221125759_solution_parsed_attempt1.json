@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | lightSalmon Calendario",
+    "overview": "Desarrollado para manejar eventos y calendarios en una aplicación SaaS. Permite registrar, iniciar sesión, cargar, guardar y gestionar eventos, categorías y festivos mediante API RESTful.",
+    "whatChanges": [
+      "Implementa endpoints para registro, inicio de sesión y cierre de sesión de usuarios.",
+      "Proporciona manejo seguro del calendario con validación y normalización de datos.",
+      "Incluye funcionalidades de carga y guardado de eventos con autenticación requerida."
+    ]
+  }
+}

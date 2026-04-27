@@ -9,13 +9,23 @@ import shutil
 import re
 
 # ===================== Configuración =====================
+<<<<<<< HEAD
 BASE_PATH = Path(".").resolve()                 # raíz de la ASIGNATURA
 OUTPUT_FILE = BASE_PATH / "README.md"
+=======
+BASE_PATH = Path("/var/www/html/dam2526")   # carpeta base (donde están las UNIDADES directamente)
+OUTPUT_FILE = BASE_PATH / "README.md"        # Informe con resúmenes
+OUTPUT_FILE_DIARIO = BASE_PATH / "diario.md" # Informe sin resúmenes
+>>>>>>> profesor/main
 EXCLUDE_DIRS = {".git", ".vscode"}
 TARGET_SUBFOLDER = "101-Ejercicios"
 TZ = ZoneInfo("Europe/Madrid")
 
+<<<<<<< HEAD
 OLLAMA_MODEL = "llama3.1:8b-instruct-q4_0"     # o 'qwen2.5-coder:7b'
+=======
+OLLAMA_MODEL = "llama3.1:8b-instruct-q4_0"  # o 'qwen2.5-coder:7b'
+>>>>>>> profesor/main
 
 # Límites de seguridad
 MAX_SUBUNIT_PROMPT_CHARS = 20000   # total por subunidad
@@ -95,12 +105,21 @@ def summarize_dates(folder: Path):
 
 def build_ollama_prompt(subunit_name: str, file_snippets: list[str]) -> str:
     """
+<<<<<<< HEAD
     - Un ÚNICO párrafo en español (3–6 frases, ~90–140 palabras).
     - Sin encabezados, listas, viñetas, enumeraciones ni bloques de código.
     - Sin intros metadiscursivas (“Resumen:…”, “Aquí te presento…”, “En esta sección…”).
     - Sin consejos, correcciones, advertencias, ni propuestas de mejora.
     - No analizar código ni describir funciones/pasos; sintetizar CONCEPTOS impartidos en clase.
     - Si el material está fragmentado, generalizar a objetivos, nociones clave y prácticas realizadas.
+=======
+    Prompt con reglas estrictas:
+    - Un ÚNICO párrafo en español (3–6 frases, ~90–140 palabras).
+    - Sin encabezados, listas, viñetas, enumeraciones ni bloques de código.
+    - Sin intros metadiscursivas.
+    - Sin consejos, correcciones, advertencias, ni propuestas de mejora.
+    - No describir funciones/pasos; sintetizar conceptos y prácticas de la clase.
+>>>>>>> profesor/main
     - Devuelve EXCLUSIVAMENTE el párrafo, sin comillas ni títulos.
     """
     guardrails = (
@@ -108,11 +127,17 @@ def build_ollama_prompt(subunit_name: str, file_snippets: list[str]) -> str:
         f"- Redacta exactamente UN párrafo en español, 3–6 frases, ~90–140 palabras, "
         f"que resuma lo ENSEÑADO en la clase correspondiente a la subunidad «{subunit_name}».\n"
         f"- Prohibido encabezados, listas, viñetas, enumeraciones o bloques de código.\n"
+<<<<<<< HEAD
         f"- Prohibido prefacios, disculpas o frases metadiscursivas (nada de 'Resumen:', "
         f"'Aquí te presento', 'En esta sección', 'A continuación').\n"
         f"- Prohibido consejos, sugerencias, evaluaciones o correcciones de código; "
         f"NO des recomendaciones ni mejores prácticas.\n"
         f"- No describas funciones ni pasos concretos; sintetiza conceptos, objetivos y prácticas de la clase.\n"
+=======
+        f"- Prohibido prefacios o frases metadiscursivas.\n"
+        f"- Prohibido consejos, sugerencias, evaluaciones o correcciones de código.\n"
+        f"- No describas funciones ni pasos concretos; sintetiza conceptos, objetivos y prácticas.\n"
+>>>>>>> profesor/main
         f"- Si hay ruido o plantillas repetidas, ignóralas.\n"
         f"- Devuelve ÚNICAMENTE el párrafo final, sin comillas ni título.\n\n"
         f"Fragmentos de archivos de la subunidad (pueden contener ruido):\n\n"
@@ -158,12 +183,17 @@ ADVICE_PATTERNS = [
 ]
 INTRO_REGEXES = [re.compile(pat, re.IGNORECASE | re.MULTILINE) for pat in INTRO_PATTERNS]
 ADVICE_REGEXES = [re.compile(pat, re.IGNORECASE) for pat in ADVICE_PATTERNS]
+<<<<<<< HEAD
+=======
+
+>>>>>>> profesor/main
 SENTENCE_SPLIT = re.compile(r"(?<=[\.\?\!])\s+")
 
 def clean_to_single_paragraph(text: str, max_words: int = MAX_SUMMARY_WORDS, max_sentences: int = MAX_SENTENCES) -> str:
     if not text:
         return ""
 
+<<<<<<< HEAD
     # Elimina bloques de código y formatos
     text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)   # code fences
     text = re.sub(r"`[^`]*`", " ", text)                      # inline code
@@ -172,6 +202,14 @@ def clean_to_single_paragraph(text: str, max_words: int = MAX_SUMMARY_WORDS, max
     text = re.sub(r"^\s*\d+[\.)]\s+", " ", text, flags=re.MULTILINE)   # enumeraciones
 
     # Quita líneas iniciales metadiscursivas/introductorias
+=======
+    text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
+    text = re.sub(r"`[^`]*`", " ", text)
+    text = re.sub(r"^\s*#{1,6}\s+.*$", " ", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s*[-*•]\s+", " ", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s*\d+[\.)]\s+", " ", text, flags=re.MULTILINE)
+
+>>>>>>> profesor/main
     lines = text.splitlines()
     cleaned_lines = []
     for i, ln in enumerate(lines):
@@ -180,38 +218,61 @@ def clean_to_single_paragraph(text: str, max_words: int = MAX_SUMMARY_WORDS, max
         cleaned_lines.append(ln)
     text = "\n".join(cleaned_lines)
 
+<<<<<<< HEAD
     # Colapsa saltos de línea a espacios
     text = re.sub(r"\s*\n\s*", " ", text)
     text = re.sub(r"\s{2,}", " ", text).strip(" \t\r\n-—:;")
 
     # Elimina frases de consejo/directrices e intros residuales
+=======
+    text = re.sub(r"\s*\n\s*", " ", text)
+    text = re.sub(r"\s{2,}", " ", text).strip(" \t\r\n-—:;")
+
+>>>>>>> profesor/main
     for rx in ADVICE_REGEXES + INTRO_REGEXES:
         text = rx.sub("", text)
     text = re.sub(r"\s{2,}", " ", text).strip(" \t\r\n-—:;")
 
+<<<<<<< HEAD
     # Limita a N frases
+=======
+>>>>>>> profesor/main
     sentences = SENTENCE_SPLIT.split(text)
     if len(sentences) > max_sentences:
         sentences = sentences[:max_sentences]
     text = " ".join(s.strip() for s in sentences if s.strip())
 
+<<<<<<< HEAD
     # Límite de palabras
+=======
+>>>>>>> profesor/main
     words = text.split()
     if len(words) > max_words:
         text = " ".join(words[:max_words]).rstrip(",.;:") + "."
 
+<<<<<<< HEAD
     # Garantiza un único párrafo
+=======
+>>>>>>> profesor/main
     text = re.sub(r"\s*\n\s*", " ", text).strip()
     if not text.endswith(('.', '!', '?')):
         text += "."
     return text
 
 
+<<<<<<< HEAD
 # --------------------- Generación del informe ---------------------
 
 def build_report(base: Path) -> str:
     lines = []
     lines.append("# Informe de 101-Ejercicios")
+=======
+# --------------------- Informe CON resúmenes (README.md) ---------------------
+
+def build_report_units(base: Path) -> str:
+    lines = []
+    lines.append("# Informe de 101-Ejercicios (Unidad/Subunidad)")
+>>>>>>> profesor/main
     lines.append("")
     lines.append(f"_Base:_ `{base}`")
     lines.append(f"_Generado:_ {human_date(datetime.now(TZ).timestamp())}")
@@ -220,11 +281,19 @@ def build_report(base: Path) -> str:
 
     any_unit = False
 
+<<<<<<< HEAD
     # Estructura: unidad / subunidad (desde la raíz de la ASIGNATURA)
     for unidad in list_dir_clean(base):
         if not unidad.is_dir():
             continue
         unit_lines, unit_has = [f"#### Unidad: `{unidad.name}`"], False
+=======
+    for unidad in list_dir_clean(base):
+        if not unidad.is_dir():
+            continue
+
+        unit_lines, unit_has = [f"## Unidad: `{unidad.name}`"], False
+>>>>>>> profesor/main
 
         for subunidad in list_dir_clean(unidad):
             if not subunidad.is_dir():
@@ -284,8 +353,74 @@ def build_report(base: Path) -> str:
     return "\n".join(lines)
 
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     report = build_report(BASE_PATH)
     OUTPUT_FILE.write_text(report, encoding="utf-8")
     print(f"✅ Informe generado: {OUTPUT_FILE}")
 
+=======
+# --------------------- Diario SIN resúmenes (diario.md) ---------------------
+
+def build_diario_units(base: Path) -> str:
+    lines = []
+    lines.append("# Diario de 101-Ejercicios (Unidad/Subunidad)")
+    lines.append("")
+    lines.append(f"_Base:_ `{base}`")
+    lines.append(f"_Generado:_ {human_date(datetime.now(TZ).timestamp())}")
+    lines.append("")
+
+    any_unit = False
+
+    for unidad in list_dir_clean(base):
+        if not unidad.is_dir():
+            continue
+
+        unit_lines, unit_has = [f"## Unidad: `{unidad.name}`"], False
+
+        for subunidad in list_dir_clean(unidad):
+            if not subunidad.is_dir():
+                continue
+
+            ejercicios_dir = subunidad / TARGET_SUBFOLDER
+            resumen_fechas = summarize_dates(ejercicios_dir)
+            if not resumen_fechas:
+                continue
+
+            text_files = [
+                f for f in sorted(ejercicios_dir.iterdir(), key=lambda x: x.name.lower())
+                if is_text_file(f)
+            ]
+            if not text_files:
+                continue
+
+            earliest, latest = resumen_fechas
+            d1, d2 = human_date(earliest), human_date(latest)
+            date_str = d1 if d1 == d2 else f"{d1} → {d2}"
+
+            unit_lines.append(f"- `{subunidad.name}` — {date_str}")
+            unit_has = True
+
+        if unit_has:
+            lines.extend(unit_lines + [""])
+            any_unit = True
+
+    if not any_unit:
+        lines.append("_No se encontraron subunidades con archivos de texto en `101-Ejercicios`._")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+# --------------------- Main ---------------------
+
+if __name__ == "__main__":
+    report = build_report_units(BASE_PATH)
+    OUTPUT_FILE.write_text(report, encoding="utf-8")
+    print(f"✅ Informe generado: {OUTPUT_FILE}")
+
+    diario = build_diario_units(BASE_PATH)
+    OUTPUT_FILE_DIARIO.write_text(diario, encoding="utf-8")
+    print(f"✅ Diario generado: {OUTPUT_FILE_DIARIO}")
+
+>>>>>>> profesor/main

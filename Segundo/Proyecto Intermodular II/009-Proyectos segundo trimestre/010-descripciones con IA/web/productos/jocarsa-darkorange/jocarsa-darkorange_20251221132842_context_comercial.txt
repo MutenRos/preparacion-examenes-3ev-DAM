@@ -1,0 +1,251 @@
+H1: Nueva campaña
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-darkorange
+# jocarsa-darkorange
+# =========================
+# PATHS
+# =========================
+# =========================
+# CONFIG
+# =========================
+# =========================
+# LOGS JSONL (se mantienen tal cual internamente)
+# =========================
+# =========================
+# SQLITE
+# =========================
+# migraciones suaves
+# =========================
+# CSV
+# =========================
+# =========================
+# TEMPLATE {{columna}}
+# =========================
+# case-insensitive fallback
+# =========================
+# EMAIL HTML NORMALIZATION (evita “doble interlineado” por <p>)
+# =========================
+# Reset estable para clientes de correo (Gmail/Outlook/Apple Mail)
+# Objetivo: controlar line-height y márgenes por defecto de <p>.
+# =========================
+# SMTP: SOLO HTML + adjuntos
+# =========================
+# SOLO HTML (normalizado para evitar márgenes/line-height excesivos)
+# Adjuntos
+# =========================
+# HELPERS CAMPANAS
+# =========================
+# =========================
+# RUNS (progreso en vivo)
+# =========================
+# =========================
+# ROUTES
+# =========================
+## csv_lists
+## runs
+## templates
+#editor{
+- Se envía <strong>texto + HTML</strong> (si el cliente soporta HTML, lo mostrará).<br/>
+- Los adjuntos se asocian a la campaña y se adjuntan en todos los envíos.<br/>
+- “Reanudar” salta emails ya enviados en esa campaña.
+## uploads
+### 1
+### 2
+### 3
+### 4
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-darkorange
+├── README.md
+├── app.py
+├── campanas.db
+├── config.json
+├── csv_lists
+│ ├── base de datos de prueba.csv
+│ └── empresas_alumnos_informatica.csv
+├── logs.jsonl
+├── runs
+│ ├── camp_1_1766232699_6671.json
+│ ├── camp_2_1766243049_5310.json
+│ ├── camp_2_1766243557_5730.json
+│ ├── camp_2_1766255510_5163.json
+│ ├── camp_3_1766259317_9756.json
+│ └── camp_4_1766259511_2038.json
+├── templates
+│ ├── campaign_new.html
+│ ├── campaign_send.html
+│ ├── campaign_view.html
+│ ├── config.html
+│ ├── index.html
+│ ├── layout.html
+│ └── logs.html
+└── uploads
+ ├── 1
+ ├── 2
+ ├── 3
+ └── 4
+```
+
+## Código (intercalado)
+
+# jocarsa-darkorange
+**README.md**
+```markdown
+# jocarsa-darkorange
+```
+**app.py**
+```python
+import os
+import csv
+import json
+import time
+import random
+import sqlite3
+import smtplib
+import ssl
+import threading
+import re
+from datetime import datetime, timezone
+from email.message import EmailMessage
+from pathlib import Path
+
+from flask import (
+ Flask, render_template, request, redirect, url_for,
+ flash, send_from_directory, abort, jsonify
+)
+
+# =========================
+# PATHS
+# =========================
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CSV_DIR = os.path.join(APP_DIR, "csv_lists")
+TEMPLATES_DIR = os.path.join(APP_DIR, "templates")
+UPLOADS_DIR = os.path.join(APP_DIR, "uploads")
+RUNS_DIR = os.path.join(APP_DIR, "runs")
+
+CONFIG_PATH = os.path.join(APP_DIR, "config.json")
+LOGS_PATH = os.path.join(APP_DIR, "logs.jsonl")
+DB_PATH = os.path.join(APP_DIR, "campanas.db")
+
+os.makedirs(CSV_DIR, exist_ok=True)
+os.makedirs(TEMPLATES_DIR, exist_ok=True)
+os.makedirs(UPLOADS_DIR, exist_ok=True)
+os.makedirs(RUNS_DIR, exist_ok=True)
+
+app = Flask(__name__, template_folder=TEMPLATES_DIR)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "cambia-esto-en-produccion")
+
+# =========================
+# CONFIG
+# =========================
+DEFAULT_CONFIG = {
+ "smtp": {
+ "host": "smtp.example.com",
+ "port": 587,
+ "usuario": "user@example.com",
+ "password": "",
+ "use_starttls": True,
+ "use_ssl": False,
+ "from_email": "user@example.com",
+ "from_name": "jocarsa"
+ },
+ "delay_seconds": {"min": 2, "max": 6},
+ "seguridad": {"max_receptores_por_campana": 2000, "max_tamano_adjuntos_mb": 20}
+}
+
+def guardar_config(cfg: dict) -> None:
+ with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+ json.dump(cfg, f, indent=2, ensure_ascii=False)
+
+def cargar_config() -> dict:
+ if not os.path.exists(CONFIG_PATH):
+ guardar_config(DEFAULT_CONFIG)
+ return DEFAULT_CONFIG.copy()
+ try:
+ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+ data = json.load(f)
+ merged = DEFAULT_CONFIG.copy()
+ merged["smtp"] = {**DEFAULT_CONFIG["smtp"], **data.get("smtp", {})}
+ merged["delay_seconds"] = {**DEFAULT_CONFIG["delay_seconds"], **data.get("delay_seconds", {})}
+ merged["seguridad"] = {**DEFAULT_CONFIG["seguridad"], **data.get("seguridad", {})}
+ return merged
+ except Exception:
+ return DEFAULT_CONFIG.copy()
+
+# =========================
+# LOGS JSONL (se mantienen tal cual internamente)
+# =========================
+def log_evento(evento: dict) -> None:
+ evento = dict(evento)
+ evento.setdefault("ts", datetime.now(timezone.utc).isoformat())
+ with open(LOGS_PATH, "a", encoding="utf-8") as f:
+ f.write(json.dumps(evento, ensure_ascii=False) + "\n")
+
+def leer_logs(limit: int = 5000):
+ if not os.path.exists(LOGS_PATH):
+ return []
+ rows = []
+ with open(LOGS_PATH, "r", encoding="utf-8") as f:
+ for line in f:
+ line = line.strip()
+ if not line:
+ continue
+ try:
+ rows.append(json.loads(line))
+ except Exception:
+ continue
+ if limit and len(rows) > limit:
+ rows = rows[-limit:]
+ rows.reverse()
+ return rows
+
+def log_match(log: dict, q: str) -> bool:
+ if not q:
+ return True
+ ql = q.lower()
+ blob = json.dumps(log, ensure_ascii=False).lower()
+ return ql in blob
+
+# =========================
+# SQLITE
+# =========================
+def db():
+ conn = sqlite3.connect(DB_PATH)
+ conn.row_factory = sqlite3.Row
+ return conn
+
+def table_columns(conn: sqlite3.Connection, table: str) -> set[str]:
+ cols = set()
+ try:
+ cur = conn.execute(f"PRAGMA table_info({table})")
+ for r in cur.fetchall():
+ cols.add(str(r["name"]))
+ except Exception:
+ return set()
+ return cols
+
+def ensure_column(conn: sqlite3.Connection, table: str, column: str, col_def_sql: str):
+ cols = table_columns(conn, table)
+ if column in cols:
+ return
+ try:
+ conn.execute(f"ALTER TABLE {table} ADD COLUMN {col_def_sql}")
+ conn.commit()
+ except Exception:
+ log_evento({"type": "db_migrate_warn", "table": table, "column": column})
+
+def init_db():
+ conn = db()
+
+ conn.execute("""
+ CREATE TABLE IF NOT EXISTS campanas (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ nombre T

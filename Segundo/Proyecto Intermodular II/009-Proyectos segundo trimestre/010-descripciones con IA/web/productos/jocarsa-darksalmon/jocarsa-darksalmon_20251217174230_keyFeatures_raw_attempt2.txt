@@ -1,0 +1,5 @@
+[
+  {"name":"Registrar Inicio y Fin de Jornada","benefit":"Permite a los usuarios registrar fácilmente el inicio y finalización de sus jornadas laborales con solo unos clics, garantizando la precisión en los registros de tiempo."},
+  {"name":"Visualizar Ubicaciones de Fichaje","benefit":"Ofrece una visualización precisa de la ubicación de cada fichaje, facilitando la verificación geográfica y el cumplimiento de políticas laborales."},
+  {"name":"Administrar Jornadas Registradas","benefit":"Permite a los administradores revisar e inspeccionar todos los registros de jornadas, permitiendo ajustes o correcciones cuando se requiera."}
+]

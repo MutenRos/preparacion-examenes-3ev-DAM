@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes jocarsa | salmon",
+    "qas": [
+      {
+        "q": "¿Qué es jocarsa | salmon?",
+        "a": "jocarsa | salmon es un software educativo que proporciona una plataforma de videollamadas para grupos de aprendizaje."
+      },
+      {
+        "q": "¿Cómo inicio sesión en jocarsa | salmon?",
+        "a": "Inicia sesión con tu nombre de usuario y contraseña. Si no tienes una cuenta, pide permiso al administrador o crea una nueva desde la página de inicio."
+      },
+      {
+        "q": "¿Cómo invito a un miembro a la sala virtual?",
+        "a": "Usa el mensaje de invitación generado en la pantalla de inicio de sesión. Proporciona los detalles como ID de sala y (si applicable) contraseña."
+      },
+      {
+        "q": "¿Cómo puedo acceder al chat dentro del grupo?",
+        "a": "Haz clic en el icono de chat en la barra lateral para abrir el chatlog, donde puedes enviar y recibir mensajes de texto con otros miembros del grupo."
+      },
+      {
+        "q": "¿Cómo pido soporte técnico si tengo problemas con jocarsa | salmon?",
+        "a": "Ponte en contacto con nuestro equipo de soporte técnico a través de la sección de soporte en el menú principal o envía un correo electrónico a support@jocarsa.com."
+      }
+    ]
+  }
+}

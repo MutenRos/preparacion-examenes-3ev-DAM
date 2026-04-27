@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Minecraft Clone — Streaming Chunks + Fractal Mountains + Fog + Save</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body { margin:0; height:100%; overflow:hidden; font-family: system-ui, Arial; background:#000; }
+    #crosshair {
+      position:absolute; top:50%; left:50%; width:20px; height:20px;
+      transform:translate(-50%,-50%); pointer-events:none;
+    }
+    #crosshair::before, #crosshair::after { content:""; position:absolute; background:white; }
+    #crosshair::before { width:2px; height:20px; left:50%; transform:translateX(-50%); }
+    #crosshair::after  { width:20px; height:2px; top:50%; transform:translateY(-50%); }
+
+    #ui {
+      position:absolute; top:10px; left:10px;
+      background:rgba(0,0,0,.6); color:#fff; padding:10px 12px; border-radius:8px;
+      font-size:14px; pointer-events:none; line-height:1.35;
+      max-width:min(520px, calc(100vw - 20px));
+    }
+    #ui .muted{opacity:.8}
+    #block-selector {
+      position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+      background:rgba(0,0,0,.6); padding:8px; border-radius:8px; display:flex; gap:8px;
+    }
+    .block-option {
+      width:36px; height:36px; border:2px solid transparent; border-radius:4px;
+      cursor:pointer; pointer-events:auto;
+    }
+    .block-option.selected { border-color:#fff; }
+
+    #reset-btn {
+      position:absolute; top:10px; right:10px;
+      background:rgba(255,0,0,.7); color:#fff; border:none;
+      padding:10px 12px; border-radius:8px; cursor:pointer; pointer-events:auto;
+    }
+    #reset-btn:hover { background:rgba(255,0,0,.9); }
+
+    #overlay {
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.7); color:#fff;
+    }
+    #overlay .card{
+      max-width:560px; padding:24px; border-radius:12px; background:rgba(20,20,20,.9);
+      text-align:center; line-height:1.5; box-shadow:0 10px 30px rgba(0,0,0,.5);
+    }
+    #overlay h1{ margin:0 0 8px; font-size:22px; }
+    #overlay p{ margin:6px 0; opacity:.9; }
+    #overlay .muted{opacity:.75; font-size:13px}
+  </style>
+</head>
+<body>
+  <div id="crosshair"></div>
+
+  <div id="ui">
+    <div><b>WASD</b> move • <b>Mouse</b> look</div>
+    <div><b>Space</b> jump • <b>LClick</b> remove • <b>RClick</b> place</div>
+    <div><b>1/2/3</b> block type • <b>R</b> respawn • <b>F</b> toggle fog • Auto-save</div>
+    <div class="muted" id="status">Loading…</div>
+  </div>
+
+  <div id="block-selector">
+    <div class="block-option selected" data-type="grass" style="background:#4CAF50"></div>
+    <div class="block-option" data-type="dirt"  style="background:#795548"></div>
+    <div class="block-option" data-type="stone" style="background:#9E9E9E"></div>
+  </div>
+
+  <button id="reset-btn">Reset World</button>
+
+  <div id="overlay">
+    <div class="card">
+      <h1>Voxel World — Streaming Chunks + Fractal Mountains + Fog</h1>
+      <p>Click to start • Mouse to look</p>
+      <p>WASD move • Space jump • LClick remove • RClick place</p>
+      <p>1/2/3 block type • R respawn • F toggle fog • Auto-saves edits</p>
+      <p class="muted">Base terrain is procedural (not stored). Only your edits are saved.</p>
+    </div>
+  </div>
+
+  <!-- Keep versions aligned -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.min.js"></script>
+
+  <script>
+  // ============================================================
+  // CONFIG
+  // ============================================================
+  const CONFIG = {
+    CHUNK_SIZE: 16,
+    CHUNK_HEIGHT: 64,               // vertical range chunked (0..63). We keep world y>=0.
+    WORLD_MIN_Y: 0,
+    WORLD_MAX_Y: 63,
+
+    // Streaming
+    LOAD_RADIUS_CHUNKS: 6,          // loaded square radius in chunks (6 => 13x13 chunks)
+    UNLOAD_RADIUS_CHUNKS: 8,        // unload beyond this
+    RAYCAST_FAR: 10,
+
+    // Player
+    PLAYER: { HEIGHT: 1.8, RADIUS: 0.3, SPEED: 6.0, JUMP: 8.0, GRAVITY: -20.0 },
+
+    // Terrain
+    SEA_LEVEL: 20,
+    BASE_HEIGHT: 18,
+    HEIGHT_AMP: 22,
+    OCTAVES: 5,
+    LACUNARITY: 2.0,
+    GAIN: 0.5,
+    MOUNTAIN_POWER: 1.6,           // higher => sharper peaks
+    STONE_DEPTH: 6,
+
+    // Rendering
+    FOG_ENABLED: true,
+    FOG_DENSITY: 0.015,            // FogExp2 density (adjust with LOAD_RADIUS for best look)
+    SHADOWS_ENABLED: true,
+    SHADOW_RADIUS_CHUNKS: 2,       // only near chunks cast/receive shadows
+
+    // Instancing
+    MAX_INSTANCES_PER_CHUNK_PER_TYPE: 32768,
+
+    // Storage
+    SAVE_KEY: "voxelStreaming_edits_v1",
+    META_KEY: "voxelStreaming_meta_v1",
+    AUTOSAVE_SECONDS: 8
+  };
+
+  const BLOCK_TYPES = ["grass","dirt","stone"];
+  const COLORS = { grass: 0x4CAF50, dirt: 0x795548, stone: 0x9E9E9E };
+
+  // ============================================================
+  // UTILS
+  // ============================================================
+  const key3 = (x,y,z)=> `${x}|${y}|${z}`;
+  const chunkKey = (cx,cz)=> `${cx}|${cz}`;
+  const floorDiv = (n,d)=> Math.floor(n/d);
+  const clamp = (v,min,max)=> Math.max(min, Math.min(max, v));
+  const statusEl = document.getElementById("status");
+
+  // Deterministic PRNG with .random() (fixes "r.random is not a function")
+  function XorShift32(seed){
+    let x = seed >>> 0;
+    return {
+      random(){
+        // xorshift32
+        x ^= (x << 13) >>> 0;
+        x ^= (x >>> 17) >>> 0;
+        x ^= (x << 5) >>> 0;
+        return (x >>> 0) / 4294967296;
+      }
+    };
+  }
+  function hash2i(x,z,seed){
+    // integer hash -> 0..1
+    let h = seed >>> 0;
+    h ^= (x * 374761393) >>> 0;
+    h = (h << 13) | (h >>> 19);
+    h ^= (z * 668265263) >>> 0;
+    h = (h * 1274126177) >>> 0;
+    return ((h >>> 0) / 4294967296);
+  }
+
+  // Smooth value noise (2D) + fractal FBM
+  function smoothstep(t){ return t*t*(3-2*t); }
+  function lerp(a,b,t){ return a + (b-a)*t; }
+
+  function valueNoise2D(x,z,seed){
+    const x0 = Math.floor(x), z0 = Math.floor(z);
+    const x1 = x0 + 1, z1 = z0 + 1;
+    const sx = smoothstep(x - x0);
+    const sz = smoothstep(z - z0);
+
+    const n00 = hash2i(x0,z0,seed);
+    const n10 = hash2i(x1,z0,seed);
+    const n01 = hash2i(x0,z1,seed);
+    const n11 = hash2i(x1,z1,seed);
+
+    const ix0 = lerp(n00, n10, sx);
+    const ix1 = lerp(n01, n11, sx);
+    return lerp(ix0, ix1, sz) * 2 - 1; // -1..1
+  }
+
+  function fbm2D(x,z,seed,octaves,lacunarity,gain){
+    let amp = 1.0, freq = 1.0, sum = 0.0, norm = 0.0;
+    for (let i=0;i<octaves;i++){
+      sum += amp * valueNoise2D(x*freq, z*freq, seed + i*1013);
+      norm += amp;
+      amp *= gain;
+      freq *= lacunarity;
+    }
+    return sum / Math.max(1e-6, norm); // -1..1
+  }
+
+  // Shared resources
+  const SHARED = {
+    geometry: new THREE.BoxGeometry(1,1,1),
+    materials: {},
+    textures: {}
+  };
+
+  function makeCanvasTexture(hex){
+    if (SHARED.textures[hex]) return SHARED.textures[hex];
+    const r=(hex>>16)&255, g=(hex>>8)&255, b=hex&255;
+    const c=document.createElement("canvas"); c.width=64; c.height=64;
+    const ctx=c.getContext("2d");
+
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.fillRect(0,0,64,64);
+
+    // subtle speckle
+    ctx.globalAlpha = 0.35;
+    for (let i=0;i<260;i++){
+      const x=Math.random()*64, y=Math.random()*64, s=Math.random()*3+1;
+      const br=(Math.random()*60-30)|0;
+      ctx.fillStyle=`rgb(${clamp(r+br,0,255)},${clamp(g+br,0,255)},${clamp(b+br,0,255)})`;
+      ctx.fillRect(x,y,s,s);
+    }
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.magFilter = tex.minFilter = THREE.NearestFilter;
+    tex.generateMipmaps = false;
+    SHARED.textures[hex] = tex;
+    return tex;
+  }
+
+  function getMaterial(type){
+    if (SHARED.materials[type]) return SHARED.materials[type];
+    const color = COLORS[type] || COLORS.grass;
+    const mat = new THREE.MeshPhongMaterial({ color, map: makeCanvasTexture(color) });
+    SHARED.materials[type] = mat;
+    return mat;
+  }
+
+  // ============================================================
+  // CHUNK (instanced by type)
+  // ============================================================
+  class Chunk {
+    constructor(cx, cz, scene){
+      this.cx = cx; this.cz = cz;
+      this.scene = scene;
+      this.size = CONFIG.CHUNK_SIZE;
+
+      this.voxels = new Map(); // key3 -> type
+      this.meshByType = new Map();
+
+      for (const type of BLOCK_TYPES){
+        const mesh = new THREE.InstancedMesh(SHARED.geometry, getMaterial(type), CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE);
+        mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        mesh.frustumCulled = false;
+        mesh.count = 0;
+        mesh.visible = true;
+        mesh.castShadow = false;
+        mesh.receiveShadow = false;
+        scene.add(mesh);
+
+        this.meshByType.set(type, {
+          mesh,
+          instanceCount: 0,
+          idToPos: [],
+          posToId: new Map()
+        });
+      }
+    }
+
+    dispose(){
+      for (const [,pack] of this.meshByType){
+        this.scene.remove(pack.mesh);
+        // geometry/material are shared, so do not dispose them here
+      }
+      this.meshByType.clear();
+      this.voxels.clear();
+    }
+
+    addBlock(x,y,z,type){
+      const k = key3(x,y,z);
+      if (this.voxels.has(k)) return false;
+      this.voxels.set(k,type);
+
+      const pack = this.meshByType.get(type);
+      const index = pack.instanceCount++;
+      if (index >= CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE){
+        // Safety: don't crash. Revert.
+        pack.instanceCount--;
+        this.voxels.delete(k);
+        return false;
+      }
+      const m = new THREE.Matrix4().makeTranslation(x+0.5, y+0.5, z+0.5);
+      pack.mesh.setMatrixAt(index, m);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+      pack.idToPos[index] = {x,y,z};
+      pack.posToId.set(k, index);
+      pack.mesh.count = pack.instanceCount;
+      return true;
+    }
+
+    removeBlock(x,y,z){
+      const k = key3(x,y,z);
+      const type = this.voxels.get(k);
+      if (!type) return false;
+      const pack = this.meshByType.get(type);
+      const index = pack.posToId.get(k);
+      if (index === undefined) return false;
+
+      const lastIndex = pack.instanceCount - 1;
+      if (index !== lastIndex){
+        const tmp = new THREE.Matrix4();
+        pack.mesh.getMatrixAt(lastIndex, tmp);
+        pack.mesh.setMatrixAt(index, tmp);
+
+        const movedPos = pack.idToPos[lastIndex];
+        pack.idToPos[index] = movedPos;
+        pack.posToId.set(key3(movedPos.x, movedPos.y, movedPos.z), index);
+      }
+
+      pack.instanceCount--;
+      pack.mesh.count = pack.instanceCount;
+      pack.idToPos.pop();
+      pack.posToId.delete(k);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+      this.voxels.delete(k);
+      return true;
+    }
+
+    setVisible(v){
+      for (const [,pack] of this.meshByType){
+        pack.mesh.visible = v && pack.instanceCount>0;
+      }
+    }
+
+    setShadowsEnabled(v){
+      for (const [,pack] of this.meshByType){
+        pack.mesh.castShadow = v;
+        pack.mesh.receiveShadow = v;
+      }
+    }
+
+    raycast(raycaster, intersects){
+      for (const [,pack] of this.meshByType){
+        if (!pack.mesh.visible || pack.instanceCount===0) continue;
+        pack.mesh.raycast(raycaster, intersects);
+      }
+    }
+
+    instanceInfo(object, instanceId){
+      for (const [type, pack] of this.meshByType){
+        if (pack.mesh === object){
+          const pos = pack.idToPos[instanceId];
+          if (!pos) return null;
+          return { type, ...pos };
+        }
+      }
+      return null;
+    }
+  }
+
+  // ============================================================
+  // WORLD (procedural base + saved edits; stream chunks near player)
+  // ============================================================
+  class World {
+    constructor(scene, seed){
+      this.scene = scene;
+      this.seed = seed >>> 0;
+      this.chunks = new Map();     // chunkKey -> Chunk
+      this.index = new Map();      // key3 -> type (for loaded area only)
+      this.edits = new Map();      // key3 -> type | null (null = removed) (global, persisted)
+
+      this.loadEdits();
+    }
+
+    // ---- Storage (only edits, not base terrain) ----
+    loadEdits(){
+      const raw = localStorage.getItem(CONFIG.SAVE_KEY);
+      if (!raw) return;
+      try{
+        const obj = JSON.parse(raw);
+        if (obj && typeof obj === "object"){
+          for (const k in obj){
+            this.edits.set(k, obj[k]); // string type or null
+          }
+        }
+      }catch(e){
+        console.warn("Bad save, ignoring", e);
+      }
+    }
+
+    saveEdits(){
+      const obj = {};
+      // keep it compact: only save keys that differ from "no edit"
+      for (const [k,v] of this.edits){
+        obj[k] = v; // string or null
+      }
+      localStorage.setItem(CONFIG.SAVE_KEY, JSON.stringify(obj));
+      localStorage.setItem(CONFIG.META_KEY, JSON.stringify({ seed: this.seed }));
+    }
+
+    // ---- Terrain height function (deterministic fractal mountains) ----
+    heightAt(x,z){
+      // multiple scales mixed
+      const nx = x * 0.015;
+      const nz = z * 0.015;
+
+      const fbm = fbm2D(nx, nz, this.seed, CONFIG.OCTAVES, CONFIG.LACUNARITY, CONFIG.GAIN); // -1..1
+      const ridged = 1.0 - Math.abs(fbm); // 0..1 ridges
+      const mountains = Math.pow(clamp(ridged,0,1), CONFIG.MOUNTAIN_POWER); // sharper peaks
+
+      const h = CONFIG.BASE_HEIGHT + CONFIG.HEIGHT_AMP * mountains + 6.0 * fbm;
+      return clamp(Math.floor(h), CONFIG.WORLD_MIN_Y+1, CONFIG.WORLD_MAX_Y-1);
+    }
+
+    baseBlockAt(x,y,z){
+      const h = this.heightAt(x,z);
+      if (y > h) return null;
+
+      // top
+      if (y === h){
+        if (h <= CONFIG.SEA_LEVEL) return "dirt";
+        return "grass";
+      }
+
+      // subsoil
+      if (y >= h - 3) return "dirt";
+
+      // deeper stone
+      return "stone";
+    }
+
+    editedBlockAt(x,y,z){
+      const k = key3(x,y,z);
+      if (this.edits.has(k)) return this.edits.get(k); // string or null
+      return undefined; // no edit
+    }
+
+    // ---- Chunk management ----
+    getChunk(cx,cz){
+      return this.chunks.get(chunkKey(cx,cz));
+    }
+
+    ensureChunk(cx,cz){
+      const ck = chunkKey(cx,cz);
+      let ch = this.chunks.get(ck);
+      if (ch) return ch;
+
+      ch = new Chunk(cx,cz,this.scene);
+      this.chunks.set(ck, ch);
+
+      // build chunk blocks (procedural + edits)
+      const x0 = cx * CONFIG.CHUNK_SIZE;
+      const z0 = cz * CONFIG.CHUNK_SIZE;
+
+      for (let lx=0; lx<CONFIG.CHUNK_SIZE; lx++){
+        for (let lz=0; lz<CONFIG.CHUNK_SIZE; lz++){
+          const x = x0 + lx;
+          const z = z0 + lz;
+
+          const h = this.heightAt(x,z);
+          for (let y=CONFIG.WORLD_MIN_Y; y<=h; y++){
+            let t = this.baseBlockAt(x,y,z);
+            const e = this.editedBlockAt(x,y,z);
+            if (e !== undefined) t = e; // string or null
+            if (t){
+              ch.addBlock(x,y,z,t);
+              this.index.set(key3(x,y,z), t);
+            }
+          }
+
+          // also apply edits ABOVE ground inside chunk vertical range (player might have built up)
+          // (scan a limited band above h to avoid huge cost)
+          const yTop = Math.min(CONFIG.WORLD_MAX_Y, h + 12);
+          for (let y=h+1; y<=yTop; y++){
+            const e = this.editedBlockAt(x,y,z);
+            if (e !== undefined){
+              if (e){
+                ch.addBlock(x,y,z,e);
+                this.index.set(key3(x,y,z), e);
+              } else {
+                // null edit above ground means "ensure empty" => nothing to add
+                this.index.delete(key3(x,y,z));
+              }
+            }
+          }
+        }
+      }
+
+      return ch;
+    }
+
+    unloadChunk(cx,cz){
+      const ck = chunkKey(cx,cz);
+      const ch = this.chunks.get(ck);
+      if (!ch) return;
+
+      // remove entries from index for this chunk
+      for (const [k] of ch.voxels){
+        this.index.delete(k);
+      }
+      ch.dispose();
+      this.chunks.delete(ck);
+    }
+
+    streamAround(playerPos){
+      const pcx = floorDiv(Math.floor(playerPos.x), CONFIG.CHUNK_SIZE);
+      const pcz = floorDiv(Math.floor(playerPos.z), CONFIG.CHUNK_SIZE);
+
+      const loadR = CONFIG.LOAD_RADIUS_CHUNKS;
+      const unloadR = CONFIG.UNLOAD_RADIUS_CHUNKS;
+
+      // Load needed
+      for (let dz=-loadR; dz<=loadR; dz++){
+        for (let dx=-loadR; dx<=loadR; dx++){
+          const cx = pcx + dx;
+          const cz = pcz + dz;
+          this.ensureChunk(cx,cz);
+        }
+      }
+
+      // Unload far
+      for (const [ck, ch] of this.chunks){
+        const dx = ch.cx - pcx;
+        const dz = ch.cz - pcz;
+        if (Math.abs(dx) > unloadR || Math.abs(dz) > unloadR){
+          this.unloadChunk(ch.cx, ch.cz);
+        }
+      }
+
+      // Shadows near only
+      const shadowR = CONFIG.SHADOW_RADIUS_CHUNKS;
+      for (const [,ch] of this.chunks){
+        const dx = ch.cx - pcx;
+        const dz = ch.cz - pcz;
+        const near = (Math.abs(dx) <= shadowR && Math.abs(dz) <= shadowR);
+        ch.setShadowsEnabled(CONFIG.SHADOWS_ENABLED && near);
+      }
+    }
+
+    // ---- Queries for physics / edits ----
+    hasBlock(x,y,z){
+      return this.index.has(key3(x,y,z));
+    }
+
+    neighborsOfAABB(min,max){
+      const res = [];
+      for (let x=Math.floor(min.x)-1; x<=Math.floor(max.x)+1; x++){
+        for (let y=Math.floor(min.y)-1; y<=Math.floor(max.y)+1; y++){
+          for (let z=Math.floor(min.z)-1; z<=Math.floor(max.z)+1; z++){
+            if (this.hasBlock(x,y,z)) res.push({x,y,z});
+          }
+        }
+      }
+      return res;
+    }
+
+    removeBlock(x,y,z){
+      // Only allow within vertical range
+      if (y < CONFIG.WORLD_MIN_Y || y > CONFIG.WORLD_MAX_Y) return false;
+
+      // Determine chunk; ensure loaded (so removal works)
+      const cx = floorDiv(x, CONFIG.CHUNK_SIZE);
+      const cz = floorDiv(z, CONFIG.CHUNK_SIZE);
+      const ch = this.ensureChunk(cx,cz);
+
+      // If there's no block loaded, nothing to remove
+      if (!this.hasBlock(x,y,z)) return false;
+
+      // Persist edit:
+      // If base has block at that position, set edit to null (removed).
+      // If base is empty but player placed something earlier, also set to null.
+      this.edits.set(key3(x,y,z), null);
+
+      // Remove from chunk + index
+      const ok = ch.removeBlock(x,y,z);
+      this.index.delete(key3(x,y,z));
+      return ok;
+    }
+
+    addBlock(x,y,z,type){
+      if (y < CONFIG.WORLD_MIN_Y || y > CONFIG.WORLD_MAX_Y) return false;
+
+      const cx = floorDiv(x, CONFIG.CHUNK_SIZE);
+      const cz = floorDiv(z, CONFIG.CHUNK_SIZE);
+      const ch = this.ensureChunk(cx,cz);
+
+      if (this.hasBlock(x,y,z)) return false;
+
+      // Persist edit: override whatever base had (including air)
+      this.edits.set(key3(x,y,z), type);
+
+      const ok = ch.addBlock(x,y,z,type);
+      if (ok) this.index.set(key3(x,y,z), type);
+      return ok;
+    }
+
+    // ---- Raycast across loaded chunks ----
+    raycast(raycaster){
+      const intersects = [];
+      for (const [,ch] of this.chunks){
+        ch.raycast(raycaster, intersects);
+      }
+      if (intersects.length === 0) return null;
+      intersects.sort((a,b)=> a.distance - b.distance);
+      const hit = intersects[0];
+
+      // find chunk and instance info
+      for (const [,ch] of this.chunks){
+        const info = ch.instanceInfo(hit.object, hit.instanceId);
+        if (info){
+          return { ...info, point: hit.point, face: hit.face, object: hit.object };
+        }
+      }
+      return null;
+    }
+
+    groundYAt(x,z){
+      // approximate "spawn height": base height + 3
+      return this.heightAt(Math.floor(x), Math.floor(z)) + 3;
+    }
+  }
+
+  // ============================================================
+  // GAME
+  // ============================================================
+  class Game {
+    constructor(){
+      this.scene = new THREE.Scene();
+      this.scene.background = new THREE.Color(0x87CEEB);
+
+      // Fog (hides far blocks)
+      this.fogEnabled = CONFIG.FOG_ENABLED;
+      this.applyFog();
+
+      this.camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 800);
+      this.camera.position.set(0, 40, 0);
+
+      this.renderer = new THREE.WebGLRenderer({ antialias:false, powerPreference:"high-performance" });
+      this.renderer.setSize(innerWidth, innerHeight);
+      this.renderer.shadowMap.enabled = CONFIG.SHADOWS_ENABLED;
+      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.body.appendChild(this.renderer.domElement);
+
+      // Lights
+      this.scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+      this.sun = new THREE.DirectionalLight(0xffffff, 1.6);
+      this.sun.position.set(80, 120, 60);
+      this.sun.castShadow = CONFIG.SHADOWS_ENABLED;
+      this.sun.shadow.mapSize.set(1024,1024);
+      this.sun.shadow.camera.near = 1;
+      this.sun.shadow.camera.far = 350;
+      this.sun.shadow.camera.left = -120;
+      this.sun.shadow.camera.right = 120;
+      this.sun.shadow.camera.top = 120;
+      this.sun.shadow.camera.bottom = -120;
+      this.scene.add(this.sun);
+
+      // Controls
+      this.controls = new THREE.PointerLockControls(this.camera, document.body);
+      const overlay = document.getElementById("overlay");
+      document.body.addEventListener("click", ()=>{
+        if (!this.controls.isLocked) this.controls.lock();
+      });
+      this.controls.addEventListener("lock", ()=> overlay.style.display="none");
+      this.controls.addEventListener("unlock", ()=> overlay.style.display="flex");
+
+      // Seed / world
+      const meta = this.loadMeta();
+      this.seed = meta.seed >>> 0;
+
+      this.world = new World(this.scene, this.seed);
+
+      // Player physics
+      this.velocity = new THREE.Vector3(0,0,0);
+      this.onGround = false;
+
+      // Input
+      this.move = { f:false,b:false,l:false,r:false,j:false };
+      addEventListener("keydown", (e)=> this.onKey(e, true));
+      addEventListener("keyup", (e)=> this.onKey(e, false));
+
+      // Block selection UI
+      this.selectedType = "grass";
+      const opts = document.querySelectorAll(".block-option");
+      opts.forEach(o=>o.addEventListener("click", ()=>{
+        opts.forEach(p=>p.classList.remove("selected"));
+        o.classList.add("selected");
+        this.selectedType = o.dataset.type;
+      }));
+
+      // Reset
+      document.getElementById("reset-btn").addEventListener("click", ()=>{
+        if (confirm("Reset world edits + new seed?")){
+          localStorage.removeItem(CONFIG.SAVE_KEY);
+          localStorage.removeItem(CONFIG.META_KEY);
+          location.reload();
+        }
+      });
+
+      // Mouse actions
+      addEventListener("contextmenu", e=> e.preventDefault());
+      addEventListener("mousedown", (e)=>{
+        if (!this.controls.isLocked) return;
+        if (!this.world) return; // fixes "Cannot read properties of null (reading 'raycast')"
+        if (e.button===0) this.removeBlockAtPointer();
+        if (e.button===2) this.placeBlockAtPointer();
+      });
+
+      // Resize
+      addEventListener("resize", ()=>{
+        this.camera.aspect = innerWidth/innerHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(innerWidth, innerHeight);
+      });
+
+      // Raycaster
+      this.raycaster = new THREE.Raycaster();
+      this.raycaster.far = CONFIG.RAYCAST_FAR;
+
+      // Clock + autosave
+      this.clock = new THREE.Clock();
+      this.autoSaveT = 0;
+
+      // Spawn
+      this.respawn();
+
+      // Prime chunk stream
+      this.world.streamAround(this.camera.position);
+
+      this.animate();
+    }
+
+    applyFog(){
+      if (this.fogEnabled){
+        // Use Exp2 fog: compact and hides far instanced voxels nicely
+        this.scene.fog = new THREE.FogExp2(this.scene.background.getHex(), CONFIG.FOG_DENSITY);
+      } else {
+        this.scene.fog = null;
+      }
+    }
+
+    loadMeta(){
+      const raw = localStorage.getItem(CONFIG.META_KEY);
+      if (raw){
+        try{
+          const m = JSON.parse(raw);
+          if (m && typeof m.seed === "number") return m;
+        }catch{}
+      }
+      // new seed
+      const seed = ((Math.random()*4294967296)>>>0);
+      const meta = { seed };
+      localStorage.setItem(CONFIG.META_KEY, JSON.stringify(meta));
+      return meta;
+    }
+
+    onKey(e, down){
+      if (e.code==="KeyW") this.move.f=down;
+      if (e.code==="KeyS") this.move.b=down;
+      if (e.code==="KeyA") this.move.l=down;
+      if (e.code==="KeyD") this.move.r=down;
+      if (e.code==="Space" && down && this.onGround) this.move.j=true;
+
+      if (down && e.code==="Digit1") this.selectedType="grass";
+      if (down && e.code==="Digit2") this.selectedType="dirt";
+      if (down && e.code==="Digit3") this.selectedType="stone";
+
+      if (down && e.code==="KeyR") this.respawn();
+
+      if (down && e.code==="KeyF"){
+        this.fogEnabled = !this.fogEnabled;
+        this.applyFog();
+      }
+    }
+
+    // --------- Interactions ---------
+    removeBlockAtPointer(){
+      if (!this.world) return;
+      this.raycaster.setFromCamera(new THREE.Vector2(0,0), this.camera);
+      const hit = this.world.raycast(this.raycaster);
+      if (!hit) return;
+      this.world.removeBlock(hit.x, hit.y, hit.z);
+    }
+
+    placeBlockAtPointer(){
+      if (!this.world) return;
+      this.raycaster.setFromCamera(new THREE.Vector2(0,0), this.camera);
+      const hit = this.world.raycast(this.raycaster);
+      if (!hit || !hit.face) return;
+
+      const n = hit.face.normal.clone();
+      n.transformDirection(hit.object.matrixWorld);
+
+      const nx = hit.x + Math.round(n.x);
+      const ny = hit.y + Math.round(n.y);
+      const nz = hit.z + Math.round(n.z);
+
+      // avoid placing inside player
+      const p = this.camera.position;
+      const dist = new THREE.Vector3(nx+0.5, ny+0.5, nz+0.5).distanceTo(p);
+      if (dist < 1.5) return;
+
+      this.world.addBlock(nx,ny,nz,this.selectedType);
+    }
+
+    // --------- Collision ---------
+    playerAABBAt(pos){
+      const r = CONFIG.PLAYER.RADIUS;
+      const h = CONFIG.PLAYER.HEIGHT;
+      return new THREE.Box3(
+        new THREE.Vector3(pos.x - r, pos.y - h, pos.z - r),
+        new THREE.Vector3(pos.x + r, pos.y,     pos.z + r)
+      );
+    }
+
+    collidesAt(pos){
+      // Only consider collisions against loaded blocks (streamed area)
+      const aabb = this.playerAABBAt(pos);
+      const neighbors = this.world.neighborsOfAABB(aabb.min, aabb.max);
+      for (const b of neighbors){
+        const bb = new THREE.Box3(
+          new THREE.Vector3(b.x, b.y, b.z),
+          new THREE.Vector3(b.x+1, b.y+1, b.z+1)
+        );
+        if (aabb.intersectsBox(bb)) return true;
+      }
+      return false;
+    }
+
+    respawn(){
+      const x = Math.floor(this.camera.position.x || 0);
+      const z = Math.floor(this.camera.position.z || 0);
+      const y = this.world.groundYAt(x,z);
+      this.camera.position.set(x + 0.5, y, z + 0.5);
+      this.velocity.set(0,0,0);
+      this.onGround = false;
+    }
+
+    // --------- Loop ---------
+    animate(){
+      requestAnimationFrame(()=>this.animate());
+      const dt = Math.min(this.clock.getDelta(), 0.05);
+
+      if (this.controls.isLocked){
+        // Stream chunks around player (this is the core "only load near player")
+        this.world.streamAround(this.camera.position);
+
+        // Movement
+        const dir = new THREE.Vector3();
+        this.camera.getWorldDirection(dir);
+        dir.y = 0; dir.normalize();
+
+        const right = new THREE.Vector3().crossVectors(this.camera.up, dir).normalize();
+
+        let dx=0, dz=0;
+        if (this.move.f) { dx += dir.x; dz += dir.z; }
+        if (this.move.b) { dx -= dir.x; dz -= dir.z; }
+        if (this.move.l) { dx += right.x; dz += right.z; }
+        if (this.move.r) { dx -= right.x; dz -= right.z; }
+
+        const horiz = new THREE.Vector3(dx,0,dz);
+        if (horiz.lengthSq()>0) horiz.normalize().multiplyScalar(CONFIG.PLAYER.SPEED * dt);
+
+        // horizontal resolve
+        const posH = this.camera.position.clone().add(horiz);
+        if (!this.collidesAt(posH)){
+          this.camera.position.copy(posH);
+        }
+
+        // jump
+        if (this.move.j && this.onGround){
+          this.velocity.y = CONFIG.PLAYER.JUMP;
+          this.onGround = false;
+          this.move.j = false;
+        }
+
+        // gravity
+        this.velocity.y += CONFIG.PLAYER.GRAVITY * dt;
+
+        // vertical resolve
+        const posV = this.camera.position.clone();
+        posV.y += this.velocity.y * dt;
+
+        if (!this.collidesAt(posV)){
+          this.camera.position.y = posV.y;
+          this.onGround = false;
+        } else {
+          if (this.velocity.y < 0) this.onGround = true;
+          this.velocity.y = 0;
+        }
+
+        // fall reset
+        if (this.camera.position.y < -10) this.respawn();
+      }
+
+      // Autosave edits
+      this.autoSaveT += dt;
+      if (this.autoSaveT >= CONFIG.AUTOSAVE_SECONDS){
+        this.autoSaveT = 0;
+        this.world.saveEdits();
+      }
+
+      // Status
+      statusEl.textContent =
+        `Seed: ${this.seed} • Chunks: ${this.world.chunks.size} • Edits: ${this.world.edits.size} • Fog: ${this.fogEnabled ? "ON" : "OFF"}`;
+
+      this.renderer.render(this.scene, this.camera);
+    }
+  }
+
+  // Start
+  new Game();
+  </script>
+</body>
+</html>
+

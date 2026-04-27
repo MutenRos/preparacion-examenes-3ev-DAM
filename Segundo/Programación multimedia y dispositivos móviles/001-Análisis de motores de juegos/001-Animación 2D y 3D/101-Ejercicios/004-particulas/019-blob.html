@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body{padding:0;margin:0;overflow:hidden;background:#fff;}
+    canvas{display:block;}
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    const lienzo = document.querySelector("canvas");
+    const contexto = lienzo.getContext("2d");
+
+    let anchuraventana = 0;
+    let alturaventana = 0;
+
+    function resize() {
+      anchuraventana = window.innerWidth;
+      alturaventana = window.innerHeight;
+      lienzo.width = anchuraventana;
+      lienzo.height = alturaventana;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // -----------------------------
+    // Partículas
+    // -----------------------------
+    class Particula {
+      constructor() {
+        this.posx = Math.random() * anchuraventana;
+        this.posy = Math.random() * alturaventana;
+        this.direccion = Math.random() * Math.PI * 2;
+
+        this.rojo = Math.round(Math.random() * 255);
+        this.verde = Math.round(Math.random() * 255);
+        this.azul = Math.round(Math.random() * 255);
+
+        this.velocidad = Math.random() * 0.6 + 0.1;
+        this.tamanio = Math.random() * 24 + 8;
+
+        // Para que el blob “respire” un poco
+        this.phase = Math.random() * Math.PI * 2;
+      }
+
+      // Base (color)
+      dibujaBase() {
+        contexto.fillStyle = `rgba(${this.rojo},${this.verde},${this.azul},0.2)`;
+        contexto.beginPath();
+        contexto.arc(this.posx, this.posy, this.tamanio, 0, Math.PI * 2);
+        contexto.fill();
+      }
+
+      // Sombra (abajo) + brillo (arriba)
+      dibujaSombraYBrillo() {
+        // Parámetros del “shading”
+        const r = this.tamanio;
+
+        // sombra abajo (ligero desplazamiento + un poco más grande)
+        const shadowOffset = r * 0.18;
+        const shadowRadius = r * 0.98;
+        contexto.fillStyle = "rgba(0,0,0,0.18)";
+        contexto.beginPath();
+        contexto.arc(this.posx + shadowOffset, this.posy + shadowOffset, shadowRadius, 0, Math.PI * 2);
+        contexto.fill();
+
+        // brillo arriba (desplazado arriba/izquierda + más pequeño)
+        const hiOffset = r * 0.22;
+        const hiRadius = r * 0.55;
+        contexto.fillStyle = "rgba(255,255,255,0.28)";
+        contexto.beginPath();
+        contexto.arc(this.posx - hiOffset, this.posy - hiOffset, hiRadius, 0, Math.PI * 2);
+        contexto.fill();
+
+        // puntito extra para que “lea” más
+        contexto.fillStyle = "rgba(255,255,255,0.18)";
+        contexto.beginPath();
+        contexto.arc(this.posx - hiOffset * 0.7, this.posy - hiOffset * 0.7, hiRadius * 0.45, 0, Math.PI * 2);
+        contexto.fill();
+      }
+
+      // “dibuja” completo: sombra -> base -> brillo
+      dibuja() {
+        this.dibujaSombraYBrillo();
+        this.dibujaBase();
+        // (el brillo debe ir encima de la base)
+        this.dibujaSombraYBrilloTop();
+      }
+
+      // Separado: sólo el brillo final encima de la base
+      dibujaSombraYBrilloTop() {
+        const r = this.tamanio;
+        const hiOffset = r * 0.22;
+        const hiRadius = r * 0.55;
+
+        contexto.fillStyle = "rgba(255,255,255,0.28)";
+        contexto.beginPath();
+        contexto.arc(this.posx - hiOffset, this.posy - hiOffset, hiRadius, 0, Math.PI * 2);
+        contexto.fill();
+
+        contexto.fillStyle = "rgba(255,255,255,0.18)";
+        contexto.beginPath();
+        contexto.arc(this.posx - hiOffset * 0.7, this.posy - hiOffset * 0.7, hiRadius * 0.45, 0, Math.PI * 2);
+        contexto.fill();
+      }
+
+      // Dibujo controlado por flags (evita doble cálculo)
+      dibujaConShading(flags) {
+        if (!flags.showParticles) return;
+
+        const r = this.tamanio;
+
+        // sombra (abajo)
+        if (flags.particleShadow) {
+          const shadowOffset = r * 0.18;
+          const shadowRadius = r * 0.98;
+          contexto.fillStyle = `rgba(0,0,0,${flags.shadowAlpha})`;
+          contexto.beginPath();
+          contexto.arc(this.posx + shadowOffset, this.posy + shadowOffset, shadowRadius, 0, Math.PI * 2);
+          contexto.fill();
+        }
+
+        // base
+        contexto.fillStyle = `rgba(${this.rojo},${this.verde},${this.azul},0.2)`;
+        contexto.beginPath();
+        contexto.arc(this.posx, this.posy, r, 0, Math.PI * 2);
+        contexto.fill();
+
+        // brillo (arriba)
+        if (flags.particleHighlight) {
+          const hiOffset = r * 0.22;
+          const hiRadius = r * 0.55;
+
+          contexto.fillStyle = `rgba(255,255,255,${flags.highlightAlpha})`;
+          contexto.beginPath();
+          contexto.arc(this.posx - hiOffset, this.posy - hiOffset, hiRadius, 0, Math.PI * 2);
+          contexto.fill();
+
+          // puntito
+          contexto.fillStyle = `rgba(255,255,255,${flags.highlightAlpha * 0.65})`;
+          contexto.beginPath();
+          contexto.arc(this.posx - hiOffset * 0.7, this.posy - hiOffset * 0.7, hiRadius * 0.45, 0, Math.PI * 2);
+          contexto.fill();
+        }
+      }
+
+      mueve() {
+        this.direccion += (Math.random() - 0.5) * 0.25;
+        this.posx += Math.cos(this.direccion) * this.velocidad;
+        this.posy += Math.sin(this.direccion) * this.velocidad;
+        this.phase += 0.03;
+      }
+
+      colision() {
+        if (this.posx < 0) { this.posx = 0; this.direccion += Math.PI; }
+        if (this.posx > anchuraventana) { this.posx = anchuraventana; this.direccion += Math.PI; }
+        if (this.posy < 0) { this.posy = 0; this.direccion += Math.PI; }
+        if (this.posy > alturaventana) { this.posy = alturaventana; this.direccion += Math.PI; }
+      }
+
+      getPosicion() {
+        return { x: this.posx, y: this.posy };
+      }
+    }
+
+    let particulas = [];
+    let numeroparticulas = 500;
+    for (let i = 0; i < numeroparticulas; i++) particulas.push(new Particula());
+
+    // -----------------------------
+    // Utilidades
+    // -----------------------------
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    function dist2(ax, ay, bx, by) {
+      const dx = ax - bx, dy = ay - by;
+      return dx * dx + dy * dy;
+    }
+
+    function angleBetweenPoints(x1, y1, x2, y2) {
+      let dx = x2 - x1;
+      let dy = y2 - y1;
+      let angleRadians = Math.atan2(dy, dx);
+      let angleDegrees = angleRadians * (180 / Math.PI);
+      return { radians: angleRadians, degrees: angleDegrees };
+    }
+
+    // -----------------------------
+    // Parámetros on/off (líneas/partículas) + shading
+    // -----------------------------
+    const flags = {
+      // existentes
+      showParticles: true,
+      showLines: true,
+
+      // nuevos (shading)
+      particleHighlight: true,
+      particleShadow: true,
+      highlightAlpha: 0.28,
+      shadowAlpha: 0.18
+    };
+
+    // -----------------------------
+    // “Blob”: metaballs en CPU
+    // -----------------------------
+    const blob = {
+      step: 8,
+      influence: 60,
+      threshold: 1.15,
+      feather: 0.35,
+      alpha: 0.35,
+
+      // contorno negro tipo “pared”
+      outline: true,
+      outlineAlpha: 0.9,
+      outlineWidth: 1.0,
+      outlineFeatherBoost: 0.55  // más alto -> borde más marcado
+    };
+
+    let imgData = null;
+    let imgW = 0, imgH = 0;
+
+    function ensureImageData(w, h) {
+      if (!imgData || imgW !== w || imgH !== h) {
+        imgW = w; imgH = h;
+        imgData = contexto.createImageData(imgW, imgH);
+      }
+      return imgData;
+    }
+
+    function renderBlob() {
+      const step = blob.step;
+
+      const w = Math.ceil(anchuraventana / step);
+      const h = Math.ceil(alturaventana / step);
+
+      const data = ensureImageData(w, h);
+      const px = data.data;
+
+      const maxParticlesForBlob = 600;
+      const pCount = Math.min(particulas.length, maxParticlesForBlob);
+
+      const R = blob.influence;
+      const R2 = R * R;
+
+      // Limpia buffer
+      for (let i = 0; i < px.length; i += 4) {
+        px[i + 0] = 0;
+        px[i + 1] = 0;
+        px[i + 2] = 0;
+        px[i + 3] = 0;
+      }
+
+      for (let gy = 0; gy < h; gy++) {
+        const y = (gy + 0.5) * step;
+        for (let gx = 0; gx < w; gx++) {
+          const x = (gx + 0.5) * step;
+
+          let field = 0;
+          let rAcc = 0, gAcc = 0, bAcc = 0;
+
+          for (let i = 0; i < pCount; i++) {
+            const p = particulas[i];
+            const d2 = dist2(x, y, p.posx, p.posy);
+            if (d2 > R2) continue;
+
+            const d = Math.sqrt(d2);
+            const t = 1 - (d / R);
+            const c = t * t;
+
+            const breathe = 0.85 + 0.15 * Math.sin(p.phase);
+            const contrib = c * breathe * (p.tamanio * 0.18);
+
+            field += contrib;
+
+            rAcc += p.rojo * contrib;
+            gAcc += p.verde * contrib;
+            bAcc += p.azul * contrib;
+          }
+
+          // alpha del blob
+          let a = (field - blob.threshold) / blob.feather;
+          a = clamp(a, 0, 1);
+
+          if (a > 0) {
+            const idx = (gy * w + gx) * 4;
+
+            const inv = 1 / (field + 1e-6);
+            const rr = clamp(Math.round(rAcc * inv), 0, 255);
+            const gg = clamp(Math.round(gAcc * inv), 0, 255);
+            const bb = clamp(Math.round(bAcc * inv), 0, 255);
+
+            // Outline tipo “pared”: detecta borde con un “alpha” local más alto
+            // (si a está en zona de transición: contorno negro)
+            let outlineA = 0;
+            if (blob.outline) {
+              // “borde” = cuanto está cerca del umbral
+              // si a está entre (0..1), es zona de transición: hacemos contorno
+              // reforzamos con outlineFeatherBoost
+              const edge = 1 - Math.abs((a - 0.5) * 2); // pico en 0.5
+              outlineA = clamp(edge * blob.outlineFeatherBoost, 0, 1) * blob.outlineAlpha;
+            }
+
+            // Si hay contorno, mezclamos hacia negro en el borde
+            const mix = outlineA; // 0..1
+            const outR = Math.round(rr * (1 - mix));
+            const outG = Math.round(gg * (1 - mix));
+            const outB = Math.round(bb * (1 - mix));
+
+            px[idx + 0] = outR;
+            px[idx + 1] = outG;
+            px[idx + 2] = outB;
+            px[idx + 3] = Math.round(a * 255 * blob.alpha);
+          }
+        }
+      }
+
+      // Pintamos el ImageData escalado
+      contexto.save();
+      contexto.imageSmoothingEnabled = true;
+
+      if (!renderBlob._tmp || renderBlob._tmp.width !== imgW || renderBlob._tmp.height !== imgH) {
+        renderBlob._tmp = document.createElement("canvas");
+        renderBlob._tmp.width = imgW;
+        renderBlob._tmp.height = imgH;
+        renderBlob._tctx = renderBlob._tmp.getContext("2d");
+      }
+      renderBlob._tctx.putImageData(imgData, 0, 0);
+      contexto.drawImage(renderBlob._tmp, 0, 0, imgW, imgH, 0, 0, anchuraventana, alturaventana);
+
+      contexto.restore();
+    }
+
+    // -----------------------------
+    // Conexiones (líneas)
+    // -----------------------------
+    const conexiones = {
+      distancia: 55
+    };
+
+    function drawConnections() {
+      const d = conexiones.distancia;
+      const d2 = d * d;
+
+      for (let i = 0; i < particulas.length; i++) {
+        const a = particulas[i];
+        for (let j = i + 1; j < particulas.length; j++) {
+          const b = particulas[j];
+          const dd2 = dist2(a.posx, a.posy, b.posx, b.posy);
+          if (dd2 < d2) {
+            contexto.strokeStyle = "rgba(127,127,127,0.4)";
+            contexto.lineWidth = 1;
+            contexto.beginPath();
+            contexto.moveTo(a.posx, a.posy);
+            contexto.lineTo(b.posx, b.posy);
+            contexto.stroke();
+          }
+        }
+      }
+    }
+
+    // -----------------------------
+    // Bucle principal (requestAnimationFrame)
+    // -----------------------------
+    function bucle() {
+      // “trail”
+      contexto.fillStyle = "rgba(255,255,255,0.10)";
+      contexto.fillRect(0, 0, anchuraventana, alturaventana);
+
+      // actualizar partículas
+      for (const p of particulas) {
+        p.colision();
+        p.mueve();
+      }
+
+      // blob por debajo
+      renderBlob();
+
+      // líneas (toggle)
+      if (flags.showLines) drawConnections();
+
+      // partículas encima (toggle) + shading (nuevo)
+      if (flags.showParticles) {
+        for (const p of particulas) {
+          p.dibujaConShading(flags);
+        }
+      }
+
+      requestAnimationFrame(bucle);
+    }
+    requestAnimationFrame(bucle);
+
+    // -----------------------------
+    // Interacción
+    // -----------------------------
+    lienzo.onclick = function (event) {
+      const p = new Particula();
+      p.posx = event.clientX;
+      p.posy = event.clientY;
+      particulas.push(p);
+    };
+
+    lienzo.onmousemove = function (event) {
+      const mx = event.clientX;
+      const my = event.clientY;
+
+      for (const particula of particulas) {
+        if (Math.abs(mx - particula.posx) < 100 && Math.abs(my - particula.posy) < 100) {
+          const angulo = angleBetweenPoints(mx, my, particula.posx, particula.posy);
+          particula.direccion = angulo.radians;
+          particula.posx += Math.cos(particula.direccion) * 1.2;
+          particula.posy += Math.sin(particula.direccion) * 1.2;
+        }
+      }
+    };
+
+    // Teclas rápidas:
+    // P = toggle partículas
+    // L = toggle líneas
+    // H = toggle highlight
+    // S = toggle shadow
+    // + / - = umbral blob
+    // [ / ] = influencia
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "p" || e.key === "P") flags.showParticles = !flags.showParticles;
+      if (e.key === "l" || e.key === "L") flags.showLines = !flags.showLines;
+      if (e.key === "h" || e.key === "H") flags.particleHighlight = !flags.particleHighlight;
+      if (e.key === "s" || e.key === "S") flags.particleShadow = !flags.particleShadow;
+
+      if (e.key === "+") blob.threshold = Math.max(0.1, blob.threshold - 0.05);
+      if (e.key === "-") blob.threshold = blob.threshold + 0.05;
+      if (e.key === "]") blob.influence = Math.min(220, blob.influence + 5);
+      if (e.key === "[") blob.influence = Math.max(10, blob.influence - 5);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-lightsalmon",
+    "title": "jocarsa | lightsalmon - Gestiona tu calendario con precisión y seguridad",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Administradores de Proyectos",
+      "Profesores",
+      "Estudiantes"
+    ],
+    "ctaPrimary": "Iniciar Sesión",
+    "ctaSecondary": "Regístrate Ahora"
+  },
+  "hero": {
+    "name": "jocarsa | lightsalmon",
+    "valueProposition": "Gestiona tus eventos, categorías y festivos con total control y seguridad en tu calendario personalizado.",
+    "subtitle": "Accede a todas tus funciones desde un solo lugar. Crea, edita y comparte fácilmente tus eventos.",
+    "badges": [
+      "Seguro",
+      "Personalizado",
+      "Sencillo de Usar"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Iniciar Sesión"
+      },
+      {
+        "type": "secondary",
+        "text": "Regístrate Ahora"
+      },
+      {
+        "type": "tertiary",
+        "text": "Descubre más"
+      }
+    ]
+  }
+}

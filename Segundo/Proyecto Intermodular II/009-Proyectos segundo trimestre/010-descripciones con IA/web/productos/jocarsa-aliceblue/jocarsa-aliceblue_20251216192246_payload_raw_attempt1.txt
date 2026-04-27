@@ -1,0 +1,40 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "Administrador de Salas Educativas",
+    "category": "Sistema de Monitoreo",
+    "description": "Sistema de monitoreo y gestión de salas educativas con visualización en tiempo real."
+  },
+  "features": [
+    {
+      "name": "Salas Soporte",
+      "description": "Soporta múltiples salas (DAM, SMR, Capitol)"
+    },
+    {
+      "name": "Imagenes en Tiempo Real",
+      "description": "Visualización de pantallas estudiantiles en tiempo real"
+    },
+    {
+      "name": "Control de Acceso",
+      "description": "Slider para cambiar entre imágenes tomadas a lo largo del día"
+    },
+    {
+      "name": "Rango Horario Activo",
+      "description": "Barra de progreso visual que indica el rango horario activo"
+    }
+  ],
+  "usage": {
+    "instructions": [
+      "Selecciona una sala desde la lista desplegable.",
+      "Visualiza las imágenes en tiempo real de los estudiantes.",
+      "Utiliza el slider para cambiar entre diferentes instantáneas."
+    ],
+    "tips": [
+      "El sistema actualiza automáticamente cada 60 segundos.",
+      "Mira la barra de progreso para entender cuándo estuvo activa la sala."
+    ]
+  }
+}

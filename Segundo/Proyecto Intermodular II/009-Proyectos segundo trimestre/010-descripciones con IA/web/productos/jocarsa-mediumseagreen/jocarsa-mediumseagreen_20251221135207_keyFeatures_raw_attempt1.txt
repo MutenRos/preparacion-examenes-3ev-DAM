@@ -1,0 +1,5 @@
+[
+  {"name":"Automatización de la traducción","benefit":"Ahorra tiempo en la traducción manual y mejora la consistencia del contenido."},
+  {"name":"Integración con Ollama para análisis semánticos","benefit":"Permite una mayor precisión en la identificación de temas relevantes y mejor comprensión del contenido."},
+  {"name":"Adaptabilidad a diferentes formatos multimedia","benefit":"Soporta el procesamiento de videos, transcripciones e índices temáticos para una variedad de materiales didácticos."}
+]

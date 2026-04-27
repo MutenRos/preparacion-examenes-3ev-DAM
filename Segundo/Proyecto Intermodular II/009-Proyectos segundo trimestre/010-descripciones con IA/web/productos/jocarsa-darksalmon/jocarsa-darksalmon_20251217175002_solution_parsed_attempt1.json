@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | darksalmon · App",
+    "overview": "La aplicación 'jocarsa | darksalmon' es un sistema de gestión de jornadas laborales y ausencias diseñado para mejorar la administración del tiempo de trabajo. Permite a los usuarios iniciar y finalizar su jornada, registrando registros precisos y actualizando el mapa de ubicaciones de fichaje (si está habilitado). La interfaz es fácil de usar e incluye secciones como el perfil personal con datos de contacto y información relevante, permitiendo un acceso claro y directo a la gestión de las jornadas.",
+    "whatChanges": [
+      "Introduce un nuevo sistema de inicio y finalización de jornada para mejora de control horario",
+      "Incluye una sección dedicada a gestionar ausencias y su estado",
+      "Ofrece funcionalidades de perfil personal con detalles del usuario, permitiendo la gestión directa de datos de contacto e información relevante"
+    ]
+  }
+}

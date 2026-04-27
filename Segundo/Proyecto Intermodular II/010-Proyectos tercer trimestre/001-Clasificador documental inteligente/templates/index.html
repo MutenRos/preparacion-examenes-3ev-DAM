@@ -1,0 +1,115 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="header__title"><img src="static/logo.png">{{ title }}</div>
+  <div class="header__meta">
+    
+  </div>
+</header>
+
+<main class="layout">
+  <!-- IZQUIERDA: taxonomía -->
+  <section class="pane">
+    <div class="pane__title">Categorías</div>
+
+    <div class="card">
+      <div class="row">
+        <button id="btnReloadTree">Recargar</button>
+        <button class="primary" id="btnSaveTree">Guardar</button>
+        <span class="pill" id="leafCount">Hojas: -</span>
+      </div>
+      <div class="hint">
+        Las hojas son las categorías finales usadas para clasificar.
+      </div>
+    </div>
+
+    <div class="card mt">
+      <div class="row">
+        <input id="nodeName" type="text" placeholder="Nombre para crear/renombrar" />
+        <button id="btnAddChild">Añadir hijo</button>
+        <button id="btnRename">Renombrar</button>
+        <button class="danger" id="btnDelete">Eliminar</button>
+      </div>
+      <div class="hint">
+        Selecciona un nodo del árbol y aplica la acción.
+      </div>
+    </div>
+
+    <div class="tree mt" id="tree"></div>
+  </section>
+
+  <!-- CENTRO: origen -->
+  <section class="pane">
+    <div class="pane__title">Carpeta de origen</div>
+
+    <div class="card">
+      <div class="row">
+        <input id="srcPath" type="text" placeholder="/ruta/a/carpeta/origen" />
+        <button id="btnPickSrc">Examinar…</button>
+        <button id="btnListSrc">Listar</button>
+      </div>
+      <div class="hint">
+        El selector se abre en la máquina local (lado servidor). Si no está disponible, escribe la ruta.
+      </div>
+    </div>
+
+    <div class="list mt" id="srcList"></div>
+  </section>
+
+  <!-- DERECHA: destino + ejecutar -->
+  <section class="pane">
+    <div class="pane__title">Destino y ejecución</div>
+
+    <div class="card">
+      <div class="row">
+        <input id="dstPath" type="text" placeholder="/ruta/a/carpeta/destino" />
+        <button id="btnPickDst">Examinar…</button>
+        <button id="btnListDst">Listar</button>
+      </div>
+
+      <div class="mt">
+        <div class="progress">
+          <div class="progress__bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <div class="row mt-small">
+          <div class="pill" id="progressText">0%</div>
+          <div class="mono small" id="progressFile">-</div>
+        </div>
+      </div>
+
+      <div class="footerbar mt">
+        <label class="checkbox">
+          <input type="checkbox" id="dryRun" />
+          MODO SIMULACIÓN (no mover archivos)
+        </label>
+        <button class="primary" id="btnPlay">▶ Ejecutar</button>
+        <button id="btnStop" disabled>Detener</button>
+      </div>
+
+      <div class="hint mt-small">
+        El informe del destino se actualiza tras cada archivo procesado.
+      </div>
+    </div>
+
+    <div class="card mt">
+      <div class="row">
+        <span class="pill">Informe de destino</span>
+      </div>
+      <div class="desttree mt-small" id="destTree"></div>
+    </div>
+
+    <div class="results mt" id="results"></div>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

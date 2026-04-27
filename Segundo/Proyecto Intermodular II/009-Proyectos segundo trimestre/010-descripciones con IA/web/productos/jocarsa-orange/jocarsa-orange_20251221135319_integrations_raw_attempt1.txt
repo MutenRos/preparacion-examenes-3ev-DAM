@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones Opcionales", "notes":"Permite conectar jocarsa | orange con otras aplicaciones para mejorar la experiencia del usuario.", "items":["Google Analytics","Salesforce","Zapier"]}
+}

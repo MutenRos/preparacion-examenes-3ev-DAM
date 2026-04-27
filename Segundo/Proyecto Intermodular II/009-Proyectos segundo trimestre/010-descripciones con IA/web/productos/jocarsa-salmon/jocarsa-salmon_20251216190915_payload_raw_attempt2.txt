@@ -1,0 +1,65 @@
+```json
+{
+  "estructura": {
+    "proyecto": "/var/www/html/jocarsa-salmon",
+    "archivos": [
+      ".gitignore",
+      "README.md",
+      "admin.php",
+      "index.html",
+      "signaling.php"
+    ]
+  },
+  "codigos_intercalados": [
+    {
+      "archivo": "README.md",
+      "contenido": ""
+    },
+    {
+      "archivo": "admin.php",
+      "inicio": true,
+      "texto": "<?php if(!$authed): ?>\n<div class=\"card login\">\n<h2>Acceder</h2>\n<?php if($login_error) out('<div class=\"msg err\">$login_error</div>'); ?>\n<form method=\"post\" autocomplete=\"off\">\n<input type=\"hidden\" name=\"__do\" value=\"login\">\n<label>Usuario</label>\n<input name=\"user\" placeholder=\"Usuario\" required>\n<label>Contraseña</label>\n<input name=\"pass\" type=\"password\" placeholder=\"Contraseña\" required>\n<div style=\"display:flex;gap:8px;margin-top:12px\">\n<button class=\"btn\">Entrar</button>\n<div class=\"help\">Pista: usuario <b>jocarsa</b>, contraseña <b>jocarsa</b></div>\n</div>\n</form>\n</div>\n<div class=\"footer\">© <?php out(date('Y')); ?> jocarsa | salmon</div>\n<?php else: ?>\n<div class=\"grid\">\n<!-- Formulario crear/editar -->\n<div class=\"card\">\n<h2>Crear / editar sala</h2>\n<?php if($ok) out(\"<div class='msg ok'>$ok</div>\"); if($err) out(\"<div class='msg err'>$err</div>\""
+    },
+    {
+      "archivo": "admin.php",
+      "texto": "\n\n<table>\n<thead><tr><th>ID</th><th>Título</th><th>Opciones</th></tr></thead>\n<tbody>"
+    },
+    {
+      "archivo": "admin.php",
+      "texto": "\n<?php foreach($rooms as $room): ?>\n<tr><td><?php echo $room['id']; ?></td><td><?php echo $room['title']; ?></td><td><a href=\"?edit=<?php echo $room['id']; \?>" class=\"btn\">Editar</a> <button onclick=\"return confirm('¿Estás seguro de que deseas eliminar esta sala?')\" type=\"submit\" formaction=\"?delete=<?php echo $room['id']; ?>" class=\"btn warn\">Eliminar</button></td></tr>\n<?php endforeach; ?></tbody></table>\n</div><form method=\"post\" action=\"\">\n<input type=\"hidden\" name=\"__do\" value=\"add_room\">\n<label>Nombre de la sala</label>\n<input name=\"title\" placeholder=\"Nombre de la sala\" required>\n<label>Contraseña (opcional)</label>\n<input name=\"password\" type=\"password\" placeholder=\"Contraseña\" required>\n<button class=\"btn\">Crear sala</button></form>"
+    },
+    {
+      "archivo": "admin.php",
+      "texto": "\n<?php endif; ?>\n</div>"
+    }
+  ],
+  "funcionalidades": [
+    {
+      "funcion": "Autenticación de usuario",
+      "detalles": "Se autentica con el usuario 'jocarsa' y la contraseña 'jocarsa'."
+    },
+    {
+      "funcion": "Administración de salas",
+      "detalles": "Permite crear, editar y eliminar salas. Las salas se almacenan en una base de datos SQL."
+    },
+    {
+      "funcion": "Visualización de salas",
+      "detalles": "Muestra las salas existentes en una tabla con opciones para editar o eliminar cada sala."
+    },
+    {
+      "funcion": "Formulario de inicio de sesión",
+      "detalles": "Incluye un formulario para iniciar sesión y muestra mensajes de error si el ingreso es incorrecto."
+    }
+  ],
+  "observaciones": [
+    {
+      "observacion": "Se utiliza una estructura personalizada de CSS para estilos.",
+      "detalles": "Las variables CSS definen colores y estilos específicos, como fondo, borde, sombra y radio de esquina."
+    },
+    {
+      "observacion": "La interfaz tiene validaciones básicas en el lado del servidor.",
+      "detalles": "Se utilizan comprobaciones para asegurar que los campos requeridos estén completos antes de procesar la solicitud."
+    }
+  ]
+}
+```

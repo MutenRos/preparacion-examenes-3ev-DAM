@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Calendario",
+    "overview": "Un software educativo que ofrece una interfaz de usuario intuitiva para gestionar eventos y fiestas, permitiendo la creación, actualización y sincronización de información calendárica. El sistema incluye funcionalidades para registrarse, iniciar sesión, ver datos personales, cargar eventos y guardar cambios.",
+    "whatChanges": [
+      "Se implementa un backend en PHP + SQLite para manejar las operaciones CRUD (Create, Read, Update, Delete) relacionadas con usuarios y eventos.",
+      "Se proporciona una API RESTful con múltiples endpoints para registrar usuarios, iniciar sesión, cargar datos del usuario y guardar cambios en el calendario.",
+      "La interfaz de usuario permite a los usuarios crear, editar y eliminar eventos y categorías, así como gestionar sus propios datos personales."
+    ]
+  }
+}

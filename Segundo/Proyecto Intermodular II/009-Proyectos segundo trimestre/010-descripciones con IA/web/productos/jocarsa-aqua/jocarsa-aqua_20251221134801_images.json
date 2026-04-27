@@ -1,0 +1,46 @@
+{
+  "hero": [
+    "img/jocarsa-aqua_20251221134801_hero.jpg",
+    "Producto software"
+  ],
+  "problem": [
+    "img/jocarsa-aqua_20251221134801_problem.jpg",
+    "Problemas habituales"
+  ],
+  "solution": [
+    "img/jocarsa-aqua_20251221134801_solution.jpg",
+    "Solución"
+  ],
+  "features": [
+    "img/jocarsa-aqua_20251221134801_features.jpg",
+    "Funcionalidades"
+  ],
+  "audience": [
+    "img/jocarsa-aqua_20251221134801_audience.jpg",
+    "Público objetivo"
+  ],
+  "usecases": [
+    "img/jocarsa-aqua_20251221134801_usecases.jpg",
+    "Casos de uso"
+  ],
+  "benefits": [
+    "img/jocarsa-aqua_20251221134801_benefits.jpg",
+    "Beneficios"
+  ],
+  "integrations": [
+    "img/jocarsa-aqua_20251221134801_integrations.jpg",
+    "Integraciones"
+  ],
+  "trust": [
+    "img/jocarsa-aqua_20251221134801_trust.jpg",
+    "Confianza"
+  ],
+  "cta": [
+    "img/jocarsa-aqua_20251221134801_cta.jpg",
+    "Solicitar demo"
+  ],
+  "faq": [
+    "img/jocarsa-aqua_20251221134801_faq.jpg",
+    "Preguntas frecuentes"
+  ]
+}

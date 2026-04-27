@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones adicionales", "notes":"Además de la integración básica, puedes seleccionar entre una variedad de opciones para mejorar la funcionalidad de tu software educativo. Las opciones disponibles incluyen conectividad con dispositivos de audio y video externos, intercambio de archivos multimedia, compatibilidad con plataformas de aprendizaje gestionadas y más.", "items":["Conectividad Audio-Video", "Interchange Multimedia Files", "LMS Compatibility", "Collaborative Editing"]}
+}

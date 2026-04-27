@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Interfaz intuitiva y funcional","items":["Permite registrar fácilmente el inicio y fin de la jornada laboral con solo un clic","Ofrece un mapa que muestra la ubicación exacta del registro de entrada y salida (si está habilitado por la empresa)","Muestra todos los registros de jornadas registradas, permitiendo a los usuarios corregir cualquier error fácilmente","Incluye una sección dedicada al perfil personal, donde se pueden visualizar datos relevantes como nombre, contacto y más información proporcionada por la administración"]}
+}

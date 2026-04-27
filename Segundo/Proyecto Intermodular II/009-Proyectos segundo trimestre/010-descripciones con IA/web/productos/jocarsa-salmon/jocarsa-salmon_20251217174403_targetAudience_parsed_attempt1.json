@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "jocarsa | salmon",
+    "profiles": [
+      {
+        "name": "Profesores y Educadores",
+        "fit": "Este software educativo está diseñado para facilitar la creación y gestión de salas virtuales para las aulas. Es ideal para profesores que deseen implementar interacciones en tiempo real con sus estudiantes."
+      },
+      {
+        "name": "Estudiantes",
+        "fit": "Los estudiantes pueden beneficiarse de esta herramienta al participar en salas de aprendizaje interactivas, recibiendo retroalimentación inmediata y colaborando en tiempo real con sus compañeros."
+      },
+      {
+        "name": "Padres de Familia",
+        "fit": "Los padres de familia pueden supervisar las actividades y aprendizajes de su hijo en un entorno virtual seguro e interactivo."
+      }
+    ]
+  }
+}

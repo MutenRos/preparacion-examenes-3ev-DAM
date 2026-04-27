@@ -1,0 +1,10 @@
+```json
+{
+  "finalCTA": {
+    "title":"Transforma tu aprendizaje con jocarsa | mediumseagreen",
+    "description":"Diseñamos software educativo para ayudarte a maximizar tus conocimientos. Pregúntanos cómo podemos mejorar tu experiencia de aprendizaje.",
+    "actions":[{"type":"primary","text":"¡Prueba gratis!"},{"type":"secondary","text":"Contacta con soporte"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"true"}]}
+  }
+}
+```

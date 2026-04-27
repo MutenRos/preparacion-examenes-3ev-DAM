@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"fiable y confiable","points":[" Diseño intuitivo que guía al usuario paso a paso a través de sus jornadas laborales."," Integración directa con un mapa para registrar la ubicación de entrada y salida."," Funcionalidades de seguridad robustas, asegurando la privacidad del usuario."]}
+}
+```

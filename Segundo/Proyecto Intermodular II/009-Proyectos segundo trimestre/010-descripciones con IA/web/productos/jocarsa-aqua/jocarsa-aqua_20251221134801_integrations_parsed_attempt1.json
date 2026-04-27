@@ -1,0 +1,13 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones con otras herramientas educativas",
+    "notes": "Añada las integraciones que desee para ampliar la funcionalidad de jocarsa-aqua.",
+    "items": [
+      "LMS (Learning Management System) como Moodle o Canvas",
+      "Plataformas de autograding como Gradescope",
+      "Herramientas de gestión académica como Blackboard"
+    ]
+  }
+}

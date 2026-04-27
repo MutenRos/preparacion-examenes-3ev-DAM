@@ -1,0 +1,5 @@
+{
+  "footer": {
+    "summary": "Este software educativo ofrece una plataforma de administración y gestión para crear y gestionar aplicaciones. Incluye un sistema de inicio de sesión administrativo con autenticación de usuarios, manejo de contraseñas seguras, y opciones para agregar o editar datos en varias tablas relacionadas. El diseño es responsive y utiliza Bootstrap para mejorar la experiencia del usuario en dispositivos móviles y desktops."
+  }
+}

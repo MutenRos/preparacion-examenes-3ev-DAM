@@ -1,0 +1,46 @@
+It looks like you've shared the directory structure and contents of a project that seems to be related to educational content, specifically for SMR (Sistema de Modulación y Reprogramación) and DAM (Desarrollo Aplicaciones Multiplataforma) courses. Here's an overview of what I see:
+
+### Directory Structure
+1. **Root Directory:**
+   - `index.php`
+   - `listas.json`
+   - `mediumseagreen.png`, `mediumseagreenfondo.png`, `mediumseagreenfondoblur.png`: These seem to be images for styling.
+   - `estilo.css`: CSS file for styling.
+   - `playlists_videos.json`: JSON file likely containing video playlist information.
+
+2. **Scripts:**
+   - `101-descargatranscripciones.py` and `102-matchsemantico.py`: Python scripts possibly related to downloading transcripts or matching semantic content.
+   - `transcripts_25_26`: Directory containing transcripts and their corresponding `.vtt` files for videos from September 11, 2025, to September 18, 2025.
+
+3. **Mensajes (Messages):**
+   - Several text files with dates in the filenames likely contain messages or announcements for specific dates.
+
+4. **Resumenes (Summaries):** Directory that might contain summary files of some sort.
+
+5. **Temarios (Syllabi):**
+   - Syllabi for DAM1 and DAM2 courses, organized into directories for each course.
+   - Files in these directories are `.md` (Markdown) files likely containing detailed syllabus information for the respective courses.
+
+6. **Mensajes (Messages):** Directory that contains message files with announcements or updates from the classes.
+
+### Key Components
+- **Transcripts and Videos:** The `transcripts_25_26` directory contains `.vtt` video transcript files, which are used to display subtitles on videos.
+- **Python Scripts:** These scripts might be involved in downloading these transcripts and potentially processing them for semantic analysis or other purposes.
+
+### Potential Workflow
+1. **Transcript Downloading:**
+   - `101-descargatranscripciones.py` could be a script that downloads video transcripts from YouTube (or another platform) and saves them as `.vtt` files.
+2. **Processing Transcripts:**
+   - `102-matchsemantico.py` might process these transcripts to match semantic content, possibly for summarization or other NLP tasks.
+
+### Next Steps
+- If you're looking to extend this project:
+  - Ensure that the Python scripts are well-documented.
+  - Consider adding error handling and logging in the scripts.
+  - You could add a web interface to display summaries, syllabi, and announcements.
+  - Automate the process of downloading new transcripts or updating existing ones.
+
+### Questions
+- Are there specific functionalities you're looking for help with?
+- Do you need assistance setting up a backend or frontend for this project?
+- What are your current challenges in managing these scripts or files?

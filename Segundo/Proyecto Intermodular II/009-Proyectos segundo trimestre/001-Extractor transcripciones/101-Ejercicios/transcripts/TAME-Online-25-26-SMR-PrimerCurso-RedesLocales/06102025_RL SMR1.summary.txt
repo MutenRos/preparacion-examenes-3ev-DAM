@@ -1,0 +1,23 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 06102025_RL SMR1.txt
+------------------------------------------------------------
+
+Me parece que el texto que nos has dado está bastante confuso y repetitivo, pero puedo tratar de resumirlo de manera más clara algunos puntos clave relacionados con las direcciones IP:
+
+1. Una dirección IP consta de dos partes: la parte de red (que es como la ciudad o código postal) y la parte del host (la calle y número).
+
+2. La parte de red identifica una red completa, mientras que la parte del host identifica un dispositivo específico dentro de esa red.
+
+3. Los routers solo miran la parte de red para decidir si un paquete debe ser enviado directamente o necesita ir a internet.
+
+4. Las máscaras de red funcionan como plantillas que separan la dirección IP en dos partes: una corresponde a la parte de red y otra al host.
+
+5. Para configurar el router, puedes establecer diferentes rangos de direcciones para dispositivos distintos.
+
+6. La mayoría de las direcciones IP utilizadas en hogares tienen un rango limitado de direcciones disponibles para dispositivos específicos.
+
+7. Las máscaras de red son muy importantes porque indican dónde termina la parte de red y empieza la parte del host dentro de una dirección IP.
+
+8. Hay diferentes tipos de direcciones IP que se clasifican en categorías según cómo comienzan y terminan (por ejemplo, IPv4 o IPv6).
+
+Si quieres profundizar en alguno de estos conceptos con ejemplos más específicos o detalles adicionales, no dudes en preguntar!

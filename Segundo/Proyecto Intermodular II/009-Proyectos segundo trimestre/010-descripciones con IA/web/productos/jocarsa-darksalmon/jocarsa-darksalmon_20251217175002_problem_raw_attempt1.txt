@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Reporte de proyecto","items":["Estructura del proyecto con archivos y carpetas bien definidas","Código HTML básico para la interfaz de usuario con botones y módulos personalizados","Interfaz de usuario responsive en mobile con estilos CSS personalizados","Funcionalidad de inicio y fin de jornada laboral con opción de ubicación geográfica","Información del perfil del usuario y registros de jornadas con posibilidad de feedback al administrador","FAQs y troubleshooting para solucionar problemas comunes de autenticación e interacción"] }
+}

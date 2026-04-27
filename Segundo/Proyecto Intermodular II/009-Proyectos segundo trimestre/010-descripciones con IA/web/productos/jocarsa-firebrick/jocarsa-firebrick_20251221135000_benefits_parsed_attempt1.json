@@ -1,0 +1,12 @@
+{
+  "benefits": {
+    "title": "jocarsa | firebrick",
+    "items": [
+      "Permite a los administradores crear y gestionar proyectos, iteraciones y clientes con permisos de edición y borrado",
+      "Ofrece a los clientes visualización y comentarios en los videos sin permitirles la gestión del contenido",
+      "Proporciona una estructura clara para organizar proyectos en carpetas e iteraciones",
+      "Incluye funciones de seguridad y creación automática de la base de datos SQLite `projects.db` al inicio",
+      "Facilita el inicio de sesión y registro con roles diferenciados para administradores y clientes"
+    ]
+  }
+}

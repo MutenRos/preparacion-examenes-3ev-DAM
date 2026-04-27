@@ -1,0 +1,10 @@
+```json
+{
+  "finalCTA": {
+    "title":"Descubre jocarsa | salmon",
+    "description":"Experimenta nuestro software educativo diseñado para potenciar tu aprendizaje. ¡Haz clic en ‘Solicitar Demo’ y empieza hoy!",
+    "actions":[{"type":"primary","text":"Solicitar Demo"},{"type":"secondary","text":"Más Información"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"true"}]}
+  }
+}
+```

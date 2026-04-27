@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Educadores y Padres de Familia","profiles":[{"name":"Educadores","fit":"Este software les permitirá gestionar y sincronizar los eventos y fechas importantes para sus alumnos en un solo lugar, facilitando la planificación y organización."},{"name":"Padres de Familia","fit":"Los padres podrán acceder a información actualizada sobre las actividades escolares y eventos importantes directamente desde su dispositivo, mejorando la comunicación entre escuela y hogar."}]}
+}

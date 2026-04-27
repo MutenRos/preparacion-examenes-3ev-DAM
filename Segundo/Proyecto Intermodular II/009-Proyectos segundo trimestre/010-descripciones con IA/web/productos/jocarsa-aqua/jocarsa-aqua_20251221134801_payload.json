@@ -1,0 +1,192 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aqua",
+    "title": "jocarsa | aqua - Tu dashboard educativo integral",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Docentes",
+      "Estudiantes",
+      "Administradores escolares"
+    ],
+    "ctaPrimary": "Acceder ahora",
+    "ctaSecondary": "Descargar demo"
+  },
+  "hero": {
+    "name": "jocarsa | aqua",
+    "valueProposition": "El único dashboard educativo que integra aprendizaje interactivo, gestión administrativa y análisis de datos en un solo lugar.",
+    "subtitle": "Maximiza el rendimiento escolar con jocarsa | aqua",
+    "badges": [
+      "Interfaz amigable",
+      "Personalización avanzada",
+      "Análisis detallado"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Acceder ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Descargar demo"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Autenticación y manejo de inicio de sesión en admin.php",
+    "items": [
+      "Falta la verificación de rol o permisos para las acciones CRUD",
+      "El formulario de inicio de sesión no incluye validaciones básicas como longitud mínima de contraseña",
+      "La inserción de contraseñas hashadas podría ser más segura con parámetros adicionales"
+    ],
+    "lang": "es",
+    "version": "1.1"
+  },
+  "solution": {
+    "title": "Solución para Sistema de Gestión Educativa jocarsa-aqua",
+    "overview": "jocarsa-aqua es una plataforma SaaS diseñada para gestionar datos educativos. Ofrece un panel administrativo con funcionalidades CRUD (Create, Read, Update, Delete) y un diseño atractivo basado en el estilo de agua.",
+    "whatChanges": [
+      "Implementación de autenticación de usuario",
+      "Soporte para operaciones CRUD en múltiples tablas",
+      "Interfaz de inicio de sesión personalizada con validaciones y redirecciones"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a Reporte / proyecto / Estructura / proyecto / Código / intercalado."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "jocarsa | aqua",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "Los educadores encontrarán una herramienta eficaz para gestionar y administrar sus aplicaciones educativas y usuarios. La interfaz de administrador simplifica la creación, actualización y eliminación de contenido y roles de usuario."
+      },
+      {
+        "name": "Instituciones Educativas",
+        "fit": "Las instituciones educativas beneficiarseán del software que facilita el manejo de múltiples aplicaciones y usuarios, mejorando la organización y eficiencia en la gestión escolar."
+      },
+      {
+        "name": "Profesores",
+        "fit": "Los profesores podrán utilizar esta plataforma para organizar y gestionar sus materiales y aplicaciones educativas desde un solo lugar, lo que facilita el acceso rápido a los recursos necesarios."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Usos del Software Educativo jocarsa-aqua",
+    "cases": [
+      {
+        "name": "Ingreso de Administrador",
+        "description": "Los usuarios pueden iniciar sesión como administradores usando las credenciales predeterminadas proporcionadas en el sistema. Una vez autenticados, los administradores tienen acceso a las operaciones CRUD para gestionar diferentes tipos de datos."
+      },
+      {
+        "name": "Gestión de Usuarios y Perfiles",
+        "description": "El software permite crear y gestionar usuarios con diversos roles y perfiles. Los administradores pueden añadir nuevos usuarios, asignarles nombres, contraseñas y correos electrónicos, así como realizar cambios en los detalles existentes para mantener la base de datos actualizada."
+      },
+      {
+        "name": "Administración de Aplicaciones e Integraciones",
+        "description": "El sistema incluye un módulo para gestionar diferentes aplicaciones e integraciones. Los administradores pueden agregar nuevas aplicaciones a la plataforma, configurar descripciones y logos para mejorar la visibilidad, y registrar URLs de acceso para facilitar el uso."
+      },
+      {
+        "name": "Paquetes y sus Aplicaciones",
+        "description": "Los usuarios pueden ser asignados a diferentes paquetes que contienen varias aplicaciones. El sistema permite crear nuevos paquetes y asociar aplicaciones existentes con ellos, facilitando la administración y distribución de recursos."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Mejora en la Gestión y Seguridad de Datos",
+    "items": [
+      "Interfaz amigable para el administrador que facilita el manejo de usuarios y aplicaciones",
+      "Autenticación segura con creación automática del usuario admin inicial",
+      "Implementación de medidas contra errores no deseados mejorando la experiencia de usuario"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones con otras herramientas educativas",
+    "notes": "Añada las integraciones que desee para ampliar la funcionalidad de jocarsa-aqua.",
+    "items": [
+      "LMS (Learning Management System) como Moodle o Canvas",
+      "Plataformas de autograding como Gradescope",
+      "Herramientas de gestión académica como Blackboard"
+    ]
+  },
+  "trust": {
+    "title": "Soporte al Cliente Confiable",
+    "points": [
+      "Ofrece un acceso administrativo seguro con autenticación de usuario y contraseña.",
+      "Incluye un formulario de inicio de sesión amigable que guía a los usuarios paso a paso.",
+      "Implementa medidas de seguridad básicas como la encriptación de contraseñas."
+    ]
+  },
+  "finalCTA": {
+    "title": "Gestionar tu SaaS con jocarsa | aqua",
+    "description": "Administra fácilmente tu plataforma educativa desde el panel de control. Regístrate ahora para ver todas las funciones.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Regístrate"
+      },
+      {
+        "type": "secondary",
+        "text": "Descubre más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo instalar jocarsa-aqua?",
+        "a": "Para instalar jocarsa-aqua, asegúrate de copiar el código en tu servidor web. Luego, accede al instalador a través del URL correspondiente y sigue las instrucciones para completar la configuración inicial."
+      },
+      {
+        "q": "¿Cómo puedo iniciar sesión como administrador?",
+        "a": "Ingresa a la página de inicio de sesión (`admin.php`) con los detalles proporcionados en el README: nombre de usuario `jocarsa` y contraseña `jocarsa`. Si no has configurado un usuario antes, se creará automáticamente."
+      },
+      {
+        "q": "¿Cómo puedo agregar usuarios o aplicaciones desde la interfaz?",
+        "a": "Una vez autenticado, puedes acceder al panel administrativo para crear nuevos usuarios o aplicaciones. En la página principal (`admin.php`), utiliza los formularios para añadir nuevas entradas según las instrucciones."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Este software educativo ofrece una plataforma de administración y gestión para crear y gestionar aplicaciones. Incluye un sistema de inicio de sesión administrativo con autenticación de usuarios, manejo de contraseñas seguras, y opciones para agregar o editar datos en varias tablas relacionadas. El diseño es responsive y utiliza Bootstrap para mejorar la experiencia del usuario en dispositivos móviles y desktops."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon · App - Registra y monitorea tus jornadas laborales sin complicaciones",
+    "category": "Software de Gestión del Tiempo Laboral",
+    "audience_segments": [
+      "Personal de Administración",
+      "Directivos",
+      "Trabajadores"
+    ],
+    "ctaPrimary": "Prueba gratis",
+    "ctaSecondary": "Solicita demo"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Registra tus jornadas laborales con precisión y control total. Sin más complicaciones.",
+    "subtitle": "Gestiona tus registros de inicio y finalización en tiempo real",
+    "badges": [
+      "Inicia y termina tu jornada automáticamente",
+      "Accede a un listado completo de tus registros"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba gratis"
+      },
+      {
+        "type": "secondary",
+        "text": "Solicita demo"
+      },
+      {
+        "type": "tertiary",
+        "text": "Preguntas frecuentes"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Jornadas laborales desorganizadas",
+    "items": [
+      "Iniciar y terminar tu jornada manualmente es error-prone",
+      "Tener que recordar tus registros diarios con precisiones implica más trabajo"
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | darksalmon · App",
+    "overview": "Permite registrar automáticamente el inicio y final de tu jornada. Una solución simple pero eficaz para controlar tus tiempos laborales.",
+    "whatChanges": [
+      "Elimina errores al iniciar/terminar",
+      "Mantiene un registro preciso en todo momento"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Registro automático de jornada",
+        "benefit": "Inicia y termina tu jornada con solo un clic"
+      },
+      {
+        "name": "Listado completo de registros",
+        "benefit": "Consulta tus jornadas laborales en cualquier momento"
+      },
+      {
+        "name": "Notificaciones por email",
+        "benefit": "Recibe alertas si algo no está en orden"
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "¿Para quién es jocarsa | darksalmon?",
+    "profiles": [
+      {
+        "name": "Personal de administración",
+        "fit": "Monitorea y controla las jornadas laborales de los empleados"
+      },
+      {
+        "name": "Directivos",
+        "fit": "Supervisa la productividad del equipo y asegura el cumplimiento de horarios"
+      },
+      {
+        "name": "Trabajadores",
+        "fit": "Registra fácilmente sus horas de trabajo sin complicaciones"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de uso",
+    "cases": [
+      {
+        "name": "Registra jornada laboral",
+        "description": "Inicia y termina tu jornada laboral automáticamente en tiempo real"
+      },
+      {
+        "name": "Monitorea tiempos laborales",
+        "description": "Accede a un listado completo de tus registros para analizar la productividad"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Cómo puedo iniciar mi jornada?",
+        "answer": "Haz clic en 'Inicio de Jornada' y tu registro será automatizado."
+      },
+      {
+        "question": "¿Cómo consulto mis registros?",
+        "answer": "Ve a la sección 'Jornadas Registradas' para consultar todos tus registros laborales."
+      }
+    ]
+  },
+  "troubleshooting": {
+    "title": "Solución de problemas",
+    "items": [
+      {
+        "issue": "Problemas con inicio/terminación",
+        "solution": "Verifica tu conexión a internet y asegúrate de iniciar sesión correctamente."
+      },
+      {
+        "issue": "Errores en los registros",
+        "solution": "Contacta al administrador para revisar tus datos"
+      }
+    ]
+  }
+}

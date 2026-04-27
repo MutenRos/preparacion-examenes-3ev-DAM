@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-khaki",
+    "title": "jocarsa | khaki - Gestiona tus tareas y horas de trabajo con precisión y facilidad",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Profesores",
+      "Educadores",
+      "Personal administrativo educativo"
+    ],
+    "ctaPrimary": "Comienza a gestionar",
+    "ctaSecondary": "Sobre nosotros"
+  },
+  "hero": {
+    "name": "jocarsa | khaki",
+    "valueProposition": "Plataforma de gestión educativa que facilita la administración de tareas y horas trabajadas, diseñada para profesores e instituciones.",
+    "subtitle": "Organiza tus calendarios y supervisa las horas laboradas con una interfaz intuitiva.",
+    "badges": [
+      "Sistema personalizado",
+      "Compatibilidad multi-plataforma",
+      "Seguridad encriptada"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comienza a gestionar"
+      },
+      {
+        "type": "secondary",
+        "text": "Sobre nosotros"
+      },
+      {
+        "type": "tertiary",
+        "text": "Preguntas frecuentes"
+      }
+    ]
+  }
+}

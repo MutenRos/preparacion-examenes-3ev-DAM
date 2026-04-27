@@ -1,0 +1,15 @@
+{
+  "problem": {
+    "title": "Generador de Prompt para IA",
+    "items": [
+      "Parámetros del prompt: Contexto, Objetivo, Restricciones, Formato.",
+      "Explorador de carpetas integrado para elegir el proyecto.",
+      "Generación de estructura y reporte intercalado del código (mismas reglas que el Tkinter).",
+      "Análisis de base de datos SQLite o MySQL (opcional PyMySQL)",
+      "Vista Markdown y WYSIWYG con resaltado",
+      "Guardar reportes con nombre `<carpeta>_YYYYmmddHHMMSS.txt`",
+      "Guardar prompts de subcarpetas `jocarsa-*` en carpeta `prompts/`",
+      "Persistencia en `config.json`"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "footer": {"summary":"Estructura y estilo de la página de administrador para jocarsa-aliceblue, incluyendo menús, contenido en celdas, progreso visual, y vistas modales para imágenes."
+  }
+}

@@ -1,0 +1,23 @@
+```json
+{
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon - Control total de tus jornadas laborales",
+    "category": "softwareEducativo",
+    "audience_segments": ["Profesores", "Personal Educativo"],
+    "ctaPrimary": "Iniciar Jornada",
+    "ctaSecondary": "Ver Perfil"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Control total de tus jornadas laborales con una interfaz intuitiva y funcional.",
+    "subtitle": "Administra fácilmente tu horario y ausencias en un solo lugar.",
+    "badges": ["Sistema integral", "Seguro e inmutable"],
+    "actions": [
+      {"type":"primary","text":"Iniciar Jornada"},
+      {"type":"secondary","text":"Ver Perfil"},
+      {"type":"tertiary","text":"Manual de Usuario"}
+    ]
+  }
+}
+```

@@ -1,0 +1,103 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-teal",
+    "title": "Gestiona tus Aplicaciones de Datos de Forma Dinámica",
+    "category": "SaaS Educativo",
+    "audience_segments": ["Directores Ejecutivos", "Profesores y Docentes", "Equipo Administrativo"],
+    "ctaPrimary": "Accede Ahora",
+    "ctaSecondary": "Descubre la Demo"
+  },
+  "hero": {
+    "name": "Inicio",
+    "valueProposition": "Crea y Administra tablas, carpetas y aplicaciones empresariales de forma intuitiva.",
+    "subtitle": "Organiza tus datos en un solo lugar con jocarsa | teal.",
+    "badges": ["Intuitivo", "Dinámico", "Personalizado"],
+    "actions": [
+      {"type":"primary","text":"Accede Ahora"},
+      {"type":"secondary","text":"Descubre la Demo"},
+      {"type":"tertiary","text":"Ver Cómo Funciona"}
+    ]
+  },
+  "problem": {
+    "title": "Desafíos en la Gestión de Datos",
+    "items": ["Necesidad de Personalizar y Organizar Datos", "Búsqueda Difícil y Navegación Lenta", "Seguridad y Control de Acceso Limitado"]
+  },
+  "solution": {
+    "title": "jocarsa | teal: Solución Integral",
+    "overview": "Con jocarsa | teal, crea e intuitivo sistema que te permite definir esquemas personalizados, organizar datos en carpetas visualmente y generar reportes interactivos.",
+    "whatChanges": ["Interfaz Visual Personalizable", "Gestión de Aplicaciones Empresariales", "Informes Interactivos y Análisis en Tiempo Real"]
+  },
+  "keyFeatures": {
+    "title": "Características Destacadas",
+    "features": [
+      {"name":"Creación Dinámica de Tablas y Carpetas","benefit":"Define esquemas personalizados y organiza datos visualmente."},
+      {"name":"Gestión de Aplicaciones Empresariales","benefit":"Crea múltiples aplicaciones con su propio conjunto de tablas y registros."},
+      {"name":"Interfaz Intuitiva y Flexible","benefit":"Navega sencillamente por menús, paneles y breadcrumbs para acceder a cualquier registro o reporte al instante."}
+    ]
+  },
+  "targetAudience": {
+    "title": "Perfil del Cliente Ideal",
+    "profiles": [
+      {"name":"Directores Ejecutivos","fit":"Dirigen la estrategia empresarial y buscan herramientas que optimicen la gestión de datos."},
+      {"name":"Profesores y Docentes","fit":"Necesitan sistemas dinámicos para organizar y analizar datos educativos fácilmente."},
+      {"name":"Equipo Administrativo","fit":"Gestionan múltiples aplicaciones empresariales y buscan soluciones que faciliten la navegación y el control de acceso."}
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {"name":"Definición de Esquemas Personalizados","description":"Define esquemas para adaptar las tablas a las necesidades específicas del negocio."},
+      {"name":"Organización Visual de Datos","description":"Crea carpetas visualmente y organiza datos fácilmente."},
+      {"name":"Generación de Informes Interactivos","description":"Convierte datos en informes interactivos para tomar decisiones informadas."}
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios y Ventajas",
+    "items": ["Eficiencia Operativa", "Flexibilidad Total", "Visibilidad Completa"]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones",
+    "notes": "Conéctate con otros sistemas y herramientas de forma opcional.",
+    "items": ["Sistemas de Gestión Empresarial", "Plataformas Educativas", "Panel de Monitoreo"]
+  },
+  "trust": {
+    "title": "Confianza y Apoyo",
+    "points": ["Soporte en Cualquier Momento", "Seguridad Robusta", "Gestión de Usuarios Segura"]
+  },
+  "finalCTA": {
+    "title": "Descubre cómo jocarsa | teal transforma la gestión de datos.",
+    "description": "Prueba nuestra demo gratuita e incremente la eficiencia en tu empresa o escuela hoy mismo.",
+    "actions": [
+      {"type":"primary","text":"Accede Ahora"},
+      {"type":"secondary","text":"Más Información"}
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {"name":"nombre","type":"text","required":"true"},
+        {"name":"email","type":"email","required":"true"},
+        {"name":"mensaje","type":"textarea","required":"true"}
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {"q":"¿Cómo puedo personalizar las tablas y carpetas?","a":"Define esquemas personalizados y organiza tus datos en carpetas visualmente para adaptarlos a las necesidades específicas de tu negocio."},
+      {"q":"¿Cuáles son los informes interactivos disponibles?","a":"Generamos reportes interactivos que convertirán tus datos en análisis útiles e inmediatos."},
+      {"q":"¿Es seguro almacenar mis datos en jocarsa | teal?","a":"Nuestro sistema asegura la seguridad y el control de acceso, garantizando la confidencialidad de tus datos."}
+    ]
+  },
+  "footer": {
+    "sections": [
+      {"name":"Inicio", "items": ["Características", "Beneficios", "Demo", "Contacto"]},
+      {"name":"Sobre Nosotros", "items": []},
+      {"name":"Políticas y Servicios", "items": []}
+    ]
+  }
+}

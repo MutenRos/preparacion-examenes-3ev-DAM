@@ -1,0 +1,10 @@
+{
+  "problem": {
+    "title": "jocarsa-firebrick | firebrick",
+    "items": [
+      "Administradores pueden crear y administrar carpetas, proyectos e iteraciones.",
+      "Clientes tienen acceso a visualizar videos y dejar comentarios en los proyectos.",
+      "El sistema utiliza la base de datos SQLite `projects.db` para almacenar información del proyecto."
+    ]
+  }
+}

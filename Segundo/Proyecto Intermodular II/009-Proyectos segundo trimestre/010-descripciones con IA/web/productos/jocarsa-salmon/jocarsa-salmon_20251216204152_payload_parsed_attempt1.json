@@ -1,0 +1,188 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "Salmon: Sala de Video en Línea Segura y Flexible",
+    "category": "Educación Online",
+    "audience_segments": [
+      "Profesores",
+      "Estudiantes",
+      "Organizaciones educativas"
+    ],
+    "ctaPrimary": "Probar Ahora Gratis",
+    "ctaSecondary": "Aprende Más"
+  },
+  "hero": {
+    "name": "Sala de Video en Línea",
+    "valueProposition": "Salmon es tu sala de video en línea personalizada, segura y sin problemas técnicos. ¡Únete a las sesiones educativas sin restricciones!",
+    "subtitle": "Aprende en un ambiente interactivo con la comodidad de tu hogar.",
+    "badges": [
+      "Sin Anuncios",
+      "Acceso Protegido"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Probar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Ver Características"
+      },
+      {
+        "type": "tertiary",
+        "text": "Contacto"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Desafíos en las Clases Virtuales",
+    "items": [
+      "Navegadores bloquean el audio",
+      "Sesiones sin contraseñas son inseguras",
+      "Falta de control sobre la cámara y micrófono"
+    ]
+  },
+  "solution": {
+    "title": "Salmon Resuelve Estos Problemas",
+    "overview": "Ofrecemos una plataforma segura con salas protegidas por contraseña, audio desbloqueado en el navegador, y opciones avanzadas para controlar las cámaras y micrófonos.",
+    "whatChanges": [
+      "Sesiones seguras",
+      "Audio activado automáticamente",
+      "Control total sobre las cámaras y micrófonos"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Ventajas de Salmon",
+    "features": [
+      {
+        "name": "Contraseña Protegida",
+        "benefit": "Asegura la privacidad del aula virtual."
+      },
+      {
+        "name": "Audio Automático",
+        "benefit": "Elimina el bloqueo del navegador para una experiencia sin interrupciones."
+      },
+      {
+        "name": "Control Total",
+        "benefit": "Permite controlar las cámaras y micrófonos según sea necesario."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Salmon es Ideal Para",
+    "profiles": [
+      {
+        "name": "Profesores",
+        "fit": "Gestione sus clases de forma segura sin preocuparse por el audio o la privacidad."
+      },
+      {
+        "name": "Estudiantes",
+        "fit": "Aproveche una clase virtual interactiva y controlada."
+      },
+      {
+        "name": "Organizaciones Educativas",
+        "fit": "Ofrezca aulas en línea con confianza."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Clases Virtuales",
+        "description": "Profesores pueden llevar a cabo clases interactivas con salas protegidas y audio activado."
+      },
+      {
+        "name": "Tutorías Privadas",
+        "description": "Estudiantes y profesores pueden conectarse en una sala segura para tutorías individuales."
+      },
+      {
+        "name": "Conferencias Educativas",
+        "description": "Organizaciones educativas pueden organizar conferencias de forma controlada con control total sobre las cámaras y micrófonos."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios de Usar Salmon",
+    "items": [
+      "Sesiones más seguras",
+      "Experiencia sin interrupciones",
+      "Más flexibilidad en el uso del video y audio"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integración Contra Cuentas Existentes",
+    "notes": "Salmon se integra con cuentas de usuarios existentes sin necesidad de crear una nueva cuenta. Es opcional añadir más funcionalidades.",
+    "items": [
+      "Google Classroom",
+      "Microsoft Teams"
+    ]
+  },
+  "trust": {
+    "title": "Por qué Confiar en Salmon",
+    "points": [
+      "Desarrollado por expertos en educación y tecnología",
+      "Compatibilidad con navegadores principales",
+      "Nunca almacenamos datos de audio o video sin consentimiento."
+    ]
+  },
+  "finalCTA": {
+    "title": "¡Empieza a Educar de Manera Segura!",
+    "description": "Regístrese hoy para probar Salmon y experimente una clase virtual segura.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Probar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Contacto"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo puedo iniciar sesión en Salmon?",
+        "a": "Use su cuenta existente o registrese con un correo electrónico y contraseña."
+      },
+      {
+        "q": "¿Es necesario pagar para usar Salmon?",
+        "a": "La versión gratuita incluye todas las funcionalidades básicas. Ofrecemos planes de pago para características avanzadas."
+      },
+      {
+        "q": "¿Puedo utilizar Salmon en diferentes dispositivos?",
+        "a": "Sí, Salmon es compatible con computadoras, tabletas y smartphones."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "© 2023 jocarsa | salmon. Todos los derechos reservados. Desarrollado por expertos para la educación moderna."
+  }
+}

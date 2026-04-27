@@ -1,0 +1,182 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Solución WebRTC para salas de chat con contraseñas",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Instructores",
+      "Estudiantes"
+    ],
+    "ctaPrimary": "Prueba gratis",
+    "ctaSecondary": "Conozca más"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Salas de chat seguras con WebRTC y contraseñas personalizadas",
+    "subtitle": "Crea salas privadas y protege su contenido educativo en vivo.",
+    "badges": [
+      "Sala de chat WebRTC",
+      "Contraseñas personalizables"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba gratis"
+      },
+      {
+        "type": "secondary",
+        "text": "Conozca más"
+      },
+      {
+        "type": "tertiary",
+        "text": "Preguntas frecuentes"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Desafíos en la educación virtual",
+    "items": [
+      "Necesidad de salas privadas para el intercambio seguro de contenido",
+      "Bloqueo del audio por el navegador en conferencias virtuales"
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | salmon - Solución WebRTC segura y personalizable",
+    "overview": "Permite crear salas de chat con contraseñas personalizables, protegiendo el contenido educativo en vivo.",
+    "whatChanges": [
+      "Salas privadas",
+      "Contraseñas personalizables",
+      "Audio bloqueado por el navegador"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características principales",
+    "features": [
+      {
+        "name": "Sala de chat WebRTC",
+        "benefit": "Crea salas privadas para intercambiar contenido seguro"
+      },
+      {
+        "name": "Contraseñas personalizables",
+        "benefit": "Establece contraseñas únicas para cada sala"
+      },
+      {
+        "name": "Bloqueo del audio por el navegador",
+        "benefit": "Permite a los instructores activar el audio de forma controlada"
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para quién es jocarsa | salmon",
+    "profiles": [
+      {
+        "name": "Instructores",
+        "fit": "Crea y administra salas de chat seguras para sus clases virtuales"
+      },
+      {
+        "name": "Estudiantes",
+        "fit": "Accede a salas privadas para colaborar con otros estudiantes"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de uso",
+    "cases": [
+      {
+        "name": "Clases en vivo",
+        "description": "Administra salas privadas para transmitir clases en vivo y asegurarte que solo los estudiantes autorizados puedan acceder"
+      },
+      {
+        "name": "Colaboración en tiempo real",
+        "description": "Crea salas con contraseñas personalizables para colaborar en proyectos en grupo"
+      },
+      {
+        "name": "Reuniones de estudio virtuales",
+        "description": "Organiza reuniones de estudio privadas y seguras para estudiar juntos"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "items": [
+      "Salas privadas y seguras",
+      "Personalización completa de contraseñas",
+      "Control sobre el audio en tiempo real"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones",
+    "notes": "Incluye opciones para integrar con plataformas de aprendizaje y sistemas existentes.",
+    "items": [
+      "Google Classroom",
+      "Moodle"
+    ]
+  },
+  "trust": {
+    "title": "Confianza en jocarsa | salmon",
+    "points": [
+      "Plataforma segura y confiable",
+      "Soporte técnico personalizado",
+      "Actualizaciones constantes para mejorar la seguridad y el rendimiento"
+    ]
+  },
+  "finalCTA": {
+    "title": "¡Prueba jocarsa | salmon!",
+    "description": "Descubre cómo proteger tu contenido educativo en vivo con salas de chat seguras.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba gratis"
+      },
+      {
+        "type": "secondary",
+        "text": "Conozca más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "false"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo crear una sala de chat segura?",
+        "a": "Crea una sala en jocarsa | salmon y establece contraseñas personalizables para controlar el acceso."
+      },
+      {
+        "q": "¿Es seguro compartir salas con estudiantes?",
+        "a": "Sí, las salas son privadas y solo los usuarios con la contraseña correcta pueden acceder."
+      },
+      {
+        "q": "¿Cómo puedo controlar el audio en tiempo real?",
+        "a": "El sistema de jocarsa | salmon permite a los instructores activar o desactivar el audio según sea necesario."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa | salmon - Solución WebRTC para salas de chat seguras y personalizables. Conéctese con nosotros en info@jocarsa.com."
+  }
+}

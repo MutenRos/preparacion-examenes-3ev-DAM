@@ -1,0 +1,21 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 30092025_RL SMR1.txt
+------------------------------------------------------------
+
+Entendi bem. Vou resumir e organizar o texto para facilitar sua leitura e entendimento:
+
+Resumo do trecho:
+O usuário está realizando uma série de exercícios utilizando um programa chamado "ping" (que faz pings entre dispositivos na rede) e o "traceroute" (que mostra a caminhada dos pacotes até chegar ao destino).
+
+1. O usuário configurou uma conexão ping para testar a comunicação entre dois PCs, PC11 e PC14.
+2. Foram realizados alguns pings diferentes e a saída foi analisada.
+3. No modo de simulação, o usuário ativou filtros para visualizar apenas os pacotes relevantes (ICMP e RP).
+4. O usuário experimentou uma situação onde um pacote estava sendo retornado duas vezes.
+5. O trecho menciona que é um exercício do segundo nível de conhecimento.
+
+O texto também fala sobre a utilização dos protótipos ARP e ICMP, com destaque para o seu uso no "traceroute".
+
+Resumo: Esse trecho aborda uma análise detalhada da caminhada de pacotes entre dois dispositivos na rede utilizando ferramentas como ping e traceroute. O usuário também experimenta filtros para entender melhor os dados retornados pelo sistema.
+
+O texto termina sugerindo que é um exercício mais avançado, do nível intermediário ao superior.
+Esse resumo visa facilitar a leitura e entendimento dos principais pontos discutidos no trecho original.

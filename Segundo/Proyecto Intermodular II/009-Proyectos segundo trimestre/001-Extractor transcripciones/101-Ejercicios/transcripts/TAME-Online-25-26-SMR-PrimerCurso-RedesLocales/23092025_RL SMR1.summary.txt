@@ -1,0 +1,27 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 23092025_RL SMR1.txt
+------------------------------------------------------------
+
+Entiendo que hay varios puntos importantes mencionados en este texto y varias tareas pendientes. Vamos a resumirlo y estructurarlo para seguir avanzando:
+
+1. Tarea pendiente:
+- Completar el ejercicio 3 de Cisco que no llegó al switch. 
+   - Se implementará usando un switch genérico de la misma familia.
+
+2. Nueva tarea:
+- Descomprimir los ejercicios de Cisco y subirlos al drive.
+  
+3. Puntos a revisar o comentar:
+- Paquetes enviados: si alguno no llegó completo, enviar otro archivo comprimido
+- Registro de pasos realizados en el ejercicio 3
+- Actividades próximas de entrega en la plataforma Tamet
+
+4. Tareas pendientes para el día siguiente:
+- Continuar con las tareas del ejercicio 3 si se necesita.
+- Completar el registro necesario en Tamet según el sistema actual.
+
+5. Consideraciones finales: 
+   - Corregir errores previos relacionados con los paquetes
+   - Asegurar que todos los pasos y descripciones estén registradas correctamente
+
+¿Qué te parece esta resumen? ¿Hay algún punto específico del texto que prefieras revisar o expandir más?

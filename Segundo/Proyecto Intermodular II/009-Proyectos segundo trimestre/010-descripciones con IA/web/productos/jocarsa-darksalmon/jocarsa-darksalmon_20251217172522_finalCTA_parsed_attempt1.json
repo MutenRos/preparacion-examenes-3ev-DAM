@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Descubre jocarsa | darksalmon",
+    "description": "Gestiona tus jornadas laborales de manera fácil y segura. Registra el inicio y final de tu jornada, administra tus ausencias y consulta tu perfil en cualquier momento.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Iniciar sesión"
+      },
+      {
+        "type": "secondary",
+        "text": "Obtener más información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "false"
+        }
+      ]
+    }
+  }
+}

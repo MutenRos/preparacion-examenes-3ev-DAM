@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Generador de Prompt para IA","points":["Parámetros del prompt se manejan con precisión para incluir Contexto, Objetivo, Restricciones y Formato.","La interfaz integrada permite seleccionar proyectos a través de un explorador de carpetas, facilitando el análisis y generación de informes.","Ofrece la opción de analizar bases de datos SQLite o MySQL, proporcionando una funcionalidad completa para el monitoreo del proyecto."]}
+}

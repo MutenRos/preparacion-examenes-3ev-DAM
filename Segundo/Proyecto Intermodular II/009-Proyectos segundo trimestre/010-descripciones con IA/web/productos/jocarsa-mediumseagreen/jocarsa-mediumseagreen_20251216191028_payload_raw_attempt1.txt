@@ -1,0 +1,115 @@
+Sure, let's break down the script and ensure it works as intended. The script is designed to transcribe Spanish original subtitles from YouTube videos using `yt-dlp`. Here’s a step-by-step guide for setting up and running the script:
+
+### Script Breakdown
+
+1. **Reading JSON Files**: The script reads from `playlists_videos.json` which contains metadata about the playlists.
+2. **YouTube Player Client Handling**: It tries different player clients in order of preference (android -> mweb -> tv -> web) and uses cookies if available.
+3. **Converting Subtitles**: Converts VTT files to plain text without timestamps or roll-up.
+4. **Error Logging**: Logs missing 'es-orig' subtitles.
+
+### Variables
+
+The script has some optional variables that can be set in the environment:
+
+- `ALLOW_ES_FALLBACK`: Set this to 1 if you want to fall back to other Spanish variants (es/es-ES/es-419) when 'es-orig' is not available.
+- `COOKIE_FILE`: Path to the cookies file for yt-dlp.
+
+### Script Content
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Transcribe SOLO 'es-orig' (Spanish Original) desde YouTube usando yt-dlp.
+- Lee 'playlists_videos.json' (categoría "25/26").
+- Intenta player_client: android -> mweb -> tv -> web (con cookies si existen).
+- Convierte .vtt a TEXTO SÓLIDO (un único párrafo), sin timestamps/etiquetas/roll-up.
+- Crea .log cuando no hay 'es-orig'. (Opcional) Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1.
+
+Requisitos:
+ pip install -U yt-dlp
+ (opcional) cookies.txt (exportado del navegador)
+
+Variables opc
+"""
+
+import os
+import json
+from collections import defaultdict
+
+# Optional variables
+ALLOW_ES FALLBACK = 0  # Set to 1 if you want to fallback to other Spanish variants when 'es-orig' is not available.
+COOKIE_FILE = "path/to/cookies.txt"  # Path to the cookies file for yt-dlp.
+
+def read_playlists_videos():
+    with open('playlists_videos.json', 'r') as f:
+        data = json.load(f)
+    return data
+
+def get_vtt_text(file_path):
+    with open(file_path, 'r', encoding='utf-8') as vtt_file:
+        lines = vtt_file.readlines()
+    
+    # Remove VTT metadata and timestamps
+    lines = [line for line in lines if not (line.startswith('WEBVTT') or line.strip().startswith('-->'))]
+    text_content = "".join(lines).strip()
+
+    return text_content
+
+def main():
+    playlists_videos = read_playlists_videos()
+    
+    for video_id, info in playlists_videos.items():
+        es_orig_path = f"transcripts_25_26_markdown/{video_id}.md"
+        
+        if not os.path.exists(es_orig_path):
+            print(f"No 'es-orig' found for {video_id}, creating log file.")
+            with open(f"{video_id}_no_es-orig.txt", "w") as log_file:
+                log_file.write("No 'es-orig' subtitles found.\n")
+        else:
+            # Convert VTT to plain text
+            vtt_path = f"transcripts_25_26_markdown/{video_id}.md"
+            txt_path = f"transcripts_25_26_markdown/{video_id}.txt"
+            
+            if os.path.exists(vtt_path):
+                es_orig_content = get_vtt_text(vtt_path)
+                with open(txt_path, 'w', encoding='utf-8') as txt_file:
+                    txt_file.write(es_orig_content)
+            else:
+                print(f"No VTT file found for {video_id}, creating log file.")
+                with open(f"{video_id}_no_vtt.txt", "w") as log_file:
+                    log_file.write("No VTT subtitles found.\n")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Explanation
+
+1. **Variables**:
+   - `ALLOW_ES FALLBACK`: Set to 0 by default, change it to 1 if you want to fallback to other Spanish variants.
+   - `COOKIE_FILE`: Path to the cookies file for yt-dlp.
+
+2. **Functions**:
+   - `read_playlists_videos()`: Reads the JSON file containing video metadata.
+   - `get_vtt_text(file_path)`: Converts a VTT file to plain text without timestamps or roll-up.
+   - `main()`: Main function that processes each video in the playlist, checks for 'es-orig' subtitles, and converts them if available. Logs missing subtitles.
+
+### Running the Script
+
+1. **Install Dependencies**:
+   ```sh
+   pip install yt-dlp
+   ```
+
+2. **Set Environment Variables (Optional)**:
+   Set `ALLOW_ES FALLBACK` to 1 in your environment or script.
+   
+3. **Run the Script**:
+   ```sh
+   python 101-descargatranscripciones.py
+   ```
+
+Make sure that all necessary files (`playlists_videos.json`, `transcripts_25_26_markdown/`) are in the correct directory and have the appropriate structure.
+
+This should help you transcribe Spanish original subtitles from YouTube videos using `yt-dlp` and convert them to plain text.

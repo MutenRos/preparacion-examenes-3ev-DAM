@@ -1,0 +1,30 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Gestiona tu Aula con Estilo y Eficiencia",
+    "category": "Educación",
+    "audience_segments": ["Profesores", "Directivos Escolares"],
+    "ctaPrimary": "Descubre ahora",
+    "ctaSecondary": "Contactar"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "aliceblue es una plataforma educativa integral que facilita la captura y gestión de contenido, permitiendo a profesores e instituciones ofrecer experiencias interactivas y motivadoras en el aula.",
+    "subtitle": "Transforma las clases tradicionales con soluciones tecnológicas diseñadas para ti.",
+    "badges": ["Fácil de usar", "Adaptado a cualquier dispositivo", "Seguro para niños"],
+    "actions": [
+      {"type":"primary","text":"Descubre aliceblue"},
+      {"type":"secondary","text":"Ver cases de uso"},
+      {"type":"tertiary","text":"Contactar"}
+    ]
+  },
+  "problem": {"title": "Desafíos en la Enseñanza Interactiva","items": ["Materiales didácticos limitados", "Dificultad para organizar el contenido de forma eficiente", "Falta de herramientas interactivas"]},
+  "solution": {"title": "aliceblue como solución a estos desafíos","overview": "aliceblue ofrece una plataforma completa para la captura, organización y presentación de materiales didácticos. Proporciona un espacio seguro y adaptado para todos los dispositivos.", "whatChanges": ["Permite la creación e intercambio de recursos didácticos", "Facilita la gestión eficiente del contenido educativo", "Ofrece herramientas interactivas que fomentan el aprendizaje"]},
+  "keyFeatures": {"title": "Características principales","features": [{"name":"Interfaz intuitiva","benefit":"Fácil de usar y aprender"},{"name":"Adaptabilidad a cualquier dispositivo","benefit":"Acceso al contenido desde cualquier lugar"},{"name":"Seguridad para niños","benefit":"Ambiente seguro diseñado para proteger a los usuarios menores"}]},
+  "targetAudience": {"title": "Perfiles de usuarios objetivo","profiles": [{"name":"Profesores","fit":"aliceblue facilita la creación, organización e intercambio de recursos didácticos para mejorar el aprendizaje"},{"name":"Directivos escolares","fit":"Aumenta la eficiencia en la gestión del contenido educativo y fomenta un ambiente interactivo para los estudiantes"}]},
+  "cases": {"title": "Casos de uso","items": [{"description": "Profesores utilizan aliceblue para crear y compartir recursos didácticos que mejoran el aprendizaje en el aula."}, {"description": "Directivos escolares implementan aliceblue para mejorar la gestión del contenido educativo y aumentar la interactividad en las clases."}]},
+  "contact": {"email": "info@aliceblue.com", "phone": "+1234567890", "address": "123 Educacion St, City, Country"}
+}

@@ -1,0 +1,49 @@
+It looks like the directory structure you've provided includes two folders: `transcripts_25_26` and `transcripts_25_26_markdown`. The first folder contains a mix of `.es-orig.vtt`, `.es.vtt`, `.vtt`, and `.log` files, which are likely related to video or audio transcripts. The second folder contains `.md` (Markdown) files.
+
+Here's a breakdown of the structure:
+
+### `transcripts_25_26`
+
+This folder contains various types of transcript files for different dates:
+- **`.es-orig.vtt` and `.vtt`**: These are subtitle or transcript files in WebVTT format, possibly with original and translated versions.
+- **`.log`**: These could be log files containing some form of metadata about the transcripts.
+
+### `transcripts_25_26_markdown`
+
+This folder contains Markdown files:
+- **`.md`**: These are likely text documents formatted in Markdown that might contain transcriptions or notes from the recordings for the dates listed.
+
+### Directory Contents
+
+#### `transcripts_25_26`
+```plaintext
+├── 2025 09 11 14 03 07.es-orig.vtt
+├── 2025 09 11 14 03 07.es.vtt
+├── 2025 09 11 14 03 07.vtt
+├── 2025 09 11 14 03 07.log
+├── 2025 09 11 14 59 11.es-orig.vtt
+├── 2025 09 11 14 59 11.es.vtt
+├── 2025 09 11 14 59 11.vtt
+├── 2025 09 11 14 59 11.log
+...
+```
+
+#### `transcripts_25_26_markdown`
+```plaintext
+├── 2025 09 11 14 03 07.md
+├── 2025 09 11 14 59 11.md
+...
+```
+
+### Example Files
+
+- **`2025 09 11 14 03 07.es-orig.vtt`**: An original transcript in WebVTT format.
+- **`2025 09 11 14 03 07.md`**: A Markdown file containing the transcription or notes for the same date.
+
+### Possible Actions
+
+1. **Organize Files**: Ensure that all files are correctly named and organized by their dates and types (e.g., `.es-orig.vtt`, `.vtt`, `.log`, `.md`).
+2. **Metadata**: Add metadata to each file to help with quick reference and organization.
+3. **Consistency**: Make sure the naming convention is consistent across all files for easy identification.
+
+If you have any specific questions or need further assistance, feel free to ask!

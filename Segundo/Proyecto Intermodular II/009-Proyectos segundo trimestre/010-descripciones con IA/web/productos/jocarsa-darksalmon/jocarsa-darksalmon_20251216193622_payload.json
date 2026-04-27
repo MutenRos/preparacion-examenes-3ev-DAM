@@ -1,0 +1,22 @@
+{
+  "sections": [
+    {
+      "id": "jornadas",
+      "title": "Jornadas",
+      "icon": "📅",
+      "content": "Listado de jornadas registradas."
+    },
+    {
+      "id": "userData",
+      "title": "Mis Datos",
+      "icon": "👤",
+      "content": "Información personal del usuario."
+    },
+    {
+      "id": "ausencias",
+      "title": "Ausencias",
+      "icon": "📝",
+      "content": "Crear y ver peticiones de ausencia."
+    }
+  ]
+}

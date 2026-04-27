@@ -1,0 +1,272 @@
+{
+  "productPage": {
+    "@lang": "es",
+    "@type": "softwareEducativo",
+    "@version": "1.1",
+    "meta": {
+      "slug": "jocarsa-rosybrown",
+      "title": "Gestiona tu facturación y administración con total eficiencia",
+      "category": "Software de Facturación",
+      "audience": {
+        "segment": [
+          "Empresarios",
+          "Administradores Financieros",
+          "Contables"
+        ]
+      },
+      "ctaPrimary": "Acceder al Panel de Administración",
+      "ctaSecondary": "Consulta Precios"
+    },
+    "hero": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_hero.jpg",
+          "@alt": "Producto software"
+        }
+      },
+      "name": "Gestiona tu facturación y administración con total eficiencia",
+      "valueProposition": "Emite facturas profesionales, gestiona clientes e informes financieros interactivos.",
+      "subtitle": "Con jocarsa | rosybrown, mejora tu negocio con una herramienta integral de facturación y gestión contable.",
+      "badges": {
+        "badge": [
+          "Sencilla",
+          "Interactiva",
+          "Personalizada"
+        ]
+      },
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Acceder al Panel de Administración"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Consulta Precios"
+          }
+        ]
+      }
+    },
+    "problem": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_problem.jpg",
+          "@alt": "Problemas habituales"
+        }
+      },
+      "title": "Desafíos en la Facturación y Gestion",
+      "items": {
+        "item": [
+          "Retenciones y epígrafes complejos",
+          "Gestión tradicional detallada",
+          "Informes desactualizados"
+        ]
+      }
+    },
+    "solution": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_solution.jpg",
+          "@alt": "Solución"
+        }
+      },
+      "title": "Solución Integral",
+      "overview": "Con jocarsa | rosybrown, simplifica la facturación y la gestión administrativa con herramientas intuitivas y poderosas.",
+      "whatChanges": {
+        "change": [
+          "Automatización de facturación",
+          "Gestión eficiente de clientes e inventario",
+          "Generación de informes interactivos"
+        ]
+      }
+    },
+    "keyFeatures": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_features.jpg",
+          "@alt": "Funcionalidades"
+        }
+      },
+      "title": "Características Destacadas",
+      "feature": [
+        {
+          "name": "Facturación Completa",
+          "benefit": "Crea, edita y gestiona facturas sencillamente, con soporte para retenciones y epígrafes."
+        },
+        {
+          "name": "Gestión de Clientes y Productos",
+          "benefit": "Administra toda la información de tus clientes e inventario. Busca y actualiza registros fácilmente."
+        },
+        {
+          "name": "Informes Financieros",
+          "benefit": "Genera informes detallados y visualiza datos interactivamente en gráficos de línea, barra y pastel."
+        }
+      ]
+    },
+    "targetAudience": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_audience.jpg",
+          "@alt": "Público objetivo"
+        }
+      },
+      "title": "Para Quién",
+      "profiles": {
+        "profile": [
+          {
+            "name": "Empresarios",
+            "fit": "mejora tus procesos administrativos con una solución integral."
+          },
+          {
+            "name": "Administradores Financieros",
+            "fit": "Gestiona eficientemente facturación y gastos con informes detallados."
+          },
+          {
+            "name": "Contables",
+            "fit": "Facilita la gestión contable con una herramienta intuitiva e interactiva."
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_usecases.jpg",
+          "@alt": "Casos de uso"
+        }
+      },
+      "title": "Casos de Uso",
+      "case": [
+        {
+          "name": "Facturación Profesional",
+          "description": "Emitir facturas profesionales y detalladas, con soporte para retenciones y epígrafes."
+        },
+        {
+          "name": "Gestión de Clientes e Inventario",
+          "description": "Administrar clientes e inventario de productos. Buscar, filtrar y actualizar registros fácilmente."
+        },
+        {
+          "name": "Análisis Financiero",
+          "description": "Generar informes detallados con gráficos interactivos para analizar ingresos y gastos."
+        }
+      ]
+    },
+    "benefits": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_benefits.jpg",
+          "@alt": "Beneficios"
+        }
+      },
+      "title": "Beneficios y Ventajas",
+      "items": {
+        "item": [
+          "{'text': 'Eficiencia y productividad: Automatiza tareas administrativas y reduce tiempo en gestión tradicional.'}",
+          "{'text': 'Interfaz intuitiva: Diseñada para usuarios sin conocimientos técnicos.'}",
+          "{'text': 'Seguridad y control: Acceso restringido y gestión de múltiples usuarios, garantizando confidencialidad.'}"
+        ]
+      }
+    },
+    "trust": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_trust.jpg",
+          "@alt": "Confianza"
+        }
+      },
+      "title": "Confianza",
+      "points": {
+        "point": [
+          "Diseñado para necesidades reales.",
+          "Diseñado para necesidades reales.",
+          "Diseñado para necesidades reales."
+        ]
+      }
+    },
+    "finalCTA": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_cta.jpg",
+          "@alt": "Solicitar demo"
+        }
+      },
+      "title": "¿Quieres verlo en acción?",
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Acceder al Panel de Administración"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Hablar con un asesor"
+          }
+        ]
+      },
+      "contact": {
+        "email": "info@jocarsa.com",
+        "form": {
+          "field": [
+            {
+              "@name": "nombre",
+              "@type": "text",
+              "@required": "true"
+            },
+            {
+              "@name": "email",
+              "@type": "email",
+              "@required": "true"
+            },
+            {
+              "@name": "mensaje",
+              "@type": "textarea",
+              "@required": "true"
+            }
+          ]
+        }
+      }
+    },
+    "faq": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_faq.jpg",
+          "@alt": "Preguntas frecuentes"
+        }
+      },
+      "title": "Preguntas frecuentes",
+      "qa": [
+        {
+          "q": "¿Se puede adaptar a mi caso?",
+          "a": "Sí. Se configura según necesidades."
+        },
+        {
+          "q": "¿Es obligatorio integrar con otros sistemas?",
+          "a": "No. Es opcional."
+        },
+        {
+          "q": "¿Hay exportación de datos?",
+          "a": "Sí, según configuración."
+        }
+      ]
+    },
+    "footer": {
+      "summary": "Resumen del producto y siguiente paso."
+    },
+    "integrations": {
+      "@optional": "true",
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-rosybrown_20251216145221_integrations.jpg",
+          "@alt": "Integraciones"
+        }
+      },
+      "title": "Integraciones",
+      "items": {
+        "item": [
+          "Exportación a CSV/Excel",
+          "API bajo demanda"
+        ]
+      }
+    }
+  }
+}

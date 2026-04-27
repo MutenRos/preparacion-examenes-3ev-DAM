@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Procesamiento y análisis de videos educativos",
+    "overview": "Este software educativo automatiza el procesamiento y análisis de videos, incluyendo la traducción de subtítulos a español (o fallback) y la creación de notas didácticas a partir del texto extraído. Utiliza técnicas avanzadas como embeddings para categorizar el contenido según el temario y optimiza su estructura para facilitar la comprensión del aprendizaje.",
+    "whatChanges": [
+      "Implementa un flujo de descarga e interpretación de subtítulos en múltiples formatos, priorizando la traducción al español",
+      "Utiliza embeddings para categorizar el contenido según el temario y mejorar la relevancia de las notas didácticas generadas",
+      "Procesa y estructura el texto extraído de los videos y archivos .txt para crear un recurso didáctico coherente"
+    ]
+  }
+}

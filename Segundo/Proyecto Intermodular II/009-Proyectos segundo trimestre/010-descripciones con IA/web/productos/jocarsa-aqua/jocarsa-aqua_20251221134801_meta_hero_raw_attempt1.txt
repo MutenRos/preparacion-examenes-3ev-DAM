@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "slug": "jocarsa-aqua",
+    "title": "jocarsa | aqua - Tu dashboard educativo integral",
+    "category": "softwareEducativo",
+    "audience_segments": ["Docentes", "Estudiantes", "Administradores escolares"],
+    "ctaPrimary": "Acceder ahora",
+    "ctaSecondary": "Descargar demo"
+  },
+  "hero": {
+    "name": "jocarsa | aqua",
+    "valueProposition": "El único dashboard educativo que integra aprendizaje interactivo, gestión administrativa y análisis de datos en un solo lugar.",
+    "subtitle": "Maximiza el rendimiento escolar con jocarsa | aqua",
+    "badges": ["Interfaz amigable", "Personalización avanzada", "Análisis detallado"],
+    "actions": [
+      {"type":"primary","text":"Acceder ahora"},
+      {"type":"secondary","text":"Descargar demo"}
+    ]
+  }
+}

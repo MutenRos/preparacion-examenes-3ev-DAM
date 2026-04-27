@@ -1,0 +1,23 @@
+```json
+{
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Creación de Contenido Educativo Personalizado y Eficiente",
+    "category": "Educational Software",
+    "audience_segments": ["Docentes", "Estudiantes", "Desarrolladores"],
+    "ctaPrimary": "Prueba Gratis",
+    "ctaSecondary": "Más Información"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Automatiza y optimiza la creación de contenido educativo, personalizando cada lección según el tema y el nivel del alumno.",
+    "subtitle": "Transforma tu currículo con tecnología avanzada para un aprendizaje adaptativo e interactivos.",
+    "badges": ["Automatización", "Adaptabilidad", "Interactividad"],
+    "actions": [
+      {"type":"primary","text":"Prueba Gratis"},
+      {"type":"secondary","text":"Más Información"},
+      {"type":"tertiary","text":"Contacto"}
+    ]
+  }
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "footer": {"summary":"Desarrollado conPure PHP Markdown to HTML Converter with Hierarchical Index. Consulta el manual de usuario para obtener más información sobre cómo usar la aplicación jocarsa | darksalmon correctamente. Si tienes problemas, revisa tu conexión a internet y asegúrate de permitir el acceso a la ubicación si es necesario."}
+}
+```

@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Incrementa la eficiencia y mejora la experiencia del usuario con jocarsa | aliceblue","items":["Disfruta de un diseño amigable que asegura una navegación fluida en el panel administrativo.","Personaliza cada sección con opciones de estilo modernas, optimizando tu interacción con el contenido multimedia.","Visualiza y administra tus datos de manera segura y confiable, gracias a la arquitectura robusta y la interfaz intuitiva."]}
+}

@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Personalizar y Optimizar tu Experiencia","items":["Accede a una interfaz intuitiva que se ajusta a tus preferencias de diseño, sin perder tiempo en configuraciones.","Mantente productivo con la gestión personalizada de tus listas y productos desde cualquier pantalla.","Gestionar fácilmente tus datos y preferencias en un solo lugar, sin complicaciones técnicas."]}
+}

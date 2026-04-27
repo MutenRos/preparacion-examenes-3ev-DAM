@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "slug": "jocarsa-orange",
+    "title": "jocarsa | orange - Tu Asistente Educativo en Línea",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Docentes",
+      "Estudiantes",
+      "Padres de Familia"
+    ],
+    "ctaPrimary": "¡Prueba Ahora!",
+    "ctaSecondary": "Conoce Más"
+  },
+  "hero": {
+    "name": "jocarsa | orange",
+    "valueProposition": "Transforma la Educación con Nuestro Asistente Personalizado y Interactivo",
+    "subtitle": "Descubre Cursos, Gestiona Tu Tiempo y Realiza Actividades Educativas en un Solo Lugar",
+    "badges": [
+      "Interactividad Aumentada",
+      "Adaptación Personalizada",
+      "Innovación Pedagógica"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "¡Prueba Ahora!"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      }
+    ]
+  }
+}

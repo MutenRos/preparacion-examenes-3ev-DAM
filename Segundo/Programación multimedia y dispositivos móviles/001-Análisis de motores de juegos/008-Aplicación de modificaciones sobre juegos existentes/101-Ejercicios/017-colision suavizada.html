@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Voxel + Terreno Suavizado (solo superficie visible) + Nubes + Niebla</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,Arial;background:#000}
+    #crosshair{
+      position:absolute;top:50%;left:50%;width:20px;height:20px;transform:translate(-50%,-50%);pointer-events:none
+    }
+    #crosshair::before,#crosshair::after{content:"";position:absolute;background:white}
+    #crosshair::before{width:2px;height:20px;left:50%;transform:translateX(-50%)}
+    #crosshair::after{width:20px;height:2px;top:50%;transform:translateY(-50%)}
+
+    #ui{
+      position:absolute;top:10px;left:10px;z-index:10;
+      background:rgba(0,0,0,.55);color:#fff;padding:10px 12px;border-radius:10px;
+      font-size:14px;line-height:1.35;pointer-events:none;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+    }
+    #ui .muted{opacity:.85}
+
+    #block-selector{
+      position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;
+      background:rgba(0,0,0,.55);padding:8px;border-radius:10px;display:flex;gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+    }
+    .block-option{width:36px;height:36px;border:2px solid transparent;border-radius:6px;cursor:pointer;pointer-events:auto}
+    .block-option.selected{border-color:#fff}
+
+    #reset-btn{
+      position:absolute;top:10px;right:10px;z-index:10;
+      background:rgba(255,0,0,.75);color:#fff;border:none;padding:10px 12px;border-radius:10px;
+      cursor:pointer;pointer-events:auto
+    }
+    #reset-btn:hover{background:rgba(255,0,0,.92)}
+
+    #overlay{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);color:#fff;z-index:20
+    }
+    #overlay .card{
+      max-width:620px;padding:24px;border-radius:14px;background:rgba(20,20,20,.92);
+      text-align:center;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.12)
+    }
+    #overlay h1{margin:0 0 8px;font-size:22px}
+    #overlay p{margin:6px 0;opacity:.9}
+    #overlay .hint{opacity:.8;font-size:13px}
+  </style>
+</head>
+<body>
+  <div id="crosshair"></div>
+
+  <div id="ui">
+    <div><b>WASD</b> mover • <b>Ratón</b> mirar</div>
+    <div><b>Espacio</b> saltar • <b>Clic izq.</b> quitar • <b>Clic der.</b> poner</div>
+    <div class="muted"><b>1/2/3</b> tipo bloque • <b>R</b> reaparecer • Autoguardado</div>
+    <div class="muted">Render: <b>solo malla suavizada</b> (+ nubes). Voxels siguen existiendo para colisión/raycast.</div>
+  </div>
+
+  <div id="block-selector">
+    <div class="block-option selected" data-type="grass" style="background:#4CAF50" title="Hierba (1)"></div>
+    <div class="block-option" data-type="dirt"  style="background:#795548" title="Tierra (2)"></div>
+    <div class="block-option" data-type="stone" style="background:#9E9E9E" title="Piedra (3)"></div>
+  </div>
+
+  <button id="reset-btn">Reiniciar mundo</button>
+
+  <div id="overlay">
+    <div class="card">
+      <h1>Voxel + Terreno Suavizado</h1>
+      <p>Clic para empezar • Ratón para mirar</p>
+      <p><b>WASD</b> mover • <b>Espacio</b> saltar • <b>Clic izq.</b> quitar • <b>Clic der.</b> poner</p>
+      <p><b>1/2/3</b> elegir bloque • <b>R</b> reaparecer</p>
+      <p class="hint">
+        Ahora el render del terreno base es <b>solo la malla suavizada</b> (no se dibujan cubos del terreno).<br/>
+        Los voxels siguen existiendo para edición (raycast DDA).<br/>
+        Colisión: caminar usa <b>altura suavizada</b> (heightfield). Bloques colocados usan colisión voxel.
+      </p>
+    </div>
+  </div>
+
+  <!-- Three r128 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.min.js"></script>
+
+  <script>
+  // ============================
+  // CONFIG
+  // ============================
+  const CONFIG = {
+    CHUNK_SIZE: 16,
+    CHUNK_HEIGHT: 64,
+
+    VIEW_DISTANCE_CHUNKS: 7,
+    VISIBILITY_RADIUS_BLOCKS: 120,
+    SHADOW_RADIUS_BLOCKS: 22,
+
+    SEA_LEVEL: 0,
+    HEIGHT_SCALE: 42,
+    TERRAIN_BASE_FREQ: 0.0045,
+    TERRAIN_OCTAVES: 5,
+    TERRAIN_PERSISTENCE: 0.52,
+    TERRAIN_LACUNARITY: 2.05,
+    RIDGE_STRENGTH: 0.8,
+
+    // Superficie suavizada
+    SURFACE_SMOOTH_STRENGTH: 0.65,
+    SURFACE_Y_BIAS: 0.0,
+
+    // Nubes
+    CLOUDS: {
+      ENABLED: true,
+      BASE_Y: 48,
+      THICKNESS: 4,
+      FREQ: 0.010,
+      COVERAGE: 0.52,
+      ALPHA: 0.42
+    },
+
+    PLAYER: {
+      HEIGHT: 1.8,   // altura desde pies hasta cámara (cabeza)
+      RADIUS: 0.32,
+      SPEED: 5.4,
+      JUMP: 8.2,
+      GRAVITY: -20.0
+    },
+
+    FOG_NEAR: 30,
+    FOG_FAR: 150,
+
+    SAVE_KEY: 'voxelSmoothWorld_v2_edits_only',
+    AUTOSAVE_SECONDS: 12,
+
+    SHOW_PLACED_BLOCKS_AS_CUBES: true,
+    MAX_INSTANCES_PER_CHUNK_PER_TYPE: 6000,
+    MAX_INSTANCES_CLOUD_PER_CHUNK: 4500,
+
+    RAYCAST_MAX_DIST: 10,
+
+    // --- NEW: colisión caminando con heightfield suavizado ---
+    GROUND_EPS: 0.02,            // margen para "pegarse" al suelo
+    MAX_STEP_UP: 0.65            // cuánto puede "subir" al caminar (suaviza escalones)
+  };
+
+  const BLOCK_TYPES = ['grass','dirt','stone','cloud'];
+  const SOLID_TYPES = ['grass','dirt','stone'];
+  const COLORS = {
+    grass: 0x4CAF50,
+    dirt:  0x795548,
+    stone: 0x9E9E9E,
+    cloud: 0xFFFFFF
+  };
+
+  // ============================
+  // UTILS
+  // ============================
+  const key = (x,y,z)=> `${x}|${y}|${z}`;
+  const keyXZ = (x,z)=> `${x}|${z}`;
+  const chunkKey = (cx,cz)=> `${cx}|${cz}`;
+  const floorDiv = (n, d) => Math.floor(n / d);
+  const clamp = (v,min,max)=> Math.max(min, Math.min(max,v));
+  const lerp = (a,b,t)=> a + (b-a)*t;
+
+  function hash2D(ix, iz, seed=1337){
+    let x = (ix | 0) * 374761393;
+    let z = (iz | 0) * 668265263;
+    let h = (x ^ z) ^ (seed|0);
+    h = (h ^ (h >>> 13)) * 1274126177;
+    h = (h ^ (h >>> 16)) >>> 0;
+    return h;
+  }
+  function rand2D(ix, iz, seed=1337){
+    return (hash2D(ix, iz, seed) & 0xFFFFFF) / 0x1000000;
+  }
+  function smoothstep(t){ return t*t*(3-2*t); }
+  function valueNoise2(x, z, seed=1337){
+    const x0 = Math.floor(x), z0 = Math.floor(z);
+    const x1 = x0 + 1, z1 = z0 + 1;
+    const sx = smoothstep(x - x0);
+    const sz = smoothstep(z - z0);
+
+    const n00 = rand2D(x0, z0, seed);
+    const n10 = rand2D(x1, z0, seed);
+    const n01 = rand2D(x0, z1, seed);
+    const n11 = rand2D(x1, z1, seed);
+
+    const ix0 = lerp(n00, n10, sx);
+    const ix1 = lerp(n01, n11, sx);
+    return lerp(ix0, ix1, sz) * 2 - 1; // [-1..1]
+  }
+  function fbmRidge(x, z, seed=1337){
+    let amp = 1.0;
+    let freq = CONFIG.TERRAIN_BASE_FREQ;
+    let sum = 0;
+    let norm = 0;
+
+    for (let o=0; o<CONFIG.TERRAIN_OCTAVES; o++){
+      const n = valueNoise2(x*freq, z*freq, seed + o*1013); // [-1..1]
+      const r = 1.0 - Math.abs(n);   // [0..1]
+      const ridge = Math.pow(r, 1.7);
+      const blend = lerp((n+1)*0.5, ridge, CONFIG.RIDGE_STRENGTH);
+      sum += blend * amp;
+      norm += amp;
+      amp *= CONFIG.TERRAIN_PERSISTENCE;
+      freq *= CONFIG.TERRAIN_LACUNARITY;
+    }
+    sum /= Math.max(1e-6, norm);
+    return sum; // ~0..1
+  }
+
+  // ============================
+  // SHARED RESOURCES
+  // ============================
+  const SHARED = {
+    boxGeom: new THREE.BoxGeometry(1,1,1),
+    mats: {},
+    tex: {}
+  };
+
+  function makeCanvasTexture(hex) {
+    if (SHARED.tex[hex]) return SHARED.tex[hex];
+    const r=(hex>>16)&255, g=(hex>>8)&255, b=hex&255;
+    const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    ctx.fillRect(0,0,64,64);
+
+    ctx.globalAlpha = 0.35;
+    for (let i=0;i<240;i++){
+      const x=Math.random()*64, y=Math.random()*64, s=Math.random()*3+1;
+      const br = Math.random()*60-30;
+      ctx.fillStyle = `rgb(${clamp(r+br,0,255)},${clamp(g+br,0,255)},${clamp(b+br,0,255)})`;
+      ctx.fillRect(x,y,s,s);
+    }
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.magFilter = tex.minFilter = THREE.NearestFilter;
+    tex.generateMipmaps = false;
+    SHARED.tex[hex] = tex;
+    return tex;
+  }
+
+  function getMaterial(type){
+    if (SHARED.mats[type]) return SHARED.mats[type];
+
+    if (type === 'cloud'){
+      const mat = new THREE.MeshLambertMaterial({
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: CONFIG.CLOUDS.ALPHA,
+        depthWrite: false
+      });
+      SHARED.mats[type] = mat;
+      return mat;
+    }
+
+    const color = COLORS[type] ?? COLORS.grass;
+    const mat = new THREE.MeshPhongMaterial({
+      color,
+      map: makeCanvasTexture(color)
+    });
+    SHARED.mats[type] = mat;
+    return mat;
+  }
+
+  // ============================
+  // PROCEDURAL BASE TERRAIN (NO SAVE)
+  // ============================
+  function baseHeightAt(x,z){
+    const n = fbmRidge(x, z, 424242);        // 0..1
+    const m = Math.pow(n, 1.35);
+    return Math.floor(CONFIG.SEA_LEVEL + m * CONFIG.HEIGHT_SCALE);
+  }
+  function baseTopTypeAt(x,z){
+    const h = baseHeightAt(x,z);
+    let t = 'grass';
+    if (h > CONFIG.SEA_LEVEL + 16) t = 'stone';
+    else if (h > CONFIG.SEA_LEVEL + 6) t = 'dirt';
+    return t;
+  }
+  function baseTypeAt(x,y,z){
+    const h = baseHeightAt(x,z);
+    if (y < 0 || y > h) return null;
+    if (y === h) return baseTopTypeAt(x,z);
+    if (y >= h-3) return 'dirt';
+    return 'stone';
+  }
+
+  // ============================
+  // CHUNK (render: surface mesh + clouds + optional placed blocks)
+  // ============================
+  class Chunk {
+    constructor(cx, cz, scene){
+      this.cx = cx; this.cz = cz;
+      this.scene = scene;
+
+      this.size = CONFIG.CHUNK_SIZE;
+      this.height = CONFIG.CHUNK_HEIGHT;
+
+      this.minX = cx*this.size;
+      this.minZ = cz*this.size;
+
+      // Smooth surface
+      this.surface = null;
+      this.surfaceGeom = null;
+
+      // Optional: render only "placed blocks" as instanced cubes
+      this.instByType = new Map();
+      if (CONFIG.SHOW_PLACED_BLOCKS_AS_CUBES){
+        for (const type of SOLID_TYPES){
+          const mesh = new THREE.InstancedMesh(
+            SHARED.boxGeom,
+            getMaterial(type),
+            CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE
+          );
+          mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+          mesh.castShadow = true;
+          mesh.receiveShadow = true;
+          mesh.frustumCulled = false;
+          mesh.visible = true;
+          mesh.count = 0;
+          this.scene.add(mesh);
+          this.instByType.set(type, { mesh, count:0, idToPos:[], posToId:new Map() });
+        }
+      }
+
+      // Clouds instancing
+      this.cloudMesh = new THREE.InstancedMesh(
+        SHARED.boxGeom,
+        getMaterial('cloud'),
+        CONFIG.MAX_INSTANCES_CLOUD_PER_CHUNK
+      );
+      this.cloudMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+      this.cloudMesh.castShadow = false;
+      this.cloudMesh.receiveShadow = false;
+      this.cloudMesh.frustumCulled = false;
+      this.cloudMesh.visible = CONFIG.CLOUDS.ENABLED;
+      this.cloudMesh.count = 0;
+      this.scene.add(this.cloudMesh);
+      this.cloudCount = 0;
+    }
+
+    dispose(){
+      if (this.instByType.size){
+        for (const [,pack] of this.instByType){
+          this.scene.remove(pack.mesh);
+          pack.mesh.geometry.dispose();
+        }
+      }
+      this.scene.remove(this.cloudMesh);
+      this.cloudMesh.geometry.dispose();
+
+      if (this.surface){
+        this.scene.remove(this.surface);
+        this.surface.geometry.dispose();
+      }
+    }
+
+    // ---------- placed blocks instancing ----------
+    instClear(){
+      for (const [,pack] of this.instByType){
+        pack.count = 0;
+        pack.idToPos.length = 0;
+        pack.posToId.clear();
+        pack.mesh.count = 0;
+        pack.mesh.instanceMatrix.needsUpdate = true;
+      }
+    }
+    instAdd(type, x,y,z){
+      const pack = this.instByType.get(type);
+      if (!pack) return;
+      const k = key(x,y,z);
+      if (pack.posToId.has(k)) return;
+      const id = pack.count++;
+      if (id >= CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE){ pack.count--; return; }
+      const m = new THREE.Matrix4().makeTranslation(x+0.5,y+0.5,z+0.5);
+      pack.mesh.setMatrixAt(id, m);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+      pack.idToPos[id] = {x,y,z};
+      pack.posToId.set(k, id);
+      pack.mesh.count = pack.count;
+    }
+
+    // ---------- clouds ----------
+    cloudClear(){
+      this.cloudCount = 0;
+      this.cloudMesh.count = 0;
+      this.cloudMesh.instanceMatrix.needsUpdate = true;
+    }
+    cloudAdd(x,y,z){
+      const id = this.cloudCount++;
+      if (id >= CONFIG.MAX_INSTANCES_CLOUD_PER_CHUNK) return;
+      const m = new THREE.Matrix4().makeTranslation(x+0.5,y+0.5,z+0.5);
+      this.cloudMesh.setMatrixAt(id, m);
+      this.cloudMesh.instanceMatrix.needsUpdate = true;
+      this.cloudMesh.count = this.cloudCount;
+    }
+
+    // ---------- visibility / shadows ----------
+    setVisible(v){
+      if (this.surface) this.surface.visible = v;
+      if (this.instByType.size){
+        for (const [,pack] of this.instByType){
+          pack.mesh.visible = v && pack.count>0;
+        }
+      }
+      this.cloudMesh.visible = v && CONFIG.CLOUDS.ENABLED && this.cloudCount>0;
+    }
+    setShadowsEnabled(near){
+      if (this.surface){
+        this.surface.castShadow = near;
+        this.surface.receiveShadow = near;
+      }
+      if (this.instByType.size){
+        for (const [,pack] of this.instByType){
+          pack.mesh.castShadow = near;
+          pack.mesh.receiveShadow = near;
+        }
+      }
+    }
+
+    // ---------- surface mesh ----------
+    rebuildSurface(heightFn, topTypeFn){
+      const N = this.size;
+      const verts = (N+1)*(N+1);
+
+      const positions = new Float32Array(verts*3);
+      const colors    = new Float32Array(verts*3);
+      const idx = [];
+      const colorTmp = new THREE.Color();
+      const hs = new Float32Array(verts);
+
+      for (let dz=0; dz<=N; dz++){
+        for (let dx=0; dx<=N; dx++){
+          const wx = this.minX + dx;
+          const wz = this.minZ + dz;
+
+          const h00 = heightFn(wx, wz);
+          const h10 = heightFn(wx-1, wz);
+          const h01 = heightFn(wx, wz-1);
+          const h11 = heightFn(wx-1, wz-1);
+
+          let h = (h00 + h10 + h01 + h11) * 0.25;
+
+          let s = 0, c = 0;
+          for (let oz=-1; oz<=1; oz++){
+            for (let ox=-1; ox<=1; ox++){
+              s += heightFn(wx+ox, wz+oz); c++;
+            }
+          }
+          const hAvg = s / c;
+          h = lerp(h, hAvg, CONFIG.SURFACE_SMOOTH_STRENGTH);
+
+          hs[dz*(N+1)+dx] = h + CONFIG.SURFACE_Y_BIAS;
+        }
+      }
+
+      for (let dz=0; dz<=N; dz++){
+        for (let dx=0; dx<=N; dx++){
+          const i = dz*(N+1)+dx;
+          const wx = this.minX + dx;
+          const wz = this.minZ + dz;
+
+          const h = hs[i];
+          positions[i*3+0] = wx;
+          positions[i*3+1] = h;
+          positions[i*3+2] = wz;
+
+          const t = topTypeFn(wx, wz);
+          const col = COLORS[t] ?? COLORS.grass;
+          colorTmp.setHex(col);
+          colors[i*3+0] = colorTmp.r;
+          colors[i*3+1] = colorTmp.g;
+          colors[i*3+2] = colorTmp.b;
+        }
+      }
+
+      for (let z=0; z<N; z++){
+        for (let x=0; x<N; x++){
+          const a =  z    *(N+1) + x;
+          const b =  z    *(N+1) + x+1;
+          const c = (z+1) *(N+1) + x;
+          const d = (z+1) *(N+1) + x+1;
+          idx.push(a, c, b);
+          idx.push(b, c, d);
+        }
+      }
+
+      if (this.surfaceGeom){
+        this.surfaceGeom.dispose();
+      }
+      this.surfaceGeom = new THREE.BufferGeometry();
+      this.surfaceGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      this.surfaceGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+      this.surfaceGeom.setIndex(idx);
+      this.surfaceGeom.computeVertexNormals();
+
+      const mat = Chunk.surfaceMaterial();
+      if (!this.surface){
+        this.surface = new THREE.Mesh(this.surfaceGeom, mat);
+        this.surface.frustumCulled = false;
+        this.surface.castShadow = true;
+        this.surface.receiveShadow = true;
+        this.scene.add(this.surface);
+      } else {
+        this.surface.geometry = this.surfaceGeom;
+      }
+    }
+
+    static surfaceMaterial(){
+      if (Chunk._surfMat) return Chunk._surfMat;
+      Chunk._surfMat = new THREE.MeshStandardMaterial({
+        vertexColors: true,
+        roughness: 0.95,
+        metalness: 0.0
+      });
+      return Chunk._surfMat;
+    }
+  }
+
+  // ============================
+  // WORLD
+  // ============================
+  class World {
+    constructor(scene){
+      this.scene = scene;
+      this.chunks = new Map();     // chunkKey -> Chunk
+
+      this.edits = new Map();      // key(x,y,z) -> string type OR null (deletion)
+      this.colTopCache = new Map();// keyXZ(x,z) -> { y, type } topmost solid
+
+      this.baseHeightCache = new Map();   // keyXZ -> int
+      this.baseTopTypeCache = new Map();  // keyXZ -> type
+    }
+
+    baseHeightAtCached(x,z){
+      const k = keyXZ(x,z);
+      const v = this.baseHeightCache.get(k);
+      if (v !== undefined) return v;
+      const h = baseHeightAt(x,z);
+      this.baseHeightCache.set(k,h);
+      return h;
+    }
+    baseTopTypeAtCached(x,z){
+      const k = keyXZ(x,z);
+      const v = this.baseTopTypeCache.get(k);
+      if (v) return v;
+      const t = baseTopTypeAt(x,z);
+      this.baseTopTypeCache.set(k,t);
+      return t;
+    }
+    baseTypeAtCached(x,y,z){
+      const h = this.baseHeightAtCached(x,z);
+      if (y < 0 || y > h) return null;
+      if (y === h) return this.baseTopTypeAtCached(x,z);
+      if (y >= h-3) return 'dirt';
+      return 'stone';
+    }
+
+    getBlock(x,y,z){
+      const ek = key(x,y,z);
+      if (this.edits.has(ek)){
+        return this.edits.get(ek); // puede ser null
+      }
+      return this.baseTypeAtCached(x,y,z);
+    }
+    hasBlock(x,y,z){
+      return this.getBlock(x,y,z) !== null;
+    }
+
+    topOfColumn(x,z){
+      const k = keyXZ(x,z);
+      const cached = this.colTopCache.get(k);
+      if (cached) return cached;
+
+      let y = this.baseHeightAtCached(x,z);
+      let t = this.baseTypeAtCached(x,y,z);
+
+      const YMAX = CONFIG.CHUNK_HEIGHT - 1;
+      const scanUp = 24;
+      const scanDown = 40;
+
+      let topY = y;
+      let topT = t;
+
+      const start = clamp(y + scanUp, 0, YMAX);
+      const end   = clamp(y - scanDown, 0, YMAX);
+
+      for (let yy = start; yy >= end; yy--){
+        const tt = this.getBlock(x,yy,z);
+        if (tt !== null && tt !== 'cloud'){
+          topY = yy;
+          topT = tt;
+          break;
+        }
+      }
+
+      const out = { y: topY, type: topT || 'grass' };
+      this.colTopCache.set(k, out);
+      return out;
+    }
+
+    heightAt(x,z){
+      return this.topOfColumn(x,z).y;
+    }
+    topTypeAt(x,z){
+      return this.topOfColumn(x,z).type;
+    }
+
+    invalidateColumn(x,z){
+      this.colTopCache.delete(keyXZ(x,z));
+    }
+
+    setBlock(x,y,z,type){
+      const base = this.baseTypeAtCached(x,y,z);
+      const ek = key(x,y,z);
+
+      if (type === null){
+        if (base === null) this.edits.delete(ek);
+        else this.edits.set(ek, null);
+      } else {
+        if (base === type) this.edits.delete(ek);
+        else this.edits.set(ek, type);
+      }
+
+      this.invalidateColumn(x,z);
+    }
+
+    // --- NEW: altura suavizada continua (para colisión) ---
+    smoothedColumnHeight(ix, iz){
+      // misma idea que en rebuildSurface: mezcla (h local) con promedio 3x3
+      const h00 = this.heightAt(ix, iz);
+      let s = 0, c = 0;
+      for (let oz=-1; oz<=1; oz++){
+        for (let ox=-1; ox<=1; ox++){
+          s += this.heightAt(ix+ox, iz+oz); c++;
+        }
+      }
+      const hAvg = s / c;
+      return lerp(h00, hAvg, CONFIG.SURFACE_SMOOTH_STRENGTH) + CONFIG.SURFACE_Y_BIAS;
+    }
+
+    smoothHeightAt(x, z){
+      // bilinear sobre 4 columnas suavizadas
+      const x0 = Math.floor(x);
+      const z0 = Math.floor(z);
+      const fx = x - x0;
+      const fz = z - z0;
+
+      const h00 = this.smoothedColumnHeight(x0,   z0);
+      const h10 = this.smoothedColumnHeight(x0+1, z0);
+      const h01 = this.smoothedColumnHeight(x0,   z0+1);
+      const h11 = this.smoothedColumnHeight(x0+1, z0+1);
+
+      const hx0 = lerp(h00, h10, fx);
+      const hx1 = lerp(h01, h11, fx);
+      return lerp(hx0, hx1, fz);
+    }
+
+    // ---- chunk management ----
+    getChunk(cx,cz, create=false){
+      const ck = chunkKey(cx,cz);
+      let ch = this.chunks.get(ck);
+      if (!ch && create){
+        ch = new Chunk(cx,cz,this.scene);
+        this.chunks.set(ck,ch);
+      }
+      return ch;
+    }
+
+    ensureChunksAround(playerPos){
+      const cs = CONFIG.CHUNK_SIZE;
+      const pcx = floorDiv(Math.floor(playerPos.x), cs);
+      const pcz = floorDiv(Math.floor(playerPos.z), cs);
+      const r = CONFIG.VIEW_DISTANCE_CHUNKS;
+
+      for (let dz=-r; dz<=r; dz++){
+        for (let dx=-r; dx<=r; dx++){
+          const cx = pcx + dx;
+          const cz = pcz + dz;
+          const ck = chunkKey(cx,cz);
+          if (!this.chunks.has(ck)){
+            this.buildChunk(cx,cz);
+          }
+        }
+      }
+
+      const visR2 = CONFIG.VISIBILITY_RADIUS_BLOCKS*CONFIG.VISIBILITY_RADIUS_BLOCKS;
+      const shR2  = CONFIG.SHADOW_RADIUS_BLOCKS*CONFIG.SHADOW_RADIUS_BLOCKS;
+
+      for (const [,ch] of this.chunks){
+        const centerX = (ch.cx + 0.5)*cs;
+        const centerZ = (ch.cz + 0.5)*cs;
+        const dx = centerX - playerPos.x;
+        const dz = centerZ - playerPos.z;
+        const d2 = dx*dx + dz*dz;
+
+        ch.setVisible(d2 <= visR2);
+        ch.setShadowsEnabled(d2 <= shR2);
+      }
+    }
+
+    buildChunk(cx,cz){
+      const ch = this.getChunk(cx,cz,true);
+
+      ch.rebuildSurface(
+        (x,z)=> this.heightAt(x,z),
+        (x,z)=> this.topTypeAt(x,z)
+      );
+
+      if (CONFIG.CLOUDS.ENABLED){
+        this.buildCloudChunk(cx,cz);
+      }
+
+      if (CONFIG.SHOW_PLACED_BLOCKS_AS_CUBES){
+        ch.instClear();
+        const minX = cx*CONFIG.CHUNK_SIZE;
+        const minZ = cz*CONFIG.CHUNK_SIZE;
+        const maxX = minX + CONFIG.CHUNK_SIZE - 1;
+        const maxZ = minZ + CONFIG.CHUNK_SIZE - 1;
+
+        for (const [ek, t] of this.edits){
+          if (t === null) continue;
+          const parts = ek.split('|');
+          const x = +parts[0], y = +parts[1], z = +parts[2];
+          if (x<minX || x>maxX || z<minZ || z>maxZ) continue;
+          if (SOLID_TYPES.includes(t)) ch.instAdd(t, x,y,z);
+        }
+      }
+
+      return ch;
+    }
+
+    buildCloudChunk(cx,cz){
+      const ch = this.getChunk(cx,cz,true);
+      ch.cloudClear();
+
+      const minX = cx*CONFIG.CHUNK_SIZE;
+      const minZ = cz*CONFIG.CHUNK_SIZE;
+
+      const baseY = CONFIG.CLOUDS.BASE_Y;
+      const thick = CONFIG.CLOUDS.THICKNESS;
+
+      for (let dz=0; dz<CONFIG.CHUNK_SIZE; dz++){
+        for (let dx=0; dx<CONFIG.CHUNK_SIZE; dx++){
+          const x = minX + dx;
+          const z = minZ + dz;
+
+          const n = valueNoise2(x*CONFIG.CLOUDS.FREQ, z*CONFIG.CLOUDS.FREQ, 9999);
+          const v = (n+1)*0.5;
+          if (v < CONFIG.CLOUDS.COVERAGE) continue;
+
+          const tt = (v - CONFIG.CLOUDS.COVERAGE) / (1.0 - CONFIG.CLOUDS.COVERAGE);
+          const layers = 1 + Math.floor(tt * (thick-1));
+
+          for (let i=0; i<layers; i++){
+            const y = baseY + i;
+            ch.cloudAdd(x,y,z);
+          }
+        }
+      }
+    }
+
+    serializeEdits(){
+      const out = [];
+      for (const [ek, t] of this.edits){
+        const [x,y,z] = ek.split('|').map(Number);
+        let code = 0;
+        if (t === 'grass') code = 1;
+        else if (t === 'dirt') code = 2;
+        else if (t === 'stone') code = 3;
+        else if (t === null) code = 0;
+        else continue;
+        out.push([x,y,z,code]);
+      }
+      return out;
+    }
+
+    deserializeEdits(list){
+      this.edits.clear();
+      this.colTopCache.clear();
+
+      if (!Array.isArray(list)) return;
+      for (const row of list){
+        if (!row || row.length < 4) continue;
+        const x = row[0]|0, y = row[1]|0, z = row[2]|0, code = row[3]|0;
+        let t = null;
+        if (code === 1) t = 'grass';
+        else if (code === 2) t = 'dirt';
+        else if (code === 3) t = 'stone';
+        else t = null;
+        this.edits.set(key(x,y,z), t);
+        this.invalidateColumn(x,z);
+      }
+    }
+  }
+
+  // ============================
+  // VOXEL RAYCAST (DDA) - usa world.getBlock()
+  // ============================
+  function voxelRaycast(world, origin, dir, maxDist=10){
+    let x = Math.floor(origin.x);
+    let y = Math.floor(origin.y);
+    let z = Math.floor(origin.z);
+
+    const stepX = dir.x > 0 ? 1 : -1;
+    const stepY = dir.y > 0 ? 1 : -1;
+    const stepZ = dir.z > 0 ? 1 : -1;
+
+    const tDeltaX = (dir.x !== 0) ? Math.abs(1 / dir.x) : Infinity;
+    const tDeltaY = (dir.y !== 0) ? Math.abs(1 / dir.y) : Infinity;
+    const tDeltaZ = (dir.z !== 0) ? Math.abs(1 / dir.z) : Infinity;
+
+    const frac = (v)=> v - Math.floor(v);
+
+    let tMaxX = (dir.x > 0 ? (1 - frac(origin.x)) : frac(origin.x)) * tDeltaX;
+    let tMaxY = (dir.y > 0 ? (1 - frac(origin.y)) : frac(origin.y)) * tDeltaY;
+    let tMaxZ = (dir.z > 0 ? (1 - frac(origin.z)) : frac(origin.z)) * tDeltaZ;
+
+    let hitNormal = new THREE.Vector3(0,0,0);
+
+    let t = 0;
+    const maxT = maxDist;
+
+    for (let i=0; i<700; i++){
+      const type = world.getBlock(x,y,z);
+      if (type && type !== 'cloud'){
+        return { x,y,z, type, t, normal: hitNormal.clone() };
+      }
+
+      if (tMaxX < tMaxY){
+        if (tMaxX < tMaxZ){
+          x += stepX; t = tMaxX; tMaxX += tDeltaX; hitNormal.set(-stepX,0,0);
+        } else {
+          z += stepZ; t = tMaxZ; tMaxZ += tDeltaZ; hitNormal.set(0,0,-stepZ);
+        }
+      } else {
+        if (tMaxY < tMaxZ){
+          y += stepY; t = tMaxY; tMaxY += tDeltaY; hitNormal.set(0,-stepY,0);
+        } else {
+          z += stepZ; t = tMaxZ; tMaxZ += tDeltaZ; hitNormal.set(0,0,-stepZ);
+        }
+      }
+
+      if (t > maxT) break;
+    }
+    return null;
+  }
+
+  // ============================
+  // GAME
+  // ============================
+  class Game {
+    constructor(){
+      this.scene = new THREE.Scene();
+      this.scene.fog = new THREE.Fog(0xCFE9FF, CONFIG.FOG_NEAR, CONFIG.FOG_FAR);
+
+      this.camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 800);
+      this.camera.position.set(0, 24, 0);
+
+      this.renderer = new THREE.WebGLRenderer({ antialias:false, powerPreference:'high-performance' });
+      this.renderer.setSize(innerWidth, innerHeight);
+      this.renderer.shadowMap.enabled = true;
+      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.body.appendChild(this.renderer.domElement);
+
+      this.addGradientSky();
+
+      const amb = new THREE.AmbientLight(0xffffff, 0.70);
+      this.scene.add(amb);
+
+      const sun = new THREE.DirectionalLight(0xffffff, 1.35);
+      sun.position.set(70, 90, 40);
+      sun.castShadow = true;
+      sun.shadow.mapSize.set(1024,1024);
+      sun.shadow.camera.near = 0.5;
+      sun.shadow.camera.far = 260;
+      sun.shadow.camera.left = -110;
+      sun.shadow.camera.right = 110;
+      sun.shadow.camera.top = 110;
+      sun.shadow.camera.bottom = -110;
+      this.scene.add(sun);
+
+      this.controls = new THREE.PointerLockControls(this.camera, document.body);
+      const overlay = document.getElementById('overlay');
+      document.body.addEventListener('click', ()=>{
+        if (!this.controls.isLocked) this.controls.lock();
+      });
+      this.controls.addEventListener('lock', ()=> overlay.style.display='none');
+      this.controls.addEventListener('unlock', ()=> overlay.style.display='flex');
+
+      this.move = { f:false,b:false,l:false,r:false,j:false };
+      addEventListener('keydown', (e)=>{
+        if (e.code==='KeyW') this.move.f=true;
+        if (e.code==='KeyS') this.move.b=true;
+        if (e.code==='KeyA') this.move.l=true;
+        if (e.code==='KeyD') this.move.r=true;
+        if (e.code==='Space' && this.onGround) this.move.j=true;
+
+        if (e.code==='Digit1') this.selectBlock('grass');
+        if (e.code==='Digit2') this.selectBlock('dirt');
+        if (e.code==='Digit3') this.selectBlock('stone');
+
+        if (e.code==='KeyR') this.respawn();
+      });
+      addEventListener('keyup', (e)=>{
+        if (e.code==='KeyW') this.move.f=false;
+        if (e.code==='KeyS') this.move.b=false;
+        if (e.code==='KeyA') this.move.l=false;
+        if (e.code==='KeyD') this.move.r=false;
+        if (e.code==='Space') this.move.j=false;
+      });
+
+      this.selectedType = 'grass';
+      const opts = document.querySelectorAll('.block-option');
+      opts.forEach(o=>o.addEventListener('click', ()=>{
+        opts.forEach(p=>p.classList.remove('selected'));
+        o.classList.add('selected');
+        this.selectedType = o.dataset.type;
+      }));
+      document.getElementById('reset-btn').addEventListener('click', ()=>{
+        if (confirm('¿Reiniciar el mundo? Se perderán cambios.')){
+          localStorage.removeItem(CONFIG.SAVE_KEY);
+          location.reload();
+        }
+      });
+
+      addEventListener('contextmenu', e=> e.preventDefault());
+      addEventListener('mousedown', (e)=>{
+        if (!this.controls.isLocked) return;
+        if (!this.world) return;
+        if (e.button===0) this.removeBlockAtPointer();
+        if (e.button===2) this.placeBlockAtPointer();
+      });
+
+      addEventListener('resize', ()=>{
+        this.camera.aspect = innerWidth/innerHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(innerWidth, innerHeight);
+      });
+
+      this.world = new World(this.scene);
+
+      this.velocity = new THREE.Vector3();
+      this.onGround = false;
+
+      this.clock = new THREE.Clock();
+      this.autoSaveAcc = 0;
+
+      this.loadWorld();
+
+      this.world.ensureChunksAround(this.camera.position);
+
+      this.animate();
+    }
+
+    addGradientSky(){
+      const skyGeom = new THREE.SphereGeometry(500, 32, 16);
+      const skyMat = new THREE.ShaderMaterial({
+        side: THREE.BackSide,
+        uniforms: {
+          topColor:    { value: new THREE.Color(0x2F80FF) },
+          bottomColor: { value: new THREE.Color(0xFFFFFF) },
+          offset:      { value: 0.0 },
+          exponent:    { value: 0.8 }
+        },
+        vertexShader: `
+          varying vec3 vWorldPosition;
+          void main() {
+            vec4 wp = modelMatrix * vec4(position, 1.0);
+            vWorldPosition = wp.xyz;
+            gl_Position = projectionMatrix * viewMatrix * wp;
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 topColor;
+          uniform vec3 bottomColor;
+          uniform float offset;
+          uniform float exponent;
+          varying vec3 vWorldPosition;
+          void main() {
+            float h = normalize(vWorldPosition + vec3(0.0, offset, 0.0)).y;
+            float t = pow(max(h, 0.0), exponent);
+            vec3 col = mix(bottomColor, topColor, t);
+            gl_FragColor = vec4(col, 1.0);
+          }
+        `
+      });
+      const sky = new THREE.Mesh(skyGeom, skyMat);
+      sky.frustumCulled = false;
+      this.scene.add(sky);
+    }
+
+    selectBlock(t){
+      this.selectedType = t;
+      const opts = document.querySelectorAll('.block-option');
+      opts.forEach(o=> o.classList.toggle('selected', o.dataset.type===t));
+    }
+
+    respawn(){
+      const x = Math.floor(this.camera.position.x);
+      const z = Math.floor(this.camera.position.z);
+      const g = this.world.smoothHeightAt(this.camera.position.x, this.camera.position.z);
+      this.camera.position.set(x+0.5, g + CONFIG.PLAYER.HEIGHT + 4, z+0.5);
+      this.velocity.set(0,0,0);
+    }
+
+    saveWorld(){
+      const data = {
+        v: 2,
+        edits: this.world.serializeEdits(),
+        player: { x:this.camera.position.x, y:this.camera.position.y, z:this.camera.position.z }
+      };
+
+      try{
+        localStorage.setItem(CONFIG.SAVE_KEY, JSON.stringify(data));
+      }catch(e){
+        console.warn('LocalStorage lleno. Se guardará un subconjunto de ediciones.', e);
+        try{
+          const MAX_EDITS = 25000;
+          if (data.edits.length > MAX_EDITS){
+            data.edits = data.edits.slice(data.edits.length - MAX_EDITS);
+          }
+          localStorage.setItem(CONFIG.SAVE_KEY, JSON.stringify(data));
+        }catch(e2){
+          console.warn('No se pudo guardar (ni siquiera reducido).', e2);
+        }
+      }
+    }
+
+    loadWorld(){
+      const raw = localStorage.getItem(CONFIG.SAVE_KEY);
+      if (!raw){
+        const g = this.world.smoothHeightAt(0.5,0.5);
+        this.camera.position.set(0.5, g+CONFIG.PLAYER.HEIGHT+8, 0.5);
+        return;
+      }
+      try{
+        const parsed = JSON.parse(raw);
+        if (parsed && Array.isArray(parsed.edits)){
+          this.world.deserializeEdits(parsed.edits);
+        }
+        if (parsed && parsed.player){
+          this.camera.position.set(parsed.player.x, parsed.player.y, parsed.player.z);
+        } else {
+          const g = this.world.smoothHeightAt(0.5,0.5);
+          this.camera.position.set(0.5, g+CONFIG.PLAYER.HEIGHT+8, 0.5);
+        }
+      }catch(e){
+        console.warn('Error cargando mundo; se crea nuevo.', e);
+        localStorage.removeItem(CONFIG.SAVE_KEY);
+        const g = this.world.smoothHeightAt(0.5,0.5);
+        this.camera.position.set(0.5, g+CONFIG.PLAYER.HEIGHT+8, 0.5);
+      }
+    }
+
+    rebuildAffectedChunks(x,z){
+      const cs = CONFIG.CHUNK_SIZE;
+      const cx = floorDiv(x, cs);
+      const cz = floorDiv(z, cs);
+
+      const lx = ((x % cs) + cs) % cs;
+      const lz = ((z % cs) + cs) % cs;
+
+      const targets = new Set();
+      targets.add(chunkKey(cx,cz));
+      if (lx===0) targets.add(chunkKey(cx-1,cz));
+      if (lx===cs-1) targets.add(chunkKey(cx+1,cz));
+      if (lz===0) targets.add(chunkKey(cx,cz-1));
+      if (lz===cs-1) targets.add(chunkKey(cx,cz+1));
+      if (lx===0 && lz===0) targets.add(chunkKey(cx-1,cz-1));
+      if (lx===0 && lz===cs-1) targets.add(chunkKey(cx-1,cz+1));
+      if (lx===cs-1 && lz===0) targets.add(chunkKey(cx+1,cz-1));
+      if (lx===cs-1 && lz===cs-1) targets.add(chunkKey(cx+1,cz+1));
+
+      for (const ck of targets){
+        const [tcx,tcz] = ck.split('|').map(Number);
+        const ch = this.world.getChunk(tcx,tcz,false);
+        if (ch) this.world.buildChunk(tcx,tcz);
+      }
+    }
+
+    removeBlockAtPointer(){
+      const origin = this.camera.position.clone();
+      const dir = new THREE.Vector3();
+      this.camera.getWorldDirection(dir);
+
+      const hit = voxelRaycast(this.world, origin, dir, CONFIG.RAYCAST_MAX_DIST);
+      if (!hit) return;
+
+      this.world.setBlock(hit.x, hit.y, hit.z, null);
+      this.rebuildAffectedChunks(hit.x, hit.z);
+    }
+
+    placeBlockAtPointer(){
+      const origin = this.camera.position.clone();
+      const dir = new THREE.Vector3();
+      this.camera.getWorldDirection(dir);
+
+      const hit = voxelRaycast(this.world, origin, dir, CONFIG.RAYCAST_MAX_DIST);
+      if (!hit) return;
+
+      const nx = hit.x + Math.round(hit.normal.x);
+      const ny = hit.y + Math.round(hit.normal.y);
+      const nz = hit.z + Math.round(hit.normal.z);
+
+      const playerPos = this.camera.position;
+      const dist = new THREE.Vector3(nx+0.5, ny+0.5, nz+0.5).distanceTo(playerPos);
+      if (dist < 1.4) return;
+
+      if (!this.world.hasBlock(nx,ny,nz)){
+        this.world.setBlock(nx,ny,nz,this.selectedType);
+        this.rebuildAffectedChunks(nx, nz);
+      }
+    }
+
+    // ============================
+    // COLLISION (NEW):
+    //   - Ground: smoothHeightAt(x,z) heightfield
+    //   - Blocks: only placed/forced blocks (edits != null)
+    // ============================
+    playerAABBAt(pos){
+      const r = CONFIG.PLAYER.RADIUS;
+      const h = CONFIG.PLAYER.HEIGHT;
+      return new THREE.Box3(
+        new THREE.Vector3(pos.x - r, pos.y - h, pos.z - r),
+        new THREE.Vector3(pos.x + r, pos.y,     pos.z + r)
+      );
+    }
+
+    collidesPlacedBlocksAt(pos){
+      const aabb = this.playerAABBAt(pos);
+
+      const minX = Math.floor(aabb.min.x)-1;
+      const maxX = Math.floor(aabb.max.x)+1;
+      const minY = Math.floor(aabb.min.y)-1;
+      const maxY = Math.floor(aabb.max.y)+1;
+      const minZ = Math.floor(aabb.min.z)-1;
+      const maxZ = Math.floor(aabb.max.z)+1;
+
+      // OJO: aquí NO usamos world.getBlock() (evita base).
+      // Solo comprobamos edits con bloque (t != null).
+      for (let x=minX; x<=maxX; x++){
+        for (let y=minY; y<=maxY; y++){
+          for (let z=minZ; z<=maxZ; z++){
+            const ek = key(x,y,z);
+            if (!this.world.edits.has(ek)) continue;
+            const t = this.world.edits.get(ek);
+            if (!t || t==='cloud') continue;
+
+            const bb = new THREE.Box3(
+              new THREE.Vector3(x, y, z),
+              new THREE.Vector3(x+1, y+1, z+1)
+            );
+            if (aabb.intersectsBox(bb)) return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    groundHeightAt(x,z){
+      return this.world.smoothHeightAt(x,z);
+    }
+
+    snapToGroundIfNeeded(){
+      const g = this.groundHeightAt(this.camera.position.x, this.camera.position.z);
+      const feet = this.camera.position.y - CONFIG.PLAYER.HEIGHT;
+      const targetY = g + CONFIG.PLAYER.HEIGHT;
+
+      if (feet < g + CONFIG.GROUND_EPS){
+        this.camera.position.y = targetY;
+        this.velocity.y = 0;
+        this.onGround = true;
+      }
+    }
+
+    animate(){
+      requestAnimationFrame(()=>this.animate());
+      const dt = Math.min(this.clock.getDelta(), 0.05);
+
+      this.world.ensureChunksAround(this.camera.position);
+
+      if (this.controls.isLocked){
+        const dir = new THREE.Vector3();
+        this.camera.getWorldDirection(dir);
+        dir.y = 0; dir.normalize();
+        const right = new THREE.Vector3().crossVectors(this.camera.up, dir).normalize();
+
+        let dx=0, dz=0;
+        if (this.move.f) { dx += dir.x; dz += dir.z; }
+        if (this.move.b) { dx -= dir.x; dz -= dir.z; }
+        if (this.move.l) { dx += right.x; dz += right.z; }
+        if (this.move.r) { dx -= right.x; dz -= right.z; }
+
+        const horiz = new THREE.Vector3(dx,0,dz);
+        if (horiz.lengthSq()>0) horiz.normalize().multiplyScalar(CONFIG.PLAYER.SPEED*dt);
+
+        // --- Horizontal movement with step-up vs smooth ground ---
+        if (horiz.lengthSq()>0){
+          const next = this.camera.position.clone().add(horiz);
+
+          // block collision only for placed blocks
+          if (!this.collidesPlacedBlocksAt(next)){
+            // step-up clamp: allow stepping onto higher ground up to MAX_STEP_UP
+            const gNow = this.groundHeightAt(this.camera.position.x, this.camera.position.z);
+            const gNext = this.groundHeightAt(next.x, next.z);
+            const feetNow = this.camera.position.y - CONFIG.PLAYER.HEIGHT;
+
+            // if we're basically on ground, allow step-up
+            const canStep = (feetNow <= gNow + 0.10) && (gNext - gNow <= CONFIG.MAX_STEP_UP);
+
+            this.camera.position.x = next.x;
+            this.camera.position.z = next.z;
+
+            if (canStep){
+              const targetY = gNext + CONFIG.PLAYER.HEIGHT;
+              if (this.camera.position.y < targetY) this.camera.position.y = targetY;
+            }
+          }
+        }
+
+        if (this.move.j && this.onGround){
+          this.velocity.y = CONFIG.PLAYER.JUMP;
+          this.onGround = false;
+          this.move.j = false;
+        }
+
+        // gravity
+        this.velocity.y += CONFIG.PLAYER.GRAVITY * dt;
+
+        // --- Vertical move (collide with placed blocks + ground heightfield) ---
+        const prevY = this.camera.position.y;
+        let nextY = prevY + this.velocity.y * dt;
+
+        // first, apply vertical if doesn't intersect placed blocks
+        const testPos = this.camera.position.clone();
+        testPos.y = nextY;
+
+        if (!this.collidesPlacedBlocksAt(testPos)){
+          this.camera.position.y = nextY;
+        } else {
+          // hit a placed block: stop vertical
+          this.velocity.y = 0;
+        }
+
+        // then, clamp to ground (smooth mesh)
+        const g = this.groundHeightAt(this.camera.position.x, this.camera.position.z);
+        const feet = this.camera.position.y - CONFIG.PLAYER.HEIGHT;
+        const groundY = g + CONFIG.PLAYER.HEIGHT;
+
+        if (feet < g + CONFIG.GROUND_EPS){
+          this.camera.position.y = groundY;
+          this.velocity.y = 0;
+          this.onGround = true;
+        } else {
+          this.onGround = false;
+        }
+
+        if (this.camera.position.y < -30) this.respawn();
+      }
+
+      this.autoSaveAcc += dt;
+      if (this.autoSaveAcc >= CONFIG.AUTOSAVE_SECONDS){
+        this.autoSaveAcc = 0;
+        this.saveWorld();
+      }
+
+      this.renderer.render(this.scene, this.camera);
+    }
+  }
+
+  // ============================
+  // START
+  // ============================
+  new Game();
+  </script>
+</body>
+</html>
+

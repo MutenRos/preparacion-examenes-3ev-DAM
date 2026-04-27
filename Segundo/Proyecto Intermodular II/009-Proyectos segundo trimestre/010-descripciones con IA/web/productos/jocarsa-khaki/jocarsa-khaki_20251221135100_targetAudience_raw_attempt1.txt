@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Educational Software Users","profiles":[{"name":"Teachers","fit":"Utilizan la plataforma para gestionar el tiempo de sus alumnos y establecer metas educativas"},{"name":"Students","fit":"Se registran y realizan seguimiento de su progreso académico"},{"name":"Administrators","fit":"Monitorean y administran las actividades y horarios de los estudiantes"}]}
+}

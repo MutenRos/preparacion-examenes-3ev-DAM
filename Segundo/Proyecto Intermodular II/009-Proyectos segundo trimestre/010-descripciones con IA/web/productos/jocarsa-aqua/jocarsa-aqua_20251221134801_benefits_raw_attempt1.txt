@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Mejora en la Gestión y Seguridad de Datos","items":["Interfaz amigable para el administrador que facilita el manejo de usuarios y aplicaciones","Autenticación segura con creación automática del usuario admin inicial","Implementación de medidas contra errores no deseados mejorando la experiencia de usuario"]}
+}

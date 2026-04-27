@@ -1,0 +1,37 @@
+{
+  "input_file": "/var/www/html/dam2526/Segundo/Programación multimedia y dispositivos móviles/003-Utilización de librerías multimedia integradas/001-Conceptos sobre aplicaciones multimedia/101-Ejercicios/video/patrullacanina.mp4",
+  "source_width": 1280,
+  "source_height": 720,
+  "renditions": [
+    {
+      "label": "720p",
+      "width": 1280,
+      "height": 720,
+      "filename": "video/video_720p.mp4"
+    },
+    {
+      "label": "480p",
+      "width": 854,
+      "height": 480,
+      "filename": "video/video_480p.mp4"
+    },
+    {
+      "label": "360p",
+      "width": 640,
+      "height": 360,
+      "filename": "video/video_360p.mp4"
+    },
+    {
+      "label": "240p",
+      "width": 426,
+      "height": 240,
+      "filename": "video/video_240p.mp4"
+    },
+    {
+      "label": "144p",
+      "width": 256,
+      "height": 144,
+      "filename": "video/video_144p.mp4"
+    }
+  ]
+}

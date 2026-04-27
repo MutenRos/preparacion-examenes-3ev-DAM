@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones adicionales", "notes":"Permite conectar la aplicación con otras herramientas para una mejor experiencia. Las integraciones son opcionales y no son necesarias para el funcionamiento básico del software.", "items":["Google Calendar","Asistencia por chat","Sincronización de horarios"]}}
+}

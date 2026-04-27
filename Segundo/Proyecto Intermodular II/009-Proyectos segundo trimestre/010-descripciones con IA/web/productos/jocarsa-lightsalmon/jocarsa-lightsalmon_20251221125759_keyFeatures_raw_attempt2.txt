@@ -1,0 +1,5 @@
+[
+  {"name":"Sistema de autenticación","benefit":"Permite a los usuarios registrarse y realizar login, asegurando la privacidad de sus eventos."},
+  {"name":"Carga y descarga seguras","benefit":"Los datos se normalizan y validan antes de ser guardados o cargados, garantizando integridad."},
+  {"name":"API RESTful simple y poderosa","benefit":"Ofrece múltiples endpoints JSON para registrar usuarios, iniciar sesión, obtener información del usuario autenticado, cargar eventos y guardarlos."}
+]

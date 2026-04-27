@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Educadores y Administradores de Escuelas","profiles":[{"name":"Educadores","fit":"Proporciona una herramienta eficiente para organizar eventos, horarios escolares y festivos. Facilita la gestión del calendario académico a través de un API fácilmente integrable con sistemas educativos existentes."},{"name":"Administradores de Escuelas","fit":"Permite la creación, edición y eliminación de eventos y categorías en el calendario escolar. Proporciona un seguimiento detallado de los cambios realizados en el calendario por parte del personal administrativo."}]}
+}

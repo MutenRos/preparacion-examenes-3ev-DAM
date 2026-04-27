@@ -1,0 +1,12 @@
+```json
+{
+  "keyFeatures": {
+    "title": "Características principales",
+    "features": [
+      {"name": "Registro de Jornadas", "benefit": "Permite a los empleados registrar el inicio y final de su jornada laboral fácilmente, adaptándose a jornadas simples o partidas."},
+      {"name": "Mapa de Fichaje", "benefit": "Muestra la ubicación exacta del empleado en el momento de la entrada o salida, si esta función está habilitada por la empresa."},
+      {"name": "Informes Detallados", "benefit": "Ofrece un resumen completo de las jornadas registradas con opción para corregir cualquier error detectado."}
+    ]
+  }
+}
+```

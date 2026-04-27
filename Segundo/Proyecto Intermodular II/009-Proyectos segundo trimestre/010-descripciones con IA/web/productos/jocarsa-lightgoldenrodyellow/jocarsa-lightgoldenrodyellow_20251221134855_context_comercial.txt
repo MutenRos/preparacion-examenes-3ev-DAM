@@ -1,0 +1,303 @@
+TITLE: Generador de Prompt para IA
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-lightgoldenrodyellow
+# Generador de Prompt (Flask)
+## Requisitos
+- Python 3.10+
+- pip
+## Instalación
+## Uso
+# abre http://127.0.0.1:5000
+## Características
+- **Parámetros del prompt**: Contexto, Objetivo, Restricciones, Formato.
+- **Explorador de carpetas** integrado para elegir el proyecto.
+- **Generación de estructura y reporte intercalado** del código (mismas reglas que el Tkinter).
+- **Análisis de base de datos** SQLite o MySQL (opcional PyMySQL).
+- **Vista Markdown y WYSIWYG** con resaltado.
+- **Guardar reportes** con nombre `<carpeta>_YYYYmmddHHMMSS.txt`.
+- **Guardar prompts de subcarpetas `jocarsa-*`** en carpeta `prompts/`.
+- **Persistencia** en `config.json`.
+## Configuración
+#!/usr/bin/env python3
+# =========================
+# Configuración mínima
+# =========================
+# =========================
+# Utilidades
+# =========================
+# Filtra carpetas excluidas
+# Archivos de este nivel
+# Subcarpetas (excluyendo las no deseadas)
+- Árbol de directorios
+- Código intercalado
+# =========================
+# CLI
+# =========================
+## anterior2
+# Optional MySQL
+# =========================
+# Configuración / Constantes
+# =========================
+# =========================
+# Persistencia de config
+# =========================
+# =========================
+# Núcleo de análisis
+# =========================
+# =========================
+# Rutas
+# =========================
+# Descargar archivos guardados
+# sirve archivos desde /reports o /prompts del cwd
+# Para desarrollo local
+### anterior
+# Soporte opcional para MySQL (pip install pymysql)
+# Drag & Drop opcional (pip install tkinterdnd2)
+# =========================
+# Configuración / Constantes (valores por defecto)
+# =========================
+# Estas variables se sobreescriben al cargar config.json
+# =========================
+# Utilidades de persistencia
+# =========================
+# Asegurar claves mínimas
+# Normalizar: asegurar que empiecen por punto
+# Cargar configuración al inicio y aplicarla
+# =========================
+# Generadores de reportes
+# =========================
+# Listado de entradas
+# Archivos permitidos en carpeta actual
+# Subdirectorios (excluyendo los filtrados)
+# =========================
+# Análisis de bases de datos
+# =========================
+# =========================
+# Estado global (UI)
+# =========================
+# =========================
+# Helpers UI
+# =========================
+# =========================
+# Drag & Drop de carpetas
+# =========================
+# Disparar generación de reporte automáticamente
+# =========================
+# Splash / Bienvenida
+# =========================
+# Centrar
+# Logo
+# =========================
+# Lógica de UI principal
+# =========================
+- Contexto, Objetivo, Restricciones, Formato de salida
+- Estructura del proyecto
+- Reporte intercalado de código
+- Informe de base de datos SOLO si hay una BD válida seleccionada
+# Datos del formulario
+# Estructura + código intercalado
+# Informe de base de datos SOLO si procede
+# Volcado a la UI (siempre almacenamos el Markdown crudo en txt_salida_raw)
+# Actualizar la vista según el modo
+# Informe de BD (solo si válido)
+# Copia del Markdown crudo (modo fuente)
+# Nombre por defecto = nombre_carpeta + _YYYYMMDDHHMMSS.txt
+# =========================
+# Ventana de configuración (extensiones y carpetas excluidas)
+# =========================
+# Panel extensiones
+# Cargar extensiones actuales
+# Panel carpetas excluidas
+# Barra de acciones
+# =========================
+# UI Mejorada (ttkbootstrap) + raíz compatible con DnD
+# =========================
+# RAÍZ compatible con DnD si está disponible
+# Aplica ttkbootstrap sobre esa raíz
+# Icono opcional
+# Maximizar/ajustar
+# ======= Menú de aplicación =======
+# ======= Barra superior =======
+# Barra de herramientas
+# Pista/área de drop en el header
+# Registrar destinos de drop para mejor UX
+# Aviso ligero al pasar el ratón si no hay DnD
+# Separador
+# Paned principal
+# -------- ScrollableFrame reutilizable (para recuperar scroll en la izquierda) --------
+# Scroll con rueda del ratón (Windows/Linux/Mac)
+# -------- Panel Izquierdo (Formulario con scroll recuperado) --------
+# Grupo: Parámetros del prompt
+# Grupo: Proyecto
+# Grupo: Base de datos
+# SQLite
+# MySQL
+# Botones de BD y generación
+# -------- Panel Derecho (Salida con conmutador Markdown/WYSIWYG y barra de scroll) --------
+# 1) CONTENEDOR de Markdown crudo con SCROLLBAR VERTICAL visible
+# 2) Vista “WYSIWYG” (Text con estilos + su propia barra de scroll)
+# Fuentes para vista
+# Tags
+- #, ##, ### como headers
+- **negrita**
+- ``` bloques de código ```
+- `inline code`
+- resto como párrafos
+# Bloques de código ```lang
+# Fin de bloque
+# Encabezados
+# Negrita **texto**
+# `inline code`
+# ======= Barra de estado =======
+# Mostrar el panel correcto según la BD seleccionada
+# Splash de bienvenida
+### reports
+### static
+#### css
+#md-view pre code { display:block; padding: 0.75rem; border-radius: .5rem; background: #f6f8fa; }
+#### js
+### templates
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-lightgoldenrodyellow
+├── .gitignore
+├── README.md
+├── anterior2
+│ ├── anterior
+│ │ ├── config.json
+│ │ └── lightgoldenrodyellow.py
+│ ├── app.py
+│ ├── config.json
+│ ├── reports
+│ ├── requirements.txt
+│ ├── static
+│ │ ├── css
+│ │ │ └── styles.css
+│ │ └── js
+│ │ └── app.js
+│ └── templates
+│ ├── base.html
+│ └── index.html
+├── lightgoldenrodyellow.png
+└── lightgoldenrodyellow.py
+```
+
+## Código (intercalado)
+
+# jocarsa-lightgoldenrodyellow
+**README.md**
+```markdown
+# Generador de Prompt (Flask)
+
+Versión web del app de Tkinter con una interfaz moderna (Bootstrap 5), render de Markdown (marked.js) y resaltado de código (highlight.js).
+
+## Requisitos
+- Python 3.10+
+- pip
+
+## Instalación
+```bash
+cd prompt_generator_webapp
+python -m venv .venv
+source .venv/bin/activate # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Uso
+```bash
+python app.py
+# abre http://127.0.0.1:5000
+```
+
+> **Nota:** Al ejecutarlo en local, el selector de carpetas funciona como un mini-explorador de rutas del sistema desde el navegador. 
+Las operaciones de análisis (`os.walk`, SQLite y MySQL) se ejecutan en el servidor local (Flask), por lo que deben apuntar a rutas válidas de tu máquina.
+
+## Características
+- **Parámetros del prompt**: Contexto, Objetivo, Restricciones, Formato.
+- **Explorador de carpetas** integrado para elegir el proyecto.
+- **Generación de estructura y reporte intercalado** del código (mismas reglas que el Tkinter).
+- **Análisis de base de datos** SQLite o MySQL (opcional PyMySQL).
+- **Vista Markdown y WYSIWYG** con resaltado.
+- **Guardar reportes** con nombre `<carpeta>_YYYYmmddHHMMSS.txt`.
+- **Guardar prompts de subcarpetas `jocarsa-*`** en carpeta `prompts/`.
+- **Persistencia** en `config.json`.
+
+## Configuración
+Pulsa "Guardar configuración" para actualizar `config.json`.
+
+```
+**lightgoldenrodyellow.py**
+```python
+#!/usr/bin/env python3
+import os
+import sys
+import argparse
+from datetime import datetime
+
+# =========================
+# Configuración mínima
+# =========================
+EXTENSIONES_PERMITIDAS = (
+ ".html", ".css", ".js", ".php", ".py", ".java", ".sql",
+ ".c", ".cpp", ".cu", ".h", ".json", ".xml", ".md"
+)
+CARPETAS_EXCLUIDAS = {
+ ".git", "node_modules", "vendor", "venv", "__pycache__",
+ "modelo_entrenado", ".venv","dist"
+}
+
+LANG_MAP = {
+ ".html": "html", ".css": "css", ".js": "js", ".php": "php",
+ ".py": "python", ".java": "java", ".sql": "sql", ".c": "c",
+ ".cpp": "cpp", ".cu": "cuda", ".h": "c", ".json": "json",
+ ".xml": "xml", ".md": "markdown",
+}
+
+# =========================
+# Utilidades
+# =========================
+def construir_mapa_directorios(ruta_raiz: str) -> str:
+ """Devuelve un árbol de directorios estilo 'tree', excluyendo carpetas no deseadas."""
+ lineas = []
+ raiz_abs = os.path.abspath(ruta_raiz)
+ lineas.append(raiz_abs)
+
+ def interno(dir_path: str, prefijo: str = ""):
+ try:
+ entradas = sorted(os.listdir(dir_path))
+ except Exception:
+ return
+ # Filtra carpetas excluidas
+ entradas_visibles = []
+ for e in entradas:
+ full = os.path.join(dir_path, e)
+ if os.path.isdir(full) and e in CARPETAS_EXCLUIDAS:
+ continue
+ entradas_visibles.append(e)
+
+ for i, entrada in enumerate(entradas_visibles):
+ ruta_completa = os.path.join(dir_path, entrada)
+ conector = "└── " if i == len(entradas_visibles) - 1 else "├── "
+ lineas.append(prefijo + conector + entrada)
+ if os.path.isdir(ruta_completa):
+ extension = " " if i == len(entradas_visibles) - 1 else "│ "
+ interno(ruta_completa, prefijo + extension)
+
+ interno(ruta_raiz)
+ return "\n".join(lineas)
+
+def generar_reporte_intercalado(ruta_raiz: str, nivel: int = 1) -> str:
+ """
+ Recorre la carpeta y, para cada archivo con extensión permitida,
+ inserta su contenido en un bloque de código Markdown.
+ """
+ encabezado = "#" * nivel
+ nombre_carpeta = os.path.basename(ruta_raiz) or ruta_raiz
+ lineas = [f"{

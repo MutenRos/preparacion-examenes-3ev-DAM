@@ -1,0 +1,61 @@
+[
+  {
+    "nombre":"jocarsa-teal",
+    "slogan":"Sistema de gestión empresarial personalizado"
+  },
+
+  {
+    "nombre":"jocarsa-rosybrown",
+    "slogan":"Software de facturación para autónomos y PYMEs"
+  },
+  {
+    "nombre":"jocarsa-darksalmon",
+    "slogan":"Sistema de fichaje empresarial"
+  },
+  {
+    "nombre":"jocarsa-aliceblue",
+    "slogan":"Software de digital proctoring"
+  },
+  {
+    "nombre":"jocarsa-salmon",
+    "slogan":"Salas de videoconferencia"
+  },
+  {
+    "nombre":"jocarsa-mediumseagreen",
+    "slogan":"Sistema de gestión del aprendizaje"
+  },
+  {
+    "nombre":"jocarsa-gainsboro",
+    "slogan":"CMS para blogging"
+  }
+  ,
+  {
+    "nombre":"jocarsa-lightsalmon",
+    "slogan":"Calendarios en la web"
+  },
+  {
+    "nombre":"jocarsa-darkorange",
+    "slogan":"Software de gestión de formularios y CRM"
+  }
+  ,
+  {
+    "nombre":"jocarsa-aqua",
+    "slogan":"Agregador de aplicaciones jocarsa"
+  },
+  {
+    "nombre":"jocarsa-lightgoldenrodyellow",
+    "slogan":"Agregador de aplicaciones jocarsa"
+  },
+  {
+    "nombre":"jocarsa-firebrick",
+    "slogan":"Software de gestión de proyectos"
+  },
+  {
+    "nombre":"jocarsa-khaki",
+    "slogan":"Calendario de prácticas de alumnos"
+  },
+  {
+    "nombre":"jocarsa-orange",
+    "slogan":"Software de creación de listas"
+  }
+]

@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"jocarsa | firebrick","points":["Permite a los administradores crear y gestionar carpetas, proyectos e iteraciones con permisos de edición y borrado.","Ofrece a los clientes un espacio para visualizar videos y dejar comentarios sin permisos de administración.","Incluye funciones de inicio de sesión y registro para proteger el acceso al contenido."]}
+}

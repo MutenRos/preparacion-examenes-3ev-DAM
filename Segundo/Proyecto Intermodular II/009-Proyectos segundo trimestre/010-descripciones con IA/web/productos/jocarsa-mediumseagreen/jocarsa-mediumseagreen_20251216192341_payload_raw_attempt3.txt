@@ -1,0 +1,133 @@
+It looks like the directory structure includes two folders: `transcripts_25_26` and `transcripts_25_26_markdown`. The first folder contains various types of transcript files for different dates, while the second folder contains Markdown files. Here’s a breakdown of the structure:
+
+### Directory Structure
+
+#### `transcripts_25_26`
+
+This folder contains various types of transcript files for different dates:
+- **`.es-orig.vtt`, `.es.vtt`, and `.vtt`**: These are subtitle or transcript files in WebVTT format, possibly with original and translated versions.
+- **`.log`**: These could be log files containing some form of metadata about the transcripts.
+
+#### `transcripts_25_26_markdown`
+
+This folder contains Markdown files:
+- **`.md`**: These are likely text documents formatted in Markdown that might contain transcriptions or notes from the recordings for the dates listed.
+
+### Directory Contents
+
+```plaintext
+├── transcripts_25_26
+│   ├── 2025 09 11 14 03 07.es-orig.vtt
+│   ├── 2025 09 11 14 03 07.es.vtt
+│   ├── 2025 09 11 14 03 07.vtt
+│   ├── 2025 09 11 14 03 07.log
+│   ├── 2025 09 11 14 59 11.es-orig.vtt
+│   ├── 2025 09 11 14 59 11.es.vtt
+│   ├── 2025 09 11 14 59 11.vtt
+│   ├── 2025 09 11 14 59 11.log
+│   └── ...
+├── transcripts_25_26_markdown
+│   ├── 2025 09 11 14 03 07.md
+│   ├── 2025 09 11 14 59 11.md
+│   └── ...
+└── README.md
+```
+
+### Example Files
+
+- **`2025 09 11 14 03 07.es-orig.vtt`**: An original transcript in WebVTT format.
+- **`2025 09 11 14 03 07.md`**: A Markdown file containing the transcription or notes for the same date.
+
+### Example Content
+
+#### `transcripts_25_26/2025 09 11 14 03 07.es-orig.vtt`
+
+```vtt
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+Este es el inicio de la transcripción.
+
+00:00:05.000 --> 00:00:08.000
+El siguiente fragmento es una traducción al español.
+```
+
+#### `transcripts_25_26_markdown/2025 09 11 14 03 07.md`
+
+```markdown
+# Transcripción del 2025-09-11 a las 14:03
+
+## Contenido de la transcripción
+
+- Este es el inicio de la transcripción.
+- El siguiente fragmento es una traducción al español.
+
+## Notas Adicionales
+
+- Observación importante sobre la grabación del día.
+- Información relevante para futuras referencias.
+```
+
+### Possible Actions
+
+1. **Organize Files**: Ensure that all files are correctly named and organized by their dates and types (e.g., `.es-orig.vtt`, `.vtt`, `.log`, `.md`).
+2. **Metadata**: Add metadata to each file to help with quick reference and organization.
+3. **Consistency**: Make sure the naming convention is consistent across all files for easy identification.
+
+If you have any specific questions or need further assistance, feel free to ask!
+
+---
+
+### Sample Directory Listing
+
+Here’s a sample listing of the directory contents:
+
+```plaintext
+├── transcripts_25_26
+│   ├── 2025 09 11 14 03 07.es-orig.vtt
+│   ├── 2025 09 11 14 03 07.es.vtt
+│   ├── 2025 09 11 14 03 07.vtt
+│   ├── 2025 09 11 14 03 07.log
+│   ├── 2025 09 11 14 59 11.es-orig.vtt
+│   ├── 2025 09 11 14 59 11.es.vtt
+│   ├── 2025 09 11 14 59 11.vtt
+│   ├── 2025 09 11 14 59 11.log
+│   └── ...
+├── transcripts_25_26_markdown
+│   ├── 2025 09 11 14 03 07.md
+│   ├── 2025 09 11 14 59 11.md
+│   └── ...
+└── README.md
+```
+
+### Example File Content
+
+#### `transcripts_25_26/2025 09 11 14 03 07.es-orig.vtt`
+
+```vtt
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+Este es el inicio de la transcripción.
+
+00:00:05.000 --> 00:00:08.000
+El siguiente fragmento es una traducción al español.
+```
+
+#### `transcripts_25_26_markdown/2025 09 11 14 03 07.md`
+
+```markdown
+# Transcripción del 2025-09-11 a las 14:03
+
+## Contenido de la transcripción
+
+- Este es el inicio de la transcripción.
+- El siguiente fragmento es una traducción al español.
+
+## Notas Adicionales
+
+- Observación importante sobre la grabación del día.
+- Información relevante para futuras referencias.
+```
+
+If you need any specific actions or further details, let me know!

@@ -1,0 +1,149 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "Jocarsa | darksalmon - Tu herramienta para el control de jornadas laborales",
+    "category": "Gestión y productividad",
+    "audience_segments": [
+      "Empresa",
+      "Administrador",
+      "Trabajador"
+    ],
+    "ctaPrimary": "Registra tu jornada ahora",
+    "ctaSecondary": "Aprende más"
+  },
+  "hero": {
+    "name": "Jocarsa | darksalmon",
+    "valueProposition": "Controlo y registra tus jornadas laborales de manera sencilla y precisa.",
+    "subtitle": "Mantén el control total de tu tiempo y los registros laborales con Jocarsa | darksalmon.",
+    "badges": [
+      "Fácil de usar",
+      "Preciso",
+      "Seguro"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Registra tu jornada ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Aprende más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Problemas comunes en el control de jornadas laborales",
+    "items": [
+      "Registro inexacto",
+      "Perdida de datos",
+      "Dificultad en gestionar ausencias"
+    ]
+  },
+  "solution": {
+    "title": "Solución con Jocarsa | darksalmon",
+    "overview": "Jocarsa | darksalmon es una herramienta intuitiva y precisa para el control y registro de tus jornadas laborales. Ofrece soluciones a problemas comunes como registros inexactos, pérdida de datos y gestionar ausencias de manera eficiente.",
+    "whatChanges": [
+      "Registro exacto de entrada y salida",
+      "Gestión centralizada de ausencias",
+      "Seguridad en tus datos"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características principales de Jocarsa | darksalmon",
+    "features": [
+      {
+        "name": "Registro preciso",
+        "benefit": "Asegura el seguimiento exacto de tu tiempo"
+      },
+      {
+        "name": "Gestión de ausencias",
+        "benefit": "Facilita la solicitud y control de ausencias"
+      },
+      {
+        "name": "Seguridad en tus datos",
+        "benefit": "Protege tu información personal"
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para quién es Jocarsa | darksalmon",
+    "profiles": [
+      {
+        "name": "Empresa",
+        "fit": "Controla y registra las jornadas de todos los trabajadores"
+      },
+      {
+        "name": "Administrador",
+        "fit": "Administra los registros laborales de la empresa"
+      },
+      {
+        "name": "Trabajador",
+        "fit": "Registra tus horas de trabajo con precisión"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de uso",
+    "cases": [
+      {
+        "name": "Registro de entrada y salida",
+        "description": "Pulsa los botones correspondientes al inicio y final de tu jornada"
+      },
+      {
+        "name": "Gestión de ausencias",
+        "description": "Solicita o informa tus ausencias en el formulario proporcionado"
+      },
+      {
+        "name": "Consulta de registros",
+        "description": "Accede a tu historial de registros laborales"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "items": [
+      "Precisión en los registros",
+      "Gestión eficiente de ausencias",
+      "Seguridad y protección de tus datos"
+    ]
+  },
+  "integrations": {
+    "include": false,
+    "optional": true,
+    "title": "Integraciones opcionales",
+    "notes": "Jocarsa | darksalmon puede ser integrado con sistemas existentes según las necesidades del cliente.",
+    "items": [
+      "Integración con sistemas de gestión empresarial",
+      "Integración con software de RH"
+    ]
+  },
+  "trust": {
+    "title": "Confianza en Jocarsa | darksalmon",
+    "points": [
+      "Diseño sencillo y intuitivo",
+      "Cumplimiento de normativas laborales",
+      "Soporte al cliente dedicado"
+    ]
+  },
+  "finalCTA": {
+    "title": "¿Listo para mejorar tu control de jornadas?",
+    "description": "Registra tus horas con precisión y eficiencia hoy mismo.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Registra tu jornada ahora"
+      }
+    ]
+  },
+  "troubleshooting": {
+    "title": "Solución a problemas comunes",
+    "items": [
+      "Revisa tu conexión a internet",
+      "Prueba a actualizar la página",
+      "Contacta con soporte si persiste el problema"
+    ]
+  }
+}

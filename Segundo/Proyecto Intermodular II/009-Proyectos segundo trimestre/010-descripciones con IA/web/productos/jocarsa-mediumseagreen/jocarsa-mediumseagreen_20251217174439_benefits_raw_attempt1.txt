@@ -1,0 +1,5 @@
+```json
+{
+  "benefits": {"title":"Mejora en la aprendizaje educativo","items":["Genera una didáctica síntesis de temas complejos con un modelo instructivo","Identifica automáticamente los temas principales a través de análisis semánticos y similitud de texto","Convierte subtítulos VTT en texto sólido para mejor comprensión","Optimiza la estructura del contenido educativo según el temario oficial"]}
+}
+```

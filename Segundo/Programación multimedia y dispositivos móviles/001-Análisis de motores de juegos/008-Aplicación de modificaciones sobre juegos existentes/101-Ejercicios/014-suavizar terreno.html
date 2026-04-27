@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Voxel + Terreno Suavizado (Opción A) + Nubes + Niebla</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,Arial;background:#000}
+    #crosshair{
+      position:absolute;top:50%;left:50%;width:20px;height:20px;transform:translate(-50%,-50%);pointer-events:none
+    }
+    #crosshair::before,#crosshair::after{content:"";position:absolute;background:white}
+    #crosshair::before{width:2px;height:20px;left:50%;transform:translateX(-50%)}
+    #crosshair::after{width:20px;height:2px;top:50%;transform:translateY(-50%)}
+
+    #ui{
+      position:absolute;top:10px;left:10px;z-index:10;
+      background:rgba(0,0,0,.55);color:#fff;padding:10px 12px;border-radius:10px;
+      font-size:14px;line-height:1.35;pointer-events:none;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+    }
+    #ui .muted{opacity:.85}
+
+    #block-selector{
+      position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;
+      background:rgba(0,0,0,.55);padding:8px;border-radius:10px;display:flex;gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+    }
+    .block-option{width:36px;height:36px;border:2px solid transparent;border-radius:6px;cursor:pointer;pointer-events:auto}
+    .block-option.selected{border-color:#fff}
+
+    #reset-btn{
+      position:absolute;top:10px;right:10px;z-index:10;
+      background:rgba(255,0,0,.75);color:#fff;border:none;padding:10px 12px;border-radius:10px;
+      cursor:pointer;pointer-events:auto
+    }
+    #reset-btn:hover{background:rgba(255,0,0,.92)}
+
+    #overlay{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);color:#fff;z-index:20
+    }
+    #overlay .card{
+      max-width:580px;padding:24px;border-radius:14px;background:rgba(20,20,20,.92);
+      text-align:center;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.12)
+    }
+    #overlay h1{margin:0 0 8px;font-size:22px}
+    #overlay p{margin:6px 0;opacity:.9}
+    #overlay .hint{opacity:.8;font-size:13px}
+  </style>
+</head>
+<body>
+  <div id="crosshair"></div>
+
+  <div id="ui">
+    <div><b>WASD</b> mover • <b>Ratón</b> mirar</div>
+    <div><b>Espacio</b> saltar • <b>Clic izq.</b> quitar • <b>Clic der.</b> poner</div>
+    <div class="muted"><b>1/2/3</b> tipo bloque • <b>R</b> reaparecer • Autoguardado</div>
+    <div class="muted">Terreno suavizado (Opción A) + nubes + niebla</div>
+  </div>
+
+  <div id="block-selector">
+    <div class="block-option selected" data-type="grass" style="background:#4CAF50" title="Hierba (1)"></div>
+    <div class="block-option" data-type="dirt"  style="background:#795548" title="Tierra (2)"></div>
+    <div class="block-option" data-type="stone" style="background:#9E9E9E" title="Piedra (3)"></div>
+  </div>
+
+  <button id="reset-btn">Reiniciar mundo</button>
+
+  <div id="overlay">
+    <div class="card">
+      <h1>Voxel + Terreno Suavizado (Opción A)</h1>
+      <p>Clic para empezar • Ratón para mirar</p>
+      <p><b>WASD</b> mover • <b>Espacio</b> saltar • <b>Clic izq.</b> quitar • <b>Clic der.</b> poner</p>
+      <p><b>1/2/3</b> elegir bloque • <b>R</b> reaparecer • Autoguarda</p>
+      <p class="hint">
+        Opción A (implementada): “malla de superficie suavizada” reconstruida desde bloques (interactiva).<br/>
+        Opción B (futuro): Marching Cubes / Dual Contouring multi-material (ver comentarios al inicio del JS).
+      </p>
+    </div>
+  </div>
+
+  <!-- Three r128 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.min.js"></script>
+
+  <script>
+  /**
+   * ============================================================
+   *  TERRENO SUAVIZADO: OPCIÓN A (ACTUAL)
+   * ============================================================
+   *  - Mundo sigue siendo VOXEL (bloques reales para colisión y edición).
+   *  - Render:
+   *      1) Bloques “no superficie” (y cavernas/peñas si existieran) con instancing.
+   *      2) Una malla de “superficie” por chunk, suavizada en vertices.
+   *      3) Nubes como “bloques” semitransparentes instanciados.
+   *  - Interacción:
+   *      - Raycast NO depende de la malla ni de instancias: se usa DDA voxel (grid stepping),
+   *        así evitarás problemas de “bloque verde intocable” o “solo toca el smooth”.
+   *  - Al colocar/quitar bloques:
+   *      - Se actualiza voxel data + se reconstruye el chunk afectado y vecinos (si toca bordes).
+   *
+   * ============================================================
+   *  OPCIÓN B (FUTURO, NOTAS PARA DESARROLLO)
+   * ============================================================
+   *  - Objetivo: superficie realmente orgánica con Marching Cubes / Dual Contouring,
+   *    y soporte multi-material “de verdad” (transiciones piedra/tierra/hierba).
+   *  - Requiere:
+   *      1) Campo escalar (densidad) derivado de voxels (o generado procedural).
+   *      2) Extracción de isosuperficie por chunk.
+   *      3) Etiquetado de materiales por celda / por triángulo (blending o split meshes).
+   *      4) Actualización incremental por edición (re-meshing local).
+   */
+
+  // ----------------- Config -----------------
+  const CONFIG = {
+  // superficie: oculta capas voxel superiores para que NO se vean cubos en el suelo
+SURFACE_HIDE_LAYERS: 2, // 1..3 recomendado (2 suele ir bien)
+    CHUNK_SIZE: 16,
+    CHUNK_HEIGHT: 64,
+
+    // streaming:
+    VIEW_DISTANCE_CHUNKS: 7,      // radio (chunks) a generar/cargar alrededor del jugador
+    VISIBILITY_RADIUS_BLOCKS: 120, // para activar/desactivar visibilidad
+    SHADOW_RADIUS_BLOCKS: 22,
+
+    // terreno
+    SEA_LEVEL: 10,
+    MAX_HEIGHT: 44,               // altura máxima aproximada (suavizado irá alrededor)
+    TERRAIN_BASE_FREQ: 0.0045,    // <-- más grande = más “caótico”; más pequeño = montañas más grandes
+    TERRAIN_OCTAVES: 5,
+    TERRAIN_PERSISTENCE: 0.52,
+    TERRAIN_LACUNARITY: 2.05,
+
+    // “montañas menos caóticas”: usa un “ridge” suave
+    RIDGE_STRENGTH: 0.8,
+    HEIGHT_SCALE: 22,             // escala vertical del ruido
+
+    // superficie suavizada
+    SURFACE_SMOOTH_STRENGTH: 0.65, // 0..1 (cuánto sigue alturas vecinas)
+    SURFACE_Y_BIAS: 0.0,           // ajuste global de altura de la malla
+
+    // nubes
+    CLOUDS: {
+      ENABLED: true,
+      BASE_Y: 48,
+      THICKNESS: 4,
+      FREQ: 0.010,
+      COVERAGE: 0.52,              // más bajo = menos nubes
+      ALPHA: 0.42
+    },
+
+    // jugador
+    PLAYER: {
+      HEIGHT: 1.8,
+      RADIUS: 0.32,
+      SPEED: 5.4,
+      JUMP: 8.2,
+      GRAVITY: -20.0
+    },
+
+    // render
+    FOG_NEAR: 30,
+    FOG_FAR: 150,
+
+    // guardado
+    SAVE_KEY: 'voxelSmoothWorld_v1',
+    AUTOSAVE_SECONDS: 10,
+
+    // instancing
+    MAX_INSTANCES_PER_CHUNK_PER_TYPE: 7000,
+    MAX_INSTANCES_CLOUD_PER_CHUNK: 4500,
+  };
+
+  const BLOCK_TYPES = ['grass','dirt','stone','cloud'];
+  const SOLID_TYPES = ['grass','dirt','stone'];
+  const COLORS = {
+    grass: 0x4CAF50,
+    dirt:  0x795548,
+    stone: 0x9E9E9E,
+    cloud: 0xFFFFFF
+  };
+
+  // ----------------- Utils -----------------
+  const key = (x,y,z)=> `${x}|${y}|${z}`;
+  const chunkKey = (cx,cz)=> `${cx}|${cz}`;
+  const floorDiv = (n, d) => Math.floor(n / d);
+  const clamp = (v,min,max)=> Math.max(min, Math.min(max,v));
+  const lerp = (a,b,t)=> a + (b-a)*t;
+
+  // Hash 2D (sin BigInt; evita “Cannot mix BigInt…”)
+  function hash2D(ix, iz, seed=1337){
+    // mezcla de enteros 32-bit
+    let x = (ix | 0) * 374761393;
+    let z = (iz | 0) * 668265263;
+    let h = (x ^ z) ^ (seed|0);
+    h = (h ^ (h >>> 13)) * 1274126177;
+    h = (h ^ (h >>> 16)) >>> 0;
+    return h;
+  }
+  function rand2D(ix, iz, seed=1337){
+    return (hash2D(ix, iz, seed) & 0xFFFFFF) / 0x1000000;
+  }
+
+  // Value noise 2D (suave)
+  function smoothstep(t){ return t*t*(3-2*t); }
+  function valueNoise2(x, z, seed=1337){
+    const x0 = Math.floor(x), z0 = Math.floor(z);
+    const x1 = x0 + 1, z1 = z0 + 1;
+    const sx = smoothstep(x - x0);
+    const sz = smoothstep(z - z0);
+
+    const n00 = rand2D(x0, z0, seed);
+    const n10 = rand2D(x1, z0, seed);
+    const n01 = rand2D(x0, z1, seed);
+    const n11 = rand2D(x1, z1, seed);
+
+    const ix0 = lerp(n00, n10, sx);
+    const ix1 = lerp(n01, n11, sx);
+    return lerp(ix0, ix1, sz) * 2 - 1; // [-1..1]
+  }
+
+  // FBM + ridge suavizado para montañas “altas pero menos caóticas”
+  function fbmRidge(x, z, seed=1337){
+    let amp = 1.0;
+    let freq = CONFIG.TERRAIN_BASE_FREQ;
+    let sum = 0;
+    let norm = 0;
+
+    for (let o=0; o<CONFIG.TERRAIN_OCTAVES; o++){
+      const n = valueNoise2(x*freq, z*freq, seed + o*1013); // [-1..1]
+      // ridge: picos amplios sin “ruido loco”
+      const r = 1.0 - Math.abs(n);   // [0..1]
+      const ridge = Math.pow(r, 1.7);
+      const blend = lerp((n+1)*0.5, ridge, CONFIG.RIDGE_STRENGTH); // mezcla
+      sum += blend * amp;
+      norm += amp;
+      amp *= CONFIG.TERRAIN_PERSISTENCE;
+      freq *= CONFIG.TERRAIN_LACUNARITY;
+    }
+    sum /= Math.max(1e-6, norm); // [aprox 0..1]
+    return sum;
+  }
+
+  // ----------------- Shared resources -----------------
+  const SHARED = {
+    boxGeom: new THREE.BoxGeometry(1,1,1),
+    mats: {},
+    tex: {}
+  };
+
+  function makeCanvasTexture(hex) {
+    if (SHARED.tex[hex]) return SHARED.tex[hex];
+    const r=(hex>>16)&255, g=(hex>>8)&255, b=hex&255;
+    const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    ctx.fillRect(0,0,64,64);
+
+    // “grano”
+    ctx.globalAlpha = 0.35;
+    for (let i=0;i<240;i++){
+      const x=Math.random()*64, y=Math.random()*64, s=Math.random()*3+1;
+      const br = Math.random()*60-30;
+      ctx.fillStyle = `rgb(${clamp(r+br,0,255)},${clamp(g+br,0,255)},${clamp(b+br,0,255)})`;
+      ctx.fillRect(x,y,s,s);
+    }
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.magFilter = tex.minFilter = THREE.NearestFilter;
+    tex.generateMipmaps = false;
+    SHARED.tex[hex] = tex;
+    return tex;
+  }
+
+  function getMaterial(type){
+    if (SHARED.mats[type]) return SHARED.mats[type];
+
+    if (type === 'cloud'){
+      const mat = new THREE.MeshLambertMaterial({
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: CONFIG.CLOUDS.ALPHA,
+        depthWrite: false
+      });
+      SHARED.mats[type] = mat;
+      return mat;
+    }
+
+    const color = COLORS[type] ?? COLORS.grass;
+    const mat = new THREE.MeshPhongMaterial({
+      color,
+      map: makeCanvasTexture(color)
+    });
+    SHARED.mats[type] = mat;
+    return mat;
+  }
+
+  // ----------------- Chunk (voxels + render) -----------------
+  class Chunk {
+    constructor(cx, cz, scene){
+      this.cx = cx; this.cz = cz;
+      this.scene = scene;
+
+      this.size = CONFIG.CHUNK_SIZE;
+      this.height = CONFIG.CHUNK_HEIGHT;
+
+      // Voxels: solo guardamos los “no aire”.
+      // Map key(x,y,z) -> type
+      this.voxels = new Map();
+
+      // Instanced for solid blocks (non-surface optional) + fallback
+      this.instByType = new Map(); // type -> { mesh, count, idToPos[], posToId(Map) }
+      for (const type of SOLID_TYPES){
+        const mesh = new THREE.InstancedMesh(
+          SHARED.boxGeom,
+          getMaterial(type),
+          CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE
+        );
+        mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        mesh.castShadow = false;
+        mesh.receiveShadow = false;
+        mesh.frustumCulled = false;
+        mesh.visible = true;
+        mesh.count = 0;
+        this.scene.add(mesh);
+        this.instByType.set(type, { mesh, count:0, idToPos:[], posToId:new Map() });
+      }
+
+      // Instanced for clouds
+      this.cloudMesh = new THREE.InstancedMesh(
+        SHARED.boxGeom,
+        getMaterial('cloud'),
+        CONFIG.MAX_INSTANCES_CLOUD_PER_CHUNK
+      );
+      this.cloudMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+      this.cloudMesh.castShadow = false;
+      this.cloudMesh.receiveShadow = false;
+      this.cloudMesh.frustumCulled = false;
+      this.cloudMesh.visible = CONFIG.CLOUDS.ENABLED;
+      this.cloudMesh.count = 0;
+      this.scene.add(this.cloudMesh);
+      this.cloudCount = 0;
+
+      // Smooth surface mesh (single mesh with vertex colors)
+      this.surface = null;
+      this.surfaceGeom = null;
+
+      // bounds
+      this.minX = cx*this.size;
+      this.minZ = cz*this.size;
+      this.maxX = this.minX + this.size;
+      this.maxZ = this.minZ + this.size;
+    }
+
+    dispose(){
+      // remove meshes from scene
+      for (const [,pack] of this.instByType){
+        this.scene.remove(pack.mesh);
+        pack.mesh.geometry.dispose();
+        // material shared; no dispose
+      }
+      this.scene.remove(this.cloudMesh);
+      this.cloudMesh.geometry.dispose();
+
+      if (this.surface){
+        this.scene.remove(this.surface);
+        this.surface.geometry.dispose();
+        // material shared
+      }
+    }
+
+    // --- voxel ops ---
+    hasBlock(x,y,z){ return this.voxels.has(key(x,y,z)); }
+    getBlock(x,y,z){ return this.voxels.get(key(x,y,z)) || null; }
+
+    setBlock(x,y,z,type){
+      const k = key(x,y,z);
+      if (type === null){
+        this.voxels.delete(k);
+      } else {
+        this.voxels.set(k, type);
+      }
+    }
+
+    // --- Instancing helpers (for SOLID types only) ---
+    instAdd(type, x,y,z){
+      const pack = this.instByType.get(type);
+      if (!pack) return;
+      const k = key(x,y,z);
+      if (pack.posToId.has(k)) return;
+
+      const id = pack.count++;
+      const m = new THREE.Matrix4().makeTranslation(x+0.5,y+0.5,z+0.5);
+      pack.mesh.setMatrixAt(id, m);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+      pack.idToPos[id] = {x,y,z};
+      pack.posToId.set(k, id);
+      pack.mesh.count = pack.count;
+    }
+    instRemove(type, x,y,z){
+      const pack = this.instByType.get(type);
+      if (!pack) return;
+      const k = key(x,y,z);
+      const id = pack.posToId.get(k);
+      if (id === undefined) return;
+
+      const last = pack.count - 1;
+      if (id !== last){
+        const tmp = new THREE.Matrix4();
+        pack.mesh.getMatrixAt(last, tmp);
+        pack.mesh.setMatrixAt(id, tmp);
+
+        const moved = pack.idToPos[last];
+        pack.idToPos[id] = moved;
+        pack.posToId.set(key(moved.x,moved.y,moved.z), id);
+      }
+      pack.count--;
+      pack.idToPos.pop();
+      pack.posToId.delete(k);
+      pack.mesh.count = pack.count;
+      pack.mesh.instanceMatrix.needsUpdate = true;
+    }
+
+    // --- Clouds instancing ---
+    cloudAdd(x,y,z){
+      const id = this.cloudCount++;
+      if (id >= CONFIG.MAX_INSTANCES_CLOUD_PER_CHUNK) return;
+      const m = new THREE.Matrix4().makeTranslation(x+0.5,y+0.5,z+0.5);
+      this.cloudMesh.setMatrixAt(id, m);
+      this.cloudMesh.instanceMatrix.needsUpdate = true;
+      this.cloudMesh.count = this.cloudCount;
+    }
+    cloudClear(){
+      this.cloudCount = 0;
+      this.cloudMesh.count = 0;
+      this.cloudMesh.instanceMatrix.needsUpdate = true;
+    }
+
+    // --- Visibility / shadows ---
+    setVisible(v){
+      for (const [,pack] of this.instByType){
+        pack.mesh.visible = v && pack.count>0;
+      }
+      this.cloudMesh.visible = v && CONFIG.CLOUDS.ENABLED && this.cloudCount>0;
+      if (this.surface) this.surface.visible = v;
+    }
+    setShadowsEnabled(near){
+      // sombras solo cerca (barato)
+      for (const [,pack] of this.instByType){
+        pack.mesh.castShadow = near;
+        pack.mesh.receiveShadow = near;
+      }
+      if (this.surface){
+        this.surface.castShadow = near;
+        this.surface.receiveShadow = near;
+      }
+      // nubes sin sombra
+    }
+
+    // --- Surface mesh (Opción A) ---
+    rebuildSurface(heightFn, topTypeFn){
+      // grid vertices: (size+1)x(size+1)
+      const N = this.size;
+      const verts = (N+1)*(N+1);
+
+      const positions = new Float32Array(verts*3);
+      const colors    = new Float32Array(verts*3);
+
+      const idx = [];
+      const colorTmp = new THREE.Color();
+
+      // altura base por vértice: promedio de 4 columnas cercanas (suaviza)
+      // y después “acerca” a vecindario con factor.
+      const hs = new Float32Array(verts);
+
+      for (let dz=0; dz<=N; dz++){
+        for (let dx=0; dx<=N; dx++){
+          const wx = this.minX + dx;
+          const wz = this.minZ + dz;
+
+          // base: promedio (wx,wz) y vecinos inmediatos
+          const h00 = heightFn(wx, wz);
+          const h10 = heightFn(wx-1, wz);
+          const h01 = heightFn(wx, wz-1);
+          const h11 = heightFn(wx-1, wz-1);
+
+          let h = (h00 + h10 + h01 + h11) * 0.25;
+
+          // suavizado extra: mezcla con “promedio 8 vecinos” (reduce picos raros)
+          let s = 0, c = 0;
+          for (let oz=-1; oz<=1; oz++){
+            for (let ox=-1; ox<=1; ox++){
+              s += heightFn(wx+ox, wz+oz); c++;
+            }
+          }
+          const hAvg = s / c;
+
+          h = lerp(h, hAvg, CONFIG.SURFACE_SMOOTH_STRENGTH);
+
+          hs[dz*(N+1)+dx] = h + CONFIG.SURFACE_Y_BIAS;
+        }
+      }
+
+      // posiciones + color por “tipo dominante” en esa columna
+      for (let dz=0; dz<=N; dz++){
+        for (let dx=0; dx<=N; dx++){
+          const i = dz*(N+1)+dx;
+          const wx = this.minX + dx;
+          const wz = this.minZ + dz;
+
+          const h = hs[i];
+          positions[i*3+0] = wx;
+          positions[i*3+1] = h;
+          positions[i*3+2] = wz;
+
+          // color según el tipo “top” de la columna (aprox)
+          const t = topTypeFn(wx, wz);
+          const col = COLORS[t] ?? COLORS.grass;
+          colorTmp.setHex(col);
+          colors[i*3+0] = colorTmp.r;
+          colors[i*3+1] = colorTmp.g;
+          colors[i*3+2] = colorTmp.b;
+        }
+      }
+
+      // índices (dos triángulos por celda) — ORDEN CCW para normales correctas
+      for (let z=0; z<N; z++){
+        for (let x=0; x<N; x++){
+          const a =  z    *(N+1) + x;
+          const b =  z    *(N+1) + x+1;
+          const c = (z+1) *(N+1) + x;
+          const d = (z+1) *(N+1) + x+1;
+
+          // tri 1: a,c,b (CCW mirando desde arriba)
+          idx.push(a, c, b);
+          // tri 2: b,c,d
+          idx.push(b, c, d);
+        }
+      }
+
+      if (!this.surfaceGeom){
+        this.surfaceGeom = new THREE.BufferGeometry();
+      } else {
+        this.surfaceGeom.dispose();
+        this.surfaceGeom = new THREE.BufferGeometry();
+      }
+
+      this.surfaceGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      this.surfaceGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+      this.surfaceGeom.setIndex(idx);
+      this.surfaceGeom.computeVertexNormals(); // normales hacia arriba
+
+      const mat = Chunk.surfaceMaterial();
+      if (!this.surface){
+        this.surface = new THREE.Mesh(this.surfaceGeom, mat);
+        this.surface.frustumCulled = false;
+        this.surface.castShadow = true;
+        this.surface.receiveShadow = true;
+        this.scene.add(this.surface);
+      } else {
+        this.surface.geometry = this.surfaceGeom;
+      }
+    }
+
+    static surfaceMaterial(){
+      if (Chunk._surfMat) return Chunk._surfMat;
+      Chunk._surfMat = new THREE.MeshStandardMaterial({
+        vertexColors: true,
+        roughness: 0.95,
+        metalness: 0.0
+      });
+      return Chunk._surfMat;
+    }
+  }
+
+  // ----------------- World (streaming + build) -----------------
+  class World {
+    constructor(scene){
+      this.scene = scene;
+      this.chunks = new Map(); // chunkKey(cx,cz) -> Chunk
+
+      // índice rápido global: key(x,y,z)-> type
+      this.voxelIndex = new Map();
+
+      // cache de alturas (para render surface y para gen)
+      this.heightCache = new Map(); // key(x,0,z) -> height int
+      this.topTypeCache = new Map(); // key(x,0,z) -> 'grass'|'dirt'|'stone'
+    }
+
+    // --- procedural height ---
+    heightAt(x, z){
+      const k = key(x,0,z);
+      const cached = this.heightCache.get(k);
+      if (cached !== undefined) return cached;
+
+      const n = fbmRidge(x, z, 424242); // 0..1
+      // curva para que haya llanuras y montañas altas
+      const m = Math.pow(n, 1.35);
+      const h = Math.floor(CONFIG.SEA_LEVEL + m * CONFIG.HEIGHT_SCALE);
+      this.heightCache.set(k, h);
+      return h;
+    }
+
+    topTypeAt(x, z){
+      const k = key(x,0,z);
+      const cached = this.topTypeCache.get(k);
+      if (cached) return cached;
+
+      const h = this.heightAt(x,z);
+      // reglas: piedra en alto, tierra intermedia, hierba arriba cerca de “zona viva”
+      let t = 'grass';
+      if (h > CONFIG.SEA_LEVEL + 16) t = 'stone';
+      else if (h > CONFIG.SEA_LEVEL + 6) t = 'dirt';
+      this.topTypeCache.set(k, t);
+      return t;
+    }
+
+    // --- chunk management ---
+    getChunk(cx,cz, create=false){
+      const ck = chunkKey(cx,cz);
+      let ch = this.chunks.get(ck);
+      if (!ch && create){
+        ch = new Chunk(cx,cz,this.scene);
+        this.chunks.set(ck,ch);
+      }
+      return ch;
+    }
+
+    getChunkCoords(x,y,z){
+      const cs = CONFIG.CHUNK_SIZE;
+      return { cx: floorDiv(x, cs), cz: floorDiv(z, cs) };
+    }
+
+    hasBlock(x,y,z){ return this.voxelIndex.has(key(x,y,z)); }
+    getBlock(x,y,z){ return this.voxelIndex.get(key(x,y,z)) || null; }
+
+    setBlock(x,y,z,type){
+      const k = key(x,y,z);
+      const {cx,cz} = this.getChunkCoords(x,y,z);
+      const ch = this.getChunk(cx,cz,true);
+
+      const prev = this.voxelIndex.get(k) || null;
+
+      // update voxelIndex
+      if (type === null){
+        this.voxelIndex.delete(k);
+        ch.setBlock(x,y,z,null);
+      } else {
+        this.voxelIndex.set(k,type);
+        ch.setBlock(x,y,z,type);
+      }
+
+      // update instancing for SOLID (nota: la superficie se dibuja aparte, pero
+      // mantenemos instancing para bloques NO-superficie (por simplicidad: dibujaremos
+      // TODO como instancing, y encima la superficie suavizada. Si quieres “solo superficie”
+      // para top blocks, se puede filtrar, pero así no se pierde info visual).
+      if (prev && SOLID_TYPES.includes(prev)) ch.instRemove(prev, x,y,z);
+      if (type && SOLID_TYPES.includes(type)) ch.instAdd(type, x,y,z);
+
+      // invalidate caches alrededor (altura/topType pueden cambiar con edición)
+      // aquí lo simplificamos: eliminamos cache local de la columna afectada
+      this.heightCache.delete(key(x,0,z));
+      this.topTypeCache.delete(key(x,0,z));
+    }
+
+    // Genera voxels base de un chunk (si no está en save)
+    buildChunk(cx,cz){
+      const ch = this.getChunk(cx,cz,true);
+
+      // limpiar instancing y voxels del chunk (rebuild total)
+      // (para mantener simple: recreamos a partir del voxelIndex filtrando por rango)
+      ch.voxels.clear();
+      for (const t of SOLID_TYPES){
+        const pack = ch.instByType.get(t);
+        pack.count = 0; pack.idToPos.length = 0; pack.posToId.clear();
+        pack.mesh.count = 0;
+        pack.mesh.instanceMatrix.needsUpdate = true;
+      }
+      ch.cloudClear();
+
+      const minX = cx*CONFIG.CHUNK_SIZE;
+      const minZ = cz*CONFIG.CHUNK_SIZE;
+
+      // terreno base
+      for (let dz=0; dz<CONFIG.CHUNK_SIZE; dz++){
+        for (let dx=0; dx<CONFIG.CHUNK_SIZE; dx++){
+          const x = minX + dx;
+          const z = minZ + dz;
+
+          const h = this.heightAt(x,z);
+          // rellenar suelo desde y=0..h
+          for (let y=0; y<=h; y++){
+            let type = 'stone';
+            if (y === h) type = this.topTypeAt(x,z); // top
+            else if (y >= h-3) type = 'dirt';
+            else type = 'stone';
+
+            this.voxelIndex.set(key(x,y,z), type);
+            ch.setBlock(x,y,z,type);
+            ch.instAdd(type, x,y,z);
+          }
+        }
+      }
+
+      // nubes (procedural)
+      if (CONFIG.CLOUDS.ENABLED){
+        this.buildCloudChunk(cx,cz);
+      }
+
+      // superficie suavizada (depende de height/topType)
+      ch.rebuildSurface(
+        (x,z)=> this.heightAt(x,z),
+        (x,z)=> this.topTypeAt(x,z)
+      );
+
+      return ch;
+    }
+
+    buildCloudChunk(cx,cz){
+      const ch = this.getChunk(cx,cz,true);
+      ch.cloudClear();
+
+      const minX = cx*CONFIG.CHUNK_SIZE;
+      const minZ = cz*CONFIG.CHUNK_SIZE;
+
+      const baseY = CONFIG.CLOUDS.BASE_Y;
+      const thick = CONFIG.CLOUDS.THICKNESS;
+
+      for (let dz=0; dz<CONFIG.CHUNK_SIZE; dz++){
+        for (let dx=0; dx<CONFIG.CHUNK_SIZE; dx++){
+          const x = minX + dx;
+          const z = minZ + dz;
+
+          // nube con ruido suave (valueNoise)
+          const n = valueNoise2(x*CONFIG.CLOUDS.FREQ, z*CONFIG.CLOUDS.FREQ, 9999); // [-1..1]
+          const v = (n+1)*0.5; // 0..1
+          if (v < CONFIG.CLOUDS.COVERAGE) continue;
+
+          const t = (v - CONFIG.CLOUDS.COVERAGE) / (1.0 - CONFIG.CLOUDS.COVERAGE); // 0..1
+          const layers = 1 + Math.floor(t * (thick-1));
+
+          for (let i=0; i<layers; i++){
+            const y = baseY + i;
+            ch.cloudAdd(x,y,z);
+          }
+        }
+      }
+    }
+
+    ensureChunksAround(playerPos){
+      const cs = CONFIG.CHUNK_SIZE;
+      const pcx = floorDiv(Math.floor(playerPos.x), cs);
+      const pcz = floorDiv(Math.floor(playerPos.z), cs);
+      const r = CONFIG.VIEW_DISTANCE_CHUNKS;
+
+      // crear/asegurar
+      for (let dz=-r; dz<=r; dz++){
+        for (let dx=-r; dx<=r; dx++){
+          const cx = pcx + dx;
+          const cz = pcz + dz;
+          const ck = chunkKey(cx,cz);
+          if (!this.chunks.has(ck)){
+            this.buildChunk(cx,cz);
+          }
+        }
+      }
+
+      // “desactivar” lejos (no destruir para no perder editados; si quieres destruir,
+      // habría que persistir por chunk)
+      const visR2 = CONFIG.VISIBILITY_RADIUS_BLOCKS*CONFIG.VISIBILITY_RADIUS_BLOCKS;
+      const shR2  = CONFIG.SHADOW_RADIUS_BLOCKS*CONFIG.SHADOW_RADIUS_BLOCKS;
+
+      for (const [,ch] of this.chunks){
+        const centerX = (ch.cx + 0.5)*cs;
+        const centerZ = (ch.cz + 0.5)*cs;
+        const dx = centerX - playerPos.x;
+        const dz = centerZ - playerPos.z;
+        const d2 = dx*dx + dz*dz;
+
+        const visible = d2 <= visR2;
+        const shadows = d2 <= shR2;
+
+        ch.setVisible(visible);
+        ch.setShadowsEnabled(shadows);
+      }
+    }
+
+    // --- serialization ---
+    serialize(){
+      // guardamos SOLO diferencias respecto a procedural base:
+      // - bloques añadidos o eliminados.
+      // Para simplificar: guardamos lista completa de voxels editados en un “delta map”.
+      // Implementación simple: guardamos todas las entradas voxelIndex (puede crecer).
+      // (Si quieres optimizar: guardar por chunk + compresión RLE)
+      const out = [];
+      for (const [k,t] of this.voxelIndex){
+        const [x,y,z] = k.split('|').map(Number);
+        out.push([x,y,z,t]);
+      }
+      return out;
+    }
+
+    deserialize(list){
+      this.voxelIndex.clear();
+      // reconstruir chunks desde lista
+      // (nota: al cargar, se regenerarán chunks cerca; luego aplicamos voxels para esa zona)
+      for (const [x,y,z,t] of list){
+        this.voxelIndex.set(key(x,y,z), t);
+      }
+    }
+
+    // --- apply voxelIndex to an already-built chunk (ediciones por encima de procedural) ---
+    applyEditsToChunk(cx,cz){
+      const ch = this.getChunk(cx,cz,false);
+      if (!ch) return;
+
+      // reconstruimos chunk desde procedural y encima aplicamos overrides existentes
+      this.buildChunk(cx,cz);
+
+      const minX = cx*CONFIG.CHUNK_SIZE;
+      const minZ = cz*CONFIG.CHUNK_SIZE;
+      const maxX = minX + CONFIG.CHUNK_SIZE - 1;
+      const maxZ = minZ + CONFIG.CHUNK_SIZE - 1;
+
+      // aplicar voxels guardados en esta región (override)
+      for (const [k,t] of this.voxelIndex){
+        const [x,y,z] = k.split('|').map(Number);
+        if (x<minX || x>maxX || z<minZ || z>maxZ) continue;
+        // setBlock re-actualiza instancing y caches
+        this.setBlock(x,y,z,t);
+      }
+
+      // rebuild surface + clouds (por si editaste)
+      ch.rebuildSurface(
+        (x,z)=> this.heightAt(x,z),
+        (x,z)=> this.topTypeAt(x,z)
+      );
+      if (CONFIG.CLOUDS.ENABLED) this.buildCloudChunk(cx,cz);
+    }
+  }
+
+  // ----------------- Voxel raycast (DDA) -----------------
+  function voxelRaycast(world, origin, dir, maxDist=10){
+    // DDA 3D (grid stepping)
+    let x = Math.floor(origin.x);
+    let y = Math.floor(origin.y);
+    let z = Math.floor(origin.z);
+
+    const stepX = dir.x > 0 ? 1 : -1;
+    const stepY = dir.y > 0 ? 1 : -1;
+    const stepZ = dir.z > 0 ? 1 : -1;
+
+    const tDeltaX = (dir.x !== 0) ? Math.abs(1 / dir.x) : Infinity;
+    const tDeltaY = (dir.y !== 0) ? Math.abs(1 / dir.y) : Infinity;
+    const tDeltaZ = (dir.z !== 0) ? Math.abs(1 / dir.z) : Infinity;
+
+    const frac = (v)=> v - Math.floor(v);
+
+    let tMaxX = (dir.x > 0 ? (1 - frac(origin.x)) : frac(origin.x)) * tDeltaX;
+    let tMaxY = (dir.y > 0 ? (1 - frac(origin.y)) : frac(origin.y)) * tDeltaY;
+    let tMaxZ = (dir.z > 0 ? (1 - frac(origin.z)) : frac(origin.z)) * tDeltaZ;
+
+    // normal del “cara” golpeada (aprox)
+    let hitNormal = new THREE.Vector3(0,0,0);
+
+    let t = 0;
+    const maxT = maxDist;
+
+    for (let i=0; i<600; i++){
+      const type = world.getBlock(x,y,z);
+      if (type && type !== 'cloud'){
+        return { x,y,z, type, t, normal: hitNormal.clone() };
+      }
+
+      if (tMaxX < tMaxY){
+        if (tMaxX < tMaxZ){
+          x += stepX;
+          t = tMaxX;
+          tMaxX += tDeltaX;
+          hitNormal.set(-stepX,0,0);
+        } else {
+          z += stepZ;
+          t = tMaxZ;
+          tMaxZ += tDeltaZ;
+          hitNormal.set(0,0,-stepZ);
+        }
+      } else {
+        if (tMaxY < tMaxZ){
+          y += stepY;
+          t = tMaxY;
+          tMaxY += tDeltaY;
+          hitNormal.set(0,-stepY,0);
+        } else {
+          z += stepZ;
+          t = tMaxZ;
+          tMaxZ += tDeltaZ;
+          hitNormal.set(0,0,-stepZ);
+        }
+      }
+
+      if (t > maxT) break;
+    }
+    return null;
+  }
+
+  // ----------------- Game -----------------
+  class Game {
+    constructor(){
+      this.scene = new THREE.Scene();
+
+      // Niebla (oculta lejos)
+      this.scene.fog = new THREE.Fog(0xCFE9FF, CONFIG.FOG_NEAR, CONFIG.FOG_FAR);
+
+      // Cámara
+      this.camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 800);
+      this.camera.position.set(0, 24, 0);
+
+      // Renderer
+      this.renderer = new THREE.WebGLRenderer({ antialias:false, powerPreference:'high-performance' });
+      this.renderer.setSize(innerWidth, innerHeight);
+      this.renderer.shadowMap.enabled = true;
+      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.body.appendChild(this.renderer.domElement);
+
+      // Cielo gradiente (shader sphere gigante)
+      this.addGradientSky();
+
+      // Luces
+      const amb = new THREE.AmbientLight(0xffffff, 0.70);
+      this.scene.add(amb);
+
+      const sun = new THREE.DirectionalLight(0xffffff, 1.35);
+      sun.position.set(70, 90, 40);
+      sun.castShadow = true;
+      sun.shadow.mapSize.set(1024,1024);
+      sun.shadow.camera.near = 0.5;
+      sun.shadow.camera.far = 260;
+      sun.shadow.camera.left = -110;
+      sun.shadow.camera.right = 110;
+      sun.shadow.camera.top = 110;
+      sun.shadow.camera.bottom = -110;
+      this.scene.add(sun);
+
+      // Controls
+      this.controls = new THREE.PointerLockControls(this.camera, document.body);
+      const overlay = document.getElementById('overlay');
+      document.body.addEventListener('click', ()=>{
+        if (!this.controls.isLocked) this.controls.lock();
+      });
+      this.controls.addEventListener('lock', ()=> overlay.style.display='none');
+      this.controls.addEventListener('unlock', ()=> overlay.style.display='flex');
+
+      // Input
+      this.move = { f:false,b:false,l:false,r:false,j:false };
+      addEventListener('keydown', (e)=>{
+        if (e.code==='KeyW') this.move.f=true;
+        if (e.code==='KeyS') this.move.b=true;
+        if (e.code==='KeyA') this.move.l=true;
+        if (e.code==='KeyD') this.move.r=true;
+        if (e.code==='Space' && this.onGround) this.move.j=true;
+
+        if (e.code==='Digit1') this.selectBlock('grass');
+        if (e.code==='Digit2') this.selectBlock('dirt');
+        if (e.code==='Digit3') this.selectBlock('stone');
+
+        if (e.code==='KeyR') this.respawn();
+      });
+      addEventListener('keyup', (e)=>{
+        if (e.code==='KeyW') this.move.f=false;
+        if (e.code==='KeyS') this.move.b=false;
+        if (e.code==='KeyA') this.move.l=false;
+        if (e.code==='KeyD') this.move.r=false;
+        if (e.code==='Space') this.move.j=false;
+      });
+
+      // UI selector
+      this.selectedType = 'grass';
+      const opts = document.querySelectorAll('.block-option');
+      opts.forEach(o=>o.addEventListener('click', ()=>{
+        opts.forEach(p=>p.classList.remove('selected'));
+        o.classList.add('selected');
+        this.selectedType = o.dataset.type;
+      }));
+      document.getElementById('reset-btn').addEventListener('click', ()=>{
+        if (confirm('¿Reiniciar el mundo? Se perderán cambios.')){
+          localStorage.removeItem(CONFIG.SAVE_KEY);
+          location.reload();
+        }
+      });
+
+      // Mouse actions
+      addEventListener('contextmenu', e=> e.preventDefault());
+      addEventListener('mousedown', (e)=>{
+        if (!this.controls.isLocked) return;
+        if (!this.world) return;
+        if (e.button===0) this.removeBlockAtPointer();
+        if (e.button===2) this.placeBlockAtPointer();
+      });
+
+      // Resize
+      addEventListener('resize', ()=>{
+        this.camera.aspect = innerWidth/innerHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(innerWidth, innerHeight);
+      });
+
+      // World
+      this.world = new World(this.scene);
+
+      // Physics
+      this.velocity = new THREE.Vector3();
+      this.onGround = false;
+
+      // Clock
+      this.clock = new THREE.Clock();
+      this.autoSaveAcc = 0;
+
+      // Load
+      this.loadWorld();
+
+      // Asegura chunks iniciales
+      this.world.ensureChunksAround(this.camera.position);
+
+      this.animate();
+    }
+
+    addGradientSky(){
+      const skyGeom = new THREE.SphereGeometry(500, 32, 16);
+      const skyMat = new THREE.ShaderMaterial({
+        side: THREE.BackSide,
+        uniforms: {
+          topColor:    { value: new THREE.Color(0x2F80FF) }, // azul duro arriba
+          bottomColor: { value: new THREE.Color(0xFFFFFF) }, // blanco horizonte
+          offset:      { value: 0.0 },
+          exponent:    { value: 0.8 }
+        },
+        vertexShader: `
+          varying vec3 vWorldPosition;
+          void main() {
+            vec4 wp = modelMatrix * vec4(position, 1.0);
+            vWorldPosition = wp.xyz;
+            gl_Position = projectionMatrix * viewMatrix * wp;
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 topColor;
+          uniform vec3 bottomColor;
+          uniform float offset;
+          uniform float exponent;
+          varying vec3 vWorldPosition;
+          void main() {
+            float h = normalize(vWorldPosition + vec3(0.0, offset, 0.0)).y;
+            float t = pow(max(h, 0.0), exponent);
+            vec3 col = mix(bottomColor, topColor, t);
+            gl_FragColor = vec4(col, 1.0);
+          }
+        `
+      });
+      const sky = new THREE.Mesh(skyGeom, skyMat);
+      sky.frustumCulled = false;
+      this.scene.add(sky);
+    }
+
+    selectBlock(t){
+      this.selectedType = t;
+      const opts = document.querySelectorAll('.block-option');
+      opts.forEach(o=> o.classList.toggle('selected', o.dataset.type===t));
+    }
+
+    respawn(){
+      // reaparecer sobre el terreno
+      const x = Math.floor(this.camera.position.x);
+      const z = Math.floor(this.camera.position.z);
+      const h = this.world.heightAt(x,z);
+      this.camera.position.set(x+0.5, h+6, z+0.5);
+      this.velocity.set(0,0,0);
+    }
+
+    saveWorld(){
+      const data = {
+        voxels: this.world.serialize(),
+        player: { x:this.camera.position.x, y:this.camera.position.y, z:this.camera.position.z }
+      };
+      localStorage.setItem(CONFIG.SAVE_KEY, JSON.stringify(data));
+    }
+
+    loadWorld(){
+      const raw = localStorage.getItem(CONFIG.SAVE_KEY);
+      if (!raw){
+        // posicion inicial bonita
+        const h = this.world.heightAt(0,0);
+        this.camera.position.set(0.5, h+10, 0.5);
+        return;
+      }
+      try{
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed.voxels)){
+          this.world.deserialize(parsed.voxels);
+        }
+        if (parsed.player){
+          this.camera.position.set(parsed.player.x, parsed.player.y, parsed.player.z);
+        }
+        // reconstruimos los chunks cercanos aplicando edits
+        this.world.ensureChunksAround(this.camera.position);
+        const cs = CONFIG.CHUNK_SIZE;
+        const pcx = floorDiv(Math.floor(this.camera.position.x), cs);
+        const pcz = floorDiv(Math.floor(this.camera.position.z), cs);
+        const r = CONFIG.VIEW_DISTANCE_CHUNKS;
+        for (let dz=-r; dz<=r; dz++){
+          for (let dx=-r; dx<=r; dx++){
+            this.world.applyEditsToChunk(pcx+dx, pcz+dz);
+          }
+        }
+      }catch(e){
+        console.warn('Error cargando mundo; se crea nuevo.', e);
+        localStorage.removeItem(CONFIG.SAVE_KEY);
+      }
+    }
+
+    rebuildAffectedChunks(x,z){
+      // si editas cerca de borde de chunk, reconstruye también vecinos
+      const cs = CONFIG.CHUNK_SIZE;
+      const cx = floorDiv(x, cs);
+      const cz = floorDiv(z, cs);
+
+      const lx = ((x % cs) + cs) % cs;
+      const lz = ((z % cs) + cs) % cs;
+
+      const targets = new Set();
+      targets.add(chunkKey(cx,cz));
+      if (lx===0) targets.add(chunkKey(cx-1,cz));
+      if (lx===cs-1) targets.add(chunkKey(cx+1,cz));
+      if (lz===0) targets.add(chunkKey(cx,cz-1));
+      if (lz===cs-1) targets.add(chunkKey(cx,cz+1));
+      if (lx===0 && lz===0) targets.add(chunkKey(cx-1,cz-1));
+      if (lx===0 && lz===cs-1) targets.add(chunkKey(cx-1,cz+1));
+      if (lx===cs-1 && lz===0) targets.add(chunkKey(cx+1,cz-1));
+      if (lx===cs-1 && lz===cs-1) targets.add(chunkKey(cx+1,cz+1));
+
+      for (const ck of targets){
+        const [tcx,tcz] = ck.split('|').map(Number);
+        // rebuild visual for those chunks:
+        this.world.applyEditsToChunk(tcx,tcz);
+      }
+    }
+
+    removeBlockAtPointer(){
+      const origin = this.camera.position.clone();
+      const dir = new THREE.Vector3();
+      this.camera.getWorldDirection(dir);
+
+      const hit = voxelRaycast(this.world, origin, dir, 10);
+      if (!hit) return;
+
+      // quitar
+      this.world.setBlock(hit.x, hit.y, hit.z, null);
+
+      // recalcular superficie (chunk y vecinos si borde)
+      this.rebuildAffectedChunks(hit.x, hit.z);
+    }
+
+    placeBlockAtPointer(){
+      const origin = this.camera.position.clone();
+      const dir = new THREE.Vector3();
+      this.camera.getWorldDirection(dir);
+
+      const hit = voxelRaycast(this.world, origin, dir, 10);
+      if (!hit) return;
+
+      const nx = hit.x + Math.round(hit.normal.x);
+      const ny = hit.y + Math.round(hit.normal.y);
+      const nz = hit.z + Math.round(hit.normal.z);
+
+      // evita poner dentro del jugador
+      const playerPos = this.camera.position;
+      const dist = new THREE.Vector3(nx+0.5, ny+0.5, nz+0.5).distanceTo(playerPos);
+      if (dist < 1.4) return;
+
+      if (!this.world.hasBlock(nx,ny,nz)){
+        this.world.setBlock(nx,ny,nz,this.selectedType);
+        this.rebuildAffectedChunks(nx, nz);
+      }
+    }
+
+    // --- colisión simple con voxels cercanos ---
+    playerAABBAt(pos){
+      const r = CONFIG.PLAYER.RADIUS;
+      const h = CONFIG.PLAYER.HEIGHT;
+      return new THREE.Box3(
+        new THREE.Vector3(pos.x - r, pos.y - h, pos.z - r),
+        new THREE.Vector3(pos.x + r, pos.y,     pos.z + r)
+      );
+    }
+
+    collidesAt(pos){
+      const aabb = this.playerAABBAt(pos);
+
+      const minX = Math.floor(aabb.min.x)-1;
+      const maxX = Math.floor(aabb.max.x)+1;
+      const minY = Math.floor(aabb.min.y)-1;
+      const maxY = Math.floor(aabb.max.y)+1;
+      const minZ = Math.floor(aabb.min.z)-1;
+      const maxZ = Math.floor(aabb.max.z)+1;
+
+      for (let x=minX; x<=maxX; x++){
+        for (let y=minY; y<=maxY; y++){
+          for (let z=minZ; z<=maxZ; z++){
+            const t = this.world.getBlock(x,y,z);
+            if (!t || t==='cloud') continue;
+            const bb = new THREE.Box3(
+              new THREE.Vector3(x, y, z),
+              new THREE.Vector3(x+1, y+1, z+1)
+            );
+            if (aabb.intersectsBox(bb)) return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    animate(){
+      requestAnimationFrame(()=>this.animate());
+      const dt = Math.min(this.clock.getDelta(), 0.05);
+
+      // streaming chunk alrededor del jugador
+      this.world.ensureChunksAround(this.camera.position);
+
+      // Movement
+      if (this.controls.isLocked){
+        const dir = new THREE.Vector3();
+        this.camera.getWorldDirection(dir);
+        dir.y = 0; dir.normalize();
+        const right = new THREE.Vector3().crossVectors(this.camera.up, dir).normalize();
+
+        let dx=0, dz=0;
+        if (this.move.f) { dx += dir.x; dz += dir.z; }
+        if (this.move.b) { dx -= dir.x; dz -= dir.z; }
+        if (this.move.l) { dx += right.x; dz += right.z; }
+        if (this.move.r) { dx -= right.x; dz -= right.z; }
+
+        const horiz = new THREE.Vector3(dx,0,dz);
+        if (horiz.lengthSq()>0) horiz.normalize().multiplyScalar(CONFIG.PLAYER.SPEED*dt);
+
+        const posH = this.camera.position.clone().add(horiz);
+        if (!this.collidesAt(posH)){
+          this.camera.position.copy(posH);
+        }
+
+        if (this.move.j && this.onGround){
+          this.velocity.y = CONFIG.PLAYER.JUMP;
+          this.onGround = false;
+          this.move.j = false;
+        }
+
+        this.velocity.y += CONFIG.PLAYER.GRAVITY * dt;
+
+        const posV = this.camera.position.clone();
+        posV.y += this.velocity.y * dt;
+
+        if (!this.collidesAt(posV)){
+          this.camera.position.y = posV.y;
+          this.onGround = false;
+        } else {
+          if (this.velocity.y < 0) this.onGround = true;
+          this.velocity.y = 0;
+        }
+
+        // si cae
+        if (this.camera.position.y < -30) this.respawn();
+      }
+
+      // autosave
+      this.autoSaveAcc += dt;
+      if (this.autoSaveAcc >= CONFIG.AUTOSAVE_SECONDS){
+        this.autoSaveAcc = 0;
+        this.saveWorld();
+      }
+
+      this.renderer.render(this.scene, this.camera);
+    }
+  }
+
+  // ----------------- Start -----------------
+  new Game();
+  </script>
+</body>
+</html>
+

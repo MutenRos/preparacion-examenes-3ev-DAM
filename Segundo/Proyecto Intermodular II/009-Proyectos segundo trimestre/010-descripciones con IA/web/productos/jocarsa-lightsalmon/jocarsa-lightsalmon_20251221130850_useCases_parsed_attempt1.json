@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "Uso Cases del Calendario jocarsa | lightsalmon",
+    "cases": [
+      {
+        "name": "Registro de Usuario",
+        "description": "Permite a los usuarios registrarse en el sistema proporcionando un nombre de usuario y una contraseña."
+      },
+      {
+        "name": "Inicio de Sesión",
+        "description": "Los usuarios pueden iniciar sesión en su cuenta utilizando su nombre de usuario y contraseña para acceder a sus eventos y configuraciones personales."
+      },
+      {
+        "name": "Carga y Descarga de Eventos",
+        "description": "Los usuarios tienen la capacidad de cargar o descargar información de sus eventos, incluyendo categorías, fechas especiales y acontecimientos, directamente desde el sistema."
+      }
+    ]
+  }
+}

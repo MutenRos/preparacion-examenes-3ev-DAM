@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Propuesta Educativa Inteligente para SaaS",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Profesores",
+      "Estudiantes",
+      "Educadores"
+    ],
+    "ctaPrimary": "Descubre ahora",
+    "ctaSecondary": "Más detalles"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Transformamos la educación digital con tecnologías avanzadas para análisis de texto y aprendizaje adaptativo.",
+    "subtitle": "Automatiza la creación de contenido educativo, mejora el rendimiento académico y personifica la interacción en línea.",
+    "badges": [
+      "Tecnología Avanzada",
+      "Personalización del Aprendizaje",
+      "Análisis Inteligente"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Ver detalles"
+      },
+      {
+        "type": "secondary",
+        "text": "Prueba gratis"
+      },
+      {
+        "type": "tertiary",
+        "text": "Contáctanos"
+      }
+    ]
+  }
+}

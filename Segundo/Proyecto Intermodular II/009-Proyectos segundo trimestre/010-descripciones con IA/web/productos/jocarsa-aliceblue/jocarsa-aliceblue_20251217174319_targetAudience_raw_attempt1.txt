@@ -1,0 +1,5 @@
+```json
+{
+  "targetAudience": {"title":"Educadores y profesores", "profiles":[{"name":"Educadores universitarios","fit":"El software está diseñado para facilitar la interacción entre los estudiantes y el material educativo, lo que es ideal para los educadores universitarios."},{"name":"Profesores de escuela secundaria","fit":"Permite a los profesores administrar sus clases y recursos, mejorando su experiencia en el aula."},{"name":"Instructores en línea","fit":"Ofrece herramientas versátiles para instructores que necesitan presentar contenido multimedia de manera efectiva."}]}
+}
+```

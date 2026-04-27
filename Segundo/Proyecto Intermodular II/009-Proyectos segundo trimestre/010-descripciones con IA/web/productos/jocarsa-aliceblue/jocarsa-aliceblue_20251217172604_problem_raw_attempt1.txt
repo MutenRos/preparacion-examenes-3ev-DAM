@@ -1,0 +1,7 @@
+{
+  "problem": {"title":"Desarrollo de un Sistema Educativo para Administradores","items":["Necesidad de una interfaz amigable y responsive","Implementación de características de captura y control de video necesarias para monitoreo remoto","Requerimiento de funcionalidades de visualización detallada y control de frames del video en tiempo real","Sistema de avance progresivo y pausa con indicadores visuales precisos","Soporte para vistas fullscreen y opciones de navegación intuitivas y seguras"]},
+  "slug": "jocarsa-aliceblue",
+  "type": "softwareEducativo",
+  "lang": "es",
+  "version": "1.1"
+}

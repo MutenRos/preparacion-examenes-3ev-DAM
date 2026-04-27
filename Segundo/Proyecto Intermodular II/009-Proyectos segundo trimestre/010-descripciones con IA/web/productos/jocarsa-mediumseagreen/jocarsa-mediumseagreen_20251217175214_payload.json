@@ -1,0 +1,217 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Transforma Contenidos Educativos en Experiencias Didácticas Innovadoras",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Profesores de la ESO y Bachillerato",
+      "Estudiantes universitarios"
+    ],
+    "ctaPrimary": "Prueba Gratuitamente",
+    "ctaSecondary": "Descubre Cómo Funciona"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Convertir videos y tradicionales académicos en didácticos con precisión y eficiencia. Automatiza la extracción de notas y resúmenes para mejorar la experiencia de aprendizaje.",
+    "subtitle": "Más que un software, una solución integral para mejorar el contenido educativo.",
+    "badges": [
+      "Automatización de Procesos",
+      "Interfaz Amigable",
+      "Compatibilidad con Diversas Formatos"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuitamente"
+      },
+      {
+        "type": "secondary",
+        "text": "Descubre Cómo Funciona"
+      },
+      {
+        "type": "tertiary",
+        "text": "Contactar Soporte"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Procesamiento de contenido educativo en video",
+    "items": [
+      "Analizar 'playlists_videos.json' categoría '25/26'",
+      "Priorizar player_client: android -> mweb -> tv -> web (con cookies si existen)",
+      "Convertir subtítulos .vtt a texto sólido",
+      "Registrar idiomas disponibles en .log si no se consigue nada",
+      "Filtrar y ordenar los resultados del modelo Instruct por score 0..1",
+      "Incluir `type:\"video\"` para vídeos (retrocompatible)",
+      "Ignorar archivos que no cumplen patrón fuera de rangos definidos",
+      "Construir el título estilo vídeo: 'YYYY MM DD HH MM SS <label>'",
+      "Expandir playlists de YouTube y añadir mensajes/*.txt como playlist '🛈 Mensajes' por curso",
+      "Guardar salida final en un formato determinado",
+      "Procesar .txt extrayendo cuerpo e ignorando cabecera hasta la línea de guiones",
+      "Generar notas para cada chunk usando Ollama API remota",
+      "Sintetizar un único .md didáctico usando Ollama API remota",
+      "Manejo opcional del fallback a idiomas no españoles y auto-captions",
+      "Computar similitud entre los embeddings de topics y los videos"
+    ]
+  },
+  "solution": {
+    "title": "Automatización del Proceso Educativo en SaaS",
+    "overview": "Este software educa a usuarios sobre la automatización de procesos educativos, incluyendo la gestión de subtítulos y el análisis de temas. Se integra con servicios de video y transcripción para facilitar el aprendizaje.",
+    "whatChanges": [
+      "Implementa la gestión automática de subtítulos en videos de plataformas educativas",
+      "Analiza y categoriza temas en base a transcripciones y metadatos del video",
+      "mejora la experiencia del usuario al presentar contenido didáctico estructurado"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / Título / Página / Reporte / proyecto / Estructura."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Estudiantes y educadores de nivel medio superior y universitario",
+    "profiles": [
+      {
+        "name": "Profesores de Tecnología",
+        "fit": "Ofrece herramientas para analizar y organizar contenido multimedia de videos, mejorando la enseñanza y el aprendizaje"
+      },
+      {
+        "name": "Estudiantes de Tecnología e Informática",
+        "fit": "Facilita el acceso a recursos educativos en formato digital, permitiendo una mayor interacción y comprensión del material"
+      },
+      {
+        "name": "Coordinadores académicos",
+        "fit": "Permite gestionar y personalizar la distribución de contenido para mejorar la experiencia educativa"
+      },
+      {
+        "name": "Desarrolladores web y front-end",
+        "fit": "Proporciona scripts y herramientas para automatizar el procesamiento y análisis de contenidos multimedia, facilitando su integración en plataformas digitales"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Uso Casos",
+    "cases": [
+      {
+        "name": "Traducción e Introducción de Subtítulos",
+        "description": "Implementa una estrategia para descargar y convertir subtítulos de videos, priorizando siempre el español (es, es-ES, es-419). Si no se encuentran subtítulos en español, utiliza la primera subtitulación disponible de manera automática. Los subtítulos resultantes son convertidos a texto sólido sin timestamps o etiquetas para mejorar su legibilidad."
+      },
+      {
+        "name": "Mezcla y Ordenación de Contenido Educativo",
+        "description": "Combina diferentes tipos de contenidos como transcripciones, temas temáticos y listados de videos en una estructura coherente y lógica. Se aseguran que los vídeos se mezclen con otros elementos como mensajes directos para ofrecer una experiencia educativa rica e integral."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Gestión Eficaz del Contenido Educativo",
+    "items": [
+      "Genera contenido didáctico a partir de transcripciones en línea sin la necesidad de intervención tradicional.",
+      "Prioriza y selecciona automáticamente los idiomas disponibles para mejorar la accesibilidad del material educativo.",
+      "Integra el análisis semántico para clasificar el contenido de vídeos y textos, facilitando su organización y búsqueda.",
+      "Mezcla diferentes fuentes de aprendizaje como videos, textos y transcripciones para ofrecer una experiencia educativa personalizada.",
+      "mejora la navegación a través del contenido estructurado en unidades y subunidades, mejorando la comprensión y retención del material."
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integración con Ollama y Embeddings",
+    "notes": "Permite la integración de modelos de embeddings para mejorar la precisión en la clasificación de temas. Es opcional pero recomendado.",
+    "items": [
+      "Instala ollama mediante pip: `pip install requests tqdm`",
+      "Carga el modelo embedding: `ollama pull nomic-embed-text`",
+      "Ejecuta Ollama en http://localhost:11434"
+    ],
+    "type": "softwareEducativo",
+    "lang": "es",
+    "version": "1.1",
+    "jocarsa-mediumseagreen": "true",
+    "slug": "jocarsa-mediumseagreen"
+  },
+  "trust": {
+    "title": "Integrado y Robusto",
+    "points": [
+      "Análisis exhaustivo de subtítulos en español e idiomas alternativos",
+      "Procesamiento automático y tradicional para mejorar la calidad del contenido educativo",
+      "Generación de notas didácticas a través de API remota para una mejor comprensión",
+      "Uso eficiente de logs y registros para diagnóstico y mejora sin interrupción al usuario"
+    ]
+  },
+  "finalCTA": {
+    "title": "Transforma tu Contenido Educativo",
+    "description": "Descubre cómo convertir tus videos en didácticos recursos con nuestros sofisticados algoritmos. ¡Haga clic para obtener más información!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Más Información"
+      },
+      {
+        "type": "secondary",
+        "text": "¡Prueba Ahora!"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Frecuentes preguntas sobre software educativo",
+    "qas": [
+      {
+        "q": "¿Qué es el software educativo jocarsa-mediumseagreen?",
+        "a": "El software educativo jocarsa-mediumseagreen es una herramienta que automatiza la creación y organización de contenido didáctico a partir de videos y transcripciones, utilizando modelos de inteligencia artificial para extraer y sintetizar información relevante."
+      },
+      {
+        "q": "¿Cómo funciona el procesamiento del video?",
+        "a": "El software lee los subtítulos de un video (si existen), o los genera si no se encuentran. Luego, convierte estos subtítulos a texto sólido, sin marcas temporales ni etiquetas, para asegurar una lectura coherente."
+      },
+      {
+        "q": "¿Cómo se procesan las transcripciones?",
+        "a": "Las transcripciones de los videos son divididas en lotes y enviadas al modelo de IA. Este devuelve información relevante sobre los temas presentados en cada video, que luego es sintetizada en un formato didáctico."
+      },
+      {
+        "q": "¿Qué tipo de contenido se genera a partir del análisis?",
+        "a": "Se generan notas y resúmenes didácticos a partir de la transcripción del video. Estos son utilizados para crear recursos educativos estructurados que pueden ser fácilmente integrados en el currículo."
+      },
+      {
+        "q": "¿Cómo se manejan los idiomas durante el proceso?",
+        "a": "El software prioriza la obtención de subtítulos en español (es, es-ES, es-419). Si no están disponibles, usa otros idiomas disponibles para generar transcripciones automáticas y finalmente cae a un rescate global si nada funciona."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa | mediumseagreen"
+  }
+}

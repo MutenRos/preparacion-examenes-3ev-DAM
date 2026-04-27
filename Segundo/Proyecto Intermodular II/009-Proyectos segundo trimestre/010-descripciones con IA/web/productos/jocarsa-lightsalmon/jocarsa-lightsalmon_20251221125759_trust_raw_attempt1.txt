@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Calendario","points":["Sistema de registro y autenticación seguro con endpoints POST para register y login.","Funcionalidad completa para manejo de eventos, categorías y vacaciones mediante API RESTful con múltiples endpoints GET/POST.","Uso eficiente de SQLite como base de datos local para gestión rápida de información del usuario y eventos."]}
+}

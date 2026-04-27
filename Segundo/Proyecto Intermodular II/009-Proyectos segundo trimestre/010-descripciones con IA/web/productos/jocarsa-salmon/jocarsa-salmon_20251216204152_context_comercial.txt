@@ -1,0 +1,200 @@
+jocarsa | salmon 
+ 
+ 
+ 
+ 
+ 
+ jocarsa | salmon 
+ WebRTC · PHP+SQLite · salas con contraseña 
+ 
+ 
+ Audio bloqueado por el navegador. 
+ Activar audio 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Entrar en una sala 
+ Acceso protegido 
+ 
+ 
+ 
+ ID de sala 
+ 
+ Contraseña (usuario o presentador) 
+ 
+ 
+ Tu nombre 
+ 
+ 
+ Acceder 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sin conexión 
+ desconectado 
+ 
+ Salir 
+ 
+ 
+
+ 
+ 
+ 
+ 🎥 
+ 🎙️ 
+ 🖥️ 
+ 
+ 
+
+ 
+ Chat 
+ 
+ 
+ 
+
+ 
+ Participantes 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Escenario (presentador) 
+ 
+ Vista amplia 
+ Pantalla completa 
+ Quitar fijado 
+ 
+ Audio: foco 
+ 
+ 
+ 
+ 
+
+ 
+ Participantes 
+ 
+ PiP (mi vídeo) 
+ 
+ 
+
+ 
+ 
+ 
+ Yo 🔇 
+ 📌
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-salmon
+# jocarsa-salmon
+#acceso{position:absolute;inset:var(--header-h) 0 0 0;display:grid;place-items:start center;overflow:auto}
+#app{position:absolute;inset:var(--header-h) 0 0 0;display:none}
+#chatlog{flex:1 1 auto;min-height:120px;max-height:35vh;overflow:auto;background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px}
+#chat{margin-top:8px}
+#peers{list-style:disc}
+#peers li{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0}
+#enableAudio{background:var(--danger);color:white;}
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-salmon
+├── .gitignore
+├── README.md
+├── admin.php
+├── index.html
+└── signaling.php
+```
+
+## Código (intercalado)
+
+# jocarsa-salmon
+**README.md**
+```markdown
+# jocarsa-salmon
+```
+**admin.php**
+```php
+ PDO::ERRMODE_EXCEPTION,
+ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+ ]);
+
+ // Esquema compatible con signaling.php (usa passhash_user/passhash_presenter)
+ $db->exec("CREATE TABLE IF NOT EXISTS rooms(
+ id TEXT PRIMARY KEY,
+ title TEXT,
+ pass_user TEXT, -- plano (para mostrar en invitaciones)
+ pass_presenter TEXT, -- plano (para mostrar en invitaciones)
+ passhash_user TEXT, -- hash (lo que valida signaling.php)
+ passhash_presenter TEXT, -- hash (lo que valida signaling.php)
+ created_at INTEGER,
+ updated_at INTEGER
+ )");
+
+ // Migraciones defensivas
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN created_at INTEGER"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN updated_at INTEGER"); } catch (Throwable $e) {}
+
+} catch (Throwable $e) {
+ $err = 'DB error: '.$e->getMessage();
+}
+
+/* =========================================
+ CRUD (solo si logado)
+ ========================================= */
+if ($authed && $_SERVER['REQUEST_METHOD']==='POST' && !$err) {
+ if (!csrf_ok($_POST['csrf'] ?? '')) {
+ $err = 'CSRF inválido. Recarga la página.';
+ } else {
+ $do = $_POST['__do'] ?? '';
+ switch ($do) {
+ case 'create_update_room': {
+ $room = trim($_POST['room'] ?? '');
+ $title = trim($_POST['title'] ?? $room);
+ $pass_user = $_POST['pass_user'] ?? '';
+ $pass_presenter = $_POST['pass_presenter'] ?? '';
+
+ if (!$room) { $err='Falta el ID de sala.'; break; }
+
+ // Cargar estado previo
+ $st = $db->prepare("SELECT * FROM rooms WHERE id=?");
+ $st->execute([$room]);
+ $old = $st->fetch();
+
+ // Si creamos por primera vez, exigimos ambas contraseñas
+ if (!$old && ($pass_user === '' || $pass_presenter === '')) {
+ $err = 'Debes indicar ambas contraseñas al crear por primera vez.';
+ break;
+ }
+
+ // Planas (mostrar en invitación)
+ $new_pass_user_plain = $pass_user !== '' ? $pass_user : ($old['pass_user'] ?? null);
+ $new_pass_presenter_plain = $pass_presenter !== '' ? $pass_presenter : ($old['pass_presenter'] ?? null);
+
+ // Hashes (usa signaling.php -> password_verify)
+ $new_passhash_user = $pass_user !== '' ? password_hash($pass_user, PASSWORD_DEFAULT)
+ : ($old['passhash_user'] ?? null);
+ $new_passhash_presenter = $pass_presenter !== '' ? password_hash($pass_presenter, PASSWORD_DEFAULT)

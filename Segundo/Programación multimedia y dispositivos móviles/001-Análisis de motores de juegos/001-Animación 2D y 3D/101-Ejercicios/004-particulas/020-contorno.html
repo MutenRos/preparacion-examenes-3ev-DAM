@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body{padding:0;margin:0;overflow:hidden;background:#fff;}
+    canvas{display:block;}
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    const lienzo = document.querySelector("canvas");
+    const contexto = lienzo.getContext("2d");
+
+    let anchuraventana = 0;
+    let alturaventana = 0;
+
+    function resize() {
+      anchuraventana = window.innerWidth;
+      alturaventana = window.innerHeight;
+      lienzo.width = anchuraventana;
+      lienzo.height = alturaventana;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // -----------------------------
+    // Partículas
+    // -----------------------------
+    class Particula {
+      constructor() {
+        this.posx = Math.random() * anchuraventana;
+        this.posy = Math.random() * alturaventana;
+        this.direccion = Math.random() * Math.PI * 2;
+
+        this.rojo = Math.round(Math.random() * 255);
+        this.verde = Math.round(Math.random() * 255);
+        this.azul = Math.round(Math.random() * 255);
+
+        this.velocidad = Math.random() * 0.6 + 0.1;
+        this.tamanio = Math.random() * 24 + 8;
+
+        this.phase = Math.random() * Math.PI * 2;
+      }
+
+      dibujaConShading(flags) {
+        if (!flags.showParticles) return;
+
+        const r = this.tamanio;
+
+        // sombra (abajo)
+        if (flags.particleShadow) {
+          const shadowOffset = r * 0.18;
+          const shadowRadius = r * 0.98;
+          contexto.fillStyle = `rgba(0,0,0,${flags.shadowAlpha})`;
+          contexto.beginPath();
+          contexto.arc(this.posx + shadowOffset, this.posy + shadowOffset, shadowRadius, 0, Math.PI * 2);
+          contexto.fill();
+        }
+
+        // base
+        contexto.fillStyle = `rgba(${this.rojo},${this.verde},${this.azul},0.2)`;
+        contexto.beginPath();
+        contexto.arc(this.posx, this.posy, r, 0, Math.PI * 2);
+        contexto.fill();
+
+        // brillo (arriba)
+        if (flags.particleHighlight) {
+          const hiOffset = r * 0.22;
+          const hiRadius = r * 0.55;
+
+          contexto.fillStyle = `rgba(255,255,255,${flags.highlightAlpha})`;
+          contexto.beginPath();
+          contexto.arc(this.posx - hiOffset, this.posy - hiOffset, hiRadius, 0, Math.PI * 2);
+          contexto.fill();
+
+          contexto.fillStyle = `rgba(255,255,255,${flags.highlightAlpha * 0.65})`;
+          contexto.beginPath();
+          contexto.arc(this.posx - hiOffset * 0.7, this.posy - hiOffset * 0.7, hiRadius * 0.45, 0, Math.PI * 2);
+          contexto.fill();
+        }
+      }
+
+      mueve() {
+        this.direccion += (Math.random() - 0.5) * 0.25;
+        this.posx += Math.cos(this.direccion) * this.velocidad;
+        this.posy += Math.sin(this.direccion) * this.velocidad;
+        this.phase += 0.03;
+      }
+
+      colision() {
+        if (this.posx < 0) { this.posx = 0; this.direccion += Math.PI; }
+        if (this.posx > anchuraventana) { this.posx = anchuraventana; this.direccion += Math.PI; }
+        if (this.posy < 0) { this.posy = 0; this.direccion += Math.PI; }
+        if (this.posy > alturaventana) { this.posy = alturaventana; this.direccion += Math.PI; }
+      }
+    }
+
+    let particulas = [];
+    let numeroparticulas = 500;
+    for (let i = 0; i < numeroparticulas; i++) particulas.push(new Particula());
+
+    // -----------------------------
+    // Utilidades
+    // -----------------------------
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function dist2(ax, ay, bx, by) { const dx = ax - bx, dy = ay - by; return dx*dx + dy*dy; }
+    function angleBetweenPoints(x1, y1, x2, y2) {
+      const dx = x2 - x1, dy = y2 - y1;
+      const r = Math.atan2(dy, dx);
+      return { radians: r, degrees: r * (180 / Math.PI) };
+    }
+
+    // -----------------------------
+    // Flags
+    // -----------------------------
+    const flags = {
+      showParticles: true,
+      showLines: true,
+
+      particleHighlight: true,
+      particleShadow: true,
+      highlightAlpha: 0.28,
+      shadowAlpha: 0.18,
+
+      // NUEVO: contornos
+      showContours: true,        // C para toggle
+      contourColor: "rgba(0,0,0,0.55)",
+      contourWidth: 6.25,
+      contourStepMul: 1,         // multiplica el step del blob (1=igual, 2=menos puntos)
+      contourSampleStep: 3,      // subsampling de puntos del borde (más = menos detalle)
+      contourSmooth: 0.22,       // 0..1 (curvatura de bezier)
+    };
+
+    // -----------------------------
+    // “Blob”: metaballs en CPU
+    // -----------------------------
+    const blob = {
+      step: 8,
+      influence: 60,
+      threshold: 1.15,
+      feather: 0.35,
+      alpha: 0.35,
+
+      outline: true,
+      outlineAlpha: 0.9,
+      outlineWidth: 1.0,
+      outlineFeatherBoost: 0.55
+    };
+
+    let imgData = null;
+    let imgW = 0, imgH = 0;
+
+    function ensureImageData(w, h) {
+      if (!imgData || imgW !== w || imgH !== h) {
+        imgW = w; imgH = h;
+        imgData = contexto.createImageData(imgW, imgH);
+      }
+      return imgData;
+    }
+
+    function renderBlob() {
+      const step = blob.step;
+
+      const w = Math.ceil(anchuraventana / step);
+      const h = Math.ceil(alturaventana / step);
+
+      const data = ensureImageData(w, h);
+      const px = data.data;
+
+      const maxParticlesForBlob = 600;
+      const pCount = Math.min(particulas.length, maxParticlesForBlob);
+
+      const R = blob.influence;
+      const R2 = R * R;
+
+      for (let i = 0; i < px.length; i += 4) {
+        px[i + 0] = 0; px[i + 1] = 0; px[i + 2] = 0; px[i + 3] = 0;
+      }
+
+      for (let gy = 0; gy < h; gy++) {
+        const y = (gy + 0.5) * step;
+        for (let gx = 0; gx < w; gx++) {
+          const x = (gx + 0.5) * step;
+
+          let field = 0;
+          let rAcc = 0, gAcc = 0, bAcc = 0;
+
+          for (let i = 0; i < pCount; i++) {
+            const p = particulas[i];
+            const d2 = dist2(x, y, p.posx, p.posy);
+            if (d2 > R2) continue;
+
+            const d = Math.sqrt(d2);
+            const t = 1 - (d / R);
+            const c = t * t;
+
+            const breathe = 0.85 + 0.15 * Math.sin(p.phase);
+            const contrib = c * breathe * (p.tamanio * 0.18);
+
+            field += contrib;
+
+            rAcc += p.rojo * contrib;
+            gAcc += p.verde * contrib;
+            bAcc += p.azul * contrib;
+          }
+
+          let a = (field - blob.threshold) / blob.feather;
+          a = clamp(a, 0, 1);
+
+          if (a > 0) {
+            const idx = (gy * w + gx) * 4;
+
+            const inv = 1 / (field + 1e-6);
+            const rr = clamp(Math.round(rAcc * inv), 0, 255);
+            const gg = clamp(Math.round(gAcc * inv), 0, 255);
+            const bb = clamp(Math.round(bAcc * inv), 0, 255);
+
+            let outlineA = 0;
+            if (blob.outline) {
+              const edge = 1 - Math.abs((a - 0.5) * 2);
+              outlineA = clamp(edge * blob.outlineFeatherBoost, 0, 1) * blob.outlineAlpha;
+            }
+
+            const mix = outlineA;
+            px[idx + 0] = Math.round(rr * (1 - mix));
+            px[idx + 1] = Math.round(gg * (1 - mix));
+            px[idx + 2] = Math.round(bb * (1 - mix));
+            px[idx + 3] = Math.round(a * 255 * blob.alpha);
+          }
+        }
+      }
+
+      contexto.save();
+      contexto.imageSmoothingEnabled = true;
+
+      if (!renderBlob._tmp || renderBlob._tmp.width !== imgW || renderBlob._tmp.height !== imgH) {
+        renderBlob._tmp = document.createElement("canvas");
+        renderBlob._tmp.width = imgW;
+        renderBlob._tmp.height = imgH;
+        renderBlob._tctx = renderBlob._tmp.getContext("2d");
+      }
+      renderBlob._tctx.putImageData(imgData, 0, 0);
+      contexto.drawImage(renderBlob._tmp, 0, 0, imgW, imgH, 0, 0, anchuraventana, alturaventana);
+
+      contexto.restore();
+    }
+
+    // -----------------------------
+    // NUEVO: Contornos (tipo marching squares) + Bezier
+    // -----------------------------
+    function alphaAtGrid(gx, gy, w, h, px) {
+      if (gx < 0 || gy < 0 || gx >= w || gy >= h) return 0;
+      return px[(gy * w + gx) * 4 + 3]; // 0..255
+    }
+
+    // Interpola punto de cruce sobre un borde entre dos esquinas (a0..a1), threshold en 0..255
+    function interp(t0, t1, x0, y0, x1, y1, thr) {
+      const a = t1 - t0;
+      if (Math.abs(a) < 1e-6) return { x: (x0 + x1) * 0.5, y: (y0 + y1) * 0.5 };
+      const u = (thr - t0) / a;
+      return { x: x0 + (x1 - x0) * u, y: y0 + (y1 - y0) * u };
+    }
+
+    // Extrae segmentos de contorno a partir del alpha del blob ya renderizado en imgData
+    function extractContourSegments(imgData, stepPx, thr = 64) {
+      const w = imgW, h = imgH;
+      const px = imgData.data;
+
+      const segs = []; // [{ax,ay,bx,by}] en coords de pantalla (no grid)
+      const step = stepPx;
+
+      // Nota: gx/gy recorren celdas entre 4 samples
+      for (let gy = 0; gy < h - 1; gy++) {
+        for (let gx = 0; gx < w - 1; gx++) {
+          const a00 = alphaAtGrid(gx,     gy,     w, h, px);
+          const a10 = alphaAtGrid(gx + 1, gy,     w, h, px);
+          const a11 = alphaAtGrid(gx + 1, gy + 1, w, h, px);
+          const a01 = alphaAtGrid(gx,     gy + 1, w, h, px);
+
+          const b00 = a00 >= thr ? 1 : 0;
+          const b10 = a10 >= thr ? 1 : 0;
+          const b11 = a11 >= thr ? 1 : 0;
+          const b01 = a01 >= thr ? 1 : 0;
+
+          const code = (b00 << 3) | (b10 << 2) | (b11 << 1) | (b01);
+
+          if (code === 0 || code === 15) continue;
+
+          // coordenadas de esquinas en pantalla
+          const x0 = gx * step;
+          const y0 = gy * step;
+          const x1 = (gx + 1) * step;
+          const y1 = (gy + 1) * step;
+
+          // puntos de cruce en cada borde (si toca)
+          // top: (x0,y0)-(x1,y0) entre a00-a10
+          // right: (x1,y0)-(x1,y1) entre a10-a11
+          // bottom: (x0,y1)-(x1,y1) entre a01-a11
+          // left: (x0,y0)-(x0,y1) entre a00-a01
+          const pTop    = interp(a00, a10, x0, y0, x1, y0, thr);
+          const pRight  = interp(a10, a11, x1, y0, x1, y1, thr);
+          const pBottom = interp(a01, a11, x0, y1, x1, y1, thr);
+          const pLeft   = interp(a00, a01, x0, y0, x0, y1, thr);
+
+          // Tabla de casos (marching squares). Para casos ambiguos 5 y 10, elegimos dos segmentos.
+          // Cada entrada: pares de puntos [A,B] que forman segmentos.
+          // Usamos orden: 0..15 con bitmask (b00,b10,b11,b01).
+          switch (code) {
+            case 1:   segs.push({a:pBottom, b:pLeft}); break;
+            case 2:   segs.push({a:pRight,  b:pBottom}); break;
+            case 3:   segs.push({a:pRight,  b:pLeft}); break;
+            case 4:   segs.push({a:pTop,    b:pRight}); break;
+            case 5:   segs.push({a:pTop,    b:pLeft});  segs.push({a:pRight, b:pBottom}); break; // ambiguo
+            case 6:   segs.push({a:pTop,    b:pBottom}); break;
+            case 7:   segs.push({a:pTop,    b:pLeft}); break;
+            case 8:   segs.push({a:pLeft,   b:pTop}); break;
+            case 9:   segs.push({a:pTop,    b:pBottom}); break;
+            case 10:  segs.push({a:pTop,    b:pRight}); segs.push({a:pLeft, b:pBottom}); break; // ambiguo
+            case 11:  segs.push({a:pTop,    b:pRight}); break;
+            case 12:  segs.push({a:pLeft,   b:pRight}); break;
+            case 13:  segs.push({a:pRight,  b:pBottom}); break;
+            case 14:  segs.push({a:pBottom, b:pLeft}); break;
+          }
+        }
+      }
+      return segs;
+    }
+
+    // Une segmentos en polilíneas (tolerancia por cercanía) y las suaviza con bezier
+    function segmentsToPolylines(segs, eps = 2.5) {
+      // mapa de endpoints aproximados -> lista de indices de segmentos
+      const used = new Array(segs.length).fill(false);
+      const polylines = [];
+
+      function near(p, q) {
+        const dx = p.x - q.x, dy = p.y - q.y;
+        return (dx*dx + dy*dy) <= eps*eps;
+      }
+
+      for (let i = 0; i < segs.length; i++) {
+        if (used[i]) continue;
+        used[i] = true;
+
+        const line = [segs[i].a, segs[i].b];
+
+        // crecer hacia delante/atrás buscando segmentos conectados
+        let extended = true;
+        while (extended) {
+          extended = false;
+
+          for (let j = 0; j < segs.length; j++) {
+            if (used[j]) continue;
+            const s = segs[j];
+
+            const head = line[0];
+            const tail = line[line.length - 1];
+
+            if (near(s.a, tail)) {
+              line.push(s.b); used[j] = true; extended = true;
+            } else if (near(s.b, tail)) {
+              line.push(s.a); used[j] = true; extended = true;
+            } else if (near(s.a, head)) {
+              line.unshift(s.b); used[j] = true; extended = true;
+            } else if (near(s.b, head)) {
+              line.unshift(s.a); used[j] = true; extended = true;
+            }
+          }
+        }
+
+        polylines.push(line);
+      }
+
+      return polylines;
+    }
+
+    // Dibuja una polilínea como cadena de curvas cuadráticas (bezier)
+    function drawBezierPolyline(points, smooth = 0.22) {
+      if (points.length < 3) return;
+
+      contexto.beginPath();
+      contexto.moveTo(points[0].x, points[0].y);
+
+      for (let i = 1; i < points.length - 1; i++) {
+        const p0 = points[i - 1];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+
+        // punto medio hacia el siguiente
+        const mx = (p1.x + p2.x) * 0.5;
+        const my = (p1.y + p2.y) * 0.5;
+
+        // control: acercamos p1 al mid para suavizar
+        const cx = p1.x + (mx - p1.x) * smooth;
+        const cy = p1.y + (my - p1.y) * smooth;
+
+        contexto.quadraticCurveTo(cx, cy, mx, my);
+      }
+
+      // remate
+      const last = points[points.length - 1];
+      contexto.lineTo(last.x, last.y);
+      contexto.stroke();
+    }
+
+    function renderContours() {
+      if (!flags.showContours || !imgData) return;
+
+      // ojo: imgData está en grid (imgW/imgH). Convertimos a coords pantalla con step.
+      // Segments ya sale en coords "grid*step".
+      const thr = 64; // 0..255: sube para contorno más “interior”
+      const stepForContour = blob.step * Math.max(1, flags.contourStepMul);
+
+      // Si contourStepMul > 1, re-muestreamos: barato (saltando celdas)
+      // Para simplificar, extraemos igual y luego submuestreamos puntos.
+      const segs = extractContourSegments(imgData, blob.step, thr);
+
+      // Polilíneas
+      const polylines = segmentsToPolylines(segs, 2.75);
+
+      contexto.save();
+      contexto.strokeStyle = flags.contourColor;
+      contexto.lineWidth = flags.contourWidth;
+      contexto.lineJoin = "round";
+      contexto.lineCap = "round";
+
+      for (const line of polylines) {
+        // subsampling de puntos para menos “dentado” y menos coste
+        const ss = Math.max(1, flags.contourSampleStep | 0);
+        const pts = [];
+        for (let i = 0; i < line.length; i += ss) pts.push(line[i]);
+        if (pts.length >= 3) drawBezierPolyline(pts, flags.contourSmooth);
+      }
+
+      contexto.restore();
+    }
+
+    // -----------------------------
+    // Conexiones (líneas)
+    // -----------------------------
+    const conexiones = { distancia: 55 };
+
+    function drawConnections() {
+      const d = conexiones.distancia;
+      const d2 = d * d;
+
+      for (let i = 0; i < particulas.length; i++) {
+        const a = particulas[i];
+        for (let j = i + 1; j < particulas.length; j++) {
+          const b = particulas[j];
+          const dd2 = dist2(a.posx, a.posy, b.posx, b.posy);
+          if (dd2 < d2) {
+            contexto.strokeStyle = "rgba(127,127,127,0.35)";
+            contexto.lineWidth = 1;
+            contexto.beginPath();
+            contexto.moveTo(a.posx, a.posy);
+            contexto.lineTo(b.posx, b.posy);
+            contexto.stroke();
+          }
+        }
+      }
+    }
+
+    // -----------------------------
+    // Bucle principal
+    // -----------------------------
+    function bucle() {
+      contexto.fillStyle = "rgba(255,255,255,0.10)";
+      contexto.fillRect(0, 0, anchuraventana, alturaventana);
+
+      for (const p of particulas) { p.colision(); p.mueve(); }
+
+      // blob
+      renderBlob();
+
+      // contornos encima del blob (bezier)
+      renderContours();
+
+      // líneas (si quieres mantenerlas)
+      if (flags.showLines) drawConnections();
+
+      // partículas encima
+      if (flags.showParticles) {
+        for (const p of particulas) p.dibujaConShading(flags);
+      }
+
+      requestAnimationFrame(bucle);
+    }
+    requestAnimationFrame(bucle);
+
+    // -----------------------------
+    // Interacción
+    // -----------------------------
+    lienzo.onclick = function (event) {
+      const p = new Particula();
+      p.posx = event.clientX;
+      p.posy = event.clientY;
+      particulas.push(p);
+    };
+
+    lienzo.onmousemove = function (event) {
+      const mx = event.clientX;
+      const my = event.clientY;
+
+      for (const particula of particulas) {
+        if (Math.abs(mx - particula.posx) < 100 && Math.abs(my - particula.posy) < 100) {
+          const angulo = angleBetweenPoints(mx, my, particula.posx, particula.posy);
+          particula.direccion = angulo.radians;
+          particula.posx += Math.cos(particula.direccion) * 1.2;
+          particula.posy += Math.sin(particula.direccion) * 1.2;
+        }
+      }
+    };
+
+    // Teclas:
+    // P = toggle partículas
+    // L = toggle líneas
+    // H = toggle highlight
+    // S = toggle shadow
+    // C = toggle contornos
+    // + / - = umbral blob
+    // [ / ] = influencia
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "p" || e.key === "P") flags.showParticles = !flags.showParticles;
+      if (e.key === "l" || e.key === "L") flags.showLines = !flags.showLines;
+      if (e.key === "h" || e.key === "H") flags.particleHighlight = !flags.particleHighlight;
+      if (e.key === "s" || e.key === "S") flags.particleShadow = !flags.particleShadow;
+      if (e.key === "c" || e.key === "C") flags.showContours = !flags.showContours;
+
+      if (e.key === "+") blob.threshold = Math.max(0.1, blob.threshold - 0.05);
+      if (e.key === "-") blob.threshold = blob.threshold + 0.05;
+      if (e.key === "]") blob.influence = Math.min(220, blob.influence + 5);
+      if (e.key === "[") blob.influence = Math.max(10, blob.influence - 5);
+    });
+  </script>
+</body>
+</html>
+

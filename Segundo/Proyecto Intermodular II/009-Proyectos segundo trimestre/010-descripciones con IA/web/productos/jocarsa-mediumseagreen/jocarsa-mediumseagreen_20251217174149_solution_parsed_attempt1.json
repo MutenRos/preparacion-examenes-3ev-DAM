@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Generador de Contenido Didáctico de Vídeos Educativos",
+    "overview": "Esta solución combina el análisis de vídeos educativos para generar contenido didáctico. Incluye la descarga de subtítulos, su limpieza y transformación a texto sólido, así como el uso de modelos de inteligencia artificial para identificar y clasificar temas dentro del contenido de los videos.",
+    "whatChanges": [
+      "Integra el análisis de subtitulos en texto sólido con modelos de IA",
+      "Automatiza la búsqueda y descarga de vídeos desde diferentes plataformas",
+      "Genera un resumen didáctico basado en la clasificación de temas dentro del contenido"
+    ]
+  }
+}

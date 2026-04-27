@@ -1,0 +1,188 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Crear y gestionar salones virtuales fáciles e intuitivos",
+    "category": "Educación en línea",
+    "audience_segments": [
+      "Profesores",
+      "Educadores",
+      "Estudiantes"
+    ],
+    "ctaPrimary": "Prueba gratis ahora",
+    "ctaSecondary": "Más información"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Crea y gestiona salones virtuales fáciles e intuitivos para la educación en línea",
+    "subtitle": "Facilita la interacción y el aprendizaje remoto con solo unos clics.",
+    "badges": [
+      "Fácil de usar",
+      "Compatible con cualquier navegador"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba gratis ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Más información"
+      }
+    ]
+  },
+  "problem": {
+    "title": "jocarsa | salmon",
+    "items": [
+      "Implementar autenticación y autorización seguras para el acceso al sistema.",
+      "mejorar la generación de mensajes de invitación para mejorar la experiencia del usuario.",
+      "Refactorizar el código para una mejor legibilidad y mantenimiento."
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | salmon",
+    "overview": "Desarrollamos una plataforma de videoconferencia sencilla y funcional, permitiendo a los usuarios crear salas, generar invitaciones con o sin contraseñas y mantener la seguridad mediante autenticación basada en credenciales. La aplicación se configura para administradores específicos y proporciona mensajes claros y directos sobre cómo unirse a una sala, incluyendo instrucciones detalladas y consejos útiles.",
+    "whatChanges": [
+      "Se implementó un sistema de autenticación para usuarios admin con credenciales predefinidas",
+      "Se creó una base de datos SQLite para gestionar las salas y los invitados",
+      "Los mensajes de invitación son personalizados, incluyendo instrucciones paso a paso sobre cómo unirse a la sala",
+      "La aplicación incluye comprobaciones defensivas para la migración de esquemas en caso de actualizar o modificar el sistema"
+    ],
+    "slug": "jocarsa-salmon"
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / jocarsa / salmon / jocarsa / salmon / Reporte."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "jocarsa | salmon",
+    "profiles": [
+      {
+        "name": "Educadores y profesores",
+        "fit": "Utilizan herramientas SaaS para mejorar la experiencia educativa"
+      },
+      {
+        "name": "Estudiantes y alumnos",
+        "fit": "Se conectan a sesiones de aprendizaje fácilmente"
+      },
+      {
+        "name": "Administradores escolares",
+        "fit": "Administrar y controlar las sesiones de aprendizaje es más sencillo con esta herramienta"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "jocarsa | salmon",
+    "cases": [
+      {
+        "name": "Gestión de salas de videoconferencia",
+        "description": "Permite a los administradores crear y gestionar salas de videoconferencia, asignando roles como invitado o presentador. Incluye el control de contraseñas para diferentes roles."
+      },
+      {
+        "name": "Invitación personalizada",
+        "description": "Genera mensajes de invitación personalizados con detalles de la sala, incluyendo el título, el ID de la sala y, si es necesario, una contraseña. Estos mensajes se pueden compartir fácilmente a través de enlaces o correo electrónico."
+      },
+      {
+        "name": "Autenticación segura",
+        "description": "Incluye un sistema de autenticación basado en contraseñas hash para los usuarios y presentadores, asegurando que la información sensible esté protegida."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "jocarsa | salmon",
+    "items": [
+      "Simplifica la creación y gestión de salas virtuales para presentaciones y talleres",
+      "Permite a los usuarios acceder con una interfaz intuitiva, sin necesidad de complicados pasos técnicos",
+      "Facilita el envío de invitaciones personalizadas con o sin contraseña, asegurando la seguridad del contenido"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones adicionales",
+    "notes": "Las integraiones permiten ampliar la funcionalidad del software educativo sin comprometer su eficiencia. Las opciones son opcionales.",
+    "items": [
+      "Chat en tiempo real para comunicar incertidumbres y consultas",
+      "Sistema de videollamadas para interacción directa con los estudiantes",
+      "Compatibilidad con plataformas LMS para un seguimiento centralizado",
+      "Integración con sistemas de autenticación externos"
+    ]
+  },
+  "trust": {
+    "title": "jocarsa | salmon",
+    "points": [
+      "Fácil configuración con credenciales de administrador predefinidas.",
+      "Interfaz sencilla y clara para crear y gestionar salas de videoconferencia.",
+      "Compatibilidad con esquemas de seguridad avanzados y migraciones defensivas."
+    ]
+  },
+  "finalCTA": {
+    "title": "Descubre jocarsa | salmon",
+    "description": "La solución educativa que transforma el aprendizaje. Comienza hoy.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "¡Prueba Gratuitamente!"
+      },
+      {
+        "type": "secondary",
+        "text": "Solicitar Información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "false"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "jocarsa | salmon",
+    "qas": [
+      {
+        "q": "¿Qué es jocarsa | salmon?",
+        "a": "jocarsa | salmon es un software educativo que permite a los usuarios crear y gestionar salas de videoconferencia. Ofrece una interfaz sencilla para compartir contenido en línea y colaborar con otros."
+      },
+      {
+        "q": "¿Cómo accedo al sistema?",
+        "a": "Para acceder, necesitas autenticarte con las credenciales proporcionadas durante la configuración del sistema. Si eres el usuario administrador, tu nombre de usuario es 'jocarsa' y la contraseña también es 'jocarsa'."
+      },
+      {
+        "q": "¿Cómo invito a otros usuarios?",
+        "a": "Puedes generar un enlace de invitación con los detalles necesarios para que otros se unan a las salas. Estos incluyen el título de la sala, su identificador único y opcionalmente una contraseña."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa | salmon - Software Educativo v1.1 | © 2023 jocarsa | salmon"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "¡Empieza tu viaje educativo hoy!",
+    "description": "Descubre cómo jocarsa | aliceblue transforma la experiencia de aprendizaje. ¡Regístrate ahora y obtén acceso inmediato!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comenzar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Obtener más información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

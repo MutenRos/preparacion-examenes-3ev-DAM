@@ -1,0 +1,5 @@
+[
+  {"name":"Iniciar jornada","benefit":"Permite a los usuarios registrar el inicio de su jornada laboral con un solo clic, facilitando la gestión de horarios."},
+  {"name":"Finalizar jornada","benefit":"Ofrece una forma sencilla para que los usuarios registren el final de su jornada laboral, asegurando el seguimiento correcto de las horas trabajadas."},
+  {"name":"Información de jornada","benefit":"Muestra información detallada sobre cada registro de jornada, permitiendo a los usuarios revisar y corregir cualquier error si es necesario."}
+]

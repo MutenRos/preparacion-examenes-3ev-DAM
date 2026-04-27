@@ -1,0 +1,15 @@
+{
+  "useCases": {
+    "title": "Uso Casos",
+    "cases": [
+      {
+        "name": "Traducción e Introducción de Subtítulos",
+        "description": "Implementa una estrategia para descargar y convertir subtítulos de videos, priorizando siempre el español (es, es-ES, es-419). Si no se encuentran subtítulos en español, utiliza la primera subtitulación disponible de manera automática. Los subtítulos resultantes son convertidos a texto sólido sin timestamps o etiquetas para mejorar su legibilidad."
+      },
+      {
+        "name": "Mezcla y Ordenación de Contenido Educativo",
+        "description": "Combina diferentes tipos de contenidos como transcripciones, temas temáticos y listados de videos en una estructura coherente y lógica. Se aseguran que los vídeos se mezclen con otros elementos como mensajes directos para ofrecer una experiencia educativa rica e integral."
+      }
+    ]
+  }
+}

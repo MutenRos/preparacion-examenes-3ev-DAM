@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones Adicionales", "notes":"Incluye integración con sistemas existentes. Las opciones son seleccionables.", "items":["Sistema de Gestión de Contenidos (CMS)", "Gestor de Usuários (UMG)", "Análisis de Datos en Tiempo Real"]}
+}

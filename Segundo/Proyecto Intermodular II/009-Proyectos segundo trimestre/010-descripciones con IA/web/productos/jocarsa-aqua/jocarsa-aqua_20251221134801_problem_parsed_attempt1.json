@@ -1,0 +1,12 @@
+{
+  "problem": {
+    "title": "Autenticación y manejo de inicio de sesión en admin.php",
+    "items": [
+      "Falta la verificación de rol o permisos para las acciones CRUD",
+      "El formulario de inicio de sesión no incluye validaciones básicas como longitud mínima de contraseña",
+      "La inserción de contraseñas hashadas podría ser más segura con parámetros adicionales"
+    ],
+    "lang": "es",
+    "version": "1.1"
+  }
+}

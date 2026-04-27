@@ -2,21 +2,37 @@
   {
     "nombre":"Juan",
     "apellidos":"xxx",
+<<<<<<< HEAD
     "telefono","xxx"
+=======
+    "telefono":"xxx"
+>>>>>>> profesor/main
   },
   {
     "nombre":"Jorge",
     "apellidos":"xxx",
+<<<<<<< HEAD
     "telefono","xxx"
+=======
+    "telefono":"xxx"
+>>>>>>> profesor/main
   },
   {
     "nombre":"Jaime",
     "apellidos":"xxx",
+<<<<<<< HEAD
     "telefono","xxx"
+=======
+    "telefono":"xxx"
+>>>>>>> profesor/main
   },
   {
     "nombre":"Jose",
     "apellidos":"xxx",
+<<<<<<< HEAD
     "telefono","xxx"
+=======
+    "telefono":"xxx"
+>>>>>>> profesor/main
   },
 ]

@@ -1,0 +1,5 @@
+```json
+{
+  "targetAudience": {"title":"jocarsa | darksalmon · App","profiles":[{"name":"Empleados de empresas con horarios laborales definidos","fit":"La aplicación permite a los empleados registrar y gestionar su jornada laboral, incluyendo el inicio y fin del trabajo, así como las ausencias. Es ideal para aquellos trabajadores que tienen horarios laborales definidos por la empresa."},{"name":"Adminsitradores de recursos humanos","fit":"Permite a los administradores visualizar y gestionar las jornadas laborales de todos los empleados, facilitando la supervisión y el control del cumplimiento horario."},{"name":"Departamentos de Recursos Humanos","fit":"Ofrece herramientas para mantener actualizadas y controlar los datos personales y profesionales de los empleados, así como gestionar las ausencias y la asistencia."}]}
+}
+```

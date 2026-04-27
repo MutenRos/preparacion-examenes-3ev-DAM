@@ -1,0 +1,151 @@
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-aqua
+# jocarsa-aqua
+## estilo
+#dashboard {
+#app-frame {
+## instalador
+* {
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-aqua
+├── .gitignore
+├── README.md
+├── admin.php
+├── aqua.png
+├── config.php
+├── config_sample.php
+├── estilo
+│ ├── aquafondo.webp
+│ ├── escritorio.css
+│ └── login.css
+├── index.php
+├── instalador
+│ ├── datosdemuestra.sql
+│ ├── index.php
+│ └── modelodedatos.sql
+└── logout.png
+```
+
+## Código (intercalado)
+
+# jocarsa-aqua
+**README.md**
+```markdown
+# jocarsa-aqua
+```
+**admin.php**
+```php
+<?php
+// admin.php
+session_start();
+require_once 'config.php';
+
+// Configuración de reporte de errores (ajustable según necesidades)
+error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+ini_set('display_errors', 1);
+
+// Crear el usuario admin inicial si no existe
+$result = $mysqli->query("SELECT id FROM admins WHERE username = 'jocarsa'");
+if ($result && $result->num_rows === 0) {
+ $passwordHash = password_hash('jocarsa', PASSWORD_DEFAULT);
+ $mysqli->query("INSERT INTO admins (username, password, full_name, email) VALUES ('jocarsa', '$passwordHash', 'Jose Vicente Carratala', 'info@josevicentecarratala.com')");
+}
+
+// Manejo de inicio de sesión
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+ $username = $_POST['username'];
+ $password = $_POST['password'];
+ $result = $mysqli->query("SELECT * FROM admins WHERE username = '$username'");
+ if ($result && $result->num_rows > 0) {
+ $admin = $result->fetch_assoc();
+ if (password_verify($password, $admin['password'])) {
+ $_SESSION['admin_id'] = $admin['id'];
+ header("Location: admin.php");
+ exit();
+ } else {
+ $loginError = "Usuario o contraseña inválidos.";
+ }
+ } else {
+ $loginError = "Usuario o contraseña inválidos.";
+ }
+}
+
+// Si el admin no está autenticado, mostrar formulario de inicio de sesión
+if (!isset($_SESSION['admin_id'])) {
+ echo '
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Acceso Administrativo</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+ body { background-color: #f8f9fa; }
+ .card {
+ border-radius: 10px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+ }
+ </style>
+ </head>
+ <body class="bg-light">
+ <div class="container d-flex justify-content-center align-items-center vh-100">
+ <div class="card p-4">
+ <h2 class="text-center mb-4">Acceso Administrativo</h2>
+ ' . (isset($loginError) ? "<div class='alert alert-danger'>{$loginError}</div>" : "") . '
+ <form method="POST">
+ <div class="mb-3">
+ <input type="text" name="username" class="form-control" placeholder="Usuario" required>
+ </div>
+ <div class="mb-3">
+ <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+ </div>
+ <button type="submit" name="login" class="btn btn-primary w-100">Iniciar Sesión</button>
+ </form>
+ </div>
+ </div>
+ </body>
+ </html>';
+ exit();
+}
+
+// Manejo de operaciones CRUD
+$table = $_GET['table'] ?? 'users'; // Tabla por defecto
+$action = $_GET['action'] ?? 'list'; // Acción por defecto
+$id = $_GET['id'] ?? null;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+ if ($action === 'add') {
+ if ($table === 'users') {
+ $username = $_POST['username'];
+ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+ $name = $_POST['name'];
+ $email = $_POST['email'];
+ $mysqli->query("INSERT INTO users (username, password, name, email) VALUES ('$username', '$password', '$name', '$email')");
+ } elseif ($table === 'applications') {
+ $app_name = $_POST['app_name'];
+ $description = $_POST['description'];
+ $logo = $_POST['logo'];
+ $url = $_POST['url'];
+ $mysqli->query("INSERT INTO applications (app_name, description, logo, url) VALUES ('$app_name', '$description', '$logo', '$url')");
+ } elseif ($table === 'packs') {
+ $name = $_POST['name'];
+ $mysqli->query("INSERT INTO packs (name) VALUES ('$name')");
+ } elseif ($table === 'apps_in_pack') {
+ $pack_id = (int) $_POST['pack_id'];
+ $app_id = (int) $_POST['app_id'];
+ $mysqli->query("INSERT INTO apps_in_pack (pack_id, app_id) VALUES ($pack_id, $app_id)");
+ } elseif ($table === 'user_packs') {
+ $user_id = (int) $_POST['user_id'];
+ $pack_id = (int) $_POST['pack_id'];
+ $mysqli->query("INSERT INTO user_packs (user_id, pack_id) VALUES ($user_id, $pack_id)");
+ } elseif ($table === 'admins') {
+ $username = $_POST['username'];
+ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);

@@ -1,0 +1,5 @@
+[
+  {"name":"Autenticación segura","benefit":"Permite a los usuarios iniciar sesión y mantener sesiones de usuarioPersistentes para una mejor experiencia."},
+  {"name":"Interfaz personalizable","benefit":"Ofrece opciones de tema ajustables en función del estado actual del usuario, proporcionando un ambiente visual único."},
+  {"name":"Múltiples vistas de producto","benefit":"Permite a los usuarios navegar entre listas de productos y detalles de productos sin salir del flujo de trabajo."}
+]

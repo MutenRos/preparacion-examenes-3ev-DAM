@@ -1,0 +1,5 @@
+[
+  {"name":"Lee 'playlists_videos.json' (categoría \"25/26\")","benefit":"Identifica automáticamente las playlist relevantes."},
+  {"name":"Convierte .vtt a texto sólido (un único párrafo), sin timestamps/etiquetas/roll-up","benefit":"Facilita la lectura y análisis del contenido subtitulado, eliminando datos innecesarios."},
+  {"name":"Crea .log cuando no hay 'es-orig'. Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1","benefit":"Asegura la disponibilidad del contenido en español incluso cuando los subtítulos originales no están disponibles."}
+]

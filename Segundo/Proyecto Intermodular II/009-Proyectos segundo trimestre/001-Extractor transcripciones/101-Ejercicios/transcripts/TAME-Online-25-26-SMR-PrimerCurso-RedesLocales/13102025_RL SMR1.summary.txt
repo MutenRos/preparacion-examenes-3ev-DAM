@@ -1,0 +1,13 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 13102025_RL SMR1.txt
+------------------------------------------------------------
+
+Entendido, parece que estamos en medio de una charla sobre diferentes protocolos y sistemas de red, como FTP (File Transfer Protocol), HTTP (Hypertext Transfer Protocol) y algunos conceptos complementarios relacionados con seguridad. Para resumir:
+
+- Se están discutiendo detalles sobre cómo configurar un servidor FTP para transferir archivos.
+- También se menciona cómo los navegadores web utilizan el protocolo HTTP para comunicarse con servidores de páginas web.
+- Aparece la idea de que HTTPS podría ser una versión segura de HTTP, aunque no está explícitamente implementada en todos los sitios.
+- Se hace referencia a certificados de seguridad (recomendación para agregar marcas de control).
+- Finalmente, se menciona un cuestionario que parece estar preparado para revisar lo visto.
+
+El tema principal apunta a cómo diferentes protocolos y sistemas de red operan, con énfasis en la seguridad. ¿Tienes alguna pregunta específica o necesitas ayuda con algo en particular del texto que acabamos de resumir?

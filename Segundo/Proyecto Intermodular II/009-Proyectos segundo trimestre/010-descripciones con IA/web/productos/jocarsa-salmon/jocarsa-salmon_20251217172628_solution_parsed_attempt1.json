@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | salmon",
+    "overview": "La plataforma jocarsa | salmon proporciona una solución educativa que permite la creación, gestión y participación en salas de videoconferencia. Ofrece funciones como la generación de invitaciones personalizadas con roles y contraseñas, así como el control de las características del usuario en la sala.",
+    "whatChanges": [
+      "Implementa un sistema de autenticación administrativa para asegurar el acceso a las salas de videoconferencia.",
+      "Permite generar invitaciones personalizadas con roles y contraseñas para usuarios y presentadores.",
+      "Incluye funciones defensivas en la base de datos para garantizar la integridad y compatibilidad de los esquemas de las salas."
+    ]
+  }
+}

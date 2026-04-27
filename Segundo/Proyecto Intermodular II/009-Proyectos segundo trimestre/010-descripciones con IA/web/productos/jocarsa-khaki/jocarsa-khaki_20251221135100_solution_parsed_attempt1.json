@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "title": "Implementación de un sistema educativo para gestionar el calendario de horas trabajadas",
+    "overview": "El software educativo jocarsa | khaki proporciona una interfaz para administrar y visualizar las horas laborales de los usuarios. Incluye funciones como registro de usuarios, inicio de sesión, gestión de sesiones, generación de fechas en rangos específicos, y actualización y visualización del calendario de horas trabajadas.",
+    "whatChanges": [
+      "Conexión a base de datos SQLite para almacenar usuarios e historial de horas",
+      "Registro y autenticación de usuarios con contraseña hash",
+      "Gestión de sesiones de usuario (inicio, cierre)",
+      "Generación dinámica de fechas para los meses especificados",
+      "Administración de calendarios de entrada de horas para cada usuario",
+      "Visualización del calendario en formato de cuadrícula con resaltados y restricciones temporales"
+    ]
+  }
+}

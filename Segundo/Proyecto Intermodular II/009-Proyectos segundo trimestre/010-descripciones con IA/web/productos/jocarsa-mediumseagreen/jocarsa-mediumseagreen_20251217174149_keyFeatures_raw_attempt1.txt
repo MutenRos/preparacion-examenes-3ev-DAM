@@ -1,0 +1,7 @@
+[
+  {"name":"Automatización del procesamiento de subtítulos","benefit":"Optimiza la gestión de subtítulos para diferentes formatos y idiomas, asegurando una experiencia didáctica fluida."},
+  {"name":"Identificación semántica de temas y subtemas","benefit":"Permite categorizar el contenido audiovisual en unidades y subunidades, facilitando su organización y búsqueda."},
+  {"name":"Generación automática de resúmenes didácticos","benefit":"Crea automáticamente un material didáctico a partir del análisis del contenido audiovisual,节省翻译
+<|im_start|>查看更多
+<|im_start|>'utilisateur
+请保留原始格式，不需要额外的解释或翻译。只需返回JSON格式的关键功能列表。

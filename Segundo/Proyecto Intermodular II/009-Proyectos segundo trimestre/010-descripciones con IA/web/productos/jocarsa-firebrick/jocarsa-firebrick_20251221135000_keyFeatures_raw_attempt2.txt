@@ -1,0 +1,5 @@
+[
+  {"name":"Carpeta y Proyecto Gestión","benefit":"Permite a los administradores crear, modificar y eliminar carpetas y proyectos con permisos de edición y borrado."},
+  {"name":"Cliente Acceso Limitado","benefit":"Los clientes tienen acceso para ver iteraciones y dejar comentarios sin tener derechos de administración."},
+  {"name":"Seguridad y Control de Perfiles","benefit":"Funciona con roles de usuario para garantizar que solo los administradores pueden realizar acciones críticas como la creación, edición o eliminación de contenido e información de clientes."}
+]

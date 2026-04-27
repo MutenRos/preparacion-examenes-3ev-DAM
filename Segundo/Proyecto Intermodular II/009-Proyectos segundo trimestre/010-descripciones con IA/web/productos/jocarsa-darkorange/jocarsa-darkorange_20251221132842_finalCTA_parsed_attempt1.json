@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Empieza a Educar con Nosotros",
+    "description": "Transforma tu contenido educativo en una experiencia personalizada. Nuestro software educativo se adapta a las necesidades de cada estudiante, mejorando los resultados y el engagement.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comienza Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

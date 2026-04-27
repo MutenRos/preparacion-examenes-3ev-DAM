@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"jocarsa | aqua","profiles":[{"name":"Educadores","fit":"Los educadores encontrarán una herramienta eficaz para gestionar y administrar sus aplicaciones educativas y usuarios. La interfaz de administrador simplifica la creación, actualización y eliminación de contenido y roles de usuario."},{"name":"Instituciones Educativas","fit":"Las instituciones educativas beneficiarseán del software que facilita el manejo de múltiples aplicaciones y usuarios, mejorando la organización y eficiencia en la gestión escolar."},{"name":"Profesores","fit":"Los profesores podrán utilizar esta plataforma para organizar y gestionar sus materiales y aplicaciones educativas desde un solo lugar, lo que facilita el acceso rápido a los recursos necesarios."}]}
+}

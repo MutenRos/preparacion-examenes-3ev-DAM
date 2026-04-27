@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "jocarsa | salmon",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "Necesitan una herramienta fácil de usar para organizar y controlar sus clases en línea"
+      },
+      {
+        "name": "Estudiantes",
+        "fit": "Búsqueda rápida de tutorías y participación en las sesiones virtuales"
+      },
+      {
+        "name": "Adminsitradores escolares",
+        "fit": "Monitoreo y gestión remota de las actividades de los docentes y estudiantes"
+      }
+    ]
+  }
+}

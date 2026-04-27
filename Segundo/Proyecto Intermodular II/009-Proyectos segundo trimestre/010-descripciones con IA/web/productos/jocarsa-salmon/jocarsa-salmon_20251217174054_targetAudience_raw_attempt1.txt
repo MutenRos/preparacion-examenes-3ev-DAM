@@ -1,0 +1,5 @@
+```json
+{
+  "targetAudience": {"title":"jocarsa | salmon", "profiles":[{"name":"Profesores","fit":"Necesitan administrar salas virtuales para sus clases, gestionar invitaciones y asegurarse de que los estudiantes estén seguros y bien organizados."},{"name":"Estudiantes","fit":"Quieren un medio fácil e intuitivo para conectarse a las sesiones en línea y participar activamente en el aprendizaje."},{"name":"Administradores de Escuela","fit":"Necesitan supervisar y asegurarse de que todos los recursos estén disponibles y funcionando correctamente para los estudiantes."}]}
+}
+```

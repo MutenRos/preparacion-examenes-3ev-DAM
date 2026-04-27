@@ -1,0 +1,16 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 21102025_RL SMR1.txt
+------------------------------------------------------------
+
+Entiendo la narrativa del texto que has compartido. Parece ser una descripción detallada de cómo configurar un servicio FTP en Cisco usando dos máquinas (PC1 y PC2) con IP definidos (192.168.0.1 y 192.168.0.2, respectivamente). Veamos si puedo resumirlo de una manera clara y concisa:
+
+El texto describe cómo configurar un servicio FTP en dos máquinas a través de la consola del Cisco (PC1) utilizando los siguientes pasos:
+- Crear usuarios anónimos en el servidor FTP
+- Configurar permisos adecuados para los usuarios
+- Acceder al FTP desde PC2 usando una dirección DNS correcta
+- Funcionamiento básico del servicio FTP en modo gráfico
+- Comandos básicos de FTP como renombrar, crear directorios y subir archivos
+
+En resumen, parece ser un tutorial detallado sobre cómo configurar una conexión FTP entre dos equipos utilizando el protocolo FTP y la gestión de usuarios. El texto aborda tanto los aspectos técnicos (configuración del servidor) como funcionales (funcionamiento básico del servicio). 
+
+Si necesitas hacer algún comentario o agregar detalles a este resumen, déjame saber!

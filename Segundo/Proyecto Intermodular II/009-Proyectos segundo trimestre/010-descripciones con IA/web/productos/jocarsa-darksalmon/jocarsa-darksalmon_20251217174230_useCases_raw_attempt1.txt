@@ -1,0 +1,5 @@
+```json
+{
+  "useCases": {"title":"Casos de Uso","cases":[{"name":"Inicio y Fin de Jornada","description":"Los usuarios pueden iniciar o finalizar su jornada laboral presionando los correspondientes botones. Si la jornada es partida, ambos botones deben ser pulsados tanto en el inicio como en el final de la jornada."},{"name":"Registro de Ausencias","description":"Los empleados pueden reportar ausencias mediante un formulario que incluye detalles del día y la razón de la ausencia. Las ausencias se marcan automáticamente una vez que son aprobadas o denegadas por administración."},{"name":"Ver Jornadas Registradas","description":"Se muestra a los usuarios un listado detallado de todas las jornadas registradas, incluyendo registros de inicio y fin de la jornada. Esto les permite ver sus propios horarios y verificar cualquier error en sus registros."}]}
+}
+```

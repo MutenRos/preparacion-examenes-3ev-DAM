@@ -1,0 +1,13 @@
+{
+  "solution": {
+    "title": "Nueva campaña de gestión de correo jocarsa-darkorange",
+    "overview": "La solución implementada en jocarsa-darkorange permite la gestión y control de campañas de correo con funcionalidades avanzadas. Incluye envío de texto y HTML, adjuntos personalizados para cada campaña, reanudación de campañas interrumpidas, mejora de plantillas para mejor visualización en diferentes clientes de correo y configuración segura de SMTP.",
+    "whatChanges": [
+      "Implementación del envío de texto + HTML",
+      "Introducción de funcionalidad de adjuntos personalizados por campaña",
+      "Adición de opción para reanudar campañas",
+      "mejora de line-height y márgenes para mejorar la presentación en correos electrónicos",
+      "Configuración segura de SMTP solo con HTML y archivos anexados"
+    ]
+  }
+}

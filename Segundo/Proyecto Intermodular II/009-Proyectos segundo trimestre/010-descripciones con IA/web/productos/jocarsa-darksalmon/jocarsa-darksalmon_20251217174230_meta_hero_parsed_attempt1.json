@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon · App",
+    "category": "SaaS",
+    "audience_segments": [
+      "Empresas",
+      "Trabajadores"
+    ],
+    "ctaPrimary": "Prueba Gratuita",
+    "ctaSecondary": "Pide una Demo"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Asegura el cumplimiento de horarios y la gestión eficiente de ausencias en una plataforma intuitiva.",
+    "subtitle": "Simplifica la gestión laboral para empresas y empleados con nuestro SaaS innovador.",
+    "badges": [
+      "Interfaz fácil",
+      "Gestión de jornadas",
+      "Control de ausencias"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuita"
+      },
+      {
+        "type": "secondary",
+        "text": "Pide una Demo"
+      },
+      {
+        "type": "tertiary",
+        "text": "Explora más"
+      }
+    ]
+  }
+}

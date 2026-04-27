@@ -1,0 +1,153 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "Jocarsa | darksalmon: Registro de Jornadas Laborales",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Administradores de Empresas",
+      "Empleados"
+    ],
+    "ctaPrimary": "Prueba Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "Jocarsa | darksalmon",
+    "valueProposition": "Registra eficientemente tus jornadas laborales con nuestra aplicación.",
+    "subtitle": "mejora tu gestión del tiempo y asegúrate de que todos los registros sean precisos y en tiempo real.",
+    "badges": [
+      "Aumento de Productividad",
+      "Precisión en Registros",
+      "Seguridad"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas Frecuentes"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Problemas comunes en la gestión de jornadas laborales",
+    "items": [
+      "Jornadas no registradas o incorrectas.",
+      "Dificultad en el seguimiento y control del tiempo trabajado.",
+      "Ausencias no informadas o mal gestionadas."
+    ]
+  },
+  "solution": {
+    "title": "Solución con Jocarsa | darksalmon",
+    "overview": "Nuestra aplicación te permite registrar tu inicio y final de jornada laboral de manera sencilla y precisa. Sin necesidad de estar conectado a una computadora, puedes gestionar tus registros desde cualquier dispositivo.",
+    "whatChanges": [
+      "Registra la entrada y salida de manera segura y eficiente.",
+      "Obtén un listado detallado de todas tus jornadas registradas.",
+      "Informa o solicita ausencias con facilidad."
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características Principales",
+    "features": [
+      {
+        "name": "Registro en tiempo real",
+        "benefit": "Mantén siempre actualizados los registros de tus jornadas."
+      },
+      {
+        "name": "Disponibilidad multiplataforma",
+        "benefit": "Accede a tus registros desde cualquier dispositivo con conexión a internet."
+      },
+      {
+        "name": "Funciones avanzadas de ausencias",
+        "benefit": "Gestiona tus ausencias de manera eficiente y segura."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Para Quién es Este Software",
+    "profiles": [
+      {
+        "name": "Administradores de Empresas",
+        "fit": "Asegúranse de que todos los registros sean precisos y en tiempo real."
+      },
+      {
+        "name": "Empleados",
+        "fit": "Registren su inicio y final de jornada laboral de manera eficiente y segura."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Registro diario de jornadas",
+        "description": "Empleados pueden registrar su entrada y salida con solo un clic, mejorando así su tiempo."
+      },
+      {
+        "name": "Control de ausencias",
+        "description": "Administradores pueden gestionar las solicitudes de ausencias y ver el historial completo de todos los empleados."
+      },
+      {
+        "name": "Seguimiento del tiempo trabajado",
+        "description": "Jocarsa | darksalmon permite a los administradores tener un control preciso del tiempo trabajado por cada empleado."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "items": [
+      "Mayor precisión en la gestión del tiempo.",
+      "Ahorro de tiempo al evitar errores y retrasos en el registro de jornadas.",
+      "Mejora en la eficiencia operativa gracias a una gestión centralizada de los registros."
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Opcionales",
+    "notes": "La aplicación es compatible con diversos sistemas y herramientas para facilitar la integración.",
+    "items": [
+      "Sistemas de Gestión de Recursos Humanos (HRMS)",
+      "Gestores de Tiempo",
+      "Plataformas de Comunicación"
+    ]
+  },
+  "trust": {
+    "title": "Confianza e Inseguridad",
+    "items": [
+      {
+        "name": "Cifrado SSL",
+        "benefit": "Todos los datos se transmiten con encriptación SSL para garantizar la seguridad."
+      },
+      {
+        "name": "Cumplimiento de Normativas",
+        "benefit": "Nuestra aplicación cumple con todas las normativas laborales y de privacidad."
+      },
+      {
+        "name": "Soporte 24/7",
+        "benefit": "Contamos con soporte técnico disponible las 24 horas del día, los 7 días de la semana."
+      }
+    ]
+  },
+  "troubleshooting": {
+    "title": "Solución de Problemas",
+    "items": [
+      {
+        "name": "Revisa tu conexión a internet",
+        "benefit": "Asegúrate de tener una conexión estable."
+      },
+      {
+        "name": "Actualiza la página",
+        "benefit": "Prueba a recargar la página para ver si el problema persiste."
+      },
+      {
+        "name": "Contacta con soporte",
+        "benefit": "Si sigues teniendo problemas, no dudes en contactar nuestro equipo de soporte."
+      }
+    ]
+  }
+}

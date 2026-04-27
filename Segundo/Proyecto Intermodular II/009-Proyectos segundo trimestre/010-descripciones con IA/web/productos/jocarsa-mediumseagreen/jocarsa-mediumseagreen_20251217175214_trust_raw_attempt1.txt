@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Integrado y Robusto", "points":["Análisis exhaustivo de subtítulos en español e idiomas alternativos","Procesamiento automático y manual para mejorar la calidad del contenido educativo","Generación de notas didácticas a través de API remota para una mejor comprensión","Uso eficiente de logs y registros para diagnóstico y optimización sin interrupción al usuario"]}
+}

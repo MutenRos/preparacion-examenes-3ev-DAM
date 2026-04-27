@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones Calendario", "notes":"Las integraciones permiten sincronizar el calendario con otras aplicaciones. Las opciones son: Google Calendar y Outlook.", "items":["Google Calendar","Outlook"]}
+}

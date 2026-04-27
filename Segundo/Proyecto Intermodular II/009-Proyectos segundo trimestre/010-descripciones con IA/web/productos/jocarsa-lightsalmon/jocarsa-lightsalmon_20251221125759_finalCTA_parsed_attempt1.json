@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Empieza a Organizar",
+    "description": "Gestiona tus eventos, categorías y festivos con facilidad. Regístrate ahora para empezar.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Regístrate"
+      },
+      {
+        "type": "secondary",
+        "text": "Inicia Sesión"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

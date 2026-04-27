@@ -1,0 +1,5 @@
+[
+  {"name":"Conexión a base de datos SQLite","benefit":"Permite el almacenamiento y gestión segura de datos locales, facilitando la implementación de funcionalidades educativas."},
+  {"name":"Autenticación y autorización basada en usuario","benefit":"Mantiene la seguridad del sistema mediante la verificación y control de acceso a información crítica."},
+  {"name":"Gestión de calendarios personalizados por usuario","benefit":"Permite a los usuarios registrar y visualizar sus horas trabajadas, facilitando el seguimiento de progreso y planificación"}
+]

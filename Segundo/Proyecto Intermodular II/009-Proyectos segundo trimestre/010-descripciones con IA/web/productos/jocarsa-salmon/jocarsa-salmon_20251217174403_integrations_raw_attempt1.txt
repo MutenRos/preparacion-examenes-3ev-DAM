@@ -1,0 +1,5 @@
+```json
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integraciones adicionales", "notes":"Estas integraciones son opcionales y pueden mejorar la experiencia del usuario. Selecciona las que mejor se ajusten a tus necesidades.", "items":["Google Meet","Zoom","Microsoft Teams"]}
+}
+```

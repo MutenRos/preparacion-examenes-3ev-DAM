@@ -1,0 +1,5 @@
+```json
+{
+  "useCases": {"title":"casos de uso jocarsa | salmon","cases":[{"name":"Crear y gestionar salas virtuales","description":"Permite a los administradores crear nuevas salas y gestionarlas de manera eficiente. Los usuarios pueden unirse a las salas según sus roles (auditor o presentador) y recibir invitaciones con todos los detalles necesarios."},{"name":"Administrar usuarios y contraseñas","description":"Ofrece una interfaz para configurar y administrar contraseñas y nombres de usuario tanto para auditas como para presentadores, asegurando la seguridad y el acceso correcto a cada sala."},{"name":"Invitar a las salas virtuales","description":"Genera y envía invitaciones personalizadas a los usuarios con todos los detalles necesarios para unirse a una sala virtual. Incluye opciones de contraseñas y mensajes orientativos."}]}
+}
+```

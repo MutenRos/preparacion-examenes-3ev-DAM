@@ -1,0 +1,13 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones con jocarsa-firebrick",
+    "notes": "Permiten expandir la funcionalidad del software educativo.",
+    "items": [
+      "Sincronización de proyectos con Google Drive",
+      "Exportación a PDF para informes detallados",
+      "Generación automática de subtítulos para iteraciones"
+    ]
+  }
+}

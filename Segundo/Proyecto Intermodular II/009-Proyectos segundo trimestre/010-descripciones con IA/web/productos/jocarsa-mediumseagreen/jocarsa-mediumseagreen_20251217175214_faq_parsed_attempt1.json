@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Frecuentes preguntas sobre software educativo",
+    "qas": [
+      {
+        "q": "¿Qué es el software educativo jocarsa-mediumseagreen?",
+        "a": "El software educativo jocarsa-mediumseagreen es una herramienta que automatiza la creación y organización de contenido didáctico a partir de videos y transcripciones, utilizando modelos de inteligencia artificial para extraer y sintetizar información relevante."
+      },
+      {
+        "q": "¿Cómo funciona el procesamiento del video?",
+        "a": "El software lee los subtítulos de un video (si existen), o los genera si no se encuentran. Luego, convierte estos subtítulos a texto sólido, sin marcas temporales ni etiquetas, para asegurar una lectura coherente."
+      },
+      {
+        "q": "¿Cómo se procesan las transcripciones?",
+        "a": "Las transcripciones de los videos son divididas en lotes y enviadas al modelo de IA. Este devuelve información relevante sobre los temas presentados en cada video, que luego es sintetizada en un formato didáctico."
+      },
+      {
+        "q": "¿Qué tipo de contenido se genera a partir del análisis?",
+        "a": "Se generan notas y resúmenes didácticos a partir de la transcripción del video. Estos son utilizados para crear recursos educativos estructurados que pueden ser fácilmente integrados en el currículo."
+      },
+      {
+        "q": "¿Cómo se manejan los idiomas durante el proceso?",
+        "a": "El software prioriza la obtención de subtítulos en español (es, es-ES, es-419). Si no están disponibles, usa otros idiomas disponibles para generar transcripciones automáticas y finalmente cae a un rescate global si nada funciona."
+      }
+    ]
+  }
+}

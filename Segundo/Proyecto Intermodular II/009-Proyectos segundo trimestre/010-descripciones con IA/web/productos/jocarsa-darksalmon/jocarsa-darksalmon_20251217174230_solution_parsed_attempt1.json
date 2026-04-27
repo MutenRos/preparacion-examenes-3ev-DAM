@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | darksalmon · App",
+    "overview": "Este software educativo ofrece un sistema para gestionar las jornadas laborales de los usuarios. Permite iniciar y finalizar la jornada, registrar ausencias y consultar el perfil del usuario.",
+    "whatChanges": [
+      "Integración de inicio y finalización de jornada con opción a registrar ubicaciones",
+      "Módulo de gestión de jornadas registradas para ver registros anteriores",
+      "Pantalla de perfil para visualizar y actualizar datos del usuario"
+    ]
+  }
+}

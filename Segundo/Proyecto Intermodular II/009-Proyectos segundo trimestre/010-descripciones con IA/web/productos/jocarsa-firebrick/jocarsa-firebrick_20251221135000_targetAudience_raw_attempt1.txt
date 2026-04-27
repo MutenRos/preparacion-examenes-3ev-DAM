@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"jocarsa | firebrick","profiles":[{"name":"Administradores","fit":"Creen y administren carpetas, proyectos e iteraciones. Registren y administren clientes. Tengan permisos de edición y borrado en todo el contenido (carpetas, proyectos, iteraciones, clientes)."},{"name":"Clientes","fit":"Accedan a los proyectos y sus iteraciones para visualizar los videos y dejar comentarios. No tengan permisos de administración."}]}
+}

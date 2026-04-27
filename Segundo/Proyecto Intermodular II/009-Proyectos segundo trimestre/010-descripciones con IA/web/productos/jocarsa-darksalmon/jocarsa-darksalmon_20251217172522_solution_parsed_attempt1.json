@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | darksalmon · App",
+    "overview": "La aplicación jocarsa | darksalmon es un software educativo que permite a los usuarios gestionar sus jornadas laborales y ausencias de manera eficiente. Ofrece una interfaz clara con opciones para iniciar y finalizar la jornada, así como un mapa para marcar la ubicación de cada fichaje.",
+    "whatChanges": [
+      "Se integra un sistema de inicio y finalización de jornada con opciones para partidas y continuas,",
+      "Incluye una sección de ausencias donde los usuarios pueden registrar y gestionar sus días libres o faltas;",
+      "Proporciona una interfaz personalizada que adapta la estructura y funcionalidades a las necesidades educativas."
+    ]
+  }
+}

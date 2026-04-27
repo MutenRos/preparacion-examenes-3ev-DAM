@@ -1,0 +1,5 @@
+```json
+{
+  "useCases": {"title":"Uso de jocarsa-aliceblue en educación","cases":[{"name":"Gestión de Usuarios","description":"Permite a los administradores crear, editar y eliminar usuarios. Ofrece un panel de control personalizado con íconos interactivos para iniciar o detener la captura de información del usuario."},{"name":"Visualización y Análisis de Datos","description":"Proporciona un entorno visual donde se pueden mostrar datos en forma de tarjetas, permitiendo a los usuarios ver y analizar información detallada sobre cada usuario. Incluye herramientas para deslizarse y controlar el tiempo de visualización."},{"name":"Monitoreo en Tiempo Real","description":"Ofrece un sistema de monitoreo en tiempo real con actualizaciones continuas, mostrando los últimos datos capturados en una interfaz amigable. Permite a los administradores ver las últimas imágenes o registros capturados y realizar cambios si es necesario."}]}
+}
+```

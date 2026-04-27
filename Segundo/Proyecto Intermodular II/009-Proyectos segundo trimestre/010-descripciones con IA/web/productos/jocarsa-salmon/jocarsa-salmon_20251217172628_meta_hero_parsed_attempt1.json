@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Crear y gestionar salas de videoconferencia fácilmente",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Educadores",
+      "Estudiantes",
+      "Administradores escolares"
+    ],
+    "ctaPrimary": "¡Prueba gratis ahora!",
+    "ctaSecondary": "Ver precios"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Plataforma simple y segura para organizar videoconferencias educativas en tiempo real.",
+    "subtitle": "Crea, administra y participa en salas de video con solo unos clics. Ideal para enseñar desde casa o presencialmente.",
+    "badges": [
+      "Comparte fácil",
+      "Seguro",
+      "Intuitivo"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "¡Prueba gratis ahora!"
+      },
+      {
+        "type": "secondary",
+        "text": "Ver precios"
+      },
+      {
+        "type": "tertiary",
+        "text": "Descargar demo"
+      }
+    ]
+  }
+}

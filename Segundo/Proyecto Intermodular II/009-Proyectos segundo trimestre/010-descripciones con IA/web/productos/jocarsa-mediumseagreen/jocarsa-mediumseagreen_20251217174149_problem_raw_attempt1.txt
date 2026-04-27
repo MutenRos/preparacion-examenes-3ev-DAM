@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Procesamiento de Vídeos con Subtítulos en Español","items":["Lee 'playlists_videos.json' (categoría \"25/26\").","Intenta player_client: android -> mweb -> tv -> web (con cookies si existen).","Convierte .vtt a TEXTO SÓLIDO (un único párrafo), sin timestamps/etiquetas/roll-up.","Crea .log cuando no hay 'es-orig'. (Opcional) Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1."]}
+}

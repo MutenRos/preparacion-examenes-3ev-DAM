@@ -1,0 +1,197 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-orange",
+    "title": "jocarsa | orange - Tu Asistente Educativo en Línea",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Docentes",
+      "Estudiantes",
+      "Padres de Familia"
+    ],
+    "ctaPrimary": "¡Prueba Ahora!",
+    "ctaSecondary": "Conoce Más"
+  },
+  "hero": {
+    "name": "jocarsa | orange",
+    "valueProposition": "Transforma la Educación con Nuestro Asistente Personalizado y Interactivo",
+    "subtitle": "Descubre Cursos, Gestiona Tu Tiempo y Realiza Actividades Educativas en un Solo Lugar",
+    "badges": [
+      "Interactividad Aumentada",
+      "Adaptación Personalizada",
+      "Innovación Pedagógica"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "¡Prueba Ahora!"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "jocarsa | orange",
+    "items": [
+      "Implementar la funcionalidad de registro en el formulario de autenticación",
+      "Permitir al usuario cambiar el tema del aplicación a través de una sección dedicada",
+      "mejorar el despliegue de pantallas para mejorar la experiencia del usuario",
+      "Agregar validaciones en los campos del formulario de productos y listas",
+      "Integrar la funcionalidad de edición y eliminación de listas"
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | orange",
+    "overview": "La solución jocarsa | orange es un sistema SaaS educativo que permite a los usuarios gestionar y personalizar sus listas de productos. Ofrece funciones para crear, editar y listar productos, así como una sección de administración de temas personalizables.",
+    "whatChanges": [
+      "Implementación de autenticación de usuario con registro y login",
+      "Interfaz de usuario modular permitiendo el cambio entre 'Mis Listas', 'Productos' y 'Nueva Lista'",
+      "Edición detallada de listas con opciones para modificar información y eliminar",
+      "Personalización del tema visual a través de una configuración en la sección de temas"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / jocarsa / orange / jocarsa / orange / Reporte."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "jocarsa | orange",
+    "profiles": [
+      {
+        "name": "usuarios finales",
+        "fit": "Necesitan gestionar sus propias listas de compras y productos, con la posibilidad de crear nuevas listas y editarlas según sea necesario"
+      },
+      {
+        "name": "administradores",
+        "fit": "Tienen el control sobre la gestión de usuarios y la configuración del sistema, permitiéndoles cambiar las preferencias de diseño para todos los usuarios."
+      },
+      {
+        "name": "invitados",
+        "fit": "Pueden explorar las características básicas sin necesidad de iniciar sesión, como ver productos disponibles en listas públicas o gestionadas por otros usuarios"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "jocarsa | orange",
+    "cases": [
+      {
+        "name": "Gestión de Lista de Compras",
+        "description": "Permite a los usuarios crear, editar y gestionar listas de compras. Los usuarios pueden añadir productos a sus listas y ver los detalles de cada producto."
+      },
+      {
+        "name": "Ingreso y Registro de Usuarios",
+        "description": "Ofrece funcionalidad para que los usuarios se registren y realicen el inicio de sesión. Permite guardar la preferencia del tema del usuario."
+      },
+      {
+        "name": "Configuración Temática",
+        "description": "Permite a los usuarios cambiar el tema visual del sitio web, aplicando un efecto de giro de tono en todos los elementos visuales."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Personalizar y mejorar tu Experiencia",
+    "items": [
+      "Accede a una interfaz intuitiva que se ajusta a tus preferencias de diseño, sin perder tiempo en configuraciones.",
+      "Mantente productivo con la gestión personalizada de tus listas y productos desde cualquier pantalla.",
+      "Gestionar fácilmente tus datos y preferencias en un solo lugar, sin complicaciones técnicas."
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Opcionales",
+    "notes": "Permite conectar jocarsa | orange con otras aplicaciones para mejorar la experiencia del usuario.",
+    "items": [
+      "Google Analytics",
+      "Salesforce",
+      "Zapier"
+    ]
+  },
+  "trust": {
+    "title": "jocarsa | orange",
+    "points": [
+      "Estructura de proyecto clara y organizada con archivos y directorios bien definidos.",
+      "Código JavaScript intercalado que maneja eventos y navegación de manera efectiva entre diferentes pantallas.",
+      "Uso de localStorage para almacenar el estado del usuario, mejorando la experiencia sin necesidad de reingresar las credenciales cada vez que se recarga la página."
+    ]
+  },
+  "finalCTA": {
+    "title": "Descubre jocarsa | orange",
+    "description": "La solución perfecta para tu software educativo. Conéctate y personaliza a tu antojo.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuita"
+      },
+      {
+        "type": "secondary",
+        "text": "Más Información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "jocarsa | orange",
+    "qas": [
+      {
+        "q": "¿Cómo me registro en jocarsa-orange?",
+        "a": "Para registrarte, debes completar el formulario de registro disponible en la sección de autenticación. Introduce tu nombre de usuario y contraseña para crear una cuenta."
+      },
+      {
+        "q": "¿Cómo inicio sesión?",
+        "a": "Ingresa tu nombre de usuario y contraseña en los campos correspondientes del formulario de inicio de sesión. Haz clic en 'Ingresar' para iniciar tu sesión."
+      },
+      {
+        "q": "¿Cómo cambio mi tema personalizado?",
+        "a": "Desde la pantalla principal, navega hasta la sección de temas. Aquí podrás cambiar el tema de tu aplicación utilizando las opciones disponibles en esta sección."
+      },
+      {
+        "q": "¿Cómo creo una nueva lista?",
+        "a": "Para crear una nueva lista, ve a la opción 'Nueva Lista' y completa los detalles requeridos. Incluye nombre, descripción, color y fecha opcional para cada lista."
+      },
+      {
+        "q": "¿Cómo puedo eliminar una lista existente?",
+        "a": "Desde el menú de navegación, selecciona 'Editar Lista'. Aquí podrás editar la información de tu lista o hacer clic en 'Eliminar' si deseas eliminarla."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Desarrollado por jocarsa | orange. Todos los derechos reservados. Versión 1.1 es"
+  }
+}

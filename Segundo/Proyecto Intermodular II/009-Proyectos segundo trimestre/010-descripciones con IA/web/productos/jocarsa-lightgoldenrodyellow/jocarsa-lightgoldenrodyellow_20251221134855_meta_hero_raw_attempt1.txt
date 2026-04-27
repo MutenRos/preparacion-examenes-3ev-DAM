@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-lightgoldenrodyellow",
+    "title": "jocarsa | lightgoldenrodyellow: Generador de Prompt para IA - Propuesta Moderna y Concreta",
+    "category": "Software Educativo",
+    "audience_segments": ["Desarrolladores", "Educación en Tecnología"],
+    "ctaPrimary": "Prueba Ahora",
+    "ctaSecondary": "Descargar"
+  },
+  "hero": {
+    "name": "jocarsa | lightgoldenrodyellow",
+    "valueProposition": "Generador de Prompt para IA con interfaz moderna, análisis detallado y persistencia en tiempo real.",
+    "subtitle": "Crea prompts personalizados para tu proyecto sin complicaciones.",
+    "badges": ["Interfaz Moderna", "Análisis Completo", "Persistencia en Config"],
+    "actions": [
+      {"type":"primary","text":"Prueba Ahora"},
+      {"type":"secondary","text":"Descargar"},
+      {"type":"tertiary","text":"Más Información"}
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Qué es jocarsa-darkorange?",
+        "a": "jocarsa-darkorange es una solución de software educativo que ofrece herramientas para crear, gestionar y analizar campañas de correo electrónico."
+      },
+      {
+        "q": "¿Cómo se envían los correos electrónicos en jocarsa-darkorange?",
+        "a": "Los correos electrónicos son enviados con HTML y adjuntos, asegurando que el formato sea correcto y los mensajes lleguen sin interrupciones."
+      },
+      {
+        "q": "¿Cuáles son las características principales de la solución?",
+        "a": "Las principales características incluyen la creación y seguimiento de campañas, gestión de archivos CSV, validación de correos electrónicos, y análisis detallado de los resultados de cada envío."
+      }
+    ]
+  }
+}

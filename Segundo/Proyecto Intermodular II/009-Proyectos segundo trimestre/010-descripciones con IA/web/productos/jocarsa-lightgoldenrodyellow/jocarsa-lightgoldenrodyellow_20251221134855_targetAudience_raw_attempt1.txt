@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Generador de Prompt para IA","profiles":[{"name":"Desarrolladores web","fit":"Entienden la lógica detrás del generador de prompt y pueden personalizarlo según sus necesidades"},{"name":"Educadores digitales","fit":"Usan el explorador de carpetas para analizar proyectos educativos y generar prompts adecuados"},{"name":"Investigadores en IA","fit":"Utilizan la funcionalidad de análisis de bases de datos para optimizar su investigación"}]}
+}

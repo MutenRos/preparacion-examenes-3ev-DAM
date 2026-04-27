@@ -1,0 +1,14 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones adicionales",
+    "notes": "Las integraiones permiten ampliar la funcionalidad del software educativo sin comprometer su eficiencia. Las opciones son opcionales.",
+    "items": [
+      "Chat en tiempo real para comunicar incertidumbres y consultas",
+      "Sistema de videollamadas para interacción directa con los estudiantes",
+      "Compatibilidad con plataformas LMS para un seguimiento centralizado",
+      "Integración con sistemas de autenticación externos"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Transforma tu educación con jocarsa | salmon",
+    "description": "Experimenta una plataforma educativa innovadora que transformará cómo aprendes. ¡Descubre características únicas y recursos de aprendizaje personalizados!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

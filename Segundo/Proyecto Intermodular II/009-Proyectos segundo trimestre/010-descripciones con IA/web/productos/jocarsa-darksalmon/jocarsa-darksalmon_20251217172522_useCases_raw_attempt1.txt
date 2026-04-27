@@ -1,0 +1,25 @@
+```json
+{
+  "useCases": {
+    "title": "Casos de Uso jocarsa | darksalmon",
+    "cases": [
+      {
+        "name": "Inicio y Fin de Jornada",
+        "description": "Los usuarios pueden iniciar y finalizar su jornada laboral a través de botones específicos. En caso de jornadas partida, deben hacerlo tanto en el inicio como en el final del bloque correspondiente."
+      },
+      {
+        "name": "Visualización de Jornadas Registradas",
+        "description": "Los usuarios pueden revisar todas las jornadas registradas, incluyendo errores o anomalías, y comunicárselas a los administradores para solucionarlas."
+      },
+      {
+        "name": "Consultar Perfil del Usuario",
+        "description": "Los usuarios tienen acceso a su perfil completo, que incluye información personal, de contacto y datos proporcionados por la administración. Se puede modificar esta información según las necesidades del usuario o la empresa."
+      },
+      {
+        "name": "Registrar Ausencias",
+        "description": "Los usuarios pueden registrar ausencias mediante un formulario que permite ingresar detalles específicos como fecha, motivo y cualquier otra información relevante."
+      }
+    ]
+  }
+}
+```

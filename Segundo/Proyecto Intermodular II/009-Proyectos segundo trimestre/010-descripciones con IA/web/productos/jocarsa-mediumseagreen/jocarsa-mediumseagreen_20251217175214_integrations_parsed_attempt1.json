@@ -1,0 +1,18 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integración con Ollama y Embeddings",
+    "notes": "Permite la integración de modelos de embeddings para mejorar la precisión en la clasificación de temas. Es opcional pero recomendado.",
+    "items": [
+      "Instala ollama mediante pip: `pip install requests tqdm`",
+      "Carga el modelo embedding: `ollama pull nomic-embed-text`",
+      "Ejecuta Ollama en http://localhost:11434"
+    ],
+    "type": "softwareEducativo",
+    "lang": "es",
+    "version": "1.1",
+    "jocarsa-mediumseagreen": "true",
+    "slug": "jocarsa-mediumseagreen"
+  }
+}

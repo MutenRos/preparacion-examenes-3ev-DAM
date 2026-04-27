@@ -1,0 +1,15 @@
+{
+  "targetAudience": {
+    "title": "Estudiantes universitarios y profesores",
+    "profiles": [
+      {
+        "name": "Estudiantes universitarios",
+        "fit": "Este software es ideal para estudiantes universitarios que buscan mejorar su comprensión de los temas académicos a través del análisis de videos y transcripciones. Ofrece una forma interactiva y fácil de seguir el material de estudio y entender mejor los contenidos."
+      },
+      {
+        "name": "Profesores",
+        "fit": "Para los profesores, este software ofrece herramientas valiosas para planificar lecciones y crear materiales didácticos basados en el análisis de videos. Ayuda a organizar contenido complejo y hacerlo más accesible para sus estudiantes."
+      }
+    ]
+  }
+}

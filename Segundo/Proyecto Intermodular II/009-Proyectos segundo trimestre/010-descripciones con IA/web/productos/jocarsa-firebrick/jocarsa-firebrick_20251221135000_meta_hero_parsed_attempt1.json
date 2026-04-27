@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "slug": "jocarsa-firebrick",
+    "title": "jocarsa | firebrick - Gestión de Proyectos y Clientes en un Entorno Seguro",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Administradores",
+      "Clientes"
+    ],
+    "ctaPrimary": "Explora Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | firebrick",
+    "valueProposition": "Plataforma de gestión integral para proyectos, donde los administradores crean y controlan carpetas, iteraciones y clientes, mientras los clientes pueden visualizar e interactuar con contenido en línea.",
+    "subtitle": "Organiza y Gestiona Tu Proceso de Desarrollo Fácilmente",
+    "badges": [
+      "Administración Centralizada",
+      "Interfaz Intuitiva",
+      "Seguridad Robusta"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Explora Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas Frecuentes"
+      }
+    ]
+  }
+}

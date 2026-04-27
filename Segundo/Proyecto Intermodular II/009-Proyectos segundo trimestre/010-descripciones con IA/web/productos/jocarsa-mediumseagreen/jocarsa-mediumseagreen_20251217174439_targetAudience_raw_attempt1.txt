@@ -1,0 +1,12 @@
+```json
+{
+  "targetAudience": {
+    "title": "Educadores y Estudiantes",
+    "profiles": [
+      {"name": "Educadores", "fit": "Este software es ideal para educadores que buscan mejorar la calidad de sus cursos en línea. Ofrece herramientas para analizar contenido, generar resúmenes didácticos y optimizar el aprendizaje."},
+      {"name": "Estudiantes", "fit": "Los estudiantes encontrarán valiosas herramientas para comprender mejor los temas complejos a través del análisis de videos y transcripciones. También les ayuda a organizar y estructurar su material de estudio."},
+      {"name": "Desarrolladores", "fit": "Aunque no es dirigido específicamente a desarrolladores, los expertos en tecnología pueden aprovechar las funcionalidades para integrar nuevas herramientas o mejorar existentes del sistema de aprendizaje."}
+    ]
+  }
+}
+```

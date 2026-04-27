@@ -1,0 +1,11 @@
+{
+  "problem": {
+    "title": "Calendario",
+    "items": [
+      "Implementar una API en calendar_api.php que permita registrar, iniciar sesión y cerrar sesiones de usuarios con validación de campos y longitud.",
+      "Desarrollar endpoints para cargar y guardar eventos, categorías y festivos que requieren autenticación.",
+      "Asegurar la seguridad del almacenamiento de contraseñas utilizando hash y verificar el tamaño del payload en la carga.",
+      "Validar los datos enviados desde el frontend asegurándose que siguen el formato esperado: { version: 2, categories: [...], holidays: [...], events: [...] }."
+    ]
+  }
+}

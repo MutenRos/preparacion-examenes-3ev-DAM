@@ -1,0 +1,3 @@
+{
+  "solution": {"title":"Automatización del Proceso Educativo en SaaS","overview":"Este software educa a usuarios sobre la automatización de procesos educativos, incluyendo la gestión de subtítulos y el análisis de temas. Se integra con servicios de video y transcripción para facilitar el aprendizaje.","whatChanges":["Implementa la gestión automática de subtítulos en videos de plataformas educativas","Analiza y categoriza temas en base a transcripciones y metadatos del video","Optimiza la experiencia del usuario al presentar contenido didáctico estructurado"]}
+}

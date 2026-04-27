@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"jocarsa | darksalmon · App","points":["Incluye un manual detallado con instrucciones claras para inicio de sesión y gestión de jornadas laborales.","Ofrece una interfaz fácil de usar con botones intuitivos y un diseño moderno en tonos oscuros, adecuado para usuarios que prefieren un ambiente minimalista.","Garantiza la privacidad al recoger solo información necesaria para el seguimiento de las jornadas laborales."]}
+}

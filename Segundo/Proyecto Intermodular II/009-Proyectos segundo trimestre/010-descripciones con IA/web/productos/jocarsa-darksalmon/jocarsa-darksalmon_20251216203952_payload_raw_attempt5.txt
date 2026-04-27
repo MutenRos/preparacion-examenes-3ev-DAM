@@ -1,0 +1,30 @@
+```json
+{
+  "lang": "es",
+  "type": "aplicativo",
+  "version": "1.0",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "Jornadas DarkSalmon",
+    "category": "Software de Gestión Laboral",
+    "audience_segments": ["Empresas", "Departamentos"],
+    "ctaPrimary": "Inicia tu prueba gratis",
+    "ctaSecondary": "Más detalles"
+  },
+  "hero": {
+    "name": "Jornadas DarkSalmon",
+    "valueProposition": "Simplifica la gestión de tus horarios laborales con precisión y facilidad.",
+    "subtitle": "Registra y controla tu jornada laboral sin complicaciones.",
+    "badges": ["Sencillo", "Intuitivo", "Confiable"],
+    "actions": [
+      {"type":"primary","text":"Inicia tu prueba gratis"},
+      {"type":"secondary","text":"Más detalles"}
+    ]
+  },
+  "problem": {"title": "Desafíos con la Gestión de Jornadas","items": ["Jornadas partidas complican el registro", "Ausencias no informadas pueden generar problemas legales", " inconsistencia en la gestión de horarios"]},
+  "solution": {"title": "Solución Jornadas DarkSalmon","overview": "Nuestra aplicación simplifica y automatiza todos los aspectos de la gestión laboral, asegurando que cada detalle esté bajo control.", "whatChanges": ["Automatización del registro de jornadas", "Procesamiento rápido de solicitudes de ausencias", "Monitorización constante del cumplimiento de horarios"]},
+  "keyFeatures": {"title": "Características destacadas","features": [{"name":"Registro automático de horario","benefit":"Evita errores humanos y asegura precisión"},{"name":"Procesamiento rápido de solicitudes de ausencias","benefit":"Minimiza demoras y mejora la comunicación"},{"name":"Monitorización del cumplimiento de horarios","benefit":"Detecta inconsistencias y alerta a los administradores"}]},
+  "targetAudience": {"title": "Perfil del usuario ideal","profiles": [{"name":"Gerente de Recursos Humanos","fit":"Ahorra tiempo gestionando eficazmente las jornadas laborales"},{"name":"Departamento de Personal","fit":"Facilita el registro y la gestión de ausencias y horarios"},{"name":"Equipo de Trabajo","fit":"Accede fácilmente a su información personal y registra sus entradas y salidas"}]},
+  "useCases": {"title": "Casos de uso","cases": [{"name":"Registra el inicio y final de jornada laboral","description":"Empieza y finaliza tu jornada laboral con un solo clic"},{"name":"Solicita o informa ausencias","description":"Envía solicitudes de ausencias rápidamente y haz seguimiento a su estado"},{"name":"Accede a tus datos personales","description":"Consulta y actualiza tu información personal en cualquier momento"}]}
+}
+```

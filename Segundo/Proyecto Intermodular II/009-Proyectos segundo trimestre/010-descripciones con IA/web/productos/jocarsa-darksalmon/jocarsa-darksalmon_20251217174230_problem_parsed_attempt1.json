@@ -1,0 +1,12 @@
+{
+  "problem": {
+    "title": "Desarrollo de la Aplicación jocarsa | darksalmon",
+    "items": [
+      "Definir el flujo completo de inicio y finalización de jornada",
+      "Implementar la visualización y gestión de las jornadas registradas",
+      "Desarrollar la sección de perfil del usuario con información relevante",
+      "Integrar el sistema de ausencias y gestionar sus estados",
+      "Crear la guía de usuario detallada para ayudar a los usuarios en la resolución de problemas"
+    ]
+  }
+}

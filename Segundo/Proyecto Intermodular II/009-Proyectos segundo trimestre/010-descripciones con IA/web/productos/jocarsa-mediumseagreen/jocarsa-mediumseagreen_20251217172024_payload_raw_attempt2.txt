@@ -1,0 +1,123 @@
+### Lenguajes de Marcas
+
+**HTML (Hypertext Markup Language):**
+- **Descripción:** Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web. Permite a los desarrolladores agregar elementos como imágenes, enlaces y texto a una página.
+- **Uso en Contexto:**
+  ```html
+  <h1>Encabezado de nivel uno</h1>
+  <p>Texto normal del párrafo.</p>
+  ```
+
+**XML (Extensible Markup Language):**
+- **Descripción:** Es un lenguaje de marcas utilizado para crear documentos estructurados. Se utiliza comúnmente en la creación de formatos de intercambio de datos y en la descripción de esquemas de negocio.
+- **Uso en Contexto:**
+  ```xml
+  <book>
+    <title>El Lobo de Wall Street</title>
+    <author>William Martínez</author>
+    <year>2023</year>
+  </book>
+  ```
+
+**Markdown:**
+- **Descripción:** Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea. Permite a los usuarios agregar elementos como encabezados, listas y enlaces a su contenido.
+- **Uso en Contexto:**
+  ```markdown
+  # Encabezado de nivel uno
+
+  ## Encabezado de nivel dos
+
+  - Lista no ordenada
+    - Item 1
+    - Item 2
+
+  [Enlace](http://ejemplo.com)
+  ```
+
+### Explicación
+
+- **HTML:** Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web. Permite a los desarrolladores agregar elementos como imágenes, enlaces y texto a una página.
+- **XML:** Es un lenguaje de marcas utilizado para crear documentos estructurados. Se utiliza comúnmente en la creación de formatos de intercambio de datos (XSD) y en la descripción de esquemas de negocio.
+- **Markdown:** Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea. Permite a los usuarios agregar elementos como encabezados, listas y enlaces a su contenido.
+
+### Código Destacado (Con Bloques ```lenguaje)
+
+```html
+<!-- Ejemplo HTML -->
+<h1>Encabezado de nivel uno</h1>
+<p>Texto normal del párrafo.</p>
+
+<!-- Ejemplo XML -->
+<book>
+  <title>El Lobo de Wall Street</title>
+  <author>William Martínez</author>
+  <year>2023</year>
+</book>
+
+<!-- Ejemplo Markdown -->
+# Encabezado de nivel uno
+
+## Encabezado de nivel dos
+
+- Lista no ordenada
+  - Item 1
+  - Item 2
+
+[Enlace](http://ejemplo.com)
+```
+
+### Actividades Prácticas (Paso a Paso, Con Soluciones o Pistas Breves)
+
+1. **HTML:**
+   - **Tarea:** Crea una página web simple con un encabezado y parágrafo.
+   - **Solución:** 
+     ```html
+     <!DOCTYPE html>
+     <html lang="es">
+     <head>
+       <meta charset="UTF-8">
+       <title>Página Web Simple</title>
+     </head>
+     <body>
+       <h1>Encabezado de Nivel Uno</h1>
+       <p>Este es un párrafo normal.</p>
+     </body>
+     </html>
+     ```
+
+2. **XML:**
+   - **Tarea:** Crea un archivo XML con información básica sobre un libro.
+   - **Solución:**
+     ```xml
+     <?xml version="1.0" encoding="UTF-8"?>
+     <bookstore>
+       <book id="bk101">
+         <author>William Martínez</author>
+         <title>El Lobo de Wall Street</title>
+         <price>29.95</price>
+       </book>
+     </bookstore>
+     ```
+
+3. **Markdown:**
+   - **Tarea:** Convierte un texto simple a formato Markdown.
+   - **Solución:**
+     ```markdown
+     # Encabezado de Nivel Uno
+
+     ## Encabezado de Nivel Dos
+     
+     Este es un párrafo normal.
+
+     * Lista no ordenada:
+       - Item 1
+       - Item 2
+
+     [Enlace a Ejemplo](http://ejemplo.com)
+     ```
+
+### Glosario
+
+- **HTML:** Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web.
+- **XML:** Es un lenguaje de marcas utilizado para crear documentos estructurados.
+- **Markdown:** Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea.

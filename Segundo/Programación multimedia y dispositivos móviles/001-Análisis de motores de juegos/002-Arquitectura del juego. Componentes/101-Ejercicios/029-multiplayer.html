@@ -1,0 +1,694 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Asteroids-lite Multiplayer</title>
+    <style>
+      html,body{margin:0;padding:0;overflow:hidden;background:#000}
+      canvas{display:block}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      // ============================================================
+      // Utilities
+      // ============================================================
+      function distancia(x1, y1, x2, y2) {
+        const dx = x2 - x1, dy = y2 - y1;
+        return Math.hypot(dx, dy);
+      }
+      function rand(min, max){ return Math.random()*(max-min)+min }
+      function lerp(a,b,t){ return a + (b-a)*t }
+      function lerpAngle(a,b,t){
+        // shortest path interpolation
+        let d = (b - a) % (Math.PI*2);
+        if (d > Math.PI) d -= Math.PI*2;
+        if (d < -Math.PI) d += Math.PI*2;
+        return a + d*t;
+      }
+
+      // ============================================================
+      // Canvas
+      // ============================================================
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+
+      let anchura = window.innerWidth;
+      let altura  = window.innerHeight;
+
+      function resize(){
+        anchura = window.innerWidth;
+        altura  = window.innerHeight;
+        lienzo.width = anchura;
+        lienzo.height = altura;
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      // ============================================================
+      // Particles
+      // ============================================================
+      class Particula {
+        constructor(x,y,vx,vy,r,life, color, alpha=1){
+          this.x=x; this.y=y; this.vx=vx; this.vy=vy;
+          this.r=r;
+          this.life=life;
+          this.maxLife=life;
+          this.color=color;
+          this.alpha=alpha;
+        }
+        step(){
+          this.x += this.vx;
+          this.y += this.vy;
+          this.vx *= 0.99;
+          this.vy *= 0.99;
+          this.life--;
+        }
+        draw(){
+          const t = this.life / this.maxLife;
+          contexto.save();
+          contexto.globalAlpha = this.alpha * t;
+          contexto.fillStyle = this.color;
+          contexto.beginPath();
+          contexto.arc(this.x,this.y,this.r,0,Math.PI*2);
+          contexto.fill();
+          contexto.restore();
+        }
+      }
+      let particulas = [];
+      function spray(x,y,ang,amount=6){
+        for(let i=0;i<amount;i++){
+          const a = ang + rand(-0.35,0.35) + Math.PI; // backwards
+          const sp = rand(1.0, 3.2);
+          particulas.push(new Particula(
+            x + rand(-2,2),
+            y + rand(-2,2),
+            Math.cos(a)*sp + rand(-0.2,0.2),
+            Math.sin(a)*sp + rand(-0.2,0.2),
+            rand(1.2,2.8),
+            Math.floor(rand(18,34)),
+            "rgba(255,255,255,1)",
+            0.9
+          ));
+        }
+      }
+      function explode(x,y, baseColor="rgba(180,200,255,1)", count=40){
+        for(let i=0;i<count;i++){
+          const a = rand(0, Math.PI*2);
+          const sp = rand(0.8, 5.5);
+          particulas.push(new Particula(
+            x, y,
+            Math.cos(a)*sp,
+            Math.sin(a)*sp,
+            rand(1.2,3.6),
+            Math.floor(rand(24,60)),
+            baseColor,
+            1
+          ));
+        }
+      }
+
+      // ============================================================
+      // Classes
+      // ============================================================
+      class Jugador{
+        constructor(){
+          this.posx = anchura/2;
+          this.posy = altura/2;
+          this.angulo = 0;
+          this.velx = 0;
+          this.vely = 0;
+          this.aceleracion = 0.18;
+          this.rozamiento = 0.995;
+          this.velMax = 8;
+
+          // for “awesome” look (vector)
+          this.pulse = 0;
+        }
+        dibuja(thrustOn=false){
+          this.pulse += 0.06;
+          const glow = 0.55 + Math.sin(this.pulse)*0.15;
+
+          // ship body (outlined + filled)
+          const noseLen = 26, baseLen = 16, spread = Math.PI*0.75;
+          const noseX = this.posx + Math.cos(this.angulo)*noseLen;
+          const noseY = this.posy + Math.sin(this.angulo)*noseLen;
+          const leftX = this.posx + Math.cos(this.angulo + spread)*baseLen;
+          const leftY = this.posy + Math.sin(this.angulo + spread)*baseLen;
+          const rightX= this.posx + Math.cos(this.angulo - spread)*baseLen;
+          const rightY= this.posy + Math.sin(this.angulo - spread)*baseLen;
+
+          // subtle cockpit ring
+          contexto.save();
+          contexto.globalAlpha = 0.35*glow;
+          contexto.strokeStyle = "white";
+          contexto.lineWidth = 2;
+          contexto.beginPath();
+          contexto.arc(this.posx, this.posy, 11, 0, Math.PI*2);
+          contexto.stroke();
+          contexto.restore();
+
+          // body
+          contexto.save();
+          contexto.fillStyle = "white";
+          contexto.strokeStyle = "rgba(120,180,255,0.9)";
+          contexto.lineWidth = 2;
+          contexto.beginPath();
+          contexto.moveTo(noseX,noseY);
+          contexto.lineTo(leftX,leftY);
+          contexto.lineTo(this.posx + Math.cos(this.angulo + Math.PI)*8, this.posy + Math.sin(this.angulo + Math.PI)*8);
+          contexto.lineTo(rightX,rightY);
+          contexto.closePath();
+          contexto.fill();
+          contexto.stroke();
+          contexto.restore();
+
+          // engine flame (vector, no sprites)
+          if(thrustOn){
+            const backX = this.posx + Math.cos(this.angulo + Math.PI)*18;
+            const backY = this.posy + Math.sin(this.angulo + Math.PI)*18;
+            const side = 7;
+
+            contexto.save();
+            contexto.globalAlpha = 0.9;
+            contexto.fillStyle = "rgba(120,180,255,0.9)";
+            contexto.beginPath();
+            contexto.moveTo(backX, backY);
+            contexto.lineTo(
+              backX + Math.cos(this.angulo + Math.PI/2)*side,
+              backY + Math.sin(this.angulo + Math.PI/2)*side
+            );
+            contexto.lineTo(
+              backX + Math.cos(this.angulo + Math.PI)*rand(10,18),
+              backY + Math.sin(this.angulo + Math.PI)*rand(10,18)
+            );
+            contexto.lineTo(
+              backX + Math.cos(this.angulo - Math.PI/2)*side,
+              backY + Math.sin(this.angulo - Math.PI/2)*side
+            );
+            contexto.closePath();
+            contexto.fill();
+            contexto.restore();
+          }
+
+          // center marker (kept from your original, but nicer)
+          contexto.save();
+          contexto.fillStyle = "red";
+          contexto.beginPath();
+          contexto.arc(this.posx,this.posy,4.5,0,Math.PI*2);
+          contexto.fill();
+          contexto.restore();
+        }
+        aplicaThrust(on){
+          if(!on) return;
+          this.velx += Math.cos(this.angulo)*this.aceleracion;
+          this.vely += Math.sin(this.angulo)*this.aceleracion;
+          const v = Math.hypot(this.velx, this.vely);
+          if(v > this.velMax){
+            const f = this.velMax / v;
+            this.velx *= f; this.vely *= f;
+          }
+        }
+        mueve(){
+          this.velx *= this.rozamiento;
+          this.vely *= this.rozamiento;
+          this.posx += this.velx;
+          this.posy += this.vely;
+
+          // wrap
+          if (this.posx < 0) this.posx += anchura;
+          if (this.posx > anchura) this.posx -= anchura;
+          if (this.posy < 0) this.posy += altura;
+          if (this.posy > altura) this.posy -= altura;
+        }
+      }
+
+      class Bala{
+        constructor(x,y,a){
+          this.posx = x; this.posy = y; this.angulo = a;
+          this.velocidad = 12;
+        }
+        dibuja(){
+          contexto.fillStyle = "dodgerblue";
+          contexto.beginPath();
+          contexto.arc(this.posx,this.posy,3,0,Math.PI*2);
+          contexto.fill();
+        }
+        mueve(){
+          this.posx += Math.cos(this.angulo)*this.velocidad;
+          this.posy += Math.sin(this.angulo)*this.velocidad;
+        }
+      }
+
+      class Estrella{
+        constructor(){
+          this.posx = Math.random()*anchura;
+          this.posy = Math.random()*altura;
+          this.r = Math.random()<0.15 ? 2 : 1;
+          this.a = 0.6 + Math.random()*0.4;
+        }
+        dibuja(){
+          contexto.save();
+          contexto.globalAlpha = this.a;
+          contexto.fillStyle = "white";
+          contexto.beginPath();
+          contexto.arc(this.posx,this.posy,this.r,0,Math.PI*2);
+          contexto.fill();
+          contexto.restore();
+        }
+      }
+
+      // Rocks drawn as before (vector polygon)
+      class Roca{
+        constructor(data){
+          // data from server
+          this.id = data.id;
+          this.posx = data.x;
+          this.posy = data.y;
+          this.vx = data.vx;
+          this.vy = data.vy;
+          this.radio = data.radius;
+          this.angulo = data.ang || 0;
+          this.rot = data.rot || 0;
+          this.lados = data.lados || 12;
+
+          // "puntas" from server if provided; otherwise generate deterministic from id
+          if (Array.isArray(data.puntas) && data.puntas.length >= this.lados) {
+            this.puntas = data.puntas.slice(0, this.lados);
+          } else {
+            // deterministic-ish
+            const rug = 0.4;
+            let seed = (this.id*9301 + 49297) % 233280;
+            const rnd = ()=> (seed = (seed*9301+49297)%233280) / 233280;
+            this.puntas = Array.from({length:this.lados}, ()=> 1 + (rnd()*2 - 1)*rug);
+          }
+        }
+        dibuja(){
+          contexto.fillStyle = "grey";
+          contexto.beginPath();
+          for(let i=0;i<this.lados;i++){
+            const ang = (i/this.lados)*Math.PI*2 + this.angulo;
+            const r = this.radio * this.puntas[i];
+            const x = this.posx + Math.cos(ang)*r;
+            const y = this.posy + Math.sin(ang)*r;
+            if(i===0) contexto.moveTo(x,y); else contexto.lineTo(x,y);
+          }
+          contexto.closePath();
+          contexto.strokeStyle = "#333";
+          contexto.fill();
+          contexto.stroke();
+        }
+      }
+
+      // ============================================================
+      // Local game state (kept)
+      // ============================================================
+      const jugador = new Jugador();
+      let estrellas = Array.from({length:100}, ()=>new Estrella());
+
+      let balas = [];           // local bullets (for immediate feel)
+      let bulletsToSend = [];   // queued new bullets to send on next heartbeat
+
+      // "authoritative-ish" world from server (snapshots)
+      let snapA = null; // older
+      let snapB = null; // newer
+      let lastSnapArrive = 0;
+
+      // ============================================================
+      // Controls
+      // ============================================================
+      let giro = 0;       // -1 izq, 1 der
+      let thrust = false; // w
+
+      document.body.onkeydown = (e)=>{
+        switch(e.key){
+          case "a": giro = -1; break;
+          case "d": giro = 1;  break;
+          case "w": thrust = true; break;
+        }
+        if(e.code === "Space"){
+          // local fire now
+          const b = new Bala(jugador.posx, jugador.posy, jugador.angulo);
+          balas.push(b);
+
+          // queue to server as vx/vy bullet (server uses linear bullets)
+          const vx = Math.cos(jugador.angulo) * b.velocidad;
+          const vy = Math.sin(jugador.angulo) * b.velocidad;
+          bulletsToSend.push({ x: jugador.posx, y: jugador.posy, vx, vy });
+        }
+      };
+      document.body.onkeyup = (e)=>{
+        switch(e.key){
+          case "a": if(giro === -1) giro = 0; break;
+          case "d": if(giro === 1)  giro = 0; break;
+          case "w": thrust = false; break;
+        }
+      };
+
+      // ============================================================
+      // Targeting (crosshair on nearest “in front” rock)
+      // ============================================================
+      function findTargetRock(rocks){
+        // pick nearest rock within forward cone
+        let best = null;
+        let bestScore = Infinity;
+
+        const fx = Math.cos(jugador.angulo);
+        const fy = Math.sin(jugador.angulo);
+
+        for(const r of rocks){
+          const dx = r.x - jugador.posx;
+          const dy = r.y - jugador.posy;
+          const d = Math.hypot(dx,dy);
+          if(d < 1) continue;
+
+          const dot = (dx/d)*fx + (dy/d)*fy; // [-1..1]
+          if(dot < 0.6) continue; // cone threshold
+
+          // score: distance and how centered it is
+          const score = d * (1.5 - dot);
+          if(score < bestScore){
+            bestScore = score;
+            best = r;
+          }
+        }
+        return best;
+      }
+
+      function drawCrosshair(x,y, r){
+        contexto.save();
+        contexto.strokeStyle = "rgba(120,180,255,0.95)";
+        contexto.lineWidth = 2;
+        const s = Math.max(12, r*0.55);
+
+        contexto.beginPath();
+        contexto.arc(x,y, s, 0, Math.PI*2);
+        contexto.stroke();
+
+        contexto.beginPath();
+        contexto.moveTo(x-s-8, y); contexto.lineTo(x-s+2, y);
+        contexto.moveTo(x+s-2, y); contexto.lineTo(x+s+8, y);
+        contexto.moveTo(x, y-s-8); contexto.lineTo(x, y-s+2);
+        contexto.moveTo(x, y+s-2); contexto.lineTo(x, y+s+8);
+        contexto.stroke();
+
+        contexto.restore();
+      }
+
+      // ============================================================
+      // Multiplayer networking (heartbeat 1s + interpolation)
+      // ============================================================
+      const ENDPOINT = "./state.php";
+
+      function getClientId(){
+        let id = localStorage.getItem("ast_client_id");
+        if(!id){
+          id = "c_" + Math.random().toString(16).slice(2) + "_" + Date.now().toString(16);
+          localStorage.setItem("ast_client_id", id);
+        }
+        return id;
+      }
+      const clientId = getClientId();
+
+      async function heartbeat(){
+        // send local state (ship + queued bullets)
+        const payload = {
+          clientId,
+          now: performance.now()/1000,
+          viewport: { w: anchura, h: altura },
+          ship: { x: jugador.posx, y: jugador.posy, ang: jugador.angulo, vx: jugador.velx, vy: jugador.vely },
+          input: { thrust, giro },
+          bulletsNew: bulletsToSend
+        };
+        bulletsToSend = [];
+
+        try{
+          const res = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type":"application/json" },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+
+          const snap = {
+            tClientArrive: performance.now(),
+            serverNow: data.serverNow,
+            you: data.you,
+            players: data.players || [],
+            rocks: data.rocks || [],
+            bullets: data.bullets || [],
+            level: data.level || 1
+          };
+
+          // shift snapshots
+          snapA = snapB;
+          snapB = snap;
+          if(!snapA) snapA = snapB; // first time
+          lastSnapArrive = performance.now();
+        }catch(err){
+          // ignore, keep last snapshots
+        }
+      }
+
+      setInterval(heartbeat, 1000);
+      heartbeat(); // initial
+
+      function interpWorld(){
+        // returns interpolated lists based on snapA/snapB
+        if(!snapA || !snapB) return { rocks:[], bullets:[], players:[] };
+
+        // interpolation time: we want to be slightly behind the newest snapshot to avoid jitter
+        const now = performance.now();
+        const delay = 150; // ms buffer
+        const t = now - delay;
+
+        // use arrival times as local timeline
+        const t0 = snapA.tClientArrive;
+        const t1 = snapB.tClientArrive;
+        const span = Math.max(1, (t1 - t0));
+        const alpha = Math.max(0, Math.min(1, (t - t0) / span));
+
+        // helper maps by id
+        const mapById = (arr, key="id") => {
+          const m = new Map();
+          for(const o of arr) m.set(o[key], o);
+          return m;
+        };
+
+        // rocks
+        const aR = mapById(snapA.rocks, "id");
+        const bR = mapById(snapB.rocks, "id");
+        const rocks = [];
+        for(const [id, rb] of bR.entries()){
+          const ra = aR.get(id) || rb;
+          rocks.push({
+            id,
+            x: lerp(ra.x, rb.x, alpha),
+            y: lerp(ra.y, rb.y, alpha),
+            radius: rb.radius,
+            ang: lerpAngle(ra.ang||0, rb.ang||0, alpha),
+            rot: rb.rot,
+            lados: rb.lados,
+            puntas: rb.puntas
+          });
+        }
+
+        // bullets (interpolate by id)
+        const aB = mapById(snapA.bullets, "id");
+        const bB = mapById(snapB.bullets, "id");
+        const bullets = [];
+        for(const [id, bb] of bB.entries()){
+          const ba = aB.get(id) || bb;
+          bullets.push({
+            id,
+            owner: bb.owner,
+            x: lerp(ba.x, bb.x, alpha),
+            y: lerp(ba.y, bb.y, alpha)
+          });
+        }
+
+        // players
+        const aP = mapById(snapA.players, "id");
+        const bP = mapById(snapB.players, "id");
+        const players = [];
+        for(const [id, pb] of bP.entries()){
+          const pa = aP.get(id) || pb;
+          players.push({
+            id,
+            ship: {
+              x: lerp(pa.ship.x, pb.ship.x, alpha),
+              y: lerp(pa.ship.y, pb.ship.y, alpha),
+              ang: lerpAngle(pa.ship.ang, pb.ship.ang, alpha)
+            },
+            input: pb.input || { thrust:false, giro:0 }
+          });
+        }
+
+        return { rocks, bullets, players, level: snapB.level, you: snapB.you };
+      }
+
+      // ============================================================
+      // Visual effects on rock hit (client-side)
+      // (Server does not fragment; we fragment visually here for now.)
+      // ============================================================
+      function fragmentOrExplodeRock(hitX, hitY, radius){
+        if(radius > 22){
+          // fragment: spawn two smaller explosions (visual)
+          explode(hitX, hitY, "rgba(180,200,255,1)", 28);
+          explode(hitX+rand(-8,8), hitY+rand(-8,8), "rgba(255,255,255,1)", 18);
+        } else {
+          // small: lots of particles
+          explode(hitX, hitY, "rgba(200,220,255,1)", 55);
+        }
+      }
+
+      // ============================================================
+      // Main Loop (keeps starfield + vector look)
+      // ============================================================
+      function bucle(){
+        // local input + physics (same feel)
+        jugador.angulo += giro * 0.08;
+        jugador.aplicaThrust(thrust);
+        if(thrust){
+          // thruster spray particles
+          spray(jugador.posx, jugador.posy, jugador.angulo, 6);
+        }
+
+        // Background
+        contexto.fillStyle = "black";
+        contexto.fillRect(0,0,anchura,altura);
+
+        // Starfield (kept)
+        estrellas.forEach(e=>e.dibuja());
+
+        // Interpolated world from server
+        const world = interpWorld();
+        const rocksI = world.rocks || [];
+        const bulletsI = world.bullets || [];
+        const playersI = world.players || [];
+        const youId = world.you || clientId;
+
+        // Draw rocks (interpolated)
+        for(const r of rocksI){
+          const roca = new Roca(r);
+          roca.dibuja();
+        }
+
+        // Draw bullets from server (remote + also your own server bullets)
+        // Keep your local bullets too for responsiveness
+        for(const b of bulletsI){
+          contexto.fillStyle = (b.owner === youId) ? "rgba(30,144,255,0.7)" : "rgba(30,144,255,0.9)";
+          contexto.beginPath();
+          contexto.arc(b.x,b.y,3,0,Math.PI*2);
+          contexto.fill();
+        }
+
+        // Local bullets (immediate)
+        balas.forEach(b=>{ b.dibuja(); b.mueve(); });
+        for(let j=balas.length-1;j>=0;j--){
+          if(balas[j].posx<0 || balas[j].posx>anchura || balas[j].posy<0 || balas[j].posy>altura){
+            balas.splice(j,1);
+          }
+        }
+
+        // Local player movement + draw (kept)
+        jugador.mueve();
+        jugador.dibuja(thrust);
+
+        // Remote players (vector ships, same style)
+        for(const p of playersI){
+          if(p.id === youId) continue;
+          // draw a ship at interpolated position
+          contexto.save();
+          // slight tint to differentiate
+          contexto.globalAlpha = 0.95;
+          const x = p.ship.x, y = p.ship.y, ang = p.ship.ang;
+
+          // body
+          const noseLen = 24, baseLen = 15, spread = Math.PI*0.75;
+          const noseX = x + Math.cos(ang)*noseLen;
+          const noseY = y + Math.sin(ang)*noseLen;
+          const leftX = x + Math.cos(ang + spread)*baseLen;
+          const leftY = y + Math.sin(ang + spread)*baseLen;
+          const rightX= x + Math.cos(ang - spread)*baseLen;
+          const rightY= y + Math.sin(ang - spread)*baseLen;
+
+          contexto.fillStyle = "white";
+          contexto.strokeStyle = "rgba(120,180,255,0.8)";
+          contexto.lineWidth = 2;
+          contexto.beginPath();
+          contexto.moveTo(noseX,noseY);
+          contexto.lineTo(leftX,leftY);
+          contexto.lineTo(x + Math.cos(ang + Math.PI)*8, y + Math.sin(ang + Math.PI)*8);
+          contexto.lineTo(rightX,rightY);
+          contexto.closePath();
+          contexto.fill();
+          contexto.stroke();
+
+          // center dot
+          contexto.fillStyle = "rgba(255,80,80,0.9)";
+          contexto.beginPath();
+          contexto.arc(x,y,4,0,Math.PI*2);
+          contexto.fill();
+
+          // thrust hint
+          if(p.input && p.input.thrust){
+            const backX = x + Math.cos(ang + Math.PI)*18;
+            const backY = y + Math.sin(ang + Math.PI)*18;
+            const side = 6;
+            contexto.fillStyle = "rgba(120,180,255,0.85)";
+            contexto.beginPath();
+            contexto.moveTo(backX, backY);
+            contexto.lineTo(backX + Math.cos(ang + Math.PI/2)*side, backY + Math.sin(ang + Math.PI/2)*side);
+            contexto.lineTo(backX + Math.cos(ang + Math.PI)*rand(9,16), backY + Math.sin(ang + Math.PI)*rand(9,16));
+            contexto.lineTo(backX + Math.cos(ang - Math.PI/2)*side, backY + Math.sin(ang - Math.PI/2)*side);
+            contexto.closePath();
+            contexto.fill();
+          }
+
+          contexto.restore();
+        }
+
+        // Targeting crosshair on rock in front (using interpolated rocks)
+        const target = findTargetRock(rocksI);
+        if(target){
+          drawCrosshair(target.x, target.y, target.radius);
+        }
+
+        // Client-side “hit particles” when your LOCAL bullet overlaps interpolated rock
+        // (visual only; server doesn’t remove rocks here)
+        for(const r of rocksI){
+          for(const b of balas){
+            if(distancia(b.posx,b.posy,r.x,r.y) < r.radius){
+              fragmentOrExplodeRock(r.x, r.y, r.radius);
+              // remove local bullet so it feels like it hit
+              b.posx = -99999;
+            }
+          }
+        }
+        for(let j=balas.length-1;j>=0;j--){
+          if(balas[j].posx < -10000) balas.splice(j,1);
+        }
+
+        // Particles step/draw
+        for(let i=particulas.length-1;i>=0;i--){
+          particulas[i].step();
+          particulas[i].draw();
+          if(particulas[i].life <= 0) particulas.splice(i,1);
+        }
+
+        // HUD
+        contexto.fillStyle = "white";
+        contexto.font = "16px monospace";
+        const playersCount = (snapB && snapB.players) ? snapB.players.length : 1;
+        contexto.fillText(`Players: ${playersCount}`, 12, 22);
+        contexto.fillText(`Net: ${snapB ? "OK" : "..."}`, 12, 42);
+
+        requestAnimationFrame(bucle);
+      }
+      requestAnimationFrame(bucle);
+    </script>
+  </body>
+</html>
+

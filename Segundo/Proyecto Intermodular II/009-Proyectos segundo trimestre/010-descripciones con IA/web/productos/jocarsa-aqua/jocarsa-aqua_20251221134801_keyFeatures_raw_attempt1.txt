@@ -1,0 +1,5 @@
+[
+  {"name":"Interfaz de Administrador Personalizada","benefit":"Permite a los administradores gestionar fácilmente usuarios y aplicaciones sin complicaciones técnicas."},
+  {"name":"Seguridad Fortalecida con autenticación encriptada","benefit":"Los datos del usuario son protegidos mediante hash seguro, garantizando la confidencialidad de las contraseñas."},
+  {"name":"Gestión CRUD Sencilla y Práctica","benefit":"Permite agregar, editar y eliminar registros directamente desde el panel, sin necesidad de conocimientos avanzados de base de datos."}
+]

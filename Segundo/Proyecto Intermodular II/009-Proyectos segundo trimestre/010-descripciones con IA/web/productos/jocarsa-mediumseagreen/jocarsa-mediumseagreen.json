@@ -1,0 +1,301 @@
+{
+  "productPage": {
+    "@lang": "es",
+    "@type": "softwareEducativo",
+    "@version": "1.1",
+    "meta": {
+      "slug": "jocarsa-mediumseagreen",
+      "title": "jocarsa | mediumseagreen - Convertir y Analizar Subtítulos para Contenidos Educativos",
+      "category": "softwareEducativo",
+      "audience": {
+        "segment": [
+          "desarrolladores",
+          "educadores",
+          "administradores"
+        ]
+      },
+      "ctaPrimary": "Probar Ahora",
+      "ctaSecondary": "Conoce Más"
+    },
+    "hero": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_hero.jpg",
+          "@alt": "Producto software"
+        }
+      },
+      "name": "jocarsa | mediumseagreen",
+      "valueProposition": "Automatiza el procesamiento de subtítulos y análisis didáctico para contenido educativo, asegurando calidad y consistencia en las lecciones.",
+      "subtitle": "Convierte, analiza y mejora tu contenido para mejorar la experiencia del aprendizaje",
+      "badges": {
+        "badge": [
+          "Automatización de Procesos",
+          "Compatibilidad Multisubtítulos",
+          "Análisis Didáctico Avanzado"
+        ]
+      },
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Probar Ahora"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Conoce Más"
+          },
+          {
+            "@type": "tertiary",
+            "#text": "Ver Casos de Uso"
+          }
+        ]
+      }
+    },
+    "problem": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_problem.jpg",
+          "@alt": "Problemas habituales"
+        }
+      },
+      "title": "Reporte de Proyecto",
+      "items": {
+        "item": [
+          "Lee 'playlists_videos.json' (categoría \"25/26\")",
+          "Intenta player_client: android -> mweb -> tv -> web (con cookies si existen)",
+          "Convierte .vtt a TEXTO SÓLIDO (un único párrafo), sin timestamps/etiquetas/roll-up",
+          "Crea .log cuando no hay 'es-orig'. (Opcional) Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1"
+        ]
+      }
+    },
+    "solution": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_solution.jpg",
+          "@alt": "Solución"
+        }
+      },
+      "title": "Generador de contenido didáctico a partir de transcripciones y análisis de videos",
+      "overview": "Este software educa en la generación de contenido didáctico avanzado, utilizando transcripciones y análisis de videos. Incluye la identificación de unidades, subunidades, la conversión de subtítulos VTT a texto sólido, y el uso de un modelo de lenguaje para extraer temas clave y generar notas y resúmenes didácticos.",
+      "whatChanges": {
+        "change": [
+          "Integra transcripciones de videos en un formato estructurado",
+          "Convierte subtítulos VTT a texto sólido sin etiquetas o timestamps",
+          "Analiza videos para identificar temas clave y generar notas didácticas usando modelos de lenguaje"
+        ]
+      }
+    },
+    "keyFeatures": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_features.jpg",
+          "@alt": "Funcionalidades"
+        }
+      },
+      "title": "Características destacadas",
+      "feature": [
+        {
+          "name": "Panel central",
+          "benefit": "Control en un solo lugar orientado a TITLE / Título / Página / Reporte / proyecto / Estructura."
+        },
+        {
+          "name": "Gestión diaria",
+          "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+        },
+        {
+          "name": "Información clara",
+          "benefit": "Consulta estados y avances de forma sencilla."
+        }
+      ]
+    },
+    "targetAudience": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_audience.jpg",
+          "@alt": "Público objetivo"
+        }
+      },
+      "title": "Estudiantes universitarios y profesores",
+      "profiles": {
+        "profile": [
+          {
+            "name": "Estudiantes universitarios",
+            "fit": "Este software es ideal para estudiantes universitarios que buscan mejorar su comprensión de los temas académicos a través del análisis de videos y transcripciones. Ofrece una forma interactiva y fácil de seguir el material de estudio y entender mejor los contenidos."
+          },
+          {
+            "name": "Profesores",
+            "fit": "Para los profesores, este software ofrece herramientas valiosas para planificar lecciones y crear materiales didácticos basados en el análisis de videos. Ayuda a organizar contenido complejo y hacerlo más accesible para sus estudiantes."
+          },
+          {
+            "name": "Perfil",
+            "fit": "Encaje"
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_usecases.jpg",
+          "@alt": "Casos de uso"
+        }
+      },
+      "title": "jocarsa | mediumseagreen",
+      "case": [
+        {
+          "name": "Lectura de Playlists Videos JSON",
+          "description": "Lee 'playlists_videos.json' en la categoría '25/26'. Intenta obtener subtítulos mediante diferentes clientes (android, mweb, tv, web) y utiliza cookies si existen."
+        },
+        {
+          "name": "Conversión de VTT a Texto Solido",
+          "description": "Convierte archivos .vtt a texto sólido sin etiquetas ni timestamps. Registra en .log cuando no se consiguen subtítulos en español original (es-orig)."
+        },
+        {
+          "name": "Priorización de Idiomas para Subtítulos",
+          "description": "Prioriza la obtención de subtítulos en español, luego en cualquier otro idioma disponible y finalmente en el mejor candidato de auto-subtítulos si no se consiguen los anteriores."
+        },
+        {
+          "name": "Manejo de Contenido de Textos",
+          "description": "Lee archivos .txt y extrae su cuerpo, ignorando la cabecera hasta una línea de guiones. Se chunkea por caracteres con cortes suaves por oraciones y MAP genera 'notas' para cada chunk usando la API remota."
+        },
+        {
+          "name": "Integración con Ollama para Generación Didáctica",
+          "description": "Utiliza el modelo Instruct ollama (ej. 'ollama pull llama3.1:8b-instruct-q4_0') para generar notas y un resumen didáctico a partir del contenido chunkeado."
+        },
+        {
+          "name": "Análisis de Contenido con Embeddings",
+          "description": "Computa la similitud máxima entre cada vídeo y los topics definidos, utilizando el modelo embeddings 'nomic-embed-text' (ollama pull nomic-embed-text)."
+        }
+      ]
+    },
+    "benefits": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_benefits.jpg",
+          "@alt": "Beneficios"
+        }
+      },
+      "title": "Incrementa la eficacia del aprendizaje",
+      "items": {
+        "item": [
+          "Genera un entorno didáctico personalizado y contextualizado con notas y síntesis de texto, facilitando la comprensión de los temas clave",
+          "Identifica y categoriza automaticamente los tópicos principales a través de la comparación con temarios predefinidos, mejorando el proceso de revisión y aprendizaje",
+          "Conserva el orden original del contenido en la síntesis didáctica, asegurando que no se pierdan detalles cruciales",
+          "Facilita la resolución de problemas complejos al proporcionar notas estructuradas basadas en el contexto del video o texto, ayudando a los estudiantes a comprender mejor los conceptos abstractos"
+        ]
+      }
+    },
+    "trust": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_trust.jpg",
+          "@alt": "Confianza"
+        }
+      },
+      "title": "Título",
+      "points": {
+        "point": [
+          "Implementa un flujo de descarga de subtítulos prioritario para idiomas españoles (es, es-ES, es-419) y un fallback a auto-captions en español o el mejor candidato no español.",
+          "Transforma los subtítulos .vtt a texto sólido sin timestamps ni etiquetas de tiempo, facilitando su lectura e integración en la estructura didáctica del contenido educativo.",
+          "Utiliza un modelo de embeddings para clasificar automáticamente la pertinencia de cada tema o subtema con respecto al contenido de los videos, mejorando la calidad del resumen y el aprendizaje."
+        ]
+      }
+    },
+    "finalCTA": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_cta.jpg",
+          "@alt": "Solicitar demo"
+        }
+      },
+      "title": "Empieza tu viaje educativo hoy",
+      "description": "Descubre cómo transformar contenido audiovisual en recursos didácticos con nuestra solución de SaaS. ¡Convierte tus videos y transcripciones en un recurso valioso para el aprendizaje!",
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Prueba Gratuita"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Ver Cómo Funciona"
+          }
+        ]
+      },
+      "contact": {
+        "email": "info@jocarsa.com",
+        "form": {
+          "field": [
+            {
+              "@name": "nombre",
+              "@type": "text",
+              "@required": "true"
+            },
+            {
+              "@name": "email",
+              "@type": "email",
+              "@required": "true"
+            },
+            {
+              "@name": "mensaje",
+              "@type": "textarea",
+              "@required": "true"
+            }
+          ]
+        }
+      }
+    },
+    "faq": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_faq.jpg",
+          "@alt": "Preguntas frecuentes"
+        }
+      },
+      "title": "Preguntas Frecuentes",
+      "qa": [
+        {
+          "q": "¿Cómo funciona la descarga de subtítulos?",
+          "a": "La herramienta intenta descargar los subtítulos en español (es, es-ES, es-419) y si no se encuentra ninguno, utiliza el primer auto-caption disponible. Si esto falla, se recurre a --all-subs para obtener el mejor candidato."
+        },
+        {
+          "q": "¿Cómo se convierten los archivos .vtt a texto sólido?",
+          "a": "Los archivos .vtt se convierten en un único párrafo sin timestamps o etiquetas, eliminando cualquier roll-up que pueda existir."
+        },
+        {
+          "q": "¿Qué es el proceso de chunking y MAP/REDUCE?",
+          "a": "El chunking divide el contenido por caracteres con cortes suaves por oraciones. MAP genera 'notas' para cada fragmento usando la API remota, mientras que REDUCE sintetiza un único .md didáctico."
+        },
+        {
+          "q": "¿Cómo se maneja la identificación de temas en los videos?",
+          "a": "Se utiliza una lista de temas y se mapean a 'Unidad' o 'Unidad: Subunidad'. El modelo Instruct analiza el vídeo y devuelve coincidencias con un score, filtradas por un umbral."
+        },
+        {
+          "q": "¿Qué sucede si no hay subtítulos disponibles en español?",
+          "a": "La herramienta intenta obtener los primeros auto-captions disponibles. Si esto falla, se recurre a --all-subs para seleccionar el mejor candidato disponible."
+        }
+      ]
+    },
+    "footer": {
+      "summary": "jocarsa | mediumseagreen"
+    },
+    "integrations": {
+      "@optional": "true",
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-mediumseagreen_20251221135207_integrations.jpg",
+          "@alt": "Integraciones"
+        }
+      },
+      "title": "Integraciones Adicionales",
+      "notes": "Incluye integración opcional con otras herramientas.",
+      "items": {
+        "item": [
+          "YouTube Player Client",
+          "Subtítulos en Español (es/es-ES/es-419)",
+          "Sumario Automático de Vídeos"
+        ]
+      }
+    }
+  }
+}

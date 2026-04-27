@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"jocarsa | orange","profiles":[{"name":"usuarios finales","fit":"Necesitan gestionar sus propias listas de compras y productos, con la posibilidad de crear nuevas listas y editarlas según sea necesario"},{"name":"administradores","fit":"Tienen el control sobre la gestión de usuarios y la configuración del sistema, permitiéndoles cambiar las preferencias de diseño para todos los usuarios."},{"name":"invitados","fit":"Pueden explorar las características básicas sin necesidad de iniciar sesión, como ver productos disponibles en listas públicas o gestionadas por otros usuarios"}]}
+}

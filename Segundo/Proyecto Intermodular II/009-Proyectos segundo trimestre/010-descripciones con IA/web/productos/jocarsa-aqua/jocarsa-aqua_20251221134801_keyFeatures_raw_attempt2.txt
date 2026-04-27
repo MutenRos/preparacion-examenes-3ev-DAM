@@ -1,0 +1,5 @@
+[
+  {"name":"Inicio de Sesión Personalizado","benefit":"Permite a los administradores iniciar sesión fácilmente con validación segura de credenciales."},
+  {"name":"CRUD Directo en el Panel","benefit":"Ofrece una gestión directa y sencilla para agregar, editar o eliminar registros desde la interfaz del usuario sin necesidad de conocimientos técnicos avanzados."},
+  {"name":"Protección de Seguridad con Autenticación Hash","benefit":"Los datos sensibles son protegidos mediante autenticación encriptada para asegurar la confidencialidad de las contraseñas de los usuarios y administradores."}
+]

@@ -1,0 +1,19 @@
+{
+  "keyFeatures": {
+    "title": "jocarsa | salmon",
+    "features": [
+      {
+        "name": "Interfaz de Invitación Personalizada",
+        "benefit": "Permite a los usuarios recibir invitaciones con detalles específicos, mejorando la experiencia de participación."
+      },
+      {
+        "name": "Autenticación en Administrador",
+        "benefit": "Sistema de autenticación para administradores asegura que solo usuarios autorizados puedan acceder y gestionar las sesiones."
+      },
+      {
+        "name": "Registro Automático de Salas",
+        "benefit": "Las salas se registran automáticamente con opciones de contraseñas, facilitando la organización y seguridad de las reuniones."
+      }
+    ]
+  }
+}

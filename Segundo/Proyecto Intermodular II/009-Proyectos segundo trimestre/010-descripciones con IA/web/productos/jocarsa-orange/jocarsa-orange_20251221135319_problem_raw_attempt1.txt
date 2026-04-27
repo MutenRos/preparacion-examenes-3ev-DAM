@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"jocarsa | orange","items":["Implementar la funcionalidad de registro en el formulario de autenticación","Permitir al usuario cambiar el tema del aplicación a través de una sección dedicada","Optimizar el despliegue de pantallas para mejorar la experiencia del usuario","Agregar validaciones en los campos del formulario de productos y listas","Integrar la funcionalidad de edición y eliminación de listas"] }
+}

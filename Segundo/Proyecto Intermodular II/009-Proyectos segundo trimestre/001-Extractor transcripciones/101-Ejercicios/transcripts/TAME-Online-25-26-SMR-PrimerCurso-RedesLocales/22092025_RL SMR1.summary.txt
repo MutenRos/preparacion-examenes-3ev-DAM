@@ -1,0 +1,25 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 22092025_RL SMR1.txt
+------------------------------------------------------------
+
+Veo que este texto es una conversación donde alguien está explicando un ejercicio de diseño de red en clase y otro estudiante le está consultando sobre cómo realizar ciertas partes del trabajo. Vamos a resumir y organizar la información proporcionada:
+
+1. El texto comienza con una explicación detallada sobre el uso de dos tipos de cableado:
+   - Cable Directo: Para conectar dispositivos diferentes (PC con switch).
+   - Cable Cruzado: Para conectar equipos iguales o para conexión entre un equipo diferente y uno igual.
+
+2. Luego, hay un cambio de tema donde se habla de utilizar una herramienta de dibujo llamada paquet trace para representar la red como si fuera un dominio de dirección (secretaria) y otro de dirección (dirección).
+
+3. Al final del texto, el interlocutor pregunta cómo realizar ciertas partes del ejercicio y dónde guardar los archivos.
+
+Basándome en esto, aquí hay una resumen con las respuestas clave:
+
+- Los tipos de cableado que se utilizaron fueron:
+  - Cable Directo: Para conectar un PC con un switch.
+  - Cable Cruzado: Para conectar equipos iguales o para conexión entre un equipo diferente y uno igual.
+
+- Se usó la herramienta paquet trace para representar la red como si fuera un dominio de dirección (secretaria) y otro de dirección (dirección).
+
+- Respecto a dónde guardar los archivos, el interlocutor lo hará directamente por chat. No menciona cómo realizar el siguiente paso, ya que está pendiente de recibir instrucciones más específicas sobre cómo proceder con el ejercicio.
+
+Espero que esta organización te ayude a entender mejor la conversación y cómo se estructura su contenido. Si necesitas alguna parte específica explicada en detalle, no dudes en preguntar.

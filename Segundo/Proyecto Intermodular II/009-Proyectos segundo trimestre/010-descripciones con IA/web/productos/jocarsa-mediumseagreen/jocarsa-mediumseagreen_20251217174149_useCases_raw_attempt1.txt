@@ -1,0 +1,5 @@
+```json
+{
+  "useCases": {"title":"Integración y procesamiento de contenido educativo","cases":[{"name":"Análisis y categorización de vídeos educativos","description":"El software educa automáticamente el contenido de las videos lecciones, asignándolas a temas específicos en un formato didáctico. Utiliza modelos de lenguaje avanzados para extraer información relevante y presentarla de manera estructurada."},{"name":"Procesamiento de subtítulos","description":"El software procesa los subtítulos de videos educativos, convirtiéndolos a texto sólido sin timestamps ni etiquetas. Realiza un seguimiento de la disponibilidad de idiomas y proporciona opciones de subtitulación en español o el primero disponible si no se encuentra una opción en español."},{"name":"Generación de contenidos didácticos","description":"El software genera contenido didáctico a partir de textos brutos, utilizando modelos de lenguaje para sintetizar notas y chunks de texto. Proporciona una salida estructurada que puede ser utilizada como base para el desarrollo de lecciones educativas."}]}
+}
+```

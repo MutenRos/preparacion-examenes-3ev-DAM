@@ -1,0 +1,15 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones de Calendario",
+    "notes": "Este calendario soporta la integración con otras aplicaciones a través de API JSON. Las funcionalidades disponibles incluyen registro, inicio de sesión y actualización de eventos.",
+    "items": [
+      "Registro de usuario (POST ?action=register {username,password})",
+      "Inicio de sesión (POST ?action=login {username,password})",
+      "Cierre de sesión (POST ?action=logout {})",
+      "Información del usuario autenticado (GET ?action=me)",
+      "Carga y guardado de eventos requerente inicio de sesión (GET/POST ?action=load/save {data:{version,categories,holidays,events}})"
+    ]
+  }
+}

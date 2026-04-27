@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"jocarsa | salmon","points":["Estructura clara y organizada del proyecto con archivos bien distribuidos.","Código README.md proporciona una descripción precisa del proyecto jocarsa-salmon.","Funcionalidades de autenticación aseguran la seguridad del sistema.""]}
+}
+```

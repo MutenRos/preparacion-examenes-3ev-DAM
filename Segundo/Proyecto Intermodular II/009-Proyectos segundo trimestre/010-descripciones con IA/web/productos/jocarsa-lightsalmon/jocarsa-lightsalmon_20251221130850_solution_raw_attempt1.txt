@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Calendario jocarsa | lightsalmon",
+    "overview": "Este software educativo proporciona una interfaz para gestionar eventos, categorías y festivos a través de un API RESTful. Permite el registro, login y logout de usuarios, así como la carga y guardado de datos calendarios en formato JSON.",
+    "whatChanges": [
+      "Implementación de autenticación e inicios de sesión",
+      "Gestión de eventos, categorías y festivos en una base de datos SQLite",
+      "Exposición de endpoints RESTful para intercambio de datos con el cliente"
+    ]
+  }
+}

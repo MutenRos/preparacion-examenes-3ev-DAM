@@ -1,0 +1,5 @@
+[
+  {"name":"Generación de invitaciones","benefit":"Crea mensajes de invitación personalizados y seguros para usuarios y presentadores, facilitando el acceso a las salas."},
+  {"name":"Seguridad en la base de datos","benefit":"Almacena contraseñas en formato hash para proteger los datos de usuario."},
+  {"name":"Interfaz de administrador sencilla","benefit":"Proporciona una interfaz fácil de usar para gestionar salas y usuarios desde un panel administrativo."}
+]

@@ -1,0 +1,19 @@
+{
+  "targetAudience": {
+    "title": "Educadores y profesionales en el sector educativo",
+    "profiles": [
+      {
+        "name": "Docentes",
+        "fit": "Necesitan automatizar el envío de correos electrónicos para comunicaciones con padres o estudiantes, actualizando regularmente listas de contactos."
+      },
+      {
+        "name": "Directivos escolares",
+        "fit": "Buscan mejorar la gestión de las campañas de correo institucional, asegurando que todos los miembros del equipo estén al día y no se pierdan ningún detalle."
+      },
+      {
+        "name": "Gerentes de proyectos educativos",
+        "fit": "Requieren herramientas para crear y enviar correos electrónicos en masa con contenido personalizado, manteniendo una comunicación efectiva y eficiente con todos los participantes."
+      }
+    ]
+  }
+}

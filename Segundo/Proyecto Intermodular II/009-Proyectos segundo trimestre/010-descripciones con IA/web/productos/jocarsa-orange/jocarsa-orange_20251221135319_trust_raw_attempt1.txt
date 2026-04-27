@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"jocarsa | orange","points":["Estructura de proyecto clara y organizada con archivos y directorios bien definidos.","Código JavaScript intercalado que maneja eventos y navegación de manera efectiva entre diferentes pantallas.","Uso de localStorage para almacenar el estado del usuario, mejorando la experiencia sin necesidad de reingresar las credenciales cada vez que se recarga la página."]}
+}

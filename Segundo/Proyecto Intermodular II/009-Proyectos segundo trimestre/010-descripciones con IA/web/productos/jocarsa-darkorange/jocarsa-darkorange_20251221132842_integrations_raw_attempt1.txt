@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Campañas y Migraciones Suaves", "notes":"Permite la integración de campañas y el manejo de migraciones suaves.", "items":["CSV: Envío de datos de clientes y campañas","TEMPLATE {{columna}}: Personalización en el HTML","EMAIL HTML NORMALIZATION: Ajuste del formato de correo electrónico para una mejor visualización en diferentes clientes de correo"]}
+}

@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "Uso de jocarsa | aliceblue en la educación",
+    "cases": [
+      {
+        "name": "Captura y Análisis de Imágenes",
+        "description": "El software permite a los administradores capturar y analizar imágenes, facilitando el seguimiento detallado del rendimiento educativo. Los usuarios pueden visualizar y comparar las imágenes para identificar progresos o áreas que necesiten atención."
+      },
+      {
+        "name": "Monitoreo Continuo",
+        "description": "Permite un monitoreo continuo de la calidad educativa a través de la visualización en tiempo real, lo cual es útil para ajustar estrategias didácticas y asegurar una educación de alta calidad."
+      },
+      {
+        "name": "Informes Personalizados",
+        "description": "Genera informes personalizados basados en el análisis de las imágenes capturadas. Estos informes proporcionan datos valiosos para mejorar la enseñanza y la instrucción, ayudando a los educadores a tomar decisiones más informadas."
+      }
+    ]
+  }
+}

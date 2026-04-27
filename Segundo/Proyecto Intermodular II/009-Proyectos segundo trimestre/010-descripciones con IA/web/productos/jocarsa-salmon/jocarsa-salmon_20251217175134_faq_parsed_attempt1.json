@@ -1,0 +1,19 @@
+{
+  "faq": {
+    "title": "jocarsa | salmon",
+    "qas": [
+      {
+        "q": "¿Qué es jocarsa | salmon?",
+        "a": "jocarsa | salmon es un software educativo que permite a los usuarios crear y gestionar salas de videoconferencia. Ofrece una interfaz sencilla para compartir contenido en línea y colaborar con otros."
+      },
+      {
+        "q": "¿Cómo accedo al sistema?",
+        "a": "Para acceder, necesitas autenticarte con las credenciales proporcionadas durante la configuración del sistema. Si eres el usuario administrador, tu nombre de usuario es 'jocarsa' y la contraseña también es 'jocarsa'."
+      },
+      {
+        "q": "¿Cómo invito a otros usuarios?",
+        "a": "Puedes generar un enlace de invitación con los detalles necesarios para que otros se unan a las salas. Estos incluyen el título de la sala, su identificador único y opcionalmente una contraseña."
+      }
+    ]
+  }
+}

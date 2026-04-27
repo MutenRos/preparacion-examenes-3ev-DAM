@@ -1,0 +1,202 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Propuesta Educativa Inteligente para SaaS",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Profesores",
+      "Estudiantes",
+      "Educadores"
+    ],
+    "ctaPrimary": "Descubre ahora",
+    "ctaSecondary": "Más detalles"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Transformamos la educación digital con tecnologías avanzadas para análisis de texto y aprendizaje adaptativo.",
+    "subtitle": "Automatiza la creación de contenido educativo, mejora el rendimiento académico y personifica la interacción en línea.",
+    "badges": [
+      "Tecnología Avanzada",
+      "Personalización del Aprendizaje",
+      "Análisis Inteligente"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Ver detalles"
+      },
+      {
+        "type": "secondary",
+        "text": "Prueba gratis"
+      },
+      {
+        "type": "tertiary",
+        "text": "Contáctanos"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Procesamiento y categorización de vídeos educativos en SaaS",
+    "items": [
+      "Analizar y extraer subtítulos en español de vídeos de categoría '25/26'",
+      "Integrar múltiples fuentes de texto y generar descripciones didácticas para cada tema",
+      "Identificar automáticamente los temas principales mediante análisis semántico y lenguaje natural",
+      "Priorizar la inclusión de vídeos con subtítulos disponibles en español, utilizando alternativas automáticas o tradicionales si es necesario"
+    ]
+  },
+  "solution": {
+    "title": "Generador de Contenido Educativo a partir de Subtítulos y Temarios",
+    "overview": "Este software educaativo se encarga de procesar subtítulos de videos en formato VTT, convirtiéndolos en un texto sólido y analizando los temas mencionados para crear contenido didáctico. También puede identificar y estructurar temarios de cursos utilizando lenguajes de marcas como HTML, XML y Markdown.",
+    "whatChanges": [
+      "Convierte subtítulos VTT a texto sólido sin timestamps ni etiquetas.",
+      "Analiza los temas mencionados en los videos para generar contenido didáctico.",
+      "Identifica y estructura temarios de cursos utilizando lenguajes de marcas."
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / Título / Página / Reporte / proyecto / Estructura."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educadores y Estudiantes",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "Este software es ideal para educadores que buscan mejorar la calidad de sus cursos en línea. Ofrece herramientas para analizar contenido, generar resúmenes didácticos y mejorar el aprendizaje."
+      },
+      {
+        "name": "Estudiantes",
+        "fit": "Los estudiantes encontrarán valiosas herramientas para comprender mejor los temas complejos a través del análisis de videos y transcripciones. También les ayuda a organizar y estructurar su material de estudio."
+      },
+      {
+        "name": "Desarrolladores",
+        "fit": "Aunque no es dirigido específicamente a desarrolladores, los expertos en tecnología pueden aprovechar las funcionalidades para integrar nuevas herramientas o mejorar existentes del sistema de aprendizaje."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Caso de Uso",
+    "cases": [
+      {
+        "name": "Generación de Temas Didácticos",
+        "description": "El software educa a partir del contenido de videos y transcripciones para generar temas didácticos estructurados. Utiliza un modelo de lenguaje para analizar y clasificar el contenido en unidades y subunidades, asegurando que los temas se correspondan con precisión. Además, integra la limpieza de subtítulos en texto sólido y el uso de APIs para obtener notas y resumenes didácticos"
+      },
+      {
+        "name": "Recuperación Automática de Contenido",
+        "description": "Este caso de uso permite al software recuperar contenido educativo automáticamente a partir de transcripciones de videos. Incluye la identificación de idiomas, la gestión de cookies y el uso de diferentes clientes para obtener subtítulos en español o cualquier otro disponible. Además, genera un registro detallado en .log sobre los procesos realizados"
+      },
+      {
+        "name": "Análisis del Contenido con Embeddings",
+        "description": "El software analiza el contenido de videos y transcripciones utilizando embeddings para extraer conceptos clave e identificar temas relevantes. Esto se realiza mediante la comparación de los elementos del video con una lista de términos predefinidos, lo que ayuda a organizar el material didáctico de manera efectiva"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Mejora en la aprendizaje educativo",
+    "items": [
+      "Genera una didáctica síntesis de temas complejos con un modelo instructivo",
+      "Identifica automáticamente los temas principales a través de análisis semánticos y similitud de texto",
+      "Convierte subtítulos VTT en texto sólido para mejor comprensión",
+      "mejora la estructura del contenido educativo según el temario oficial"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones de Herramientas Educativas",
+    "notes": "Esta integración permite la sincronización con diferentes plataformas de aprendizaje y análisis en tiempo real. Las herramientas se pueden configurar opcionalmente para mejorar la experiencia del usuario y personalizar el contenido según los estándares de educación.",
+    "items": [
+      "Integración con YouTube para la administración y actualización de vídeos educativos",
+      "Compatibilidad con diferentes plataformas: Mweb, TV, Web y Android",
+      "Generación automática de transcripciones y análisis de contenido a partir de videos en formato .vtt",
+      "Conversión automática de .vtt a texto sólido (un único párrafo) sin timestamps ni etiquetas",
+      "Sincronización con ollama para la creación de notas y resúmenes basados en chunking del contenido didáctico"
+    ]
+  },
+  "trust": {
+    "title": "Confiable y eficiente procesamiento de contenido multimedia",
+    "points": [
+      "Procesa automáticamente subtítulos .vtt en texto sólido sin timestamps o etiquetas.",
+      "Integra múltiples fuentes de idioma, incluyendo español (es, es-ES, es-419) y otros autogenerados si no hay opciones españolas disponibles.",
+      "Mezcla y organiza contenido de vídeos y mensajes en una lista ordenada por fecha para fácil acceso."
+    ]
+  },
+  "finalCTA": {
+    "title": "Descubre Cómo Mejora Tu Aprendizaje",
+    "description": "Explora nuestra plataforma de software educativo y descubre cómo transformar tus lecciones en una experiencia interactiva. ¡Haz clic para ver más!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Ver Demostración"
+      },
+      {
+        "type": "secondary",
+        "text": "Contactar"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo funciona la transición de idiomas en el software?",
+        "a": "El software intenta primero obtener subtítulos en español (es, es-ES, es-419). Si no se encuentran, busca alternativas como los auto-caption disponibles. Como último recurso, utiliza todos los subtítulos disponibles y selecciona el mejor candidato."
+      },
+      {
+        "q": "¿Cuál es el proceso para convertir los subtítulos .vtt a texto sólido?",
+        "a": "Se convierten los subtítulos .vtt a un único párrafo sin timestamps, etiquetas ni roll-up. Si no hay 'es-orig', se registra en un archivo de log y puede caer a idiomas en español o elegir el mejor candidato si se activa el fallback."
+      },
+      {
+        "q": "¿Qué hace el software con los archivos .txt para crear contenido didáctico?",
+        "a": "Los archivos .txt se extraen de su cuerpo (ignorando la cabecera hasta la línea de guiones). Se chunking por caracteres y se generan notas en español para cada fragmento. Luego, se sintetiza un único archivo .md didáctico."
+      },
+      {
+        "q": "¿Cómo se maneja el proceso de ollama en la aplicación?",
+        "a": "Ollama se ejecuta en http://localhost:11434 y utiliza modelos instructivos como 'ollama pull llama3.1:8b-instruct-q4_0'. Se envían prompts al modelo con el cuerpo del video para obtener matches (topic, score 0..1) que luego se filtran por un umbral."
+      },
+      {
+        "q": "¿Cuál es la función de la variable `TOPIC_BATCH`?",
+        "a": "La variable `TOPIC_BATCH` divide los temas en lotes y envía prompts al modelo para cada lote. Esto ayuda a no saturar el contexto del modelo y mejora la eficiencia del proceso."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa-mediumseagreen | Desarrollado para facilitar la edificación de contenido educativo, este software combina el procesamiento de videos y texto en una experiencia interactiva. Se utiliza yt-dlp para descargar subtítulos, luego se procesan para extraer información relevante y estructurarla en formatos didácticos como .md o JSON. La plataforma soporta múltiples idiomas, incluyendo el español y auto-capturados, asegurando la accesibilidad del contenido a través de diferentes clientes como web, móvil y TV."
+  }
+}

@@ -1,0 +1,234 @@
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-khaki
+# jocarsa-khaki
+* Conexión SQLite + creación de tablas si no existen
+* Obtener usuario por username
+* Registrar usuario (password_hash)
+* Iniciar sesión (password_verify)
+* Verifica si hay sesión iniciada
+* Cierra la sesión
+* Genera array de fechas 'YYYY-MM-DD' para los meses indicados
+* Genera array de fechas 'YYYY-MM-DD' entre $start y $end (inclusive)
+* Crea (si no existe) y obtiene entradas de calendario en las fechas
+* Actualizar horas
+* Suma total de horas en las fechas
+* Todos los usuarios que tengan alguna fila en calendars
+* Obtiene estadísticas del calendario de un usuario:
+* - Primer día con horas != 0
+* - Último día con horas != 0
+* - Total de horas
+* Imprime el calendario mensual en formato de cuadrícula (lunes-domingo).
+* - Resalta en amarillo (class highlight) del 1-jun al 13-jun
+* - Solo editable del 3-mar al 13-jun
+* - Los días con 0 horas se muestran en gris (clase zero), días con >0 horas se muestran en blanco (clase nonzero),
+* excepto los días de junio dentro de 1-13, que se resaltan en amarillo
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-khaki
+├── README.md
+├── index.php
+├── khaki.png
+└── style.css
+```
+
+## Código (intercalado)
+
+# jocarsa-khaki
+**README.md**
+```markdown
+# jocarsa-khaki
+```
+**index.php**
+```php
+<?php
+session_start();
+
+// Archivo de base de datos
+$dbFile = '../databases/khaki.sqlite';
+
+// Fechas límite
+define('START_DATE', '2025-03-03'); // Antes de esta fecha NO se puede editar
+define('END_DATE', '2025-06-13'); // Después de esta fecha NO se puede editar
+
+/**
+ * Conexión SQLite + creación de tablas si no existen
+ */
+function getDBConnection()
+{
+ global $dbFile;
+ $firstTime = !file_exists($dbFile);
+
+ $pdo = new PDO('sqlite:' . $dbFile);
+ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+ if ($firstTime) {
+ // Tabla de usuarios
+ $pdo->exec("
+ CREATE TABLE IF NOT EXISTS users (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ name TEXT NOT NULL,
+ email TEXT NOT NULL,
+ username TEXT NOT NULL UNIQUE,
+ password TEXT NOT NULL
+ )
+ ");
+ // Usuario inicial (admin)
+ $hashPassword = password_hash('jocarsa', PASSWORD_DEFAULT);
+ $stmt = $pdo->prepare("
+ INSERT INTO users (name, email, username, password)
+ VALUES (:name, :email, :username, :password)
+ ");
+ $stmt->execute([
+ ':name' => 'Jose Vicente Carratala',
+ ':email' => 'info@josevicentecarratala.com',
+ ':username' => 'jocarsa',
+ ':password' => $hashPassword
+ ]);
+
+ // Tabla de calendarios
+ $pdo->exec("
+ CREATE TABLE IF NOT EXISTS calendars (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ user_id INTEGER NOT NULL,
+ date TEXT NOT NULL,
+ hours REAL NOT NULL,
+ UNIQUE(user_id, date)
+ )
+ ");
+ }
+
+ return $pdo;
+}
+
+/**
+ * Obtener usuario por username
+ */
+function getUserByUsername($username)
+{
+ $pdo = getDBConnection();
+ $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :u LIMIT 1");
+ $stmt->execute([':u' => $username]);
+ return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Registrar usuario (password_hash)
+ */
+function registerUser($name, $email, $username, $password)
+{
+ // Si existe el username, fallo
+ if (getUserByUsername($username)) {
+ return false;
+ }
+ $pdo = getDBConnection();
+ $hashed = password_hash($password, PASSWORD_DEFAULT);
+ $stmt = $pdo->prepare("
+ INSERT INTO users (name, email, username, password)
+ VALUES (:name, :email, :user, :pass)
+ ");
+ return $stmt->execute([
+ ':name' => $name,
+ ':email' => $email,
+ ':user' => $username,
+ ':pass' => $hashed
+ ]);
+}
+
+/**
+ * Iniciar sesión (password_verify)
+ */
+function loginUser($username, $password)
+{
+ $user = getUserByUsername($username);
+ if ($user && password_verify($password, $user['password'])) {
+ $_SESSION['user_id'] = $user['id'];
+ $_SESSION['username'] = $user['username'];
+ $_SESSION['name'] = $user['name'];
+ return true;
+ }
+ return false;
+}
+
+/**
+ * Verifica si hay sesión iniciada
+ */
+function isLoggedIn()
+{
+ return isset($_SESSION['user_id']);
+}
+
+/**
+ * Cierra la sesión
+ */
+function logoutUser()
+{
+ session_unset();
+ session_destroy();
+}
+
+/**
+ * Genera array de fechas 'YYYY-MM-DD' para los meses indicados
+ */
+function getDateRange($months)
+{
+ $dates = [];
+ foreach ($months as $m) {
+ $year = $m['year'];
+ $month = str_pad($m['month'], 2, '0', STR_PAD_LEFT);
+
+ $start = new DateTime("$year-$month-01");
+ $end = (clone $start)->modify('last day of this month');
+
+ while ($start <= $end) {
+ $dates[] = $start->format('Y-m-d');
+ $start->modify('+1 day');
+ }
+ }
+ return $dates;
+}
+
+/**
+ * Genera array de fechas 'YYYY-MM-DD' entre $start y $end (inclusive)
+ */
+function getDateRangeBetween($start, $end)
+{
+ $dates = [];
+ $current = new DateTime($start);
+ $stop = new DateTime($end);
+ while ($current <= $stop) {
+ $dates[] = $current->format('Y-m-d');
+ $current->modify('+1 day');
+ }
+ return $dates;
+}
+
+/**
+ * Crea (si no existe) y obtiene entradas de calendario en las fechas
+ */
+function getOrCreateCalendarEntries($userId, $dates)
+{
+ $pdo = getDBConnection();
+ foreach ($dates as $d) {
+ $check = $pdo->prepare("SELECT 1 FROM calendars WHERE user_id=:u AND date=:d");
+ $check->execute([':u' => $userId, ':d' => $d]);
+ if (!$check->fetchColumn()) {
+ $ins = $pdo->prepare("
+ INSERT INTO calendars (user_id, date, hours)
+ VALUES (:u, :d, 0)
+ ");
+ $ins->execute([':u' => $userId, ':d' => $d]);
+ }
+ }
+
+ $in = implode(',', array_fill(0, count($dates), '?'));
+ $params = array_merge([$userId], $dates);
+ $sql = "SELECT date, hours FROM calendars WHERE user_id=? AND date IN ($in)";
+ $stmt = $pdo->prepare($sql);
+ $stmt->execute($params);
+ $rows = $stmt

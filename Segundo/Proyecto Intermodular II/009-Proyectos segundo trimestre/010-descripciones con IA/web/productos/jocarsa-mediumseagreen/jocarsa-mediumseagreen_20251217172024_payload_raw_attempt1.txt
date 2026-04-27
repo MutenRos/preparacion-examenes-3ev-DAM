@@ -1,0 +1,138 @@
+### Lenguajes de Marcas
+
+**HTML (Hypertext Markup Language):**
+- **Descripción:** Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web. Permite a los desarrolladores agregar elementos como imágenes, enlaces y texto a una página.
+- **Uso en Contexto:**
+  ```html
+  <h1>Encabezado de nivel uno</h1>
+  <p>Texto normal del párrafo.</p>
+  ```
+
+**XML (Extensible Markup Language):**
+- **Descripción:** Es un lenguaje de marcas utilizado para crear documentos estructurados. Se utiliza comúnmente en la creación de formatos de intercambio de datos y en la descripción de esquemas de negocio.
+- **Uso en Contexto:**
+  ```xml
+  <book>
+    <title>El Lobo de Wall Street</title>
+    <author>William Martínez</author>
+    <year>2023</year>
+  </book>
+  ```
+
+**Markdown:**
+- **Descripción:** Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea. Permite a los usuarios agregar elementos como encabezados, listas y enlaces a su contenido.
+- **Uso en Contexto:**
+  ```markdown
+  # Encabezado de nivel uno
+
+  ## Encabezado de nivel dos
+
+  - Lista no ordenada
+    - Item 1
+    - Item 2
+
+  [Enlace](http://ejemplo.com)
+  ```
+
+### Explicación
+
+- **HTML:** Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web. Permite a los desarrolladores agregar elementos como imágenes, enlaces y texto a una página.
+- **XML:** Es un lenguaje de marcas utilizado para crear documentos estructurados. Se utiliza comúnmente en la creación de formatos de intercambio de datos (XSD) y en la descripción de esquemas de negocio.
+- **Markdown:** Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea. Permite a los usuarios agregar elementos como encabezados, listas y enlaces a su contenido.
+
+### Código Destacado (Con Bloques ```lenguaje)
+
+```html
+<!-- Ejemplo HTML -->
+<h1>Encabezado de nivel uno</h1>
+<p>Texto normal del párrafo.</p>
+
+<!-- Ejemplo XML -->
+<book>
+  <title>El Lobo de Wall Street</title>
+  <author>William Martínez</author>
+  <year>2023</year>
+</book>
+
+<!-- Ejemplo Markdown -->
+# Encabezado de nivel uno
+
+## Encabezado de nivel dos
+
+- Lista no ordenada
+  - Item 1
+  - Item 2
+
+[Enlace](http://ejemplo.com)
+```
+
+### Actividades Prácticas (Paso a Paso, Con Soluciones o Pistas Breves)
+
+1. **HTML:**
+   - **Tarea:** Crea una página web simple con un encabezado y parágrafo.
+   - **Solución:** 
+     ```html
+     <!DOCTYPE html>
+     <html lang="es">
+     <head>
+       <meta charset="UTF-8">
+       <title>Mi Página Web</title>
+     </head>
+     <body>
+       <h1>Bienvenidos a Mi Página</h1>
+       <p>Este es un párrafo de texto.</p>
+     </body>
+     </html>
+     ```
+
+2. **XML:**
+   - **Tarea:** Crea un documento XML con una estructura básica.
+   - **Solución:** 
+     ```xml
+     <?xml version="1.0" encoding="UTF-8"?>
+     <library>
+       <book id="1">
+         <title>El Lobo de Wall Street</title>
+         <author>William Martínez</author>
+         <year>2023</year>
+       </book>
+     </library>
+     ```
+
+3. **Markdown:**
+   - **Tarea:** Crea un archivo Markdown con encabezados, listas y enlaces.
+   - **Solución:** 
+     ```markdown
+     # Encabezado de nivel uno
+
+     ## Encabezado de nivel dos
+
+     - Lista no ordenada
+       - Item 1
+       - Item 2
+
+     [Enlace](http://ejemplo.com)
+     ```
+
+### Buenas Prácticas / Errores Comunes
+
+- **HTML:**
+  - Asegúrate de cerrar todas las etiquetas en tu código HTML.
+  - Utiliza la sintaxis correcta para crear listas ordenadas o desordenadas en Markdown.
+
+- **XML:**
+  - No olvides agregar el atributo `alt` a tus imágenes en HTML (no es aplicable en XML).
+
+### Glosario
+
+- **HTML:** Lenguaje de marcas utilizado para crear páginas web.
+- **XML:** Lenguaje de marcas utilizado para crear documentos estructurados.
+- **Markdown:** Lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea.
+
+### Preguntas de Repaso
+
+1. ¿Qué es HTML?
+2. ¿Qué es XML?
+3. ¿Qué es Markdown?
+4. ¿Cuáles son las diferencias entre HTML y XML?
+5. ¿Cómo se utiliza Markdown para crear contenido en línea?

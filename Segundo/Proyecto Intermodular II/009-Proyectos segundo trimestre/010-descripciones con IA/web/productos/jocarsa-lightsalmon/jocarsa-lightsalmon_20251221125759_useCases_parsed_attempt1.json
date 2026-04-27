@@ -1,0 +1,27 @@
+{
+  "useCases": {
+    "title": "Funciones del Calendario jocarsa | lightsalmon",
+    "cases": [
+      {
+        "name": "Registro de Usuario",
+        "description": "Permite a los usuarios registrarse utilizando un nombre de usuario y una contraseña. La API verifica la longitud mínima y máxima para el nombre de usuario y la contraseña, respectivamente."
+      },
+      {
+        "name": "Iniciar Sesión",
+        "description": "Los usuarios pueden iniciar sesión con su nombre de usuario y contraseña. Si el usuario no está autenticado, los endpoints 'load' y 'save' devolverán un código 401, indicando que deben usar localStorage en lugar del endpoint."
+      },
+      {
+        "name": "Cargar Calendario",
+        "description": "Una vez que el usuario esté autenticado, puede cargar sus datos de calendario (versiones, categorías, festivos y eventos) desde la base de datos. Si no hay sesión activa, se devolverá un código 401."
+      },
+      {
+        "name": "Guardar Calendario",
+        "description": "Permite a los usuarios guardar los cambios en su calendario localmente en la base de datos. Solo se permiten actualizaciones si el usuario está autenticado."
+      },
+      {
+        "name": "Ver Detalles del Usuari",
+        "description": "Devuelve información sobre la sesión del usuario, incluyendo su ID y detalles del perfil. Solo disponible para usuarios autenticados."
+      }
+    ]
+  }
+}

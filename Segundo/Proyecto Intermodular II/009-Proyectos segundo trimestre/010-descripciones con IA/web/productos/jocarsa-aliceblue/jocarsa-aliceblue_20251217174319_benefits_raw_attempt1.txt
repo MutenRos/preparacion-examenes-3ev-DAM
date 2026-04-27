@@ -1,0 +1,5 @@
+```json
+{
+  "benefits": {"title":"Mejoras Educativas con jocarsa | aliceblue","items":["Interfaz intuitiva y amigable para usuarios educativos","Dashboard personalizado que facilita la administración de contenidos multimedia","Visualización detallada y control preciso de grabaciones de clase"]}
+}
+```

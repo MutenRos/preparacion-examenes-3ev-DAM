@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"Docentes y Personal de Apoyo","profiles":[{"name":"Docentes","fit":"Necesitan un sistema fácil de usar para registrar sus jornadas laborales"},{"name":"Personal de Apoyo","fit":"Requieren una interfaz intuitiva para mantenerse actualizados en sus registros"},{"name":"Directivos","fit":"Buscan un panel de control donde supervisar las jornadas y ausencias del personal"}]}
+}

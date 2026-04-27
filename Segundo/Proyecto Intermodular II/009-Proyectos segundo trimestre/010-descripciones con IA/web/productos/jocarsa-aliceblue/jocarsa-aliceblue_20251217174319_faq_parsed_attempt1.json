@@ -1,0 +1,19 @@
+{
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo inicio sesión en el panel de administrador?",
+        "a": "Para iniciar sesión, ingresa a la URL del panel de administrador y proporciona las credenciales asignadas por jocarsa-aliceblue."
+      },
+      {
+        "q": "¿Cuál es la función del botón 'Iniciar Captura'?",
+        "a": "El botón 'Iniciar Captura' se utiliza para comenzar el proceso de captura automatizada. Una vez activado, puede generar imágenes en un intervalo predefinido."
+      },
+      {
+        "q": "¿Cómo muestro una imagen fullscreen en el sistema?",
+        "a": "Para visualizar una imagen en pantalla completa, dirígete al ícono correspondiente y haz clic con el botón derecho para seleccionar 'Ver Imagen' o utiliza la opción 'Abrir Imagen Fullscreen'. Se abrirá un modal con la imagen."
+      }
+    ]
+  }
+}

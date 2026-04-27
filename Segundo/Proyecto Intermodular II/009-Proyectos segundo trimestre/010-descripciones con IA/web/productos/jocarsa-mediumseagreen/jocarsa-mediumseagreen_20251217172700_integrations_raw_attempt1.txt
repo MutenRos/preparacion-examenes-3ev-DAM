@@ -1,0 +1,16 @@
+```json
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones de jocarsa | mediumseagreen",
+    "notes": "Este software educativo puede integrarse con otras herramientas para mejorar la experiencia del usuario. Las integraciones son opcionales y están disponibles para usuarios que deseen ampliar las funcionalidades del sistema.",
+    "items": [
+      "YouTube API",
+      "Ollama API (http://localhost:11434)",
+      "yt-dlp",
+      "Google Sheets"
+    ]
+  }
+}
+```

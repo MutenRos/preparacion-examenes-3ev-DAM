@@ -1,0 +1,15 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones de Herramientas Educativas",
+    "notes": "Esta integración permite la sincronización con diferentes plataformas de aprendizaje y análisis en tiempo real. Las herramientas se pueden configurar opcionalmente para mejorar la experiencia del usuario y personalizar el contenido según los estándares de educación.",
+    "items": [
+      "Integración con YouTube para la administración y actualización de vídeos educativos",
+      "Compatibilidad con diferentes plataformas: Mweb, TV, Web y Android",
+      "Generación automática de transcripciones y análisis de contenido a partir de videos en formato .vtt",
+      "Conversión automática de .vtt a texto sólido (un único párrafo) sin timestamps ni etiquetas",
+      "Sincronización con ollama para la creación de notas y resúmenes basados en chunking del contenido didáctico"
+    ]
+  }
+}

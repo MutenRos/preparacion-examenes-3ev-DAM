@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Solución para Sistema de Gestión Educativa jocarsa-aqua",
+    "overview": "jocarsa-aqua es una plataforma SaaS diseñada para gestionar datos educativos. Ofrece un panel administrativo con funcionalidades CRUD (Create, Read, Update, Delete) y un diseño atractivo basado en el estilo de agua.",
+    "whatChanges": [
+      "Implementación de autenticación de usuario",
+      "Soporte para operaciones CRUD en múltiples tablas",
+      "Interfaz de inicio de sesión personalizada con validaciones y redirecciones"
+    ]
+  }
+}

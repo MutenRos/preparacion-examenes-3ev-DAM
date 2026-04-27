@@ -1,0 +1,12 @@
+```json
+{
+  "benefits": {
+    "title": "jocarsa | darksalmon",
+    "items": [
+      "Seguimiento de Jornadas Laborales Preciso: Inicia y finaliza tu jornada con solo unos clics para registrar tu horario.",
+      "Información Detallada sobre Ausencias: Mantente al tanto de tus ausencias registradas y realiza cambios si es necesario.",
+      "Interfaz Simple y Amigable: Navega fácilmente por la aplicación gracias a un diseño intuitivo que te guía paso a paso."
+    ]
+  }
+}
+```

@@ -1,0 +1,11 @@
+{
+  "faq": {
+    "title": "jocarsa | lightsalmon",
+    "qas": [
+      {"q": "¿Cómo registro un nuevo usuario?", "a": "Puedes usar la acción POST ?action=register con los campos {username,password}. Asegúrate de que el username tenga entre 3 y 48 caracteres, y la password tenga al menos 6 caracteres."},
+      {"q": "¿Cómo inicio sesión en mi cuenta?", "a": "Para iniciar sesión, usa la acción POST ?action=login con los campos {username,password}. Verifica que los datos sean correctos para evitar errores de autenticación."},
+      {"q": "¿Qué ocurre si no estoy logueado y hago una solicitud POST o GET para cargar o guardar eventos?", "a": "Si no estás logueado, las solicitudes POST para 'save' y GET para 'load' devolverán un código 401. El frontend debería recurrir a localStorage en estos casos."},
+      {"q": "¿Cómo modifico mis datos de usuario o salgo del sistema?", "a": "Para modificar tus datos de usuario, usa la acción POST ?action=save con los nuevos detalles. Para salir del sistema, realiza una solicitud POST ?action=logout."}
+    ]
+  }
+}

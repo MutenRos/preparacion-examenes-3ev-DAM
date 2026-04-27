@@ -1,0 +1,47 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "Jornadas DarkSalmon",
+    "category": "Software de Gestión Laboral",
+    "audience_segments": ["Empresas", "Departamentos"],
+    "ctaPrimary": "Solicitar demostración",
+    "ctaSecondary": "Descargar"
+  },
+  "hero": {
+    "name": "Jornadas DarkSalmon",
+    "valueProposition": "Gestiona tu jornada laboral con precisión y comodidad.",
+    "subtitle": "Registra, controla y optimiza tus horarios de trabajo sin complicaciones.",
+    "badges": ["Sencillo", "Intuitivo", "Confiable"],
+    "actions": [
+      {"type":"primary","text":"Solicitar demostración"},
+      {"type":"secondary","text":"Descargar"}
+    ]
+  },
+  "problem": {"title": "Desafíos con la Gestión de Jornadas","items": ["Jornadas partidas complican el registro", "Ausencias no informadas pueden generar problemas legales", " inconsistencia en la gestión de horarios"]},
+  "solution": {"title": "Solución Jornadas DarkSalmon","overview": "Nuestra aplicación simplifica y automatiza todos los aspectos de la gestión laboral, asegurando que cada detalle esté bajo control.", "whatChanges": ["Automatización del registro de jornadas", "Procesamiento rápido de solicitudes de ausencias", "Monitorización constante del cumplimiento de horarios"]},
+  "keyFeatures": {"title": "Características destacadas","features": [{"name":"Registro automático de horario","benefit":"Evita errores humanos y asegura precisión"},{"name":"Procesamiento rápido de solicitudes de ausencias","benefit":"Minimiza demoras y mejora la comunicación"},{"name":"Monitorización del cumplimiento de horarios","benefit":"Detecta inconsistencias y alerta a los administradores"}]},
+  "targetAudience": {"title": "Perfil del usuario ideal","profiles": [{"name":"Gerente de Recursos Humanos","fit":"Ahorra tiempo gestionando eficazmente las jornadas laborales"},{"name":"Departamento de Personal","fit":"Facilita el registro y la gestión de ausencias y horarios"},{"name":"Equipo de Trabajo","fit":"Accede fácilmente a su información personal y registra sus entradas y salidas"}]},
+  "useCases": {"title": "Casos de uso","cases": [{"name":"Registra el inicio y final de jornada laboral","description":"Empieza y finaliza tu jornada laboral con un solo clic"},{"name":"Solicita o informa ausencias","description":"Envía solicitudes de ausencias rápidamente y haz seguimiento a su estado"},{"name":"Accede a tus datos personales","description":"Consulta y edita tus datos personales en cualquier momento"}]},
+  "benefits": {"title": "Ventajas de Jornadas DarkSalmon","items": ["Ahorro de tiempo", "Mayor precisión en el registro horario", "Mejora la comunicación interna"]},
+  "integrations": {"include": true,"optional": "true","title": "Integraciones","notes": "Jornadas DarkSalmon es compatible con una amplia gama de sistemas de gestión laboral. Las integraciones adicionales requieren configuración individual.","items": ["Sistema de Gestión de Recursos Humanos", "Aplicativos de gestión del personal", "Software de planificación de horarios"]},
+  "trust": {"title": "Confianza y seguridad","points": ["Diseñado para cumplir con las regulaciones laborales", "Seguridad en el almacenamiento de datos", "Soporte técnico experto"]},
+  "finalCTA": {
+    "title": "Prueba Jornadas DarkSalmon hoy",
+    "description": "Descubre cómo nuestra solución puede mejorar la gestión de horarios en tu organización.",
+    "actions": [{"type":"primary","text":"Solicitar demostración"},{"type":"secondary","text":"Ver testimonios"}],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {"name":"nombre","type":"text","required":"true"},
+        {"name":"email","type":"email","required":"true"},
+        {"name":"empresa","type":"text"}
+      ]
+    }
+  },
+  "sections": {
+    "faq": ["¿Cómo funciona Jornadas DarkSalmon?", "¿Cuál es la diferencia entre la versión gratuita y el pago?", "¿Puedo probar Jornadas DarkSalmon sin costos?"]
+  }
+}

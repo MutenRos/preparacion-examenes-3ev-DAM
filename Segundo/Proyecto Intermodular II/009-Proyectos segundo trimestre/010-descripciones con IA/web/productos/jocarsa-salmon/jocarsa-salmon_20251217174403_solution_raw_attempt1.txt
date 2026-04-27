@@ -1,0 +1,13 @@
+```json
+{
+  "solution": {
+    "title": "jocarsa | salmon",
+    "overview": "jocarsa | salmon es un software educativo que permite gestionar salas de chat y presentaciones en línea. Ofrece una interfaz para iniciar y administrar sesiones, así como generar invitaciones seguras.",
+    "whatChanges": [
+        "Implementación de seguridad con contraseñas hash para los participantes y presentadores.",
+        "Soporte para crear y gestionar múltiples salas con diferentes configuraciones de acceso.",
+        "Generación de mensajes de invitación personalizados con instrucciones detalladas para unirse a las sesiones."
+    ]
+  }
+}
+```

@@ -1,0 +1,5 @@
+```json
+{
+  "footer": {"summary":"Proporcionamos soporte técnico y actualizaciones regulares para jocarsa | salmon. Si tienes alguna pregunta, no dudes en contactar con nuestro equipo de atención al cliente a través del chat en la parte inferior derecha."}
+}
+```

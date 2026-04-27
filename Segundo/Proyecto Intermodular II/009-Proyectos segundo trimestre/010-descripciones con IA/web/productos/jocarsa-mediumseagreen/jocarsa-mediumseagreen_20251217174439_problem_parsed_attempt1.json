@@ -1,0 +1,11 @@
+{
+  "problem": {
+    "title": "Procesamiento y categorización de vídeos educativos en SaaS",
+    "items": [
+      "Analizar y extraer subtítulos en español de vídeos de categoría '25/26'",
+      "Integrar múltiples fuentes de texto y generar descripciones didácticas para cada tema",
+      "Identificar automáticamente los temas principales mediante análisis semántico y lenguaje natural",
+      "Priorizar la inclusión de vídeos con subtítulos disponibles en español, utilizando alternativas automáticas o tradicionales si es necesario"
+    ]
+  }
+}

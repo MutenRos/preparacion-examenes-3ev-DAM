@@ -1,0 +1,336 @@
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-salmon
+├── .gitignore
+├── README.md
+├── admin.php
+├── index.html
+└── signaling.php
+```
+
+## Código (intercalado)
+
+# jocarsa-salmon
+**README.md**
+```markdown
+# jocarsa-salmon
+```
+**admin.php**
+```php
+<?php
+declare(strict_types=1);
+session_start();
+
+/* =========================================
+ CONFIGURACIÓN
+ ========================================= */
+const ADMIN_USER = 'jocarsa';
+const ADMIN_PASS = 'jocarsa';
+
+/* Ajusta rutas si tu index.html no está en / */
+const INVITE_USER_PATH = '/';
+const INVITE_PRESENTER_PATH = '/';
+
+$dbFile = __DIR__ . '/signaling.db';
+
+/* =========================================
+ HELPERS
+ ========================================= */
+function out($s){ echo $s; }
+function h(string $s): string { return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
+function base_url(): string {
+ $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+ $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+ return $scheme . '://' . $host;
+}
+function csrf_token(): string {
+ if (empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(16));
+ return $_SESSION['csrf'];
+}
+function csrf_ok(string $t): bool { return isset($_SESSION['csrf']) && hash_equals($_SESSION['csrf'], $t); }
+/* Base64 URL-safe (para data-atributos sin romper HTML) */
+function b64e(string $s): string { return rtrim(strtr(base64_encode($s), '+/', '-_'), '='); }
+
+/** Mensaje “tipo Zoom” (sin comillas tipográficas problemáticas) */
+function make_invite_msg(string $role, string $title, string $roomId, ?string $password, string $url): string {
+ $roleUpper = strtoupper($role);
+ $pwLine = $password ? "Contraseña: $password" : "Contraseña: (no definida)";
+ $lines = [
+ "🔗 Invitación a la sala «{$title}»",
+ "",
+ "Únete como $roleUpper",
+ "1) Abre: $url",
+ "2) En «ID de sala» escribe: $roomId",
+ "3) $pwLine",
+ "",
+ "💡 Usa tu nombre y apellidos como «Nombre a mostrar».",
+ "📹 Permite cámara y micrófono si te lo pide el navegador.",
+ "♻️ Si algo falla, actualiza la página o prueba otro navegador."
+ ];
+ return implode("\n", $lines);
+}
+
+/* =========================================
+ LOGIN / LOGOUT
+ ========================================= */
+$login_error = null;
+if (isset($_GET['action']) && $_GET['action']==='logout') {
+ $_SESSION = []; session_destroy();
+ header('Location: '.$_SERVER['PHP_SELF']); exit;
+}
+if (($_POST['__do'] ?? '') === 'login') {
+ $u = $_POST['user'] ?? '';
+ $p = $_POST['pass'] ?? '';
+ if ($u === ADMIN_USER && $p === ADMIN_PASS) {
+ $_SESSION['admin_auth'] = true;
+ header('Location: '.$_SERVER['PHP_SELF']); exit;
+ } else {
+ $login_error = 'Credenciales incorrectas.';
+ }
+}
+$authed = !empty($_SESSION['admin_auth']);
+
+/* =========================================
+ DB INIT + MIGRACIONES DEFENSIVAS
+ ========================================= */
+$ok=null; $err=null;
+try {
+ $db = new PDO('sqlite:' . $dbFile, '', '', [
+ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+ ]);
+
+ // Esquema compatible con signaling.php (usa passhash_user/passhash_presenter)
+ $db->exec("CREATE TABLE IF NOT EXISTS rooms(
+ id TEXT PRIMARY KEY,
+ title TEXT,
+ pass_user TEXT, -- plano (para mostrar en invitaciones)
+ pass_presenter TEXT, -- plano (para mostrar en invitaciones)
+ passhash_user TEXT, -- hash (lo que valida signaling.php)
+ passhash_presenter TEXT, -- hash (lo que valida signaling.php)
+ created_at INTEGER,
+ updated_at INTEGER
+ )");
+
+ // Migraciones defensivas
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN created_at INTEGER"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN updated_at INTEGER"); } catch (Throwable $e) {}
+
+} catch (Throwable $e) {
+ $err = 'DB error: '.$e->getMessage();
+}
+
+/* =========================================
+ CRUD (solo si logado)
+ ========================================= */
+if ($authed && $_SERVER['REQUEST_METHOD']==='POST' && !$err) {
+ if (!csrf_ok($_POST['csrf'] ?? '')) {
+ $err = 'CSRF inválido. Recarga la página.';
+ } else {
+ $do = $_POST['__do'] ?? '';
+ switch ($do) {
+ case 'create_update_room': {
+ $room = trim($_POST['room'] ?? '');
+ $title = trim($_POST['title'] ?? $room);
+ $pass_user = $_POST['pass_user'] ?? '';
+ $pass_presenter = $_POST['pass_presenter'] ?? '';
+
+ if (!$room) { $err='Falta el ID de sala.'; break; }
+
+ // Cargar estado previo
+ $st = $db->prepare("SELECT * FROM rooms WHERE id=?");
+ $st->execute([$room]);
+ $old = $st->fetch();
+
+ // Si creamos por primera vez, exigimos ambas contraseñas
+ if (!$old && ($pass_user === '' || $pass_presenter === '')) {
+ $err = 'Debes indicar ambas contraseñas al crear por primera vez.';
+ break;
+ }
+
+ // Planas (mostrar en invitación)
+ $new_pass_user_plain = $pass_user !== '' ? $pass_user : ($old['pass_user'] ?? null);
+ $new_pass_presenter_plain = $pass_presenter !== '' ? $pass_presenter : ($old['pass_presenter'] ?? null);
+
+ // Hashes (usa signaling.php -> password_verify)
+ $new_passhash_user = $pass_user !== '' ? password_hash($pass_user, PASSWORD_DEFAULT)
+ : ($old['passhash_user'] ?? null);
+ $new_passhash_presenter = $pass_presenter !== '' ? password_hash($pass_presenter, PASSWORD_DEFAULT)
+ : ($old['passhash_presenter'] ?? null);
+
+ if ($old) {
+ $st = $db->prepare("
+ UPDATE rooms
+ SET title=?,
+ pass_user=?,
+ pass_presenter=?,
+ passhash_user=?,
+ passhash_presenter=?,
+ updated_at=strftime('%s','now')
+ WHERE id=?
+ ");
+ $st->execute([
+ $title ?: $room,
+ $new_pass_user_plain,
+ $new_pass_presenter_plain,
+ $new_passhash_user,
+ $new_passhash_presenter,
+ $room
+ ]);
+ $ok = 'Sala actualizada correctamente.';
+ } else {
+ $st = $db->prepare("
+ INSERT INTO rooms(id,title,pass_user,pass_presenter,passhash_user,passhash_presenter,created_at,updated_at)
+ VALUES(?,?,?,?,?,?,strftime('%s','now'),strftime('%s','now'))
+ ");
+ $st->execute([
+ $room,
+ $title ?: $room,
+ $new_pass_user_plain,
+ $new_pass_presenter_plain,
+ $new_passhash_user,
+ $new_passhash_presenter
+ ]);
+ $ok = 'Sala creada correctamente.';
+ }
+ } break;
+
+ case 'delete_room': {
+ $room = trim($_POST['room'] ?? '');
+ if (!$room) { $err='ID inválido.'; break; }
+ $st = $db->prepare("DELETE FROM rooms WHERE id=?");
+ $st->execute([$room]);
+ $ok = 'Sala eliminada.';
+ } break;
+ }
+ }
+}
+
+/* =========================================
+ LISTADO / BÚSQUEDA
+ ========================================= */
+$rooms = [];
+$search = '';
+if($authed && !$err){
+ $search = trim($_GET['q'] ?? '');
+ if ($search!=='') {
+ $st = $db->prepare("SELECT id,title,pass_user,pass_presenter,passhash_user,passhash_presenter,created_at,updated_at
+ FROM rooms
+ WHERE id LIKE ? OR title LIKE ?
+ ORDER BY updated_at DESC, created_at DESC");
+ $like='%'.$search.'%';
+ $st->execute([$like,$like]);
+ $rooms = $st->fetchAll();
+ } else {
+ $rooms = $db->query("SELECT id,title,pass_user,pass_presenter,passhash_user,passhash_presenter,created_at,updated_at
+ FROM rooms
+ ORDER BY updated_at DESC, created_at DESC")->fetchAll();
+ }
+}
+
+/* =========================================
+ VISTA
+ ========================================= */
+?>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>jocarsa | salmon · Admin salas</title>
+<link rel="icon" type="image/png" href="salmonlogo.png">
+<style>
+ :root{
+ --bg:#f8fafc; --panel:#ffffff; --ink:#0f172a; --muted:#667085; --accent:#fa8072; --accent-ink:#5c0e08;
+ --border:#e5e7eb; --danger:#dc2626; --ok:#16a34a; --input:#f1f5f9; --ring: rgba(250,128,114,.35);
+ --shadow: 0 10px 30px rgba(2,6,23,.08);
+ --radius: 14px;
+ }
+ *{box-sizing:border-box}
+ html,body{height:100%}
+ body{margin:0;background:linear-gradient(180deg,#fff 0%, #fff 180px, #f9fafb 100%);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+ a{color:inherit;text-decoration:none}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px}
+ header{height:56px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+ .brand{display:flex;align-items:center;gap:10px}
+ .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#ffb4a8,#fa8072)}
+ .brand h1{font-size:18px;margin:0}
+ .userbar{display:flex;align-items:center;gap:8px;color:#334155}
+ .btn{display:inline-flex;align-items:center;gap:8px;border:none;background:var(--accent);color:#fff;padding:10px 12px;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);transition:transform .05s ease}
+ .btn:hover{transform:translateY(-1px)}
+ .btn.ghost{background:#fff;color:#0f172a;border:1px solid var(--border);box-shadow:none}
+ .btn.warn{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+ .btn.small{padding:8px 10px;border-radius:10px;font-size:13px}
+ .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}
+ @media (max-width:980px){ .grid{grid-template-columns:1fr} }
+ .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+ .card h2{font-size:16px;margin:0 0 12px}
+ label{display:block;font-size:12px;color:var(--muted);margin-top:10px}
+ input{width:100%;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--input);outline:none}
+ input:focus{border-color:#fca5a5;box-shadow:0 0 0 4px var(--ring)}
+ .row{display:flex;gap:10px}
+ .row > *{flex:1}
+ table{width:100%;border-collapse:separate;border-spacing:0 8px}
+ thead th{font-size:12px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+ tbody tr{background:#fff;border:1px solid var(--border);box-shadow:var(--shadow)}
+ tbody td, thead th{padding:12px 12px}
+ .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;color:#334155;font-size:12px}
+ .muted{color:#64748b}
+ .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+ .search{display:flex;gap:8px}
+ .msg{padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid transparent}
+ .msg.ok{background:#ecfdf5;border-color:#bbf7d0;color:#065f46}
+ .msg.err{background:#fff1f2;border-color:#fecdd3;color:#9f1239}
+ .help{font-size:12px;color:#64748b}
+ .login{max-width:420px;margin:12vh auto}
+ .footer{margin-top:24px;color:#94a3b8;font-size:12px;text-align:center}
+ .nowrap{white-space:nowrap}
+ .badge{display:inline-block;padding:3px 8px;border-radius:8px;font-size:11px;background:#f8fafc;border:1px solid var(--border);color:#475569}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header>
+ <div class="brand">
+ <div class="logo"></div>
+ <h1>jocarsa | salmon · Admin de salas</h1>
+ </div>
+ <div class="userbar">
+ <?php if($authed): ?>
+ <span class="muted">Conectado como <strong>admin</strong></span>
+ <a class="btn ghost small" href="?action=logout" title="Cerrar sesión">Salir</a>
+ <?php endif; ?>
+ </div>
+ </header>
+
+ <?php if(!$authed): ?>
+ <div class="card login">
+ <h2>Acceder</h2>
+ <?php if($login_error) out('<div class="msg err">'.$login_error.'</div>'); ?>
+ <form method="post" autocomplete="off">
+ <input type="hidden" name="__do" value="login">
+ <label>Usuario</label>
+ <input name="user" placeholder="Usuario" required>
+ <label>Contraseña</label>
+ <input name="pass" type="password" placeholder="Contraseña" required>
+ <div style="display:flex;gap:8px;margin-top:12px">
+ <button class="btn">Entrar</button>
+ <div class="help">Pista: usuario <b>jocarsa</b>, contraseña <b>jocarsa</b></div>
+ </div>
+ </form>
+ </div>
+ <div class="footer">© <?php out(date('Y')); ?> jocarsa | salmon</div>
+
+ <?php else: ?>
+
+ <div class="grid">
+ <!-- Formulario crear/editar -->
+ <div class="card">
+ <h2>Crear / editar sala</h2>
+ <?php if($ok) out("<div class='msg ok'>$ok</div>"); if($err) out("<div class='msg err'>$err</div>

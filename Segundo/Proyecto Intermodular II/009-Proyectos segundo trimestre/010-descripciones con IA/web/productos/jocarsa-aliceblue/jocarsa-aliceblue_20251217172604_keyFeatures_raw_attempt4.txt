@@ -1,0 +1,5 @@
+```json
+{
+  "keyFeatures": {"title":"Educational Software Features for jocarsa | aliceblue","features":[{"name":"Intuitive Dashboard","benefit":"Permite a los administradores gestionar contenido de forma eficiente mediante un diseño limpio y organizado."},{"name":"Vista en Pantalla Completa para Imágenes Interactivas","benefit":"Soporta la visualización de imágenes en pantalla completa para una mejor inspección de detalles."},{"name":"Interfaz Personalizable","benefit":"Permite a los administradores personalizar la interfaz según sus preferencias para una experiencia más detallada."},{"name":"Actualizaciones en Tiempo Real del Progreso","benefit":"Proporciona actualizaciones instantáneas sobre las actividades y el progreso de los usuarios mediante barras de progreso dinámicas."},{"name":"Transparencia para Registros Obsoletos","benefit":"Destaca los registros obsoletos con opacidad reducida para facilitar la mantenimiento del registro."}]
+}
+```

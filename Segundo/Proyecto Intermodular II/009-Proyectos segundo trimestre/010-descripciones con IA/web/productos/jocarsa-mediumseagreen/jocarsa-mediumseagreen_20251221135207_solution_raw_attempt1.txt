@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "Generador de contenido didáctico a partir de transcripciones y análisis de videos",
+    "overview": "Este software educa en la generación de contenido didáctico avanzado, utilizando transcripciones y análisis de videos. Incluye la identificación de unidades, subunidades, la conversión de subtítulos VTT a texto sólido, y el uso de un modelo de lenguaje para extraer temas clave y generar notas y resúmenes didácticos.",
+    "whatChanges": [
+      "Integra transcripciones de videos en un formato estructurado",
+      "Convierte subtítulos VTT a texto sólido sin etiquetas o timestamps",
+      "Analiza videos para identificar temas clave y generar notas didácticas usando modelos de lenguaje"
+    ]
+  }
+}

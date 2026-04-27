@@ -1,0 +1,3 @@
+{
+  "solution": {"title":"jocarsa | orange","overview":"La solución jocarsa | orange es un sistema SaaS educativo que permite a los usuarios gestionar y personalizar sus listas de productos. Ofrece funciones para crear, editar y listar productos, así como una sección de administración de temas personalizables.","whatChanges":["Implementación de autenticación de usuario con registro y login","Interfaz de usuario modular permitiendo el cambio entre 'Mis Listas', 'Productos' y 'Nueva Lista'", "Edición detallada de listas con opciones para modificar información y eliminar", "Personalización del tema visual a través de una configuración en la sección de temas"]}
+}

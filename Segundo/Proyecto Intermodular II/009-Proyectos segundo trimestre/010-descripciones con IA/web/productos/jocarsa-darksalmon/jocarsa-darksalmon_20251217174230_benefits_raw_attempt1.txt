@@ -1,0 +1,12 @@
+```json
+{
+  "benefits": {
+    "title": "Facilidades Educativas para Mejorar tu Experiencia de Trabajo",
+    "items": [
+      "Inicio y Fin de Jornada Automáticos, Registrando Precisamente tus Horarios",
+      "Mapa con Tu Ubicación de Fichaje, Seguimiento en Tiempo Real de la Localización",
+      "Perfiles Personalizados para Mantener Tus Datos y Historial Organizados"
+    ]
+  }
+}
+```

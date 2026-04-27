@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "jocarsa | orange",
+    "cases": [
+      {
+        "name": "Gestión de Lista de Compras",
+        "description": "Permite a los usuarios crear, editar y gestionar listas de compras. Los usuarios pueden añadir productos a sus listas y ver los detalles de cada producto."
+      },
+      {
+        "name": "Ingreso y Registro de Usuarios",
+        "description": "Ofrece funcionalidad para que los usuarios se registren y realicen el inicio de sesión. Permite guardar la preferencia del tema del usuario."
+      },
+      {
+        "name": "Configuración Temática",
+        "description": "Permite a los usuarios cambiar el tema visual del sitio web, aplicando un efecto de giro de tono en todos los elementos visuales."
+      }
+    ]
+  }
+}

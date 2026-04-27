@@ -1,0 +1,10 @@
+{
+  "benefits": {
+    "title": "Calendario",
+    "items": [
+      "Registro y autenticación segura para usuarios",
+      "Guardado seguro de eventos, feriados e información de calendario",
+      "Interfaz fácil de usar para agregar y gestionar eventos"
+    ]
+  }
+}

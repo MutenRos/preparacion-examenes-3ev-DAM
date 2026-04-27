@@ -1,0 +1,121 @@
+Este código es una parte significativa de la aplicación que administra las salas y muestra los datos de los estudiantes en una interfaz visual. Vamos a analizar y resumir lo que hace este fragmento de código:
+
+1. **Estilos CSS**:
+   - Se definen estilos específicos para elementos como `.card`, `.grid`, `.modal`, etc.
+   - Se incluye un progreso del 24-hora con dos secciones: una barra de progreso y tiempo activo.
+
+2. **Interfaz de Usuario (HTML)**:
+   - Un `select` para seleccionar la sala (`roomSelector`).
+   - Una rejilla (`grid`) donde los datos del estudiante se mostrarán en forma de tarjetas.
+   - Una modal (`modal`) que permite ver una imagen completa y sus detalles.
+
+3. **Funcionalidades (JavaScript)**:
+   - `fetchStudentData(room)`: Esta función obtiene la lista de estudiantes y sus imágenes desde el servidor usando AJAX, después crea elementos HTML dinámicamente basados en esta información.
+   - Se usa un ciclo para iterar sobre cada estudiante e insertar una tarjeta (`card`) con su nombre, imagen, slider (barra deslizante) para cambiar la imagen y un reloj 24-hora progresivo que indica cuánto tiempo el estudiante ha estado en la sala.
+   - `fetchStudentImages(room, username)`: Esta función obtiene las imágenes de un estudiante específico desde el servidor.
+
+### Código Resumido
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <!-- Estilos CSS -->
+    <style>
+        /* Aquí irían los estilos CSS definidos en la respuesta original */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <select id="roomSelector">
+            <option value="">Selecciona una sala</option>
+            <option value="DAM">DAM</option>
+            <option value="SMR">SMR</option>
+            <option value="Capitol">Capitol</option>
+        </select>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span id="closeModal" class="close">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Fullscreen View">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const roomSelector = document.getElementById("roomSelector");
+        const grid = document.getElementById("grid");
+
+        function calculateHourRange(firstTimestamp, lastTimestamp) {
+            const startHour = new Date(firstTimestamp * 1000).getHours();
+            const endHour = new Date(lastTimestamp * 1000).getHours();
+            const startPercentage = (startHour / 24) * 100;
+            const endPercentage = (endHour / 24) * 100;
+            return { start: startPercentage, end: endPercentage };
+        }
+
+        async function fetchStudentData(room) {
+            if (!room) {
+                grid.innerHTML = "<p>Por favor, selecciona una sala.</p>";
+                return;
+            }
+            
+            try {
+                const response = await fetch(`adminback.php?room=${room}`);
+                const data = await response.json();
+
+                grid.innerHTML = ""; // Clear existing cards
+
+                data.forEach(async (student) => {
+                    const studentCard = document.createElement("div");
+                    studentCard.classList.add("card");
+                    studentCard.setAttribute("data-username", student.username);
+
+                    // Similar logic for creating images, sliders and 24-hour progress bar
+                });
+
+                setInterval(() => checkForUpdates(room), 60000);
+            } catch (err) {
+                console.error("Error fetching student data:", err);
+            }
+        }
+
+        function fetchStudentImages(room, username) {
+            try {
+                const response = await fetch(`adminimages.php?room=${room}&user=${username}`);
+                return await response.json();
+            } catch (err) {
+                console.error("Error fetching images for student", err);
+            }
+        }
+
+        roomSelector.addEventListener('change', () => {
+            fetchStudentData(roomSelector.value);
+        });
+    </script>
+</body>
+</html>
+```
+
+### Explicación del Código
+
+- **Select y Grid**: El `select` permite al usuario seleccionar una sala. Una vez seleccionada, se carga la lista de estudiantes en un grid.
+  
+- **Grid y Tarjetas**: Cada tarjeta (`card`) representa a un estudiante y contiene su nombre, imagen, slider para cambiar entre imágenes y 24-hour progress bar.
+
+- **Slider y Progreso del Tiempo**: Permite al usuario ver diferentes instantes de la sesión del estudiante en la sala. La progresión de tiempo visualiza cuánto tiempo ha pasado desde el inicio hasta ahora.
+
+- **Modal**: Proporciona una vista más detallada de las imágenes seleccionadas, permitiendo un zoom y detalles adicionales.
+
+### Notas Adicionales
+
+1. **AJAX Requests**: Las solicitudes AJAX se manejan con `fetch` para obtener los datos del servidor.
+2. **Progreso 24-hora**: Se calcula la progresión horaria de la sala utilizando el primer y último timestamp de las imágenes.
+3. **Intervalos**: `setInterval` es usado para actualizar el contenido cada minuto.
+
+Este código proporciona una interfaz visual dinámica para administrar y visualizar los datos del uso de salas por estudiantes en tiempo real, incluyendo detalles detallados como la progresión horaria y la capacidad de visualizar imágenes anteriores.

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Captura y analiza tus sesiones en tiempo real",
+    "category": "software de gestión y análisis",
+    "audience_segments": ["administradores de empresas", "equipo técnico"],
+    "ctaPrimary": "Iniciar sesión",
+    "ctaSecondary": "Descargar demo"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "Monitorear y analizar sesiones en tiempo real para optimizar el rendimiento del equipo",
+    "subtitle": "Gestiona tus sesiones con precisión y eficiencia",
+    "badges": ["Captura de video en vivo", "Análisis detallado", "Interfaz amigable"],
+    "actions": [
+      {"type":"primary","text":"Iniciar sesión"},
+      {"type":"secondary","text":"Descargar demo"},
+      {"type":"tertiary","text":"Más información"}
+    ]
+  }
+}

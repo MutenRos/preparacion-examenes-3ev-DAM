@@ -1,0 +1,5 @@
+[
+  {"name":"Interfaz visual atractiva","benefit":"Proporciona una experiencia de usuario amigable con un diseño moderno y responsive."},
+  {"name":"Captura en tiempo real","benefit":"Permite capturar imágenes o videos en tiempo real, facilitando la documentación instantánea."},
+  {"name":"Gestión detallada de usuarios y salas","benefit":"Ofrece herramientas para administrar fácilmente usuarios y salas desde el panel de control."}
+]

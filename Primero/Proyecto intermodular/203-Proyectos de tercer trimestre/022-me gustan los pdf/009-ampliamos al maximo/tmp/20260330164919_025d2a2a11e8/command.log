@@ -1,0 +1,18 @@
+COMMAND
+=======
+'python3' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/operaciones/image/images_to_pdf.py' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/output/resultado.pdf' 'original' '0' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/input/001_BOE-A-2023-13221_01f6c1-91.jpg' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/input/002_BOE-A-2023-13221_01f6c1-90.jpg' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/input/003_BOE-A-2023-13221_01f6c1-89.jpg' '/var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/input/004_BOE-A-2023-13221_01f6c1-88.jpg'
+
+EXIT CODE
+=========
+0
+
+STDOUT
+======
+OK
+Images processed: 4
+PDF: /var/www/html/dam2526/Primero/Proyecto intermodular/203-Proyectos de tercer trimestre/022-me gustan los pdf/009-ampliamos al maximo/tmp/20260330164919_025d2a2a11e8/output/resultado.pdf
+
+
+STDERR
+======
+

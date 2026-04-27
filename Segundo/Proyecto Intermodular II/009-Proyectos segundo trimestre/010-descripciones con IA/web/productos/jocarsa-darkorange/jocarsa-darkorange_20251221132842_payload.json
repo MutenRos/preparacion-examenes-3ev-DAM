@@ -1,0 +1,198 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darkorange",
+    "title": "jocarsa | darkorange - Automatiza tus campañas de correo con SaaS educativo",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "marketers",
+      "educational institutions"
+    ],
+    "ctaPrimary": "Empieza tu prueba gratis",
+    "ctaSecondary": "Conoce cómo funciona"
+  },
+  "hero": {
+    "name": "jocarsa | darkorange",
+    "valueProposition": "Gestiona eficazmente tus campañas de correo con nuestro SaaS educativo. Automatiza el envío, controla los detalles HTML y asegura que tus correos sean vistos.",
+    "subtitle": "Automatización sin complicaciones para mejorar la comunicación en educación",
+    "badges": [
+      "SaaS educativo",
+      "Gestión de campañas",
+      "mejora de correo electrónico"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Empieza tu prueba gratis"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce cómo funciona"
+      },
+      {
+        "type": "tertiary",
+        "text": "Más detalles"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Nueva campaña",
+    "items": [
+      "PATHS",
+      "CONFIG",
+      "LOGS JSONL (se mantienen tal cual internamente)",
+      "SQLITE",
+      "migraciones suaves",
+      "CSV",
+      "TEMPLATE {{columna}}",
+      "case-insensitive fallback",
+      "EMAIL HTML NORMALIZATION (evita “doble interlineado” por <p>)",
+      "Reset estable para clientes de correo (Gmail/Outlook/Apple Mail)"
+    ]
+  },
+  "solution": {
+    "title": "Nueva campaña de gestión de correo jocarsa-darkorange",
+    "overview": "La solución implementada en jocarsa-darkorange permite la gestión y control de campañas de correo con funcionalidades avanzadas. Incluye envío de texto y HTML, adjuntos personalizados para cada campaña, reanudación de campañas interrumpidas, mejora de plantillas para mejor visualización en diferentes clientes de correo y configuración segura de SMTP.",
+    "whatChanges": [
+      "Implementación del envío de texto + HTML",
+      "Introducción de funcionalidad de adjuntos personalizados por campaña",
+      "Adición de opción para reanudar campañas",
+      "mejora de line-height y márgenes para mejorar la presentación en correos electrónicos",
+      "Configuración segura de SMTP solo con HTML y archivos anexados"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a Nueva / campaña / Reporte / proyecto / Estructura / proyecto."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educadores y profesionales en el sector educativo",
+    "profiles": [
+      {
+        "name": "Docentes",
+        "fit": "Necesitan automatizar el envío de correos electrónicos para comunicaciones con padres o estudiantes, actualizando regularmente listas de contactos."
+      },
+      {
+        "name": "Directivos escolares",
+        "fit": "Buscan mejorar la gestión de las campañas de correo institucional, asegurando que todos los miembros del equipo estén al día y no se pierdan ningún detalle."
+      },
+      {
+        "name": "Gerentes de proyectos educativos",
+        "fit": "Requieren herramientas para crear y enviar correos electrónicos en masa con contenido personalizado, manteniendo una comunicación efectiva y eficiente con todos los participantes."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Campanas de Email Personalizadas",
+    "cases": [
+      {
+        "name": "Campañas Automatizadas",
+        "description": "Permite la creación y ejecución de campañas de email automatizadas con personalización de contenido basado en datos del usuario. Los emails se envían según el formato HTML mejorado para diferentes clientes de correo, asegurando una presentación consistente."
+      },
+      {
+        "name": "Gestión de Archivos Adjuntos",
+        "description": "Permite la subida y gestión de archivos adjuntos en las campañas de email, asegurando que todos los destinatarios reciban los mismos documentos sin errores de formato. Se asocian automaticamente a cada envío."
+      },
+      {
+        "name": "Reanudación de Envíos",
+        "description": "Ofrece la opción de reanudar una campaña dejada en pausa, incluso si ya se han enviado emails anteriormente. Los emails enviados previamente no serán repetidos."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Nuevas Funcionalidades para Mejorar tu Campaña de Marketing",
+    "items": [
+      "Envío de texto y HTML personalizado, asegurando que todos los clientes reciban la mejor experiencia visual.",
+      "Adjuntos asociados a cada campaña se adjuntan automáticamente en todos los envíos, manteniendo tus contenido accesibles.",
+      "Reanudar una campaña salta emails enviados previamente, evitando duplicaciones innecesarias y mejorando recursos."
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Campañas y Migraciones Suaves",
+    "notes": "Permite la integración de campañas y el manejo de migraciones suaves.",
+    "items": [
+      "CSV: Envío de datos de clientes y campañas",
+      "TEMPLATE {{columna}}: Personalización en el HTML",
+      "EMAIL HTML NORMALIZATION: Ajuste del formato de correo electrónico para una mejor visualización en diferentes clientes de correo"
+    ]
+  },
+  "trust": {
+    "title": "Nueva campaña",
+    "points": [
+      "Se envía texto y HTML (si el cliente soporta HTML, lo mostrará).",
+      "Los adjuntos se asocian a la campaña y se adjuntan en todos los envíos.",
+      "Reanudar salta emails ya enviados en esa campaña."
+    ]
+  },
+  "finalCTA": {
+    "title": "Empieza a Educar con Nosotros",
+    "description": "Transforma tu contenido educativo en una experiencia personalizada. Nuestro software educativo se adapta a las necesidades de cada estudiante, mejorando los resultados y el engagement.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comienza Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Qué es jocarsa-darkorange?",
+        "a": "jocarsa-darkorange es una solución de software educativo que ofrece herramientas para crear, gestionar y analizar campañas de correo electrónico."
+      },
+      {
+        "q": "¿Cómo se envían los correos electrónicos en jocarsa-darkorange?",
+        "a": "Los correos electrónicos son enviados con HTML y adjuntos, asegurando que el formato sea correcto y los mensajes lleguen sin interrupciones."
+      },
+      {
+        "q": "¿Cuáles son las características principales de la solución?",
+        "a": "Las principales características incluyen la creación y seguimiento de campañas, gestión de archivos CSV, validación de correos electrónicos, y análisis detallado de los resultados de cada envío."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Nuevas funcionalidades incluyen la gestión de campañas con send HTML y adjuntos, mejora para SMTP solo HTML y manejo de logs JSONL. Se garantiza un rendimiento consistente en diferentes clientes de correo."
+  }
+}

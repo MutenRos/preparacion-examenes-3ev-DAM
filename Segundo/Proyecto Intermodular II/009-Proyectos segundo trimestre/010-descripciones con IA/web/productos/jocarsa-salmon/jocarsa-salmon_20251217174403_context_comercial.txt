@@ -1,0 +1,149 @@
+TITLE: jocarsa | salmon
+H1: jocarsa | salmon
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-salmon
+# jocarsa-salmon
+#acceso{position:absolute;inset:var(--header-h) 0 0 0;display:grid;place-items:start center;overflow:auto}
+#app{position:absolute;inset:var(--header-h) 0 0 0;display:none}
+#chatlog{flex:1 1 auto;min-height:120px;max-height:35vh;overflow:auto;background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px}
+#chat{margin-top:8px}
+#peers{list-style:disc}
+#peers li{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0}
+#enableAudio{background:var(--danger);color:white;}
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-salmon
+├── .gitignore
+├── README.md
+├── admin.php
+├── index.html
+└── signaling.php
+```
+
+## Código (intercalado)
+
+# jocarsa-salmon
+**README.md**
+```markdown
+# jocarsa-salmon
+```
+**admin.php**
+```php
+<?php
+declare(strict_types=1);
+session_start();
+
+/* =========================================
+ CONFIGURACIÓN
+ ========================================= */
+const ADMIN_USER = 'jocarsa';
+const ADMIN_PASS = 'jocarsa';
+
+/* Ajusta rutas si tu index.html no está en / */
+const INVITE_USER_PATH = '/';
+const INVITE_PRESENTER_PATH = '/';
+
+$dbFile = __DIR__ . '/signaling.db';
+
+/* =========================================
+ HELPERS
+ ========================================= */
+function out($s){ echo $s; }
+function h(string $s): string { return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
+function base_url(): string {
+ $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+ $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+ return $scheme . '://' . $host;
+}
+function csrf_token(): string {
+ if (empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(16));
+ return $_SESSION['csrf'];
+}
+function csrf_ok(string $t): bool { return isset($_SESSION['csrf']) && hash_equals($_SESSION['csrf'], $t); }
+/* Base64 URL-safe (para data-atributos sin romper HTML) */
+function b64e(string $s): string { return rtrim(strtr(base64_encode($s), '+/', '-_'), '='); }
+
+/** Mensaje “tipo Zoom” (sin comillas tipográficas problemáticas) */
+function make_invite_msg(string $role, string $title, string $roomId, ?string $password, string $url): string {
+ $roleUpper = strtoupper($role);
+ $pwLine = $password ? "Contraseña: $password" : "Contraseña: (no definida)";
+ $lines = [
+ "🔗 Invitación a la sala «{$title}»",
+ "",
+ "Únete como $roleUpper",
+ "1) Abre: $url",
+ "2) En «ID de sala» escribe: $roomId",
+ "3) $pwLine",
+ "",
+ "💡 Usa tu nombre y apellidos como «Nombre a mostrar».",
+ "📹 Permite cámara y micrófono si te lo pide el navegador.",
+ "♻️ Si algo falla, actualiza la página o prueba otro navegador."
+ ];
+ return implode("\n", $lines);
+}
+
+/* =========================================
+ LOGIN / LOGOUT
+ ========================================= */
+$login_error = null;
+if (isset($_GET['action']) && $_GET['action']==='logout') {
+ $_SESSION = []; session_destroy();
+ header('Location: '.$_SERVER['PHP_SELF']); exit;
+}
+if (($_POST['__do'] ?? '') === 'login') {
+ $u = $_POST['user'] ?? '';
+ $p = $_POST['pass'] ?? '';
+ if ($u === ADMIN_USER && $p === ADMIN_PASS) {
+ $_SESSION['admin_auth'] = true;
+ header('Location: '.$_SERVER['PHP_SELF']); exit;
+ } else {
+ $login_error = 'Credenciales incorrectas.';
+ }
+}
+$authed = !empty($_SESSION['admin_auth']);
+
+/* =========================================
+ DB INIT + MIGRACIONES DEFENSIVAS
+ ========================================= */
+$ok=null; $err=null;
+try {
+ $db = new PDO('sqlite:' . $dbFile, '', '', [
+ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+ ]);
+
+ // Esquema compatible con signaling.php (usa passhash_user/passhash_presenter)
+ $db->exec("CREATE TABLE IF NOT EXISTS rooms(
+ id TEXT PRIMARY KEY,
+ title TEXT,
+ pass_user TEXT, -- plano (para mostrar en invitaciones)
+ pass_presenter TEXT, -- plano (para mostrar en invitaciones)
+ passhash_user TEXT, -- hash (lo que valida signaling.php)
+ passhash_presenter TEXT, -- hash (lo que valida signaling.php)
+ created_at INTEGER,
+ updated_at INTEGER
+ )");
+
+ // Migraciones defensivas
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN pass_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_user TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN passhash_presenter TEXT"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN created_at INTEGER"); } catch (Throwable $e) {}
+ try { $db->exec("ALTER TABLE rooms ADD COLUMN updated_at INTEGER"); } catch (Throwable $e) {}
+
+} catch (Throwable $e) {
+ $err = 'DB error: '.$e->getMessage();
+}
+
+/* =========================================
+ CRUD (solo si logado)
+ ========================================= */
+if ($authed && $_SERVER['REQUEST_METHOD']==='POST' && !

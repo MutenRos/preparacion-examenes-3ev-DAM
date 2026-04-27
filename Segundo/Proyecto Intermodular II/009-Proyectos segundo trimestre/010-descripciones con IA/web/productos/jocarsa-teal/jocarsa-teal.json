@@ -1,0 +1,279 @@
+{
+  "productPage": {
+    "@lang": "es",
+    "@type": "softwareEducativo",
+    "@version": "1.1",
+    "meta": {
+      "slug": "jocarsa-teal",
+      "title": "Gestiona tus Aplicaciones de Datos de Forma Dinámica",
+      "category": "SaaS Educativo",
+      "audience": {
+        "segment": [
+          "Directores Ejecutivos",
+          "Profesores y Docentes",
+          "Equipo Administrativo"
+        ]
+      },
+      "ctaPrimary": "Accede Ahora",
+      "ctaSecondary": "Descubre la Demo"
+    },
+    "hero": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_hero.jpg",
+          "@alt": "Producto software"
+        }
+      },
+      "name": "Inicio",
+      "valueProposition": "Crea y Administra tablas, carpetas y aplicaciones empresariales de forma intuitiva.",
+      "subtitle": "Organiza tus datos en un solo lugar con jocarsa | teal.",
+      "badges": {
+        "badge": [
+          "Intuitivo",
+          "Dinámico",
+          "Personalizado"
+        ]
+      },
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Accede Ahora"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Descubre la Demo"
+          },
+          {
+            "@type": "tertiary",
+            "#text": "Ver Cómo Funciona"
+          }
+        ]
+      }
+    },
+    "problem": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_problem.jpg",
+          "@alt": "Problemas habituales"
+        }
+      },
+      "title": "Desafíos en la Gestión de Datos",
+      "items": {
+        "item": [
+          "Necesidad de Personalizar y Organizar Datos",
+          "Búsqueda Difícil y Navegación Lenta",
+          "Seguridad y Control de Acceso Limitado"
+        ]
+      }
+    },
+    "solution": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_solution.jpg",
+          "@alt": "Solución"
+        }
+      },
+      "title": "jocarsa | teal: Solución Integral",
+      "overview": "Con jocarsa | teal, crea e intuitivo sistema que te permite definir esquemas personalizados, organizar datos en carpetas visualmente y generar reportes interactivos.",
+      "whatChanges": {
+        "change": [
+          "Interfaz Visual Personalizable",
+          "Gestión de Aplicaciones Empresariales",
+          "Informes Interactivos y Análisis en Tiempo Real"
+        ]
+      }
+    },
+    "keyFeatures": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_features.jpg",
+          "@alt": "Funcionalidades"
+        }
+      },
+      "title": "Características Destacadas",
+      "feature": [
+        {
+          "name": "Creación Dinámica de Tablas y Carpetas",
+          "benefit": "Define esquemas personalizados y organiza datos visualmente."
+        },
+        {
+          "name": "Gestión de Aplicaciones Empresariales",
+          "benefit": "Crea múltiples aplicaciones con su propio conjunto de tablas y registros."
+        },
+        {
+          "name": "Interfaz Intuitiva y Flexible",
+          "benefit": "Navega sencillamente por menús, paneles y breadcrumbs para acceder a cualquier registro o reporte al instante."
+        }
+      ]
+    },
+    "targetAudience": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_audience.jpg",
+          "@alt": "Público objetivo"
+        }
+      },
+      "title": "Perfil del Cliente Ideal",
+      "profiles": {
+        "profile": [
+          {
+            "name": "Directores Ejecutivos",
+            "fit": "Dirigen la estrategia empresarial y buscan herramientas que optimicen la gestión de datos."
+          },
+          {
+            "name": "Profesores y Docentes",
+            "fit": "Necesitan sistemas dinámicos para organizar y analizar datos educativos fácilmente."
+          },
+          {
+            "name": "Equipo Administrativo",
+            "fit": "Gestionan múltiples aplicaciones empresariales y buscan soluciones que faciliten la navegación y el control de acceso."
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_usecases.jpg",
+          "@alt": "Casos de uso"
+        }
+      },
+      "title": "Casos de Uso",
+      "case": [
+        {
+          "name": "Definición de Esquemas Personalizados",
+          "description": "Define esquemas para adaptar las tablas a las necesidades específicas del negocio."
+        },
+        {
+          "name": "Organización Visual de Datos",
+          "description": "Crea carpetas visualmente y organiza datos fácilmente."
+        },
+        {
+          "name": "Generación de Informes Interactivos",
+          "description": "Convierte datos en informes interactivos para tomar decisiones informadas."
+        }
+      ]
+    },
+    "benefits": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_benefits.jpg",
+          "@alt": "Beneficios"
+        }
+      },
+      "title": "Beneficios y Ventajas",
+      "items": {
+        "item": [
+          "Eficiencia Operativa",
+          "Flexibilidad Total",
+          "Visibilidad Completa"
+        ]
+      }
+    },
+    "trust": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_trust.jpg",
+          "@alt": "Confianza"
+        }
+      },
+      "title": "Confianza y Apoyo",
+      "points": {
+        "point": [
+          "Soporte en Cualquier Momento",
+          "Seguridad Robusta",
+          "Gestión de Usuarios Segura"
+        ]
+      }
+    },
+    "finalCTA": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_cta.jpg",
+          "@alt": "Solicitar demo"
+        }
+      },
+      "title": "Descubre cómo jocarsa | teal transforma la gestión de datos.",
+      "description": "Prueba nuestra demo gratuita e incremente la eficiencia en tu empresa o escuela hoy mismo.",
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Accede Ahora"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Más Información"
+          }
+        ]
+      },
+      "contact": {
+        "email": "info@jocarsa.com",
+        "form": {
+          "field": [
+            {
+              "@name": "nombre",
+              "@type": "text",
+              "@required": "true"
+            },
+            {
+              "@name": "email",
+              "@type": "email",
+              "@required": "true"
+            },
+            {
+              "@name": "mensaje",
+              "@type": "textarea",
+              "@required": "true"
+            }
+          ]
+        }
+      }
+    },
+    "faq": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_faq.jpg",
+          "@alt": "Preguntas frecuentes"
+        }
+      },
+      "title": "Preguntas Frecuentes",
+      "qa": [
+        {
+          "q": "¿Cómo puedo personalizar las tablas y carpetas?",
+          "a": "Define esquemas personalizados y organiza tus datos en carpetas visualmente para adaptarlos a las necesidades específicas de tu negocio."
+        },
+        {
+          "q": "¿Cuáles son los informes interactivos disponibles?",
+          "a": "Generamos reportes interactivos que convertirán tus datos en análisis útiles e inmediatos."
+        },
+        {
+          "q": "¿Es seguro almacenar mis datos en jocarsa | teal?",
+          "a": "Nuestro sistema asegura la seguridad y el control de acceso, garantizando la confidencialidad de tus datos."
+        }
+      ]
+    },
+    "footer": {
+      "summary": "Resumen del producto y siguiente paso."
+    },
+    "integrations": {
+      "@optional": "true",
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-teal_20251216145423_integrations.jpg",
+          "@alt": "Integraciones"
+        }
+      },
+      "title": "Integraciones",
+      "notes": "Conéctate con otros sistemas y herramientas de forma opcional.",
+      "items": {
+        "item": [
+          "Sistemas de Gestión Empresarial",
+          "Plataformas Educativas",
+          "Panel de Monitoreo"
+        ]
+      }
+    }
+  }
+}

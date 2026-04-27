@@ -1,0 +1,24 @@
+RESUMEN GENERADO CON OLLAMA (qwen2.5:3b-instruct)
+ORIGINAL: 07102025_RL SMR1.txt
+------------------------------------------------------------
+
+En la charla mencionada, hay varias partes clave relacionadas con redes y direcciones IP:
+
+1. Direcciones IP:
+   - Se explica la diferencia entre IPv4 (32 bits) y IPv6 (128 bits).
+   - Explica que IPv4 daría 4,3 billones de direcciones si no existieran redes privadas.
+   - Destaca que las empresas compran bloques de direcciones IPv4 para sus diferentes ubicaciones.
+
+2. Tipos de Redes:
+   - Se define la diferencia entre redes públicas y privadas.
+   - Se menciona cómo algunas empresas, como proveedores de servicios web o servicios en la nube, necesitan muchas direcciones IP.
+
+3. Topologías de Red:
+
+   La actividad topológica se refería a un examen pendiente para el día 15 de octubre. Si ya estamos en noviembre, esto significa que aún no hemos visto este ejercicio y será necesario hacerlo luego.
+
+4. Cuestionarios:
+
+   Se menciona la posibilidad de tener cuestionarios no evaluables y evaluable por esa actividad.
+
+En resumen, la charla cubrió conceptos clave sobre direcciones IP, tipos de redes y topologías de red, pero dejó pendiente un ejercicio que será necesario completar posteriormente.

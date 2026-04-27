@@ -1,0 +1,36 @@
+{
+  "finalCTA": {
+    "title": "Empieza tu viaje educativo hoy",
+    "description": "Descubre cómo transformar contenido audiovisual en recursos didácticos con nuestra solución de SaaS. ¡Convierte tus videos y transcripciones en un recurso valioso para el aprendizaje!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuita"
+      },
+      {
+        "type": "secondary",
+        "text": "Ver Cómo Funciona"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  }
+}

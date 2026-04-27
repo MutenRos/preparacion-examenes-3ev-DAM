@@ -1,0 +1,12 @@
+{
+  "benefits": {
+    "title": "Funcionalidades del Generador de Prompt para IA jocarsa-lightgoldenrodyellow",
+    "items": [
+      "Generación de prompts con parámetros específicos como Contexto, Objetivo y Formato",
+      "Explorador de carpetas integrado para seleccionar proyectos fácilmente",
+      "Reportes intercalados de código con formato Markdown y WYSIWYG",
+      "Análisis de bases de datos SQLite o MySQL (opcional)",
+      "Persistencia del estado en archivos JSON para una mejor experiencia de usuario"
+    ]
+  }
+}

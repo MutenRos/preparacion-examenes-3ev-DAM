@@ -1,0 +1,199 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Tu Pizarra Interactiva para Aprendizaje Eficaz",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Educadores",
+      "Alumnos",
+      "Directivos Escolares"
+    ],
+    "ctaPrimary": "Inscríbete Ahora",
+    "ctaSecondary": "Conoce Más"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "Transforma tu entorno educativo con nuestra pizarra interactiva que combina interactividad y colaboración en un solo espacio.",
+    "subtitle": "Aprende y enseña de manera innovadora con jocarsa | aliceblue",
+    "badges": [
+      "Interactiva",
+      "Colaborativa",
+      "Personalizada"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Inscríbete Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      },
+      {
+        "type": "tertiary",
+        "text": "Pantalla Completa"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Diseño y funcionalidad del panel de administrador",
+    "items": [
+      "Estilo visual desorganizado con demasiados elementos en la cabecera y poca claridad en los botones",
+      "Funcionalidad inexistente o poco clara para acciones como captura de inicio y fin de sesión",
+      "Interacción con imágenes en el modal sin especificar comportamiento deseado",
+      "Barra de progreso no implementada o explicada en el código"
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | aliceblue",
+    "overview": "Desarrollado con un enfoque en la educación, jocarsa | aliceblue presenta una interfaz amigable que permite a los administradores monitorear y controlar sesiones de captura. La solución incluye herramientas para iniciar y detener la captura, así como paneles para visualizar las imágenes recientes y ajustar configuraciones.",
+    "whatChanges": [
+      "Implementa una interface de usuario moderna con estilos claros",
+      "Incluye funciones para iniciar y detener la captura en tiempo real",
+      "Permite a los usuarios interactuar con imágenes recientes y ajustar ajustes visuales"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a Reporte / proyecto / Estructura / proyecto / Código / intercalado."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educadores y administradores de centros educativos",
+    "profiles": [
+      {
+        "name": "Educadores",
+        "fit": "Están buscando un software intuitivo para gestionar sus salas de aula, permitiendo la grabación y visualización de sesiones de enseñanza."
+      },
+      {
+        "name": "Administradores de centros educativos",
+        "fit": "Requieren una herramienta que les permita supervisar el contenido grabado en tiempo real y acceder a información detallada sobre las sesiones."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Uso de jocarsa | aliceblue en la educación",
+    "cases": [
+      {
+        "name": "Captura y Análisis de Imágenes",
+        "description": "El software permite a los administradores capturar y analizar imágenes, facilitando el seguimiento detallado del rendimiento educativo. Los usuarios pueden visualizar y comparar las imágenes para identificar progresos o áreas que necesiten atención."
+      },
+      {
+        "name": "Monitoreo Continuo",
+        "description": "Permite un monitoreo continuo de la calidad educativa a través de la visualización en tiempo real, lo cual es útil para ajustar estrategias didácticas y asegurar una educación de alta calidad."
+      },
+      {
+        "name": "Informes Personalizados",
+        "description": "Genera informes personalizados basados en el análisis de las imágenes capturadas. Estos informes proporcionan datos valiosos para mejorar la enseñanza y la instrucción, ayudando a los educadores a tomar decisiones más informadas."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Incrementa la eficiencia y mejora la experiencia del usuario con jocarsa | aliceblue",
+    "items": [
+      "Disfruta de un diseño amigable que asegura una navegación fluida en el panel administrativo.",
+      "Personaliza cada sección con opciones de estilo modernas, mejorando tu interacción con el contenido multimedia.",
+      "Visualiza y administra tus datos de manera segura y confiable, gracias a la arquitectura robusta y la interfaz intuitiva."
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Adicionales",
+    "notes": "Incluye integración con sistemas existentes. Las opciones son seleccionables.",
+    "items": [
+      "Sistema de Gestión de Contenidos (CMS)",
+      "Gestor de Usuários (UMG)",
+      "Análisis de Datos en Tiempo Real"
+    ]
+  },
+  "trust": {
+    "title": "Confiable y Seguro",
+    "points": [
+      " Diseño responsivo y adaptable a diferentes dispositivos.",
+      " Implementación de medidas de seguridad avanzadas para proteger datos importantes.",
+      " Interfaz intuitiva que facilita la navegación y uso del software educativo."
+    ]
+  },
+  "finalCTA": {
+    "title": "¡Empieza tu viaje educativo hoy!",
+    "description": "Descubre cómo jocarsa | aliceblue transforma la experiencia de aprendizaje. ¡Regístrate ahora y obtén acceso inmediato!",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Comenzar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Obtener más información"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo inicio sesión en el panel de administrador?",
+        "a": "Para iniciar sesión, ingresa a la página `admin.php` y proporciona las credenciales de usuario y contraseña correctas."
+      },
+      {
+        "q": "¿Cómo visualizo una imagen completa desde el grid?",
+        "a": "Al hacer clic sobre una imagen miniatura en el grid, se abrirá un modal con la vista completa de la imagen. Si no se abre, asegúrate de que estás utilizando la última versión del software."
+      },
+      {
+        "q": "¿Cómo detengo la captura de pantalla o video?",
+        "a": "Para detener la captura de pantalla o video, simplemente haz clic en el botón 'Stop' disponible en la interfaz de usuario. Si no funciona, asegúrate de que estés en la versión más reciente."
+      },
+      {
+        "q": "¿Cómo cambio las propiedades de una imagen en el sistema?",
+        "a": "Pulsa sobre una imagen en el grid para abrirla en un modal completo. Allí, podrás editar sus propiedades y guardar los cambios."
+      },
+      {
+        "q": "¿Dónde están guardadas las imágenes y videos que capturo?",
+        "a": "Las imágenes y videos capturados se almacenan en la carpeta `admin` del directorio raíz del servidor. Asegúrate de tener permisos adecuados para acceder a ellas."
+      },
+      {
+        "q": "¿Cómo actualizo el software a la versión más reciente?",
+        "a": "Accede a la sección 'Actualizaciones' en el panel de administrador (`admin.php`). Sigue las instrucciones proporcionadas allí para actualizar tu software a la versión más reciente."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Estructura y estilo de la página de administrador para jocarsa-aliceblue, incluyendo menús, contenido en celdas, progreso visual, y vistas modales para imágenes."
+  }
+}

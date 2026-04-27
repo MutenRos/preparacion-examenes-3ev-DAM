@@ -1,0 +1,5 @@
+```json
+{
+  "benefits": {"title":"Experiencia Educativa Aprendizaje Inmersivo","items":["Permite a los usuarios crear y unirse a salas de aprendizaje personalizadas","Ofrece una interfaz intuitiva para facilitar la participación en charlas interactivas","Incluye herramientas para compartir contenido multimedia y colaborar en tiempo real"]}
+}
+```

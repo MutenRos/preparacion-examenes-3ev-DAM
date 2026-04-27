@@ -1,0 +1,13 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Adicionales",
+    "notes": "Incluye integración opcional con otras herramientas.",
+    "items": [
+      "YouTube Player Client",
+      "Subtítulos en Español (es/es-ES/es-419)",
+      "Sumario Automático de Vídeos"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "problem": {
+    "title": "Desarrollo de la Aplicación jocarsa | darksalmon",
+    "items": [
+      "Desarrollar una interfaz de usuario amigable para el inicio y finalización de jornadas laborales.",
+      "Implementar un módulo para mostrar las jornadas registradas y permitir su corrección por parte del administrador.",
+      "Crear un perfil detallado con información personal y contactos del usuario."
+    ]
+  }
+}

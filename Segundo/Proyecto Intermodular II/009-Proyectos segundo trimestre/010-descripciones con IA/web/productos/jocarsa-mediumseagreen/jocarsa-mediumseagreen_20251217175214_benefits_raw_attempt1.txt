@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Gestión Eficaz del Contenido Educativo","items":["Genera contenido didáctico a partir de transcripciones en línea sin la necesidad de intervención manual.","Prioriza y selecciona automáticamente los idiomas disponibles para mejorar la accesibilidad del material educativo.","Integra el análisis semántico para clasificar el contenido de vídeos y textos, facilitando su organización y búsqueda.","Mezcla diferentes fuentes de aprendizaje como videos, textos y transcripciones para ofrecer una experiencia educativa personalizada.","Optimiza la navegación a través del contenido estructurado en unidades y subunidades, mejorando la comprensión y retención del material."]}
+}

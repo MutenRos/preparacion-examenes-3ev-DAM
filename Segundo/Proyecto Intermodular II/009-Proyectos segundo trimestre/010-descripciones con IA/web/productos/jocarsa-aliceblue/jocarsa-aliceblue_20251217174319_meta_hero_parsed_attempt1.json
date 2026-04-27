@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Tu Panel de Administración Personalizado",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Administradores",
+      "Educadores",
+      "Profesionales del Sector Educativo"
+    ],
+    "ctaPrimary": "Ingresar Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "El panel de administración más personalizado y fácil de usar para educadores y profesionales del sector.",
+    "subtitle": "Gestiona tus recursos educativos con la facilidad que mereces.",
+    "badges": [
+      "100% Responsive",
+      "Sencillo de Usar",
+      "Recursos Educativos Integrados"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Ingresar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas Frecuentes"
+      },
+      {
+        "type": "tertiary",
+        "text": "Descubre Más"
+      }
+    ]
+  }
+}

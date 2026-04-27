@@ -1,0 +1,10 @@
+{
+  "benefits": {
+    "title": "jocarsa | salmon",
+    "items": [
+      "Permite la creación de salas de videoconferencia personalizadas y seguras con autenticación individual y en presentador.",
+      "Ofrece un sistema de invitaciones detallado que incluye mensajes tipo Zoom para facilitar el acceso a los usuarios.",
+      "Incluye funcionalidades defensivas en la base de datos para asegurar la integridad y la seguridad de las salas creadas."
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "benefits": {
+    "title": "Beneficios de jocarsa | darksalmon",
+    "items": [
+      "Registra fácilmente el inicio y fin de tu jornada laboral con un solo click.",
+      "Visualiza tus registros de jornada en un mapa para mejor seguimiento.",
+      "Accede a toda la información relevante de tu perfil desde un solo lugar."
+    ]
+  }
+}

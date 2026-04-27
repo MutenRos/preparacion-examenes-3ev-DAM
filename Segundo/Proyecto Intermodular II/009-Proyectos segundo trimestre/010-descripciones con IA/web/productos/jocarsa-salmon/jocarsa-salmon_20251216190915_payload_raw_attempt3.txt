@@ -1,0 +1,99 @@
+Entiendo. Aquí está el resumen intercalado de los códigos y datos del proyecto `jocarsa-salmon`:
+
+### Archivos del Proyecto:
+- **README.md**
+- **admin.php**
+- **index.html**
+- **signaling.php**
+
+### Estructura de Código Intercalada:
+
+1. **README.md:**
+   - No hay contenido intercalado.
+
+2. **admin.php:**
+   - **Inicio de Sesión (No Autenticado):**
+     ```php
+     <?php if(!$authed): ?>
+       <div class="card login">
+         <h2>Acceder</h2>
+         <?php if($login_error) out('<div class="msg err">$login_error</div>'); ?>
+         <form method="post" autocomplete="off">
+           <input type="hidden" name="__do" value="login">
+           <label>Usuario</label>
+           <input name="user" placeholder="Usuario" required>
+           <label>Contraseña</label>
+           <input name="pass" type="password" placeholder="Contraseña" required>
+           <div style="display:flex;gap:8px;margin-top:12px">
+             <button class="btn">Entrar</button>
+             <div class="help">Pista: usuario <b>jocarsa</b>, contraseña <b>jocarsa</b></div>
+           </div>
+         </form>
+       </div>
+     ```
+
+   - **Sesión Autenticada:**
+     ```php
+     <?php else: ?>
+       <div class="grid">
+         <!-- Formulario crear/editar -->
+         <div class="card">
+           <h2>Crear / editar sala</h2>
+           <?php if($ok) out("<div class='msg ok'>$ok</div>"); if($err) out("<div class='msg err'>$err</div>"); ?>
+         </div>
+
+         <!-- Tabla de Salas -->
+         <table>
+           <thead><tr><th>ID</th><th>Título</th><th>Opciones</th></tr></thead>
+           <tbody>
+             <?php foreach($rooms as $room): ?>
+               <tr><td><?php echo $room['id']; ?></td><td><?php echo $room['title']; ?></td><td><a href="?edit=<?php echo $room['id']; ?>" class="btn">Editar</a> <button onclick="return confirm('¿Estás seguro de que deseas eliminar esta sala?')" type="submit" formaction="?delete=<?php echo $room['id']; ?>" class="btn warn">Eliminar</button></td></tr>
+             <?php endforeach; ?>
+           </tbody>
+         </table>
+
+         <!-- Formulario para crear salas -->
+         <form method="post" action="">
+           <input type="hidden" name="__do" value="add_room">
+           <label>Nombre de la sala</label>
+           <input name="title" placeholder="Nombre de la sala" required>
+           <label>Contraseña (opcional)</label>
+           <input name="password" type="password" placeholder="Contraseña" required>
+           <button class="btn">Crear sala</button>
+         </form>
+       </div>
+     ```
+
+   - **Finalización:**
+     ```php
+     <?php endif; ?>
+     ```
+
+### Funcionalidades:
+
+1. **Autenticación de Usuario:**
+   - Se autentica con el usuario 'jocarsa' y la contraseña 'jocarsa'.
+   
+2. **Administración de Salas:**
+   - Permite crear, editar y eliminar salas.
+   - Las salas se almacenan en una base de datos SQL.
+
+3. **Visualización de Salas:**
+   - Muestra las salas existentes en una tabla con opciones para editar o eliminar cada sala.
+
+4. **Formulario de Inicio de Sesión:**
+   - Incluye un formulario para iniciar sesión y muestra mensajes de error si el ingreso es incorrecto.
+
+### Observaciones:
+
+1. **Estilo Personalizado:**
+   - Se utiliza una estructura personalizada de CSS definida por variables, como fondo, borde, sombra y radio de esquina.
+   
+2. **Validaciones Básicas en el Lado del Servidor:**
+   - Se utilizan comprobaciones para asegurar que los campos requeridos estén completos antes de procesar la solicitud.
+
+### Notas Adicionales:
+- `admin.php` maneja tanto el inicio de sesión como las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para las salas.
+- Las funciones de autenticación y administración están separadas en dos secciones según si hay una sesión autenticada o no.
+
+Este resumen proporciona una visión clara del contenido y la funcionalidad del archivo `admin.php`, así como detalles sobre los otros archivos mencionados.

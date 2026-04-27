@@ -1,0 +1,3 @@
+{
+  "trust": {"title":"Seguro y confiable API para calendarios","points":["Creado con PHP y SQLite para seguridad y eficiencia","Autenticación en cada solicitud garantiza la privacidad de los datos","Endpoints bien documentados y seguros, evitando el uso innecesario de localStorage"],"slug":"jocarsa-lightsalmon"}
+}

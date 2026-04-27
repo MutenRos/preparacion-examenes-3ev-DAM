@@ -1,0 +1,230 @@
+Basado en el fragmento de código que proporcionaste, aquí está una versión resumida y estructurada del código completo:
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <!-- Estilos CSS -->
+    <style>
+        /* Aquí irían los estilos CSS definidos en la respuesta original */
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+            padding-top: 60px;
+        }
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 75%;
+            max-height: 85%;
+            border-radius: 12px;
+            width: 400px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            font-size: 48px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <select id="roomSelector">
+            <option value="">Selecciona una sala</option>
+            <option value="DAM">DAM</option>
+            <option value="SMR">SMR</option>
+            <option value="Capitol">Capitol</option>
+        </select>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span id="closeModal" class="close">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Fullscreen View">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const roomSelector = document.getElementById("roomSelector");
+        const grid = document.getElementById("grid");
+
+        function calculateHourRange(firstTimestamp, lastTimestamp) {
+            const startHour = new Date(firstTimestamp * 1000).getHours();
+            const endHour = new Date(lastTimestamp * 1000).getHours();
+            const startPercentage = (startHour / 24) * 100;
+            const endPercentage = (endHour / 24) * 100;
+            return { start: startPercentage, end: endPercentage };
+        }
+
+        async function fetchStudentData(room) {
+            if (!room) {
+                grid.innerHTML = "<p>Por favor, selecciona una sala.</p>";
+                return;
+            }
+            
+            try {
+                const response = await fetch(`adminback.php?room=${room}`);
+                const data = await response.json();
+
+                grid.innerHTML = ""; // Clear existing cards
+
+                data.forEach(async (student) => {
+                    const studentCard = document.createElement("div");
+                    studentCard.classList.add("card");
+                    studentCard.setAttribute("data-username", student.username);
+
+                    const studentImages = await fetchStudentImages(room, student.username);
+                    
+                    if (!studentImages.length) return;
+
+                    // Create elements for the existing content
+                    const imageElement = document.createElement("img");
+                    const usernameElement = document.createElement("div");
+                    const sliderContainer = document.createElement("div");
+                    const dateLabel = document.createElement("div");
+
+                    imageElement.src = studentImages[studentImages.length - 1].path;
+                    imageElement.alt = `${student.username}'s Screen`;
+
+                    usernameElement.classList.add("username");
+                    usernameElement.innerText = student.username;
+
+                    sliderContainer.classList.add("slider-container");
+                    const slider = document.createElement("input");
+                    slider.type = "range";
+                    slider.min = 0;
+                    slider.max = studentImages.length - 1;
+                    slider.value = studentImages.length - 1;
+
+                    dateLabel.classList.add("date");
+                    dateLabel.innerText = new Date(
+                        studentImages[studentImages.length - 1].timestamp * 1000
+                    ).toLocaleString();
+
+                    slider.addEventListener("input", (e) => {
+                        const index = e.target.value;
+                        const selectedImage = studentImages[index];
+                        imageElement.src = selectedImage.path;
+                        dateLabel.innerText = new Date(
+                            selectedImage.timestamp * 1000
+                        ).toLocaleString();
+                    });
+
+                    sliderContainer.appendChild(slider);
+
+                    // Create and add the 24-hour progress bar
+                    const firstTimestamp = studentImages[0].timestamp;
+                    const lastTimestamp = studentImages[studentImages.length - 1].timestamp;
+
+                    const { start, end } = calculateHourRange(firstTimestamp, lastTimestamp);
+
+                    const progressContainer = document.createElement("div");
+                    progressContainer.classList.add("progress-container");
+
+                    const progressBar = document.createElement("div");
+                    progressBar.classList.add("progress-bar");
+                    progressBar.style.left = `${start}%`;
+                    progressBar.style.width = `${end - start}%`;
+
+                    const progressTimeLabel = document.createElement("div");
+                    progressTimeLabel.classList.add("progress-time");
+                    progressTimeLabel.innerText = `Active: ${new Date(
+                        firstTimestamp * 1000
+                    ).getHours()}h - ${new Date(lastTimestamp * 1000).getHours()}h`;
+
+                    progressContainer.appendChild(progressBar);
+
+                    // Append all elements to the student card
+                    studentCard.appendChild(usernameElement);
+                    studentCard.appendChild(imageElement);
+                    studentCard.appendChild(sliderContainer);
+                    studentCard.appendChild(dateLabel);
+                    studentCard.appendChild(progressContainer);
+                    grid.appendChild(studentCard);
+                });
+
+                setInterval(() => checkForUpdates(room), 60000);
+            } catch (err) {
+                console.error("Error fetching student data:", err);
+            }
+        }
+
+        async function fetchStudentImages(room, username) {
+            try {
+                const response = await fetch(`adminimages.php?room=${room}&user=${username}`);
+                return await response.json();
+            } catch (err) {
+                console.error("Error fetching images for student", err);
+            }
+        }
+
+        // Show the modal
+        function showModal(imagePath, username) {
+            document.getElementById('modalImage').src = imagePath;
+            document.getElementById('modalCaption').innerText = `${username} Screen`;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        document.getElementById("closeModal").addEventListener("click", closeModal);
+    </script>
+</body>
+</html>
+```
+
+### Descripción de las Funciones:
+
+1. **`calculateHourRange(firstTimestamp, lastTimestamp)`**:
+   - Calcula la porción del día activo para un estudiante.
+
+2. **`fetchStudentData(room)`**:
+   - Obtiene los datos de estudiantes y sus imágenes desde el servidor.
+   - Crea tarjetas (`card`) dinámicamente con detalles del estudiante, slider para cambiar las imágenes, y barra de progreso 24-hora.
+
+3. **`fetchStudentImages(room, username)`**:
+   - Obtiene las imágenes de un estudiante específico desde el servidor.
+
+4. **`showModal(imagePath, username)`**:
+   - Muestra la imagen del estudiante en la modal y establece los detalles del usuario.
+
+5. **`closeModal()`**:
+   - Cierra la modal.
+
+### Notas Adicionales:
+
+- Asegúrate de que `adminback.php` y `adminimages.php` devuelvan JSON con las respuestas esperadas.
+- La implementación completa incluye estilos CSS, funcionalidades de tarjetas interactivas, una modal para visualizar imágenes en pantalla completa, y actualizaciones periódicas basadas en el tiempo.
+
+Este código proporciona una interfaz de administrador robusta que permite ver los datos de los estudiantes en diferentes salas, cambiar entre las imágenes, y mostrar un resumen visual del tiempo activo.

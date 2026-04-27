@@ -1,0 +1,332 @@
+body,html{
+	width:100%;height:100%;
+	padding:0px;margin:0px;
+	background:#05483f;
+	font-family: serif;
+}
+
+body{display:flex;}
+
+#bodylogin{justify-content:center;align-items:center;}
+
+#login{
+	width:260px;
+	background:white;
+	padding:22px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	gap:10px;
+	border-radius:10px;
+	box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+#login h1{margin:0 0 6px 0;color:#05483f;font-size:22px;}
+
+input, textarea{
+	font-family: serif;
+	font-size:16px;
+	padding:10px;
+	border:1px solid #d8d8d8;
+	border-radius:8px;
+	outline:none;
+}
+
+textarea{min-height:90px;resize:vertical;}
+
+input[type="submit"]{
+	background:#05483f;
+	color:white;
+	border:0;
+	cursor:pointer;
+}
+
+input[type="submit"]:hover{opacity:.92;}
+
+#bodydashboard{display:flex;}
+
+nav{
+	flex:1;
+	padding:20px;
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+	color:white;
+}
+
+nav a{
+	text-decoration:none;
+	background:white;
+	color:#05483f;
+	padding:10px;
+	border-radius:10px;
+}
+
+nav a:hover{opacity:.92;}
+nav a.active{
+	background:#e7f4f2;
+	font-weight:bold;
+}
+
+main{
+	flex:5;
+	background:white;
+	padding:20px;
+	overflow:auto;
+}
+
+.brand{
+	background:rgba(255,255,255,.10);
+	border-radius:12px;
+	padding:12px;
+	display:flex;
+	flex-direction:column;
+	gap:6px;
+	margin-bottom:6px;
+}
+
+.brandTitle{font-weight:bold;font-size:18px;}
+.brandUser{opacity:.95;font-size:14px;}
+.logout{
+	background:transparent;
+	color:white;
+	border:1px solid rgba(255,255,255,.5);
+}
+
+.navSectionTitle{margin-top:8px;font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:.04em;}
+
+.topbar{
+	display:flex;
+	align-items:flex-end;
+	justify-content:space-between;
+	gap:12px;
+	border-bottom:1px solid #eee;
+	padding-bottom:12px;
+	margin-bottom:14px;
+}
+
+.topbar h1{margin:0;color:#05483f;}
+.meta{font-size:12px;opacity:.7;}
+
+.actions{display:flex;gap:8px;align-items:center;}
+
+.btn{
+	display:inline-block;
+	text-decoration:none;
+	padding:10px 12px;
+	border-radius:10px;
+	border:1px solid #e2e2e2;
+	color:#05483f;
+	background:white;
+	font-family: serif;
+}
+
+.btn.primary{
+	background:#05483f;
+	color:white;
+	border-color:#05483f;
+}
+
+.btn.danger{
+	border-color:#f1c6c6;
+	color:#7a1d1d;
+	background:#fff7f7;
+}
+
+.panel{
+	border:1px solid #eee;
+	border-radius:14px;
+	padding:14px;
+	box-shadow:0 8px 20px rgba(0,0,0,.04);
+}
+
+.panel h2{margin:0 0 10px 0;color:#05483f;}
+
+.msg{
+	padding:10px 12px;
+	border-radius:10px;
+	margin:10px 0;
+	border:1px solid #eee;
+}
+
+.msg.ok{background:#f2fbfa;border-color:#cfeeed;color:#05483f;}
+.msg.error{background:#fff3f3;border-color:#f2c9c9;color:#7a1d1d;}
+
+.hint{font-size:12px;opacity:.7;margin:10px 0 0 0;}
+.empty{opacity:.7;}
+
+.form{display:flex;flex-direction:column;gap:10px;}
+label{display:flex;flex-direction:column;gap:6px;}
+label span{font-weight:bold;color:#05483f;}
+label small{opacity:.65;font-size:12px;}
+
+.formActions{display:flex;gap:10px;align-items:center;margin-top:6px;}
+
+.tableWrap{overflow:auto;border-radius:12px;border:1px solid #eee;}
+table{width:100%;border-collapse:collapse;}
+th,td{padding:10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top;}
+th{background:#f7f7f7;color:#05483f;position:sticky;top:0;}
+.tdActions{white-space:nowrap;display:flex;gap:8px;align-items:center;}
+
+
+/* --- FK + selects --- */
+select{
+	font-family: serif;
+	font-size:16px;
+	padding:10px;
+	border:1px solid #d8d8d8;
+	border-radius:8px;
+	outline:none;
+	background:white;
+}
+
+select:focus{
+	box-shadow:0 0 0 3px rgba(5,72,63,.12);
+	border-color:#b8d9d4;
+}
+
+.fkLabel{
+	display:inline-block;
+	max-width: 520px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	vertical-align:bottom;
+}
+
+.fkId{
+	display:inline-block;
+	margin-left:8px;
+	font-size:12px;
+	opacity:.55;
+	border:1px solid #eee;
+	padding:2px 8px;
+	border-radius:999px;
+	background:#fafafa;
+}
+/* --- selects (FK) --- */
+select{
+	font-family: serif;
+	font-size:16px;
+	padding:10px;
+	border:1px solid #d8d8d8;
+	border-radius:8px;
+	outline:none;
+	background:white;
+}
+
+select:focus{
+	box-shadow:0 0 0 3px rgba(5,72,63,.12);
+	border-color:#b8d9d4;
+}
+
+.fkLabel{
+	display:inline-block;
+	max-width: 520px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	vertical-align:bottom;
+}
+
+.fkId{
+	display:inline-block;
+	margin-left:8px;
+	font-size:12px;
+	opacity:.55;
+	border:1px solid #eee;
+	padding:2px 8px;
+	border-radius:999px;
+	background:#fafafa;
+}
+
+/* --- Horario semanal --- */
+.calControls{
+	display:flex;
+	gap:12px;
+	align-items:flex-end;
+	flex-wrap:wrap;
+	margin-bottom:10px;
+}
+
+.calSelect{
+	min-width:360px;
+}
+
+.calWrap{
+	overflow:auto;
+	border-radius:12px;
+	border:1px solid #eee;
+}
+
+.calTable{
+	width:100%;
+	border-collapse:collapse;
+	min-width: 980px;
+}
+
+.calTable th,
+.calTable td{
+	border-bottom:1px solid #eee;
+	border-right:1px solid #f0f0f0;
+	padding:10px;
+	vertical-align:top;
+}
+
+.calTable th{
+	background:#f7f7f7;
+	color:#05483f;
+	position:sticky;
+	top:0;
+	z-index:1;
+}
+
+.calThSlot{
+	min-width:220px;
+	left:0;
+	z-index:2;
+}
+
+.calSlot{
+	background:#fbfbfb;
+	position:sticky;
+	left:0;
+	z-index:1;
+	min-width:220px;
+}
+
+.calSlotTitle{
+	font-weight:bold;
+	color:#05483f;
+}
+
+.calSlotTime{
+	font-size:12px;
+	opacity:.75;
+	margin-top:2px;
+}
+
+.calSlotType{
+	font-size:12px;
+	opacity:.6;
+	margin-top:2px;
+}
+
+.calCell{
+	min-width:150px;
+}
+
+.calAsig{
+	font-weight:bold;
+	color:#05483f;
+}
+
+.calProf{
+	margin-top:4px;
+	font-size:12px;
+	opacity:.75;
+}
+
+.calEmpty{
+	opacity:.35;
+}

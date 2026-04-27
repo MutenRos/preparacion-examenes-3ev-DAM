@@ -1,0 +1,10 @@
+{
+  "processed": {
+    "Informacion ingles.pdf": {
+      "mtime": 1768843625,
+      "size": 33852,
+      "jsonl": "outputs/jsonl/Informacion ingles.jsonl",
+      "txt": "outputs/txt_cache/Informacion ingles.txt"
+    }
+  }
+}

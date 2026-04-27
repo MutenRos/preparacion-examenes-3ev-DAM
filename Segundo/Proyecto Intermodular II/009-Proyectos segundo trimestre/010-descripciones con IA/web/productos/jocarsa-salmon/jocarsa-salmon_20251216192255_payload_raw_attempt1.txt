@@ -1,0 +1,27 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "Administrador de salas Jocarsa | Salmon",
+    "category": "Educación en línea",
+    "audience_segments": ["Docentes", "Estudiantes"],
+    "ctaPrimary": "Iniciar sesión",
+    "ctaSecondary": "Crear sala"
+  },
+  "hero": {
+    "name": "Administrador de salas Jocarsa | Salmon",
+    "valueProposition": "Simplifica la gestión de tu sala virtual, asegura un inicio sin contratiempos y facilita la comunicación en tiempo real.",
+    "subtitle": "¡Administra con confianza!",
+    "badges": ["Inicia sesión fácilmente", "Crea salas sin complicaciones", "Comunicación en directo"],
+    "ctaPrimary": {
+      "text": "Iniciar sesión",
+      "url": "?action=login"
+    },
+    "ctaSecondary": {
+      "text": "Crear sala",
+      "url": "#create-room"
+    }
+  }
+}

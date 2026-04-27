@@ -1,0 +1,12 @@
+{
+  "benefits": {
+    "title": "Calendario Educativo con Control de Horas",
+    "items": [
+      "Permite la creación y gestión de calendarios personalizados para cada usuario",
+      "Ofrece funcionalidades para iniciar, cerrar sesión e identificar usuarios registrados",
+      "Proporciona herramientas para verificación y suma total de horas trabajadas por mes o rango de fechas",
+      "Resalta fechas especiales con amarillo y limita la edición en ciertas fechas",
+      "Muestra visualmente las estadísticas del uso del calendario a través de un formato cuadrícula fácil de entender"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Transforma Vídeos Educativos en Contenido Didáctico de una Manera Fácil y Automatizada",
+    "category": "softwareEducativo",
+    "audience_segments": ["Profesores", "Estudiantes", "Educadores digitales"],
+    "ctaPrimary": "Descubre Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Transforma tus videos educativos en contenido didáctico de manera sencilla y automatizada, proporcionando análisis de temas y subtemas con un solo clic.",
+    "subtitle": "Convierte automáticamente tus videos en materiales educativos interactivos para mejorar la experiencia de aprendizaje",
+    "badges": ["Automatizado", "Interactivo", "Fácil de usar"],
+    "actions": [
+      {"type":"primary","text":"Descubre Ahora"},
+      {"type":"secondary","text":"Preguntas Frecuentes"},
+      {"type":"tertiary","text":"Inicio"}
+    ]
+  }
+}

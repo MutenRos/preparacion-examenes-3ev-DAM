@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Tu Pizarra Interactiva para Aprendizaje Eficaz",
+    "category": "softwareEducativo",
+    "audience_segments": ["Educadores", "Alumnos", "Directivos Escolares"],
+    "ctaPrimary": "Inscríbete Ahora",
+    "ctaSecondary": "Conoce Más"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "Transforma tu entorno educativo con nuestra pizarra interactiva que combina interactividad y colaboración en un solo espacio.",
+    "subtitle": "Aprende y enseña de manera innovadora con jocarsa | aliceblue",
+    "badges": ["Interactiva", "Colaborativa", "Personalizada"],
+    "actions": [
+      {"type":"primary","text":"Inscríbete Ahora"},
+      {"type":"secondary","text":"Conoce Más"},
+      {"type":"tertiary","text":"Pantalla Completa"}
+    ]
+  }
+}

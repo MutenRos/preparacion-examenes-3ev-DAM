@@ -1,0 +1,5 @@
+[
+  {"name":"Lee archivos JSON y texto","benefit":"Procesa playlists y transcripciones de videos, clasificando temas y generando notas didácticas."},
+  {"name":"Analiza y clasifica temas","benefit":"Identifica unidades y subunidades en el contenido, facilitando su organización y acceso."},
+  {"name":"Genera notas didácticas","benefit":"Crea un único documento didáctico sintetizando múltiples transcripciones de videos."}
+]

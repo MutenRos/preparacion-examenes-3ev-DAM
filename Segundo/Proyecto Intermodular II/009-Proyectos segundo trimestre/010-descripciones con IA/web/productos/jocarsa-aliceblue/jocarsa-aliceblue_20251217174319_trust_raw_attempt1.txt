@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"Innovación y Confianza en jocarsa | aliceblue","points":["Construido con CSS moderno para una interfaz visualmente atractiva y fácil de usar.","Se implementaron estilos responsivos que adaptan perfectamente la interfaz a diferentes dispositivos.","El código es estructurado de manera clara, lo que facilita su mantenimiento y actualización."]}
+}
+```

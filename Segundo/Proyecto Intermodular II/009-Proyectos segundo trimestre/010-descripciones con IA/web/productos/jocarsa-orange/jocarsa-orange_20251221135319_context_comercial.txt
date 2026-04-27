@@ -1,0 +1,186 @@
+TITLE: jocarsa | orange
+H1: jocarsa | orange
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-orange
+# jocarsa-orange
+* {
+#app-header {
+#app-logo {
+#app-header h1 {
+#auth-section {
+#product-screen {
+#edit-list-screen {
+#list-screen {
+#nav-menu {
+#nav-menu button {
+#nav-menu button:hover {
+#product-name{
+#app-section {
+#theme-screen {
+#theme-screen h3 {
+#theme-options {
+#app-section {
+#app-header h1 {
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-orange
+├── .gitignore
+├── README.md
+├── app.js
+├── backend.php
+├── index.html
+├── manifest.json
+├── orange.png
+├── shopping.db
+└── style.css
+```
+
+## Código (intercalado)
+
+# jocarsa-orange
+**README.md**
+```markdown
+# jocarsa-orange
+```
+**app.js**
+```js
+document.addEventListener("DOMContentLoaded", () => {
+ // --- Auth Elements ---
+ const authSection = document.getElementById("auth-section");
+ const loginForm = document.getElementById("login-form");
+ const registerForm = document.getElementById("register-form");
+
+ // --- Main App Elements ---
+ const appSection = document.getElementById("app-section");
+ const logoutBtn = document.getElementById("logout-btn");
+
+ // --- Navigation Buttons ---
+ const navList = document.getElementById("nav-list");
+ const navNew = document.getElementById("nav-new");
+ const navEdit = document.getElementById("nav-edit");
+ const navTheme = document.getElementById("nav-theme");
+
+ // --- Screens ---
+ const listScreen = document.getElementById("list-screen");
+ const productScreen = document.getElementById("product-screen");
+ const newListScreen = document.getElementById("new-list-screen");
+ const editListScreen = document.getElementById("edit-list-screen");
+ const themeScreen = document.getElementById("theme-screen");
+
+ // "Mis Listas" screen
+ const listContainer = document.getElementById("list-container");
+
+ // "Productos" screen
+ const productListInfo = document.getElementById("product-list-info");
+ const productsContainer = document.getElementById("products-container");
+ const newProductForm = document.getElementById("new-product-form");
+ const productNameInput = document.getElementById("product-name");
+
+ // "Nueva Lista" screen
+ const newListForm = document.getElementById("new-list-form");
+ const newListName = document.getElementById("new-list-name");
+ const newListDescription = document.getElementById("new-list-description");
+ const newListColor = document.getElementById("new-list-color");
+ const newListDate = document.getElementById("new-list-date");
+
+ // "Editar Lista" screen
+ const editListsContainer = document.getElementById("edit-lists-container");
+ const editFormContainer = document.getElementById("edit-form-container");
+ const editListForm = document.getElementById("edit-list-form");
+ const editListId = document.getElementById("edit-list-id");
+ const editListName = document.getElementById("edit-list-name");
+ const editListDescription = document.getElementById("edit-list-description");
+ const editListColor = document.getElementById("edit-list-color");
+ const editListDate = document.getElementById("edit-list-date");
+ const deleteListBtn = document.getElementById("delete-list-btn");
+
+ // Global state
+ let currentUser = JSON.parse(localStorage.getItem("user")) || null;
+ let currentList = null;
+
+ // Helper to switch screens
+ function showScreen(screenName) {
+ listScreen.style.display = "none";
+ productScreen.style.display = "none";
+ newListScreen.style.display = "none";
+ editListScreen.style.display = "none";
+
+ switch (screenName) {
+ case "list":
+ listScreen.style.display = "block";
+ break;
+ case "product":
+ productScreen.style.display = "block";
+ break;
+ case "new":
+ newListScreen.style.display = "block";
+ break;
+ case "edit":
+ editListScreen.style.display = "block";
+ break;
+ }
+ }
+
+ // Set today's date for date inputs
+ function setDefaultDate(input) {
+ const today = new Date().toISOString().split("T")[0];
+ input.value = today;
+ }
+ setDefaultDate(newListDate);
+
+ // If already logged in, apply saved theme
+ if (currentUser) {
+ authSection.style.display = "none";
+ appSection.style.display = "block";
+ if (currentUser.theme) {
+ appSection.style.filter = `hue-rotate(${currentUser.theme}deg)`;
+ }
+ showScreen("list");
+ loadLists();
+ } else {
+ authSection.style.display = "block";
+ appSection.style.display = "none";
+ }
+
+ // --- Auth: Login ---
+ loginForm.addEventListener("submit", (e) => {
+ e.preventDefault();
+ const username = document.getElementById("login-username").value.trim();
+ const password = document.getElementById("login-password").value.trim();
+
+ fetch("backend.php", {
+ method: "POST",
+ headers: { "Content-Type": "application/json" },
+ body: JSON.stringify({ action: "login", username, password }),
+ })
+ .then((res) => res.json())
+ .then((data) => {
+ if (data.success) {
+ currentUser = { 
+ id: data.user.id, 
+ username: data.user.username,
+ theme: data.user.theme
+ };
+ localStorage.setItem("user", JSON.stringify(currentUser));
+ authSection.style.display = "none";
+ appSection.style.display = "block";
+ if (currentUser.theme) {
+ appSection.style.filter = `hue-rotate(${currentUser.theme}deg)`;
+ }
+ showScreen("list");
+ loadLists();
+ } else {
+ alert(data.message);
+ }
+ });
+ });
+
+ // --- Auth: Register ---
+ registerForm.addEventLis

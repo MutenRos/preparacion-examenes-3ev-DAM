@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "Campanas de Email Personalizadas",
+    "cases": [
+      {
+        "name": "Campañas Automatizadas",
+        "description": "Permite la creación y ejecución de campañas de email automatizadas con personalización de contenido basado en datos del usuario. Los emails se envían según el formato HTML mejorado para diferentes clientes de correo, asegurando una presentación consistente."
+      },
+      {
+        "name": "Gestión de Archivos Adjuntos",
+        "description": "Permite la subida y gestión de archivos adjuntos en las campañas de email, asegurando que todos los destinatarios reciban los mismos documentos sin errores de formato. Se asocian automaticamente a cada envío."
+      },
+      {
+        "name": "Reanudación de Envíos",
+        "description": "Ofrece la opción de reanudar una campaña dejada en pausa, incluso si ya se han enviado emails anteriormente. Los emails enviados previamente no serán repetidos."
+      }
+    ]
+  }
+}

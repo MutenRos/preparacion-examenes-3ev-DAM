@@ -1,0 +1,516 @@
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-darksalmon
+├── .gitignore
+├── README.md
+├── admin
+│ ├── aplicaciones
+│ │ ├── calendario_semanal
+│ │ │ └── index.php
+│ │ ├── horario_semanal
+│ │ │ └── index.php
+│ │ └── resumen_sesiones
+│ │ ├── conexion.php
+│ │ └── index.php
+│ ├── config.php
+│ ├── darksalmon.png
+│ ├── estilo.php
+│ ├── index.php
+│ ├── mobile
+│ ├── partes
+│ │ └── login.php
+│ └── supercontrolador
+│ ├── acciones
+│ │ ├── componenteslistar
+│ │ │ ├── cabezatabla.php
+│ │ │ ├── calendariomensual.php
+│ │ │ ├── calendariosemanal.php
+│ │ │ └── cuerpotabla.php
+│ │ ├── crear.php
+│ │ ├── crearapp.php
+│ │ ├── editar.php
+│ │ ├── eliminar.php
+│ │ ├── foreign.php
+│ │ └── listar.php
+│ ├── estilo
+│ │ └── estilo.css
+│ ├── funciones
+│ │ └── getInputAttributes.php
+│ └── supercontrolador.php
+├── api
+├── app.html
+├── config.php
+├── front
+│ ├── ayuda
+│ │ ├── darksalmon.md
+│ │ ├── img
+│ │ │ ├── Captura desde 2025-08-24 16-50-47.png
+│ │ │ ├── Captura desde 2025-08-24 16-55-04.png
+│ │ │ ├── Captura desde 2025-08-24 16-55-10.png
+│ │ │ └── Captura desde 2025-08-24 16-55-13.png
+│ │ └── index.php
+│ ├── config.json
+│ ├── darksalmon.png
+│ ├── dashboard.css
+│ ├── dashboard.html
+│ ├── dashboard.js
+│ ├── index.html
+│ ├── login.css
+│ ├── login.js
+│ ├── mobile_api.php
+│ ├── script.js
+│ └── styles.css
+└── sections.json
+```
+
+## Código (intercalado)
+
+# jocarsa-darksalmon
+**README.md**
+```markdown
+# jocarsa-darksalmon
+```
+**app.html**
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>jocarsa | darksalmon · App</title>
+ <link rel="icon" type="image/png" href="darksalmon.png" />
+ <link rel="stylesheet" href="styles.css" />
+
+ <!-- If your original uses Leaflet & Font Awesome, keep them: -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body class="bg-pattern">
+ <!-- 1) Auth helpers first -->
+ <script src="auth.js"></script>
+
+ <!-- 2) Gatekeeper: if not logged, it will send to index.html -->
+ <script src="gate.js"></script>
+
+ <!-- 3) Actual dashboard DOM (keeps your original structure/IDs) -->
+ <div id="appContainer" class="screen">
+ <header id="appHeader">
+ <h1>jocarsa | darksalmon</h1>
+ <button id="logoutButton" title="Pulsa este botón para cerrar activamente tu sesión">Cerrar</button>
+ </header>
+
+ <main>
+ <!-- Home Screen (start/end shift + map) -->
+ <section id="homeScreen" class="appScreen">
+ <h2>Home</h2>
+ <p>En esta sección, puedes registrar el inicio y el final de tu jornada laboral. Para ello, pulsa los botones que se presentan a continuación</p>
+
+ <div class="buttonContainer">
+ <h3>Inicio de jornada</h3>
+ <p>Pulsa este botón al inicio de tu jornada. Si es jornada partida, púlsalo al inicio del bloque de la mañana y al inicio del bloque de la tarde</p>
+ <button id="btnStartShift" title="Pulsa este botón al iniciar tu jornada">Iniciar Jornada</button>
+
+ <h3>Final de jornada</h3>
+ <p>Pulsa este botón al final de tu jornada. Si es jornada partida, púlsalo al final del bloque de la mañana y al final del bloque de la tarde</p>
+ <button id="btnEndShift" title="Pulsa este botón al finalizar tu jornada">Finalizar Jornada</button>
+ </div>
+
+ <div id="shiftInfo" class="infoContainer"></div>
+ <div id="map" style="height: 300px; margin-top: 10px;"></div>
+ </section>
+
+ <!-- Jornadas -->
+ <section id="newsScreen" class="appScreen hidden">
+ <h2>Jornadas Registradas</h2>
+ <br />
+ <p>En esta sección puedes obtener un listado de tus registros de inicio y finalización de jornada laboral. Si algo no es correcto, por favor ponte en contacto con los administradores de la aplicación.</p>
+ <br />
+ <div id="jornadasContainer"></div>
+ </section>
+
+ <!-- Perfil -->
+ <section id="profileScreen" class="appScreen hidden">
+ <h2>Perfil</h2>
+ <p>En esta sección puedes ver tus datos personales, tal y como están registrados en el sistema. Si algo no es correcto, por favor ponte en contacto con los administradores de la aplicación.</p>
+ <div id="profileContainer"></div>
+ </section>
+
+ <!-- Ausencias -->
+ <section id="ausenciasScreen" class="appScreen hidden">
+ <h2>Ausencias</h2>
+ <p>En esta sección puedes informar o solicitar una ausencia rellenando y enviando el formulario que se presenta a continuación. Igualmente puedes ver el listado de ausencias solicitadas con anterioridad.</p>
+ <div id="ausenciasFormContainer"></div>
+ <div id="ausenciasListContainer"></div>
+ </section>
+ </main>
+
+ <!-- Bottom Navigation (same selectors your JS expects) -->
+ <nav id="bottomNav">
+ <ul>
+ <li data-screen="homeScreen" class="navItem active" title="Registrar entradas y salidas">Home</li>
+ <li data-screen="newsScreen" class="navItem" title="Listado de jornadas registradas">Jornadas</li>
+ <li data-screen="profileScreen" class="navItem" title="Datos de tu perfil en el sistema">Perfil</li>
+ <li data-screen="ausenciasScreen" class="navItem" title="Registrar o solicitar ausencias">Ausencias</li>
+ </ul>
+ </nav>
+ </div>
+
+ <!-- 4) Your existing app logic (unchanged) -->
+ <script src="script.js"></script>
+
+ <!-- 5) Safe overrides (no navigation here; only guards & DOM-safe bindings) -->
+ <script src="fixes.js"></script>
+
+ <!-- (Keep your original extra assets/scripts if any) -->
+ <link rel="stylesheet" href="https://jocarsa.github.io/jocarsa-pink/jocarsa%20%7C%20pink.css">
+ <script src="https://jocarsa.github.io/jocarsa-pink/jocarsa%20%7C%20pink.js"></script>
+ <script src="https://ghostwhite.jocarsa.com/analytics.js?user=darksalmon.jocarsa.com"></script>
+</body>
+</html>
+
+```
+**config.php**
+```php
+<?php
+// /var/www/jocarsa-darksalmon/config.php
+declare(strict_types=1);
+
+date_default_timezone_set('Europe/Madrid');
+
+define('DS_BASE_PATH', __DIR__);
+define('DS_API_PATH', DS_BASE_PATH . '/api');
+define('DS_ADMIN_PATH',DS_BASE_PATH . '/admin');
+define('DS_FRONT_PATH',DS_BASE_PATH . '/front');
+
+define('DS_DB_HOST','localhost');
+define('DS_DB_NAME','darksalmon');
+define('DS_DB_USER','darksalmon');
+define('DS_DB_PASS','******');
+define('DS_DB_CHAR','utf8mb4');
+
+function ds_pdo(): PDO {
+ static $pdo=null;
+ if ($pdo) return $pdo;
+ $dsn = 'mysql:host='.DS_DB_HOST.';dbname='.DS_DB_NAME.';charset='.DS_DB_CHAR;
+ $pdo = new PDO($dsn, DS_DB_USER, DS_DB_PASS, [
+ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+ ]);
+ $pdo->exec("SET time_zone = '".date('P')."'");
+ return $pdo;
+}
+
+```
+**sections.json**
+```json
+{
+ "sections": [
+ {
+ "id": "jornadas",
+ "title": "Jornadas",
+ "icon": "📅",
+ "content": "Listado de jornadas registradas."
+ },
+ {
+ "id": "userData",
+ "title": "Mis Datos",
+ "icon": "👤",
+ "content": "Información personal del usuario."
+ },
+ {
+ "id": "ausencias",
+ "title": "Ausencias",
+ "icon": "📝",
+ "content": "Crear y ver peticiones de ausencia."
+ }
+ ]
+}
+
+```
+## admin
+**config.php**
+```php
+<?php
+ $host = 'localhost';
+ $user = 'darksalmon';
+ $pass = '******';
+ $dbName = 'darksalmon1';
+ $nombre = "darksalmon";
+ $color = "darksalmon";
+
+?>
+
+```
+**estilo.php**
+```php
+<?php
+// estilo.php
+?>
+/* ----------------------------------------------------------------------------
+ General Styles
+---------------------------------------------------------------------------- */
+@import url('https://static.jocarsa.com/fuentes/ubuntu-font-family-0.83/ubuntu.css');
+
+html, body {
+ padding: 0;
+ margin: 0;
+ font-family: Ubuntu, sans-serif;
+ height: 100%;
+ transition: all 1s;
+}
+
+body {
+ display: flex;
+ flex-direction: column;
+ background: <?php echo $color ?>;
+ font-size: 1em;
+ height: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+ Header, Navigation and Footer
+---------------------------------------------------------------------------- */
+header, footer {
+ color: white;
+}
+
+nav h1 {
+ margin: 0;
+}
+
+nav h1 a {
+ padding: 10px;
+ font-size: 20px;
+ display: flex;
+ align-items: center;
+ text-decoration: none;
+ color: white;
+ text-shadow:0px 2px 1px rgba(0,0,0,0.3);
+}
+
+nav h1 img {
+ width: 35px;
+ margin-right: 16px;
+}
+
+/* Icon style for nav elements */
+.icono {
+ display: inline-block;
+ font-size: 20px;
+ font-weight: bold;
+ margin-right: 8px;
+ background: white !important;
+ width: 30px;
+ height: 30px;
+ color: black;
+ line-height: 30px;
+ text-align: center;
+ border-radius: 30px;
+ color:darksalmon;
+ position: relative;
+}
+
+/* “Relieve” effect for icons/buttons */
+.relieve {
+ background-color: rgba(0,0,0,0.1);
+ border-radius: 34px;
+ padding: 5px;
+}
+
+header nav {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ 
+}
+
+header .boton {
+ border: none;
+ background: white;
+ width: 30px;
+ height: 30px;
+}
+
+nav .enlaces {
+ padding: 0;
+}
+
+nav .nav-section {
+ margin-bottom: 10px;
+}
+
+nav .nav-section h3 {
+ margin: 10px 0 5px;
+ font-size: 16px;
+ color: white;
+}
+
+nav .nav-section div {
+ padding: 10px;
+ transition: all 1s;
+}
+
+nav .nav-section div a {
+ text-decoration: none;
+ color: white;
+}
+
+nav .nav-section div.activo {
+ background: white;
+ color: <?php echo $color ?>;
+ border-radius: 50px 0 0 50px;
+ position:relative;
+ z-index:1000000;
+ box-shadow:-5px 0px 10px rgba(0,0,0,0.3);
+}
+
+nav .nav-section div.activo a {
+ color: black !important;
+}
+
+.logout a {
+ padding: 10px;
+ text-decoration: none;
+ color: white;
+}
+
+.applications {
+ margin-top: 20px;
+}
+
+.applications h3 {
+ padding: 10px 0;
+ color: white;
+}
+
+/* ----------------------------------------------------------------------------
+ Main Layout
+---------------------------------------------------------------------------- */
+main {
+ display: flex;
+ flex: 1; /* Fill the vertical available space */
+ min-height: 0; /* Allow children to shrink properly and scroll independently */
+}
+
+/* Left Navigation styling */
+main nav {
+ background: <?php echo $color ?>;
+ width: 300px;
+ padding: 10px;
+ transition: all 1s;
+ margin-left: 10px;
+ overflow-y: auto; /* Enables vertical scrolling */
+ -webkit-overflow-scrolling: touch;
+ box-sizing: border-box;
+ height: 100%;
+ padding-right:0px;
+ margin-left:0px;
+ 
+}
+nav div div div a{
+ text-shadow:0px 2px 1px rgba(0,0,0,0.3);
+}
+
+/* Main Content Section styling */
+section {
+ background: white;
+ flex: 1;
+ border-radius: 10px 0 0 10px;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+ padding: 30px;
+ position: relative;
+ z-index: 10000;
+ overflow-y: auto; /* Enables independent vertical scrolling */
+ -webkit-overflow-scrolling: touch;
+ box-sizing: border-box;
+ height: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+ Table Styles (for CRUD displays)
+---------------------------------------------------------------------------- */
+table {
+ width: 100%;
+ border-collapse: collapse;
+ border-radius: 20px;
+ overflow: hidden;
+}
+
+table thead {
+ background: <?php echo $color ?>;
+ color: white;
+ border-radius: 50px;
+ overflow: hidden;
+ 
+}
+
+table th, table td {
+ padding: 10px;
+ width:1000px;
+ 
+}
+table td {
+/*height:100px;*/
+}
+
+table tbody tr {
+ border-bottom: 1px solid lightgrey;
+}
+
+/* ----------------------------------------------------------------------------
+ CRUD Form Styles
+---------------------------------------------------------------------------- */
+form.crud-form {
+ gap: 1rem;
+ margin: 2rem auto;
+ padding: 1.5rem;
+ background: #f7f7f7;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.crud-form label {
+ font-weight: 600;
+ margin-bottom: 0.5rem;
+}
+
+.crud-form input,
+.crud-form textarea,
+.crud-form select,
+.crud-form button {
+ padding: 0.6rem;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ font-size: 1rem;
+ width: 100%;
+ box-sizing: border-box;
+ margin-bottom: 0.5rem;
+}
+
+.crud-form button {
+ background: <?php echo $color ?>;
+ color: #fff;
+ border: none;
+ cursor: pointer;
+ font-size: 1.1rem;
+ transition: background 0.3s ease;
+}
+
+.crud-form button:hover {
+ background: #285a7b;
+}
+
+/* Fieldset Styles */
+fieldset {
+ border: none;
+ display: flex;
+}
+
+fieldset label {
+ flex: 1;
+}
+
+fieldset input,

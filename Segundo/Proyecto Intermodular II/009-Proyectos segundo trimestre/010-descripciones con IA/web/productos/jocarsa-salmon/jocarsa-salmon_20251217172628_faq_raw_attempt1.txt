@@ -1,0 +1,5 @@
+```json
+{
+  "faq": {"title":"Preguntas Frecuentes","qas":[{"q":"¿Qué es jocarsa | salmon?","a":"jocarsa | salmon es un software educativo diseñado para facilitar la comunicación y colaboración en entornos educativos."},{"q":"¿Cómo se accede a jocarsa | salmon?","a":"Se accede mediante el inicio de sesión con las credenciales proporcionadas al registrarse o ser invitado por un administrador."},{"q":"¿Qué tipo de soporte técnico ofrece jocarsa | salmon?","a":"Ofrecemos soporte técnico a través del chat en vivo disponible dentro del software, así como la posibilidad de contactar con nuestro equipo de soporte a través de nuestra página web."}]}
+}
+```

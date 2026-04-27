@@ -1,0 +1,19 @@
+{
+  "useCases": {
+    "title": "Caso de Uso",
+    "cases": [
+      {
+        "name": "Generación de Temas Didácticos",
+        "description": "El software educa a partir del contenido de videos y transcripciones para generar temas didácticos estructurados. Utiliza un modelo de lenguaje para analizar y clasificar el contenido en unidades y subunidades, asegurando que los temas se correspondan con precisión. Además, integra la limpieza de subtítulos en texto sólido y el uso de APIs para obtener notas y resumenes didácticos"
+      },
+      {
+        "name": "Recuperación Automática de Contenido",
+        "description": "Este caso de uso permite al software recuperar contenido educativo automáticamente a partir de transcripciones de videos. Incluye la identificación de idiomas, la gestión de cookies y el uso de diferentes clientes para obtener subtítulos en español o cualquier otro disponible. Además, genera un registro detallado en .log sobre los procesos realizados"
+      },
+      {
+        "name": "Análisis del Contenido con Embeddings",
+        "description": "El software analiza el contenido de videos y transcripciones utilizando embeddings para extraer conceptos clave e identificar temas relevantes. Esto se realiza mediante la comparación de los elementos del video con una lista de términos predefinidos, lo que ayuda a organizar el material didáctico de manera efectiva"
+      }
+    ]
+  }
+}

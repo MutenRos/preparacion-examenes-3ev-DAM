@@ -1,0 +1,10 @@
+{
+  "trust": {
+    "title": "Confiable y eficiente procesamiento de contenido multimedia",
+    "points": [
+      "Procesa automáticamente subtítulos .vtt en texto sólido sin timestamps o etiquetas.",
+      "Integra múltiples fuentes de idioma, incluyendo español (es, es-ES, es-419) y otros autogenerados si no hay opciones españolas disponibles.",
+      "Mezcla y organiza contenido de vídeos y mensajes en una lista ordenada por fecha para fácil acceso."
+    ]
+  }
+}

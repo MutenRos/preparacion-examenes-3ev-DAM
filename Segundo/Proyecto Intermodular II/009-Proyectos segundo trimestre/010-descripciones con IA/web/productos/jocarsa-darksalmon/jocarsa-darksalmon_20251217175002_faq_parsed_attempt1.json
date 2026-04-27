@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "FAQs",
+    "qas": [
+      {
+        "q": "¿Cómo inicio o termino mi jornada?",
+        "a": "Pulsa el botón 'Iniciar Jornada' al empezar tu trabajo y el botón 'Finalizar Jornada' al terminar. Si tienes una jornada partida, repite estos pasos para cada bloque de la mañana y tarde."
+      },
+      {
+        "q": "¿Cómo registro ausencias?",
+        "a": "Utiliza la sección 'Ausencias' para ingresar tus fechas de ausencia. Llena los campos correspondientes y haz clic en 'Guardar'. Si algo no es correcto, comunícalo a los administradores."
+      },
+      {
+        "q": "¿Qué significa que mi solicitud esté pendiente de aprobación?",
+        "a": "Esto indica que tu solicitud aún está siendo revisada por un administrador. Una vez aprobada o denegada, cambiará a otro estado."
+      },
+      {
+        "q": "Si me encuentro con problemas para iniciar sesión, ¿qué debo hacer?",
+        "a": "Verifica que los datos de usuario y contraseña sean correctos. Comprueba si has habilitado las mayúsculas en el teclado. Si los problemas persisten, contacta a tu administrador o aguarda unos minutos."
+      },
+      {
+        "q": "¿Qué hago si no puedo encontrar una solución a mis problemas?",
+        "a": "Prueba a revisar tu conexión de internet y actualizar la página. Si sigue sin funcionar, cierra sesión e inicia nuevamente. Si el problema persiste, contacta al soporte técnico."
+      }
+    ]
+  }
+}

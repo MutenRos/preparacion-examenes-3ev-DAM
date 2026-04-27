@@ -1,0 +1,14 @@
+```json
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {"q": "¿Cómo inicio o finalizo mi jornada laboral?", "a": "Para iniciar tu jornada, pulsa el botón 'Iniciar Jornada'. Si es una jornada partida, asegúrate de hacerlo tanto en la mañana como en la tarde. Para finalizar tu jornada, pulsa el botón 'Finalizar Jornada'. Si es una jornada partida, hazlo al final del bloque de la mañana y la tarde."},
+      {"q": "¿Cómo accedo a mi perfil?", "a": "Para ver tu perfil, navega hasta la sección 'Perfil' en el menú. Verás tus datos como nombre, apellidos, detalles de contacto y cualquier otra información relevante que hayas proporcionado o que se haya cargado por los administradores."},
+      {"q": "¿Cómo gestiono mis ausencias?", "a": "Para gestionar tus ausencias, navega hasta la sección 'Ausencias'. Aquí podrás marcar las fechas en las que no estás presente y ver cualquier información relacionada con tus ausencias. Si tienes algún error, avísale a los administradores."},
+      {"q": "¿Cómo resuelvo problemas de inicio de sesión?", "a": "Primero, verifica si el usuario y la contraseña son correctos. Asegúrate también de que no estés usando mayúsculas en tu teclado. Si los problemas persisten, espera a que se sincronice la aplicación o contacta con el administrador."},
+      {"q": "¿Cómo resuelvo problemas técnicos?", "a": "Revisa tu conexión a internet y prueba a actualizar la página (Ctrl+R o F5). Si el problema persiste, cierra sesión y vuelve a iniciar. Asegúrate también de permitir el acceso a la ubicación si es necesario para la aplicación. Si sigues teniendo problemas, contacta con soporte técnico."}
+    ]
+  }
+}
+```

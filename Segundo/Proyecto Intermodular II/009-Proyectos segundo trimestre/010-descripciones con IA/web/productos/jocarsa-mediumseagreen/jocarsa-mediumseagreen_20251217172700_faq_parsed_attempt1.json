@@ -1,0 +1,19 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo funciona la descarga de subtítulos?",
+        "a": "La descarga de subtítulos se realiza priorizando el idioma español (es, es-ES, es-419). Si no hay subtítulos en español disponibles, el sistema intentará obtenerlos del primer auto-caption disponible. En caso de fallo, se recurre a --all-subs y selecciona el mejor candidato."
+      },
+      {
+        "q": "¿Cómo se procesan los vídeos para crear contenido didáctico?",
+        "a": "Los vídeos son procesados por un modelo Instruct que extrae y sintetiza información clave en español. El proceso incluye la limpieza de subtítulos, chunking del texto, generación de notas y reducción a un único documento didáctico."
+      },
+      {
+        "q": "¿Qué ocurre si no hay subtítulos disponibles para un vídeo?",
+        "a": "Si no se encuentran subtítulos en español o cualquier otro idioma priorizado, se registra el estado en .log. Como último recurso, se intenta obtener el mejor candidato de --all-subs."
+      }
+    ]
+  }
+}

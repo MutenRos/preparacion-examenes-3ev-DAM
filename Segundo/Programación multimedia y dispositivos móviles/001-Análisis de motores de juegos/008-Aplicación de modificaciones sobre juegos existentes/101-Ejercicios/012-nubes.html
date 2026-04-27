@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Minecraft Clone — Fractal Mountains + Dynamic Chunks + Fog + Clouds + SSAO</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body { margin:0; height:100%; overflow:hidden; font-family: system-ui, Arial; background:#000; }
+    #crosshair{
+      position:absolute; top:50%; left:50%; width:20px; height:20px;
+      transform:translate(-50%,-50%); pointer-events:none;
+    }
+    #crosshair::before,#crosshair::after{content:""; position:absolute; background:white;}
+    #crosshair::before{width:2px; height:20px; left:50%; transform:translateX(-50%);}
+    #crosshair::after{width:20px; height:2px; top:50%; transform:translateY(-50%);}
+
+    #ui{
+      position:absolute; top:10px; left:10px;
+      background:rgba(0,0,0,.6); color:#fff;
+      padding:10px 12px; border-radius:8px; font-size:14px; pointer-events:none;
+      line-height:1.35;
+    }
+    #block-selector{
+      position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+      background:rgba(0,0,0,.6); padding:8px; border-radius:8px; display:flex; gap:8px;
+    }
+    .block-option{
+      width:36px; height:36px; border:2px solid transparent; border-radius:4px;
+      cursor:pointer; pointer-events:auto;
+    }
+    .block-option.selected{ border-color:#fff; }
+
+    #reset-btn{
+      position:absolute; top:10px; right:10px;
+      background:rgba(255,0,0,.7); color:#fff; border:none;
+      padding:10px 12px; border-radius:8px; cursor:pointer; pointer-events:auto;
+    }
+    #reset-btn:hover{ background:rgba(255,0,0,.9); }
+
+    #overlay{
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.7); color:#fff;
+    }
+    #overlay .card{
+      max-width:560px; padding:24px; border-radius:12px;
+      background:rgba(20,20,20,.92); text-align:center; line-height:1.55;
+      box-shadow:0 10px 30px rgba(0,0,0,.5);
+    }
+    #overlay h1{ margin:0 0 8px; font-size:22px; }
+    #overlay p{ margin:6px 0; opacity:.92; }
+    #overlay .muted{opacity:.8; font-size:13px;}
+  </style>
+</head>
+<body>
+  <div id="crosshair"></div>
+
+  <div id="ui">
+    <div><b>WASD</b> move • <b>Mouse</b> look</div>
+    <div><b>Space</b> jump • <b>LClick</b> remove • <b>RClick</b> place</div>
+    <div><b>1/2/3</b> block type • <b>R</b> respawn</div>
+    <div><b>O</b> toggle SSAO • <b>P</b> SSAO scale • Auto-save edits</div>
+  </div>
+
+  <div id="block-selector">
+    <div class="block-option selected" data-type="grass" style="background:#4CAF50"></div>
+    <div class="block-option" data-type="dirt"  style="background:#795548"></div>
+    <div class="block-option" data-type="stone" style="background:#9E9E9E"></div>
+  </div>
+
+  <button id="reset-btn">Reset World</button>
+
+  <div id="overlay">
+    <div class="card">
+      <h1>Fractal Mountains + Dynamic Chunks</h1>
+      <p>Click to start • Pointer-lock mouse look</p>
+      <p>WASD move • Space jump • LClick remove • RClick place</p>
+      <p>1/2/3 select block • Fog hides far terrain • Clouds are voxel blocks</p>
+      <p class="muted">Edits auto-save to localStorage (terrain is regenerated deterministically).</p>
+    </div>
+  </div>
+
+  <!-- Core (match versions) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.min.js"></script>
+
+  <!-- Postprocessing (optional SSAO) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/SSAOShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/math/SimplexNoise.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/SSAOPass.js"></script>
+
+  <script>
+  // ------------------------------------------------------------
+  // Fix SSAOPass dependency + "r.random is not a function"
+  // Some builds expose SimplexNoise as window.SimplexNoise (not THREE.SimplexNoise),
+  // and SSAOPass expects THREE.SimplexNoise to be constructible.
+  // Also, SimplexNoise expects an RNG object with .random().
+  // ------------------------------------------------------------
+  (function(){
+    if (typeof THREE !== 'undefined') {
+      // If the examples file created a global SimplexNoise, bridge it.
+      if (!THREE.SimplexNoise && typeof SimplexNoise !== 'undefined') {
+        // wrapper that tolerates function RNGs
+        THREE.SimplexNoise = function(rng){
+          if (rng && typeof rng.random === 'function') return new SimplexNoise(rng);
+          if (typeof rng === 'function') return new SimplexNoise({ random: rng });
+          return new SimplexNoise(); // uses Math by default
+        };
+        THREE.SimplexNoise.prototype = SimplexNoise.prototype;
+      }
+    }
+  })();
+
+  // ----------------- Config -----------------
+  const CONFIG = {
+    CHUNK_SIZE: 16,
+    CHUNK_HEIGHT: 96,               // allow tall mountains + clouds
+    MAX_INSTANCES_PER_CHUNK_PER_TYPE: 8192,
+
+    // Dynamic chunk streaming (in chunks)
+    LOAD_RADIUS_CHUNKS: 5,           // ~ (2R+1)^2 chunks loaded
+    UNLOAD_RADIUS_CHUNKS: 7,
+
+    // Fog (blocks)
+    FOG_NEAR: 40,
+    FOG_FAR: 140,
+
+    // Player
+    PLAYER: {
+      HEIGHT: 1.8,
+      RADIUS: 0.32,
+      SPEED: 6.0,
+      JUMP: 8.5,
+      GRAVITY: -22.0
+    },
+
+    // Raycast reach
+    REACH: 10,
+
+    // Autosave
+    SAVE_KEY: "voxelFractalEdits_v1",
+    SAVE_PLAYER_KEY: "voxelFractalPlayer_v1",
+
+    // Deterministic seed
+    SEED: 1337,
+
+    // Terrain
+    SEA_LEVEL: 10,
+    BASE_LEVEL: 8,          // lifts everything a bit
+    MOUNTAIN_MAX: 52,       // max height (approx)
+    CAVE_THRESHOLD: 0.62,   // (optional) not used; kept for tuning
+
+    // Clouds
+    CLOUD_MIN_Y: 52,
+    CLOUD_MAX_Y: 70,
+    CLOUD_COVERAGE: 0.58,   // higher => fewer clouds
+  };
+
+  const BLOCK_TYPES = ["grass","dirt","stone","cloud"];
+  const PLACEABLE_TYPES = ["grass","dirt","stone"]; // UI/keys place these only
+
+  const COLORS = {
+    grass: 0x4CAF50,
+    dirt:  0x795548,
+    stone: 0x9E9E9E,
+    cloud: 0xFFFFFF
+  };
+
+  // ----------------- Utils -----------------
+  const key = (x,y,z)=> `${x}|${y}|${z}`;
+  const chunkKey = (cx,cz)=> `${cx}|${cz}`;
+  const floorDiv = (n, d) => Math.floor(n / d);
+  const clamp = (v,min,max)=> Math.max(min, Math.min(max,v));
+  const lerp = (a,b,t)=> a + (b-a)*t;
+
+  // deterministic PRNG for seed-based offsets (fast)
+  function mulberry32(seed){
+    let t = seed >>> 0;
+    return function(){
+      t += 0x6D2B79F5;
+      let r = Math.imul(t ^ (t >>> 15), 1 | t);
+      r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+      return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // ----------------- Shared resources -----------------
+  const SHARED = {
+    geometry: new THREE.BoxGeometry(1,1,1),
+    materials: {},
+    textures: {},
+    tmpMat4: new THREE.Matrix4(),
+    tmpV3a: new THREE.Vector3(),
+    tmpV3b: new THREE.Vector3(),
+  };
+
+  function makeCanvasTexture(hex) {
+    if (SHARED.textures[hex]) return SHARED.textures[hex];
+    const r=(hex>>16)&255, g=(hex>>8)&255, b=hex&255;
+    const c = document.createElement("canvas"); c.width = 64; c.height = 64;
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    ctx.fillRect(0,0,64,64);
+
+    // subtle pixel noise
+    ctx.globalAlpha = 0.28;
+    for (let i=0;i<240;i++){
+      const x=Math.random()*64, y=Math.random()*64, s=Math.random()*3+1;
+      const br = Math.random()*60-30;
+      ctx.fillStyle = `rgb(${clamp(r+br,0,255)},${clamp(g+br,0,255)},${clamp(b+br,0,255)})`;
+      ctx.fillRect(x,y,s,s);
+    }
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.magFilter = tex.minFilter = THREE.NearestFilter;
+    tex.generateMipmaps = false;
+    SHARED.textures[hex] = tex;
+    return tex;
+  }
+
+  function getMaterial(type){
+    if (SHARED.materials[type]) return SHARED.materials[type];
+    const color = COLORS[type] ?? COLORS.grass;
+
+    if (type === "cloud") {
+      const mat = new THREE.MeshPhongMaterial({
+        color,
+        transparent: true,
+        opacity: 0.42,
+        depthWrite: false,
+        shininess: 0
+      });
+      SHARED.materials[type] = mat;
+      return mat;
+    }
+
+    const mat = new THREE.MeshPhongMaterial({
+      color,
+      map: makeCanvasTexture(color),
+      shininess: 0
+    });
+    SHARED.materials[type] = mat;
+    return mat;
+  }
+
+  // ----------------- Sky gradient background -----------------
+  function makeSkyGradientTexture(){
+    const c = document.createElement("canvas");
+    c.width = 2; c.height = 512;
+    const ctx = c.getContext("2d");
+    const g = ctx.createLinearGradient(0,0,0,c.height);
+    // hard-ish blue top, white horizon
+    g.addColorStop(0.00, "#1a5bff");
+    g.addColorStop(0.55, "#57a6ff");
+    g.addColorStop(0.78, "#eaf6ff");
+    g.addColorStop(1.00, "#ffffff");
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,c.width,c.height);
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.magFilter = THREE.LinearFilter;
+    tex.minFilter = THREE.LinearFilter;
+    tex.generateMipmaps = false;
+    return tex;
+  }
+
+  // ----------------- Chunk -----------------
+  class Chunk {
+    constructor(cx, cz, scene){
+      this.cx = cx; this.cz = cz;
+      this.scene = scene;
+      this.size = CONFIG.CHUNK_SIZE;
+      this.height = CONFIG.CHUNK_HEIGHT;
+
+      this.voxels = new Map(); // key(x,y,z)->type ONLY for blocks currently in this chunk (generated+edits)
+      this.meshByType = new Map(); // type -> { mesh, instanceCount, idToPos[], posToId(Map) }
+
+      for (const type of BLOCK_TYPES){
+        const mat = getMaterial(type);
+        const mesh = new THREE.InstancedMesh(SHARED.geometry, mat, CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE);
+        mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        mesh.castShadow = false;
+        mesh.receiveShadow = false;
+        mesh.visible = false;
+        mesh.frustumCulled = false;
+        mesh.count = 0;
+        this.scene.add(mesh);
+
+        this.meshByType.set(type, {
+          mesh,
+          instanceCount: 0,
+          idToPos: [],
+          posToId: new Map()
+        });
+      }
+    }
+
+    addBlock(x,y,z,type){
+      const k = key(x,y,z);
+      if (this.voxels.has(k)) return false;
+      const pack = this.meshByType.get(type);
+      if (!pack) return false;
+      if (pack.instanceCount >= CONFIG.MAX_INSTANCES_PER_CHUNK_PER_TYPE) return false;
+
+      this.voxels.set(k, type);
+
+      const idx = pack.instanceCount++;
+      SHARED.tmpMat4.makeTranslation(x+0.5, y+0.5, z+0.5);
+      pack.mesh.setMatrixAt(idx, SHARED.tmpMat4);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+
+      pack.idToPos[idx] = {x,y,z};
+      pack.posToId.set(k, idx);
+      pack.mesh.count = pack.instanceCount;
+      return true;
+    }
+
+    removeBlock(x,y,z){
+      const k = key(x,y,z);
+      const type = this.voxels.get(k);
+      if (!type) return false;
+
+      const pack = this.meshByType.get(type);
+      if (!pack) return false;
+
+      const idx = pack.posToId.get(k);
+      if (idx === undefined) return false;
+
+      const last = pack.instanceCount - 1;
+      if (idx !== last) {
+        // move last instance into idx
+        pack.mesh.getMatrixAt(last, SHARED.tmpMat4);
+        pack.mesh.setMatrixAt(idx, SHARED.tmpMat4);
+        const movedPos = pack.idToPos[last];
+        pack.idToPos[idx] = movedPos;
+        pack.posToId.set(key(movedPos.x, movedPos.y, movedPos.z), idx);
+      }
+
+      pack.instanceCount--;
+      pack.mesh.count = pack.instanceCount;
+      pack.idToPos.pop();
+      pack.posToId.delete(k);
+      pack.mesh.instanceMatrix.needsUpdate = true;
+
+      this.voxels.delete(k);
+      return true;
+    }
+
+    setVisible(v){
+      for (const [,pack] of this.meshByType){
+        pack.mesh.visible = v && pack.instanceCount > 0;
+      }
+    }
+
+    setShadowsEnabled(near){
+      for (const [,pack] of this.meshByType){
+        // clouds look better without shadows
+        const isCloud = (pack.mesh.material === SHARED.materials.cloud);
+        pack.mesh.castShadow = near && !isCloud;
+        pack.mesh.receiveShadow = near && !isCloud;
+      }
+    }
+
+    raycast(raycaster, intersects){
+      for (const [,pack] of this.meshByType){
+        if (!pack.mesh.visible || pack.instanceCount === 0) continue;
+        pack.mesh.raycast(raycaster, intersects);
+      }
+    }
+
+    instanceInfo(object, instanceId){
+      for (const [type, pack] of this.meshByType){
+        if (pack.mesh === object){
+          const pos = pack.idToPos[instanceId];
+          if (!pos) return null;
+          return { type, ...pos };
+        }
+      }
+      return null;
+    }
+
+    dispose(){
+      for (const [,pack] of this.meshByType){
+        this.scene.remove(pack.mesh);
+        // do NOT dispose shared geometry/materials
+      }
+      this.meshByType.clear();
+      this.voxels.clear();
+    }
+  }
+
+  // ----------------- World (dynamic generation + saved edits) -----------------
+  class World {
+    constructor(scene){
+      this.scene = scene;
+
+      // Loaded chunks (cx,cz)
+      this.chunks = new Map();
+
+      // Quick index only for currently loaded blocks: key(x,y,z)->{type,cx,cz}
+      this.voxelIndex = new Map();
+
+      // Persisted edits: key(x,y,z)->type or "__air__"
+      this.edits = new Map();
+
+      // Noise (deterministic)
+      this.seedRand = mulberry32(CONFIG.SEED);
+      // Use THREE.SimplexNoise if available (for consistency), else fallback to global SimplexNoise
+      const NoiseCtor = (THREE.SimplexNoise || (typeof SimplexNoise !== "undefined" ? SimplexNoise : null));
+      this.noise = NoiseCtor ? new NoiseCtor() : null;
+
+      // precomputed offsets for warping
+      this.offA = this.seedRand()*10000;
+      this.offB = this.seedRand()*10000;
+      this.offC = this.seedRand()*10000;
+    }
+
+    // --- Save/Load edits ---
+    loadEdits(){
+      const raw = localStorage.getItem(CONFIG.SAVE_KEY);
+      if (!raw) return;
+      try{
+        const obj = JSON.parse(raw);
+        if (obj && typeof obj === "object"){
+          for (const k in obj){
+            this.edits.set(k, obj[k]);
+          }
+        }
+      }catch(e){
+        console.warn("Edits load failed:", e);
+      }
+    }
+
+    saveEdits(){
+      const obj = Object.create(null);
+      for (const [k,v] of this.edits) obj[k] = v;
+      localStorage.setItem(CONFIG.SAVE_KEY, JSON.stringify(obj));
+    }
+
+    // --- Chunk helpers ---
+    getChunkCoords(x,z){
+      const cs = CONFIG.CHUNK_SIZE;
+      return { cx: floorDiv(x, cs), cz: floorDiv(z, cs) };
+    }
+
+    getChunk(cx,cz){
+      return this.chunks.get(chunkKey(cx,cz));
+    }
+
+    hasLoadedBlock(x,y,z){
+      return this.voxelIndex.has(key(x,y,z));
+    }
+
+    getLoadedBlockType(x,y,z){
+      const v = this.voxelIndex.get(key(x,y,z));
+      return v ? v.type : null;
+    }
+
+    // --- Noise helpers (fBm + ridged + warp) ---
+    n2(x,z){
+      if (!this.noise) {
+        // fallback if noise missing
+        return Math.sin(x*0.02)*0.6 + Math.cos(z*0.02)*0.6 + Math.sin((x+z)*0.01)*0.4;
+      }
+      // SimplexNoise in examples often exposes noise(x,y)
+      // We treat (x,z) as (x,y).
+      return this.noise.noise(x, z);
+    }
+
+    fbm(x,z, oct=5, lac=2.0, gain=0.5){
+      let amp = 1.0, freq = 1.0, sum = 0.0, norm = 0.0;
+      for (let i=0;i<oct;i++){
+        sum += amp * this.n2(x*freq, z*freq);
+        norm += amp;
+        amp *= gain;
+        freq *= lac;
+      }
+      return sum / (norm || 1);
+    }
+
+    ridged(x,z, oct=5){
+      // ridged multifractal from abs(1 - |noise|)
+      let amp=1.0, freq=1.0, sum=0.0, norm=0.0;
+      for (let i=0;i<oct;i++){
+        const n = this.n2(x*freq, z*freq);
+        const r = 1.0 - Math.abs(n);
+        sum += amp * (r*r);
+        norm += amp;
+        amp *= 0.55;
+        freq *= 2.1;
+      }
+      return sum / (norm || 1);
+    }
+
+    heightAt(x,z){
+      // Domain warping to make mountains more irregular
+      const wx = this.fbm((x+this.offA)*0.012, (z+this.offB)*0.012, 3) * 28;
+      const wz = this.fbm((x+this.offB)*0.012, (z+this.offC)*0.012, 3) * 28;
+
+      const X = x + wx;
+      const Z = z + wz;
+
+      const low = this.fbm(X*0.006, Z*0.006, 5) * 0.6 + this.fbm(X*0.018, Z*0.018, 3) * 0.4;
+      const ridge = this.ridged(X*0.010, Z*0.010, 5);
+
+      // Mix: plains + ridges
+      const plains = (low * 0.5 + 0.5);       // 0..1
+      const mountains = ridge;                 // 0..1 (roughly)
+
+      // Emphasize mountains
+      const m = Math.pow(clamp(mountains,0,1), 1.15);
+
+      // final height
+      const base = CONFIG.BASE_LEVEL + plains * 10;
+      const peak = m * CONFIG.MOUNTAIN_MAX;
+
+      // add some extra jaggedness
+      const detail = this.fbm(X*0.06, Z*0.06, 2) * 2.0;
+
+      let h = base + peak + detail;
+
+      // soften/limit
+      h = clamp(h, 1, CONFIG.CHUNK_HEIGHT-2);
+      return Math.floor(h);
+    }
+
+    cloudAt(x,z){
+      // Large soft blobs, deterministic
+      const wx = this.fbm((x+777)*0.006, (z+999)*0.006, 3) * 40;
+      const wz = this.fbm((x+333)*0.006, (z+111)*0.006, 3) * 40;
+      const v = this.fbm((x+wx)*0.010, (z+wz)*0.010, 4); // -1..1
+      const t = (v*0.5+0.5); // 0..1
+      return t;
+    }
+
+    // --- Generate a chunk around (cx,cz) ---
+    ensureChunk(cx,cz){
+      const ck = chunkKey(cx,cz);
+      if (this.chunks.has(ck)) return;
+
+      const ch = new Chunk(cx, cz, this.scene);
+      this.chunks.set(ck, ch);
+
+      // Build base terrain
+      const cs = CONFIG.CHUNK_SIZE;
+      const x0 = cx*cs;
+      const z0 = cz*cs;
+
+      for (let lx=0; lx<cs; lx++){
+        for (let lz=0; lz<cs; lz++){
+          const x = x0 + lx;
+          const z = z0 + lz;
+
+          const h = this.heightAt(x,z);
+          // column from y=0..h
+          for (let y=0; y<=h; y++){
+            let type = "stone";
+            const top = (y === h);
+            const nearTop = (y >= h-2);
+
+            if (top) type = "grass";
+            else if (nearTop) type = "dirt";
+            else type = "stone";
+
+            ch.addBlock(x,y,z,type);
+            this.voxelIndex.set(key(x,y,z), { type, cx, cz });
+          }
+
+          // Optional: small scattered boulders above ground (stone)
+          const b = this.fbm((x+9999)*0.08, (z+2222)*0.08, 2)*0.5 + 0.5;
+          if (b > 0.93) {
+            const by = h + 1;
+            if (by < CONFIG.CHUNK_HEIGHT-1) {
+              ch.addBlock(x, by, z, "stone");
+              this.voxelIndex.set(key(x,by,z), { type:"stone", cx, cz });
+            }
+          }
+
+          // Clouds: place sparse voxel blocks high up
+          const c = this.cloudAt(x,z);
+          if (c > CONFIG.CLOUD_COVERAGE) {
+            const y = Math.floor(lerp(CONFIG.CLOUD_MIN_Y, CONFIG.CLOUD_MAX_Y, (c - CONFIG.CLOUD_COVERAGE) / (1 - CONFIG.CLOUD_COVERAGE)));
+            // Make small blobs (cross shape)
+            const pts = [
+              [0,0],[1,0],[-1,0],[0,1],[0,-1]
+            ];
+            for (const [dx,dz] of pts) {
+              const xx = x+dx, zz=z+dz;
+              // Keep clouds within current chunk bounds for simplicity
+              if (xx < x0 || xx >= x0+cs || zz < z0 || zz >= z0+cs) continue;
+              const kk = key(xx,y,zz);
+              if (!this.voxelIndex.has(kk)) {
+                ch.addBlock(xx,y,zz,"cloud");
+                this.voxelIndex.set(kk, { type:"cloud", cx, cz });
+              }
+            }
+          }
+        }
+      }
+
+      // Apply edits that touch this chunk
+      // (edits may add/remove blocks from the generated base)
+      for (const [k,v] of this.edits){
+        const [x,y,z] = k.split("|").map(Number);
+        const c2 = this.getChunkCoords(x,z);
+        if (c2.cx !== cx || c2.cz !== cz) continue;
+
+        if (v === "__air__") {
+          // Remove if present
+          if (this.voxelIndex.has(k)) {
+            this._removeLoadedBlockNoEdit(x,y,z);
+          }
+        } else {
+          // Place/override
+          if (this.voxelIndex.has(k)) {
+            this._removeLoadedBlockNoEdit(x,y,z);
+          }
+          this._addLoadedBlockNoEdit(x,y,z,v);
+        }
+      }
+    }
+
+    // Internal add/remove that only affects loaded state (no edits map)
+    _addLoadedBlockNoEdit(x,y,z,type){
+      const {cx,cz} = this.getChunkCoords(x,z);
+      const ch = this.getChunk(cx,cz);
+      if (!ch) return false;
+      if (ch.addBlock(x,y,z,type)) {
+        this.voxelIndex.set(key(x,y,z), { type, cx, cz });
+        return true;
+      }
+      return false;
+    }
+
+    _removeLoadedBlockNoEdit(x,y,z){
+      const k = key(x,y,z);
+      const meta = this.voxelIndex.get(k);
+      if (!meta) return false;
+      const ch = this.getChunk(meta.cx, meta.cz);
+      if (!ch) return false;
+      if (ch.removeBlock(x,y,z)) {
+        this.voxelIndex.delete(k);
+        return true;
+      }
+      return false;
+    }
+
+    // Public block edits (persisted)
+    addBlock(x,y,z,type){
+      // ensure chunk is loaded
+      const {cx,cz} = this.getChunkCoords(x,z);
+      this.ensureChunk(cx,cz);
+
+      const k = key(x,y,z);
+      // If already exists, overwrite (remove then add)
+      if (this.voxelIndex.has(k)) this._removeLoadedBlockNoEdit(x,y,z);
+
+      const ok = this._addLoadedBlockNoEdit(x,y,z,type);
+      if (ok) this.edits.set(k, type);
+      return ok;
+    }
+
+    removeBlock(x,y,z){
+      const {cx,cz} = this.getChunkCoords(x,z);
+      this.ensureChunk(cx,cz);
+
+      const ok = this._removeLoadedBlockNoEdit(x,y,z);
+      if (ok) this.edits.set(key(x,y,z), "__air__");
+      return ok;
+    }
+
+    // Collision neighbor query (only loaded blocks)
+    neighborsOfAABB(min, max){
+      const res = [];
+      for (let x=Math.floor(min.x)-1; x<=Math.floor(max.x)+1; x++){
+        for (let y=Math.floor(min.y)-1; y<=Math.floor(max.y)+1; y++){
+          for (let z=Math.floor(min.z)-1; z<=Math.floor(max.z)+1; z++){
+            if (this.voxelIndex.has(key(x,y,z))) res.push({x,y,z});
+          }
+        }
+      }
+      return res;
+    }
+
+    // Streaming around player
+    updateStreaming(playerPos){
+      const cs = CONFIG.CHUNK_SIZE;
+      const pcx = floorDiv(playerPos.x, cs);
+      const pcz = floorDiv(playerPos.z, cs);
+
+      // Load
+      for (let dz=-CONFIG.LOAD_RADIUS_CHUNKS; dz<=CONFIG.LOAD_RADIUS_CHUNKS; dz++){
+        for (let dx=-CONFIG.LOAD_RADIUS_CHUNKS; dx<=CONFIG.LOAD_RADIUS_CHUNKS; dx++){
+          const cx = pcx + dx;
+          const cz = pcz + dz;
+          this.ensureChunk(cx,cz);
+        }
+      }
+
+      // Unload beyond radius
+      const unloadR2 = CONFIG.UNLOAD_RADIUS_CHUNKS * CONFIG.UNLOAD_RADIUS_CHUNKS;
+      for (const [ck,ch] of this.chunks){
+        const dx = ch.cx - pcx;
+        const dz = ch.cz - pcz;
+        if (dx*dx + dz*dz > unloadR2){
+          // remove index entries for this chunk
+          for (const [k] of ch.voxels){
+            this.voxelIndex.delete(k);
+          }
+          ch.dispose();
+          this.chunks.delete(ck);
+        }
+      }
+    }
+
+    // Visibility & shadows by distance (in blocks)
+    setChunksVisibilityAndShadows(cameraPos){
+      const rBlocks = CONFIG.FOG_FAR; // cull around fog far
+      const r2 = rBlocks*rBlocks;
+      const sBlocks = 24;
+      const s2 = sBlocks*sBlocks;
+
+      for (const [,ch] of this.chunks){
+        const cx = (ch.cx+0.5)*ch.size;
+        const cz = (ch.cz+0.5)*ch.size;
+        const dx = cx - cameraPos.x;
+        const dz = cz - cameraPos.z;
+        const d2 = dx*dx + dz*dz;
+        const visible = d2 <= r2;
+        const nearShadow = d2 <= s2;
+        ch.setVisible(visible);
+        ch.setShadowsEnabled(nearShadow);
+      }
+    }
+
+    raycast(raycaster){
+      const intersects = [];
+      for (const [,ch] of this.chunks){
+        ch.raycast(raycaster, intersects);
+      }
+      if (intersects.length === 0) return null;
+
+      intersects.sort((a,b)=> a.distance - b.distance);
+      const hit = intersects[0];
+
+      // Find chunk that owns this InstancedMesh
+      let owner = null;
+      for (const [,ch] of this.chunks){
+        for (const [,pack] of ch.meshByType){
+          if (pack.mesh === hit.object){ owner = ch; break; }
+        }
+        if (owner) break;
+      }
+      if (!owner) return null;
+
+      const info = owner.instanceInfo(hit.object, hit.instanceId);
+      if (!info || !hit.face) return null;
+
+      return { ...info, point: hit.point, face: hit.face, object: hit.object };
+    }
+  }
+
+  // ----------------- Game -----------------
+  class Game {
+    constructor(){
+      // Scene
+      this.scene = new THREE.Scene();
+      this.scene.background = makeSkyGradientTexture();
+
+      // Fog to hide far blocks (matches horizon)
+      this.scene.fog = new THREE.Fog(0xEAF6FF, CONFIG.FOG_NEAR, CONFIG.FOG_FAR);
+
+      // Camera
+      this.camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 800);
+      this.camera.position.set(0, 25, 0);
+
+      // Renderer
+      this.renderer = new THREE.WebGLRenderer({ antialias:false, powerPreference:"high-performance" });
+      this.renderer.setSize(innerWidth, innerHeight);
+      this.renderer.shadowMap.enabled = true;
+      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.body.appendChild(this.renderer.domElement);
+
+      // SSAO (optional)
+      this.useSSAO = true;
+      this.ssaoScale = 0.5;
+      this.composer = null;
+      this.renderPass = null;
+      this.ssaoPass = null;
+      this.setupPostFX();
+
+      // Lights
+      const amb = new THREE.AmbientLight(0xffffff, 0.72);
+      this.scene.add(amb);
+
+      const sun = new THREE.DirectionalLight(0xffffff, 1.25);
+      sun.position.set(70, 110, 40);
+      sun.castShadow = true;
+      sun.shadow.mapSize.set(1024,1024);
+      sun.shadow.camera.near = 0.5;
+      sun.shadow.camera.far = 260;
+      sun.shadow.camera.left = -110;
+      sun.shadow.camera.right = 110;
+      sun.shadow.camera.top = 110;
+      sun.shadow.camera.bottom = -110;
+      this.scene.add(sun);
+
+      // Controls
+      this.controls = new THREE.PointerLockControls(this.camera, document.body);
+      const overlay = document.getElementById("overlay");
+      document.body.addEventListener("click", ()=>{
+        if (!this.controls.isLocked) this.controls.lock();
+      });
+      this.controls.addEventListener("lock", ()=> overlay.style.display="none");
+      this.controls.addEventListener("unlock", ()=> overlay.style.display="flex");
+
+      // World
+      this.world = new World(this.scene);
+      this.world.loadEdits();
+
+      // Load player pos (optional)
+      const pr = localStorage.getItem(CONFIG.SAVE_PLAYER_KEY);
+      if (pr){
+        try{
+          const p = JSON.parse(pr);
+          if (p && Number.isFinite(p.x) && Number.isFinite(p.y) && Number.isFinite(p.z)){
+            this.camera.position.set(p.x, p.y, p.z);
+          }
+        }catch{}
+      }
+
+      // Ensure initial chunks
+      this.world.updateStreaming(this.camera.position);
+
+      // Physics
+      this.velocity = new THREE.Vector3();
+      this.onGround = false;
+
+      // Input
+      this.move = { f:false,b:false,l:false,r:false,j:false };
+      addEventListener("keydown", e=>{
+        if (e.code==="KeyW") this.move.f=true;
+        if (e.code==="KeyS") this.move.b=true;
+        if (e.code==="KeyA") this.move.l=true;
+        if (e.code==="KeyD") this.move.r=true;
+        if (e.code==="Space" && this.onGround) this.move.j=true;
+
+        if (e.code==="Digit1") this.selectBlock("grass");
+        if (e.code==="Digit2") this.selectBlock("dirt");
+        if (e.code==="Digit3") this.selectBlock("stone");
+
+        if (e.code==="KeyR") this.respawn();
+
+        if (e.code==="KeyO") this.useSSAO = !this.useSSAO;
+        if (e.code==="KeyP"){
+          const levels = [1.0, 0.5, 0.33];
+          const i = levels.indexOf(this.ssaoScale);
+          this.ssaoScale = levels[(i+1) % levels.length];
+          if (this.ssaoPass){
+            const w = Math.max(1, Math.floor(innerWidth  * this.ssaoScale));
+            const h = Math.max(1, Math.floor(innerHeight * this.ssaoScale));
+            this.ssaoPass.setSize(w,h);
+          }
+        }
+      });
+      addEventListener("keyup", e=>{
+        if (e.code==="KeyW") this.move.f=false;
+        if (e.code==="KeyS") this.move.b=false;
+        if (e.code==="KeyA") this.move.l=false;
+        if (e.code==="KeyD") this.move.r=false;
+        if (e.code==="Space") this.move.j=false;
+      });
+
+      // UI selector
+      this.selectedType = "grass";
+      const opts = document.querySelectorAll(".block-option");
+      opts.forEach(o=>o.addEventListener("click", ()=>{
+        opts.forEach(p=>p.classList.remove("selected"));
+        o.classList.add("selected");
+        this.selectedType = o.dataset.type;
+      }));
+
+      document.getElementById("reset-btn").addEventListener("click", ()=>{
+        if (confirm("Reset world? (deletes saved edits)")){
+          localStorage.removeItem(CONFIG.SAVE_KEY);
+          localStorage.removeItem(CONFIG.SAVE_PLAYER_KEY);
+          location.reload();
+        }
+      });
+
+      // Mouse actions
+      addEventListener("contextmenu", e=> e.preventDefault());
+      addEventListener("mousedown", (e)=>{
+        if (!this.controls.isLocked) return;
+        if (!this.world) return;
+        if (e.button===0) this.removeBlockAtPointer();
+        if (e.button===2) this.placeBlockAtPointer();
+      });
+
+      // Raycaster
+      this.raycaster = new THREE.Raycaster();
+      this.raycaster.far = CONFIG.REACH;
+
+      // Clock
+      this.clock = new THREE.Clock();
+
+      // Autosave timers
+      this.saveTimer = 0;
+      this.playerSaveTimer = 0;
+
+      // Start loop
+      this.animate();
+    }
+
+    setupPostFX(){
+      // SSAO is optional; if anything is missing, fall back to normal render
+      try{
+        if (!THREE.EffectComposer || !THREE.SSAOPass) throw new Error("postfx missing");
+        // SSAOPass requires THREE.SimplexNoise in this build; we bridged it above.
+
+        this.composer = new THREE.EffectComposer(this.renderer);
+        this.renderPass = new THREE.RenderPass(this.scene, this.camera);
+        this.composer.addPass(this.renderPass);
+
+        const w = Math.max(1, Math.floor(innerWidth  * this.ssaoScale));
+        const h = Math.max(1, Math.floor(innerHeight * this.ssaoScale));
+        this.ssaoPass = new THREE.SSAOPass(this.scene, this.camera, w, h);
+
+        // voxel-ish tuning
+        this.ssaoPass.kernelRadius = 7;
+        this.ssaoPass.minDistance  = 0.005;
+        this.ssaoPass.maxDistance  = 0.14;
+
+        this.composer.addPass(this.ssaoPass);
+      }catch(e){
+        console.warn("SSAO disabled:", e);
+        this.useSSAO = false;
+        this.composer = null;
+        this.ssaoPass = null;
+      }
+    }
+
+    selectBlock(t){
+      if (PLACEABLE_TYPES.includes(t)) this.selectedType = t;
+    }
+
+    // --------- Interactions ---------
+    removeBlockAtPointer(){
+      if (!this.world) return;
+      this.raycaster.setFromCamera(new THREE.Vector2(0,0), this.camera);
+      const hit = this.world.raycast(this.raycaster);
+      if (!hit) return;
+      if (hit.type === "cloud") return; // avoid deleting clouds (optional)
+      this.world.removeBlock(hit.x, hit.y, hit.z);
+    }
+
+    placeBlockAtPointer(){
+      if (!this.world) return;
+      this.raycaster.setFromCamera(new THREE.Vector2(0,0), this.camera);
+      const hit = this.world.raycast(this.raycaster);
+      if (!hit || !hit.face) return;
+
+      // place on the face normal
+      const n = hit.face.normal.clone();
+      n.transformDirection(hit.object.matrixWorld);
+
+      const nx = hit.x + Math.round(n.x);
+      const ny = hit.y + Math.round(n.y);
+      const nz = hit.z + Math.round(n.z);
+
+      // avoid placing inside player
+      const playerPos = this.camera.position;
+      const dist = SHARED.tmpV3a.set(nx+0.5, ny+0.5, nz+0.5).distanceTo(playerPos);
+      if (dist < 1.6) return;
+
+      // disallow placing clouds from selector
+      const type = this.selectedType;
+
+      // ensure target chunk loaded; and do not overwrite existing
+      this.world.updateStreaming(playerPos);
+      if (this.world.hasLoadedBlock(nx,ny,nz)) return;
+      this.world.addBlock(nx,ny,nz,type);
+    }
+
+    // --------- Collision ---------
+    playerAABBAt(pos){
+      const r = CONFIG.PLAYER.RADIUS;
+      const h = CONFIG.PLAYER.HEIGHT;
+      return new THREE.Box3(
+        new THREE.Vector3(pos.x - r, pos.y - h, pos.z - r),
+        new THREE.Vector3(pos.x + r, pos.y,     pos.z + r)
+      );
+    }
+
+    collidesAt(pos){
+      const aabb = this.playerAABBAt(pos);
+      const neighbors = this.world.neighborsOfAABB(aabb.min, aabb.max);
+      for (const b of neighbors){
+        const bb = new THREE.Box3(
+          new THREE.Vector3(b.x, b.y, b.z),
+          new THREE.Vector3(b.x+1, b.y+1, b.z+1)
+        );
+        if (aabb.intersectsBox(bb)) return true;
+      }
+      return false;
+    }
+
+    respawn(){
+      // respawn above current terrain at (0,0)
+      const h = this.world.heightAt(0,0);
+      this.camera.position.set(0, h + 6, 0);
+      this.velocity.set(0,0,0);
+      this.onGround = false;
+    }
+
+    // --------- Loop ---------
+    animate(){
+      requestAnimationFrame(()=>this.animate());
+      const dt = Math.min(this.clock.getDelta(), 0.05);
+
+      // Stream chunks near player (and unload far)
+      this.world.updateStreaming(this.camera.position);
+
+      // Movement
+      if (this.controls.isLocked){
+        const dir = SHARED.tmpV3a;
+        this.camera.getWorldDirection(dir);
+        dir.y = 0; dir.normalize();
+
+        const right = SHARED.tmpV3b;
+        right.crossVectors(this.camera.up, dir).normalize();
+
+        const speed = CONFIG.PLAYER.SPEED;
+        let dx=0, dz=0;
+        if (this.move.f) { dx += dir.x; dz += dir.z; }
+        if (this.move.b) { dx -= dir.x; dz -= dir.z; }
+        if (this.move.l) { dx += right.x; dz += right.z; }
+        if (this.move.r) { dx -= right.x; dz -= right.z; }
+
+        const horiz = new THREE.Vector3(dx,0,dz);
+        if (horiz.lengthSq()>0) horiz.normalize().multiplyScalar(speed*dt);
+
+        const posH = this.camera.position.clone().add(horiz);
+        if (!this.collidesAt(posH)){
+          this.camera.position.copy(posH);
+        }
+
+        if (this.move.j && this.onGround){
+          this.velocity.y = CONFIG.PLAYER.JUMP;
+          this.onGround = false;
+          this.move.j = false;
+        }
+
+        this.velocity.y += CONFIG.PLAYER.GRAVITY * dt;
+
+        const posV = this.camera.position.clone();
+        posV.y += this.velocity.y * dt;
+
+        if (!this.collidesAt(posV)){
+          this.camera.position.y = posV.y;
+          this.onGround = false;
+        } else {
+          if (this.velocity.y < 0) this.onGround = true;
+          this.velocity.y = 0;
+        }
+
+        // fall safety
+        if (this.camera.position.y < -30) this.respawn();
+      }
+
+      // Visibility/shadows near camera
+      this.world.setChunksVisibilityAndShadows(this.camera.position);
+
+      // Autosave edits every ~8s
+      this.saveTimer += dt;
+      if (this.saveTimer >= 8){
+        this.saveTimer = 0;
+        this.world.saveEdits();
+      }
+
+      // Save player position every ~4s
+      this.playerSaveTimer += dt;
+      if (this.playerSaveTimer >= 4){
+        this.playerSaveTimer = 0;
+        localStorage.setItem(CONFIG.SAVE_PLAYER_KEY, JSON.stringify({
+          x:this.camera.position.x, y:this.camera.position.y, z:this.camera.position.z
+        }));
+      }
+
+      // Render
+      if (this.useSSAO && this.composer){
+        this.composer.render();
+      } else {
+        this.renderer.render(this.scene, this.camera);
+      }
+    }
+  }
+
+  // ----------------- Start -----------------
+  new Game();
+  </script>
+</body>
+</html>
+

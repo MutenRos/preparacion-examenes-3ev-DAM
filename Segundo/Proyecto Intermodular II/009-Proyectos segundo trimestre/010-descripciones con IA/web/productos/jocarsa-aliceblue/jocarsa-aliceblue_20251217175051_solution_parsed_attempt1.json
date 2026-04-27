@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "title": "jocarsa | aliceblue",
+    "overview": "Desarrollado con un enfoque en la educación, jocarsa | aliceblue presenta una interfaz amigable que permite a los administradores monitorear y controlar sesiones de captura. La solución incluye herramientas para iniciar y detener la captura, así como paneles para visualizar las imágenes recientes y ajustar configuraciones.",
+    "whatChanges": [
+      "Implementa una interface de usuario moderna con estilos claros",
+      "Incluye funciones para iniciar y detener la captura en tiempo real",
+      "Permite a los usuarios interactuar con imágenes recientes y ajustar ajustes visuales"
+    ]
+  }
+}

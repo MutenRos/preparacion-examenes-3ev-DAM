@@ -1,0 +1,191 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-aliceblue",
+    "title": "jocarsa | aliceblue - Tu Panel de Administración Personalizado",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "Administradores",
+      "Educadores",
+      "Profesionales del Sector Educativo"
+    ],
+    "ctaPrimary": "Ingresar Ahora",
+    "ctaSecondary": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "name": "jocarsa | aliceblue",
+    "valueProposition": "El panel de administración más personalizado y fácil de usar para educadores y profesionales del sector.",
+    "subtitle": "Gestiona tus recursos educativos con la facilidad que mereces.",
+    "badges": [
+      "100% Responsive",
+      "Sencillo de Usar",
+      "Recursos Educativos Integrados"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Ingresar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Preguntas Frecuentes"
+      },
+      {
+        "type": "tertiary",
+        "text": "Descubre Más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Estructura y diseño de la interfaz administrativa",
+    "items": [
+      "Falta una descripción clara del propósito de cada sección del código CSS y PHP",
+      "No está definido cómo se integran las imágenes o los widgets en el layout general",
+      "La implementación de la función de inicio y parada de captura no está claramente descrita"
+    ],
+    "slug": "jocarsa-aliceblue"
+  },
+  "solution": {
+    "title": "jocarsa | aliceblue",
+    "overview": "这是一个教育平台，提供了一个管理面板，具有实时捕获、停止和查看图像的功能。设计包括现代的样式和布局，以增强用户体验。",
+    "whatChanges": [
+      "引入了响应式设计以适应不同设备",
+      "优化了用户界面以提高易用性",
+      "实现了拖放功能以便于文件管理"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a Reporte / proyecto / Estructura / proyecto / Código / intercalado."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Educadores y profesores",
+    "profiles": [
+      {
+        "name": "Educadores universitarios",
+        "fit": "El software está diseñado para facilitar la interacción entre los estudiantes y el material educativo, lo que es ideal para los educadores universitarios."
+      },
+      {
+        "name": "Profesores de escuela secundaria",
+        "fit": "Permite a los profesores administrar sus clases y recursos, mejorando su experiencia en el aula."
+      },
+      {
+        "name": "Instructores en línea",
+        "fit": "Ofrece herramientas versátiles para instructores que necesitan presentar contenido multimedia de manera efectiva."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Uso de jocarsa-aliceblue en educación",
+    "cases": [
+      {
+        "name": "Gestión de Usuarios",
+        "description": "Permite a los administradores crear, editar y eliminar usuarios. Ofrece un panel de control personalizado con íconos interactivos para iniciar o detener la captura de información del usuario."
+      },
+      {
+        "name": "Visualización y Análisis de Datos",
+        "description": "Proporciona un entorno visual donde se pueden mostrar datos en forma de tarjetas, permitiendo a los usuarios ver y analizar información detallada sobre cada usuario. Incluye herramientas para deslizarse y controlar el tiempo de visualización."
+      },
+      {
+        "name": "Monitoreo en Tiempo Real",
+        "description": "Ofrece un sistema de monitoreo en tiempo real con actualizaciones continuas, mostrando los últimos datos capturados en una interfaz amigable. Permite a los administradores ver las últimas imágenes o registros capturados y realizar cambios si es necesario."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Mejoras Educativas con jocarsa | aliceblue",
+    "items": [
+      "Interfaz intuitiva y amigable para usuarios educativos",
+      "Dashboard personalizado que facilita la administración de contenidos multimedia",
+      "Visualización detallada y control preciso de grabaciones de clase"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones Adicionales",
+    "notes": "Las integraiones adicionales son opcionales y pueden mejorar la funcionalidad del software educativo.",
+    "items": [
+      "API de Notificación",
+      "Autenticación Social",
+      "Sincronización con Calendarios"
+    ]
+  },
+  "trust": {
+    "title": "Innovación y Confianza en jocarsa | aliceblue",
+    "points": [
+      "Construido con CSS moderno para una interfaz visualmente atractiva y fácil de usar.",
+      "Se implementaron estilos responsivos que adaptan perfectamente la interfaz a diferentes dispositivos.",
+      "El código es estructurado de manera clara, lo que facilita su mantenimiento y actualización."
+    ]
+  },
+  "finalCTA": {
+    "title": "¡Descubre cómo transformar tu contenido educativo!",
+    "description": "Con jocarsa | aliceblue, potencia tus recursos educativos con interactividad y modernidad. Contactanos para más información.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Solicitar Demo"
+      },
+      {
+        "type": "secondary",
+        "text": "Leer Más"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo inicio sesión en el panel de administrador?",
+        "a": "Para iniciar sesión, ingresa a la URL del panel de administrador y proporciona las credenciales asignadas por jocarsa-aliceblue."
+      },
+      {
+        "q": "¿Cuál es la función del botón 'Iniciar Captura'?",
+        "a": "El botón 'Iniciar Captura' se utiliza para comenzar el proceso de captura automatizada. Una vez activado, puede generar imágenes en un intervalo predefinido."
+      },
+      {
+        "q": "¿Cómo muestro una imagen fullscreen en el sistema?",
+        "a": "Para visualizar una imagen en pantalla completa, dirígete al ícono correspondiente y haz clic con el botón derecho para seleccionar 'Ver Imagen' o utiliza la opción 'Abrir Imagen Fullscreen'. Se abrirá un modal con la imagen."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "jocarsa | aliceblue"
+  }
+}

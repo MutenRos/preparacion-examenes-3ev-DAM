@@ -1,0 +1,3 @@
+{
+  "targetAudience": {"title":"jocarsa | salmon","profiles":[{"name":"Educadores y profesores","fit":"Utilizan herramientas SaaS para mejorar la experiencia educativa"},{"name":"Estudiantes y alumnos","fit":"Se conectan a sesiones de aprendizaje fácilmente"},{"name":"Administradores escolares","fit":"Administrar y controlar las sesiones de aprendizaje es más sencillo con esta herramienta"}]}
+}

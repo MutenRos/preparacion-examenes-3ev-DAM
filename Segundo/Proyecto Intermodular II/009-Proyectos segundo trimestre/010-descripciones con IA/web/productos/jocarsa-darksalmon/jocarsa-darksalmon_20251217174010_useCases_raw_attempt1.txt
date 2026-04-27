@@ -1,0 +1,5 @@
+```json
+{
+  "useCases": {"title":"Uso de la App jocarsa | darksalmon","cases":[{"name":"Registro del Inicio y Fin de Jornada","description":"Permite a los usuarios registrar manualmente el inicio y finalización de su jornada laboral. Ofrece botones para iniciar y terminar la jornada, con opciones específicas para jornadas parciales."},{"name":"Visualización de Jornadas Registradas","description":"Muestra un listado de todas las jornadas registradas por los usuarios, permitiendo identificar cualquier error y reportarlo a los administradores."},{"name":"Inicio de Sesión y Perfil del Usuario","description":"Permite iniciar la sesión en el sistema, mostrar información personal del usuario, incluyendo datos de contacto y otros detalles cargados por el administrador."}]}
+}
+```

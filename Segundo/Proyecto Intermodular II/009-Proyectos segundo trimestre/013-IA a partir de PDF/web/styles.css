@@ -1,0 +1,111 @@
+:root{
+  --bg:#0b1220;
+  --card:#0f1a2e;
+  --ink:#eaf0ff;
+  --muted:#b7c3e6;
+  --line:rgba(255,255,255,.12);
+  --brand:#77a6ff;
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 20% 0%, #152347 0%, transparent 60%),
+              radial-gradient(1200px 800px at 80% 0%, #1b2c58 0%, transparent 55%),
+              var(--bg);
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  background:rgba(11,18,32,.75);
+  backdrop-filter: blur(10px);
+}
+
+.title{font-weight:800}
+.sub{color:var(--muted);font-size:.9rem;margin-top:2px}
+
+header button{
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--ink);
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+main{
+  flex:1;
+  padding:16px;
+  width:100%;
+  max-width:980px;
+  margin:0 auto;
+}
+
+.msg{
+  border:1px solid var(--line);
+  background:rgba(15,26,46,.82);
+  padding:12px 14px;
+  border-radius:var(--radius);
+  margin:10px 0;
+  white-space:pre-wrap;
+}
+
+.me{
+  margin-left:auto;
+  background:rgba(119,166,255,.10);
+  border-color:rgba(119,166,255,.25);
+}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:12px 16px;
+  background:rgba(11,18,32,.75);
+  backdrop-filter: blur(10px);
+}
+
+form{
+  display:flex;
+  gap:10px;
+  max-width:980px;
+  margin:0 auto;
+}
+
+input{
+  flex:1;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(15,26,46,.75);
+  color:var(--ink);
+  outline:none;
+}
+
+input:focus{border-color:rgba(119,166,255,.35)}
+
+button[type="submit"]{
+  background:var(--brand);
+  border:none;
+  color:#081024;
+  padding:12px 14px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.hint{
+  max-width:980px;
+  margin:8px auto 0 auto;
+  color:var(--muted);
+  font-size:.9rem;
+}
+

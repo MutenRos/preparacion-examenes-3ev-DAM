@@ -1,0 +1,10 @@
+{
+  "keyFeatures": {
+    "title": "jocarsa | mediumseagreen",
+    "features": [
+      {"name": "Tecnología Avanzada de Transcripción", "benefit": "Convierte automáticamente subtítulos .vtt a texto sólido sin timestamps o etiquetas, facilitando la lectura y análisis."},
+      {"name": "Inteligencia en la Selección del Contenido", "benefit": "Detecta el idioma de los videos y prioriza el español, adaptándose al usuario con opciones avanzadas de fallback."},
+      {"name": "Generación Didáctica Automática", "benefit": "Genera una síntesis didáctica a partir de chunking y map-reduce utilizando modelos lingüísticos para mejorar la comprensión del contenido."}
+    ]
+  }
+}

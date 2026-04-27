@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Transforma Contenidos Educativos en Experiencias Didácticas Innovadoras",
+    "category": "Software Educativo",
+    "audience_segments": ["Profesores de la ESO y Bachillerato", "Estudiantes universitarios"],
+    "ctaPrimary": "Prueba Gratuitamente",
+    "ctaSecondary": "Descubre Cómo Funciona"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Convertir videos y manuales académicos en didácticos con precisión y eficiencia. Automatiza la extracción de notas y resúmenes para mejorar la experiencia de aprendizaje.",
+    "subtitle": "Más que un software, una solución integral para optimizar el contenido educativo.",
+    "badges": ["Automatización de Procesos", "Interfaz Amigable", "Compatibilidad con Diversas Formatos"],
+    "actions": [
+      {"type":"primary","text":"Prueba Gratuitamente"},
+      {"type":"secondary","text":"Descubre Cómo Funciona"},
+      {"type":"tertiary","text":"Contactar Soporte"}
+    ]
+  }
+}

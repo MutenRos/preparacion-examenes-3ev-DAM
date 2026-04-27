@@ -1,0 +1,1 @@
+Compresión paralela ZIP

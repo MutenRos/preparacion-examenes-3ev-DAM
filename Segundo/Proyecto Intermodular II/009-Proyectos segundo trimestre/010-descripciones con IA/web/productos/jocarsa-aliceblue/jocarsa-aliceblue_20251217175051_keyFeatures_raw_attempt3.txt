@@ -1,0 +1,5 @@
+[
+  {"name":"Interfaz visual moderna","benefit":"Incluye tarjetas interactivas y un diseño atractivo, mejorando la experiencia de usuario con un layout flexible."},
+  {"name":"Captura en tiempo real","benefit":"Permite capturar imágenes o videos en tiempo real, facilitando la documentación instantánea con un panel detallado."},
+  {"name":"Gestión de usuarios y salas","benefit":"Ofrece herramientas para administrar fácilmente usuarios y salas desde el panel de control, garantizando una gestión óptima del contenido."}
+]

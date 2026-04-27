@@ -1,0 +1,13 @@
+{
+  "problem": {
+    "title": "Calendario",
+    "items": [
+      "Registro de usuarios con POST ?action=register",
+      "Ingreso de usuarios con POST ?action=login",
+      "Sesión de salida con POST ?action=logout",
+      "Información de sesión con GET ?action=me (requiere login)",
+      "Carga de datos del calendario con GET ?action=load (requiere login)",
+      "Guardado de datos del calendario con POST ?action=save (requiere login)"
+    ]
+  }
+}

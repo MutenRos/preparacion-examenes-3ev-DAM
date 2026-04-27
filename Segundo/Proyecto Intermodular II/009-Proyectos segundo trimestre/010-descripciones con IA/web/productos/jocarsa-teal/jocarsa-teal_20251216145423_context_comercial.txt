@@ -1,0 +1,266 @@
+- jocarsa | teal
+- Gestiona tus Aplicaciones de Datos de Forma Dinámica
+- Características Destacadas
+- Creación Dinámica de Tablas y Carpetas
+- Gestión de Aplicaciones Empresariales
+- Interfaz Intuitiva y Flexible
+- Reportes y Análisis en Tiempo Real
+- Seguridad y Control de Usuarios
+- Soporte para Múltiples Tipos de Datos
+- Beneficios y Ventajas
+- Demostración del Software
+- Contacto
+- Con jocarsa | teal, crea y administra tablas, carpetas y aplicaciones empresariales de forma intuitiva. Desde la definición de esquemas personalizados hasta reportes interactivos, controla y organiza tus datos en un solo lugar.
+- Define esquemas personalizados y organiza tus datos en carpetas de forma visual, facilitando la gestión y consulta.
+- Crea múltiples aplicaciones para tu empresa y administra cada una con su propio conjunto de tablas y registros.
+- Navega de forma sencilla por menús, paneles y breadcrumbs que te permiten acceder a cualquier registro o reporte al instante.
+- Genera informes interactivos y visualiza datos consolidados a través de gráficos y tablas dinámicas para tomar decisiones informadas.
+- Administra el acceso mediante roles (admin y user) y protege tu información con un sistema de autenticación robusto.
+- Desde texto y números hasta archivos, colores y campos múltiples, adapta cada tabla a las necesidades específicas de tu negocio.
+- Descubre cómo jocarsa | teal transforma la gestión de tus datos empresariales. Observa en acción la creación dinámica de tablas, la organización en carpetas y la generación de reportes interactivos.
+- Explora la demo interactiva y experimenta el poder de una gestión de datos completamente dinámica.
+- ¿Tienes preguntas o deseas obtener más información sobre jocarsa | teal? Nuestro equipo está listo para ayudarte a transformar la gestión de datos en tu empresa.
+- &copy; 2025 jocarsa | teal. Todos los derechos reservados.
+- Contacto: soporte@jocarsa.com
+- /* Estilos personalizados para jocarsa | teal */
+ body {
+ font-family: 'Ubuntu', sans-serif;
+ background: #f4f4f4;
+ color: #333;
+ margin: 0;
+ padding: 0;
+ line-height: 1.6;
+ }
+ header {
+ background: teal;
+ color: #fff;
+ padding: 20px;
+ text-align: center;
+ }
+ header img {
+ width: 70px;
+ vertical-align: middle;
+ }
+ header h1 {
+ display: inline-block;
+ vertical-align: middle;
+ margin-left: 10px;
+ font-size: 2rem;
+ }
+ /* MENÚ: ahora se fija en la parte superior para mejorar la navegación */
+ nav {
+ background: #006666;
+ padding: 10px 20px;
+ text-align: center;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+ }
+ nav a {
+ color: #fff;
+ margin: 0 15px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: color 0.3s;
+ }
+ nav a:hover {
+ color: #b2d8d8;
+ }
+ /* Sección Hero */
+ .hero {
+ background: url('static/logo.svg') no-repeat center center/cover;
+ padding: 100px 20px 60px; /* Se ajusta el padding inferior para compensar la altura del menú */
+ color: #fff;
+ text-align: center;
+ position: relative;
+ }
+ .hero::after {
+ content: "";
+ position: absolute;
+ top: 0; left: 0;
+ width: 100%; height: 100%;
+ background: rgba(0, 0, 0, 0.5);
+ z-index: 0;
+ }
+ .hero-content {
+ position: relative;
+ z-index: 1;
+ }
+ .hero-content h2 {
+ font-size: 2.8em;
+ margin-bottom: 20px;
+ }
+ .hero-content p {
+ font-size: 1.2em;
+ max-width: 800px;
+ margin: 0 auto 20px;
+ }
+ .cta {
+ display: inline-block;
+ background: #20B2AA;
+ color: #fff;
+ padding: 15px 30px;
+ border-radius: 5px;
+ text-decoration: none;
+ font-size: 1.2em;
+ transition: background 0.3s;
+ }
+ .cta:hover {
+ background: #008080;
+ }
+ /* Secciones generales */
+ .section {
+ padding: 60px 20px;
+ }
+ .section h2 {
+ text-align: center;
+ margin-bottom: 30px;
+ font-size: 2em;
+ }
+ .info-section {
+ max-width: 1000px;
+ margin: auto;
+ }
+ .features {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 20px;
+ }
+ .feature {
+ background: #fff;
+ border: 1px solid #ddd;
+ padding: 20px;
+ border-radius: 4px;
+ width: 300px;
+ text-align: center;
+ box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ .feature h3 {
+ margin-bottom: 15px;
+ font-size: 1.5em;
+ }
+ .feature p {
+ font-size: 0.95em;
+ }
+ .beneficios ul {
+ list-style: none;
+ padding: 0;
+ font-size: 1.1em;
+ }
+ .beneficios li {
+ margin-bottom: 15px;
+ }
+ .beneficios li strong {
+ color: teal;
+ }
+ /* Sección Demo */
+ .demo-video {
+ display: block;
+ width: 100%;
+ max-width: 800px;
+ height: 450px;
+ margin: 20px auto;
+ border: none;
+ }
+ /* Sección de Contacto */
+ .contact-form {
+ max-width: 600px;
+ margin: auto;
+ }
+ .contact-form label {
+ display: block;
+ margin-bottom: 5px;
+ font-weight: bold;
+ }
+ .contact-form input, .contact-form textarea {
+ width: 100%;
+ padding: 10px;
+ margin-bottom: 15px;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ }
+ .contact-form button {
+ background: #20B2AA;
+ color: #fff;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 4px;
+ font-size: 1em;
+ transition: background 0.3s;
+ }
+ .contact-form button:hover {
+ background: #008080;
+ }
+ footer {
+ background: teal;
+ color: #fff;
+ text-align: center;
+ padding: 20px;
+ font-size: 0.9em;
+ }
+ 
+ 
+ 
+ 
+ 
+ jocarsa | teal 
+ 
+ 
+ Inicio 
+ Características 
+ Beneficios 
+ Demo 
+ Contacto 
+ 
+ 
+ 
+ 
+ Gestiona tus Aplicaciones de Datos de Forma Dinámica 
+ Con jocarsa | teal, crea y administra tablas, carpetas y aplicaciones empresariales de forma intuitiva. Desde la definición de esquemas personalizados hasta reportes interactivos, controla y organiza tus datos en un solo lugar. 
+ Accede Ahora 
+ 
+ 
+ 
+ 
+ 
+ Características Destacadas 
+ 
+ 
+ Creación Dinámica de Tablas y Carpetas 
+ Define esquemas personalizados y organiza tus datos en carpetas de forma visual, facilitando la gestión y consulta. 
+ 
+ 
+ Gestión de Aplicaciones Empresariales 
+ Crea múltiples aplicaciones para tu empresa y administra cada una con su propio conjunto de tablas y registros. 
+ 
+ 
+ Interfaz Intuitiva y Flexible 
+ Navega de forma sencilla por menús, paneles y breadcrumbs que te permiten acceder a cualquier registro o reporte al instante. 
+ 
+ 
+ Reportes y Análisis en Tiempo Real 
+ Genera informes interactivos y visualiza datos consolidados a través de gráficos y tablas dinámicas para tomar decisiones informadas. 
+ 
+ 
+ Seguridad y Control de Usuarios 
+ Administra el acceso mediante roles (admin y user) y protege tu información con un sistema de autenticación robusto. 
+ 
+ 
+ Soporte para Múltiples Tipos de Datos 
+ Desde texto y números hasta archivos, colores y campos múltiples, adapta cada tabla a las necesidades específicas de tu negocio. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beneficios y Ventajas 
+ 
+ Eficiencia Operativa: Automatiza la gestión de datos y reduce la carga administrativa con herramientas intuitivas.
+- Flexibilidad Total: Personaliza cada aplicación, tabla y campo para adaptarlo a las necesidades específicas de tu empresa.
+- Visibilidad Completa: Accede a reportes y análisis en tiempo real para monitorizar el rendimiento de tu negocio.
+- Organización y Control: Utiliza carpetas y menús dinámicos que facilitan la navegación y la búsqueda de información.
+- Seguridad y Escalabilidad: Gestiona usuarios y roles de forma segura, garantizando el crecimiento y la confidencialidad de tus datos.

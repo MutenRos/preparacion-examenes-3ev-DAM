@@ -1,0 +1,8 @@
+{
+  "finalCTA": {
+    "title":"¡Experimenta Jocarsa Firebrick!",
+    "description":"Gestiona proyectos y colabora con tus clientes. Regístrate ahora para crear, administrar y compartir iteraciones en tiempo real.",
+    "actions":[{"type":"primary","text":"Regístrarse"},{"type":"secondary","text":"Iniciar Sesión"}],
+    "contact":{"email":"info@jocarsa.com","fields":[{"name":"nombre","type":"text","required":"true"},{"name":"email","type":"email","required":"true"},{"name":"mensaje","type":"textarea","required":"false"}]}
+  }
+}

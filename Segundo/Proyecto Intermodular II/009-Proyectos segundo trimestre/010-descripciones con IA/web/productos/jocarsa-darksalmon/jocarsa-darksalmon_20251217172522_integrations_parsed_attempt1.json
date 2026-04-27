@@ -1,0 +1,14 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones adicionales para jocarsa | darksalmon",
+    "notes": "Añade las aplicaciones que quieras integrar para mejorar la experiencia de usuario.",
+    "items": [
+      "Google Calendar",
+      "Microsoft Teams",
+      "Slack",
+      "Trello"
+    ]
+  }
+}

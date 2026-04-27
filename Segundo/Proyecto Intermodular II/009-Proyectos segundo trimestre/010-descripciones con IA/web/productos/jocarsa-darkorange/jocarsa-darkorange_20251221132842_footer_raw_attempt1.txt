@@ -1,0 +1,3 @@
+{
+  "footer": {"summary":"Nuevas funcionalidades incluyen la gestión de campañas con send HTML y adjuntos, optimización para SMTP solo HTML y manejo de logs JSONL. Se garantiza un rendimiento consistente en diferentes clientes de correo."}
+}

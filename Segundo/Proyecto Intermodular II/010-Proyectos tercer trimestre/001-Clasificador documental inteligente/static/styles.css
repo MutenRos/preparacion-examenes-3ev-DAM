@@ -1,0 +1,282 @@
+/* static/styles.css */
+/* ADD/REPLACE the layout section + add splitter styles + improve desttree */
+
+:root{
+  --border:#e5e7eb;
+  --bg:#f8fafc;
+  --fg:#0f172a;
+  --muted:#64748b;
+  --accent:#0ea5e9;
+  --danger:#ef4444;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Arial;
+  color:var(--fg);
+  background:white;
+}
+
+.header{
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.header__title{ font-size:16px; font-weight:600; display:flex;align-items:center;}
+.header__meta{ font-size:12px; color:var(--muted); }
+.header img{width:50px;}
+
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+}
+.small{ font-size:12px; color:var(--muted); }
+
+/* ---------- RESIZABLE 3-PANE LAYOUT (replaces grid) ---------- */
+.layout{
+  display:flex;
+  height: calc(100vh - 52px);
+  width: 100%;
+  overflow:hidden;
+}
+
+.pane{
+  padding:12px;
+  overflow:auto;
+  min-width: 240px; /* prevent collapse */
+}
+
+.splitter{
+  width: 10px;
+  cursor: col-resize;
+  position: relative;
+  background: white;
+  border-left:1px solid var(--border);
+  border-right:1px solid var(--border);
+  flex: 0 0 10px;
+}
+.splitter::after{
+  content:"";
+  position:absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #cbd5e1;
+  border-radius: 999px;
+  opacity: .7;
+}
+.splitter:hover::after{ opacity: 1; }
+body.resizing *{ user-select:none !important; cursor: col-resize !important; }
+
+/* ---------- UI blocks ---------- */
+.pane__title{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  margin-bottom:10px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  background:var(--bg);
+}
+
+.row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+input[type="text"]{
+  width:100%;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:white;
+}
+
+button{
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:white;
+  cursor:pointer;
+}
+button.primary{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:white;
+}
+button.danger{
+  background:var(--danger);
+  border-color:var(--danger);
+  color:white;
+}
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.hint{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.mt{ margin-top:10px; }
+.mt-small{ margin-top:6px; }
+
+.pill{
+  padding:6px 10px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  font-size:12px;
+  color:var(--muted);
+  background:white;
+}
+
+.checkbox{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.tree .node{
+  padding:6px 8px;
+  border-radius:8px;
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.tree .node:hover{ background:#eef2ff; }
+.tree .node.active{ background:#dbeafe; outline:1px solid #93c5fd; }
+.tree .node .name{ flex:1; }
+.tree .node .tag{ font-size:11px; color:var(--muted); }
+.tree .indent{
+  margin-left:16px;
+  border-left:1px dashed var(--border);
+  padding-left:10px;
+}
+
+.list .item{
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:8px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.list .item .left{ min-width:0; }
+.list .item .name{
+  font-weight:600;
+  font-size:13px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.list .item .sub{
+  font-size:12px;
+  color:var(--muted);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.results .result{
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:8px;
+  background:white;
+}
+.results .result .top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.results .result .file{
+  font-weight:600;
+  font-size:13px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.results .result .cat{
+  font-size:12px;
+  color:var(--muted);
+  text-align:right;
+}
+.results .result .msg{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.footerbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.progress{
+  width:100%;
+  height:12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:white;
+  overflow:hidden;
+}
+.progress__bar{
+  height:100%;
+  background:var(--accent);
+  width:0%;
+  transition: width 120ms linear;
+}
+
+/* ---------- DESTINATION REPORT TREE (folders + files in one view) ---------- */
+.desttree{
+  font-size:12px;
+  line-height: 1.35;
+  color:var(--fg);
+}
+.desttree .dnode{
+  padding:4px 6px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.desttree .dnode:hover{ background:#f1f5f9; }
+.desttree .dindent{
+  margin-left:16px;
+  border-left:1px dashed var(--border);
+  padding-left:10px;
+}
+.desttree .badge{
+  margin-left:auto;
+  font-size:11px;
+  color:var(--muted);
+  border:1px solid var(--border);
+  background:white;
+  padding:2px 8px;
+  border-radius:999px;
+}
+.desttree .fname{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  min-width:0;
+}

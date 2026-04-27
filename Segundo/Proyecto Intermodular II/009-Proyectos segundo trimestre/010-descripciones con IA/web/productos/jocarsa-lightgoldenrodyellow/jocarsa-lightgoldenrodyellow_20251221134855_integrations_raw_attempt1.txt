@@ -1,0 +1,3 @@
+{
+  "integrations": {"include": true, "optional":"true", "title":"Integración con bases de datos externas", "notes":"Permite la conexión a bases de datos externas para un análisis más exhaustivo.", "items":["MySQL","SQLite"]}
+}

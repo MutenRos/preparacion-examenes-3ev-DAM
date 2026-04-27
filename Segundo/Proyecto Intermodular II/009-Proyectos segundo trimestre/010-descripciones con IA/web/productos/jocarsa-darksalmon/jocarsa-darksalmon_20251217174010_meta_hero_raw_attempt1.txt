@@ -1,0 +1,23 @@
+```json
+{
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon - Tu Solución de Gestión de Horarios y Ausencias Personalizada",
+    "category": "softwareEducativo",
+    "audience_segments": ["Empresas", "Personal Laboral"],
+    "ctaPrimary": "Iniciar Jornada",
+    "ctaSecondary": "Configuración del Perfil"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Gestiona eficazmente tus horarios y ausencias con un software intuitivo y personalizado.",
+    "subtitle": "La solución ideal para empresas que buscan optimizar la productividad de sus empleados.",
+    "badges": ["Sistema Personalizado", "Seguro y Confiable", "Interfaz Amigable"],
+    "actions": [
+      {"type":"primary","text":"Iniciar Jornada"},
+      {"type":"secondary","text":"Configuración del Perfil"},
+      {"type":"tertiary","text":"Más Información"}
+    ]
+  }
+}
+```

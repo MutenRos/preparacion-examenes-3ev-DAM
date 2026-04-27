@@ -1,0 +1,3 @@
+{
+  "problem": {"title":"Diseño y funcionalidad del panel de administrador","items":["Estilo visual desorganizado con demasiados elementos en la cabecera y poca claridad en los botones","Funcionalidad inexistente o poco clara para acciones como captura de inicio y fin de sesión","Interacción con imágenes en el modal sin especificar comportamiento deseado","Barra de progreso no implementada o explicada en el código"] }
+}

@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "slug": "jocarsa-mediumseagreen",
+    "title": "jocarsa | mediumseagreen - Convertir y Analizar Subtítulos para Contenidos Educativos",
+    "category": "softwareEducativo",
+    "audience_segments": [
+      "desarrolladores",
+      "educadores",
+      "administradores"
+    ],
+    "ctaPrimary": "Probar Ahora",
+    "ctaSecondary": "Conoce Más"
+  },
+  "hero": {
+    "name": "jocarsa | mediumseagreen",
+    "valueProposition": "Automatiza el procesamiento de subtítulos y análisis didáctico para contenido educativo, asegurando calidad y consistencia en las lecciones.",
+    "subtitle": "Convierte, analiza y mejora tu contenido para mejorar la experiencia del aprendizaje",
+    "badges": [
+      "Automatización de Procesos",
+      "Compatibilidad Multisubtítulos",
+      "Análisis Didáctico Avanzado"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Probar Ahora"
+      },
+      {
+        "type": "secondary",
+        "text": "Conoce Más"
+      },
+      {
+        "type": "tertiary",
+        "text": "Ver Casos de Uso"
+      }
+    ]
+  }
+}

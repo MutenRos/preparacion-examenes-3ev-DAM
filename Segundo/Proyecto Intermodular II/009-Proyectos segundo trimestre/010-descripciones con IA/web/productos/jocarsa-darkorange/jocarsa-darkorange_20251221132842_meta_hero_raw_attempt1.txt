@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-darkorange",
+    "title": "jocarsa | darkorange - Automatiza tus campañas de correo con SaaS educativo",
+    "category": "softwareEducativo",
+    "audience_segments": ["marketers", "educational institutions"],
+    "ctaPrimary": "Empieza tu prueba gratis",
+    "ctaSecondary": "Conoce cómo funciona"
+  },
+  "hero": {
+    "name": "jocarsa | darkorange",
+    "valueProposition": "Gestiona eficazmente tus campañas de correo con nuestro SaaS educativo. Automatiza el envío, controla los detalles HTML y asegura que tus correos sean vistos.",
+    "subtitle": "Automatización sin complicaciones para mejorar la comunicación en educación",
+    "badges": ["SaaS educativo", "Gestión de campañas", "Optimización de correo electrónico"],
+    "actions": [
+      {"type":"primary","text":"Empieza tu prueba gratis"},
+      {"type":"secondary","text":"Conoce cómo funciona"},
+      {"type":"tertiary","text":"Más detalles"}
+    ]
+  }
+}

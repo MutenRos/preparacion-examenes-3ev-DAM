@@ -1,0 +1,5 @@
+[
+  {"name":"Acceso controlado","benefit":"Administra y controla el acceso a salones de forma segura, limitando el ingreso solo a usuarios autorizados."},
+  {"name":"Invitaciones personalizadas","benefit":"Crea invitaciones personalizadas para cada sesión con opciones para indicar roles y contraseñas únicas."},
+  {"name":"Migración defensiva de base de datos","benefit":"Garantiza la integridad de los datos en la base de datos mediante migraciones seguras y defensivas."}
+]

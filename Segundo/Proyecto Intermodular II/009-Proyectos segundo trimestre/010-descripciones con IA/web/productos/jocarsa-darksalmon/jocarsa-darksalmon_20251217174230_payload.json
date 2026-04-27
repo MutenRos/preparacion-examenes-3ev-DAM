@@ -1,0 +1,199 @@
+{
+  "lang": "es",
+  "type": "softwareEducativo",
+  "version": "1.1",
+  "meta": {
+    "slug": "jocarsa-darksalmon",
+    "title": "jocarsa | darksalmon · App",
+    "category": "SaaS",
+    "audience_segments": [
+      "Empresas",
+      "Trabajadores"
+    ],
+    "ctaPrimary": "Prueba Gratuita",
+    "ctaSecondary": "Pide una Demo"
+  },
+  "hero": {
+    "name": "jocarsa | darksalmon",
+    "valueProposition": "Asegura el cumplimiento de horarios y la gestión eficiente de ausencias en una plataforma intuitiva.",
+    "subtitle": "Simplifica la gestión laboral para empresas y empleados con nuestro SaaS innovador.",
+    "badges": [
+      "Interfaz fácil",
+      "Gestión de jornadas",
+      "Control de ausencias"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuita"
+      },
+      {
+        "type": "secondary",
+        "text": "Pide una Demo"
+      },
+      {
+        "type": "tertiary",
+        "text": "Explora más"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Desarrollo de la Aplicación jocarsa | darksalmon",
+    "items": [
+      "Definir el flujo completo de inicio y finalización de jornada",
+      "Implementar la visualización y gestión de las jornadas registradas",
+      "Desarrollar la sección de perfil del usuario con información relevante",
+      "Integrar el sistema de ausencias y gestionar sus estados",
+      "Crear la guía de usuario detallada para ayudar a los usuarios en la resolución de problemas"
+    ]
+  },
+  "solution": {
+    "title": "jocarsa | darksalmon · App",
+    "overview": "Este software educativo ofrece un sistema para gestionar las jornadas laborales de los usuarios. Permite iniciar y finalizar la jornada, registrar ausencias y consultar el perfil del usuario.",
+    "whatChanges": [
+      "Integración de inicio y finalización de jornada con opción a registrar ubicaciones",
+      "Módulo de gestión de jornadas registradas para ver registros anteriores",
+      "Pantalla de perfil para visualizar y actualizar datos del usuario"
+    ]
+  },
+  "keyFeatures": {
+    "title": "Características destacadas",
+    "features": [
+      {
+        "name": "Panel central",
+        "benefit": "Control en un solo lugar orientado a TITLE / jocarsa / darksalmon / jocarsa / darksalmon / Reporte."
+      },
+      {
+        "name": "Gestión diaria",
+        "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+      },
+      {
+        "name": "Información clara",
+        "benefit": "Consulta estados y avances de forma sencilla."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "jocarsa | darksalmon",
+    "profiles": [
+      {
+        "name": "Administradores",
+        "fit": "Mantenimiento y configuración de las aplicaciones del sistema."
+      },
+      {
+        "name": "Trabajadores",
+        "fit": "Registro y gestión de sus jornadas laborales."
+      },
+      {
+        "name": "Responsables de Jornada",
+        "fit": "Supervisión y revisión de registros de asistencia."
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "cases": [
+      {
+        "name": "Inicio y Fin de Jornada",
+        "description": "Los usuarios pueden iniciar o finalizar su jornada laboral presionando los correspondientes botones. Si la jornada es partida, ambos botones deben ser pulsados tanto en el inicio como en el final de la jornada."
+      },
+      {
+        "name": "Registro de Ausencias",
+        "description": "Los empleados pueden reportar ausencias mediante un formulario que incluye detalles del día y la razón de la ausencia. Las ausencias se marcan automáticamente una vez que son aprobadas o denegadas por administración."
+      },
+      {
+        "name": "Ver Jornadas Registradas",
+        "description": "Se muestra a los usuarios un listado detallado de todas las jornadas registradas, incluyendo registros de inicio y fin de la jornada. Esto les permite ver sus propios horarios y verificar cualquier error en sus registros."
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Facilidades Educativas para Mejorar tu Experiencia de Trabajo",
+    "items": [
+      "Inicio y Fin de Jornada Automáticos, Registrando Precisamente tus Horarios",
+      "Mapa con Tu Ubicación de Fichaje, Seguimiento en Tiempo Real de la Localización",
+      "Perfiles Personalizados para Mantener Tus Datos y Historial Organizados"
+    ]
+  },
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones adicionales",
+    "notes": "Permite conectar la aplicación con otras herramientas para una mejor experiencia. Las integraciones son opcionales y no son necesarias para el funcionamiento básico del software.",
+    "items": [
+      "Google Calendar",
+      "Asistencia por chat",
+      "Sincronización de horarios"
+    ]
+  },
+  "trust": {
+    "title": "jocarsa | darksalmon",
+    "points": [
+      "Inicia y finaliza tu jornada laboral con precisión a través de un botón intuitivo.",
+      "Mantente al tanto de tus registros de jornadas en tiempo real.",
+      "Accede fácilmente a tu perfil para ver información detallada."
+    ]
+  },
+  "finalCTA": {
+    "title": "Contacta con Soporte",
+    "description": "Todas tus preguntas respondidas. Comunícate con nuestro equipo.",
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Enviar mensaje"
+      },
+      {
+        "type": "secondary",
+        "text": "Descargar tradicional"
+      }
+    ],
+    "contact": {
+      "email": "info@jocarsa.com",
+      "fields": [
+        {
+          "name": "nombre",
+          "type": "text",
+          "required": "true"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": "true"
+        },
+        {
+          "name": "mensaje",
+          "type": "textarea",
+          "required": "true"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo iniciar o finalizar mi jornada?",
+        "a": "Para iniciar tu jornada, pulsa el botón ‘Iniciar Jornada’. Para finalizarla, haz lo mismo con la opción ‘Finalizar Jornada’. Si tienes una jornada partida, repite estos pasos al inicio y final de ambos bloques."
+      },
+      {
+        "q": "¿Cómo reviso mi historial de jornadas?",
+        "a": "Pulsa el botón que dice ‘Jornadas’ para ver todos los registros de tu jornada laboral. Si notas algún error, comunícate con los administradores para solucionarlo."
+      },
+      {
+        "q": "¿Qué debo hacer si no puedo iniciar o finalizar mi jornada?",
+        "a": "Verifica que el usuario y la contraseña sean correctos. Comprueba también que no estés utilizando mayúsculas en el teclado. Si el problema persiste, espera unos minutos para que se sincronice automáticamente, o informa a tu responsable si el error sigue presente."
+      },
+      {
+        "q": "¿Qué significa un estado de ausencia sin revisar?",
+        "a": "Un estado de ausencia sin revisar indica que la solicitud aún no ha sido analizada por un administrador. Una vez aprobada o denegada, cambiará automáticamente a un estado final."
+      },
+      {
+        "q": "¿Cómo resuelvo problemas técnicos del sistema?",
+        "a": "Comprueba tu conexión a internet y trata de actualizar la página (Ctrl+R o F5). Si el problema persiste, intenta cerrar y volver a iniciar sesión. Contacta con el soporte técnico si los errores continúan."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "Desarrollado con SaaS, jocarsa | darksalmon ofrece una experiencia de software educativo innovadora. Aprende y explore las características únicas en nuestra aplicación dedicada al seguimiento y control de la jornada laboral. Para más información o asistencia, contáctenos a través del botón de ayuda disponible en cada pantalla."
+  }
+}

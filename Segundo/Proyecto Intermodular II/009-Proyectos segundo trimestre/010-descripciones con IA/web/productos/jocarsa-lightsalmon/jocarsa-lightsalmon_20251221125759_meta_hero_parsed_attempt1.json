@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "slug": "jocarsa-lightsalmon",
+    "title": "jocarsa | lightsalmon - Calendario SaaS Educativo",
+    "category": "Software Educativo",
+    "audience_segments": [
+      "Estudiantes",
+      "Educadores",
+      "Profesores"
+    ],
+    "ctaPrimary": "Prueba Gratuitamente",
+    "ctaSecondary": "Más Información"
+  },
+  "hero": {
+    "name": "jocarsa | lightsalmon - Calendario SaaS Educativo",
+    "valueProposition": "Manejo de calendarios y eventos en tiempo real para un aprendizaje más efectivo.",
+    "subtitle": "Gestiona tus eventos educativos con precisión y facilidad",
+    "badges": [
+      "SaaS Educativo",
+      "Calendario Sincrónico"
+    ],
+    "actions": [
+      {
+        "type": "primary",
+        "text": "Prueba Gratuitamente"
+      },
+      {
+        "type": "secondary",
+        "text": "Más Información"
+      },
+      {
+        "type": "tertiary",
+        "text": "Contactar"
+      }
+    ]
+  }
+}

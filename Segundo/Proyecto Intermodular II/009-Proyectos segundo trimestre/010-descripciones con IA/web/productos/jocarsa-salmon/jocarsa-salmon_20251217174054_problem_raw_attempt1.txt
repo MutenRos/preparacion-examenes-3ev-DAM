@@ -1,0 +1,5 @@
+```json
+{
+  "problem": {"title":"jocarsa | salmon","items":["Falta una descripción clara del problema o desafío que el software educativo debe resolver.","La estructura del proyecto y el código no se han analizado en detalle para identificar problemas específicos.","Ninguna sugerencia de cómo mejorar la funcionalidad o experiencia del usuario ha sido proporcionada."]}
+}
+```

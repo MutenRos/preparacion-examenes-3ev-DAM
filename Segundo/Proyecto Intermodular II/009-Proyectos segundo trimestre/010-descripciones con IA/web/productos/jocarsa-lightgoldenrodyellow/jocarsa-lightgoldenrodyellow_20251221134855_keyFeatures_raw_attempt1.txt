@@ -1,0 +1,5 @@
+[
+  {"name":"Parámetros del prompt","benefit":"Permite definir con precisión el contexto, objetivo y formato requeridos para la IA."},
+  {"name":"Explorador de carpetas integrado","benefit":"Facilita la selección de proyectos sin salir de la aplicación."},
+  {"name":"Generación de estructura y reporte intercalado","benefit":"Crea un informe completo del código con el estilo de la interfaz de Tkinter"}
+]

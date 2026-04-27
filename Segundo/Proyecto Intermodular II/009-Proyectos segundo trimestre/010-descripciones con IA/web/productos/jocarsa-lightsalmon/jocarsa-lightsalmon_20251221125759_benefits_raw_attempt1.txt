@@ -1,0 +1,3 @@
+{
+  "benefits": {"title":"Facilidad de Uso","items":["Incorpora autenticación segura con registros y login/ logout.","Permite guardar eventos y configuraciones fácilmente sin la necesidad de recargar la página.","Ofrece una interfaz simple para agregar, modificar y eliminar eventos en el calendario.","Integra funcionalidades de categorías y eventos detallados para mejor organización."]}
+}

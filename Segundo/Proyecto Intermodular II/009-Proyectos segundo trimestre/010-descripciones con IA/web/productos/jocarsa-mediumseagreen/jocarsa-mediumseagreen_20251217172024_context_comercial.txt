@@ -1,0 +1,381 @@
+TITLE: Título
+H1: Página web
+
+Página web 
+ Este es un párrafo.
+
+Título 
+ 
+ Nombre:
+
+Título 
+ 
+ 
+ 
+ 
+ 
+ Inicio 
+ Sobre mí 
+ Programación docencia 
+ Diseño 
+ Formulario de contacto 
+ 
+ 
+
+ Título principal 
+ Subtítulo 
+
+ Ir al inicio
+
+# Reporte de proyecto
+## Estructura del proyecto
+## Código (intercalado)
+# jocarsa-mediumseagreen
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Lee 'playlists_videos.json' (categoría "25/26").
+- Intenta player_client: android -> mweb -> tv -> web (con cookies si existen).
+- Convierte .vtt a TEXTO SÓLIDO (un único párrafo), sin timestamps/etiquetas/roll-up.
+- Crea .log cuando no hay 'es-orig'. (Opcional) Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1.
+# =======================
+# CONFIG
+# =======================
+# =======================
+# ---------- Limpieza VTT ----------
+# ---------- Utilidades yt-dlp ----------
+# Escaneo por si el extractor cambia el nombre
+# cuando pides lenguajes, separa write-auto-subs y write-subs (por si hay manuales)
+# ---------- Main ----------
+# estricto por defecto
+# fallback opcional (manual+auto)
+# 1) Intentar es-orig
+# 2) Fallback opcional a es/es-ES/es-419
+# determinar cuál llegó
+# 3) Convertir VTT -> TXT sólido
+# localizar el VTT que bajó
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- temarios/DAM1/*.md y temarios/DAM2/*.md
+* Línea SIN tab = Unidad (topic label: "Unidad")
+* Línea CON un tab = Subunidad (topic label: "Unidad: Subunidad")
+- transcripts_25_26/*.txt
+* Ignora cabecera hasta una línea de ----- (guiones), usa el resto como cuerpo.
+- Divide el listado de topics en lotes (TOPIC_BATCH).
+- Para cada lote, envía prompt al modelo (MODEL) con el cuerpo del vídeo.
+- El modelo devuelve JSON con matches (topic, score 0..1). Se fusiona y se filtra por THRESHOLD.
+- video_topic_matches.json con:
+- Ollama corriendo en http://localhost:11434 (ollama serve)
+- Modelo Instruct: ej. ollama pull llama3.1:8b-instruct-q4_0
+- pip install requests tqdm
+# -------------------- Config --------------------
+# --------------- Parsers ----------------
+- Unidad -> "Unidad"
+- Subunidad -> "Unidad: Subunidad"
+# Dedup conservando orden
+# separar cabecera/cuerpo
+# recortar para no saturar el contexto
+# intentar sacar ID de cabecera
+# --------------- Core matching ---------------
+# reintentos mínimos
+# limpiar posibles backticks accidentales
+# extraer el primer bloque JSON válido que encontremos
+# (por si el modelo devuelve algo raro, aunque hemos forzado JSON-only)
+# sanitizar
+# aceptamos cualquier score; el filtrado por THRESHOLD será más tarde
+# filtrar por THRESHOLD y ordenar
+# dedup en listas by_topic
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Para vídeos: se incluye `type:"video"` (retrocompatible si faltara).
+- Para mensajes: NO hay `url`; se incluye `message` con el contenido del .txt.
+# Rango de cursos igual que en index.php
+# tolerante: ignora archivos que no cumplan patrón
+# fuera de rangos definidos
+# Construyo el título estilo vídeo: "YYYY MM DD HH MM SS "
+# 1) Expandir playlists de YouTube (igual que antes)
+# 2) Añadir mensajes/*.txt como playlist "🛈 Mensajes" por curso
+# si ya existe, añadimos; si no, creamos
+# Mezclamos y ordenamos por fecha (derivable del título)
+# No hace falta ordenar aquí estrictamente; el frontend ordena por date,
+# pero dejamos consistente por comodidad.
+# 3) Guardar salida
+# 4) Resumen
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Lee 'playlists_videos.json' (categoría "25/26").
+- Prueba player_client=mweb -> tv -> web -> android (android al final por PO token).
+- Prioriza subtítulos en español (es, es-ES, es-419, es.*).
+- Si no hay español: toma el primer auto-caption disponible (p.ej. 'en').
+- Como rescate final: --all-subs y luego filtra el mejor candidato.
+- Convierte .vtt a texto sólido (un párrafo) sin timestamps, etiquetas, ni roll-up.
+- Registra en .log los idiomas disponibles si no se consigue nada.
+# =======================
+# CONFIG
+# =======================
+# Ponemos android al final para evitar el problema del PO token si no lo usas
+# Candidatos de idioma (prefijos y exactos) para español:
+# Prioridad para elegir el VTT si hay varios
+# variantes es.* después
+# Fallback si no hay español: coger el primer idioma disponible de automatic_captions
+# Si hay que caer a un auto-captions no español, prioriza en este orden
+# =======================
+# UTILIDADES GENERALES
+# =======================
+# =======================
+# YT-DLP HELPERS
+# =======================
+# Cualquier archivo que empiece por el nombre base y tenga .es*.vtt
+# yt-dlp nombra subs como " . .vtt"
+# " . .vtt" -> extrae 
+# =======================
+# DESCARGA PRINCIPAL (con fallback)
+# =======================
+# 1) prioridad preferida
+# 2) si no, la primera clave disponible
+# Si no hay .es*.vtt, quizá el idioma fue otro (fallback): busca cualquier . .vtt solicitado
+# 1º intenta español
+# 2º si no hay español, cualquier vtt priorizado
+# === Flujo principal por clientes ===
+# 1) Idiomas españoles exactos
+# 2) Fallback: primer auto disponible (p.ej. 'en'), si está activado
+# 3) Rescate --all-subs y luego elegir
+# Segundo intento de rescate global si nada funcionó
+# =======================
+# MAIN
+# =======================
+# 1) Descargar subtítulos (español o fallback)
+# Para diagnóstico: listar subs disponibles por cada client
+# 2) Convertir VTT -> TEXTO SÓLIDO
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Lee .txt y extrae cuerpo (ignora cabecera hasta la línea de guiones).
+- Chunking por caracteres (con cortes suaves por oraciones).
+- MAP: genera "notas" para cada chunk (en español).
+- REDUCE: sintetiza un único .md didáctico.
+- Ollama ejecutándose en http://localhost:11434
+- Un modelo Instruct disponible (p.ej., 'llama3.1:8b-instruct-q4_0')
+# ============== CONFIG ==============
+# ====================================
+# corte por oraciones
+# detectar línea de guiones del header
+# compactar espacios
+# Opcionales que puedes ajustar:
+# Estructura típica: {'message': {'role':'assistant','content':'...'}, ...}
+# MAP
+# seguimos con los demás
+# REDUCE
+# Asegurar encabezado principal (por si el modelo no lo pone)
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Lee .txt y extrae cuerpo (ignora cabecera hasta la línea de guiones).
+- Chunking por caracteres (con cortes suaves por oraciones).
+- MAP: genera "notas" para cada chunk (en español) usando la API remota.
+- REDUCE: sintetiza un único .md didáctico usando la API remota.
+- API remota disponible (ejemplo: https://covalently-untasked-d****.ngrok-free.dev/api.php)
+- Clave de API válida.
+# ============== CONFIG ==============
+# ====================================
+# MAP
+# REDUCE
+# jocarsa-mediumseagreen
+#temariosAcc .clickable.active{background:#effaf4;border-radius:6px}
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# EDITA ESTA LISTA con uno o varios IDs de vídeo
+# MANUALES (no generadas)
+# AUTO-GENERADAS
+# Idiomas a los que YouTube dice que podría traducir
+## data
+### transcripts
+## mensajes
+## resumenes
+## scripts
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Lee 'playlists_videos.json' (categoría "25/26").
+- Intenta player_client: android -> mweb -> tv -> web (con cookies si existen).
+- Convierte .vtt a TEXTO SÓLIDO (un único párrafo), sin timestamps/etiquetas/roll-up.
+- Crea .log cuando no hay 'es-orig'. (Opcional) Fallback a es/es-ES/es-419 si ALLOW_ES_FALLBACK=1.
+# =======================
+# CONFIG
+# =======================
+# =======================
+# ---------- Limpieza VTT ----------
+# ---------- Utilidades yt-dlp ----------
+# Escaneo por si el extractor cambia el nombre
+# cuando pides lenguajes, separa write-auto-subs y write-subs (por si hay manuales)
+# ---------- Main ----------
+# estricto por defecto
+# fallback opcional (manual+auto)
+# 1) Intentar es-orig
+# 2) Fallback opcional a es/es-ES/es-419
+# determinar cuál llegó
+# 3) Convertir VTT -> TXT sólido
+# localizar el VTT que bajó
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+- Ollama en ejecución (http://localhost:11434)
+- Modelo embeddings: nomic-embed-text (ollama pull nomic-embed-text)
+- pip install requests tqdm
+# Opciones
+# Ollama devuelve {"embeddings": [[...], ...]}
+- ("Unidad", "Unidad")
+- ("Unidad: Subunidad", "Unidad: Subunidad")
+# Quitar duplicados conservando orden
+# Embeddings de topics
+# Para cada vídeo, computa similitud máxima a cada topic
+# embed doc (o chunks)
+# mejor score contra cualquiera de los chunks
+# Limpia duplicados en by_topic
+# ordena por aparición + único
+### transcripts_25_26
+## temarios
+### DAM1
+### DAM2
+## transcripts_25_26
+## transcripts_25_26_markdown
+# 2025-09-11-14-03-07
+## Objetivos de aprendizaje
+## Temario (índice)
+## Conceptos clave
+- Lenguajes de marcas: son herramientas para crear contenido estructurado y semántico.
+- HTML (Hypertext Markup Language): es el lenguaje de marcas más conocido, utilizado para crear páginas web.
+- XML (Extensible Markup Language): es un lenguaje de marcas utilizado para crear documentos.
+- Markdown: es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea.
+## Explicación
+- **HTML**: Es el lenguaje de marcas más conocido y ampliamente utilizado para crear páginas web. Permite a los desarrolladores agregar elementos como imágenes, enlaces y texto a una página.
+- **XML**: Es un lenguaje de marcas utilizado para crear documentos estructurados. Se utiliza comúnmente en la creación de formatos de intercambio de datos (XSD) y en la descripción de esquemas de negocio.
+- **Markdown**: Es un lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea. Permite a los usuarios agregar elementos como encabezados, listas y enlaces a su contenido.
+## Código destacado (con bloques ```lenguaje)
+# Encabezado de nivel uno
+## Encabezado de nivel dos
+### Encabezado de nivel tres
+#### Encabezado de nivel cuatro
+##### Encabezado de nivel cinco
+## Actividades prácticas (paso a paso, con soluciones o pistas breves)
+## Buenas prácticas / Errores comunes
+- Asegúrate de cerrar todas las etiquetas en tu código HTML.
+- Utiliza la sintaxis correcta para crear listas ordenadas o desordenadas en Markdown.
+- No olvides agregar el atributo `alt` a tus imágenes en HTML.
+## Glosario
+- **HTML**: Lenguaje de marcas utilizado para crear páginas web.
+- **XML**: Lenguaje de marcas utilizado para crear documentos estructurados.
+- **Markdown**: Lenguaje de marcas ligero y fácil de leer, utilizado para crear contenido en línea.
+## Preguntas de repaso
+# Evaluación y Criterios de Evaluación
+## Objetivos de aprendizaje
+- Comprender los criterios de evaluación del curso.
+- Saber cómo se evaluarán los ejercicios y exámenes.
+## Temario (índice)
+## Conceptos clave
+- **Evaluación**: Los ejercicios serán públicos y se podrán consultar en cualquier momento.
+- **Criterios de Evaluación**:
+## Explicación
+- La evaluación del curso se realizará a través de ejercicios y exámenes.
+- Los ejercicios serán públicos y se podrán consultar en cualquier momento.
+## Código destacado (con bloques ````lenguaje)
+# No hay código relevante para esta sección
+## Actividades prácticas (paso a paso, con soluciones o pistas breves)
+## Buenas prácticas / Errores comunes
+- No te pierdas en los detalles.
+- Utiliza siempre el código relevante para cada ejercicio.
+## Glosario
+- **Evaluación**: La forma en que se juzga el conocimiento adquirido por un estudiante.
+- **Criterios de Evaluación**: Los parámetros utilizados para evaluar la calidad del trabajo realizado por los estudiantes.
+## Preguntas de repaso
+# Lenguajes de Programación del Curso
+## Objetivos de aprendizaje
+- Comprender los lenguajes de programación utilizados en el curso.
+- Saber cómo se instalará Python.
+
+# Reporte de proyecto
+
+## Estructura del proyecto
+
+```
+/var/www/html/jocarsa-mediumseagreen
+├── .gitignore
+├── 101-descargatranscripciones.py
+├── 102-matchsemantico.py
+├── 1videos.py
+├── 2025 09 15 14 00 25.es-orig.vtt
+├── 2transcripciones.py
+├── 3-resumenes.py
+├── 3-resumenes_api.py
+├── README.md
+├── admin.php
+├── app.db
+├── cookies.txt
+├── data
+│ └── transcripts
+│ ├── -RDOj4L_tbQ.err.txt
+│ ├── -tfOR-7-ot0.err.txt
+│ ├── 0GIWmbes4r4.err.txt
+│ ├── 0f_x-UW1-Xo.err.txt
+│ ├── 0zT0fjtfKvk.err.txt
+│ ├── 19ytHnaGMxU.err.txt
+│ ├── 1B06SiYAcXE.err.txt
+│ ├── 1pky5c5XObc.err.txt
+│ ├── 27jbqVhXLRA.err.txt
+│ ├── 3nDd0WS0zhM.err.txt
+│ ├── 5jAqDwS5dfM.err.txt
+│ ├── 7kEKJr_eFo4.err.txt
+│ ├── 9y6e4u9zdM4.err.txt
+│ ├── DgIg5qB2hBc.err.txt
+│ ├── E12FlCM5aI0.err.txt
+│ ├── EtSSYwFzDoI.err.txt
+│ ├── FPJU2TlNpwg.err.txt
+│ ├── GvL7FBp8jQk.err.txt
+│ ├── HEHuwFNd-_U.err.txt
+│ ├── IN4zMMPK-BA.err.txt
+│ ├── J7niVLzvh5s.err.txt
+│ ├── JE_bk1C_u-o.err.txt
+│ ├── JUzCUvx31Aw.err.txt
+│ ├── J_t4zw_liKY.err.txt
+│ ├── K5qtKM0zilo.err.txt
+│ ├── KbF71eC8ljc.err.txt
+│ ├── Kk0rK1qNzho.err.txt
+│ ├── LvCWw01oO6c.err.txt
+│ ├── NCrxOeq1SzQ.err.txt
+│ ├── N_LgpLSeD4w.err.txt
+│ ├── PZvYIGLo0cI.err.txt
+│ ├── TObfVjd18bU.err.txt
+│ ├── WS404tR6g7o.err.txt
+│ ├── X5K8JjyXawI.err.txt
+│ ├── XK9hx64t4IE.err.txt
+│ ├── Yum4NUXaSRE.err.txt
+│ ├── as1gCkyUJsM.err.txt
+│ ├── b7yGHH-cUVQ.err.txt
+│ ├── bS1HUBg5SxE.err.txt
+│ ├── beGKr-wXqrU.err.txt
+│ ├── bpoy7cDhEsQ.err.txt
+│ ├── frUfuMvQUJQ.err.txt
+│ ├── giUJUQTGQjU.err.txt
+│ ├── j0DFdwaUabw.err.txt
+│ ├── kBRRsnX1-Lk.err.txt
+│ ├── lY8iTZNcJTY.err.txt
+│ ├── oH8-0M5DCT0.err.txt
+│ ├── pMB1MM_yzGo.err.txt
+│ ├── ruuPTmqQqKA.err.txt
+│ ├── uwrMsmDlPQ4.err.txt
+│ ├── w5-ndTuHh8U.err.txt
+│ ├── wMR6E95iSOo.err.txt
+│ ├── wbOPSGb7-HU.err.txt
+│ ├── wmzKliHTZKI.err.txt
+│ ├── xdmKk0Rskh4.err.txt
+│ ├── y_Yx5jR5h1I.err.txt
+│ ├── zN-otiIFUus.err.txt
+│ ├── zowDFAnNjOQ.err.txt
+│ └── zxa6A-AF9Lo.err.txt
+├── estilo.css
+├── index.php
+├── listas.json
+├── mediumseagreen.png
+├── mediumseagreenfondo.png
+├── mediumseagreenfondoblur.png
+├── mensajes
+│ ├── 2025-09-03-17-35-00-Sesión de bienvenida ciclos formativos SMR y DAM - Inicio del nuevo curso en TAME.txt
+│ ├── 2025-09-05-14-19-00-Enlace a la sesión de bienvenida del lunes en Zoom - SMR y DAM.txt
+│ ├── 2025-09-09-13-45-00-Bienvenidos al curso.txt
+│ ├── 2025-09-10-11-42-00-Encuesta motivación e intereses DAM1 y DAM2.txt
+│ ├── 2025-09-10-14-00-00-In

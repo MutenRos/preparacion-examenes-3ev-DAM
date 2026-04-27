@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "qas": [
+      {
+        "q": "¿Cómo puedo crear una nueva carpeta?",
+        "a": "Como administrador, puedes ingresar el nombre de la carpeta y seleccionar la carpeta superior (opcional) en el panel lateral. Luego, pulsa 'Create Folder'."
+      },
+      {
+        "q": "¿Cómo accedo al contenido como cliente?",
+        "a": "Inicia sesión con tus credenciales de usuario como cliente. Una vez logueado, podrás visualizar los proyectos y sus iteraciones para ver los videos y dejar comentarios."
+      },
+      {
+        "q": "¿Cómo puedo descargar un video del proyecto?",
+        "a": "Bajo cada iteración disponible, hay un botón 'Descargar video' que permite descargar el archivo .mp4 del video."
+      },
+      {
+        "q": "¿Cuáles son las diferencias entre roles administrador y cliente?",
+        "a": "Los administradores pueden crear y administrar carpetas, proyectos e iteraciones con permisos de edición y borrado. Los clientes solo pueden ver los proyectos y sus iteraciones, dejando comentarios y descargando el video."
+      },
+      {
+        "q": "¿Cómo registro un nuevo cliente?",
+        "a": "Como administrador, debes usar la opción 'Create customer' en la sección de gestión de clientes dentro del panel principal."
+      }
+    ]
+  }
+}

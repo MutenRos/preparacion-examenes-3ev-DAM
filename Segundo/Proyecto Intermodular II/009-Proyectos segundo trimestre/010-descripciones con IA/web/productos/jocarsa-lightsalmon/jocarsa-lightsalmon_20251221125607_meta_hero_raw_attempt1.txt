@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "slug": "jocarsa-lightsalmon",
+    "title": "jocarsa | lightsalmon - Calendario SaaS Educativo",
+    "category": "SaaS",
+    "audience_segments": ["Estudiantes", "Profesores", "Padres de Familia"],
+    "ctaPrimary": "Prueba Gratis",
+    "ctaSecondary": "Cómo Funciona"
+  },
+  "hero": {
+    "name": "jocarsa | lightsalmon",
+    "valueProposition": "Calendario SaaS educativo que ayuda a organizar y sincronizar eventos, tareas y fechas importantes para estudiantes, profesores y padres de familia.",
+    "subtitle": "Simplifica la gestión del tiempo en un solo lugar",
+    "badges": ["100% Seguro", "Accesible en Cualquier Lugar"],
+    "actions": [
+      {"type":"primary","text":"Prueba Gratis"},
+      {"type":"secondary","text":"Cómo Funciona"},
+      {"type":"tertiary","text":"Contacto"}
+    ]
+  }
+}

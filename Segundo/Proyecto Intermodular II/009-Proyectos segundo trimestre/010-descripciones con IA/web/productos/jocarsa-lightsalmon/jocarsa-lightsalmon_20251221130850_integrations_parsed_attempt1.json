@@ -1,0 +1,13 @@
+{
+  "integrations": {
+    "include": true,
+    "optional": "true",
+    "title": "Integraciones con Calendario",
+    "notes": "Permite la integración de eventos y calendarios externos.",
+    "items": [
+      "Google Calendar",
+      "Outlook Calendar",
+      "iCal Feeds"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "slug": "jocarsa-salmon",
+    "title": "jocarsa | salmon - Crear y gestionar salones virtuales fáciles e intuitivos",
+    "category": "Educación en línea",
+    "audience_segments": ["Profesores", "Educadores", "Estudiantes"],
+    "ctaPrimary": "Prueba gratis ahora",
+    "ctaSecondary": "Más información"
+  },
+  "hero": {
+    "name": "jocarsa | salmon",
+    "valueProposition": "Crea y gestiona salones virtuales fáciles e intuitivos para la educación en línea",
+    "subtitle": "Facilita la interacción y el aprendizaje remoto con solo unos clics.",
+    "badges": ["Fácil de usar", "Compatible con cualquier navegador"],
+    "actions": [
+      {"type":"primary","text":"Prueba gratis ahora"},
+      {"type":"secondary","text":"Más información"}
+    ]
+  }
+}

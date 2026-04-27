@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asteroids 3D · Third-person</title>
+  <style>
+    html,body{margin:0;padding:0;overflow:hidden;background:#000}
+    canvas{display:block}
+    #hud2d{
+      position:fixed;inset:0;pointer-events:none;
+    }
+    #ui{
+      position:fixed;left:12px;top:12px;z-index:10;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:#fff;font-size:13px;
+      background:rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:10px;
+      padding:10px 12px;
+      backdrop-filter: blur(6px);
+      user-select:none;
+    }
+    #ui .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    #ui label{display:flex;gap:8px;align-items:center;cursor:pointer}
+    #ui input{accent-color:#52c7ff}
+    #ui .hint{opacity:.8;font-size:12px;margin-top:8px;line-height:1.25}
+    #centerHint{
+      position:fixed;left:50%;top:50%;
+      transform:translate(-50%,-50%);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:#fff;opacity:.9;
+      padding:10px 14px;border-radius:10px;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <div class="row">
+      <label><input id="invX" type="checkbox">Invert mouse X</label>
+      <label><input id="invY" type="checkbox">Invert mouse Y</label>
+      <label><input id="mouseEnable" type="checkbox" checked>Mouse control</label>
+    </div>
+    <div class="hint">
+      Click to lock mouse. <b>W</b> thrust, <b>S</b> brake, <b>A/D</b> strafe, <b>Q/E</b> roll,
+      <b>Space</b> or <b>LMB</b> shoot. <b>Esc</b> unlock.
+    </div>
+  </div>
+  <div id="centerHint">Click to start (pointer lock)</div>
+
+  <canvas id="hud2d"></canvas>
+
+  <script type="module">
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+    // -----------------------------
+    // Helpers
+    // -----------------------------
+    const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+    const rand = (a,b)=>Math.random()*(b-a)+a;
+    const randInt = (a,b)=>Math.floor(rand(a,b+1));
+    const tmpV = new THREE.Vector3();
+    const tmpV2 = new THREE.Vector3();
+    const tmpQ = new THREE.Quaternion();
+
+    // -----------------------------
+    // DOM / HUD2D
+    // -----------------------------
+    const hud = document.getElementById("hud2d");
+    const hudCtx = hud.getContext("2d");
+    const uiInvX = document.getElementById("invX");
+    const uiInvY = document.getElementById("invY");
+    const uiMouseEnable = document.getElementById("mouseEnable");
+    const centerHint = document.getElementById("centerHint");
+
+    function resizeHUD(){
+      hud.width = window.innerWidth * devicePixelRatio;
+      hud.height = window.innerHeight * devicePixelRatio;
+      hud.style.width = window.innerWidth + "px";
+      hud.style.height = window.innerHeight + "px";
+      hudCtx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    }
+
+    // -----------------------------
+    // Three.js setup
+    // -----------------------------
+    const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:false });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 1);
+    document.body.insertBefore(renderer.domElement, hud);
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x000000, 200, 12200);
+
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, 0.1, 800000);
+    camera.position.set(0, 6, 18);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.00);
+    scene.add(ambient);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2);
+    keyLight.position.set(40, 60, 30);
+    scene.add(keyLight);
+
+    // -----------------------------
+    // Starfield (bigger + "unreachable": follow ship)
+    // -----------------------------
+    const starfield = new THREE.Group();
+    scene.add(starfield);
+
+    {
+      const STAR_COUNT = 3200;
+      const R = 5200;
+      const geom = new THREE.BoxGeometry(1,1,1);
+      const mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const inst = new THREE.InstancedMesh(geom, mat, STAR_COUNT);
+      inst.frustumCulled = false;
+
+      const m = new THREE.Matrix4();
+      const s = new THREE.Vector3();
+      const p = new THREE.Vector3();
+      const q = new THREE.Quaternion();
+
+      for(let i=0;i<STAR_COUNT;i++){
+        const u = Math.random();
+        const v = Math.random();
+        const theta = 2*Math.PI*u;
+        const phi = Math.acos(2*v - 1);
+        const x = Math.sin(phi)*Math.cos(theta);
+        const y = Math.cos(phi);
+        const z = Math.sin(phi)*Math.sin(theta);
+
+        p.set(x,y,z).multiplyScalar(R + rand(-250, 250));
+
+        const size = (Math.random()<0.12) ? rand(6, 12) : rand(2.2, 6.2);
+        s.set(size, size, size);
+
+        q.setFromEuler(new THREE.Euler(rand(0,Math.PI), rand(0,Math.PI), rand(0,Math.PI)));
+        m.compose(p, q, s);
+        inst.setMatrixAt(i, m);
+      }
+      inst.instanceMatrix.needsUpdate = true;
+      starfield.add(inst);
+    }
+
+    // -----------------------------
+    // Procedural planet (atrezzo)
+    // -----------------------------
+    function makePlanetTexture(size=1024, seed=Math.random()*1e9){
+      const c = document.createElement("canvas");
+      c.width = c.height = size;
+      const ctx = c.getContext("2d", { willReadFrequently: true });
+
+      let s = (seed|0) >>> 0;
+      const rng = ()=>{
+        s = (s * 1664525 + 1013904223) >>> 0;
+        return s / 4294967296;
+      };
+
+      const g = ctx.createRadialGradient(size*0.35, size*0.35, size*0.10, size*0.5, size*0.5, size*0.80);
+      g.addColorStop(0.00, "#1e3a5a");
+      g.addColorStop(0.45, "#15324b");
+      g.addColorStop(1.00, "#0b0f18");
+      ctx.fillStyle = g;
+      ctx.fillRect(0,0,size,size);
+
+      const gridN = 96;
+      const grid = new Float32Array((gridN+1)*(gridN+1));
+      for(let j=0;j<=gridN;j++){
+        for(let i=0;i<=gridN;i++){
+          grid[j*(gridN+1)+i] = rng();
+        }
+      }
+      const smoothstep = (t)=>t*t*(3-2*t);
+      const noise2 = (x,y)=>{
+        const gx = x*gridN;
+        const gy = y*gridN;
+        const x0 = Math.floor(gx), y0 = Math.floor(gy);
+        const x1 = x0+1, y1 = y0+1;
+        const sx = smoothstep(gx-x0);
+        const sy = smoothstep(gy-y0);
+        const idx = (ix,iy)=>grid[iy*(gridN+1)+ix];
+        const n00 = idx(x0,y0), n10 = idx(x1,y0), n01 = idx(x0,y1), n11 = idx(x1,y1);
+        const nx0 = n00*(1-sx)+n10*sx;
+        const nx1 = n01*(1-sx)+n11*sx;
+        return nx0*(1-sy)+nx1*sy;
+      };
+
+      const img = ctx.getImageData(0,0,size,size);
+      const d = img.data;
+
+      const fbm = (u,v)=>{
+        let f = 0, a = 0.55;
+        let freq = 1.0;
+        for(let k=0;k<5;k++){
+          f += a * (noise2(u*freq, v*freq)*2-1);
+          freq *= 2.0;
+          a *= 0.55;
+        }
+        return f;
+      };
+
+      for(let y=0;y<size;y++){
+        const v = y/(size-1);
+        for(let x=0;x<size;x++){
+          const u = x/(size-1);
+          const lat = Math.abs(v-0.5)*2;
+
+          const w1 = fbm(u, v)*0.06;
+          const w2 = fbm(u+0.37, v+0.19)*0.06;
+
+          let n = fbm(u+w1, v+w2);
+          n += (0.35 - lat*0.55);
+          const land = n > 0.10;
+
+          const cl = fbm(u+0.11, v+0.77) + fbm(u*2.3+0.2, v*2.3+0.3)*0.35;
+          const cloud = cl > 0.55;
+
+          let r=0, g=0, b=0;
+
+          if(land){
+            const h = clamp((n-0.10)*1.6, 0, 1);
+            r = 24 + h*70;
+            g = 70 + h*120;
+            b = 32 + h*55;
+
+            const m = fbm(u*3.1+0.4, v*3.1+0.1);
+            if(m > 0.35){
+              const t = clamp((m-0.35)*1.8, 0, 1);
+              r = r*(1-t) + (210)*t;
+              g = g*(1-t) + (200)*t;
+              b = b*(1-t) + (190)*t;
+            }
+          }else{
+            const o = clamp((0.10-n)*1.8, 0, 1);
+            r = 10 + o*12;
+            g = 30 + o*45;
+            b = 60 + o*120;
+          }
+
+          if(lat > 0.86){
+            const t = clamp((lat-0.86)/0.14, 0, 1);
+            r = r*(1-t) + 235*t;
+            g = g*(1-t) + 238*t;
+            b = b*(1-t) + 245*t;
+          }
+
+          if(cloud){
+            const t = clamp((cl-0.55)/0.55, 0, 1) * 0.55;
+            r = r*(1-t) + 245*t;
+            g = g*(1-t) + 246*t;
+            b = b*(1-t) + 250*t;
+          }
+
+          const i = (y*size + x)*4;
+          d[i+0] = r|0; d[i+1] = g|0; d[i+2] = b|0; d[i+3] = 255;
+        }
+      }
+
+      ctx.putImageData(img,0,0);
+
+      ctx.globalAlpha = 0.14;
+      ctx.fillStyle = "#ffffff";
+      for(let k=0;k<10;k++){
+        const cx = rng()*size;
+        const cy = rng()*size;
+        const rr = 18 + rng()*65;
+        ctx.beginPath();
+        for(let t=0;t<Math.PI*2;t+=Math.PI/32){
+          const wob = 1 + Math.sin(t*3 + rng()*6)*0.08;
+          ctx.lineTo(cx + Math.cos(t)*rr*wob, cy + Math.sin(t)*rr*wob);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      return c;
+    }
+
+    function makePlanet(){
+      const texCanvas = makePlanetTexture(1024, 1234567);
+      const tex = new THREE.CanvasTexture(texCanvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+      tex.anisotropy = 8;
+
+      const planetRadius = 900;
+      const geom = new THREE.SphereGeometry(planetRadius, 96, 72);
+
+      const mat = new THREE.MeshStandardMaterial({
+        map: tex,
+        roughness: 1.0,
+        metalness: 0.0,
+      });
+
+      const planet = new THREE.Mesh(geom, mat);
+      planet.position.set(-1550, -420, 2300);
+      planet.userData.spin = new THREE.Vector3(0.0, 0.015, 0.0);
+
+      const atmoGeom = new THREE.SphereGeometry(planetRadius*1.015, 64, 48);
+      const atmoMat = new THREE.MeshBasicMaterial({
+        color: 0x66ccff,
+        transparent: true,
+        opacity: 0.07,
+        side: THREE.BackSide,
+        depthWrite: false,
+      });
+      const atmo = new THREE.Mesh(atmoGeom, atmoMat);
+      planet.add(atmo);
+
+      scene.add(planet);
+      return planet;
+    }
+
+    const planet = makePlanet();
+
+    // -----------------------------
+    // Player ship (more amazing)
+    // -----------------------------
+    const ship = new THREE.Group();
+    scene.add(ship);
+
+    function makeShip(){
+      const hullMat = new THREE.MeshStandardMaterial({
+        color: 0xf6f6f6,
+        roughness: 0.35,
+        metalness: 0.15,
+      });
+      const darkMat = new THREE.MeshStandardMaterial({
+        color: 0x1a1a1a,
+        roughness: 0.7,
+        metalness: 0.1,
+      });
+      const glowMat = new THREE.MeshStandardMaterial({
+        color: 0x66ccff,
+        emissive: 0x44b7ff,
+        emissiveIntensity: 1.2,
+        roughness: 0.2,
+        metalness: 0.0,
+      });
+      const redCore = new THREE.MeshStandardMaterial({
+        color: 0xff6a6a,
+        emissive: 0xff3f3f,
+        emissiveIntensity: 1.4,
+        roughness: 0.25,
+        metalness: 0.0,
+      });
+
+      const nose = new THREE.Mesh(new THREE.ConeGeometry(1.05, 3.6, 20), hullMat);
+      nose.rotation.x = Math.PI/2;
+      nose.position.z = 3.2;
+
+      const body = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.15, 5.8, 20), hullMat);
+      body.rotation.x = Math.PI/2;
+      body.position.z = 0.1;
+
+      const bodyFront = new THREE.Mesh(new THREE.SphereGeometry(1.05, 20, 16), hullMat);
+      bodyFront.position.z = 2.9;
+
+      const bodyRear = new THREE.Mesh(new THREE.SphereGeometry(1.1, 20, 16), hullMat);
+      bodyRear.position.z = -2.7;
+
+      const wingGeom = new THREE.BoxGeometry(4.8, 0.22, 2.3);
+      const wingL = new THREE.Mesh(wingGeom, hullMat);
+      wingL.position.set(-2.0, 0.0, 0.2);
+      wingL.rotation.y = -0.22;
+
+      const wingR = wingL.clone();
+      wingR.position.x = 2.0;
+      wingR.rotation.y = 0.22;
+
+      const finGeom = new THREE.BoxGeometry(1.2, 0.5, 1.2);
+      const finL = new THREE.Mesh(finGeom, darkMat);
+      finL.position.set(-4.35, 0.35, -0.1);
+      finL.rotation.z = 0.25;
+
+      const finR = finL.clone();
+      finR.position.x = 4.35;
+      finR.rotation.z = -0.25;
+
+      const canopy = new THREE.Mesh(new THREE.SphereGeometry(0.85, 24, 18), glowMat);
+      canopy.scale.set(1.35, 0.75, 1.1);
+      canopy.position.set(0, 0.55, 1.05);
+
+      const podGeom = new THREE.CylinderGeometry(0.32, 0.42, 2.3, 16);
+      const podL = new THREE.Mesh(podGeom, darkMat);
+      podL.rotation.x = Math.PI/2;
+      podL.position.set(-1.55, -0.35, -2.0);
+
+      const podR = podL.clone();
+      podR.position.x = 1.55;
+
+      const glowGeom = new THREE.CircleGeometry(0.36, 24);
+      const glowL = new THREE.Mesh(glowGeom, redCore);
+      glowL.position.set(-1.55, -0.35, -3.15);
+      glowL.rotation.y = Math.PI;
+
+      const glowR = glowL.clone();
+      glowR.position.x = 1.55;
+
+      const core = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 12), redCore);
+      core.position.set(0, 0.0, -2.45);
+
+      ship.add(nose, body, bodyFront, bodyRear, wingL, wingR, finL, finR, canopy, podL, podR, glowL, glowR, core);
+      ship.rotation.order = "YXZ";
+    }
+    makeShip();
+
+    // -----------------------------
+    // Rock textures (procedural canvas) + safe noise helpers
+    // -----------------------------
+    function hash3(x,y,z,seed){
+      // cheap deterministic-ish hash -> [0,1)
+      const s = Math.sin(x*127.1 + y*311.7 + z*74.7 + seed*19.19) * 43758.5453123;
+      return s - Math.floor(s);
+    }
+    const smoothstep = (t)=>t*t*(3-2*t);
+    function valueNoise3(x,y,z,seed){
+      const x0 = Math.floor(x), y0 = Math.floor(y), z0 = Math.floor(z);
+      const x1 = x0+1, y1 = y0+1, z1 = z0+1;
+      const fx = x - x0, fy = y - y0, fz = z - z0;
+      const sx = smoothstep(fx), sy = smoothstep(fy), sz = smoothstep(fz);
+
+      const n000 = hash3(x0,y0,z0,seed), n100 = hash3(x1,y0,z0,seed);
+      const n010 = hash3(x0,y1,z0,seed), n110 = hash3(x1,y1,z0,seed);
+      const n001 = hash3(x0,y0,z1,seed), n101 = hash3(x1,y0,z1,seed);
+      const n011 = hash3(x0,y1,z1,seed), n111 = hash3(x1,y1,z1,seed);
+
+      const nx00 = n000*(1-sx) + n100*sx;
+      const nx10 = n010*(1-sx) + n110*sx;
+      const nx01 = n001*(1-sx) + n101*sx;
+      const nx11 = n011*(1-sx) + n111*sx;
+
+      const nxy0 = nx00*(1-sy) + nx10*sy;
+      const nxy1 = nx01*(1-sy) + nx11*sy;
+
+      return nxy0*(1-sz) + nxy1*sz; // [0,1)
+    }
+    function fbm3(x,y,z,seed){
+      let f=0, a=0.55, freq=1.0;
+      for(let i=0;i<5;i++){
+        f += a*(valueNoise3(x*freq,y*freq,z*freq,seed)*2-1);
+        freq *= 2.0;
+        a *= 0.55;
+      }
+      return f; // ~[-1,1]
+    }
+
+    function makeRockTexture(size=256, seed=1){
+      const c = document.createElement("canvas");
+      c.width = c.height = size;
+      const ctx = c.getContext("2d", { willReadFrequently:true });
+      const img = ctx.getImageData(0,0,size,size);
+      const d = img.data;
+
+      for(let y=0;y<size;y++){
+        const v = y/(size-1);
+        for(let x=0;x<size;x++){
+          const u = x/(size-1);
+
+          // tile-ish domain (wrap feel)
+          const n1 = fbm3(u*3.2, v*3.2, 0.15, seed);
+          const n2 = fbm3(u*8.0+1.7, v*8.0-0.9, 0.62, seed+13);
+          const n = clamp(0.55 + n1*0.35 + n2*0.25, 0, 1);
+
+          // colorize: cold rock with warm specks
+          const speck = Math.pow(clamp(0.5 + n2*0.8, 0, 1), 5.0);
+          let r = 120 + n*70 + speck*35;
+          let g = 120 + n*62 + speck*18;
+          let b = 120 + n*58;
+
+          // cracks
+          const c0 = Math.abs(n1 - n2);
+          const crack = clamp((c0 - 0.22) * 3.0, 0, 1);
+          r *= (1 - crack*0.45);
+          g *= (1 - crack*0.45);
+          b *= (1 - crack*0.45);
+
+          const i = (y*size + x)*4;
+          d[i+0] = r|0;
+          d[i+1] = g|0;
+          d[i+2] = b|0;
+          d[i+3] = 255;
+        }
+      }
+      ctx.putImageData(img,0,0);
+
+      // subtle "pitted" overlay
+      ctx.globalAlpha = 0.22;
+      ctx.fillStyle = "#000";
+      for(let i=0;i<700;i++){
+        const x = Math.random()*size;
+        const y = Math.random()*size;
+        const rr = 0.6 + Math.random()*2.2;
+        ctx.beginPath();
+        ctx.arc(x,y,rr,0,Math.PI*2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      return c;
+    }
+
+    // cache a few materials so rocks vary but not too many unique textures
+    const rockMats = [];
+    function getRockMaterial(){
+      if(rockMats.length < 6){
+        const seed = (Math.random()*1e9)|0;
+        const texCanvas = makeRockTexture(256, seed);
+        const tex = new THREE.CanvasTexture(texCanvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(rand(1.5, 3.0), rand(1.5, 3.0));
+        tex.anisotropy = 8;
+
+        // Use same as bump for cheap depth feel
+        const mat = new THREE.MeshStandardMaterial({
+          map: tex,
+          bumpMap: tex,
+          bumpScale: 0.55,
+          color: 0xffffff,
+          roughness: 0.92,
+          metalness: 0.02,
+        });
+        rockMats.push(mat);
+      }
+      return rockMats[randInt(0, rockMats.length-1)];
+    }
+
+    // -----------------------------
+    // Rocks (3D) - more noisy/chaotic but safe (no NaNs)
+    // -----------------------------
+    const rocks = [];
+    function makeRock(radius){
+      const detail = radius > 18 ? 2 : 1;
+      const g = new THREE.IcosahedronGeometry(radius, detail);
+      const pos = g.attributes.position;
+
+      // One seed per rock so it feels "sculpted"
+      const seed = (Math.random()*1e9)|0;
+      const freq1 = rand(0.18, 0.34);
+      const freq2 = rand(0.55, 0.95);
+
+      for(let i=0;i<pos.count;i++){
+        tmpV.fromBufferAttribute(pos, i);
+
+        // icosahedron verts are not 0,0,0, but still: keep safe
+        const len = tmpV.length();
+        if(!(len > 1e-9) || !Number.isFinite(len)){
+          // fallback: push outward a little
+          tmpV.set(0,0,1).multiplyScalar(radius);
+        }else{
+          // normalized direction
+          const nx = tmpV.x/len, ny = tmpV.y/len, nz = tmpV.z/len;
+
+          // layered fbm on direction to create "lumpy" chaos
+          const nA = fbm3(nx*freq1*6 + 2.1, ny*freq1*6 - 0.7, nz*freq1*6 + 1.9, seed);
+          const nB = fbm3(nx*freq2*6 - 1.3, ny*freq2*6 + 2.6, nz*freq2*6 - 0.4, seed+101);
+          const nC = valueNoise3(nx*12.0 + 3.0, ny*12.0 - 2.0, nz*12.0 + 1.0, seed+7)*2-1;
+
+          // chaos profile
+          const base = 1.0
+            + nA * rand(0.28, 0.42)
+            + nB * rand(0.16, 0.28)
+            + nC * rand(0.06, 0.14);
+
+          // extra sharpness (more craggy)
+          const sharp = Math.sign(nB) * Math.pow(Math.abs(nB), rand(1.6, 2.6)) * rand(0.18, 0.32);
+
+          let k = base + sharp;
+
+          // clamp: avoid inverted/degenerate geometry
+          k = clamp(k, 0.25, 1.85);
+
+          tmpV.multiplyScalar(k);
+        }
+
+        // final safety net
+        if(!Number.isFinite(tmpV.x) || !Number.isFinite(tmpV.y) || !Number.isFinite(tmpV.z)){
+          tmpV.set(0,0,1).multiplyScalar(radius);
+        }
+
+        pos.setXYZ(i, tmpV.x, tmpV.y, tmpV.z);
+      }
+
+      pos.needsUpdate = true;
+      g.computeVertexNormals();
+      g.computeBoundingSphere();
+      g.computeBoundingBox();
+
+      const mesh = new THREE.Mesh(g, getRockMaterial());
+      mesh.castShadow = false;
+      mesh.receiveShadow = false;
+
+      // subtle highlight rim
+      const rim = new THREE.Mesh(
+        g.clone(),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, transparent:true, opacity:0.08 })
+      );
+      rim.scale.setScalar(1.01);
+      mesh.add(rim);
+
+      return mesh;
+    }
+
+    function spawnRocks(n, avoidPos){
+      for(let i=0;i<n;i++){
+        const r = rand(12, 34);
+        const mesh = makeRock(r);
+        scene.add(mesh);
+
+        let p;
+        for(;;){
+          p = new THREE.Vector3(rand(-220,220), rand(-140,140), rand(-220,220));
+          p.add(ship.position);
+          if(avoidPos && p.distanceTo(avoidPos) < 90) continue;
+          if(p.distanceTo(ship.position) < 120) continue;
+          break;
+        }
+
+        mesh.position.copy(p);
+        mesh.rotation.set(rand(0,Math.PI), rand(0,Math.PI), rand(0,Math.PI));
+
+        rocks.push({
+          mesh,
+          radius: r,
+          vel: new THREE.Vector3(rand(-1.4,1.4), rand(-1.2,1.2), rand(-1.4,1.4)),
+          rot: new THREE.Vector3(rand(-0.012,0.012), rand(-0.012,0.012), rand(-0.012,0.012)),
+        });
+      }
+    }
+
+    // -----------------------------
+    // Particles (GPU-friendly: Points)
+    // -----------------------------
+    const particles = [];
+    function safeRandomDir(){
+      // avoid zero-length normalize -> NaNs
+      let x=0,y=0,z=0;
+      do{
+        x = rand(-1,1); y = rand(-1,1); z = rand(-1,1);
+      }while((x*x+y*y+z*z) < 1e-8);
+      return tmpV.set(x,y,z).normalize().clone();
+    }
+
+    function spawnParticleBurst(pos, dir, count, speedMin, speedMax, size, lifeMin, lifeMax, color){
+      const positions = new Float32Array(count*3);
+      const velocities = new Float32Array(count*3);
+      const lifetimes = new Float32Array(count);
+      const maxLifetimes = new Float32Array(count);
+
+      const d = dir.clone().normalize();
+
+      for(let i=0;i<count;i++){
+        positions[i*3+0] = pos.x + rand(-0.6,0.6);
+        positions[i*3+1] = pos.y + rand(-0.6,0.6);
+        positions[i*3+2] = pos.z + rand(-0.6,0.6);
+
+        const a = safeRandomDir();
+        const spread = 0.55;
+        tmpV.copy(d).multiplyScalar(1 - spread).add(a.multiplyScalar(spread));
+        const l = tmpV.length();
+        if(l > 1e-9) tmpV.multiplyScalar(1/l);
+        else tmpV.set(0,0,1);
+
+        const s = rand(speedMin, speedMax);
+        velocities[i*3+0] = tmpV.x * s;
+        velocities[i*3+1] = tmpV.y * s;
+        velocities[i*3+2] = tmpV.z * s;
+
+        const life = rand(lifeMin, lifeMax);
+        lifetimes[i] = life;
+        maxLifetimes[i] = life;
+      }
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+      const mat = new THREE.PointsMaterial({
+        color,
+        size,
+        transparent:true,
+        opacity: 1,
+        depthWrite:false,
+      });
+
+      const points = new THREE.Points(geo, mat);
+      scene.add(points);
+
+      particles.push({ points, geo, mat, positions, velocities, lifetimes, maxLifetimes });
+    }
+
+    function updateParticles(dt){
+      for(let s=particles.length-1;s>=0;s--){
+        const sys = particles[s];
+        const posAttr = sys.geo.getAttribute("position");
+        let aliveCount = 0;
+        let lifeSum = 0;
+        for(let i=0;i<sys.lifetimes.length;i++){
+          if(sys.lifetimes[i] <= 0) continue;
+          sys.lifetimes[i] -= dt;
+
+          const idx = i*3;
+          sys.velocities[idx+0] *= 0.992;
+          sys.velocities[idx+1] *= 0.992;
+          sys.velocities[idx+2] *= 0.992;
+
+          sys.positions[idx+0] += sys.velocities[idx+0] * dt;
+          sys.positions[idx+1] += sys.velocities[idx+1] * dt;
+          sys.positions[idx+2] += sys.velocities[idx+2] * dt;
+
+          posAttr.setXYZ(i, sys.positions[idx+0], sys.positions[idx+1], sys.positions[idx+2]);
+
+          aliveCount++;
+          lifeSum += (sys.lifetimes[i] / sys.maxLifetimes[i]);
+        }
+        posAttr.needsUpdate = true;
+
+        sys.mat.opacity = aliveCount ? clamp(lifeSum / aliveCount, 0, 1) : 0;
+
+        if(aliveCount === 0){
+          scene.remove(sys.points);
+          sys.geo.dispose();
+          sys.mat.dispose();
+          particles.splice(s,1);
+        }
+      }
+    }
+
+    // -----------------------------
+    // Bullets
+    // -----------------------------
+    const bullets = [];
+    const bulletGeom = new THREE.SphereGeometry(0.25, 10, 10);
+    const bulletMat = new THREE.MeshBasicMaterial({ color: 0x3aa7ff });
+
+    const shipUserVel = new THREE.Vector3();
+
+    function shoot(){
+      const muzzleLocal = new THREE.Vector3(0, 0, 4.6);
+      const muzzleWorld = muzzleLocal.clone().applyQuaternion(ship.quaternion).add(ship.position);
+
+      const dir = new THREE.Vector3(0, 0, 1).applyQuaternion(ship.quaternion).normalize();
+
+      const mesh = new THREE.Mesh(bulletGeom, bulletMat);
+      mesh.position.copy(muzzleWorld);
+      scene.add(mesh);
+
+      bullets.push({
+        mesh,
+        vel: dir.multiplyScalar(58).add(shipUserVel.clone().multiplyScalar(0.35)),
+        life: 1.35,
+      });
+
+      spawnParticleBurst(muzzleWorld, dir, 18, 10, 26, 0.12, 0.25, 0.55, 0x66ccff);
+    }
+
+    // -----------------------------
+    // Controls
+    // -----------------------------
+    const keys = new Set();
+    window.addEventListener("keydown", (e)=>{
+      keys.add(e.code);
+      if(e.code === "Space") shoot();
+    });
+    window.addEventListener("keyup", (e)=> keys.delete(e.code));
+
+    window.addEventListener("mousedown", (e)=>{
+      if(e.button === 0){
+        if(document.pointerLockElement !== renderer.domElement){
+          renderer.domElement.requestPointerLock();
+        }else{
+          shoot();
+        }
+      }
+    });
+
+    document.addEventListener("pointerlockchange", ()=>{
+      const locked = document.pointerLockElement === renderer.domElement;
+      centerHint.style.display = locked ? "none" : "block";
+    });
+
+    let yaw = 0, pitch = 0, roll = 0;
+    let yawVel = 0, pitchVel = 0;
+    const mouse = { dx:0, dy:0 };
+
+    window.addEventListener("mousemove", (e)=>{
+      if(!uiMouseEnable.checked) return;
+      if(document.pointerLockElement !== renderer.domElement) return;
+
+      const invX = uiInvX.checked ? -1 : 1;
+      const invY = uiInvY.checked ? -1 : 1;
+
+      mouse.dx += e.movementX * invX;
+      mouse.dy += e.movementY * invY;
+    });
+
+    const shipMaxSpeed = 85;
+    const shipAccel = 65;
+    const shipStrafe = 45;
+    const shipBrake = 55;
+    const shipDrag = 0.985;
+
+    const camOffset = new THREE.Vector3(0, 6.5, -18);
+    const camLookAt = new THREE.Vector3(0, 2.2, 10);
+
+    // -----------------------------
+    // Levels
+    // -----------------------------
+    let level = 1;
+    let rocksPerLevel = 10;
+    function startLevel(){
+      for(const r of rocks) scene.remove(r.mesh);
+      rocks.length = 0;
+
+      spawnRocks(rocksPerLevel, ship.position);
+      levelTimer = 2.0;
+    }
+    let levelTimer = 2.0;
+    startLevel();
+
+    // -----------------------------
+    // Target selection (for crosshairs)
+    // -----------------------------
+    function pickTarget(){
+      const forward = new THREE.Vector3(0,0,1).applyQuaternion(ship.quaternion).normalize();
+      let best = null;
+      let bestScore = Infinity;
+
+      for(const r of rocks){
+        tmpV.copy(r.mesh.position).sub(ship.position);
+        const d = tmpV.length();
+        if(d > 1800) continue;
+
+        const nd = tmpV.multiplyScalar(1/d);
+        const dot = clamp(nd.dot(forward), -1, 1);
+        if(dot < 0.4) continue;
+        const ang = Math.acos(dot);
+        const score = ang*420 + d*0.35;
+        if(score < bestScore){
+          bestScore = score;
+          best = r;
+        }
+      }
+      return best;
+    }
+
+    // -----------------------------
+    // Rock fragmentation + explosion particles
+    // -----------------------------
+    function explodeRock(rock){
+      const p = rock.mesh.position.clone();
+      const dir = ship.position.clone().sub(p).normalize().multiplyScalar(-1);
+
+      spawnParticleBurst(p, dir, 90, 8, 38, 0.14, 0.55, 1.35, 0xffffff);
+      spawnParticleBurst(p, dir, 42, 5, 22, 0.18, 0.45, 1.1, 0xcfcfcf);
+
+      const r = rock.radius;
+      if(r >= 30){
+        const pieces = randInt(2,3);
+        for(let i=0;i<pieces;i++){
+          const nr = r * rand(0.45, 0.6);
+          const mesh = makeRock(nr);
+          mesh.position.copy(p).add(new THREE.Vector3(rand(-3,3),rand(-3,3),rand(-3,3)));
+          scene.add(mesh);
+          rocks.push({
+            mesh,
+            radius: nr,
+            vel: rock.vel.clone().add(new THREE.Vector3(rand(-8,8),rand(-8,8),rand(-8,8))),
+            rot: new THREE.Vector3(rand(-0.02,0.02), rand(-0.02,0.02), rand(-0.02,0.02)),
+          });
+        }
+      }else if(r >= 18){
+        const pieces = randInt(2,3);
+        for(let i=0;i<pieces;i++){
+          const nr = r * rand(0.55, 0.75);
+          const mesh = makeRock(nr);
+          mesh.position.copy(p).add(new THREE.Vector3(rand(-2.5,2.5),rand(-2.5,2.5),rand(-2.5,2.5)));
+          scene.add(mesh);
+          rocks.push({
+            mesh,
+            radius: nr,
+            vel: rock.vel.clone().add(new THREE.Vector3(rand(-10,10),rand(-10,10),rand(-10,10))),
+            rot: new THREE.Vector3(rand(-0.03,0.03), rand(-0.03,0.03), rand(-0.03,0.03)),
+          });
+        }
+      }
+    }
+
+    // -----------------------------
+    // 2D crosshair drawing (project to screen)
+    // -----------------------------
+    function clearHud(){
+      hudCtx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    }
+
+    function drawCrosshair2D(x,y,rad,alpha,isTarget=false){
+      hudCtx.save();
+      hudCtx.globalAlpha = alpha;
+
+      hudCtx.lineWidth = isTarget ? 2.5 : 2.0;
+      hudCtx.strokeStyle = "rgba(82,199,255,0.95)";
+      hudCtx.beginPath();
+      hudCtx.arc(x,y,rad,0,Math.PI*2);
+      hudCtx.stroke();
+
+      hudCtx.lineWidth = isTarget ? 3.0 : 2.2;
+      hudCtx.strokeStyle = "rgba(82,199,255,0.75)";
+      const t = Math.max(8, rad*0.25);
+      hudCtx.beginPath(); hudCtx.moveTo(x, y-rad); hudCtx.lineTo(x, y-rad+t); hudCtx.stroke();
+      hudCtx.beginPath(); hudCtx.moveTo(x, y+rad); hudCtx.lineTo(x, y+rad-t); hudCtx.stroke();
+      hudCtx.beginPath(); hudCtx.moveTo(x-rad, y); hudCtx.lineTo(x-rad+t, y); hudCtx.stroke();
+      hudCtx.beginPath(); hudCtx.moveTo(x+rad, y); hudCtx.lineTo(x+rad-t, y); hudCtx.stroke();
+
+      hudCtx.restore();
+    }
+
+    function drawCrosshairsForRocks(target){
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      const camForward = new THREE.Vector3();
+      camera.getWorldDirection(camForward);
+
+      for(const r of rocks){
+        const rockPos = r.mesh.position;
+
+        tmpV.copy(rockPos).sub(camera.position);
+        const d = tmpV.length();
+        const nd = tmpV.multiplyScalar(1/d);
+        const dot = nd.dot(camForward);
+        if(dot < 0.15) continue;
+
+        tmpV2.copy(rockPos).project(camera);
+        const sx = (tmpV2.x * 0.5 + 0.5) * w;
+        const sy = (-tmpV2.y * 0.5 + 0.5) * h;
+
+        const margin = 18;
+        const onScreen = (sx>=0 && sx<=w && sy>=0 && sy<=h);
+
+        let x = sx, y = sy;
+        if(!onScreen){
+          x = clamp(sx, margin, w-margin);
+          y = clamp(sy, margin, h-margin);
+        }
+
+        const far = d;
+        const alpha = clamp((far - 120) / 1200, 0.25, 0.9);
+        const rad = clamp((r.radius * 10) / (far*0.03 + 10), 10, 34);
+
+        const isTarget = (target && r === target);
+        const finalAlpha = isTarget ? Math.max(alpha, 0.75) : alpha;
+
+        if(far > 240 || !onScreen || isTarget){
+          drawCrosshair2D(x, y, isTarget ? rad*1.25 : rad, finalAlpha, isTarget);
+        }
+      }
+    }
+
+    // -----------------------------
+    // Resize
+    // -----------------------------
+    function onResize(){
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      resizeHUD();
+    }
+    window.addEventListener("resize", onResize);
+    onResize();
+
+    // -----------------------------
+    // Main loop
+    // -----------------------------
+    let last = performance.now();
+
+    function animate(now){
+      const dt = Math.min(0.033, (now - last) / 1000);
+      last = now;
+
+      starfield.position.copy(ship.position);
+
+      if(planet){
+        planet.rotation.y += planet.userData.spin.y * dt;
+        planet.rotation.x += (planet.userData.spin.x||0) * dt;
+        planet.rotation.z += (planet.userData.spin.z||0) * dt;
+      }
+
+      const sens = 0.0002;
+      yawVel   += (-mouse.dx) * sens;
+      pitchVel += (-mouse.dy) * sens;
+      mouse.dx *= 0.35;
+      mouse.dy *= 0.35;
+
+      yawVel *= 0.78;
+      pitchVel *= 0.78;
+
+      yaw   += yawVel;
+      pitch += pitchVel;
+      pitch = clamp(pitch, -1.35, 1.35);
+
+      const rollSpeed = 1.55;
+      if(keys.has("KeyQ")) roll += rollSpeed*dt;
+      if(keys.has("KeyE")) roll -= rollSpeed*dt;
+      roll *= 0.992;
+
+      ship.quaternion.setFromEuler(new THREE.Euler(pitch, yaw, roll, "YXZ"));
+
+      const forward = new THREE.Vector3(0,0,1).applyQuaternion(ship.quaternion).normalize();
+      const right   = new THREE.Vector3(1,0,0).applyQuaternion(ship.quaternion).normalize();
+
+      let accel = new THREE.Vector3();
+      let thrusting = false;
+
+      if(keys.has("KeyW")){
+        accel.add(forward.clone().multiplyScalar(shipAccel));
+        thrusting = true;
+      }
+      if(keys.has("KeyS")){
+        accel.add(forward.clone().multiplyScalar(-shipBrake));
+      }
+      if(keys.has("KeyA")) accel.add(right.clone().multiplyScalar(-shipStrafe));
+      if(keys.has("KeyD")) accel.add(right.clone().multiplyScalar(shipStrafe));
+
+      shipUserVel.add(accel.multiplyScalar(dt));
+      shipUserVel.multiplyScalar(Math.pow(shipDrag, dt*60));
+
+      const sp = shipUserVel.length();
+      if(sp > shipMaxSpeed) shipUserVel.multiplyScalar(shipMaxSpeed/sp);
+
+      ship.position.add(shipUserVel.clone().multiplyScalar(dt));
+
+      if(thrusting){
+        const back = forward.clone().multiplyScalar(-1);
+        const spawnPos = ship.position.clone().add(back.clone().multiplyScalar(3.4)).add(new THREE.Vector3(0, -0.1, 0));
+        spawnParticleBurst(spawnPos, back, 14, 6, 18, 0.10, 0.18, 0.45, 0xffffff);
+        spawnParticleBurst(spawnPos, back, 8, 4, 12, 0.12, 0.18, 0.35, 0xff7a7a);
+      }
+
+      const desiredCamPos = camOffset.clone().applyQuaternion(ship.quaternion).add(ship.position);
+      camera.position.lerp(desiredCamPos, 1 - Math.pow(0.0006, dt*60));
+      const lookAtPos = camLookAt.clone().applyQuaternion(ship.quaternion).add(ship.position);
+      camera.lookAt(lookAtPos);
+
+      for(let i=bullets.length-1;i>=0;i--){
+        const b = bullets[i];
+        b.life -= dt;
+        b.mesh.position.add(b.vel.clone().multiplyScalar(dt));
+        if(b.life <= 0){
+          scene.remove(b.mesh);
+          bullets.splice(i,1);
+        }
+      }
+
+      for(const r of rocks){
+        r.mesh.position.add(r.vel.clone().multiplyScalar(dt));
+        r.mesh.rotation.x += r.rot.x;
+        r.mesh.rotation.y += r.rot.y;
+        r.mesh.rotation.z += r.rot.z;
+      }
+
+      for(let i=rocks.length-1;i>=0;i--){
+        const r = rocks[i];
+        const rp = r.mesh.position;
+        for(let j=bullets.length-1;j>=0;j--){
+          const b = bullets[j];
+          const bp = b.mesh.position;
+          if(bp.distanceTo(rp) < r.radius){
+            scene.remove(b.mesh);
+            bullets.splice(j,1);
+
+            scene.remove(r.mesh);
+            rocks.splice(i,1);
+
+            explodeRock(r);
+            break;
+          }
+        }
+      }
+
+      updateParticles(dt);
+
+      if(rocks.length === 0){
+        level++;
+        rocksPerLevel *= 2;
+        startLevel();
+      }
+      levelTimer = Math.max(0, levelTimer - dt);
+
+      renderer.render(scene, camera);
+
+      clearHud();
+      const target = pickTarget();
+      drawCrosshairsForRocks(target);
+
+      if(levelTimer > 0){
+        hudCtx.save();
+        hudCtx.globalAlpha = clamp(levelTimer/2.0, 0, 1);
+        hudCtx.fillStyle = "white";
+        hudCtx.strokeStyle = "rgba(0,0,0,0.65)";
+        hudCtx.lineWidth = 6;
+        hudCtx.font = "700 48px system-ui, -apple-system, Segoe UI, Roboto, sans-serif";
+        hudCtx.textAlign = "center";
+        hudCtx.textBaseline = "middle";
+        const msg = `LEVEL ${level}`;
+        hudCtx.strokeText(msg, window.innerWidth/2, window.innerHeight*0.18);
+        hudCtx.fillText(msg, window.innerWidth/2, window.innerHeight*0.18);
+        hudCtx.restore();
+      }
+
+      hudCtx.save();
+      hudCtx.fillStyle = "white";
+      hudCtx.font = "14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+      hudCtx.fillText(`Level: ${level}`, 12, 20);
+      hudCtx.fillText(`Rocks: ${rocks.length}`, 12, 38);
+      hudCtx.restore();
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start
+    ship.position.set(0,0,0);
+    shipUserVel.set(0,0,0);
+
+    requestAnimationFrame(animate);
+
+    centerHint.addEventListener("mousedown", ()=>{
+      renderer.domElement.requestPointerLock();
+    });
+
+    renderer.domElement.style.outline = "none";
+    renderer.domElement.tabIndex = 0;
+  </script>
+</body>
+</html>
+

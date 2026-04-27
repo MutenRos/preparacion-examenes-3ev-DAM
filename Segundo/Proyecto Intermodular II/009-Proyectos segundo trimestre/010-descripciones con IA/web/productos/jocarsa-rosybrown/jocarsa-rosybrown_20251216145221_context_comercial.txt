@@ -1,0 +1,326 @@
+- jocarsa | rosybrown
+- Gestiona tu facturación y administración con total eficiencia
+- Características Destacadas
+- Facturación Completa
+- Gestión de Clientes y Productos
+- Proveedores y Gastos
+- Informes Financieros
+- Panel Multiusuario
+- Personalización Total
+- Beneficios y Ventajas
+- Informes y Análisis
+- Demostración del Software
+- Precios
+- Básico
+- Pro
+- Enterprise
+- Contacto
+- jocarsa | rosybrown es un software integral que te permite emitir facturas profesionales, gestionar clientes, productos, proveedores y gastos, y generar informes financieros interactivos.
+- Crea, edita, imprime y elimina facturas de forma sencilla, con soporte para retenciones, epígrafes y observaciones personalizadas.
+- Administra toda la información de tus clientes y productos. Busca, filtra y actualiza registros para una facturación ágil.
+- Registra proveedores y gastos, incluyendo fechas, totales y deducciones fiscales, facilitando la gestión contable.
+- Genera informes detallados: Libro de Ingresos, Gastos y Mayor. Visualiza datos mensuales, trimestrales y consolidados en gráficos interactivos.
+- Acceso seguro y controlado, con gestión de usuarios y roles. Permite que varios colaboradores trabajen simultáneamente sin comprometer la seguridad.
+- Ajusta datos de facturación, retenciones, epígrafes y más. Configura tu información de empresa para que tus facturas reflejen tu identidad.
+- Con jocarsa | rosybrown, obtén una visión clara de la salud financiera de tu negocio. Gracias a sus módulos de informes podrás:
+- Estas herramientas están diseñadas para que puedas monitorear el rendimiento de tu empresa y ajustar tus estrategias de forma oportuna.
+- Explora cómo jocarsa | rosybrown simplifica la gestión administrativa y contable con una interfaz intuitiva y potentes herramientas de informes.
+- Conoce la demo interactiva y descubre por qué miles de usuarios confían en nuestra solución.
+- 9,95€/mes
+- 19,95€/mes
+- 45,95€/mes
+- ¿Tienes alguna pregunta o deseas obtener más información? Nuestro equipo está listo para ayudarte.
+- &copy; 2025 jocarsa | rosybrown. Todos los derechos reservados.
+- Contacto: soporte@jocarsa.com
+- /* Estilos generales para la landing page extendida */
+ body {
+ font-family: 'Ubuntu', sans-serif;
+ background: #f4f4f4;
+ color: #333;
+ line-height: 1.6;
+ margin: 0;
+ padding: 0;
+ }
+ header {
+ background: #333;
+ color: #fff;
+ padding: 20px;
+ text-align: center;
+ }
+ header img {
+ width: 60px;
+ vertical-align: middle;
+ }
+ header h1 {
+ display: inline-block;
+ vertical-align: middle;
+ margin-left: 10px;
+ }
+ nav {
+ background: #555;
+ padding: 10px;
+ text-align: center;
+ }
+ nav a {
+ color: #fff;
+ margin: 0 15px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: color 0.3s;
+ }
+ nav a:hover {
+ color: #28a745;
+ }
+ /* Sección Hero */
+ .hero {
+ background: url('rosybrown.png') no-repeat center center/cover;
+ padding: 100px 20px;
+ color: #fff;
+ text-align: center;
+ position: relative;
+ }
+ .hero::after {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: rgba(0, 0, 0, 0.5);
+ z-index: 0;
+ }
+ .hero-content {
+ position: relative;
+ z-index: 1;
+ }
+ .hero-content h2 {
+ font-size: 2.8em;
+ margin-bottom: 20px;
+ }
+ .hero-content p {
+ font-size: 1.2em;
+ max-width: 800px;
+ margin: 0 auto 20px;
+ }
+ .cta {
+ display: inline-block;
+ background: #28a745;
+ color: #fff;
+ padding: 15px 30px;
+ border-radius: 5px;
+ text-decoration: none;
+ font-size: 1.2em;
+ margin-top: 20px;
+ transition: background 0.3s;
+ }
+ .cta:hover {
+ background: #218838;
+ }
+ /* Secciones generales */
+ .section {
+ padding: 60px 20px;
+ }
+ .section h2 {
+ text-align: center;
+ margin-bottom: 30px;
+ font-size: 2em;
+ }
+ .info-section {
+ max-width: 1000px;
+ margin: auto;
+ }
+ .features {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 20px;
+ }
+ .feature {
+ background: #fff;
+ border: 1px solid #ddd;
+ padding: 20px;
+ border-radius: 4px;
+ width: 300px;
+ text-align: center;
+ box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ .feature h3 {
+ margin-bottom: 15px;
+ font-size: 1.5em;
+ }
+ .feature p {
+ font-size: 0.95em;
+ }
+ .beneficios ul {
+ list-style: none;
+ padding: 0;
+ font-size: 1.1em;
+ }
+ .beneficios li {
+ margin-bottom: 15px;
+ }
+ .beneficios li strong {
+ color: #28a745;
+ }
+ /* Sección Informes y Análisis */
+ .informes {
+ background: #e9ecef;
+ padding: 40px 20px;
+ border-radius: 4px;
+ margin-bottom: 20px;
+ }
+ .informes p {
+ font-size: 1.1em;
+ line-height: 1.5;
+ }
+ /* Sección Demo */
+ .demo-video {
+ display: block;
+ width: 100%;
+ max-width: 800px;
+ height: 450px;
+ margin: 20px auto;
+ border: none;
+ }
+ /* Sección de Precios */
+ .pricing-cards {
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+ flex-wrap: wrap;
+ }
+ .price-card {
+ background: #fff;
+ border: 1px solid #ddd;
+ padding: 20px;
+ border-radius: 4px;
+ width: 300px;
+ text-align: center;
+ box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ .price-card h3 {
+ margin-bottom: 15px;
+ font-size: 1.5em;
+ }
+ .price-card p {
+ font-size: 2em;
+ margin: 20px 0;
+ }
+ .price-card ul {
+ list-style: none;
+ padding: 0;
+ text-align: left;
+ }
+ /* Formulario de Contacto */
+ .contact-form {
+ max-width: 600px;
+ margin: auto;
+ }
+ .contact-form label {
+ display: block;
+ margin-bottom: 5px;
+ font-weight: bold;
+ }
+ .contact-form input, .contact-form textarea {
+ width: 100%;
+ padding: 10px;
+ margin-bottom: 15px;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ }
+ .contact-form button {
+ background: #007bff;
+ color: #fff;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ font-size: 1em;
+ }
+ .contact-form button:hover {
+ background: #0056b3;
+ }
+ footer {
+ background: #333;
+ color: #fff;
+ text-align: center;
+ padding: 20px;
+ font-size: 0.9em;
+ }
+ 
+ 
+ 
+ 
+ 
+ jocarsa | rosybrown 
+ 
+ 
+ Inicio 
+ Características 
+ Beneficios 
+ Informes y Análisis 
+ Demo 
+ Precios 
+ Contacto 
+ 
+ 
+ 
+ 
+ Gestiona tu facturación y administración con total eficiencia 
+ jocarsa | rosybrown es un software integral que te permite emitir facturas profesionales, gestionar clientes, productos, proveedores y gastos, y generar informes financieros interactivos. 
+ Acceder al Panel de Administración 
+ 
+ 
+ 
+ 
+ 
+ Características Destacadas 
+ 
+ 
+ Facturación Completa 
+ Crea, edita, imprime y elimina facturas de forma sencilla, con soporte para retenciones, epígrafes y observaciones personalizadas. 
+ 
+ 
+ Gestión de Clientes y Productos 
+ Administra toda la información de tus clientes y productos. Busca, filtra y actualiza registros para una facturación ágil. 
+ 
+ 
+ Proveedores y Gastos 
+ Registra proveedores y gastos, incluyendo fechas, totales y deducciones fiscales, facilitando la gestión contable. 
+ 
+ 
+ Informes Financieros 
+ Genera informes detallados: Libro de Ingresos, Gastos y Mayor. Visualiza datos mensuales, trimestrales y consolidados en gráficos interactivos. 
+ 
+ 
+ Panel Multiusuario 
+ Acceso seguro y controlado, con gestión de usuarios y roles. Permite que varios colaboradores trabajen simultáneamente sin comprometer la seguridad. 
+ 
+ 
+ Personalización Total 
+ Ajusta datos de facturación, retenciones, epígrafes y más. Configura tu información de empresa para que tus facturas reflejen tu identidad. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beneficios y Ventajas 
+ 
+ Eficiencia y Productividad: Automatiza tareas administrativas y reduce el tiempo invertido en la gestión manual.
+- Informes Interactivos: Visualiza gráficos de líneas, barras y pastel para un análisis detallado de tus ingresos y gastos.
+- Interfaz Intuitiva: Diseñada para facilitar su uso, incluso para quienes no cuentan con conocimientos técnicos.
+- Seguridad y Control: Acceso restringido y gestión de múltiples usuarios, garantizando la confidencialidad de los datos.
+- Flexibilidad y Escalabilidad: Adaptable a negocios de cualquier tamaño, con capacidad para personalizar cada aspecto del sistema.
+- Consolidar ingresos y gastos por periodos (mensuales, trimestrales y anuales) mediante el Libro Mayor.
+- Generar gráficos interactivos en el escritorio que muestran la evolución de tu facturación.
+- Realizar búsquedas y filtrados avanzados en cada módulo: Ingresos, Gastos y reportes detallados.
+- Acceder a información en tiempo real para tomar decisiones basadas en datos precisos.
+- Funcionalidades básicas
+- Soporte por email
+- Todo lo del Básico
+- Funcionalidades avanzadas
+- Soporte prioritario
+- Todo lo del Pro
+- Soporte dedicado

@@ -1,0 +1,27 @@
+{
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "qas": [
+      {
+        "q": "¿Qué es el Generador de Prompt para IA?",
+        "a": "El Generador de Prompt para IA es una herramienta web que permite crear parámetros de prompt para inteligencia artificial, con soporte para estructura de proyectos y análisis de bases de datos (opcionalmente SQLite o MySQL)."
+      },
+      {
+        "q": "¿Cómo instalar el Generador de Prompt?",
+        "a": "Para instalarlo localmente, ejecuta `python -m venv .venv`, luego `source .venv/bin/activate` en Unix/Linux o `.venv\\Scripts\\activate` en Windows. A continuación, instala las dependencias con `pip install -r requirements.txt`. Luego, ejecuta `python app.py` para iniciar el servidor."
+      },
+      {
+        "q": "¿Qué características tiene el Generador de Prompt?",
+        "a": "Incluye un explorador integrado de carpetas, generación de estructura y reporte intercalado del código, análisis de base de datos (opcional), vista Markdown y WYSIWYG con resaltado, guardar reportes en formato `<carpeta>_YYYYmmddHHMMSS.txt`, y persistencia en `config.json`."
+      },
+      {
+        "q": "¿Cómo se genera un reporte?",
+        "a": "Selecciona la carpeta de tu proyecto a través del explorador integrado. El sistema recopilará el contenido de los archivos permitidos, generará un informe intercalado y lo mostrará en la interfaz. Si tienes una base de datos válida seleccionada (SQLite o MySQL), se analizará e incluirá en el reporte."
+      },
+      {
+        "q": "¿Cómo se manejan las bases de datos?",
+        "a": "Se pueden analizar bases de datos SQLite o MySQL, aunque esta funcionalidad es opcional. Necesitas instalar `pymysql` si eliges usar la opción MySQL para análisis de bases de datos."
+      }
+    ]
+  }
+}

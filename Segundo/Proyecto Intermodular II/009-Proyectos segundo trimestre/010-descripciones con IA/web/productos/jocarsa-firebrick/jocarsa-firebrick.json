@@ -1,0 +1,284 @@
+{
+  "productPage": {
+    "@lang": "es",
+    "@type": "softwareEducativo",
+    "@version": "1.1",
+    "meta": {
+      "slug": "jocarsa-firebrick",
+      "title": "jocarsa | firebrick - Gestión de Proyectos y Clientes en un Entorno Seguro",
+      "category": "softwareEducativo",
+      "audience": {
+        "segment": [
+          "Administradores",
+          "Clientes"
+        ]
+      },
+      "ctaPrimary": "Explora Ahora",
+      "ctaSecondary": "Preguntas Frecuentes"
+    },
+    "hero": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_hero.jpg",
+          "@alt": "Producto software"
+        }
+      },
+      "name": "jocarsa | firebrick",
+      "valueProposition": "Plataforma de gestión integral para proyectos, donde los administradores crean y controlan carpetas, iteraciones y clientes, mientras los clientes pueden visualizar e interactuar con contenido en línea.",
+      "subtitle": "Organiza y Gestiona Tu Proceso de Desarrollo Fácilmente",
+      "badges": {
+        "badge": [
+          "Administración Centralizada",
+          "Interfaz Intuitiva",
+          "Seguridad Robusta"
+        ]
+      },
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Explora Ahora"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Preguntas Frecuentes"
+          }
+        ]
+      }
+    },
+    "problem": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_problem.jpg",
+          "@alt": "Problemas habituales"
+        }
+      },
+      "title": "jocarsa-firebrick | firebrick",
+      "items": {
+        "item": [
+          "Administradores pueden crear y administrar carpetas, proyectos e iteraciones.",
+          "Clientes tienen acceso a visualizar videos y dejar comentarios en los proyectos.",
+          "El sistema utiliza la base de datos SQLite `projects.db` para almacenar información del proyecto."
+        ]
+      }
+    },
+    "solution": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_solution.jpg",
+          "@alt": "Solución"
+        }
+      },
+      "title": "jocarsa-firebrick | firebrick",
+      "overview": "Sistema de gestión de carpetas, proyectos e iteraciones con soporte de comentarios y usuarios (admins y clientes). Permite a los administradores crear y gestionar contenido, mientras que los clientes pueden visualizar el contenido y dejar comentarios.",
+      "whatChanges": {
+        "change": [
+          "Se facilita la organización y gestión de proyectos en diferentes niveles de acceso para usuarios autorizados",
+          "Permite una interfaz intuitiva para crear y modificar carpetas, proyectos e iteraciones",
+          "Facilita la creación y administración de cuentas de clientes con permisos limitados al contenido visualizado"
+        ]
+      }
+    },
+    "keyFeatures": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_features.jpg",
+          "@alt": "Funcionalidades"
+        }
+      },
+      "title": "Características destacadas",
+      "feature": [
+        {
+          "name": "Panel central",
+          "benefit": "Control en un solo lugar orientado a Reporte / proyecto / Estructura / proyecto / Código / intercalado."
+        },
+        {
+          "name": "Gestión diaria",
+          "benefit": "Reduce pasos repetidos y mejora la continuidad del trabajo."
+        },
+        {
+          "name": "Información clara",
+          "benefit": "Consulta estados y avances de forma sencilla."
+        }
+      ]
+    },
+    "targetAudience": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_audience.jpg",
+          "@alt": "Público objetivo"
+        }
+      },
+      "title": "jocarsa | firebrick",
+      "profiles": {
+        "profile": [
+          {
+            "name": "Administradores",
+            "fit": "Creen y administren carpetas, proyectos e iteraciones. Registren y administren clientes. Tengan permisos de edición y borrado en todo el contenido (carpetas, proyectos, iteraciones, clientes)."
+          },
+          {
+            "name": "Clientes",
+            "fit": "Accedan a los proyectos y sus iteraciones para visualizar los videos y dejar comentarios. No tengan permisos de administración."
+          },
+          {
+            "name": "Perfil",
+            "fit": "Encaje"
+          }
+        ]
+      }
+    },
+    "useCases": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_usecases.jpg",
+          "@alt": "Casos de uso"
+        }
+      },
+      "title": "Casos de uso",
+      "case": [
+        {
+          "name": "Crear y gestionar carpetas, proyectos e iteraciones por administradores.",
+          "description": "Administradores pueden crear nuevas carpetas y proyectos, anidarlas dentro de otras, y subir iteraciones (videos) a estas. También tienen permisos para eliminar contenido."
+        },
+        {
+          "name": "Registrar clientes y permitirles acceder a los proyectos con permisos limitados.",
+          "description": "Los administradores pueden registrar nuevos clientes que tendrán acceso limitado a los proyectos y sus iteraciones, pero sin posibilidad de crear o modificar el contenido."
+        },
+        {
+          "name": "Administrar clientes y su acceso a los proyectos.",
+          "description": "Los administradores pueden gestionar las cuentas de los clientes, permitiéndoles acceder a ciertos proyectos basándose en roles y permisos asignados."
+        }
+      ]
+    },
+    "benefits": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_benefits.jpg",
+          "@alt": "Beneficios"
+        }
+      },
+      "title": "jocarsa | firebrick",
+      "items": {
+        "item": [
+          "Permite a los administradores crear y gestionar proyectos, iteraciones y clientes con permisos de edición y borrado",
+          "Ofrece a los clientes visualización y comentarios en los videos sin permitirles la gestión del contenido",
+          "Proporciona una estructura clara para organizar proyectos en carpetas e iteraciones",
+          "Incluye funciones de seguridad y creación automática de la base de datos SQLite `projects.db` al inicio",
+          "Facilita el inicio de sesión y registro con roles diferenciados para administradores y clientes"
+        ]
+      }
+    },
+    "trust": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_trust.jpg",
+          "@alt": "Confianza"
+        }
+      },
+      "title": "jocarsa | firebrick",
+      "points": {
+        "point": [
+          "Permite a los administradores crear y gestionar carpetas, proyectos e iteraciones con permisos de edición y borrado.",
+          "Ofrece a los clientes un espacio para visualizar videos y dejar comentarios sin permisos de administración.",
+          "Incluye funciones de inicio de sesión y registro para proteger el acceso al contenido."
+        ]
+      }
+    },
+    "finalCTA": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_cta.jpg",
+          "@alt": "Solicitar demo"
+        }
+      },
+      "title": "¡Experimenta Jocarsa Firebrick!",
+      "description": "Gestiona proyectos y colabora con tus clientes. Regístrate ahora para crear, administrar y compartir iteraciones en tiempo real.",
+      "actions": {
+        "action": [
+          {
+            "@type": "primary",
+            "#text": "Regístrarse"
+          },
+          {
+            "@type": "secondary",
+            "#text": "Iniciar Sesión"
+          }
+        ]
+      },
+      "contact": {
+        "email": "info@jocarsa.com",
+        "form": {
+          "field": [
+            {
+              "@name": "nombre",
+              "@type": "text",
+              "@required": "true"
+            },
+            {
+              "@name": "email",
+              "@type": "email",
+              "@required": "true"
+            },
+            {
+              "@name": "mensaje",
+              "@type": "textarea",
+              "@required": "false"
+            }
+          ]
+        }
+      }
+    },
+    "faq": {
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_faq.jpg",
+          "@alt": "Preguntas frecuentes"
+        }
+      },
+      "title": "Preguntas Frecuentes",
+      "qa": [
+        {
+          "q": "¿Cómo puedo crear una nueva carpeta?",
+          "a": "Como administrador, puedes ingresar el nombre de la carpeta y seleccionar la carpeta superior (opcional) en el panel lateral. Luego, pulsa 'Create Folder'."
+        },
+        {
+          "q": "¿Cómo accedo al contenido como cliente?",
+          "a": "Inicia sesión con tus credenciales de usuario como cliente. Una vez logueado, podrás visualizar los proyectos y sus iteraciones para ver los videos y dejar comentarios."
+        },
+        {
+          "q": "¿Cómo puedo descargar un video del proyecto?",
+          "a": "Bajo cada iteración disponible, hay un botón 'Descargar video' que permite descargar el archivo .mp4 del video."
+        },
+        {
+          "q": "¿Cuáles son las diferencias entre roles administrador y cliente?",
+          "a": "Los administradores pueden crear y administrar carpetas, proyectos e iteraciones con permisos de edición y borrado. Los clientes solo pueden ver los proyectos y sus iteraciones, dejando comentarios y descargando el video."
+        },
+        {
+          "q": "¿Cómo registro un nuevo cliente?",
+          "a": "Como administrador, debes usar la opción 'Create customer' en la sección de gestión de clientes dentro del panel principal."
+        }
+      ]
+    },
+    "footer": {
+      "summary": "Este software es una plataforma que organiza proyectos en diferentes carpetas, permitiendo mantener iteraciones o versiones de videos asociados a cada proyecto. Está pensado para que los administradores creen y administren carpetas, proyectos e iteraciones, así como registrar y gestionar clientes. Los clientes pueden acceder a los proyectos y sus iteraciones para visualizar los videos y dejar comentarios, pero no tienen permisos de administración."
+    },
+    "integrations": {
+      "@optional": "true",
+      "media": {
+        "image": {
+          "@src": "img/jocarsa-firebrick_20251221135000_integrations.jpg",
+          "@alt": "Integraciones"
+        }
+      },
+      "title": "Integraciones con jocarsa-firebrick",
+      "notes": "Permiten expandir la funcionalidad del software educativo.",
+      "items": {
+        "item": [
+          "Sincronización de proyectos con Google Drive",
+          "Exportación a PDF para informes detallados",
+          "Generación automática de subtítulos para iteraciones"
+        ]
+      }
+    }
+  }
+}

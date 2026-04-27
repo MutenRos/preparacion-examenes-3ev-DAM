@@ -1,0 +1,125 @@
+Entiendo. Aquí tienes el código intercalado en un formato más estructurado, con una representación visual de cómo se organiza el código en `admin.php`:
+
+### admin.php
+
+```php
+<?php
+// Autenticación y gestión de sesiones
+session_start();
+
+// Funciones auxiliares
+function out($msg) {
+    echo htmlspecialchars($msg);
+}
+
+// Variables globales para mensajes de error/success
+$ok = '';
+$err = '';
+
+// Inicio de Sesión (No Autenticado)
+if (!isset($_SESSION['auth'])):
+?>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo"></div>
+      <h1>jocarsa | salmon · Admin de salas</h1>
+    </div>
+    <div class="userbar">
+      <?php if($authed): ?>
+        <span class="muted">Conectado como <strong>admin</strong></span>
+        <a class="btn ghost small" href="?action=logout" title="Cerrar sesión">Salir</a>
+      <?php endif; ?>
+    </div>
+  </header>
+
+  <!-- Formulario de inicio de sesión -->
+  <div class="card login">
+    <h2>Acceder</h2>
+    <?php if($login_error) out('<div class="msg err">'.$login_error.'</div>'); ?>
+    <form method="post" autocomplete="off">
+      <input type="hidden" name="__do" value="login">
+      <label>Usuario</label>
+      <input name="user" placeholder="Usuario" required>
+      <label>Contraseña</label>
+      <input name="pass" type="password" placeholder="Contraseña" required>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="btn">Entrar</button>
+        <div class="help">Pista: usuario <b>jocarsa</b>, contraseña <b>jocarsa</b></div>
+      </div>
+    </form>
+  </div>
+  <div class="footer">© <?php out(date('Y')); ?> jocarsa | salmon</div>
+<?php
+else:
+?>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo"></div>
+      <h1>jocarsa | salmon · Admin de salas</h1>
+    </div>
+    <div class="userbar">
+      <?php if($authed): ?>
+        <span class="muted">Conectado como <strong>admin</strong></span>
+        <a class="btn ghost small" href="?action=logout" title="Cerrar sesión">Salir</a>
+      <?php endif; ?>
+    </div>
+  </header>
+
+  <!-- Panel de Administración -->
+  <div class="grid">
+    <!-- Formulario crear/editar sala -->
+    <div class="card">
+      <h2>Crear / editar sala</h2>
+      <?php if($ok) out("<div class='msg ok'>$ok</div>"); if($err) out("<div class='msg err'>$err</div>"); ?>
+      <form method="post" action="">
+        <input type="hidden" name="__do" value="add_room">
+        <label>Nombre de la sala</label>
+        <input name="title" placeholder="Nombre de la sala" required>
+        <label>Contraseña (opcional)</label>
+        <input name="password" type="password" placeholder="Contraseña">
+        <button class="btn">Crear sala</button>
+      </form>
+    </div>
+
+    <!-- Tabla de Salas -->
+    <table>
+      <thead><tr><th>ID</th><th>Título</th><th>Opciones</th></tr></thead>
+      <tbody>
+        <?php foreach($rooms as $room): ?>
+          <tr>
+            <td><?php echo htmlspecialchars($room['id']); ?></td>
+            <td><?php echo htmlspecialchars($room['title']); ?></td>
+            <td>
+              <a href="?edit=<?php echo htmlspecialchars($room['id']); ?>" class="btn">Editar</a> 
+              <button onclick="return confirm('¿Estás seguro de que deseas eliminar esta sala?')" type="submit" formaction="?delete=<?php echo htmlspecialchars($room['id']); ?>" class="btn warn">Eliminar</button>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+
+<?php endif; ?>
+```
+
+### Explicación del Código:
+
+1. **Autenticación de Usuario (No Autenticado):**
+   - El código muestra un formulario para iniciar sesión.
+   - Se comprueba si hay un mensaje de error y lo muestra en caso afirmativo.
+
+2. **Administración de Salas (Autenticado):**
+   - Muestra una sección para crear nuevas salas con campos para el título y la contraseña.
+   - Muestra una tabla con las salas existentes, incluyendo opciones para editar o eliminar cada sala.
+   - Las salas son recopiladas del array `$rooms`.
+
+3. **Formulario de Creación de Salas:**
+   - Permite al usuario crear nuevas salas ingresando un título y una (opcional) contraseña.
+
+4. **Tabla de Salas:**
+   - Muestra una lista de salas existentes con opciones para editar o eliminar cada sala.
+   - Utiliza `htmlspecialchars` para evitar inyecciones de código y seguridad.
+
+Espero que esto te sea útil. Si necesitas más detalles o tienes alguna otra pregunta, ¡no dudes en preguntar!

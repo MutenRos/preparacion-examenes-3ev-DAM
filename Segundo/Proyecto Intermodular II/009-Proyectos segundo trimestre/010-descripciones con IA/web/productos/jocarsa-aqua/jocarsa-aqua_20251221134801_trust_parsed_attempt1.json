@@ -1,0 +1,10 @@
+{
+  "trust": {
+    "title": "Soporte al Cliente Confiable",
+    "points": [
+      "Ofrece un acceso administrativo seguro con autenticación de usuario y contraseña.",
+      "Incluye un formulario de inicio de sesión amigable que guía a los usuarios paso a paso.",
+      "Implementa medidas de seguridad básicas como la encriptación de contraseñas."
+    ]
+  }
+}

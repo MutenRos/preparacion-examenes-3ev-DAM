@@ -1,0 +1,5 @@
+```json
+{
+  "trust": {"title":"jocarsa | salmon","points":["Implementa un sistema de autenticación administrador con credenciales seguras y mensajes de invitación personalizados.","Incluye una base de datos SQLite para almacenar información sobre las salas y sus contraseñas, permitiendo la gestión segura de los usuarios.","Proporciona funcionalidades básicas como registro de creación y actualización de las salas."]}
+}
+```

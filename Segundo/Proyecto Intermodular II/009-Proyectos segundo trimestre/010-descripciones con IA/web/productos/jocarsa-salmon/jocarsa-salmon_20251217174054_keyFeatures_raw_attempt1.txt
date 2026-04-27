@@ -1,0 +1,5 @@
+[
+  {"name":"Sistema de invitación","benefit":"Genera mensajes de invitación personalizados y seguros para usuarios y presentadores."},
+  {"name":"Seguridad en tiempo real","benefit":"Uso de hashes para almacenar contraseñas de seguridad, asegurando la privacidad de los datos."},
+  {"name":"Administración sencilla","benefit":"Interfaz de administrador con credenciales fijas para gestionar salas y usuarios fácilmente."}
+]
