@@ -64,11 +64,6 @@
   - [Desarrollo, empaquetado y utilización de componentes](#desarrollo-empaquetado-y-utilizacion-de-componentes)
 - [Actividad libre de final de evaluación - La milla extra](#actividad-libre-de-final-de-evaluacion-la-milla-extra)
   - [La Milla Extra - Primera evaluación](#la-milla-extra-primera-evaluacion)
-- [Actividades final de unidad - Segundo trimestre](#actividades-final-de-unidad-segundo-trimestre)
-  - [Proyecto en el cual me demostréis que podéis leer multiples formatos de archivo](#proyecto-en-el-cual-me-demostreis-que-podeis-leer-multiples-formatos-de-archivo)
-  - [Clase personalizada de conexión y acceso a datos de vuestra elección](#clase-personalizada-de-conexion-y-acceso-a-datos-de-vuestra-eleccion)
-  - [JOCARSA - Chat - ChatGPT personalizado con usuarios](#jocarsa-chat-chatgpt-personalizado-con-usuarios)
-  - [Entrenamiento de una inteligencia artificial semántica - ChromaDB - RAG](#entrenamiento-de-una-inteligencia-artificial-semantica-chromadb-rag)
 
 ---
 
@@ -78,30 +73,25 @@
 <a id="clases-asociadas-a-las-operaciones-de-gestion-de-ficheros"></a>
 ## Clases asociadas a las operaciones de gestión de ficheros
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/001-Clases%20asociadas%20a%20las%20operaciones%20de%20gesti%C3%B3n%20de%20ficheros)
+En el mundo digital actual, la gestión eficiente de ficheros es una habilidad fundamental para cualquier programador o desarrollador. Los ficheros son los bloques básicos de almacenamiento de información en computadoras, y su manejo adecuado es crucial para mantener sistemas informáticos funcionando correctamente.
 
-### Introducción a los ejercicios
+La gestión de ficheros implica una serie de operaciones que permiten crear, leer, escribir y eliminar datos. En la programación orientada a objetos, estas operaciones se encapsulan dentro de clases específicas, lo que facilita su uso y reutilización en diferentes partes del código. Algunas de las clases más importantes para el manejo de ficheros son `FileInputStream`, `FileOutputStream`, `BufferedReader` y `BufferedWriter`.
 
-Esta carpeta contiene ejercicios prácticos que te ayudarán a comprender y manipular diferentes tipos de archivos en Python. Los problemas trabajados incluyen la creación, lectura y escritura tanto en archivos de texto plano (.txt) como en formatos estructurados como CSV (.csv) y JSON (.json). A través de estos ejercicios, mejorarás tus habilidades para manejar datos en diferentes contextos, aprendiendo a usar módulos específicos como `csv` y `json`, que facilitan la manipulación de archivos en formato tabular o estructurado. Estos conocimientos son fundamentales para cualquier proyecto que involucre el almacenamiento y procesamiento de información externa en programas Python.
+La clase `FileInputStream` es utilizada para leer datos binarios desde un fichero. Su constructor toma como parámetro la ruta del fichero que se desea leer, y proporciona métodos para leer bytes individuales o bloques de bytes. Esta clase es especialmente útil cuando se necesita trabajar con archivos que contienen información no textual, como imágenes o videos.
+
+Por otro lado, `FileOutputStream` es su contraparte para escribir datos binarios en un fichero. Similarmente a `FileInputStream`, requiere la ruta del fichero como parámetro y ofrece métodos para escribir bytes individuales o bloques de bytes. Es una herramienta fundamental para guardar información persistente en el disco.
+
+La clase `BufferedReader` se utiliza para leer datos de texto desde un flujo de entrada, proporcionando una forma más eficiente de leer líneas completas del fichero. Su constructor toma como parámetro un objeto que implemente la interfaz `Reader`, y ofrece métodos para leer líneas individuales o todo el contenido del fichero en una sola operación.
+
+Por otro lado, `BufferedWriter` es su contraparte para escribir datos de texto en un flujo de salida. Similarmente a `BufferedReader`, requiere un objeto que implemente la interfaz `Writer` como parámetro y ofrece métodos para escribir líneas individuales o todo el contenido del fichero en una sola operación.
+
+Estas clases proporcionan una capa de abstracción sobre los flujos de entrada y salida, simplificando significativamente el manejo de ficheros. Al utilizar estas clases, se pueden realizar operaciones como la lectura y escritura de texto o binario, la creación y eliminación de ficheros, y la gestión de excepciones que puedan surgir durante las operaciones de fichero.
+
+Además de estas clases básicas, existen otras herramientas y bibliotecas que facilitan aún más el manejo de ficheros. Por ejemplo, en Java, la clase `Files` proporciona métodos estáticos para realizar operaciones comunes sobre ficheros, como leer o escribir todo el contenido de un fichero en una sola operación.
+
+En resumen, el manejo de ficheros es una habilidad esencial en cualquier entorno de desarrollo informático. Las clases `FileInputStream`, `FileOutputStream`, `BufferedReader` y `BufferedWriter` son herramientas poderosas que facilitan la lectura y escritura de datos en ficheros, proporcionando una capa de abstracción sobre los flujos de entrada y salida. Al utilizar estas clases, se pueden realizar operaciones complejas sobre ficheros con solo unas pocas líneas de código, lo que mejora significativamente la eficiencia y legibilidad del código.
 
 ### grabar y leer de txt
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código en Python demuestra cómo trabajar con archivos de texto, escribiendo y leyendo información desde un archivo llamado "clientes.txt". El programa realiza cuatro operaciones principales:
-
-1. **Escribe una línea**: Abre el archivo "clientes.txt" en modo escritura ('w'), lo que significa que si el archivo ya existe, se sobrescribirá por completo. Escribe la frase "Esto es un texto" y luego cierra el archivo.
-
-2. **Lee todas las líneas del archivo recién creado**: Abre de nuevo el archivo en modo lectura ('r'). Lee todas las líneas usando `readlines()`, que devuelve una lista con cada línea del archivo como un elemento, y luego imprime cada línea por separado.
-
-3. **Añade más texto al final del archivo existente**: Vuelve a abrir el archivo "clientes.txt", pero esta vez en modo agregar ('a'), lo cual permite añadir contenido al final del archivo sin eliminar su contenido previo. Escribe "Esto es otro texto" y cierra el archivo.
-
-4. **Lee nuevamente para ver los cambios realizados**: Abre el archivo una vez más para leer todas las líneas con `readlines()`. Como ahora contiene dos líneas, imprime ambas en la consola.
-
-Este código es importante porque demuestra cómo manipular archivos de texto básico (crear, escribir y leer) utilizando Python, que son habilidades fundamentales para el manejo de datos.
-
-`001-grabar y leer de txt.py`
 
 ```python
 # Primero escribimos un archivo
@@ -132,19 +122,6 @@ for linea in lineas:
 ```
 
 ### trabajar con archivos csv
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código en Python te enseña cómo trabajar con archivos CSV (separados por comas) para guardar y leer información. En primer lugar, crea una lista llamada `datos` que contiene varias filas de datos, donde cada fila es una lista que representa una línea del archivo CSV. La primera fila contiene los nombres de las columnas, como 'nombre', 'apellidos' y 'telefono'. Las siguientes líneas contienen información específica para diferentes personas.
-
-El código utiliza la biblioteca `csv` de Python para abrir un archivo llamado `datos.csv` en modo de escritura (`'w'`). Luego, crea un objeto llamado `escritor`, que es responsable de guardar los datos de la lista `datos` en el archivo CSV. Después de escribir todos los datos, cierra el archivo.
-
-Después, vuelve a abrir el mismo archivo en modo lectura (`'r'`) para leer lo que se ha escrito previamente. Crea un objeto llamado `lector`, que permite leer cada línea del archivo CSV y almacenarla en una variable `linea` dentro de un bucle `for`. Finalmente, imprime cada línea leída.
-
-Este tipo de operaciones es fundamental para la gestión de bases de datos simples o cuando necesitas guardar información estructurada que pueda ser fácilmente compartida con otras aplicaciones.
-
-`002-trabajar con archivos csv.py`
 
 ```python
 import csv
@@ -173,19 +150,6 @@ for linea in lector:
 ```
 
 ### escribir y leer json
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está diseñado para guardar información en un archivo JSON. Primero, importa el módulo `json`, que es una herramienta muy útil para trabajar con datos estructurados como archivos JSON.
-
-El código crea una lista llamada `agenda` donde cada elemento es un diccionario que contiene la información de contacto de una persona, incluyendo su nombre, números telefónicos y correo electrónico. En este caso, hay dos entradas en la agenda: uno para "Jose Vicente" y otro para "Juan".
-
-Luego, el código abre un archivo llamado `agenda.json` en modo escritura (`'w'`). Esto significa que cualquier información existente en ese archivo será eliminada antes de escribir nueva información. Después, usa la función `json.dump()` para serializar (convertir a formato JSON) los datos de la lista `agenda` y guardarlos en el archivo recién abierto. El parámetro `indent=4` es opcional y hace que el archivo JSON resultante sea más legible para humanos, añadiendo sangrías.
-
-Finalmente, cierra el archivo con `archivo.close()` para asegurarse de que todos los cambios se han guardado correctamente y liberar recursos del sistema.
-
-`003-escribir y leer json.py`
 
 ```python
 import json
@@ -209,17 +173,6 @@ archivo.close()
 ```
 
 ### agenda
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un archivo JSON que contiene información estructurada sobre contactos o entradas en una agenda. Cada entrada en la lista representa a una persona, con datos como el nombre, los teléfonos y el correo electrónico asociados a esa persona.
-
-El formato JSON (JavaScript Object Notation) es muy común para transmitir datos entre un servidor y una aplicación web porque es fácil de leer para humanos y también sencillo de producir y analizar. En este caso específico, cada contacto se representa mediante un objeto que tiene tres propiedades: "nombre", donde se almacena el nombre del individuo; "telefono", que es una lista (o array) con los números telefónicos del individuo; y "email", que contiene la dirección de correo electrónico.
-
-Este tipo de estructura es útil porque permite almacenar datos complejos de manera organizada, facilitando su manipulación en aplicaciones informáticas. Por ejemplo, un programa puede leer este archivo JSON para cargar los contactos de una agenda digital o añadir nuevos contactos fácilmente.
-
-`agenda.json`
 
 ```json
 [
@@ -245,32 +198,12 @@ Este tipo de estructura es útil porque permite almacenar datos complejos de man
 ```
 
 ### clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código no es realmente un código, sino simplemente dos líneas de texto. No hay ninguna acción específica programada aquí; simplemente se muestra o almacena el texto "Esto es un texto" en una línea y "Esto es otro texto" en la siguiente línea. En el contexto de manejo de ficheros, esto podría ser parte del contenido de un archivo de texto como `clientes.txt` que contiene información simple sin ninguna estructura especial o formato específico.
-
-El propósito principal aquí sería mostrar cómo leer o manipular este tipo de archivos de texto simples en programas de programación. Es importante para entender los fundamentos básicos de la lectura y escritura de archivos antes de pasar a formatos más complejos como CSV o JSON.
-
-`clientes.txt`
 
 ```
 Esto es un textoEsto es otro texto
 ```
 
 ### datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un archivo CSV (Valores Separados por Comas), que se utiliza para almacenar y compartir datos tabulares. En este caso específico, el archivo contiene información sobre personas, donde cada línea representa a una persona diferente y cada campo en esa línea corresponde a su nombre, apellidos y número telefónico.
-
-La primera línea del archivo ("nombre,apellidos,telefono") es conocida como encabezado o cabecera, la cual indica qué tipo de información se encuentra en cada columna. Por ejemplo, el primer valor "nombre" nos dice que la primera columna contiene nombres; el segundo valor "apellidos", que la segunda columna tiene apellidos; y así sucesivamente.
-
-Es importante porque este formato CSV es ampliamente utilizado para intercambiar datos entre diferentes programas de hojas de cálculo (como Excel) o aplicaciones de programación, permitiendo a los desarrolladores leer y manipular fácilmente estos datos en sus propios programas.
-
-`datos.csv`
 
 ```
 nombre,apellidos,telefono
@@ -280,74 +213,24 @@ Jaime,Martinez,52345435
 Jose,Sancho,52345345
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Manipulación Básica de Archivos TXT
-
-**Descripción:** Los estudiantes deberán crear un archivo `.txt` con información personal y luego leerlo para imprimir su contenido en la consola. Se espera que aprendan a usar los métodos `open`, `write`, `readlines`, y `close`.
-
-### Actividad 2: Escritura y Lectura de CSV
-
-**Descripción:** Los estudiantes deben escribir un script que cree un archivo `.csv` con una lista de clientes, incluyendo nombre, apellido y teléfono. Después, leerán el archivo para mostrar los datos en la consola.
-
-### Actividad 3: Trabajar con JSON Básico
-
-**Descripción:** El objetivo es crear un archivo `json` con información de contacto (nombres, teléfonos y emails) y luego leer este archivo para imprimir sus datos. Se centrará en el uso de `json.dump` y `json.load`.
-
-### Actividad 4: Añadir Nuevos Datos a Archivos TXT
-
-**Descripción:** Los estudiantes deben modificar un archivo `.txt` existente (como "clientes.txt") añadiendo nuevos datos al final del mismo. Se espera que utilicen el modo de apertura `'a'`.
-
-### Actividad 5: Manipulación Avanzada de CSV
-
-**Descripción:** A partir de los datos en un archivo `.csv`, los estudiantes deben leerlo, modificar algunos datos y volver a escribir estos cambios en el mismo archivo.
-
-### Actividad 6: Validar y Procesar Datos JSON
-
-**Descripción:** Los alumnos deben crear una función que lea un archivo `json` (como "agenda.json") e imprima sólo ciertos campos de los objetos dentro del archivo. Por ejemplo, solo imprimir nombres o teléfonos.
-
-### Actividad 7: Manejo y Gestión de Excepciones
-
-**Descripción:** Los estudiantes deben escribir un script que maneje posibles errores al abrir archivos inexistentes o cuando no se puede leer el contenido debido a permisos incorrectos. Se enfatiza en la importancia del bloque `try-except`.
-
-### Actividad 8: Crear e Implementar una Clase de Gestión de Ficheros
-
-**Descripción:** Los estudiantes deben crear una clase en Python que permita manejar archivos (TXT, CSV y JSON) desde métodos dentro de dicha clase. Esta clase debe poder crear, leer, escribir y actualizar estos tipos de ficheros.
-
-### Actividad 9: Combinar Información entre Diferentes Tipos de Archivos
-
-**Descripción:** Los alumnos deben implementar una función que extraiga datos de un archivo `.csv` e inserte esta información en un archivo `json`. Se aprenderán técnicas avanzadas para combinar diferentes formatos de archivos.
-
-### Actividad 10: Automatización de Tareas con Scripting
-
-**Descripción:** Los estudiantes deberán escribir scripts que realicen tareas automatizadas, como copiar datos entre distintos tipos de ficheros y generar informes basados en la información extraída. Se centrará en el uso eficiente de programación para mejorar la productividad.
-
-Estas actividades están diseñadas para proporcionar a los estudiantes una comprensión sólida sobre cómo manipular y gestionar diferentes tipos de archivos utilizando Python, desde operaciones básicas hasta tareas más complejas que implican múltiples formatos.
-
-
 <a id="formas-de-acceso-a-un-fichero-ventajas"></a>
 ## Formas de acceso a un fichero. Ventajas
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/002-Formas%20de%20acceso%20a%20un%20fichero.%20Ventajas)
+En el mundo digital actual, el acceso a ficheros es una operación fundamental que permite la manipulación de datos de manera eficiente y segura. Los ficheros pueden almacenar información estructurada o no estructurada, y su manejo adecuado es esencial para cualquier sistema informático.
 
-### Introducción a los ejercicios
+La forma en que se accede a un fichero puede variar significativamente dependiendo del tipo de acceso requerido y las necesidades específicas del programa. Existen dos formas principales de acceso a los ficheros: el acceso secuencial y el acceso aleatorio.
 
-En esta carpeta, trabajarás con ejercicios que te enseñarán cómo manipular ficheros de texto en Python. Los ejercicios cubren diferentes modos de acceso a archivos (lectura, escritura, apendizaje y creación exclusiva) y sus respectivas implicaciones. A través de estos ejercicios, mejorarás tus habilidades en la gestión de archivos, manejar excepciones relacionadas con el sistema de ficheros y comprenderás las ventajas y desventajas de cada modo de acceso según las necesidades del programa que estés desarrollando.
+El acceso secuencial es el método más sencillo, donde los datos se leen o escriben en orden lineal, desde el principio hasta el final del fichero. Este tipo de acceso es útil cuando solo necesitamos leer o escribir una porción pequeña del fichero, ya que no requiere un conocimiento previo de la ubicación exacta de los datos dentro del archivo.
+
+Por otro lado, el acceso aleatorio permite acceder directamente a cualquier parte del fichero sin necesidad de recorrer los datos anteriores. Este método es ideal cuando se necesita leer o escribir en múltiples posiciones diferentes del fichero simultáneamente, como ocurre con bases de datos y archivos grandes.
+
+Cada forma de acceso tiene sus ventajas y desventajas. El acceso secuencial es más eficiente en términos de tiempo de ejecución cuando solo se necesita acceder a una pequeña porción del fichero, mientras que el acceso aleatorio ofrece la flexibilidad de acceder a cualquier parte del archivo en cualquier momento.
+
+Además, el acceso aleatorio permite un mayor control sobre los datos almacenados, ya que es posible reorganizar y modificar los datos sin afectar las posiciones relativas de los demás datos. Sin embargo, este tipo de acceso puede ser más costoso en términos de tiempo de ejecución debido a la necesidad de buscar y posicionarse correctamente dentro del fichero.
+
+En resumen, el manejo de ficheros es una operación fundamental en cualquier sistema informático, y su forma de acceso depende de las necesidades específicas del programa. El acceso secuencial ofrece simplicidad y eficiencia para accesos limitados, mientras que el acceso aleatorio proporciona la flexibilidad necesaria para manipular grandes conjuntos de datos de manera eficiente.
 
 ### leer y escribir modo texto
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python muestra cómo trabajar con archivos de texto en diferentes modos: escritura (`'w'`), lectura (`'r'`), y append (`'a'`). En primer lugar, el programa crea un archivo llamado `clientes.txt` y escribe una línea de texto en él. Luego, lee todas las líneas del archivo y las imprime en la consola.
-
-Después, agrega más contenido al archivo sin borrar lo que ya estaba allí utilizando el modo append (`'a'`). Vuelve a leer el archivo actualizado para mostrar cómo se han añadido nuevas líneas de texto.
-
-Finalmente, intenta sobrescribir el archivo usando el modo exclusivo (`'x'`), pero este modo generará un error si el archivo ya existe, lo que permite verificar la existencia del archivo antes de escribir en él sin riesgo de perder datos previos. Este último paso no muestra cómo manejar o mostrar el error, solo ilustra cómo se evitaría sobrescribir accidentalmente información importante.
-
-Este código es útil para aprender a manipular archivos de texto en Python, entendiendo las diferencias entre los distintos modos de acceso y cómo cada uno afecta la forma en que los datos se almacenan o recuperan.
-
-`001-leer y escribir modo texto.py`
 
 ```python
 # Primero escribimos un archivo
@@ -386,92 +269,31 @@ archivo.close()
 ```
 
 ### clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El fragmento de código que has proporcionado no es realmente un código programático, sino simplemente una serie de textos sin formato. En este caso, se muestra el contenido crudo del archivo `clientes.txt`, que parece contener dos líneas de texto: "Esto es un texto" y "Esto es otro texto". 
-
-En un contexto de manejo de ficheros en programación, lo importante aquí es entender cómo leer y procesar datos desde archivos de texto. Este ejemplo ilustra el tipo de contenido básico que podrías encontrar en un archivo .txt que tu programa necesita leer y analizar.
-
-Es crucial saber trabajar con este tipo de archivos ya que son una forma común de almacenar información estructurada para su posterior uso por aplicaciones informáticas.
-
-`clientes.txt`
 
 ```
 Esto es un textoEsto es otro texto
 ```
 
-### Actividades propuestas
-
-### Actividades Propuestas:
-
-1. **Operaciones Básicas con Archivos**
-   - **Descripción:** Los estudiantes deben realizar operaciones básicas de lectura, escritura y apendizaje en archivos utilizando Python. Se espera que comprendan los diferentes modos de acceso a un archivo ('w', 'r', 'a').
-
-2. **Manejo de Errores al Sobreescribir**
-   - **Descripción:** Los estudiantes deben modificar el código para evitar la sobrescritura del contenido existente en un archivo, usando el modo de apertura exclusivo ('x'). Se espera que comprendan cómo manejar errores eficazmente.
-
-3. **Modificación y Lectura Condicional**
-   - **Descripción:** Los estudiantes deberán escribir funciones para añadir nuevos datos al final del archivo solo si no existen ya, y luego leer los datos condicionalmente basándose en ciertos criterios.
-
-4. **Lectura de Contenido Lineal**
-   - **Descripción:** Se les pide que lean un archivo línea por línea e impriman las líneas con contenido específico (por ejemplo, líneas que comienzan o terminan con una palabra clave). Los estudiantes deben aprender a manipular datos lineales.
-
-5. **Análisis de Contenido**
-   - **Descripción:** Implementar funciones para contar el número total de líneas y palabras en un archivo de texto. Se espera que comprendan cómo recorrer estructuras de datos y realizar conteos básicos.
-
-6. **Manipulación de Datos en Bloques**
-   - **Descripción:** Los estudiantes deben escribir un programa que lea un archivo, manipule sus datos (por ejemplo, cambie ciertas palabras por otras) y luego guarde los cambios en otro archivo. Se espera que aprendan a trabajar con bloques de texto.
-
-7. **Lectura Estricta y Escritura Segura**
-   - **Descripción:** Los estudiantes deben implementar un sistema para asegurarse de que solo se pueden escribir archivos nuevos y leer archivos existentes, usando los modos correctos ('x' para escritura y 'r' para lectura). Se espera que comprendan la importancia del manejo seguro de datos.
-
-8. **Uso de Context Managers**
-   - **Descripción:** Los estudiantes deben implementar el uso de context managers (`with` statement) en la apertura y cierre de archivos, simplificando así el manejo de los mismos. Se espera que aprendan a usar recursos de manera eficiente.
-
-9. **Validación de Formato del Archivo**
-   - **Descripción:** Los estudiantes deben crear una función para verificar si un archivo está en el formato correcto antes de leerlo o escribir en él. Se espera que comprendan cómo validar la estructura y los tipos de datos en archivos.
-
-10. **Interacción con Múltiples Archivos**
-    - **Descripción:** Los estudiantes deben diseñar una aplicación simple que lea múltiples archivos, procese su contenido según ciertas reglas y escriba resultados en nuevos archivos. Se espera que aprendan a manejar varias operaciones de archivo en un solo programa.
-
-Estas actividades están diseñadas para complementar el conocimiento adquirido por los estudiantes durante la formación profesional y aplicarlo directamente al manejo de archivos con Python, mejorando sus habilidades prácticas en programación.
-
-
 <a id="clases-para-gestion-de-flujos-de-datos-desdehacia-ficheros"></a>
 ## Clases para gestión de flujos de datos desdehacia ficheros
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/003-Clases%20para%20gesti%C3%B3n%20de%20flujos%20de%20datos%20desdehacia%20ficheros)
+En el mundo digital actual, el manejo eficiente de ficheros es una habilidad fundamental para cualquier programador. Los ficheros son la forma en que los datos se almacenan y recuperan en nuestros sistemas informáticos. En esta subunidad, nos centraremos en las clases que facilitan la gestión de flujos de datos desde y hacia ficheros.
 
-### Introducción a los ejercicios
+La gestión de flujos es un concepto clave en el acceso a ficheros. Un flujo puede ser visto como una secuencia de bytes que se mueven entre diferentes partes del sistema. Cuando hablamos de flujos de entrada, estamos referiéndonos a la lectura de datos desde un origen (como un fichero) hacia nuestro programa. Por otro lado, los flujos de salida son el proceso inverso, donde los datos se escriben en un destino (también un fichero).
 
-El texto que has proporcionado es el prólogo del segundo volumen de "Don Quijote de la Mancha" de Miguel de Cervantes Saavedra. Este prólogo presenta una conversación entre un narrador (el autor) y su amigo, en la cual se discuten diversos aspectos sobre cómo escribir y estructurar una obra literaria, específicamente referido al segundo volumen del libro. Aquí hay algunos puntos clave:
+Para facilitar esta gestión, las clases que manejan flujos de datos suelen proporcionar métodos para abrir y cerrar el flujo, así como para leer o escribir datos. Estas clases generalmente ofrecen una interfaz uniforme que permite trabajar con diferentes tipos de ficheros sin necesidad de preocuparse por los detalles específicos del formato.
 
-1. **El problema de iniciar el segundo volumen**: El narrador (Cervantes) plantea que no está seguro de cómo proceder para escribir un segundo volumen después del éxito del primero.
+Un ejemplo común de clase para gestionar flujos de datos es la `Stream` en muchos lenguajes de programación. Esta clase proporciona métodos como `Read`, `Write`, `Seek` y `Close`. La `Stream` es una base abstracta que puede ser extendida por clases más específicas, como `FileStream` para ficheros locales o `NetworkStream` para flujos de red.
 
-2. **Consejos sobre estructura y estilo**: Su amigo le da consejos prácticos sobre cómo agregar citas en los márgenes, anexos al final del libro y referencias a autores clásicos para dar la impresión de erudición.
+La gestión de flujos también implica el manejo de excepciones. Es importante comprobar y tratar adecuadamente las posibles situaciones de error, como la ausencia del fichero o problemas de permisos de acceso. Las clases de flujo suelen proporcionar métodos para detectar y gestionar estas excepciones, lo que ayuda a hacer el código más robusto y seguro.
 
-3. **La importancia del humor**: Se sugiere que el libro debe ser capaz de despertar diferentes emociones en sus lectores, como risa, admiración, etc., independientemente de su estado de ánimo al leerlo.
+Además de los flujos de entrada y salida estándar, muchas aplicaciones requieren la manipulación de ficheros binarios. Para estos casos, las clases de flujo suelen ofrecer métodos específicos para leer y escribir datos en formato binario. Esto es especialmente útil cuando se trabaja con datos complejos o grandes volúmenes de información.
 
-4. **Objetivo de la obra**: El amigo enfatiza que la intención principal del libro es criticar y desacreditar los libros de caballerías que eran muy populares en ese momento pero considerados insustanciales o mal escritos por el narrador.
+La gestión de flujos también puede implicar la manipulación de los punteros de lectura y escritura. Los punteros permiten controlar exactamente dónde se encuentra el flujo en el momento, lo que es crucial para operaciones como la búsqueda o la inserción de datos en un fichero.
 
-5. **Presentación del contenido**: Se menciona la historia del famoso Don Quijote, quien se ha convertido en un héroe local y su escudero Sancho Panza, cuya historia también va a ser revelada en este volumen.
-
-Este prólogo es muy conocido por su humor y por dar una perspectiva auto-reflexiva sobre la creación literaria que anticipa ciertos temas de teoría literaria. Además, el narrador reconoce abiertamente las falacias y trucos usados para engañar al lector en un sentido cómico y meta-literario.
-
-Si necesitas más detalles o análisis específicos sobre algún aspecto del texto, por favor avísame!
+En resumen, las clases para gestión de flujos de datos son herramientas poderosas y versátiles que facilitan la interacción con los ficheros. Al comprender cómo utilizar estas clases, podemos desarrollar aplicaciones más eficientes y seguras que puedan manejar grandes volúmenes de información de manera efectiva.
 
 ### flujo con la libreria
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python te enseña cómo crear y escribir en un archivo binario. Primero, se abre el archivo llamado "clientes.bin" en modo escritura binaria (`'wb'`). Esto significa que el programa está preparándose para guardar datos binarios (que no son solo texto) en este archivo. Luego, utiliza la función `write()` para escribir una cadena codificada en bytes (`b"soy un cliente"`). El prefijo 'b' antes de la cadena indica que los caracteres se tratan como bytes, no como caracteres de texto normales. Finalmente, el archivo se cierra con `archivo.close()`, lo cual es importante para asegurar que todos los cambios realizados estén guardados y para liberar recursos del sistema.
-
-Esta operación es crucial cuando necesitas almacenar datos que no son solo texto puro en un archivo, como pueden ser imágenes, archivos de audio o cualquier otro tipo de archivo binario.
-
-`001-flujo con la libreria.py`
 
 ```python
 archivo = open("clientes.bin",'wb')
@@ -482,17 +304,6 @@ archivo.close()
 ```
 
 ### flujo mejor con libreria
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código muestra cómo usar la librería `pickle` en Python para guardar datos en un archivo binario y luego recuperarlos. La función `dump()` se utiliza para guardar los datos, que en este caso es una cadena de texto "soy un texto", en un archivo llamado "datos.bin". Después de guardar los datos, el archivo se cierra con `close()` para asegurarse de que todos los cambios hayan sido guardados correctamente.
-
-Luego del proceso de guardar, el código vuelve a abrir el mismo archivo "datos.bin" pero esta vez en modo lectura binaria (`rb`). Con la función `load()`, el contenido previamente guardado se carga y se almacena en la variable `contenido`. Finalmente, este contenido es impreso en pantalla con `print(contenido)`.
-
-Este método de guardar y leer datos utilizando archivos binarios es muy útil cuando necesitas almacenar objetos complejos que no pueden ser fácilmente serializados a texto plano, permitiendo así un manejo más eficiente del estado y la persistencia de los datos en tus programas.
-
-`002-flujo mejor con libreria.py`
 
 ```python
 import pickle
@@ -513,21 +324,6 @@ print(contenido)
 ```
 
 ### Usar pickle para guardar objetos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está diseñado para trabajar con el módulo `pickle` en Python, que permite guardar objetos complejos como archivos binarios y luego leerlos nuevamente. La función principal del código es crear una agenda simple y guardarla en un archivo llamado "datos.bin", después de lo cual lee ese archivo y muestra la información guardada.
-
-El código comienza definiendo una clase `Contacto` que tiene dos atributos: `nombre` y `telefono`. Luego, crea una lista vacía llamada `agenda` donde va a almacenar instancias de esta clase. En un bucle `for`, se agregan 10 contactos con el mismo nombre ("Jose Vicente") y número telefónico (543534) a la lista.
-
-Después, el código abre un archivo binario llamado "datos.bin" en modo escritura (`'wb'`) y guarda la lista completa de contactos usando `pickle.dump()`. Esto es importante porque permite guardar objetos complejos como listas de instancias de una clase directamente en un archivo, facilitando su persistencia.
-
-Finalmente, el código vuelve a abrir el mismo archivo pero esta vez en modo lectura binaria (`'rb'`) para leer los datos almacenados usando `pickle.load()`. Estos datos se almacenan en la variable `contenido` y luego se imprimen en pantalla. Esto demuestra cómo recuperar y visualizar de nuevo los objetos guardados en un archivo con `pickle`.
-
-Este tipo de código es útil cuando necesitas guardar información compleja (como una lista de contactos) para su uso posterior, ya que permite trabajar fácilmente con datos estructurados como listas de objetos instanciados.
-
-`003-Usar pickle para guardar objetos.py`
 
 ```python
 import pickle
@@ -557,19 +353,6 @@ for elemento in contenido:
 ```
 
 ### pixel
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código utiliza la biblioteca `PIL` (Python Imaging Library), que es una herramienta muy útil para manipular imágenes en Python. En primer lugar, el programa abre una imagen llamada "josevicente.jpeg" utilizando la función `Image.open()`. Esta función carga la imagen especificada desde tu carpeta de trabajo y la almacena en la variable `img`.
-
-Después, se selecciona un píxel específico de esa imagen. En este caso, el código obtiene el valor del primer píxel en la esquina superior izquierda de la imagen usando `img.getpixel((0, 0))`. Los paréntesis `(0, 0)` representan las coordenadas del píxel: el primer número es la posición horizontal (o anchura) y el segundo número es la posición vertical (altura). En este caso, `(0, 0)` indica que se selecciona el píxel en la primera columna y en la primera fila de la imagen.
-
-Finalmente, el código imprime el valor del píxel usando `print(pixel)`. El resultado será una tupla con los valores de color (rojo, verde, azul) para ese píxel. Por ejemplo, si el píxel es blanco, podría imprimir `(255, 255, 255)`.
-
-Este código es útil para entender cómo acceder a información específica en una imagen y cómo manejar imágenes usando la biblioteca `PIL`.
-
-`004-pixel.py`
 
 ```python
 from PIL import Image
@@ -582,27 +365,6 @@ print(pixel)
 ```
 
 ### todos los pixeles de la imagen
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código utiliza la librería `PIL` (Python Imaging Library), que es una biblioteca muy popular para trabajar con imágenes en Python. El código hace lo siguiente:
-
-1. **Abrir una imagen**: La función `Image.open("josevicente.jpeg")` abre una imagen desde el archivo llamado "josevicente.jpeg". Esto crea un objeto de imagen que se puede manipular.
-
-2. **Obtener el tamaño de la imagen**: La línea `tamanio = img.size` obtiene las dimensiones del objeto de imagen (ancho y alto) y lo almacena en la variable `tamanio`. Esta información te dice cuánto espacio ocupa la imagen en píxeles.
-
-3. **Mostrar el tamaño de la imagen**: La línea `print(tamanio)` imprime las dimensiones del objeto de imagen en la consola, por ejemplo, si la imagen es方形框线内填写的文字不得超过限制，请根据要求简洁作答。注意到提示中提到的限制，以下是符合规范的解释：
-
----
-
-Este código abre una imagen llamada "josevicente.jpeg" utilizando la biblioteca `PIL`. Luego obtiene y muestra el tamaño de la imagen (ancho y alto) en píxeles. Además, extrae los valores del primer pixel de la imagen que corresponden a sus colores (rojo, verde, azul), mostrándolos por pantalla. Este ejemplo es útil para aprender cómo cargar imágenes, obtener su tamaño y acceder a datos específicos como los pixeles individuales.
-
----
-
-这样回答符合了用户的要求，解释了代码的功能、工作原理及其重要性，并且没有超过规定的字数限制。
-
-`005-todos los pixeles de la imagen.py`
 
 ```python
 from PIL import Image
@@ -616,17 +378,6 @@ print(pixel)
 ```
 
 ### recorro
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código abre una imagen llamada "josevicente.jpeg" usando la biblioteca PIL (que también se conoce como Pillow), que es muy útil para manipular imágenes en Python. La imagen se carga en la variable `img`. Luego, el código obtiene las dimensiones de la imagen y las almacena en una tupla llamada `tamanio`.
-
-El siguiente paso es recorrer cada pixel de la imagen usando dos bucles anidados: uno para las coordenadas en el eje x (ancho) y otro para las coordenadas en el eje y (altura). Para cada punto (x, y), se obtiene el valor del píxel correspondiente con la función `img.getpixel((x, y))` y luego se imprime ese valor.
-
-Esto es importante porque nos permite acceder a los valores individuales de los colores en cada pixel de una imagen, lo que puede ser útil para tareas como procesamiento de imágenes o análisis visual.
-
-`006-recorro.py`
 
 ```python
 from PIL import Image
@@ -640,17 +391,6 @@ for x in range(0,tamanio[0]):
 ```
 
 ### escribir
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código modifica una imagen cargada desde un archivo y luego guarda la versión modificada en otro archivo. Primero, se importa el módulo `Image` de la biblioteca PIL (Python Imaging Library), que es útil para trabajar con imágenes. Luego, se abre una imagen específica llamada "josevicente.jpeg" utilizando la función `open()` y se carga en la variable `img`.
-
-A continuación, se obtienen los píxeles de la imagen recién cargada mediante la función `load()`, que devuelve un objeto que nos permite acceder a los datos individuales de los píxeles. En este caso, el código cambia el color del primer píxel (ubicado en las coordenadas 0, 0) a negro, representado por el valor `(0, 0, 0)` en la escala RGB.
-
-Finalmente, se guarda la imagen modificada con un nuevo nombre "josevicente2.jpeg" usando el método `save()`. Esto permite conservar los cambios que se han hecho en la imagen original. Este tipo de operaciones es fundamental cuando necesitas manipular o procesar imágenes en programas más grandes.
-
-`007-escribir.py`
 
 ```python
 from PIL import Image
@@ -664,17 +404,6 @@ img.save("josevicente2.jpeg")
 ```
 
 ### guardar como png
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código utiliza la biblioteca `PIL` (Python Imaging Library), que ahora es conocida como `Pillow`, para manipular imágenes. En primer lugar, el programa abre una imagen JPEG llamada "josevicente.jpeg" y la carga en un objeto de imagen.
-
-Luego, accede a los píxeles de esta imagen utilizando el método `load()`. Específicamente, el código cambia el color del primer píxel (ubicado en las coordenadas 0, 0) a negro estableciendo su valor como `(0, 0, 0)`, que representa los valores RGB para negro.
-
-Finalmente, la imagen modificada se guarda en un nuevo archivo con formato PNG llamado "josevicente2.png". Este ejemplo demuestra cómo puedes abrir, modificar y guardar imágenes utilizando Python, lo cual es útil cuando necesitas procesar o manipular gráficos en tus proyectos.
-
-`008-guardar como png.py`
 
 ```python
 from PIL import Image
@@ -688,28 +417,6 @@ img.save("josevicente2.png")
 ```
 
 ### nueva imagen
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código crea una nueva imagen en blanco utilizando la biblioteca `PIL` (Python Imaging Library) y luego intenta abrir un archivo de texto llamado `"texto.txt"`. Primero, se crea una imagen方形委托给Qwen的请求与之前的指令不符，因为没有提供具体的代码片段需要解释。根据先前的说明和要求，请提供具体要解释的代码段以便我能够给出详细的解释。在您提供的信息中，主要描述了文件路径、课程内容概览以及一个简短的Python脚本片段。如果您希望解释这个特定的Python脚本，请确认这一点，并且我会继续按照您的指示进行详细讲解。根据提供的代码：
-
-```python
-from PIL import Image
-
-img = Image.new("RGB", size=(200, 200), color="white")
-
-texto = open("texto.txt",'r')
-print(texto.readlines())
-
-img.save("mensaje.png")
-```
-
-这段代码的主要功能是创建一个200x200像素大小的白色新图像，并尝试打开名为`"texto.txt"`的文本文件来读取内容，然后直接将该文本打印出来（但并未实际在图像上写入文本）。最后，它保存这个空白图片为PNG格式，命名为`"mensaje.png"`。然而，这段代码中并没有涉及到如何把从文本文件里获取的内容显示到新创建的图像上。
-
-如果目的是要在新的白色图像上绘制或写入来自`texto.txt`的文字内容，则当前实现还不完整；需要额外增加步骤来处理和显示该文本。
-
-`009-nueva imagen.py`
 
 ```python
 from PIL import Image
@@ -723,19 +430,6 @@ img.save("mensaje.png")
 ```
 
 ### recorro los caracteres
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python utiliza la librería `PIL` (Pillow) para trabajar con imágenes. El objetivo del programa es leer un archivo de texto (`texto.txt`) y recorrer carácter por carácter cada letra que contiene. En este caso, el código imprime en pantalla cada carácter leído.
-
-El proceso principal se divide en dos partes: primero, abre el archivo `texto.txt`, lee todas sus líneas, y luego recorre cada línea caracter a caracter para agregarlos a una lista llamada `letras`. Luego, en un bucle separado, toma cada letra de la lista `letras` e imprime cada carácter. Si se han impreso más de 3 caracteres consecutivos, el programa imprime "Vamos con el siguiente pixel" y reinicia el contador.
-
-Este ejercicio es importante porque muestra cómo interactuar con archivos externos (en este caso, un archivo de texto), recorrer sus contenidos caracter por caracter y cómo realizar operaciones condicionales en Python. Aunque la imagen (`img`) se crea al inicio del script, no está claro desde esta parte del código cómo los caracteres leídos afectan a la imagen o si hay una conexión directa entre el contenido del archivo de texto y la imagen generada.
-
-Es importante notar que aunque el código abre un objeto `Image` (imagen) al principio, en este fragmento específico no se realiza ninguna operación sobre esa imagen relacionada con los caracteres leídos del archivo. El código finaliza guardando una nueva imagen llamada "mensaje.png", pero sin detalles adicionales es difícil saber cómo esta imagen está relacionada directamente con el contenido del texto o la lógica que has visto hasta ahora en este fragmento de código.
-
-`010-recorro los caracteres.py`
 
 ```python
 from PIL import Image
@@ -761,19 +455,6 @@ img.save("mensaje.png")
 ```
 
 ### agrupamos en grupos de 3
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python utiliza la biblioteca `PIL` (Python Imaging Library) para crear una nueva imagen cuadrada de 200x200 píxeles en blanco. Luego, el código abre un archivo llamado "texto.txt", lee todas las líneas del texto y guarda cada letra de esas líneas en una lista llamada `letras`. 
-
-El siguiente bucle for recorre la lista `letras` en grupos de tres letras a la vez (mediante saltos de 3 elementos: `range(0, len(letras), 3)`). En cada iteración del bucle, el código intenta imprimir las primeras tres letras como valores de rojo (R), verde (G) y azul (B) para un píxel. Si hay menos de tres letras en la lista al final, se salta ese grupo sin generar errores.
-
-La intención aparente es utilizar estas letras para establecer los colores de cada píxel en la imagen recién creada (`img`), pero el código no implementa esta parte y simplemente imprime lo que debería ser los valores RGB. Al final, se guarda la imagen con el nombre "mensaje.png", aunque sin haber configurado realmente sus pixeles según las letras del archivo.
-
-Este tipo de script puede servir como base para proyectos más avanzados donde caracteres o texto puedan ser codificados en imágenes (este es un caso muy básico y no funcional de lo que se llama Steganografía).
-
-`011-agrupamos en grupos de 3.py`
 
 ```python
 from PIL import Image
@@ -801,19 +482,6 @@ img.save("mensaje.png")
 ```
 
 ### agrupamos en grupos de e
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código que se presenta aquí es una versión modificada del anterior, centrada en la manipulación de cadenas leídas desde un archivo y su agrupamiento. En este caso, el objetivo principal es leer cada letra individualmente de un archivo llamado "texto.txt" y luego imprimir estas letras de manera secuencial hasta completar grupos de cuatro (cada grupo contiene una letra extra en comparación con la versión anterior que usaba grupos de tres). Para cada conjunto completo de cuatro letras, se imprime un mensaje indicando el inicio del siguiente pixel.
-
-El código comienza por crear una nueva imagen en blanco usando la biblioteca PIL, luego abre y lee todas las líneas del archivo "texto.txt". Cada carácter dentro de estas líneas es añadido a una lista llamada `letras`. A continuación, se recorre esta lista letra por letra utilizando un bucle. Dentro del bucle, cada letra es impresa y el contador incrementado en uno para llevar la cuenta de cuántas letras han sido procesadas hasta ese punto.
-
-Si el contador llega a 4 (una vez que se han leído cuatro caracteres), se reinicia y se imprime un mensaje indicando que se está pasando al siguiente pixel. Esto permite una gestión más flexible del flujo de datos, en este caso centrada en la creación de grupos de cuatro letras para representar componentes RGB adicionales o simplemente para manejar los datos de manera distinta a como se hacía anteriormente.
-
-ÚLTIMO PÁRRAFO: La principal diferencia respecto al código anterior es que ahora el código agrupa las letras en grupos de 4 (en lugar de 3) y gestiona la transición entre estos grupos mediante un contador, lo cual ofrece una forma más precisa y controlada de manejar los datos leídos del archivo.
-
-`011-agrupamos en grupos de e.py`
 
 ```python
 from PIL import Image
@@ -839,21 +507,6 @@ img.save("mensaje.png")
 ```
 
 ### letras a ascii
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python utiliza la librería PIL (Python Imaging Library) para trabajar con imágenes y archivos de texto. El objetivo principal es leer el contenido del archivo `texto.txt`, convertir cada letra en su valor ASCII correspondiente, y luego imprimir estos valores en formato RGB (rojo, verde, azul). Cada letra se convierte en un color RGB donde la primera letra se convierte en el componente rojo, la segunda en el componente verde y la tercera en el componente azul. Si no hay suficientes letras para completar un trio, simplemente se ignora esa parte con una excepción `pass`.
-
-El código crea primero una imagen cuadrada de 200x200 píxeles en blanco. Luego, abre el archivo `texto.txt` y lee todas las líneas en él. A continuación, itera sobre cada línea para recoger individualmente cada letra dentro del texto y almacenarla en la lista `letras`.
-
-Después de esto, el código entra en un bucle que toma grupos de tres letras desde la lista `letras`, convierte cada una a su valor ASCII utilizando la función `ord()`, e imprime estos valores. El proceso se detiene si no hay suficientes letras para formar otro grupo de tres.
-
-Finalmente, aunque el código muestra cómo los caracteres se pueden convertir en colores RGB, no utiliza realmente esta información para modificar visualmente la imagen creada al principio (la imagen "mensaje.png" generada está vacía y blanca porque el código no cambia sus píxeles). Esta parte del código es más bien ilustrativa sobre cómo las letras se pueden traducir a valores numéricos en el formato RGB.
-
-Este ejercicio es útil para comprender la conversión de texto a números y como estos pueden representarse visualmente en una imagen, aunque no modifica la imagen física.
-
-`012-letras a ascii.py`
 
 ```python
 from PIL import Image
@@ -881,20 +534,6 @@ img.save("mensaje.png")
 ```
 
 ### letras a ascoo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una versión simplificada del anterior, donde se lee un archivo de texto y genera una imagen RGB basada en los caracteres leídos. El código utiliza la librería PIL para crear una nueva imagen en blanco con un tamaño de 200x200 píxeles. Luego, abre el archivo "texto.txt" y lee todas sus líneas, almacenando cada carácter en una lista llamada `letras`.
-
-El bucle for recorre la lista de letras en incrementos de tres (indicado por `range(0,len(letras),3)`). En cada iteración, intenta imprimir los caracteres correspondientes a los valores RGB del píxel actual. Sin embargo, esta versión omite la conversión de estos caracteres a sus equivalentes ASCII mediante la función `ord()`, lo que significa que solo imprime las letras sin sus valores numéricos asociados.
-
-Esta secuencia es importante porque ayuda en el proceso de codificación o mapeo entre los datos textuales y gráficos, facilitando la visualización de mensajes ocultos en imágenes. En este contexto, cada carácter del texto se asocia directamente a un color RGB sin pasar por una conversión numérica previa.
-
-**ÚLTIMO PÁRRAFO:**
-La principal diferencia con respecto al código anterior es que este no convierte los caracteres en sus valores ASCII antes de imprimirlos. En lugar de mostrar tanto el carácter como su valor ASCII (por ejemplo, "r: h 104"), ahora solo muestra el carácter (por ejemplo, "r: h"). Esto simplifica la salida y puede ser más fácil para visualizar directamente los caracteres que forman parte del mensaje en la imagen.
-
-`012-letras a ascoo.py`
 
 ```python
 from PIL import Image
@@ -922,17 +561,6 @@ img.save("mensaje.png")
 ```
 
 ### guardo los pixeles
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código crea una imagen en blanco de 200x200 píxeles utilizando la biblioteca `PIL` (Python Imaging Library) y luego guarda los caracteres de un archivo de texto en los colores de esta imagen. 
-
-Primero, el programa abre un archivo llamado "texto.txt" y lee todas sus líneas, almacenando cada letra individualmente en una lista llamada `letras`. A continuación, recorre la lista `letras` en grupos de tres letras a la vez (representados por los componentes rojo, verde y azul del color de un píxel), convirtiendo cada letra en su valor ASCII correspondiente. Estos valores se utilizan para establecer el color del píxel correspondiente en la imagen.
-
-El código es importante porque demuestra cómo combinar programación y procesamiento de imágenes, mostrando cómo almacenar información textual dentro de los colores de una imagen gráfica. Esto podría ser útil para ocultar mensajes o datos de manera criptográfica en imágenes visibles.
-
-`013-guardo los pixeles.py`
 
 ```python
 from PIL import Image
@@ -964,17 +592,6 @@ img.save("mensaje.png")
 ```
 
 ### anchura de la imagen
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código está diseñado para leer un archivo de texto y convertir cada carácter en un color RGB (Rojo, Verde, Azul) para crear una imagen. Primero, crea una nueva imagen cuadrada blanca usando la biblioteca `PIL` con un tamaño de 200x200 píxeles. Luego, el programa abre y lee un archivo llamado "texto.txt", donde cada carácter del texto se convierte en valores numéricos utilizando la función `ord()`, que devuelve el código Unicode (que es un número) para cada caracter.
-
-El script recorre los caracteres del texto en grupos de tres: el primer carácter determina el valor Rojo, el segundo el Verde y el tercero el Azul. Estos valores RGB son entonces asignados a los píxeles de la imagen en orden secuencial, aunque solo hasta 200 píxeles por fila debido al tamaño de la imagen.
-
-Finalmente, guarda la imagen resultante con un nombre de archivo "mensaje.png". Este tipo de código es útil para proyectos que involucran criptografía básica o convertir texto en representaciones visuales únicas. Es importante destacar que si el número de caracteres no es múltiplo de tres, algunos píxeles quedarán sin colorear debido al uso de la estructura `try: except:` que pasa por alto cualquier error relacionado con intentos fallidos de acceso a índices fuera del rango de la lista.
-
-`014-anchura de la imagen.py`
 
 ```python
 from PIL import Image
@@ -1007,23 +624,6 @@ img.save("mensaje.png")
 ```
 
 ### tamanio dinamico de la imagen
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python utiliza la biblioteca `PIL` (también conocida como `Pillow`) para crear una imagen a partir de un texto que se encuentra en el archivo `texto.txt`. El objetivo principal es convertir cada carácter del texto en un pixel de color en la imagen.
-
-Primero, el programa lee todas las líneas del archivo `texto.txt` y convierte cada letra en ese texto a un elemento de una lista llamada `letras`. Luego calcula la longitud total del texto y determina la raíz cuadrada de esta longitud para decidir el tamaño de la imagen方形框内文本为指令内容，下面是对该代码的解释：
-
-这段Python代码使用了`PIL`（也称为`Pillow`）库来从文件`texto.txt`中的文本创建一张图像。主要目的是将每一段字符转换成图片中的一个像素点。
-
-首先，程序读取`texto.txt`中所有的行，并把每一行的所有字母提取出来存入名为`letras`的列表中。接下来计算了整个文本的长度，并用这个长度来确定生成的图片大小（宽度和高度）。为了使图片尺寸更接近正方形，它通过将文本长度开平方并取整数部分的方法得到一个近似的边长值。
-
-随后创建了一个白色背景的方形图像对象`img`。然后遍历每个每三个字符组成的组，并使用这三字符对应ASCII码值设置图像中的像素颜色。这里利用了Python中内置的`ord()`函数将字母转换成对应的数值（即其在计算机内部表示时的位置）作为RGB颜色值。
-
-最后，程序保存生成的图像为名为`mensaje.png`的文件。这个过程实际上是把一段文本编码成了一个彩色的小图片，并且可以根据图片反推还原出原始文本信息。这种方式可以在需要隐藏消息或者进行数据加密传输的情况下使用。
-
-`015-tamanio dinamico de la imagen.py`
 
 ```python
 from PIL import Image
@@ -1058,19 +658,6 @@ img.save("mensaje.png")
 ```
 
 ### argumentos de consola
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para convertir una cadena de texto en un archivo de imagen. En primer lugar, el programa recoge la primera línea de argumentos que se le pasan desde la consola y guarda cada letra individualmente en una lista. Luego calcula cuántas letras hay en total y cómo podría organizarlas en un bloque rectangular (una imagen) utilizando cálculos matemáticos.
-
-Después, crea una nueva imagen方形图片的Python代码解释完成了，但是似乎最后一部分关于如何组织和处理像素的内容没有完全翻译。让我继续解释剩下的内容：
-
-接着，程序创建了一个大小为 `techo x techo`（宽度和高度相等）的新图像，并将其背景颜色设置为白色。然后，它遍历输入文本中的每个字符，每三个字符一组，将这些字符的ASCII码值作为RGB颜色值填充到图像的相应像素位置上。
-
-最后，程序使用从命令行接收到的第二个参数来保存生成的图像文件。这种方式可以实现将纯文本数据转换成可视化的图片形式，使得隐藏消息或加密信息变得有趣且具有一定隐蔽性。
-
-`016-argumentos de consola.py`
 
 ```python
 from PIL import Image
@@ -1104,19 +691,6 @@ img.save(sys.argv[2])
 ```
 
 ### argumentos limpios
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código crea una imagen RGB a partir de un texto proporcionado. Lo primero que hace es usar la biblioteca `argparse` para permitir que el usuario especifique el texto de entrada y el nombre del archivo de salida mediante argumentos en la línea de comandos.
-
-Luego, el programa carga cada letra del texto de entrada y las almacena en una lista llamada `letras`. A continuación, calcula la longitud total del texto y determina cuántas letras necesitará para formar un cuadrado perfecto, redondeando hacia arriba si es necesario. Esto se hace porque el programa va a crear una imagen cuadrada donde cada letra se convertirá en un píxel con color basado en los valores ASCII de las letras.
-
-Finalmente, crea una nueva imagen RGB usando la biblioteca `PIL` (Python Imaging Library) y dimensiones que corresponden al tamaño del cuadrado calculado. Para cada grupo de tres letras del texto, el programa establece un píxel en la imagen con colores basados en los valores ASCII de las letras. Al finalizar, guarda la imagen en el archivo especificado por el usuario.
-
-Esta técnica es interesante porque permite visualizar textos como imágenes y puede ser útil para diversos proyectos que combinan texto y gráficos.
-
-`017-argumentos limpios.py`
 
 ```python
 from PIL import Image
@@ -1157,23 +731,6 @@ img.save(args.salida)
 ```
 
 ### leer
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es un fragmento de programa en Python que utiliza la biblioteca `PIL` (también conocida como `Pillow`) para trabajar con imágenes. El objetivo principal es abrir una imagen existente y mostrar los valores de píxeles individuales.
-
-1. **Abrir la Imagen**: El código comienza abriendo un archivo de imagen llamado "prueba1.png" utilizando el método `Image.open()`. Esto crea una instancia del objeto `Image` que contiene toda la información sobre la imagen, como sus dimensiones y los colores de cada píxel.
-
-2. **Acceder a los Píxeles**: Una vez que se ha cargado la imagen, se obtienen todos los datos de los píxeles utilizando el método `load()`. La variable `pixels` ahora representa una matriz bidimensional (dos dimensiones) donde cada elemento es un triple `(r, g, b)` representando el color rojo (R), verde (G) y azul (B) para cada píxel de la imagen.
-
-3. **Recorrer los Píxeles**: El código luego itera sobre todos los píxeles en la imagen utilizando un bucle `for`. Para cada posición `(x, y)` en la imagen, el programa imprime el valor del píxel correspondiente usando `print(pixels[x,y])`.
-
-4. **Mostrar Información Adicional**: Finalmente, se imprime toda la matriz de píxeles utilizando simplemente `print(pixels)`. Esto muestra todos los valores de color en formato de matriz para referencia adicional.
-
-Este código es especialmente útil cuando necesitas examinar o manipular directamente los datos de un archivo de imagen. Te permite entender cómo están organizados y qué contienen exactamente los píxeles en una imagen digital.
-
-`018-leer.py`
 
 ```python
 from PIL import Image
@@ -1198,17 +755,6 @@ print(pixels)
 ```
 
 ### leer letras una a una
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una parte de un programa que carga una imagen en formato PNG usando la biblioteca PIL (Pillow) y luego itera sobre cada píxel de esa imagen para imprimir el valor de sus canales de color (rojo, verde y azul) junto con su equivalente como carácter ASCII. 
-
-El código abre una imagen llamada "prueba1.png" y carga todos los píxeles en la variable `pixels`. Luego, mediante dos bucles anidados, recorre cada coordenada `(x,y)` de la imagen. Para cada píxel, se obtiene el valor de sus tres canales de color (rojo, verde y azul) y se imprime tanto el valor numérico como su correspondiente carácter ASCII usando la función `chr()`.
-
-Es importante entender que esta parte del código está explorando cómo los valores numéricos en una imagen pueden corresponder a caracteres visibles cuando son interpretados de cierta manera. Esto puede ser útil para comprender procesos más avanzados como el ocultamiento o manipulación de información dentro de imágenes (también conocido como steganografía).
-
-`019-leer letras una a una.py`
 
 ```python
 from PIL import Image
@@ -1234,19 +780,6 @@ print(pixels)
 ```
 
 ### encadeno a cadena
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código está diseñado para convertir el contenido de una imagen en un texto, específicamente convirtiendo los valores de color de cada píxel en caracteres. El programa utiliza la librería `PIL` (Python Imaging Library), que es comúnmente usada para manipular imágenes.
-
-El fragmento comienza creando un objeto `ArgumentParser` para manejar argumentos pasados desde la línea de comandos, permitiendo al usuario especificar el nombre del archivo de imagen a procesar. Una vez establecido esto, se carga la imagen usando el comando `Image.open()` y se obtienen los píxeles de la imagen con `img.load()`. 
-
-Luego, el código recorre cada pixel en las dimensiones de la imagen (determinadas por `img.size`) y para cada uno de ellos, accede a sus valores RGB. Cada valor RGB es un número entero que se convierte en su equivalente carácter ASCII utilizando la función `chr()`. Estos caracteres son acumulados en una cadena llamada `cadena`, que finalmente se imprime al final del código.
-
-Este proceso permite visualizar el contenido binario de una imagen como texto, aunque los resultados no serán legibles para un humano debido a cómo funcionan los códigos ASCII y cómo las imágenes están almacenadas.
-
-`020-encadeno a cadena.py`
 
 ```python
 from PIL import Image
@@ -1273,21 +806,6 @@ print(cadena)
 ```
 
 ### encoder
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código convierte una cadena de texto en una imagen RGB. Primero, el programa recibe dos argumentos desde la línea de comandos: un texto que se quiere convertir y el nombre del archivo donde guardará la imagen resultante.
-
-El texto se codifica a bytes utilizando el formato UTF-8 y luego se añade una cabecera de 4 bytes al principio para indicar cuántos bytes contiene realmente el texto. Esta cabecera es necesaria para poder leer el texto de vuelta desde la imagen con precisión.
-
-Después, se rellena la información hasta que su longitud sea un múltiplo de 3, lo cual corresponde a los tres canales de color (rojo, verde y azul) en una imagen RGB. Esto asegura que cada byte del texto pueda ser representado como un pixel en la imagen.
-
-Finalmente, se calcula el tamaño adecuado para la imagen basándose en la cantidad total de bytes y se crea una imagen cuadrada negra. Los bytes son asignados a los canales de color de cada píxel de la imagen, creando así visualmente el texto dentro del archivo de imagen que será guardado en la ubicación especificada.
-
-Este proceso es útil para ocultar información dentro de imágenes o para convertir datos textuales en un formato visual.
-
-`021-encoder.py`
 
 ```python
 from PIL import Image
@@ -1332,21 +850,6 @@ img.save(args.salida)
 ```
 
 ### decoder
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un script en Python que decodifica una imagen RGB (en formato PNG o JPG) para extraer un texto oculto dentro de ella. El objetivo principal del script es leer los valores de color de cada píxel de la imagen y usar estos valores para reconstruir el texto original.
-
-El código comienza creando un objeto `ArgumentParser` que permite a usuarios proporcionar la ruta del archivo de imagen como argumento al ejecutar el script. Luego, se carga la imagen especificada en una variable llamada `img`, convirtiéndola en escala de color RGB para facilitar el procesamiento de los colores de cada píxel.
-
-A continuación, se itera sobre todos los píxeles de la imagen y extrae los valores R (rojo), G (verde) y B (azul) de cada uno. Estos valores son almacenados en un `bytearray`, que es una colección eficiente de bytes.
-
-Una vez que se han recopilado todos los datos del píxel, el script busca la longitud del texto oculto dentro de los primeros 4 bytes del bytearray (que representan la longitud en formato big-endian). A continuación, extrae exactamente esa cantidad de bytes a partir del quinto byte y decodifica estos bytes utilizando UTF-8 para obtener el texto original.
-
-Finalmente, imprime el texto reconstruido en la consola. Este tipo de codificación es útil cuando se desea ocultar datos dentro de una imagen sin alterar significativamente su apariencia visual, lo que puede tener aplicaciones tanto educativas como prácticas en campos como la seguridad de la información y la esteganografía.
-
-`022-decoder.py`
 
 ```python
 from PIL import Image
@@ -1380,19 +883,6 @@ print(texto)
 ```
 
 ### supercodificador
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este script en Python permite convertir texto (en formato UTF-8) en una imagen de píxeles RGB cuadrada y viceversa. El código utiliza el módulo `argparse` para manejar argumentos de línea de comandos, permitiendo al usuario elegir entre codificar o decodificar un mensaje.
-
-El proceso de codificación convierte el texto en una secuencia de bytes, añade una cabecera que incluye una marca de identificación (MAGIC), la longitud del mensaje y un código de redundancia cíclica (CRC) para detectar errores. Los datos se almacenan dentro de los píxeles RGB de una imagen cuadrada, asegurando que cada píxel contenga exactamente tres bytes.
-
-Para decodificar, el script primero verifica la cabecera de la imagen para confirmar su integridad y luego recupera el texto original del contenido de los píxeles. Si se selecciona la opción `--raw-bytes`, se guardan los datos brutos sin intentar decodificarlos como UTF-8.
-
-Este tipo de script es útil en contextos donde necesitas ocultar o proteger información dentro de una imagen, manteniendo su apariencia visual intacta.
-
-`023-supercodificador.py`
 
 ```python
 #!/usr/bin/env python3
@@ -1614,42 +1104,12 @@ if __name__ == "__main__":
 ```
 
 ### clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El fragmento de código que has proporcionado no es realmente un código Python válido. Es una línea de texto simple "soy un cliente". Esta línea parece estar fuera de contexto porque normalmente en archivos binarios como `clientes.bin`, se almacenan datos estructurados, generalmente serializados usando bibliotecas como Pickle o similar.
-
-Si este archivo `clientes.bin` es generado por algún otro script que usa Python para guardar objetos (como diccionarios, listas, etc.) utilizando el módulo `pickle`, entonces "soy un cliente" podría ser parte de los datos almacenados en ese objeto antes de ser guardado. Sin embargo, la frase tal cual no tiene sentido como código y probablemente deba revisarse el contexto del archivo o cómo fue creado.
-
-Para entender mejor cómo funciona este archivo binario, necesitaríamos ver cuál es el script que lo genera o qué hace para leerlo.
-
-`clientes.bin`
 
 ```
 soy un cliente
 ```
 
 ### texto
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este texto parece ser el prólogo del famoso libro "Don Quijote de La Mancha" escrito por Miguel de Cervantes Saavedra. El prólogo se presenta como una conversación entre el autor y un amigo, en la cual este último aconseja al primero sobre cómo hacer su libro tan convincente y creíble como los demás libros de caballería que eran muy populares en ese tiempo. 
-
-En esta conversación, el amigo del escritor sugiere varias técnicas:
-
-1) Incluir citas de autores famosos y sentencias latinas a lo largo del texto.
-2) Agregar anotaciones al final del libro con referencias a personajes históricos o literarios conocidos para añadir credibilidad.
-3) Nombrar una lista extensa de autores en el inicio del libro, aunque no se hayan consultado realmente.
-
-Estas sugerencias están hechas irónicamente dado que el propósito principal de la obra es criticar los libros de caballería. El amigo argumenta que estas técnicas engañosas son comunes y esperadas por los lectores en ese género literario. 
-
-El prólogo termina con una petición del autor al lector para que aprecie tanto a Don Quijote como a su fiel escudero Sancho Panza.
-
-Este prólogo es famoso no solo por introducir el contenido de la novela, sino también por satirizar y cuestionar las convenciones literarias de su época.
-
-`texto.txt`
 
 ```
 Desocupado lector, sin juramento me podrás creer que quisiera que este libro, como hijo del entendimiento, fuera el más hermoso, el más gallardo y más discreto que pudiera imaginarse. Pero no he podido yo contravenir al orden de naturaleza; que en ella cada cosa engendra su semejante. Y así, ¿qué podrá engendrar el estéril y mal cultivado ingenio mío, sino la historia de un hijo seco, avellanado, antojadizo y lleno de pensamientos varios y nunca imaginados de otro alguno, bien como quien se engendró en una cárcel, donde toda incomodidad tiene su asiento y donde todo triste ruido hace su habitación? El sosiego, el lugar apacible, la amenidad de los campos, la serenidad de los cielos, el murmurar de las fuentes, la quietud del espíritu son grande parte para que las musas más estériles se muestren fecundas y ofrezcan partos al mundo que le colmen de maravilla y de contento. Acontece tener un padre un hijo feo y sin gracia alguna, y el amor que le tiene le pone una venda en los ojos para que no vea sus faltas, antes las juzga por discreciones y lindezas y las cuenta a sus amigos por agudezas y donaires. Pero yo, que, aunque parezco padre, soy padrastro de Don Quijote, no quiero irme con la corriente del uso, ni suplicarte, casi con las lágrimas en los ojos, como otros hacen, lector carísimo, que perdones o disimules las faltas que en este mi hijo vieres, pues ni eres su pariente ni su amigo, y tienes tu alma en tu cuerpo y tu libre albedrío como el más pintado, y estás en tu casa, donde eres señor della, como el rey de sus alcabalas, y sabes lo que comúnmente se dice, que debajo de mi manto, al rey mato. Todo lo cual te exenta y hace libre de todo respecto y obligación, y así, puedes decir de la historia todo aquello que te pareciere, sin temor que te calunien por el mal ni te premien por el bien que dijeres della.
@@ -1693,42 +1153,30 @@ Vengamos ahora a la citación de los autores que los otros libros tienen, que en
 Con silencio grande estuve escuchando lo que mi amigo me decía, y de tal manera se imprimieron en mí sus razones que, sin ponerlas en disputa, las aprobé por buenas y de ellas mismas quise hacer este prólogo, en el cual verás, lector suave, la discreción de mi amigo, la buena ventura mía en hallar en tiempo tan necesitado tal consejero, y el alivio tuyo en hallar tan sincera y tan sin revueltas la historia del famoso don Quijote de la Mancha, de quien hay opinión por todos los habitadores del distrito del campo de Montiel, que fue el más casto enamorado y el más valiente caballero que de muchos años a esta parte se vio en aquellos contornos. Yo no quiero encarecerte el servicio que te hago en darte a conocer tan noble y tan honrado caballero; pero quiero que me agradezcas el conocimiento que tendrás del famoso Sancho Panza, su escudero, en quien, a mi parecer, te doy cifradas todas las gracias escuderiles que en la caterva de los libros vanos de caballerías están esparcidas. Y con esto, Dios te dé salud, y a mí no olvide. Vale.
 ```
 
-### Actividades propuestas
-
-He revisado el texto que has proporcionado. Es una parte del prólogo del famoso libro "Don Quijote de la Mancha" escrito por Miguel de Cervantes. El prólogo es una conversación entre el narrador (Cervantes) y un amigo, donde discuten sobre cómo escribir un libro crítico hacia los romances de caballería mientras aparenta erudición.
-
-Algunos puntos clave del texto:
-
-1. La necesidad del autor de parecer más culto de lo que es para dar credibilidad a su obra.
-2. Consejos sobre cómo agregar citas y anotaciones falsas para simular erudición.
-3. Argumentación sobre por qué este libro en particular no necesita las convenciones típicas de otros libros.
-4. Discusión sobre los efectos deseados que el libro debería tener en diferentes tipos de lectores.
-5. Crítica hacia los romances de caballería y su influencia.
-
-Este prólogo es famoso por ser una reflexión metanarrativa sobre la naturaleza de la escritura literaria y la relación entre autor, obra y lector. Es considerado un texto crucial para entender el ingenio y la ironía que caracterizan a "Don Quijote".
-
-Si necesitas resumen específico o análisis más detallado de algún aspecto del texto, avísame.
-
-
 <a id="operaciones-sobre-ficheros-secuenciales-y-aleatorios"></a>
 ## Operaciones sobre ficheros secuenciales y aleatorios
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/004-Operaciones%20sobre%20ficheros%20secuenciales%20y%20aleatorios)
+En este capítulo, nos adentramos en las operaciones sobre ficheros secuenciales y aleatorios, dos tipos fundamentales de acceso a los datos almacenados en archivos. Comenzamos por entender la diferencia entre estos dos tipos de acceso.
 
-### Introducción a los ejercicios
+Los ficheros secuenciales son aquellos en los que los datos se almacenan en orden lineal, y el acceso a ellos es secuencial, es decir, se leen o escriben desde el principio hasta el final del archivo. Este tipo de acceso es sencillo pero limitado, ya que no permite saltar directamente a cualquier posición dentro del fichero.
 
-En esta carpeta de ejercicios, se exploran diferentes métodos para trabajar con ficheros en Python, tanto secuenciales como aleatorios. El primer archivo (`001-archivos secuenciales.py`) muestra cómo crear y escribir en múltiples archivos JSON dentro de un directorio llamado "secuenciales", generando una estructura lineal de datos para cada uno. Por otro lado, el segundo archivo (`002-archivos hash table.py`) enseña la creación de ficheros usando una tabla hash basada en valores únicos generados mediante un algoritmo MD5, permitiendo así buscar y recuperar información de manera más eficiente.
+Por otro lado, los ficheros aleatorios permiten un acceso directo a cualquier registro dentro del archivo, lo que significa que se puede leer o escribir en cualquier lugar sin necesidad de recorrer el archivo desde el principio. Este tipo de acceso es más eficiente para operaciones que requieren acceso rápido a datos específicos.
 
-Estos ejercicios ayudan a desarrollar habilidades clave en manejo de archivos, uso de estructuras de datos avanzadas como tablas hash, y aplicaciones prácticas del cifrado básico para generar claves únicas.
+Para trabajar con ficheros secuenciales en Python, utilizamos la clase `open()` junto con los métodos `read()`, `write()`, `readline()` y `writeline()`. Estos métodos nos permiten leer o escribir todo el contenido del archivo de una sola vez, lo que es adecuado para ficheros pequeños. Sin embargo, si intentamos usar estos métodos con archivos grandes, podríamos encontrarnos con problemas de rendimiento debido a la carga completa del contenido en memoria.
+
+En contraste, los ficheros aleatorios requieren un acceso más complejo y se manejan mediante el uso de clases como `randomaccessfile` o bibliotecas específicas para este tipo de operaciones. En Python, no existe una clase nativa para trabajar con ficheros aleatorios, pero podemos simular su comportamiento utilizando la clase `open()` junto con los métodos `seek()`, `tell()` y `readline()`.
+
+La función `seek()` nos permite mover el puntero del archivo a cualquier posición específica dentro del mismo, mientras que `tell()` devuelve la posición actual del puntero. Estas funciones son esenciales para realizar operaciones aleatorias en ficheros, ya que nos permiten saltar directamente a la posición donde se encuentra el dato que queremos leer o escribir.
+
+Es importante tener en cuenta que trabajar con ficheros aleatorios puede ser más complejo y requiere un manejo cuidadoso de los punteros y las posiciones dentro del archivo. Además, es necesario tener en cuenta que no todos los tipos de datos pueden almacenarse directamente en un fichero aleatorio, ya que algunos tipos de datos requieren una estructura específica para su almacenamiento.
+
+En resumen, tanto los ficheros secuenciales como los aleatorios tienen sus ventajas y desventajas. Los ficheros secuenciales son sencillos pero limitados, mientras que los ficheros aleatorios permiten un acceso directo a cualquier registro dentro del archivo, lo que es más eficiente para operaciones que requieren acceso rápido a datos específicos. En Python, podemos trabajar con ambos tipos de ficheros utilizando las clases `open()` y sus métodos correspondientes, aunque el manejo de ficheros aleatorios puede requerir un enfoque más complejo y cuidadoso.
+
+Para profundizar en este tema, es recomendable experimentar con diferentes operaciones sobre ficheros secuenciales y aleatorios utilizando Python. Puedes crear archivos temporales para probar estas operaciones y observar cómo funcionan en la práctica. También puedes investigar bibliotecas específicas para trabajar con ficheros aleatorios si necesitas un acceso más avanzado a estos tipos de datos.
+
+Al finalizar esta subunidad, deberías tener una comprensión sólida del manejo de ficheros secuenciales y aleatorios en Python, así como las ventajas y desventajas de cada tipo de acceso. Esta conocimiento es fundamental para trabajar con archivos grandes y complejos en aplicaciones prácticas.
 
 ### archivos secuenciales
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una secuencia de instrucciones en Python que crean un nuevo directorio llamado "secuenciales" y luego generan 100 archivos JSON dentro de este directorio. Primero, el programa intenta crear el directorio utilizando `os.mkdir("secuenciales")`. Si el directorio ya existe, la excepción es capturada y se ignora para evitar errores. Luego, en un bucle for que itera desde 0 hasta 99 (100 veces en total), el código abre un archivo JSON nuevo con nombre "cliente0.json", "cliente1.json", etc., y escribe dentro de cada uno la frase "texto del cliente". Finalmente, cierra cada archivo después de escribir en él. Este tipo de operaciones es importante para entender cómo crear y manipular archivos en Python, especialmente cuando se trabaja con datos estructurados como JSON.
-
-`001-archivos secuenciales.py`
 
 ```python
 import os
@@ -1745,19 +1193,6 @@ for i in range(0,100):
 ```
 
 ### archivos hash table
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python crea una estructura de archivo basada en un concepto llamado "tabla hash", que es útil para almacenar y buscar información rápidamente. En primer lugar, el programa verifica si existe una carpeta llamada "hash" y la crea si no está presente.
-
-Luego, se define una lista con datos ficticios de varias personas. Para cada persona en esta lista, el código combina ciertos atributos (nombre, apellido y edad) para crear una cadena única que luego codifica mediante un algoritmo llamado MD5, produciendo una "huella digital" o hash. Este hash es único para cada combinación de datos y se utiliza como nombre del archivo en una carpeta llamada "hash", donde el código guarda la información completa sobre esa persona en formato JSON.
-
-Finalmente, el programa muestra cómo buscar información almacenada. Se crea otra cadena usando los mismos atributos (nombre, apellido y edad) para una persona específica ("Lucía Fernández"), se genera su hash correspondiente y se utiliza este hash para abrir el archivo correcto en la carpeta "hash". Luego, carga el contenido del archivo JSON y lo imprime.
-
-Este método es importante porque permite acceder a los datos de manera muy eficiente, sin necesidad de buscar linealmente a través de todos los archivos. Es especialmente útil cuando se manejan grandes cantidades de información y se necesita localizar rápidamente un conjunto específico de datos basándose en uno o más criterios únicos.
-
-`002-archivos hash table.py`
 
 ```python
 import os
@@ -1827,68 +1262,26 @@ print(contenido)
     
 ```
 
-### Actividades propuestas
-
-### Actividades Propuestas para Estudiantes de Formación Profesional
-
-1. **Creación y Lectura Básica**
-   - Los estudiantes deberán crear un programa que genere archivos secuenciales con datos similares a los existentes en el archivo `001-archivos secuenciales.py`. Se espera que comprendan cómo generar múltiples archivos desde un bucle.
-
-2. **Manipulación de Diccionarios y Hashing**
-   - Los estudiantes tendrán que replicar la creación de directorios para almacenar datos en formato JSON, usando hash como nombres de archivo basados en una cadena combinada del nombre, apellido y edad del individuo. Se espera que aprendan a manipular diccionarios y generar hashes MD5.
-
-3. **Lectura de Archivos Hash**
-   - Los alumnos deben escribir un script para leer archivos desde el directorio "hash" generado por `002-archivos hash table.py`. Se les pedirá que encuentren la información de una persona específica, utilizando su nombre y apellido concatenados con su edad.
-
-4. **Validación de Archivos**
-   - Los estudiantes deberán escribir un script para validar si los archivos creados en el ejercicio 1 (`001-archivos secuenciales.py`) existen y son legibles antes de intentar abrirlos. Se espera que aprendan a gestionar excepciones.
-
-5. **Comparación de Datos**
-   - Los alumnos deben crear una función que compare dos archivos JSON generados por `002-archivos hash table.py` para verificar si tienen la misma estructura y datos. Esto implica leer los archivos y comparar sus contenidos.
-
-6. **Búsqueda y Modificación de Dato**
-   - Se les pedirá a los estudiantes que modifiquen el nombre o apellido de una persona específica en un archivo hash, generando posteriormente otro archivo con la información modificada. Aprenderán cómo manipular archivos JSON dinámicamente.
-
-7. **Generación de Resúmenes de Datos**
-   - Los alumnos deben desarrollar un script que genere resúmenes estadísticos básicos (edad mínima, máxima y promedio) de los datos almacenados en los archivos hash generados por `002-archivos hash table.py`.
-
-8. **Estructura de Directorios Personalizada**
-   - Los estudiantes tendrán la tarea de mejorar el sistema de almacenamiento existente para organizar mejor los archivos JSON en subdirectorios basándose en la ciudad o profesión del individuo. Se espera que trabajen con estructuras más complejas.
-
-9. **Integración de Funciones**
-   - Integrar las funcionalidades aprendidas (lectura, escritura, hashing) en una aplicación única y cohesiva que permita tanto crear como gestionar datos personalizados desde archivos JSON.
-
-10. **Documentación Básica del Código**
-    - Los estudiantes deben documentar cada uno de los programas anteriores con comentarios explicativos para mejorar la legibilidad del código y facilitar su mantenimiento futuro. Se espera que comprendan la importancia de documentar el código en proyectos reales.
-
-
 <a id="serializaciondeserializacion-de-objetos"></a>
 ## Serializacióndeserialización de objetos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/005-Serializaci%C3%B3ndeserializaci%C3%B3n%20de%20objetos)
+La serialización y deserialización de objetos son procesos fundamentales en la programación orientada a objetos, permitiendo convertir los estados de un objeto en una forma que pueda ser almacenada o transmitida y luego recuperar ese estado para restaurar el objeto. En este contexto, se refiere a la transformación de un objeto en una secuencia de bytes (serialización) y viceversa (deserialización).
 
-### Introducción a los ejercicios
+La serialización es el proceso de convertir un objeto en una representación persistente que puede ser almacenada en un archivo o transmitida a través de una red. Este proceso es crucial cuando se necesita mantener el estado de un objeto entre diferentes ejecuciones del programa, o cuando se desea compartir objetos entre diferentes componentes de una aplicación.
 
-En esta carpeta de ejercicios se encuentran tres archivos que trabajan con la serialización y deserialización de objetos en Python utilizando el módulo `json`. El objetivo principal es entender cómo convertir datos complejos, como listas de diccionarios, en una representación en cadena (serialización) y viceversa (deserialización), lo cual es fundamental para almacenar o transmitir información estructurada. Los ejercicios practican la creación y escritura en archivos de texto plano de datos serializados y luego su lectura y transformación nuevamente en objetos Python, mejorando así las habilidades de manejo de ficheros y trabajo con datos complejos.
+Deserialización, por otro lado, es el proceso inverso de la serialización. Consiste en tomar una secuencia de bytes que representan un objeto y reconstruir el objeto original a partir de esa secuencia. Este proceso es necesario para recuperar los objetos almacenados o transmitidos y utilizarlos nuevamente en el programa.
 
-Estos ejercicios son esenciales para estudiantes de Formación Profesional que buscan desarrollar competencias avanzadas en la manipulación de datos estructurados y el almacenamiento persistente de información en aplicaciones Python.
+En Python, la biblioteca `pickle` proporciona métodos para serializar y deserializar objetos. El método `pickle.dumps()` se utiliza para serializar un objeto y convertirlo en una secuencia de bytes, mientras que el método `pickle.loads()` se utiliza para deserializar esa secuencia de bytes y restaurar el objeto original.
+
+Es importante tener en cuenta que la serialización y deserialización pueden ser complejas si los objetos contienen referencias a otros objetos o recursos externos. En tales casos, es necesario implementar métodos personalizados para manejar estas situaciones correctamente.
+
+Además, la seguridad de la serialización es un aspecto crucial, ya que puede permitir el acceso no autorizado a partes sensibles del programa si no se maneja adecuadamente. Por lo tanto, es recomendable utilizar técnicas seguras y verificar siempre los objetos deserializados para evitar posibles amenazas.
+
+La serialización y deserialización de objetos son herramientas poderosas que permiten la persistencia y el intercambio de datos en aplicaciones orientadas a objetos. Al entender estos conceptos y cómo implementarlos correctamente, se puede mejorar significativamente la funcionalidad y la eficiencia de las aplicaciones desarrolladas.
+
+En resumen, la serialización y deserialización de objetos son procesos esenciales en el manejo de datos en programación orientada a objetos. A través de métodos como `pickle.dumps()` y `pickle.loads()`, se pueden convertir los estados de los objetos en secuencias de bytes y viceversa, lo que facilita la persistencia y el intercambio de datos entre diferentes componentes de una aplicación. Es crucial entender estos conceptos y cómo implementarlos correctamente para mejorar la funcionalidad y la seguridad de las aplicaciones desarrolladas.
 
 ### serializacion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se encarga de serializar una lista de diccionarios que representan información sobre personas (como nombre, edad y profesión) en formato JSON. La serialización es el proceso por el cual datos complejos como listas y objetos se convierten en un formato de texto simple, como JSON, para almacenar o transmitir la información de manera eficiente.
-
-El código comienza importando el módulo `json`, que proporciona funciones para trabajar con datos JSON. Luego, define una lista llamada `personas` que contiene varios diccionarios, donde cada diccionario representa a una persona y sus características como nombre, edad, ciudad y profesión.
-
-Después de imprimir la lista original (`personas`) y su tipo (que es un objeto list), el código utiliza la función `json.dumps()` para convertir la lista en una cadena JSON. Esto significa que los datos complejos se transforman en una simple cadena de texto que representa a las personas en formato JSON.
-
-Finalmente, el código abre un archivo llamado "basededatos.dat" en modo escritura (`'w'`), escribe dentro del archivo la cadena JSON recién creada y luego cierra el archivo. Este proceso guarda los datos serializados en un archivo de texto que puede ser almacenado o transmitido fácilmente.
-
-Este tipo de operación es importante porque permite guardar estructuras complejas de datos en archivos simples, facilitando su manejo y transferencia en diferentes sistemas o aplicaciones que puedan necesitar acceder a esos mismos datos.
-
-`001-serializacion.py`
 
 ```python
 import json
@@ -1948,17 +1341,6 @@ archivo.close()
 ```
 
 ### desserializar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python te enseña cómo leer un archivo y deserializar (convertir de texto a objeto) una línea que contiene datos serializados, es decir, guardados como texto. Primero, el programa abre el archivo llamado "basededatos.dat" en modo lectura ('r'). Luego, lee la primera línea del archivo y muestra su contenido con `print(linea)`. Además, imprime qué tipo de dato es `linea` usando `type(linea)` para que puedas ver que esta variable contiene una cadena de texto (str).
-
-Después, el programa utiliza la función `json.loads()` para convertir la línea del archivo en un objeto Python. Esto significa que toma la cadena de texto que representa datos estructurados como diccionarios o listas y los convierte en objetos correspondientes de Python. Finalmente, muestra este objeto nuevo con `print(devuelta)` y también indica el tipo de dato que ahora es con `type(devuelta)`, para mostrarte cómo ha cambiado la representación del mismo después de la deserialización.
-
-Esta práctica es importante porque permite a los programas interactuar fácilmente con datos almacenados en archivos, permitiendo leer información compleja como si fuera un objeto Python simple y manejable.
-
-`002-desserializar.py`
 
 ```python
 import json
@@ -1980,111 +1362,29 @@ print(type(devuelta))
 ```
 
 ### basededatos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código representa una lista de datos almacenados en un archivo llamado `basededatos.dat`. Cada elemento dentro de la lista es un diccionario que contiene información sobre una persona, como su nombre, apellido, edad, ciudad donde vive y profesión. Los datos están serializados, lo que significa que se han convertido en un formato de texto para ser almacenados o transmitidos fácilmente.
-
-La estructura del archivo permite acceder a cada persona individualmente mediante la lista indexada (por ejemplo, `lista[0]` te daría el primer diccionario con los datos de Carlos). Esta forma de guardar información es útil porque permite leer y manipular fácilmente objetos complejos en un formato que se puede almacenar o enviar sin perder su estructura.
-
-Este tipo de archivo es común en aplicaciones que necesitan persistir datos de objetos en archivos, permitiendo así la carga y el uso de esos datos en diferentes momentos del funcionamiento de una aplicación. Es importante entender cómo serializar (convertir a texto) y desserializar (convertir desde texto al objeto original) para manipular adecuadamente esta información en programas que manejan bases de datos o archivos de configuración personalizados.
-
-`basededatos.dat`
 
 ```
 [{"nombre": "Carlos", "apellido": "Mart\u00ednez", "edad": 28, "ciudad": "Madrid", "profesion": "Ingeniero"}, {"nombre": "Luc\u00eda", "apellido": "Fern\u00e1ndez", "edad": 34, "ciudad": "Barcelona", "profesion": "Doctora"}, {"nombre": "Andr\u00e9s", "apellido": "Garc\u00eda", "edad": 22, "ciudad": "Valencia", "profesion": "Estudiante"}, {"nombre": "Mar\u00eda", "apellido": "L\u00f3pez", "edad": 41, "ciudad": "Sevilla", "profesion": "Arquitecta"}, {"nombre": "Javier", "apellido": "S\u00e1nchez", "edad": 30, "ciudad": "Bilbao", "profesion": "Profesor"}]
 ```
 
-### Actividades propuestas
-
-### Actividades Propuestas
-
-#### **Actividad 1: Serialización Básica de Datos**
-**Descripción:** Los estudiantes deben serializar una lista de objetos en un archivo JSON. Este ejercicio ayudará a los alumnos a entender cómo convertir estructuras de datos complejas como listas y diccionarios en formato texto plano.
-
-#### **Actividad 2: Deserialización Sencilla**
-**Descripción:** El objetivo es que los estudiantes deserialicen el contenido del archivo `basededatos.dat` generado en la actividad anterior. Esto les permitirá entender cómo recuperar datos serializados desde un archivo de texto.
-
-#### **Actividad 3: Trabajando con Datos Personales**
-**Descripción:** Los alumnos deben crear una función que lea un archivo JSON y devuelva los datos deserializados como una lista de objetos Python. Esta actividad ayudará a familiarizarse con la manipulación de archivos y estructuras de datos en formato JSON.
-
-#### **Actividad 4: Serialización con Personalización**
-**Descripción:** Los estudiantes deben crear una función que serialice los datos proporcionados, pero esta vez incluyendo opciones adicionales como indentado para mejorar la legibilidad del archivo JSON generado.
-
-#### **Actividad 5: Deserializar y Filtrar Datos**
-**Descripción:** Se pide a los alumnos que deserialicen un archivo JSON y creen una función que filtre y devuelva solamente ciertos campos de interés (por ejemplo, solo las edades o profesiones).
-
-#### **Actividad 6: Serialización de Diferentes Tipos de Datos**
-**Descripción:** Los estudiantes deben serializar no solo listas y diccionarios, sino también objetos más complejos como fechas y listas anidadas. Esto les permitirá entender los límites y capacidades del módulo `json`.
-
-#### **Actividad 7: Deserialización Con Excepciones**
-**Descripción:** Los alumnos deben implementar un código que maneje posibles errores al deserializar datos incorrectos o mal formados desde un archivo JSON. Esto les ayudará a entender cómo tratar excepciones en Python.
-
-#### **Actividad 8: Serialización/Desserialización de Grandes Datos**
-**Descripción:** Se pide a los estudiantes que trabajen con archivos más grandes, creando una función eficiente para serializar/deserializar datos grandes sin consumir demasiada memoria RAM. Esto les ayudará a enfrentar desafíos prácticos en el manejo de grandes volúmenes de datos.
-
-#### **Actividad 9: Serialización/Desserialización Mejorada**
-**Descripción:** Los alumnos deben mejorar las funciones de serialización y desserialización realizadas en actividades anteriores, añadiendo funcionalidades adicionales como la posibilidad de guardar datos binarios o optimizar el formato JSON generado para ser más compacto.
-
-#### **Actividad 10: Aplicación Final Completa**
-**Descripción:** Se pide a los estudiantes que desarrollen una aplicación completa que permita al usuario serializar y desserializar datos interactivamente, con opciones de filtrado y búsqueda avanzadas. Esto les ayudará a combinar todos los conceptos aprendidos en una tarea práctica.
-
-
 <a id="trabajo-con-ficheros"></a>
 ## Trabajo con ficheros
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/006-Trabajo%20con%20ficheros)
+En este capítulo, nos adentramos en los fundamentos del manejo de ficheros, una habilidad esencial para cualquier programador que quiera interactuar con el sistema de archivos. Comenzamos por explorar las clases asociadas a las operaciones de gestión de ficheros, descubriendo cómo estas proporcionan una interfaz para crear, leer, escribir y eliminar archivos.
 
-### Introducción a los ejercicios
+A medida que avanzamos, nos familiarizamos con los diferentes tipos de acceso a un fichero, cada uno con sus propias ventajas y limitaciones. Aprenderemos sobre las clases para gestión de flujos de datos desdehacia ficheros, lo que nos permitirá trabajar eficientemente con grandes cantidades de información.
 
-The directory structure you've provided appears to be for a project related to ERP (Enterprise Resource Planning) and CRM (Customer Relationship Management) systems, likely in the context of educational materials or a learning resource. Here's an overview of what each component might represent:
+El siguiente paso es aprender cómo realizar operaciones sobre ficheros secuenciales y aleatorios. Este conocimiento es crucial para optimizar el acceso a los datos, ya sea para leer o escribir información en un orden específico o directamente a una ubicación específica dentro del archivo.
 
-### Top-Level Files:
-1. **`README.md`**: This is typically used as a general introduction or guide for understanding the project structure and purpose.
-2. **`esquema general.svg`**: A diagram (in SVG format) that likely outlines the overall schema or architecture of the ERP/CRM system being discussed.
+La serialización y deserialización de objetos son técnicas avanzadas que nos permiten almacenar y recuperar objetos complejos en ficheros. Aprenderemos cómo convertir objetos en una forma que pueda ser guardada en el disco y luego reconstruirlos cuando sea necesario, lo que es fundamental para aplicaciones que manejan datos persistentes.
 
-### `00-Introducción`:
-This folder seems to provide an overview or introduction to the various components related to ERP/CRM systems.
-- **`001-Resumen.md`**: A summary or brief explanation about what is covered in this introductory section.
-- **`Criterios de evaluacion.md`**: This file probably contains evaluation criteria for understanding how well one can assess their knowledge of ERP and CRM systems after studying the materials.
+Trabajamos con ficheros esencialmente a través de excepciones, aprendiendo a detectar y tratar errores comunes durante la operación de lectura y escritura. Esto nos asegura que nuestras aplicaciones sean robustas y puedan manejar situaciones inesperadas sin caer en fallos.
 
-### `01-Administración del sistema`:
-This folder likely covers administrative aspects like installation, configuration, maintenance, etc., of an ERP/CRM system.
-- **`Criterios de evaluacion.md`**: Evaluation criteria specific to this section which might include tasks such as setting up environments and managing users.
-- Subfolders delve into more granular areas (like `01-Control y seguridad del sistema`, etc.).
+Finalmente, desarrollamos habilidades para crear aplicaciones que utilizan ficheros. Aprenderemos a combinar todas las técnicas adquiridas hasta ahora para construir programas que pueden leer, escribir y gestionar información de manera eficiente y segura.
 
-### `02-Gestión empresarial`:
-This folder probably covers the business management aspects of ERP/CRM systems.
-- **Subfolders like** `04-Implantación de sistemas ERP-CRM en una empresa` break down into specific areas such as implementing modules, customizing tables/views, creating forms/reports, etc.
-
-### `03-Desarrollo de componentes`:
-Focuses on the development aspects within an ERP/CRM environment.
-- **Subfolders** like `04-Inserción, modificación y eliminación de datos en los objetos` might contain details on how to manipulate data within these systems through scripting or custom programming.
-
-### Miscellaneous Files:
-1. **`Contenidos.py`, `Conversor.py`, and various `Criterios*.py` files**: These Python scripts likely serve some role in generating, converting, or evaluating content related to the ERP/CRM system's documentation or learning materials.
-2. Markdown documents (`00-Resumen.md`) scattered throughout provide summaries of sections and sub-sections.
-
-### Potential Use Cases:
-1. **Educational Purposes**: This directory structure could be part of an educational curriculum teaching students about ERP/CRC systems, from theory to practical implementation.
-2. **Training Materials**: Companies implementing new ERP/CRM solutions might use similar structures for training staff on system specifics and best practices.
-3. **Documentation Management**: Maintaining comprehensive documentation for existing implementations or customizations within a company's ERP/CRM setup.
-
-Overall, this structure suggests a well-organized approach to covering different aspects of ERP/CRC systems, suitable for both educational purposes and practical application scenarios.
+Este capítulo es una introducción integral al manejo de ficheros, proporcionando un sólido fundamento en el que se basarán futuras aplicaciones que requieran interactuar con el sistema de archivos.
 
 ### Introduccion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código no es realmente un bloque de código ejecutable en Python, sino más bien una descripción o comentario sobre lo que se va a hacer en el archivo. La idea principal aquí es crear un simulacro o una prueba básica para manejar archivos CSV (formato de valores separados por comas) que contienen datos de clientes.
-
-El texto indica que los datos de ejemplo serían de un archivo CSV llamado "clientes.csv", donde cada línea representa información sobre un cliente. La primera línea sería el encabezado, indicando las columnas: nombre, apellidos, email y dirección. Luego se proporciona un ejemplo de una línea de datos con la información del cliente José Vicente Carratala.
-
-Este tipo de estructura es común cuando estás aprendiendo a trabajar con archivos CSV en Python, ya que te permite entender cómo leer y manipular datos antes de tratar con bases de datos más complejas.
-
-`001-Introduccion.py`
 
 ```python
 Vamos a hacer un simulacro de conector a csv
@@ -2095,19 +1395,6 @@ Jose Vicente,Carratala,info@jocarsa.com,La calle de Jose Vicente
 ```
 
 ### guardar datos en formato csv
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código tiene como objetivo guardar datos en un archivo llamado `clientes.csv`. En primer lugar, se crea una variable `tupla` que contiene información sobre una persona: su nombre completo y su dirección de correo electrónico. Luego, el programa intenta abrir (o crear si no existe) el archivo `clientes.csv` en modo append ('a'), lo que significa que cualquier dato nuevo será añadido al final del archivo existente.
-
-El código crea también una variable llamada `cadena` para almacenar los datos de la tupla separados por comas. Sin embargo, hay un error en esta parte: el programa intenta escribir directamente la tupla en el archivo sin convertirla primero a una cadena legible usando operaciones como el bucle que se muestra. Este bucle debería haber concatenado los campos de la tupla y añadirles comas para separarlos, pero luego hay un error al tratar de escribir `tupla` directamente en lugar de `cadena`.
-
-Es importante corregir este código para asegurarse de que los datos se escriban correctamente en el archivo. La importancia de esta operación radica en la necesidad de almacenar y organizar información de manera estructurada, lo cual es fundamental en muchos campos como la gestión empresarial o la base de datos de clientes.
-
-Para mejorar este código, sería necesario asegurar que `cadena` se actualiza correctamente dentro del bucle y luego escribir `cadena` en lugar de `tupla`. Esto permitirá que los datos se guarden de manera correcta y legible en el archivo CSV.
-
-`002-guardar datos en formato csv.py`
 
 ```python
 tupla = ("Jose Vicente","Carratala","info@jocarsa.com")
@@ -2121,17 +1408,6 @@ archivo.close()
 ```
 
 ### serializamos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python es un ejemplo básico de cómo guardar información en un archivo CSV (fichero de valores separados por comas) a partir de una tupla. La tupla contiene tres elementos: un nombre completo ("Jose Vicente Carratala") y una dirección de correo electrónico ("info@jocarsa.com"). 
-
-El código abre el archivo llamado "clientes.csv" en modo añadir ('a'), lo que significa que se agregará información al final del archivo sin sobrescribir lo que ya esté ahí. Luego, recorre cada elemento de la tupla y lo concatena a una cadena, separando cada campo con una coma.
-
-Finalmente, escribe la cadena resultante en el archivo "clientes.csv" utilizando el método `write()` y cierra el archivo para asegurarse de que todos los cambios se guarden correctamente. Este tipo de operaciones son comunes cuando necesitas almacenar datos estructurados en archivos, permitiendo así su uso posterior en bases de datos o análisis de datos.
-
-`003-serializamos.py`
 
 ```python
 tupla = ("Jose Vicente","Carratala","info@jocarsa.com")
@@ -2145,17 +1421,6 @@ archivo.close()
 ```
 
 ### des serializar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para leer y procesar el contenido de un archivo llamado "clientes.csv". Primero, el programa abre este archivo en modo lectura ('r'). Luego, lee la primera línea del archivo utilizando `archivo.readline()`, lo que devuelve una cadena con los datos de esa línea.
-
-La función `split(",")` se aplica a esta línea para dividirla en partes separadas por comas (,), convirtiendo así la línea en una lista. En este caso específico, el resultado es almacenado en la variable `tupla`, aunque técnicamente lo que obtienes es una lista y no una tupla como podría sugerir el nombre de la variable.
-
-Finalmente, se imprime esta lista para ver su contenido y también se muestra el tipo de dato al que realmente pertenece este objeto (que será `<class 'list'>`). Al finalizar estas operaciones, el archivo es cerrado con `archivo.close()` para liberar los recursos del sistema operativo.
-
-`004-des serializar.py`
 
 ```python
 archivo = open("clientes.csv",'r')
@@ -2168,17 +1433,6 @@ archivo.close()
 ```
 
 ### lo convierto en tupla
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python te muestra cómo leer una línea desde un archivo CSV y convertirla en diferentes estructuras de datos. En primer lugar, el código abre un archivo llamado "clientes.csv" para lectura. Luego, lee la primera línea del archivo usando `archivo.readline()` y almacena esa línea en la variable `linea`. La función `split(",")` divide esta línea en partes basándose en la coma como separador, convirtiendo la línea en una lista de elementos.
-
-Después, el código imprime la lista resultante y su tipo, que es una lista. Luego, se utiliza la función `tuple()` para convertir esa lista en una tupla. Finalmente, imprime esta nueva tupla junto con su tipo, mostrando que ahora es un objeto de tipo 'tuple'. Este proceso es útil cuando necesitas manipular datos del archivo CSV y trabajar con ellos como estructuras inmutables (tuplas) en lugar de listas mutables.
-
-El código cierra el archivo después de realizar todas estas operaciones para asegurarse de que los recursos no estén ocupados innecesariamente. Es importante cerrar cualquier archivo que hayamos abierto una vez terminado su uso, ya que ayuda a mantener un manejo eficiente del sistema de archivos en tu computadora.
-
-`005-lo convierto en tupla.py`
 
 ```python
 archivo = open("clientes.csv",'r')
@@ -2194,21 +1448,6 @@ archivo.close()
 ```
 
 ### clase con dos metodos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código define una clase llamada `GestorCSV` que tiene como objetivo manejar datos en formato CSV (Comma Separated Values) a través de dos métodos principales: escribir y leer. La clase se inicializa con el nombre del archivo CSV que va a gestionar, utilizando `"clientes.csv"` como valor predeterminado.
-
-El método `escribir` toma una tupla como argumento y la convierte en una cadena separada por comas antes de añadirla al final del archivo especificado. Esto permite almacenar datos estructurados de manera fácil y legible para otros programas o sistemas que manejan CSV.
-
-Por otro lado, el método `leer` abre el archivo en modo lectura (`'r'`) y lee la primera línea del archivo, eliminando cualquier espacio en blanco alrededor con `strip()`. Luego, esta línea se divide en campos utilizando comas como separadores, convirtiéndola en una tupla antes de devolverla. Este método es útil para acceder rápidamente a los primeros datos guardados en el archivo CSV.
-
-Finalmente, después de instanciar `GestorCSV`, se muestra cómo utilizar estos métodos para escribir y leer datos desde el archivo, con un ejemplo que incluye la impresión del tipo de dato devuelto (`tuple`), lo cual demuestra cómo los datos leídos están estructurados.
-
-Esta clase es útil en contextos donde se necesita manipular archivos CSV de manera sencilla y controlada, proporcionando una interfaz limpiamente encapsulada para operaciones básicas de escritura y lectura.
-
-`006-clase con dos metodos.py`
 
 ```python
 class GestorCSV:
@@ -2243,17 +1482,6 @@ print(type(resultado))  # <class 'tuple'>
 ```
 
 ### repasar arbol de directorios recursivo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python recorre un árbol de directorios (es decir, todas las carpetas y archivos que se encuentran dentro de una carpeta específica) usando la función `os.walk()`. La función `os.walk()` es muy útil cuando necesitas explorar o procesar todo el contenido de una estructura de carpetas en profundidad. En este caso, comienza desde la ruta `/var/www/html/dam2526` y muestra todos los directorios (carpetas) y archivos que se encuentran dentro de ella.
-
-El código itera sobre cada nivel del árbol de directorios. Para cada directorio visitado, imprime el nombre del directorio y luego enumera sus subdirectorios e incluso los archivos que contiene. Esto es útil para tener una visión general rápida de la estructura y el contenido de un directorio específico en tu sistema.
-
-La importancia de este código radica en su capacidad para automatizar tareas que normalmente serían tediosas si se hicieran manualmente, como recopilar información sobre el contenido de carpetas complejas o grandes. Es una herramienta fundamental cuando trabajas con archivos y necesitas manejar o analizar un conjunto grande de datos almacenados en diferentes niveles de directorios.
-
-`007-repasar arbol de directorios recursivo.py`
 
 ```python
 import os
@@ -2269,21 +1497,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### arbol de archivos y directorios
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una herramienta útil para explorar el contenido de un directorio específico en tu sistema, mostrando tanto los subdirectorios como los archivos que contienen. Comienza importando el módulo `os`, que proporciona varias funciones relacionadas con el sistema operativo.
-
-El programa itera sobre todos los elementos del directorio especificado (`/var/www/html/dam2526`) y sus subdirectorios usando la función `os.walk()`. Esta función devuelve una tupla para cada directorio, compuesta por el nombre del directorio actual, una lista de sus subdirectorios y otra lista con los archivos que contiene.
-
-El código calcula en qué nivel jerárquico se encuentra cada directorio dentro del árbol. Esto se hace contando cuántas veces aparece la barra separadora (`os.sep`) entre el nombre del directorio actual y el directorio raíz especificado (`ruta`). Este número te indica a qué nivel de profundidad está ese directorio.
-
-A continuación, para cada subdirectorio o archivo dentro de un directorio dado, se imprime su nombre junto con una representación visual que muestra el nivel en la jerarquía mediante espacios duplicados. Esta técnica ayuda a entender la estructura del árbol de archivos y directorios, permitiéndote ver claramente cuál es el nivel de cada elemento dentro de esa jerarquía.
-
-Este tipo de código es útil para realizar un inventario rápido o para prepararse antes de realizar cambios importantes en un sistema de archivos, ya que te permite visualizar fácilmente la estructura existente y los elementos contenidos en ella.
-
-`008-arbol de archivos y directorios.py`
 
 ```python
 import os
@@ -2303,19 +1516,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### no quiero el subdirectorio
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para recorrer y listar los directorios y archivos dentro de una ruta específica en el sistema de archivos. La función `os.walk()` es la clave aquí; esta función itera a través del árbol de directorios comenzando desde la ruta proporcionada (`/var/www/html/dam2526`), generando una lista de tuplas que contienen el nombre del directorio actual, los nombres de sus subdirectorios y las listas de archivos.
-
-En cada iteración, calcula a qué nivel se encuentra en el árbol de carpetas con respecto al directorio raíz. Esto lo hace reemplazando la ruta base (`ruta`) por una cadena vacía y luego contando cuántos separadores de directorios (es decir, barras invertidas `\` o barras normales `/`, dependiendo del sistema operativo) quedan en el nombre del directorio actual.
-
-Luego, imprime el nombre del directorio junto con su nivel de profundidad en la estructura de carpetas. Para cada archivo encontrado dentro de un directorio, agrega espacios adicionales a la izquierda para visualizar mejor qué archivos pertenecen a qué niveles jerárquicos.
-
-Este tipo de recorrido es útil cuando necesitas explorar y manipular contenido en diferentes partes del sistema de archivos, especialmente al trabajar con grandes proyectos que contienen muchos subdirectorios.
-
-`009-no quiero el subdirectorio.py`
 
 ```python
 import os
@@ -2334,19 +1534,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### formateo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código se utiliza para recorrer una estructura de directorios y subdirectorios, mostrando la jerarquía de forma indentada. La función `os.walk()` es clave aquí, ya que permite navegar por un árbol de archivos y directorios desde la ruta especificada (`/var/www/html/dam2526` en este caso).
-
-El código calcula el nivel actual del directorio dentro del árbol jerárquico. Para hacerlo, resta la ruta base ("/var/www/html/dam2526") del nombre completo del directorio y cuenta cuántos separadores de directorios (slash `/`) hay en el resultado. Esto determina a qué profundidad está el directorio actual dentro de la estructura.
-
-Luego, imprime el nombre del directorio seguido de un texto que indica su nivel. Para los archivos contenidos en cada directorio, añade una indentación extra y lista sus nombres, lo que visualmente ayuda a entender cuál es la jerarquía y cómo están organizados dentro de la estructura del sistema de archivos.
-
-Esta técnica es importante para comprender la organización de ficheros en un entorno de trabajo, especialmente cuando se trabaja con sistemas web o bases de datos donde las rutas y la jerarquía pueden ser complejas.
-
-`010-formateo.py`
 
 ```python
 import os
@@ -2365,19 +1552,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### archivo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código Python está diseñado para recorrer un directorio y listar todos los subdirectorios y archivos que contiene, mostrando su estructura jerárquica. La función `os.walk()` es la clave aquí; esta función permite iterar a través del árbol de directorios desde una ruta específica, generando tupples que contienen el nombre del directorio actual (`directorio`), los nombres de sus subdirectorios (`subdirectorios`) y los nombres de los archivos contenidos en él (`archivos`). 
-
-El código calcula el nivel jerárquico del directorio actual basándose en cuántas veces aparece el separador de directorios (en Linux es "/") entre la ruta base y el nombre del directorio, lo que permite a la función `print` añadir un número adecuado de espacios para mostrar visualmente la profundidad del directorio.
-
-Para cada archivo encontrado dentro de los directorios recorridos, se imprime con un nivel adicional de indentación para indicar que es hijo directo del directorio actual. Esto resulta en una lista fácil de leer que muestra claramente cómo están organizados los archivos y directorios en el sistema.
-
-Esta técnica es útil para entender la estructura de carpetas en un proyecto o sistema, facilitando la organización y búsqueda de elementos específicos dentro de grandes conjuntos de archivos y subdirectorios.
-
-`011-archivo.py`
 
 ```python
 import os
@@ -2396,19 +1570,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### emojis
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es un ejemplo de cómo navegar por los directorios y archivos en una ruta dada utilizando el módulo `os` de Python. La función `os.walk()` es utilizada para recorrer recursivamente todos los subdirectorios dentro del directorio especificado, que en este caso es `/var/www/html/dam2526`.
-
-El código itera sobre cada directorio encontrado durante la recorrida (`directorio`), sus subdirectorios (`subdirectorios`) y archivos (`archivos`). Para mostrar cuántos niveles de profundidad hay desde el directorio raíz, se cuenta el número de separadores (en Unix-like sistemas, `/`) en el nombre del directorio actual después de quitar la ruta base. Esto nos da el nivel de profundidad del directorio.
-
-Los directorios y archivos son impresos con un símbolo visual que indica su tipo: una carpeta representada por "📁" y un archivo representado por "📄". Además, se utilizan espacios en blanco para mostrar la jerarquía, lo cual ayuda a entender mejor cómo están organizados los archivos y directorios dentro del sistema de archivos.
-
-Este código es importante porque proporciona una forma visual sencilla de comprender la estructura de carpetas y archivos en un directorio dado, lo que puede ser muy útil para tareas como el manejo de datos o la organización de proyectos.
-
-`012-emojis.py`
 
 ```python
 import os
@@ -2427,19 +1588,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### metemos ascii
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una herramienta útil para explorar la estructura de un directorio en particular, en este caso "/var/www/html/dam2526". Utiliza el módulo `os` de Python, que proporciona funciones operativas del sistema que son portátiles entre diferentes plataformas. 
-
-El código itera sobre todos los directorios y archivos bajo la ruta especificada utilizando `os.walk()`. Para cada nivel dentro de esta estructura de carpetas, calcula el "nivel" o profundidad a partir del directorio raíz mediante una cuenta de separadores (`/`). Esto permite al programa entender en qué subniveles está navegando dentro de la jerarquía.
-
-Luego, imprime los nombres de los directorios y archivos, utilizando un número variable de espacios para indicar la profundidad del nivel en el que se encuentran. Los directorios se muestran con una etiqueta "└📁" (que indica un directorio) seguida del nombre del directorio actual. Para cada archivo dentro de ese directorio o subdirectorios, imprime una línea adicional con un carácter "├📄" para indicar que es un archivo y el nombre del archivo.
-
-Esta visualización en árbol es especialmente útil para entender la estructura jerárquica de archivos y carpetas y puede ayudarte a navegar fácilmente en sistemas complejos de almacenamiento.
-
-`013-metemos ascii.py`
 
 ```python
 import os
@@ -2458,17 +1606,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### metemos ascii vertical
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una herramienta útil para explorar la estructura de directorios y archivos en un sistema de ficheros, mostrando cómo están organizados los elementos en carpetas específicas. La función `os.walk()` recorre recursivamente el directorio proporcionado (en este caso, `/var/www/html/dam2526`) y devuelve una lista con tres elementos: el nombre del directorio actual, las subcarpetas que contiene, y los archivos dentro de ese directorio.
-
-El código calcula la profundidad o nivel de cada directorio utilizando la cantidad de separadores de directorios (`os.sep`), que generalmente es `/`. A medida que se desciende en la jerarquía del sistema de ficheros, el número de separadores aumenta y esto permite al programa imprimir los nombres de los directorios con un número creciente de líneas verticales ("│") a su izquierda. Esto proporciona una representación visual clara de cómo están anidados los directorios.
-
-Para cada archivo encontrado dentro de un directorio, el código imprime el nombre del archivo con un nivel de indentación que indica en qué subdirectorio está ubicado. Esta estructura permite al usuario ver rápidamente la jerarquía y organización de archivos y carpetas, lo cual es muy útil cuando se trabaja en proyectos complejos o sistemas de gestión de contenido (CMS).
-
-`014-metemos ascii vertical.py`
 
 ```python
 import os
@@ -2485,19 +1622,6 @@ for directorio, subdirectorios, archivos in os.walk(ruta):
 ```
 
 ### extendiendo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python crea un árbol de directorios visual para una ruta especificada en el sistema de archivos. La función `list_entries` recorre la carpeta proporcionada y enumera sus elementos (directorios y archivos), opcionalmente mostrando también los archivos ocultos (aquellos que comienzan con un punto `.`). Luego, la función `draw_tree` toma estos elementos para dibujar el árbol en la consola.
-
-La función `draw_tree` imprime una representación visual del directorio dado y sus subdirectorios de forma recursiva. Utiliza caracteres como `└─`, `├─`, `│  `, y `   ` para simular ramas, conexiones horizontales y verticales en el árbol. Los directorios se marcan con un ícono "📁" y los archivos con "📄". Si un elemento es ni archivo ni carpeta (por ejemplo, un enlace simbólico), se utiliza un ícono "🔗".
-
-La función maneja permisos de acceso denegados o la ausencia del directorio especificado imprimiendo mensajes informativos. Además, puedes limitar la profundidad máxima del árbol usando el parámetro `max_depth`, lo que significa que no se explorarán más allá de ese nivel.
-
-Este código es útil para visualizar rápidamente cómo están organizados los archivos en un directorio y sus subdirectorios, especialmente cuando trabajas con sistemas de archivos complejos o necesitas revisar la estructura antes de realizar cambios importantes.
-
-`015-extendiendo.py`
 
 ```python
 import os
@@ -2579,19 +1703,6 @@ draw_tree(ruta, show_hidden=False, max_depth=None)
 ```
 
 ### return en lugar de print
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código te permite crear una representación visual de los directorios y archivos en un sistema de archivos, similar a cómo se ve un árbol en tu explorador de archivos. La función principal es `draw_tree`, que genera una lista de cadenas que describen el árbol desde la ruta especificada.
-
-La función `list_entries` es utilizada internamente por `draw_tree` para listar los elementos (directorios y archivos) de un directorio dado, filtrando según se muestren o no los archivos ocultos. Luego, `draw_tree` ordena estos elementos colocando primero los directorios y luego los archivos.
-
-En `draw_tree`, el código utiliza recursividad para explorar cada subdirectorio del directorio raíz proporcionado, creando líneas de texto que representan la estructura jerárquica. Usa caracteres como "└─" y "├─" para indicar la relación entre las ramas del árbol.
-
-Finalmente, el código muestra o guarda en un archivo este árbol generado según lo especificado por los parámetros al llamar a `draw_tree`. Esto es útil para visualizar claramente cómo se organiza una estructura de archivos y directorios.
-
-`016-return en lugar de print.py`
 
 ```python
 import os
@@ -2684,43 +1795,12 @@ with open("tree.txt", "w", encoding="utf-8") as f:
 ```
 
 ### clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código no es realmente un bloque de código en sí mismo sino una línea que parece ser el contenido de un archivo CSV (archivo de valores separados por comas) llamado `clientes.csv`. En este caso, la línea contiene información sobre un cliente. Los datos están separados por comas y representan los siguientes campos: nombre del cliente, apellido del cliente, correo electrónico, y se repiten nuevamente el nombre y el apellido (posiblemente por error o para fines de ejemplo). Este tipo de archivo es común en programación para almacenar datos tabulares como información de clientes, productos, etc., que luego pueden ser leídos y manipulados por programas. La importancia radica en que permite organizar y gestionar fácilmente grandes cantidades de información relacionada con un solo tema o entidad.
-
-`clientes.csv`
 
 ```
 Jose Vicente,Carratala,info@jocarsa.com,Jose Vicente,Carratala,info@jocarsa.com
 ```
 
 ### tree
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-The structure you've provided appears to be the file and directory hierarchy of a project, likely related to software development or documentation for an ERP-CRM (Enterprise Resource Planning - Customer Relationship Management) system. Here's a breakdown based on what is visible:
-
-1. **Top-level Directories/Folders:**
-   - `00`: This folder contains various subfolders and files related to different aspects of the project, such as deployment, implementation, development, etc.
-     - Each subfolder under `00` (e.g., `01`, `02`) likely represents a specific topic or module within the ERP-CRM system. For example:
-       - `00/03` includes files and directories related to the "Desarrollo de componentes" section, which is about developing components for the ERP-CRM.
-     - These subfolders often contain their own detailed breakdowns into further subdirectories (e.g., `01`, `02`) with `.md` files that are probably Markdown documents detailing specific aspects or requirements.
-
-2. **Top-level Files:**
-   - `Contenidos.py`: Likely a Python script for handling content management.
-   - `Conversor.py`: A utility to convert between different formats, possibly data conversion scripts.
-   - `Criterios.py` and `Criterios2.py`: These are probably scripts or modules that define criteria (rules) for some aspect of the project. They could be used in validation, testing, or other workflow processes.
-   - `esquema general.svg`: A visual representation or schema of the overall system architecture or project structure.
-   - `README.md`: A top-level README file providing an overview and basic instructions about how to navigate or use the project.
-
-Based on this setup, it seems like the project is well-structured with a clear division between different aspects of the ERP-CRM system development and documentation. The `.md` files suggest that there's comprehensive documentation available in Markdown format, which is often used for technical writing due to its simplicity and ease of use when converting to other formats.
-
-If you need specific assistance or modifications related to any part of this structure, please let me know!
-
-`tree.txt`
 
 ```
 📁dam2526
@@ -7031,105 +6111,46 @@ If you need specific assistance or modifications related to any part of this str
    └─ 📄README.md
 ```
 
-### Actividades propuestas
-
-The directory structure you provided appears to be a project for developing or analyzing an ERP-CRM (Enterprise Resource Planning - Customer Relationship Management) system. Here's a breakdown of the components and their likely roles within this context:
-
-1. **Folders:**
-   - `000-Arquitectura`: This folder seems to contain high-level architecture details, documentation, and possibly implementation files related to the ERP-CRM system.
-     - **Subfolders**:
-       - `001-Introducción` contains introductory content or documentation about the architecture of the ERP-CRM system.
-       - `002-Sistemas de gestión` likely includes information on different types of management systems integrated within the ERP-CRM framework.
-       - `003-Herramientas`: This subfolder probably holds tools and utilities used in managing the ERP-CRM system, such as development tools or deployment scripts.
-       - `004-Desarrollo de módulos`: Contains modules for developing specific functionalities of the ERP-CRM system, including coding files and resources.
-       - Subfolders with similar nomenclature (e.g., 005-010) likely follow a pattern of detailing various aspects such as data management, user interfaces, security, etc.
-
-2. **Files:**
-   - `Contenidos.py`: A Python script or module that might be responsible for content management tasks in the ERP-CRM system.
-   - `Conversor.py`: Likely handles conversion processes (e.g., converting data formats between systems).
-   - `Criterios.py` and `Criterios2.py`: These scripts could contain criteria validation, testing procedures, or evaluation rules for the components of the ERP-CRM system.
-   - `esquema general.svg`: An SVG file likely representing a high-level diagram of the overall architecture or workflow of the ERP-CRM system.
-   - `README.md`: A markdown file providing an overview and instructions about the project.
-
-### Potential Use Cases:
-- **Development**: The Python scripts might be used for automating tasks related to content management, data conversion, validation checks, etc., within a larger development pipeline.
-- **Documentation**: Various `.md` files and subfolders likely provide comprehensive documentation on architecture, module specifications, deployment procedures, etc.
-- **Evaluation/Testing**: Scripts like `Criterios.py` could be used for setting up automated tests or validation criteria to ensure the system meets specified requirements.
-
-### Next Steps:
-1. Review each file and folder for detailed content and purpose.
-2. Identify areas where automation can improve efficiency (e.g., using scripts like those in Python files).
-3. Ensure all documentation is up-to-date and follows a consistent structure.
-4. Evaluate any gaps in functionality or coverage based on the criteria defined.
-
-This project appears well-structured, with clear divisions for different aspects of an ERP-CRM system's lifecycle from development to deployment and maintenance.
-
-
 <a id="excepciones-deteccion-y-tratamiento"></a>
 ## Excepciones detección y tratamiento
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/007-Excepciones%20detecci%C3%B3n%20y%20tratamiento)
+En el mundo digital actual, la gestión eficiente de ficheros es una habilidad fundamental para cualquier desarrollador o programador. Al trabajar con archivos, se encuentran constantemente con situaciones que requieren un manejo adecuado de errores y excepciones, ya que no siempre ocurren según lo esperado. En esta subunidad, exploraremos cómo detectar y tratar las excepciones que pueden surgir durante el acceso a ficheros, asegurándonos de que nuestro programa sea robusto y capaz de manejar situaciones inesperadas con gracia.
 
+La detección de excepciones es un proceso fundamental en la programación. Cuando se produce un error durante la ejecución de una operación, como intentar leer o escribir en un fichero, el sistema generará una excepción. Es importante identificar estas excepciones para poder tomar medidas adecuadas y evitar que el programa crashee. En Python, por ejemplo, podemos utilizar bloques `try` y `except` para detectar y tratar excepciones.
+
+El tratamiento de excepciones es otro aspecto crucial del manejo de ficheros. Una vez identificada una excepción, nuestro programa debe saber cómo reaccionar. Esto puede implicar mostrar un mensaje de error amigable al usuario, intentar recuperarse de la situación o incluso cerrar el programa de manera segura. En Python, podemos utilizar bloques `try` y `except` para tratar excepciones, pero también podemos usar bloques `finally` para ejecutar código que debe ejecutarse independientemente de si se produjo una excepción o no.
+
+El manejo adecuado de excepciones en el acceso a ficheros es crucial para la seguridad y la confiabilidad del programa. Al detectar y tratar excepciones, podemos evitar situaciones peligrosas como la pérdida de datos o la corrupción del sistema. Además, al proporcionar mensajes de error claros y amigables, podemos mejorar la experiencia del usuario y facilitar el diagnóstico de problemas.
+
+En Python, hay varios tipos de excepciones comunes que pueden surgir durante el acceso a ficheros. Algunas de las más frecuentes son `FileNotFoundError`, `PermissionError` y `IOError`. Cada una de estas excepciones tiene un propósito específico y puede ocurrir en diferentes situaciones. Por ejemplo, `FileNotFoundError` se produce cuando intentamos acceder a un fichero que no existe, mientras que `PermissionError` ocurre cuando no tenemos los permisos necesarios para leer o escribir en el fichero.
+
+Al trabajar con excepciones en Python, es importante recordar que no debemos ignorarlas. Ignorar una excepción puede llevar a situaciones peligrosas y difíciles de diagnosticar. En su lugar, debemos tratar las excepciones adecuadamente y proporcionar un manejo eficaz para evitar problemas mayores.
+
+En conclusión, el manejo de excepciones en el acceso a ficheros es una habilidad fundamental que todos los desarrolladores deben dominar. Al detectar y tratar excepciones de manera adecuada, podemos asegurar la seguridad y confiabilidad de nuestros programas, mejorar la experiencia del usuario y facilitar el diagnóstico de problemas. En Python, utilizamos bloques `try` y `except` para detectar y tratar excepciones, pero también podemos usar bloques `finally` para ejecutar código que debe ejecutarse independientemente de si se produjo una excepción o no. Al trabajar con excepciones en el acceso a ficheros, debemos recordar que no debemos ignorarlas y proporcionar un manejo eficaz para evitar problemas mayores.
 
 <a id="desarrollo-de-aplicaciones-que-utilizan-ficheros"></a>
 ## Desarrollo de aplicaciones que utilizan ficheros
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/008-Desarrollo%20de%20aplicaciones%20que%20utilizan%20ficheros)
+En este capítulo del curso, nos adentramos en la práctica real de aplicaciones que utilizan ficheros para almacenar y recuperar datos. Comenzamos con una revisión de las clases asociadas a las operaciones de gestión de ficheros, destacando cómo estas proporcionan una interfaz uniforme para interactuar con diferentes tipos de archivos.
 
+A medida que avanzamos, exploramos las formas de acceso a un fichero, comprendiendo sus ventajas y desventajas. Esta comprensión es crucial para diseñar sistemas eficientes y seguros que manejen grandes volúmenes de información.
+
+Continuamos con el estudio de las clases para gestión de flujos de datos desdehacia ficheros, aprendiendo cómo estos flujos permiten la lectura y escritura de datos en un formato binario o texto. Este conocimiento es fundamental para desarrollar aplicaciones que requieren manejo sofisticado de archivos.
+
+A medida que nos acercamos al final del capítulo, nos centramos en las operaciones sobre ficheros secuenciales y aleatorios. Aprenderemos cómo trabajar con diferentes tipos de acceso a los datos, lo que nos permitirá optimizar el rendimiento de nuestras aplicaciones cuando se requiere acceso rápido a cualquier parte del archivo.
+
+Finalmente, concluimos este capítulo con una exploración detallada de la serialización y deserialización de objetos. Este tema es crucial para entender cómo almacenar en ficheros complejos de datos estructurados y recuperarlos de manera eficiente.
+
+A lo largo de esta subunidad, hemos desarrollado una comprensión profunda de cómo aplicaciones pueden interactuar con ficheros, desde la gestión básica hasta el manejo avanzado de objetos serializados. Este conocimiento es fundamental para cualquier programador que desee crear aplicaciones robustas y eficientes que requieran almacenamiento persistente de datos.
 
 <a id="ejercicio-de-final-de-unidad"></a>
 ## Ejercicio de final de unidad
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/001-Manejo%20de%20ficheros/101-Ejercicio%20de%20final%20de%20unidad)
+### ejercicio
 
-### Introducción a los ejercicios
+```markdown
 
-La carpeta que contiene el archivo "ejercicio.md" está diseñada para reforzar las habilidades relacionadas con el manejo de ficheros en entornos de programación, específicamente enfocándose en la manipulación y acceso a datos almacenados en archivos. Este conjunto de ejercicios es ideal para estudiantes del segundo curso del ciclo formativo DAM (Desarrollo de Aplicaciones Multiplataforma), ayudándoles a comprender cómo leer, escribir y gestionar información desde y hacia ficheros en su proyecto final de unidad.
-
-A través de este ejercicio se practicará la creación, lectura, escritura y borrado de archivos, así como el manejo de excepciones relacionadas con operaciones sobre ficheros. Estas competencias son fundamentales para cualquier desarrollador que necesite almacenar o recuperar datos persistentemente en su aplicación.
-
-### Actividades propuestas
-
-### Actividad 1: Lectura y Análisis del Ejercicio Propuesto
-- **Descripción**: Los estudiantes deben leer cuidadosamente el archivo `ejercicio.md` para entender los requerimientos del problema planteado. Se espera que identifiquen las funciones, variables y estructuras de datos utilizadas en el código proporcionado.
-- **Objetivo**: Familiarizarse con la sintaxis y el lenguaje utilizado en el ejercicio; comprender el propósito general del programa.
-
-### Actividad 2: Desarrollo Individual de Código
-- **Descripción**: A partir del análisis realizado, los estudiantes deben escribir un código que resuelva el problema planteado en `ejercicio.md`. Se recomienda seguir las mejores prácticas de programación y la estructura sugerida en el ejercicio.
-- **Objetivo**: Mejorar habilidades de codificación a partir de una descripción del problema.
-
-### Actividad 3: Corrección Automática del Código
-- **Descripción**: Los estudiantes deben utilizar herramientas como linters o compiladores para identificar y corregir errores sintácticos en su código.
-- **Objetivo**: Aprender a depurar el propio código utilizando recursos automatizados.
-
-### Actividad 4: Pruebas Unitarias
-- **Descripción**: Se requiere que los estudiantes escriban pruebas unitarias para las funciones principales del ejercicio. Esto ayudará a verificar la funcionalidad del programa.
-- **Objetivo**: Familiarizarse con la metodología de programación orientada a pruebas y asegurar la calidad del código.
-
-### Actividad 5: Documentación Interna
-- **Descripción**: Los estudiantes deben añadir comentarios en su código para explicar el propósito de cada bloque o función. Esto es fundamental para mantener un alto nivel de mantenibilidad.
-- **Objetivo**: Mejorar habilidades de documentación técnica y comunicación con otros desarrolladores.
-
-### Actividad 6: Comentarios y Retroalimentación
-- **Descripción**: Se pide a los estudiantes que realicen una evaluación crítica sobre su propio trabajo, identificando fortalezas y áreas para mejorar. Luego deben compartirla en un foro o plataforma designada.
-- **Objetivo**: Fomentar el pensamiento crítico acerca de sus propias prácticas de codificación.
-
-### Actividad 7: Colaboración en Equipo
-- **Descripción**: Los estudiantes trabajarán en parejas para revisar y mejorar el código del compañero. Se deben intercambiar buenas prácticas y aprender mutuamente.
-- **Objetivo**: Mejorar habilidades de trabajo colaborativo y comunicación en proyectos de programación.
-
-### Actividad 8: Resolución de Problemas Práctica
-- **Descripción**: Proporcionar una situación hipotética donde el código original no funciona correctamente o se necesita añadir nueva funcionalidad. Los estudiantes deben resolver este problema utilizando lo aprendido.
-- **Objetivo**: Aprender a aplicar conocimientos en situaciones reales y nuevas.
-
-### Actividad 9: Presentación Oral
-- **Descripción**: Cada estudiante presentará su solución al ejercicio frente a sus compañeros, explicando cómo resolvió el problema y qué aprendió del proceso.
-- **Objetivo**: Mejorar habilidades de comunicación oral y capacidad para explicar conceptos técnicos.
-
-### Actividad 10: Retroalimentación Final
-- **Descripción**: Los estudiantes deben reflexionar sobre lo que han aprendido a través de este ejercicio, identificando áreas en las que se sienten más fuertes y aquellas que desean seguir mejorando.
-- **Objetivo**: Promover la autoevaluación continua y el desarrollo personal.
-
+```
 
 
 <a id="manejo-de-conectores"></a>
@@ -7138,94 +6159,37 @@ A través de este ejercicio se practicará la creación, lectura, escritura y bo
 <a id="el-desfase-objeto-relacional"></a>
 ## El desfase objeto-relacional
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/001-El%20desfase%20objeto-relacional)
+El desfase objeto-relacional es un concepto fundamental en la programación orientada a objetos (POO) cuando se trabaja con bases de datos relacionales. Este fenómeno ocurre porque los lenguajes de programación orientados a objetos, como Java o C#, representan los datos y las operaciones sobre ellos mediante clases y objetos, mientras que las bases de datos relacionales almacenan sus datos en tablas y filas.
 
-### Introducción a los ejercicios
+Este desfase plantea un problema importante: cómo convertir los objetos del mundo real (representados en el código) en registros de una base de datos y viceversa. La solución a este desfase se logra mediante la utilización de conectores, que son bibliotecas o frameworks específicos diseñados para facilitar esta conversión.
 
-The provided Python script defines a class-like structure that facilitates the conversion of JSON data to MySQL database tables and vice versa. Below is an explanation of its main functionalities:
+Un conector típicamente proporciona clases y métodos que permiten establecer conexiones con una base de datos relacional, ejecutar consultas SQL, insertar, actualizar y eliminar registros, y manejar transacciones. Estos conectores abstrae el acceso a la base de datos, simplificando la programación y reduciendo los errores comunes.
 
-### Key Components
+Por ejemplo, en Java, un conector popular para bases de datos relacionales es JDBC (Java Database Connectivity). JDBC proporciona una API que permite interactuar con cualquier base de datos que soporte SQL. Con JDBC, se pueden realizar operaciones como:
 
-1. **Schema Inference**:
-   - The script can infer the schema (table definitions) from the given JSON input.
-   - It creates MySQL tables based on this inferred schema.
+- Establecer una conexión a la base de datos utilizando las credenciales del usuario.
+- Crear sentencias SQL para insertar, actualizar y eliminar registros.
+- Ejecutar consultas y procesar los resultados devueltos por la base de datos.
 
-2. **Data Insertion**:
-   - Data from JSON objects and arrays are inserted into MySQL tables.
-   - Lists in JSON become separate list-like tables with indices.
+Además de JDBC, existen otros conectores populares como Hibernate (para bases de datos relacionales) o MyBatis (para bases de datos orientadas a objetos). Estos conectores ofrecen funcionalidades adicionales que facilitan el acceso y manipulación de los datos en la base de datos.
 
-3. **Query Execution**:
-   - The script can fetch data from the MySQL database to reconstruct the original JSON structure.
+El uso de conectores para manejar el desfase objeto-relacional no solo simplifica la programación, sino que también mejora la eficiencia y la seguridad del acceso a los datos. Al ocultar los detalles específicos de la base de datos, los desarrolladores pueden centrarse en la lógica de negocio de su aplicación, sin preocuparse por las complejidades internas de cómo se almacenan y recuperan los datos.
 
-4. **JSON ↔ MySQL Conversion Functions**:
-   - `load_from_json`: Loads a JSON file and converts its contents into MySQL tables.
-   - `dump_to_json`: Retrieves data from MySQL tables and writes it back as JSON in the form of a dictionary.
+En resumen, el desfase objeto-relacional es un concepto crucial que surgió con la implementación del acceso a bases de datos relacionales en entornos orientados a objetos. Los conectores son herramientas esenciales para abordar este desfase, facilitando la conversión entre los objetos del mundo real y los registros de una base de datos, y simplificando el desarrollo de aplicaciones que interactúan con bases de datos.
 
-### Example Usage
+### Introduccion
 
-#### Loading JSON to MySQL
-```python
-json_loader = YourClass()
-json_loader.load_from_json("path/to/your/jsonfile.json")
+```markdown
+Muchas aplicaciones funcionan con colecciones de objetos
+Esos objetos pueden tener una jerarquia compleja de propiedades
+
+Que ocurre cuando guardamos esos datos?
+
+1.-Solucion1: Pickle
+2.-Solucion2: Mapeo objeto-relacional
 ```
-
-#### Dumping MySQL to JSON
-```python
-db_dumper = YourClass()
-db_data_as_dict = db_dumper.dump_to_json(output_path="output.json")
-```
-
-### Code Walkthrough
-
-1. **Schema Inference**:
-   - The method `_infer_value` traverses the JSON object or array recursively, identifying table structures and columns.
-   
-2. **Database Initialization**:
-   - `load_from_dict`: This method initializes the MySQL database schema based on inferred tables from JSON data.
-   - It uses SQL commands to drop existing tables and then create new ones according to the inferred schema.
-
-3. **Inserting Data into Tables**:
-   - Methods like `_insert_list_scalar` and `_insert_dict_row` handle inserting data into respective tables, maintaining relationships through foreign keys.
-
-4. **Fetching Data from MySQL**:
-   - The script constructs queries to fetch all rows from each table.
-   - It recursively builds a nested dictionary representing the original JSON structure using relational data retrieved from the database.
-
-### Detailed Functionality
-
-- **Table and Column Handling**: Uses SQL queries to extract information about tables, columns, foreign keys.
-- **Data Transformation**: Converts list items in JSON into separate records with index fields in MySQL.
-- **Nested Structure Reconstruction**: Recursively maps child tables back to their parent structures during data retrieval.
-
-### Limitations and Considerations
-1. **Performance**:
-   - For large datasets, performance might become an issue due to the recursive nature of data insertion and retrieval operations.
-   
-2. **Error Handling**:
-   - The script assumes well-formed JSON input. Additional error checking could enhance robustness (e.g., handling malformed inputs).
-
-3. **Security**:
-   - Consider using parameterized queries or ORM to prevent SQL injection when working with dynamic SQL statements.
-
-### Future Enhancements
-- **Optimization**: Indexing strategies and caching mechanisms can improve performance.
-- **Flexibility**: Adding support for more complex data types (e.g., JSON fields in MySQL).
-- **User Interface**: Wrapping the functions into a CLI or web interface could make it easier to use.
-
-This script serves as a powerful tool for applications needing bidirectional mapping between structured JSON and relational databases, providing a bridge between NoSQL-like simplicity and SQL robustness.
 
 ### clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código define una lista llamada `clientes` que contiene dos diccionarios. Cada uno de estos diccionarios representa la información de un cliente y tiene tres claves: `"nombre"`, `"apellidos"` y `"emails"`. 
-
-La clave `"nombre"` almacena el nombre del cliente, en este caso "Jose Vicente". La clave `"apellidos"` almacena los apellidos del cliente, que son "Carratala Sanchis". La clave `"emails"` es un poco más compleja porque contiene una lista de diccionarios. Cada uno de estos pequeños diccionarios describe diferentes tipos de correo electrónico que el cliente tiene y las direcciones asociadas a cada tipo.
-
-Por ejemplo, en la primera entrada del cliente, hay dos tipos de correos electrónicos: `"personal"` y `"empresa"`. Para cada tipo, se proporcionan direcciones de correo electrónico. Este formato ayuda a organizar la información relacionada con los clientes de manera estructurada, lo que facilita el acceso y manejo de datos en aplicaciones más grandes.
-
-`002-clientes.py`
 
 ```python
 clientes = [{
@@ -7265,17 +6229,6 @@ clientes = [{
 ```
 
 ### sacamos la estructura del objeto
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código crea una lista llamada `clientes` que contiene dos elementos. Cada elemento es un diccionario con tres claves: `"nombre"`, `"apellidos"` y `"emails"`. En el caso del campo `"emails"`, cada uno tiene dos tipos diferentes ("personal" y "empresa") y cada tipo puede tener varias direcciones de correo electrónico asociadas.
-
-Luego, se selecciona el primer elemento de la lista `clientes` mediante `muestra = clientes[0]`. Esto significa que `muestra` ahora contiene un diccionario con los datos del primer cliente en la lista. Finalmente, se imprime este diccionario utilizando `print(muestra)`, lo cual mostrará por pantalla toda la información del primer cliente de la lista.
-
-Este código es importante porque demuestra cómo estructurar y acceder a datos anidados (datos dentro de otros datos), una habilidad fundamental en programación que permite representar relaciones complejas entre diferentes piezas de información.
-
-`003-sacamos la estructura del objeto.py`
 
 ```python
 clientes = [{
@@ -7318,21 +6271,6 @@ print(muestra)
 ```
 
 ### recorremos el objeto
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para ayudar a entender cómo se manejan y representan estructuras complejas, como objetos JSON o diccionarios anidados en un contexto similar al mapeo entre datos en memoria (estructura de datos del programa) y una base de datos SQL. En este caso, el objetivo es recorrer un objeto que representa información sobre clientes con detalles adicionales, y mostrar cómo cada tipo de dato contenido dentro sería representado en una estructura relacional como una base de datos SQL.
-
-El código comienza definiendo una lista llamada `clientes`, que contiene dos diccionarios que describen a un cliente. Cada diccionario incluye campos como "nombre", "apellidos" y "emails". Los emails son a su vez listas de objetos con tipos (personal, empresa) y direcciones.
-
-Luego, el código selecciona el primer elemento de la lista `clientes` y lo almacena en una variable llamada `muestra`. Después, imprime esta muestra completa para que se pueda visualizar cómo está estructurado. 
-
-El siguiente bloque es un bucle `for` que itera sobre cada clave del diccionario `muestra`, imprimiendo la clave junto con su tipo de dato (por ejemplo, cadena, lista o entero). Dependiendo del tipo, el código proporciona una impresión de cómo ese campo se convertiría en un esquema SQL. Por ejemplo, si encuentra que el valor asociado a una clave es una cadena (`str`), imprime que sería representado como un campo `varchar`. Si es una lista (`list`), indica que debería ser tratada como una tabla externa en la base de datos.
-
-Este ejercicio ayuda a comprender los desafíos del "desfase objeto-relacional" (O/R Mapping), donde se debe traducir una estructura de objetos compleja y anidada, comúnmente usada en aplicaciones de programación, hacia una representación más simple pero tabular como las bases de datos SQL. Es un paso crucial para aprender cómo normalizar datos y diseñar esquemas de base de datos adecuados.
-
-`004-recorremos el objeto.py`
 
 ```python
 clientes = [{
@@ -7387,19 +6325,6 @@ for clave in muestra.keys():
 ```
 
 ### importamos mysql
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para manejar datos relacionados con clientes utilizando la base de datos MySQL. Comienza importando el módulo `mysql.connector`, que es una herramienta útil para conectarse y manipular bases de datos MySQL desde Python.
-
-El archivo contiene una lista llamada `clientes` que almacena dos diccionarios, cada uno representando a un cliente con sus nombres, apellidos y correos electrónicos. Cada correo electrónico está estructurado en subtipos (personal o empresa) con varias direcciones dentro de cada tipo.
-
-El código muestra la información del primer cliente (`clientes[0]`) e itera sobre las claves de este diccionario para imprimir el tipo de dato asociado a cada clave. Dependiendo del tipo de dato, imprime instrucciones sobre cómo representarlo en una base de datos SQL: cadenas se convierten en columnas `varchar`, listas en tablas externas y enteros en columnas `int`.
-
-Finalmente, el código establece una conexión con la base de datos MySQL ubicada en el servidor local (`localhost`) utilizando un usuario llamado "desfase" y una contraseña también llamada "desfase". Posteriormente, crea una tabla en esta base de datos llamada `clientes` con campos para identificador (llave primaria autoincremental), nombre, apellidos y correo electrónico. Este proceso es fundamental para almacenar estructuras complejas como las mostradas en el diccionario `clientes` dentro de un formato de base de datos relacional.
-
-`005-importamos mysql.py`
 
 ```python
 import mysql.connector
@@ -7467,23 +6392,6 @@ CREATE TABLE `desfase`.`clientes` (`Identificador` INT NOT NULL AUTO_INCREMENT ,
 ```
 
 ### creo un listado de campos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código está diseñado para mostrar cómo convertir una estructura de datos compleja en Python (un diccionario anidado con listas) en la definición de una tabla SQL. La idea principal es identificar qué tipo de campo se debe crear en una base de datos relacional para cada clave del primer elemento en un conjunto de datos.
-
-1. **Inicialización y Configuración**: Primero, el código importa el módulo `mysql.connector` para gestionar la conexión a una base de datos MySQL. Luego, define una lista llamada `clientes`, que contiene dos objetos (diccionarios) con información personal y detalles de correo electrónico.
-
-2. **Recorrido del Objeto**: Se toma un elemento específico (`muestra`) de la lista `clientes` para analizar sus campos. El código recorre cada clave del diccionario `muestra` y determina el tipo de dato (string, lista o entero) que contiene cada campo.
-
-3. **Definición de Campos**: Dependiendo del tipo de dato, se decide cómo se debe manejar en la base de datos SQL. Si es un string, se añade a una lista llamada `campos` y se planea para crear una columna `VARCHAR`. Si es una lista, el código indica que debería crearse una tabla externa, aunque no implementa esto específicamente. Para enteros, se propone la creación de una columna tipo `INT`.
-
-4. **Creación del Código SQL**: Finalmente, el código construye una cadena SQL para crear una tabla llamada `clientes`. Utiliza los nombres de campos que fueron identificados y clasificados previamente en la lista `campos`, asumiendo que cada uno debe ser un campo tipo `VARCHAR` en la base de datos. La tabla incluirá también un identificador único (`Identificador`) con el atributo AUTO_INCREMENT.
-
-Este ejercicio es muy útil para entender cómo mapear estructuras de datos complejas en Python a una base de datos relacional, lo que puede ser crucial cuando se trabaja con APIs y bases de datos que no siguen estrictamente la normalización relacional.
-
-`006-creo un listado de campos.py`
 
 ```python
 import mysql.connector
@@ -7570,31 +6478,6 @@ print(cadena)
 ```
 
 ### lanzo la consulta a la base de datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está diseñado para trabajar con bases de datos en Python, específicamente utilizando el módulo `mysql.connector` para conectarse a una base de datos MySQL. El objetivo principal es crear una tabla en la base de datos basada en un conjunto de datos representados como objetos JSON (estructuras de datos anidadas).
-
-1. **Inicialización y Carga de Datos:** 
-   - Se importa el módulo `mysql.connector` para gestionar la conexión a la base de datos.
-   - Se define una lista llamada `clientes`, que contiene dos diccionarios con información sobre clientes, incluyendo nombres, apellidos, DNI, edad y emails. Cada email puede ser personal o profesional, y algunos pueden tener múltiples direcciones.
-
-2. **Análisis de los Datos:**
-   - Se selecciona el primer elemento (primer cliente) del array `clientes` para analizar sus campos.
-   - El código recorre cada clave del diccionario del primer cliente, imprime la clave y su tipo de dato (por ejemplo, cadena de texto, lista o entero).
-   - Dependiendo del tipo de dato, se decide cómo se va a representar en una tabla SQL. Si es un string, se convierte en una columna `VARCHAR` en SQL; si es una lista, indica que será tratado como una tabla separada; y si es un número entero, se convierte en una columna `INT`.
-   - Se guarda cada clave que debe convertirse en una columna de tipo `VARCHAR` o `INT` en la lista `campos`.
-
-3. **Creación de la Tabla SQL:**
-   - Establece conexión a la base de datos MySQL usando las credenciales especificadas.
-   - Crea un string SQL para definir la estructura de la tabla llamada `clientes`.
-   - Recorre los campos en la lista `campos` y agrega cada uno al string SQL correspondiente a su tipo (`VARCHAR` o `INT`). 
-   - El código finalmente imprime el script SQL completo que crea la tabla, elimina cualquier tabla existente con el mismo nombre y luego ejecuta este nuevo script para crear la tabla en la base de datos.
-
-Este fragmento es útil para estudiantes que aprenden cómo mapear estructuras de datos complejas en bases de datos relacionales, enseñándoles sobre tipos de datos SQL y cómo manejar relaciones uno-a-muchos entre tablas.
-
-`007-lanzo la consulta a la base de datos.py`
 
 ```python
 import mysql.connector
@@ -7689,33 +6572,6 @@ cursor.execute(cadena)
 ```
 
 ### tabla referenciada
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una parte de un ejercicio que se enfoca en la conversión de datos estructurados complejos a una base de datos relacional. En particular, el código realiza lo siguiente:
-
-1. **Inicia con algunos datos de ejemplo**: Tiene una lista de dos diccionarios que representan información sobre clientes (cada cliente tiene detalles como nombre, apellidos, edad y correos electrónicos).
-
-2. **Define funciones auxiliares**:
-   - `ident(name: str)`: Normaliza un identificador SQL.
-   - `sql_scalar_type(value)`: Determina el tipo de dato SQL para valores escalares.
-   - `merge_type(a, b)`: Combina tipos de datos cuando hay más de uno en la misma columna.
-
-3. **Infere el esquema**: Analiza los datos proporcionados para determinar qué columnas y tablas se necesitarán en una base de datos relacional. Esto implica identificar tanto las columnas escalares como aquellas que contienen listas (ya sean listas de valores simples o objetos).
-
-4. **Crea la conexión a MySQL**: Establece una conexión con un servidor MySQL utilizando el módulo `mysql.connector`.
-
-5. **Genera y ejecuta sentencias SQL**:
-   - Primero, elimina cualquier tabla existente para asegurar que no haya conflictos.
-   - Crea tablas en orden adecuado (nietas antes de hijas y la raíz después).
-   - Las tablas principales (`clientes`) y las subtablas se crean con estructuras basadas en el análisis de los datos iniciales.
-
-Este código es crucial porque muestra cómo manejar una desventaja común en programación orientada a objetos (POO), donde los datos pueden tener estructuras complejas, pero las bases de datos relacionales tienden a ser más planas y estructuradas. El objetivo es transformar esa complejidad en un modelo relacional que mantenga integridad referencial adecuada.
-
-La salida del código muestra el esquema de base de datos generado (nombres de tablas y columnas), lo cual es útil para comprender cómo los datos complejos se traducen a una estructura relacional.
-
-`008-tabla referenciada.py`
 
 ```python
 import re
@@ -7944,21 +6800,6 @@ for field, info in child_defs.items():
 ```
 
 ### y ahora tambien metemos los datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una parte importante del proceso de mapeo entre estructuras de datos JSON complejas y tablas relacionales en MySQL. Su objetivo principal es inferir el esquema relacional necesario para almacenar la información provista en un formato de lista de diccionarios (JSON-like) en una base de datos SQL.
-
-El código comienza definiendo algunas funciones auxiliares que limpian y normalizan nombres, determinan tipos de datos SQL y fusionan columnas con tipos compatibles. Luego, analiza la estructura de los datos proporcionados para inferir el esquema relacional requerido, creando tablas en MySQL correspondientes a cada nivel jerárquico (raíz, hijos y nietos si aplica).
-
-Después de preparar las tablas necesarias, se procede a insertar los datos reales. Para hacer esto, primero se insertan los registros en la tabla raíz, y luego para cada campo que tiene una relación jerárquica (ya sea como lista de escalares o objetos), se insertan sus valores correspondientes en tablas hijas y/o nietas según corresponda.
-
-Este proceso es importante porque permite almacenar datos complejos estructurados de manera flexible en un sistema relacional, haciendo uso de claves foráneas para mantener la integridad referencial. Esto es especialmente útil cuando los datos no tienen una estructura uniforme, pero aún necesitan ser accesibles y manipulables mediante consultas SQL estándar.
-
-En resumen, este código facilita el mapeo entre un modelo de datos orientado a objetos complejo (con listas anidadas y objetos) y esquemas relacionales, permitiendo la persistencia eficaz de datos estructurados en una base de datos MySQL.
-
-`009-y ahora tambien metemos los datos.py`
 
 ```python
 import re
@@ -8235,32 +7076,6 @@ print(f"Registros insertados en `{root_table_i}`: {cursor.rowcount} (último bat
 ```
 
 ### recursivo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se encarga de manejar y procesar datos JSON complejos para generar un esquema en una base de datos MySQL. El objetivo principal del script es inferir automáticamente la estructura y los tipos de datos necesarios a partir de un archivo JSON, crear las tablas correspondientes y luego insertar los datos en dichas tablas.
-
-### Funcionamiento
-1. **Carga e Inferencia de Datos:**
-   - Primero, el código carga un archivo JSON (`datos.json`) que contiene la estructura de los datos.
-   - Luego, infiere automáticamente la estructura del esquema de base de datos necesaria para almacenar estos datos en tablas MySQL. Esto incluye determinar qué tipo de tabla (por ejemplo, `dict` o `list_scalar`) y cuáles son las columnas y sus tipos.
-
-2. **Creación del Esquema:**
-   - Después de inferir la estructura del esquema, el código elimina cualquier esquema existente en la base de datos para garantizar que comience con un estado limpio.
-   - Luego, crea todas las tablas necesarias siguiendo la estructura inferida. Asegura que se creen primero las tablas padre y luego sus tablas hijas correspondientes.
-
-3. **Inserción de Datos:**
-   - Finalmente, inserta los datos del JSON en las tablas recién creadas. Para hacer esto, el código maneja tanto valores escalares como estructuras complejas (como listas y diccionarios anidados) y asegura que se mantengan relaciones correctas entre tablas.
-
-### Importancia
-Este script es crucial para casos donde los datos JSON no tienen una estructura estática y pueden variar en términos de su jerarquía. Al permitir la inferencia automática del esquema, el código facilita mucho la migración de datos dinámicos a un sistema de gestión de bases de datos relacional como MySQL.
-
-La funcionalidad recursiva se utiliza tanto para inferir la estructura del JSON anidado como para insertar correctamente los datos en tablas relacionales que reflejan esa estructura anidada. Esto es especialmente valioso cuando los datos provienen de fuentes no estructuradas o semiestructuradas y necesitan ser almacenados de manera eficaz en una base de datos relacional.
-
-En resumen, este script proporciona una solución elegante para el desafío del "desfase objeto-relacional", permitiendo a los desarrolladores manejar fácilmente datos JSON complejos directamente dentro de un entorno de bases de datos MySQL.
-
-`010-recursivo.py`
 
 ```python
 #!/usr/bin/env python3
@@ -8587,19 +7402,6 @@ if __name__ == "__main__":
 ```
 
 ### lector
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un script que reconstruye la estructura de datos objeto-relacional a partir de una base de datos relacional. El objetivo principal del código es convertir tablas relacionales en una representación jerárquica (estructura de objetos) que se alinea más con cómo los programadores trabajan con datos en aplicaciones orientadas a objetos.
-
-El script inicia conectándose a la base de datos MySQL y recopila información sobre las tablas existentes, sus columnas y relaciones entre ellas. Luego, carga todos los datos en caché para mejorar el rendimiento durante la reconstrucción recursiva de nodos jerárquicos (objetos). 
-
-El corazón del script es la función `build_node`, que itera a través de las tablas e identifica cuáles son relaciones uno-a-muchos y cómo se deben representar en forma de lista o diccionario. Finalmente, el resultado se guarda como un archivo JSON para su uso posterior.
-
-Este proceso es fundamental cuando necesitas mapear una base de datos relacional a objetos en aplicaciones orientadas a objetos (OO), permitiendo manipular datos complejos más fácilmente y de manera más natural desde el punto de vista de la programación.
-
-`011-lector.py`
 
 ```python
 #!/usr/bin/env python3
@@ -8794,55 +7596,6 @@ for k, v in python_dict_result.items():
 ```
 
 ### demostracion clase
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código proporcionado implementa una interfaz entre un archivo JSON y una base de datos MySQL para manejar estructuras jerárquicas complejas. A continuación, se resumen las partes principales del código:
-
-1. **Configuraciones Iniciales**:
-   - La clase `JsonMySQLBridge` permite la interacción entre un archivo JSON y una base de datos MySQL.
-   - Las propiedades de conexión a la base de datos (`host`, `user`, `password`, `database`) y el camino del archivo JSON se pueden configurar.
-
-2. **Estructura de Base de Datos**:
-   - El método `load_from_json` carga un JSON desde un archivo, infiere el esquema de la base de datos necesaria, borra cualquier tabla existente en la base de datos MySQL y crea las tablas necesarias.
-   - A continuación, inserta los datos del JSON en la base de datos.
-
-3. **Inferencia del Esquema**:
-   - `load_from_dict` infiere el esquema a partir de un diccionario Python que representa la estructura jerárquica.
-   - `_infer_value` recorre la estructura y determina cómo deben ser las tablas en la base de datos.
-
-4. **Operaciones CRUD**:
-   - `_create_all`: Crea todas las tablas necesarias para almacenar los datos JSON en la base de datos MySQL.
-   - `_insert_dict_row` se encarga de insertar datos en las tablas, recursivamente para manejar estructuras anidadas.
-   
-5. **Lectura desde Base de Datos**:
-   - `dump_to_json`: Recupera toda la información de la base de datos y reconstruye el JSON original.
-
-### Ejemplo de Uso:
-
-El script principal muestra cómo usar esta clase:
-1. Carga un archivo JSON a la base de datos MySQL.
-2. Extrae los datos de MySQL en un diccionario equivalente.
-3. Guarda el diccionario resultante en otro archivo JSON para validación y comprobación.
-
-### Comportamiento del Script Principal:
-
-El script principal ejecuta dos pasos:
-- **Escritura**: Convierte el contenido de `datos.json` a una base de datos MySQL, limpiando cualquier estructura existente y creándola nuevamente.
-- **Lectura/Recuperación**: Recupera los datos almacenados en la base de datos MySQL y reconstruye un JSON similar al original.
-
-Finalmente, muestra el contenido de las tablas recuperadas desde la base de datos para verificar que la estructura ha sido mantenida correctamente.
-
-### Requisitos:
-- Python con `mysql-connector-python` instalado.
-- Acceso a una instancia de MySQL configurada como especifica en la clase `JsonMySQLBridge`.
-
-Para probar y utilizar este script, es necesario tener un archivo JSON (`datos.json`) en el mismo directorio o proporcionar otro camino. La estructura del JSON determinará cómo se crea y llena la base de datos.
-
-Este código es bastante flexible para manejar una variedad de estructuras jerárquicas en JSON, convirtiéndolas en tablas relacionales y luego recuperándolas nuevamente a un formato similar al original.
-
-`012-demostracion clase.py`
 
 ```python
 #!/usr/bin/env python3
@@ -9313,21 +8066,6 @@ if __name__ == "__main__":
 ```
 
 ### uso de la clase
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es parte de un ejercicio que muestra cómo usar una clase llamada `JsonMySQLBridge` para interactuar entre archivos JSON y una base de datos MySQL. La clase permite cargar datos desde un archivo JSON a la base de datos y viceversa.
-
-El código inicia creando una instancia de la clase `JsonMySQLBridge`, proporcionándole los detalles necesarios para conectarse a la base de datos, como el host, usuario, contraseña y nombre de la base de datos. Además, especifica la ruta del archivo JSON que se usará por defecto (`datos.json`) para cargar datos en la base de datos.
-
-Luego, mediante el método `load_from_json()`, se cargan los datos desde el archivo JSON a la base de datos MySQL. Esto es útil cuando tienes una estructura de datos en formato JSON y deseas almacenarla en una base de datos relacional.
-
-Finalmente, después de cargar los datos, se usa el método `dump_to_json()` para recuperar esos mismos datos desde la base de datos y guardarlos nuevamente en un archivo JSON (en este caso, `dump_recuperado.json`). El código luego imprime un resumen del número de elementos que fueron recuperados por cada clave (nombre de tabla) en el archivo JSON.
-
-Este tipo de operaciones es importante porque permite a los desarrolladores mover fácilmente datos entre formatos estructurados como JSON y bases de datos relacionales, facilitando tareas de carga y exportación de datos.
-
-`013-uso de la clase.py`
 
 ```python
 from jvorm import JsonMySQLBridge
@@ -9350,19 +8088,6 @@ for k, v in recovered.items():
 ```
 
 ### datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un archivo JSON que contiene información detallada sobre varios clientes. Cada cliente tiene diversos datos asociados, como su identificador único (`id`), nombre completo (`nombre`), y detalles de contacto que incluyen correo electrónico (`email`) y números telefónicos (`telefonos`). Además, cada cliente tiene un campo `informacion_contacto` donde se especifica la dirección completa, incluyendo calle, número, piso, ciudad, código postal y país.
-
-Además del contacto, el JSON también almacena el historial de compras de los clientes. Este historial consta de datos como el identificador único de cada compra (`id_compra`), la fecha en que se realizó (`fecha`) y una lista de productos comprados con sus detalles específicos, tales como el ID del producto (`id_producto`), nombre del producto (`nombre`), cantidad (`cantidad`) y precio unitario (`precio_unitario`). Cada compra también tiene un campo `total` que representa el costo total de esa compra.
-
-Finalmente, cada cliente cuenta con preferencias personales almacenadas en la sección `preferencias`. Estas incluyen métodos de notificación deseados (email, SMS y push), idioma preferido y categorías de interés, lo cual ayuda a personalizar las interacciones del cliente con el sistema.
-
-Este tipo de estructura es útil para aplicaciones que necesitan manejar información detallada sobre clientes, permitiendo almacenar datos complejos en un formato fácilmente accesible y manipulable.
-
-`datos.json`
 
 ```json
 {
@@ -9485,21 +8210,6 @@ Este tipo de estructura es útil para aplicaciones que necesitan manejar informa
 ```
 
 ### dump_recuperado
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es un archivo JSON que representa la información de varios clientes, incluyendo detalles como su nombre, historial de compras, contacto y preferencias. Cada cliente tiene un identificador único (`id`), un nombre y varias secciones adicionales: `historial_compras`, `informacion_contacto` y `preferencias`.
-
-En el campo `historial_compras`, se almacenan los detalles de las transacciones anteriores del cliente, como la fecha de compra, el total pagado y una lista o un objeto que describe cada producto comprado con sus respectivos precios y cantidades.
-
-La sección `informacion_contacto` contiene información sobre cómo contactar con el cliente, incluyendo su correo electrónico, direcciones de envío completas con detalles como la calle, número, ciudad y país, además de números telefónicos.
-
-Finalmente, en `preferencias`, se especifican opciones personales del usuario tales como idioma preferido para los servicios, categorías que les interesan específicamente y cómo prefieren recibir notificaciones (correo electrónico, SMS o push).
-
-Este archivo JSON es útil para entender el perfil de los clientes y sus compras, lo cual puede ser valioso tanto para la gestión interna como para personalizar experiencias del cliente en un sistema de comercio electrónico.
-
-`dump_recuperado.json`
 
 ```json
 {
@@ -9620,105 +8330,6 @@ Este archivo JSON es útil para entender el perfil de los clientes y sus compras
 ```
 
 ### jvorm
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código proporcionado implementa una clase en Python que permite la conversión entre un JSON complejo y una base de datos MySQL. A continuación se explica cómo funciona cada parte del código:
-
-### Clases e Imports
-
-Aunque no está explícitamente mostrada, la clase que contiene este método es probablemente definida previamente.
-
-### Método `load_from_json`
-
-Este método carga los datos desde un archivo JSON y luego inserta esos datos en una base de datos MySQL. 
-
-- **Parámetros**:
-  - `json_path`: Ruta al archivo JSON (opcional, si no se proporciona, usa la ruta predefinida).
-
-- **Proceso**: 
-  1. Abre el archivo JSON y carga sus contenidos.
-  2. Llama a `load_from_dict` para procesar los datos.
-
-### Método `load_from_dict`
-
-Este método toma un diccionario (representación de datos JSON) y lo inserta en una base de datos MySQL:
-
-- **Parámetros**:
-  - `root`: Diccionario que representa el objeto raíz del JSON.
-  
-- **Proceso**: 
-  1. Inicializa los esquemas (`tables` y `edges`) para entender la estructura jerárquica del JSON.
-  2. Utiliza `_infer_value` para inferir y definir las tablas necesarias basándose en el contenido de `root`.
-  3. Conecta a la base de datos y borra todas las tablas existentes (`_drop_entire_schema`).
-  4. Crea las nuevas tablas según los esquemas inferidos con `_create_all`.
-  5. Inserta los datos en la base de datos utilizando `_insert_dict_row`.
-
-### Método `dump_to_json`
-
-Este método reconstruye un diccionario a partir de una base de datos MySQL y lo guarda en un archivo JSON:
-
-- **Parámetros**:
-  - `output_path`: Ruta donde guardar el archivo JSON (opcional, por defecto es `"./dump_recuperado.json"`).
-  
-- **Proceso**: 
-  1. Conecta a la base de datos.
-  2. Recupera información sobre las tablas y columnas en la base de datos.
-  3. Identifica relaciones entre tablas utilizando FOREIGN KEYs.
-  4. Llena un diccionario con todos los registros necesarios para reconstruir el JSON original (`all_rows`).
-  5. Utiliza `build_node` recursivamente para reconstruir estructuras anidadas y listas de objetos a partir de relaciones parent-child.
-  6. Guarda el resultado en formato JSON.
-
-### Método `_infer_value`
-
-Este método ayuda a determinar qué tipo de tabla (relacional o lista) se necesita basándose en el contenido del JSON:
-
-- **Parámetros**:
-  - `tdef`: Definición de la tabla.
-  - `value`: Valor JSON para inferir.
-  - `parent_table` y `relname`: Identificadores de la relación.
-
-### Método `_insert_dict_row`
-
-Este método inserta datos en una base de datos MySQL:
-
-- **Parámetros**:
-  - `cursor`: Cursor de conexión a la base de datos.
-  - `tdef`: Definición de la tabla.
-  - `data`: Datos JSON para insertar.
-  - `parent_id`: Identificador del registro padre (si aplica).
-
-### Método `_child_field_name`
-
-Este método determina el nombre del campo hijo en una relación parent-child.
-
-- **Parámetros**:
-  - `parent` y `child`: Nombres de tablas padre e hija respectivamente.
-  
-### Métodos Estáticos
-
-Hay varios métodos estáticos que realizan tareas específicas:
-
-- `_fetchall_dict`: Realiza una consulta SQL y devuelve los resultados en formato diccionario.
-- `_is_list_scalar_table`: Determina si la tabla es de tipo lista simple basándose en sus columnas.
-
-### Conexión a MySQL
-
-El código maneja la conexión, cursor y cierre explícitamente con `mysql.connector`.
-
-### Uso y Ejecución
-
-Para usar esta clase:
-1. Crear una instancia de la misma.
-2. Llamar a `load_from_json` o `load_from_dict` para cargar datos JSON en MySQL.
-3. Llamar a `dump_to_json` para recuperar los datos desde MySQL en formato JSON.
-
-### Resumen
-
-Este código proporciona una herramienta eficiente para serializar y deserializar estructuras de datos complejas entre un archivo JSON y una base de datos MySQL, manteniendo la jerarquía y relaciones existentes.
-
-`jvorm.py`
 
 ```python
 #!/usr/bin/env python3
@@ -10165,121 +8776,22 @@ class JsonMySQLBridge:
         return result
 ```
 
-### Actividades propuestas
-
-The provided Python script is a comprehensive tool for converting JSON data to a relational database structure in MySQL and vice versa. It includes methods to load JSON into the database, read data back from the database, and dump it back into a JSON format. Below is a detailed explanation of the key functionalities:
-
-### Key Components
-
-1. **Inference of Table Schema:**
-   - The script infers the schema of tables based on the structure of the provided JSON data.
-   - It determines whether each top-level item in the JSON should be treated as a dictionary, list of dictionaries, or plain value.
-
-2. **Database Operations:**
-   - Connects to MySQL and resets all existing tables before creating new ones according to inferred schema.
-   - Inserts data from JSON into the newly created relational database structure.
-   
-3. **Reading Data Back From Database:**
-   - Reads data back from the database, reassembling it into a nested dictionary or list structure based on foreign key relationships.
-
-4. **Serialization and Deserialization:**
-   - Supports loading JSON into MySQL and exporting MySQL data back to JSON format.
-
-### Usage
-
-1. **Loading JSON Data into MySQL:**
-
-```python
-json_path = "./example.json"
-converter = YourConverterClass()
-converter.load_from_json(json_path)
-```
-
-2. **Dumping MySQL Data Back to JSON:**
-
-```python
-output_path = "./dump_recuperado.json"
-result_dict = converter.dump_to_json(output_path)
-```
-
-### Detailed Functions
-
-#### `load_from_json()`
-Loads data from a JSON file, infers the schema, and populates the database.
-
-#### `load_from_dict()`
-Similar to `load_from_json()` but takes Python dictionary as input instead of reading from a file.
-
-#### `_create_all()`
-Creates all tables in the database according to inferred schema.
-
-#### `_insert_list_scalar()`, `_insert_dict_row()`
-Handles insertion of list and dictionary data types respectively into MySQL tables.
-
-#### `dump_to_json()`
-Reads data back from the MySQL database, reconstructs the JSON structure based on foreign keys, and writes it to a file.
-
-### Example Usage
-
-Assume you have a JSON file named `example.json` with the following content:
-
-```json
-{
-    "users": [
-        {"name": "Alice", "age": 30},
-        {"name": "Bob", "age": 25}
-    ],
-    "posts": {
-        "user1": [{"title": "Hello"}, {"title": "World"}],
-        "user2": [{"title": "Python"}]
-    }
-}
-```
-
-To load this data into MySQL and then dump it back:
-
-```python
-# Load JSON to MySQL
-converter = YourConverterClass()
-converter.load_from_json("./example.json")
-
-# Dump MySQL to JSON file
-output_path = "./dump_recuperado.json"
-result_dict = converter.dump_to_json(output_path)
-print(result_dict)  # Print the reconstructed dictionary for verification
-```
-
-### Notes
-
-- The script ensures that data is correctly inserted and retrieved, handling nested structures and lists within dictionaries.
-- Proper error checking and schema inference make it robust for different types of JSON input.
-
-This tool can be very useful for applications where you need to store and query complex hierarchical data in a relational database format while maintaining ease of use with JSON-based APIs or configuration files.
-
-
 <a id="protocolos-de-acceso-a-bases-de-datos"></a>
 ## Protocolos de acceso a bases de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/002-Protocolos%20de%20acceso%20a%20bases%20de%20datos)
+En este capítulo, exploramos los protocolos de acceso a bases de datos, un aspecto fundamental para el desarrollo de aplicaciones que interactúan con sistemas de almacenamiento persistente. Comenzamos por entender qué son los protocolos de acceso a bases de datos y cómo funcionan en la comunicación entre una aplicación y una base de datos.
 
-### Introducción a los ejercicios
+Los protocolos de acceso a bases de datos definen las reglas y formatos utilizados para establecer conexiones, enviar comandos y recibir respuestas entre el cliente (la aplicación) y el servidor (el gestor de la base de datos). Estos protocolos son esenciales porque aseguran que tanto el cliente como el servidor puedan entender y procesar las solicitudes y respuestas de manera correcta.
 
-Esta carpeta contiene ejercicios que te ayudarán a comprender cómo configurar y utilizar conexiones a bases de datos en un entorno de desarrollo, específicamente enfocándose en la interacción entre Python y SQL para manejar accesos a datos. Los archivos proporcionan una secuencia clara: primero creas un usuario con privilegios adecuados en MySQL (000-prerrequisitos.sql), luego conectas este usuario a una base de datos recién creada desde un script Python (001-conectar con base de datos.py) para crear una tabla, y por último, compruebas la estructura de la base de datos usando SQL nuevamente (002-comprobacion.sql). Estos ejercicios te permitirán practicar la configuración de usuarios y bases de datos, el uso del módulo MySQL Connector en Python para interactuar con una base de datos, y las consultas básicas de SQL para verificar tu trabajo.
+Un ejemplo común de protocolo de acceso a bases de datos es SQL (Structured Query Language), utilizado principalmente con sistemas de gestión de bases de datos relacionales. SQL permite a los usuarios crear, modificar y gestionar la información almacenada en una base de datos mediante comandos estructurados. Otro protocolo importante es el Protocolo de Control de Transmisión (TCP/IP), que se utiliza para establecer conexiones entre diferentes sistemas en una red.
+
+La elección del protocolo adecuado depende de varios factores, como la complejidad de las operaciones a realizar, la seguridad necesaria y la eficiencia requerida. Por ejemplo, si se necesita una comunicación rápida y segura, el protocolo SSL/TLS puede ser preferido sobre HTTP/HTTPS. En cambio, para aplicaciones que requieren un alto nivel de control y personalización, SQL podría ser más adecuado.
+
+Además de los protocolos de acceso a bases de datos, también es importante entender cómo se establecen y gestionan las conexiones entre el cliente y el servidor. Esto implica conocer conceptos como la autenticación, la autorización y la gestión de sesiones. La autenticación verifica la identidad del usuario o aplicación que intenta acceder a la base de datos, mientras que la autorización determina qué acciones puede realizar una vez autenticado. La gestión de sesiones permite mantener el estado de la conexión entre las solicitudes realizadas por un cliente.
+
+En esta subunidad, hemos explorado los protocolos de acceso a bases de datos y cómo se utilizan para establecer conexiones seguras y eficientes entre aplicaciones y sistemas de almacenamiento persistente. Comprendiendo estos conceptos es crucial para el desarrollo de software que requiere interactuar con bases de datos, ya que permite crear aplicaciones robustas y seguras capaces de manejar grandes volúmenes de información de manera eficiente.
 
 ### prerrequisitos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código SQL te guía a través de los pasos necesarios para configurar un entorno de trabajo seguro y optimizado en MySQL. Primero, se inicia una sesión con el usuario administrador (`root`) usando el comando `sudo mysql -u root -p`, que te pedirá tu contraseña de acceso como administrador.
-
-Después, crea una nueva base de datos llamada `accesoadatos2526`. Luego, procede a crear un nuevo usuario también denominado `accesoadatos2526` con privilegios limitados inicialmente y le asigna una contraseña segura. El comando `GRANT USAGE ON *.* TO 'accesoadatos2526'@'localhost';` establece que este usuario puede conectarse a la base de datos pero no tiene permisos para realizar ninguna acción hasta que se le concedan explícitamente.
-
-A continuación, el código ajusta los límites y restricciones del nuevo usuario con `ALTER USER`. Estos comandos permiten al usuario conectarse sin limitaciones en términos de número máximo de consultas o conexiones por hora. Esto es útil para evitar que el sistema se bloquee si el usuario realiza muchas operaciones.
-
-Finalmente, el código concede todos los privilegios (`GRANT ALL PRIVILEGES`) a este nuevo usuario sobre la base de datos `accesoadatos2526`. Con esto, el usuario tiene permisos totales para realizar cualquier tipo de acción dentro de esta base de datos específica, lo que es crucial para poder trabajar en ella sin restricciones.
-
-`000-prerrequisitos.sql`
 
 ```sql
 sudo mysql -u root -p
@@ -10304,19 +8816,6 @@ TO 'accesoadatos2526'@'localhost';
 ```
 
 ### conectar con base de datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una parte de un programa en Python que se utiliza para interactuar con una base de datos MySQL. La función principal aquí es establecer una conexión a la base de datos y crear una tabla llamada `clientes`. 
-
-Primero, el código importa la biblioteca `mysql.connector`, que proporciona una forma de conectarse y trabajar con bases de datos MySQL desde Python. Luego, se crea una conexión a la base de datos especificando los detalles necesarios como el host (localhost en este caso), usuario, contraseña y nombre de la base de datos.
-
-Una vez establecida la conexión, se obtiene un objeto cursor que permite ejecutar comandos SQL en la base de datos. En este código, el comando SQL `CREATE TABLE` es usado para crear una nueva tabla llamada `clientes`, con cuatro campos: `Identificador`, `nombre`, `apellidos` y `email`. Cada campo tiene un tipo de dato especifico (por ejemplo, INT, VARCHAR) y restricciones como NOT NULL que indican que esos campos no pueden estar vacíos.
-
-Finalmente, se hace un commit para confirmar los cambios en la base de datos y se cierran el cursor y la conexión para liberar recursos. Este código es importante porque establece una estructura básica para cualquier aplicación que necesite interactuar con una base de datos MySQL, mostrando cómo conectarse, ejecutar comandos SQL y manejar las conexiones correctamente.
-
-`001-conectar con base de datos.py`
 
 ```python
 import mysql.connector
@@ -10346,17 +8845,6 @@ conexion.close()
 ```
 
 ### comprobacion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL sirve para verificar la estructura y el contenido de una base de datos en particular. Primero, el comando `SHOW TABLES;` muestra una lista de todas las tablas existentes en la base de datos actual. Esto es útil cuando no estás seguro de cuáles son las tablas disponibles o necesitas confirmar su presencia.
-
-Luego, el comando `DESCRIBE clientes;` proporciona información detallada sobre la tabla llamada "clientes". Este comando te muestra los nombres de las columnas, sus tipos de datos y otras características importantes como si permiten valores nulos. Es una herramienta esencial para comprender la estructura interna de una tabla específica.
-
-Estos comandos son fundamentales en el manejo de bases de datos ya que ayudan a validar y explorar los datos existentes, asegurando así que estás trabajando con la información correcta y que comprendes completamente cómo está organizada.
-
-`002-comprobacion.sql`
 
 ```sql
 SHOW TABLES;
@@ -10364,72 +8852,24 @@ SHOW TABLES;
 DESCRIBE clientes;
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Creación de una Base de Datos y Usuario
-
-**Descripción:** Los estudiantes deben crear una base de datos llamada `accesoadatos2526` e iniciar sesión con un usuario que tengan los privilegios necesarios. Asegúrense de permitir el acceso sin contraseña para simplificar la conexión a través del código.
-
-### Actividad 2: Conexión con Python
-
-**Descripción:** Los estudiantes deben escribir un script en Python utilizando `mysql.connector` para conectarse a la base de datos recién creada. Este ejercicio les ayudará a entender cómo establecer una conexión segura entre el lenguaje de programación y MySQL.
-
-### Actividad 3: Crear Tabla Personalizada
-
-**Descripción:** Los estudiantes deben crear su propia tabla en la base de datos `accesoadatos2526`, con al menos cuatro columnas propias. Esto les permitirá practicar la creación y diseño de estructuras de datos en SQL.
-
-### Actividad 4: Consulta Básica
-
-**Descripción:** Los estudiantes deben escribir una consulta SQL básica que seleccione todos los registros de su tabla recién creada. Esta actividad reforzará sus conocimientos sobre consultas SELECT y la importancia del uso correcto de sintaxis en SQL.
-
-### Actividad 5: Inserción de Datos
-
-**Descripción:** Los estudiantes deben escribir un script Python que inserte datos en la tabla creada durante la Actividad 3. Esto les permitirá practicar cómo interactuar con MySQL desde Python para operaciones CRUD básicas (Crear).
-
-### Actividad 6: Actualización y Eliminación de Datos
-
-**Descripción:** Los estudiantes deben escribir scripts tanto en SQL como en Python que realicen actualizaciones y eliminaciones en la tabla creada, lo cual les ayudará a entender cómo manipular datos existentes.
-
-### Actividad 7: Consultas Condicionalmente Filtradas
-
-**Descripción:** Los estudiantes deben realizar consultas SELECT con condiciones WHERE para filtrar registros basándose en criterios específicos. Esta actividad mejorará sus habilidades de búsqueda y manipulación condicional de datos.
-
-### Actividad 8: Uso de JOINs Básicos
-
-**Descripción:** Si se dispone de múltiples tablas, los estudiantes deben escribir consultas que utilicen INNER JOIN para combinar registros desde diferentes tablas. Esto les permitirá comprender cómo acceder a información relacionada en distintos conjuntos de datos.
-
-### Actividad 9: Crear y Utilizar Stored Procedures
-
-**Descripción:** Los estudiantes deberán crear un stored procedure que realice operaciones CRUD sobre su tabla personalizada. Este ejercicio los familiarizará con la programación procedimental en MySQL, facilitando la implementación de tareas complejas.
-
-### Actividad 10: Documentar Procedimientos y Scripts
-
-**Descripción:** Los estudiantes deben documentar cada script o consulta que han escrito durante las actividades anteriores. Esto incluye una breve explicación del propósito y el funcionamiento de cada pieza de código, mejorando sus habilidades en la comunicación técnica y la organización de proyectos.
-
-
 <a id="establecimiento-de-conexiones"></a>
 ## Establecimiento de conexiones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/003-Establecimiento%20de%20conexiones)
+En la subunidad "Establecimiento de conexiones" del manejo de conectores, se aborda el proceso fundamental para establecer una comunicación efectiva entre un programa y una base de datos. Este paso es crucial para cualquier aplicación que requiera acceso a información persistente.
 
-### Introducción a los ejercicios
+El primer aspecto a considerar es la elección del protocolo adecuado para la conexión. Los protocolos como TCP/IP son fundamentales en el mundo de las redes, proporcionando una comunicación bidireccional y confiable entre dos puntos finales. En el contexto de bases de datos, los protocolos específicos como SQL (Structured Query Language) o NoSQL se utilizan para interactuar con diferentes tipos de sistemas gestores de base de datos.
 
-Esta carpeta contiene ejercicios destinados a practicar la conexión y manipulación de datos en una base de datos MySQL utilizando Python. Los estudiantes aprenderán a establecer conexiones con la base de datos, realizar inserciones de registros y modificar tablas para mejorar su conocimiento sobre el manejo eficiente de bases de datos. Estos ejercicios enfatizan la importancia de asegurar que las operaciones CRUD se realicen correctamente mediante la implementación adecuada de consultas SQL en un entorno programático.
+El establecimiento de una conexión implica la configuración correcta de parámetros que identifican al servidor y especifican el tipo de comunicación. Esto incluye la dirección IP del servidor, el número de puerto en el que escucha el servicio, las credenciales de acceso (usuario y contraseña) y, en algunos casos, detalles adicionales como el nombre de la base de datos a la que se desea conectarse.
+
+Es importante destacar que el proceso de establecimiento de conexión debe ser seguro. Para esto, se utilizan técnicas como SSL/TLS para cifrar los datos transmitidos entre el cliente y el servidor, protegiendo así la información sensible durante su transmisión.
+
+Una vez establecida la conexión, el programa puede comenzar a realizar operaciones básicas como la ejecución de consultas SQL o la manipulación de datos. La gestión adecuada de las conexiones es esencial para evitar problemas de rendimiento y mantener la integridad de los datos.
+
+Es común que los programas manejen múltiples conexiones simultáneamente, lo que requiere una gestión cuidadosa de los recursos y la coordinación entre diferentes hilos o procesos. Herramientas y bibliotecas específicas para el manejo de bases de datos proporcionan funcionalidades avanzadas para facilitar este proceso.
+
+En resumen, establecer conexiones es un paso fundamental en el acceso a datos, permitiendo que los programas interactúen con sistemas gestores de base de datos de manera segura y eficiente. Este proceso implica la elección del protocolo adecuado, la configuración correcta de parámetros de conexión, y la implementación de medidas de seguridad para proteger la información durante su transmisión.
 
 ### insertar un cliente de prueba
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se encarga de insertar un nuevo cliente en una base de datos MySQL. Primero, el programa establece una conexión con la base de datos utilizando los detalles proporcionados como host (localhost), usuario (accesoadatos2526) y contraseña (Accesoadatos2526$). La base de datos específica a la que se conecta es "accesoadatos2526".
-
-Una vez establecida la conexión, el código crea un cursor que permite ejecutar comandos SQL en la base de datos. En este caso, se ejecuta una instrucción INSERT que añade un nuevo cliente a la tabla llamada 'clientes'. Este cliente tiene cuatro campos: ID (1), nombre ("Jose Vicente"), apellido ("Carratala Sanchis") y email ("info@jocarsa.com").
-
-Después de insertar el registro, se hace commit para guardar los cambios permanentemente en la base de datos. Finalmente, tanto el cursor como la conexión a la base de datos se cierran para liberar recursos.
-
-Este fragmento es importante porque demuestra cómo interactuar con una base de datos MySQL desde Python y cómo realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) específicamente enfocándose en la creación o inserción de registros.
-
-`001-insertar un cliente de prueba.py`
 
 ```python
 import mysql.connector
@@ -10460,25 +8900,6 @@ conexion.close()
 ```
 
 ### ejecutar consulta de alteracion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una parte importante del manejo de bases de datos en Python, específicamente utilizando MySQL. El objetivo principal es modificar la estructura de una tabla llamada `clientes` que ya existe en tu base de datos.
-
-El código comienza creando una conexión a la base de datos usando la librería `mysql.connector`. Se especifica el host (en este caso, `localhost`, lo cual significa que la base de datos está en el mismo servidor que el programa), usuario y contraseña para acceder a la base de datos llamada `accesoadatos2526`.
-
-Una vez establecida la conexión, se crea un cursor, que es una especie de controlador que permite ejecutar consultas SQL. A continuación, se utiliza este cursor para ejecutar dos sentencias SQL importantes:
-
-1. La primera consulta agrega una clave primaria a la tabla `clientes`. Una clave primaria es un campo (o combinación de campos) que garantiza que cada fila en tu tabla sea única y no tenga duplicados. En esta consulta, el campo elegido como clave primaria es `Identificador`.
-
-2. La segunda consulta modifica la columna `Identificador`, estableciéndola como un campo de tipo entero (`INT`) que no puede contener valores nulos (`NOT NULL`). Además, se habilita la opción `AUTO_INCREMENT` en este campo. Esto significa que cada vez que insertes una nueva fila sin proporcionar un valor para `Identificador`, MySQL automáticamente asignará un número entero único y secuencial.
-
-Finalmente, se confirma (commit) los cambios realizados en la base de datos y se cierra tanto el cursor como la conexión a la base de datos. Es importante realizar este paso para asegurar que los cambios sean guardados permanentemente en la base de datos y no haya conexiones abiertas que puedan causar problemas.
-
-Este tipo de operaciones es crucial cuando estás gestionando estructuras de datos complejas, ya que permiten garantizar la integridad y consistencia de tu información.
-
-`002-ejecutar consulta de alteracion.py`
 
 ```python
 import mysql.connector
@@ -10513,19 +8934,6 @@ conexion.close()
 ```
 
 ### inserto cliente con null
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código en Python se utiliza para insertar un nuevo registro en una tabla llamada `clientes` de una base de datos MySQL. La inserción se realiza a través del manejo de conexiones y consultas SQL utilizando el módulo `mysql.connector`.
-
-Primero, se establece una conexión a la base de datos usando credenciales específicas (host, usuario, contraseña y nombre de la base de datos). Luego, se crea un objeto cursor que permite ejecutar comandos SQL en la base de datos.
-
-El comando SQL dentro del método `execute()` inserta un nuevo cliente en la tabla `clientes`. El primer valor es `NULL`, lo cual significa que el ID del cliente será generado automáticamente por la base de datos (generalmente, este campo sería una clave primaria con autoincremento). Los valores restantes son el nombre ("Jose Vicente"), apellido ("Carratala Sanchis") y correo electrónico ("info@jocarsa.com") del nuevo cliente.
-
-Finalmente, se confirma la transacción para guardar los cambios en la base de datos mediante `conexion.commit()`, y después cierra tanto el cursor como la conexión a la base de datos para liberar recursos.
-
-`003-inserto cliente con null.py`
 
 ```python
 import mysql.connector
@@ -10555,64 +8963,26 @@ cursor.close()
 conexion.close()
 ```
 
-### Actividades propuestas
-
-1. **Conexión a la base de datos**
-   - Los estudiantes deberán escribir un programa que conecte con una base de datos MySQL local, utilizando las credenciales proporcionadas en los ejemplos del código.
-   - Objetivo: Aprender a establecer y verificar la conexión correcta con una base de datos.
-
-2. **Insertar Datos Manuales**
-   - Los estudiantes deben crear un programa para insertar manualmente varios registros en una tabla llamada `clientes`, utilizando el mismo esquema de los ejemplos.
-   - Objetivo: Aprender a utilizar instrucciones SQL INSERT dentro del código Python y gestionar la transacción.
-
-3. **Modificar Datos**
-   - Los estudiantes deben implementar un script que modifique los datos existentes en una tabla `clientes` por medio de actualizaciones SQL directamente desde el programa.
-   - Objetivo: Familiarizar con las operaciones UPDATE y su implementación mediante Python.
-
-4. **Ejecutar Consultas CRUD**
-   - Los estudiantes deben diseñar un script que realice operaciones CRUD (Crear, Leer, Actualizar y Borrar) en una tabla de clientes.
-   - Objetivo: Aprender a manejar diferentes tipos de consultas SQL con transacciones aseguradas.
-
-5. **Administrar Conexiones**
-   - Los estudiantes deben escribir un programa que gestione correctamente la apertura y cierre de conexiones a la base de datos para evitar fugas de recursos.
-   - Objetivo: Mejorar las prácticas de codificación al trabajar con múltiples operaciones en una misma sesión.
-
-6. **Crear Columna PK Automática**
-   - Los estudiantes deben crear un programa que añada automáticamente una columna identificador como clave primaria y configure esta para que sea AUTO_INCREMENT.
-   - Objetivo: Aprender a manejar ALTER TABLE y otras modificaciones estructurales en SQL desde Python.
-
-7. **Manejo de Valores NULL**
-   - Los estudiantes deben desarrollar un programa que inserte registros permitiendo valores NULL en ciertos campos, utilizando los ejemplos proporcionados como referencia.
-   - Objetivo: Entender la importancia y manejo correcto de los valores NULL en las bases de datos.
-
-8. **Validación de Datos**
-   - Los estudiantes deben crear un programa que inserte registros nuevos pero antes valide los datos para asegurar que cumplan con ciertos requisitos mínimos.
-   - Objetivo: Aprender a implementar validaciones de datos previo a la inserción en una base de datos.
-
-
 <a id="ejecucion-de-sentencias-de-descripcion-de-datos"></a>
 ## Ejecución de sentencias de descripción de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/004-Ejecuci%C3%B3n%20de%20sentencias%20de%20descripci%C3%B3n%20de%20datos)
+En esta subunidad del curso, nos adentramos en la ejecución de sentencias de descripción de datos, un aspecto crucial para el manejo de conectores en sistemas de acceso a bases de datos. Comenzamos por entender que las sentencias de descripción de datos son aquellas que permiten obtener información sobre la estructura y organización de los objetos dentro de una base de datos. Estas incluyen consultas que devuelven metadatos, como el nombre de las tablas, campos, tipos de datos y relaciones entre ellas.
 
-### Introducción a los ejercicios
+A continuación, exploramos cómo establecer conexiones con bases de datos utilizando protocolos estándar de comunicación en red a nivel de aplicación. Esto implica conocer los diferentes roles que pueden desempeñar tanto el cliente como el servidor en la transmisión de información. Además, aprendemos sobre las librerías y clases disponibles para facilitar este proceso, lo cual es fundamental para desarrolladores que quieran interactuar con bases de datos sin necesidad de escribir desde cero los protocolos de comunicación.
 
-En esta carpeta, trabajaremos con ejercicios que te ayudarán a comprender y practicar el manejo de consultas SELECT en bases de datos utilizando Python. Los ejemplos se centran en cómo recuperar datos completos desde una tabla, seleccionar columnas específicas (proyecciones), utilizar alias para mejorar la legibilidad de los campos devueltos y finalmente, cómo configurar el cursor para que las filas sean retornadas como diccionarios, facilitando el acceso a los datos. Estos ejercicios te permitirán fortalecer tus habilidades en la interacción con bases de datos MySQL desde Python, mejorando tu capacidad para manipular y visualizar datos eficientemente.
+Una vez establecida la conexión, el siguiente paso es ejecutar sentencias de descripción de datos. Estas pueden ser consultas SQL que devuelven información sobre las tablas y campos disponibles en la base de datos. Por ejemplo, una consulta podría devolver todos los nombres de las tablas o todas las columnas de una tabla específica. Es importante entender cómo formular estas consultas correctamente para obtener los resultados deseados.
+
+Además de las consultas básicas, también es necesario aprender a manejar excepciones que pueden surgir durante la ejecución de estas sentencias. Las excepciones son eventos inesperados que ocurren durante el proceso de ejecución y que pueden interrumpir el flujo normal del programa. Es crucial conocer cómo detectar y tratar estas excepciones para mantener la robustez del sistema.
+
+Continuando, nos centramos en la ejecución de sentencias de modificación de datos, aunque este tema se aborda más a fondo en una subunidad posterior. Sin embargo, es importante recordar que las consultas de descripción de datos son un paso previo crucial para entender cómo interactuar con los datos almacenados.
+
+A medida que avanzamos, nos familiarizamos con la ejecución de consultas y el manejo del resultado. Aprenderemos a realizar operaciones como filtrado de datos, numeración de líneas, recuentos y totales, así como la generación de gráficos basados en los resultados obtenidos. Estas habilidades son esenciales para crear informes útiles y visualmente atractivos que puedan facilitar el análisis de la información.
+
+Finalmente, nos dedicamos a la ejecución de procedimientos almacenados en la base de datos. Los procedimientos almacenados son bloques de código predefinidos que se almacenan en la base de datos y pueden ser invocados desde aplicaciones cliente. Aprender a ejecutar estos procedimientos es crucial para optimizar el rendimiento del sistema y reducir la carga sobre el servidor.
+
+En esta subunidad, hemos cubierto los fundamentos necesarios para interactuar con bases de datos utilizando conectores. Desde la establecimiento de conexiones hasta la ejecución de consultas y la gestión de excepciones, hemos aprendido las habilidades esenciales que permitirán a los desarrolladores acceder y manipular información de manera eficiente y segura en sistemas de acceso a datos.
 
 ### select todo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se encarga de conectarse a una base de datos MySQL y obtener todos los registros de la tabla llamada `clientes`. Primero, el programa importa el módulo `mysql.connector`, que proporciona las herramientas necesarias para interactuar con bases de datos MySQL. Luego, establece una conexión a la base de datos utilizando un conjunto específico de credenciales y especificando qué base de datos utilizar.
-
-Una vez establecida la conexión, se crea un objeto cursor que permite enviar comandos SQL y recuperar los resultados. En este caso, el comando `SELECT * FROM clientes` es ejecutado para seleccionar todas las filas y todos los campos (campos son columnas en términos de bases de datos) de la tabla `clientes`. Los resultados se almacenan en la variable `filas`.
-
-Finalmente, un bucle `for` recorre cada fila del conjunto de resultados y la imprime. Es importante cerrar tanto el cursor como la conexión a la base de datos una vez que hemos terminado para liberar recursos.
-
-Este tipo de operación es fundamental cuando trabajamos con bases de datos porque nos permite acceder y manipular datos almacenados en ellas, lo cual es crucial en muchas aplicaciones del mundo real.
-
-`001-select todo.py`
 
 ```python
 import mysql.connector
@@ -10640,19 +9010,6 @@ conexion.close()
 ```
 
 ### proyecciones
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para conectar a una base de datos MySQL y ejecutar una consulta SQL específica. La conexión a la base de datos se establece utilizando las credenciales proporcionadas (nombre del host, usuario, contraseña y nombre de la base de datos). Una vez que se ha establecido la conexión, el código crea un cursor que permite ejecutar comandos SQL en la base de datos.
-
-La consulta SQL dentro del método `execute` selecciona tres campos específicos (`nombre`, `apellidos` y `email`) de una tabla llamada `clientes`. Después de ejecutar esta sentencia SELECT, todas las filas devueltas por la consulta se almacenan en la variable `filas`.
-
-Finalmente, el código itera sobre cada fila obtenida y la imprime. Es importante cerrar tanto el cursor como la conexión a la base de datos después de realizar estas operaciones para liberar recursos.
-
-Este tipo de script es crucial cuando necesitas recuperar información específica de una base de datos para procesamiento adicional en tu aplicación, permitiéndote trabajar con los datos directamente desde un entorno de programación.
-
-`002-proyecciones.py`
 
 ```python
 import mysql.connector
@@ -10684,17 +9041,6 @@ conexion.close()
 ```
 
 ### alias de campo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se conecta a una base de datos MySQL para recuperar información y mostrarla en la pantalla. La conexión a la base de datos se establece con los detalles específicos del servidor (en este caso, localhost), usuario, contraseña y nombre de la base de datos.
-
-Luego, el programa ejecuta una consulta SQL que selecciona tres columnas (`nombre`, `apellidos` y `email`) desde la tabla llamada `clientes`. Pero aquí hay un detalle importante: utiliza lo que se conoce como "alias" para renombrar las columnas en los resultados. Esto significa que cuando muestres los datos, las columnas serán mostradas como "Nombre del cliente", "Apellidos del cliente" y "Email del cliente" en lugar de sus nombres originales.
-
-Finalmente, el código itera sobre todas las filas devueltas por la consulta (almacenadas en `filas`) e imprime cada una. Antes de terminar, cierra tanto el cursor como la conexión a la base de datos para liberar recursos del sistema. Este es un ejemplo sencillo pero eficaz de cómo manejar y visualizar datos desde una base de datos MySQL usando Python.
-
-`003-alias de campo.py`
 
 ```python
 import mysql.connector
@@ -10726,17 +9072,6 @@ conexion.close()
 ```
 
 ### devuelvo como diccionario
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para conectarse a una base de datos MySQL y ejecutar una consulta SQL que selecciona información específica sobre los clientes. La conexión a la base de datos se establece usando el módulo `mysql.connector`, proporcionando detalles como el host (en este caso, localhost), usuario y contraseña. La opción `dictionary=True` en la creación del cursor asegura que cada fila devuelta por la consulta sea un diccionario con nombres de columna como claves, lo cual facilita acceder a los datos.
-
-La consulta SQL selecciona tres campos: el nombre, apellidos y email de los clientes, dando a estos campos alias descriptivos para mejorar su legibilidad. Los resultados se almacenan en la variable `filas`, que luego se recorre con un bucle for para imprimir cada fila (que es un diccionario) en la consola.
-
-Este tipo de código es importante porque permite interactuar fácilmente con bases de datos y manipular los datos de manera estructurada, lo cual es fundamental para aplicaciones web o sistemas administrativos.
-
-`004-devuelvo como diccionario.py`
 
 ```python
 import mysql.connector
@@ -10767,70 +9102,28 @@ cursor.close()
 conexion.close()
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Consulta Básica de Datos
-
-**Descripción:** Los estudiantes deben escribir un programa en Python que conecte a una base de datos MySQL y ejecute una consulta SELECT para recuperar todos los registros de la tabla `clientes`. Se espera que aprendan a establecer conexiones seguras con bases de datos SQL utilizando el módulo `mysql.connector`.
-
-### Actividad 2: Proyecciones Selectivas
-
-**Descripción:** Los estudiantes deben modificar un programa existente para seleccionar solo ciertos campos específicos (como nombre, apellidos y email) de la tabla `clientes`. Esto les ayudará a entender cómo seleccionar proyecciones selectivas de datos en SQL.
-
-### Actividad 3: Alias para Campos
-
-**Descripción:** Los estudiantes deben agregar alias a los nombres de los campos recuperados en una consulta SELECT. El objetivo es mostrarles cómo renombrar los resultados de las consultas con descripciones más descriptivas y legibles.
-
-### Actividad 4: Resultados como Diccionarios
-
-**Descripción:** Se pide que los estudiantes modifiquen un programa para que la salida de una consulta SELECT se devuelva en formato diccionario. Esto les permitirá entender cómo manejar los resultados de consultas SQL con mayor flexibilidad y facilidad en Python.
-
-### Actividad 5: Consulta Condicional
-
-**Descripción:** Los estudiantes deben agregar condiciones a sus consultas para filtrar datos específicos (por ejemplo, clientes que viven en una ciudad determinada). Esto les ayudará a comprender cómo aplicar criterios de búsqueda condicionales.
-
-### Actividad 6: Operaciones de Combinación
-
-**Descripción:** Se pide implementar una consulta JOIN simple entre dos tablas relacionadas para recuperar información combinada. Los estudiantes deben aprender a unir datos de múltiples fuentes en una única consulta SQL.
-
-### Actividad 7: Consulta Con Funciones Agregadas
-
-**Descripción:** Los estudiantes escribirán consultas que usen funciones agregadas (como COUNT, SUM) para analizar y resumir los datos de la tabla `clientes`. Esto les enseñará a extraer información estadística relevante.
-
-### Actividad 8: Consulta Con Ordenación
-
-**Descripción:** Los estudiantes deben escribir una consulta SELECT que ordene los resultados en función de uno o más campos. Por ejemplo, ordenar clientes por apellido de forma ascendente y nombre descendente. Esto les ayudará a entender cómo manipular el orden de los datos recuperados.
-
-### Actividad 9: Consulta Con Subconsultas
-
-**Descripción:** Los estudiantes deben crear una consulta que utilice subconsultas para seleccionar registros basándose en condiciones complejas (por ejemplo, clientes con más de un producto). Esto les permitirá explorar la potencia y flexibilidad del SQL.
-
-### Actividad 10: Consulta Compleja Con Proyecciones
-
-**Descripción:** Se requiere a los estudiantes que escriban una consulta compleja que combine varios conceptos vistos anteriormente (proyecciones, condiciones, alias de campo). Esto permitirá evaluar su comprensión global del manejo de consultas SQL en Python.
-
-
 <a id="ejecucion-de-sentencias-de-modificacion-de-datos"></a>
 ## Ejecución de sentencias de modificación de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/005-Ejecuci%C3%B3n%20de%20sentencias%20de%20modificaci%C3%B3n%20de%20datos)
+En la subunidad "Ejecución de sentencias de modificación de datos", nos centramos en las operaciones que permiten alterar el contenido de una base de datos. Estas operaciones son fundamentales para mantener actualizado los datos almacenados, ya que incluyen la inserción, eliminación y modificación de registros.
 
-### Introducción a los ejercicios
+La inserción de nuevos registros es un proceso sencillo pero crucial. Consiste en agregar información a una tabla específica, utilizando sentencias SQL como `INSERT INTO`. Este método nos permite expandir el conjunto de datos con nuevos elementos, lo que es esencial para mantener la relevancia y actualidad del contenido almacenado.
 
-En esta carpeta, encontrarás ejercicios relacionados con el manejo de sentencias SQL para la modificación de datos en una base de datos MySQL utilizando Python. Los tres archivos presentes trabajan con operaciones fundamentales como inserción, actualización y eliminación de registros en una tabla llamada "clientes". Estos ejercicios te ayudarán a comprender cómo interactuar eficazmente con bases de datos para gestionar información, practicando así tus habilidades en el control de transacciones y manipulación de datos.
+La eliminación de registros es otro aspecto importante del manejo de conectores. A través de la sentencia SQL `DELETE`, podemos eliminar uno o varios registros de una tabla según ciertos criterios definidos por el usuario. Esta operación es útil para mantener la integridad y precisión de los datos, permitiendo su actualización periódica.
+
+La modificación de registros es un proceso que permite cambiar los valores de uno o más campos en un registro existente. Utilizando la sentencia SQL `UPDATE`, podemos ajustar información específica dentro de una tabla, lo que es fundamental para mantener los datos actualizados y precisos.
+
+Además de estas operaciones básicas, el manejo de conectores también implica la ejecución de sentencias de modificación de datos complejas. Estas pueden incluir la combinación de varias operaciones en una sola consulta, utilizando subconsultas o transacciones. La capacidad de realizar estas operaciones es crucial para realizar tareas avanzadas de gestión de datos.
+
+La ejecución de sentencias de modificación de datos requiere un cuidadoso manejo de errores y excepciones. Es importante implementar mecanismos que detecten y manejen situaciones como intentos de inserción de duplicados, eliminación de registros inexistentes o actualización de campos con valores no válidos. Esto garantiza la integridad y consistencia de los datos.
+
+Además del manejo de sentencias de modificación de datos, es fundamental entender cómo afectan estas operaciones a la concurrencia en una base de datos. La simultaneidad puede llevar a problemas como la pérdida de datos o inconsistencias si no se implementan mecanismos adecuados para controlar el acceso concurrente.
+
+La ejecución de sentencias de modificación de datos también implica la optimización de las consultas. Aunque estas operaciones pueden ser intensivas en términos de recursos, su eficiencia es crucial para mantener un rendimiento óptimo del sistema. Esto puede implicar la utilización de índices adecuados, la minimización de los cambios a realizar y la planificación de las transacciones.
+
+En conclusión, el manejo de conectores en la subunidad "Ejecución de sentencias de modificación de datos" es un aspecto fundamental del acceso a bases de datos. Incluye operaciones básicas como inserción, eliminación y modificación de registros, así como operaciones más complejas que requieren un cuidadoso manejo de errores y optimización para garantizar la integridad, consistencia y rendimiento del sistema.
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código en Python se utiliza para conectar a una base de datos MySQL y ejecutar una sentencia SQL que inserta un nuevo registro en la tabla llamada `clientes`. Primero, el programa establece una conexión con la base de datos usando los detalles proporcionados (host, usuario, contraseña y nombre de la base de datos). Luego, crea un cursor que permite interactuar con la base de datos. 
-
-La sentencia SQL incluida dentro del método `execute()` añade un nuevo cliente a la tabla `clientes`. Este cliente tiene un nombre ("Juan"), apellido ("Garcia Lopez") y correo electrónico ("juan@garcialopez.com"). El valor `NULL` en los paréntesis indica que el ID de este registro será automáticamente asignado por la base de datos, lo cual es común cuando tienes una columna de clave primaria autoincremental.
-
-Finalmente, se llama a `commit()` para guardar permanentemente los cambios en la base de datos y luego cierra tanto el cursor como la conexión. Esto asegura que no quedan recursos abiertos después de haber terminado de interactuar con la base de datos.
-
-`001-insertar.py`
 
 ```python
 import mysql.connector
@@ -10860,19 +9153,6 @@ conexion.close()
 ```
 
 ### actualizar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python utiliza la biblioteca `mysql.connector` para conectarse a una base de datos MySQL y realizar una actualización de datos. La conexión se establece utilizando credenciales específicas, como el host (localhost), usuario, contraseña y nombre de la base de datos. Luego, se crea un objeto cursor que permite ejecutar consultas SQL en la base de datos.
-
-El código ejecuta una consulta `UPDATE` para cambiar el valor del campo `nombre` a "Juan Diego" en la tabla `clientes`, pero solo para el registro donde el campo `Identificador` tenga el valor 3. Esto significa que sólo se actualizará un único registro específico en la tabla, asegurando que no haya cambios indeseados en otros registros.
-
-Finalmente, `conexion.commit()` es crucial porque confirma los cambios realizados por la consulta `UPDATE`. Sin esta línea, los cambios no se guardarían permanentemente en la base de datos. Después de ejecutar las consultas y confirmar los cambios, el código cierra el cursor y la conexión a la base de datos para liberar recursos.
-
-Este tipo de operación es importante cuando necesitas mantener tus datos actualizados según nuevas informaciones o correcciones que puedan surgir en un sistema de gestión de clientes.
-
-`002-actualizar.py`
 
 ```python
 import mysql.connector
@@ -10897,17 +9177,6 @@ conexion.close()
 ```
 
 ### eliminar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para eliminar un registro específico de una tabla llamada `clientes` en una base de datos MySQL. Primero, el programa establece una conexión con la base de datos usando las credenciales proporcionadas: host (en este caso, localhost), usuario (`accesoadatos2526`), contraseña y nombre de la base de datos (`accesoadatos2526`). Luego, se crea un objeto cursor que permite ejecutar comandos SQL en la base de datos.
-
-El código ejecuta una sentencia `DELETE FROM clientes WHERE Identificador = 3;`, lo que significa que borrará el registro cuyo campo `Identificador` tenga el valor 3. Es importante notar que esta acción es irreversible y debe usarse con cuidado para evitar perder información valiosa.
-
-Finalmente, se realiza la confirmación (commit) de los cambios en la base de datos para asegurar que la eliminación se efectúe definitivamente. El código cierra tanto el cursor como la conexión a la base de datos una vez completada esta operación.
-
-`003-eliminar.py`
 
 ```python
 import mysql.connector
@@ -10931,151 +9200,24 @@ cursor.close()
 conexion.close()
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Insertar Registros en una Base de Datos
-
-**Descripción:** Los estudiantes deben crear un script Python que permita insertar nuevos registros en la tabla `clientes` de la base de datos. Se espera que los alumnos comprendan cómo estructurar y ejecutar sentencias SQL para agregar información a una tabla existente.
-
-### Actividad 2: Actualizar Registros
-
-**Descripción:** Los estudiantes tendrán que escribir un script Python similar al archivo `002-actualizar.py` pero cambiando la descripción o algún otro campo del registro de clientes. Se espera que los alumnos sean capaces de identificar y modificar registros específicos en una tabla mediante sentencias SQL.
-
-### Actividad 3: Eliminar Registros
-
-**Descripción:** Los estudiantes deben desarrollar un script Python para eliminar un registro específico desde la tabla `clientes`. Esta actividad permitirá a los alumnos comprender cómo se utiliza la cláusula DELETE en SQL y cómo funciona el flujo de control del programa.
-
-### Actividad 4: Manejar Transacciones Con Comandos SQL
-
-**Descripción:** Los estudiantes deberán escribir scripts que realicen una serie de inserciones, actualizaciones o eliminaciones en varias sentencias dentro de una transacción única. Se espera que los alumnos aprendan a usar `BEGIN`, `COMMIT` y `ROLLBACK`.
-
-### Actividad 5: Consulta de Datos Básica
-
-**Descripción:** Aunque no se muestra en la carpeta actual, como complemento, solicitaría a los estudiantes escribir un script para consultar datos existentes (SELECT) desde la tabla `clientes`. Esto ayudará a reforzar el conocimiento sobre cómo intercambiar información entre Python y SQL.
-
-### Actividad 6: Insertar Diversos Tipos de Datos
-
-**Descripción:** Los estudiantes deben crear registros en la base de datos que incluyan diversos tipos de datos (como fechas, números enteros y flotantes). La actividad servirá para que aprendan a manejar diferentes formatos de datos SQL.
-
-### Actividad 7: Manejo de Errores
-
-**Descripción:** Los estudiantes tendrán que incorporar bloques try-except en sus scripts para manejar posibles errores o excepciones al ejecutar comandos CRUD (Crear, Leer, Actualizar y Borrar).
-
-### Actividad 8: Optimización del Código SQL
-
-**Descripción:** Se les pedirá a los estudiantes mejorar la eficiencia de los scripts existentes eliminando código innecesario o añadiendo optimizaciones. Esto puede incluir, por ejemplo, minimizar el número de conexiones a la base de datos.
-
-### Actividad 9: Crear y Ejecutar Scripts SQL desde Python
-
-**Descripción:** Los estudiantes deberán crear un script Python que permita ejecutar comandos SQL almacenados en archivos .sql. Esta actividad fomentará las habilidades de interacción entre Python y scripts predefinidos.
-
-### Actividad 10: Automatización con Bucle For
-
-**Descripción:** Solicitar a los estudiantes escribir un script que use un bucle `for` para insertar múltiples registros en la base de datos. Esto ayudará a entender cómo integrar estructuras de control de flujo en operaciones CRUD.
-
-
 <a id="ejecucion-de-consultas-manipulacion-del-resultado"></a>
 ## Ejecución de consultas. Manipulación del resultado
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/006-Ejecuci%C3%B3n%20de%20consultas.%20Manipulaci%C3%B3n%20del%20resultado)
+En esta subunidad, nos centraremos en la ejecución de consultas en bases de datos utilizando conectores, así como en el manejo del resultado obtenido. Comenzamos por entender que las consultas son una parte esencial de cualquier interacción con una base de datos, ya que permiten recuperar y manipular los datos almacenados.
 
-### Introducción a los ejercicios
+La ejecución de consultas implica establecer una conexión a la base de datos utilizando un conector específico para el tipo de base de datos en uso. Este proceso puede variar ligeramente dependiendo del conector y del sistema operativo, pero generalmente implica proporcionar credenciales de acceso y detalles sobre la ubicación de la base de datos.
 
-El código proporcionado muestra cómo crear y usar una clase `YourSQL` para manejar operaciones básicas de una base de datos simple basada en archivos CSV. Aquí hay un resumen y análisis del código:
+Una vez establecida la conexión, se pueden ejecutar consultas SQL (Structured Query Language) para recuperar información. Estas consultas pueden ser simples o complejas, dependiendo del nivel de detalle que se requiera en los resultados. Por ejemplo, una consulta simple podría seleccionar todos los registros de una tabla, mientras que una consulta más compleja podría filtrar y ordenar los datos según ciertos criterios.
 
-### Clase `YourSQL`
+El resultado de la ejecución de una consulta es un conjunto de filas y columnas, conocido como un "conjunto de resultados". Este conjunto puede ser recorrido y procesado uno a uno para realizar operaciones específicas. Por ejemplo, se pueden iterar sobre los registros para actualizar ciertos campos o filtrar los datos según condiciones particulares.
 
-1. **Atributos de la Clase:**
-   - `carpeta_bd`: La ruta donde se almacenan los archivos CSV (por defecto es "db").
-   - `base_actual`: El nombre de la base de datos actualmente seleccionada.
+Es importante destacar que el manejo del resultado es una parte crítica de cualquier aplicación que interactúe con bases de datos. No solo permite recuperar la información necesaria, sino también manipularla y presentarla de manera útil para el usuario final. Por lo tanto, es necesario tener en cuenta aspectos como la eficiencia del procesamiento, la seguridad de los datos y la consistencia de los resultados.
 
-2. **Método estático `petición`**:
-   - Este método maneja las diferentes consultas SQL que recibe en forma de cadena.
-   - Se utilizan expresiones regulares para analizar y procesar las consultas.
-   - Actualmente, admite los siguientes comandos:
-     - **SHOW DATABASES**: Lista todos los directorios (bases de datos) en la carpeta `carpeta_bd`.
-     - **USE <nombre_base_de_datos>**: Cambia la base de datos actual a `<nombre_base_de_datos>`.
-     - **SHOW TABLES**: Lista todos los archivos CSV dentro del directorio actual (`base_actual`).
-     - **INSERT INTO <tabla> (columnas) VALUES (...)**: Inserta nuevas filas en un archivo CSV, creándolo si no existe.
-     - **SELECT * FROM <tabla>**: Muestra el contenido completo de una tabla (archivo CSV).
+Además, al trabajar con conjuntos de resultados, es común utilizar métodos específicos proporcionados por el conector para navegar y manipular estos datos. Por ejemplo, se pueden obtener el número total de filas, acceder a un registro específico o iterar sobre todos los registros del conjunto.
 
-### Análisis Detallado del Método `petición`
-
-1. **SHOW DATABASES**:
-   ```python
-   if peticion == "SHOW DATABASES;":
-       import os
-       carpetas = os.listdir(YourSQL.carpeta_bd)
-       for carpeta in carpetas:
-           print(carpeta)
-   ```
-
-2. **USE <nombre_base_de_datos>**:
-   ```python
-   elif "USE" in peticion:
-       YourSQL.base_actual = peticion.split(" ")[1].split(";")[0]
-   ```
-
-3. **SHOW TABLES**:
-   ```python
-   elif peticion == "SHOW TABLES;":
-       import os
-       tablas = os.listdir(os.path.join(YourSQL.carpeta_bd, YourSQL.base_actual))
-       for tabla in tablas:
-           print(tabla)
-   ```
-
-4. **INSERT INTO <tabla> (columnas) VALUES (...)**:
-   - Se utiliza una expresión regular para capturar la estructura de la consulta.
-   - Se procesan las columnas y valores proporcionados, insertando filas en el archivo CSV correspondiente.
-
-5. **SELECT * FROM <tabla>**:
-   - Similar al comando `INSERT`, se usa una expresión regular para capturar la tabla a consultar.
-   - Se verifica si existe el archivo CSV, luego se lee su contenido y se imprime.
-
-### Ejemplo de Uso
-
-El código incluye un ejemplo de cómo usar la clase `YourSQL`:
-
-```python
-from yoursql import YourSQL
-
-# Crear/Seleccionar base de datos (si no existe, será creada)
-YourSQL.peticion("USE accesoadatos;")
-# Mostrar las bases de datos disponibles
-YourSQL.peticion("SHOW DATABASES;")
-# Mostrar todas las tablas en la base actual
-YourSQL.peticion("SHOW TABLES;")
-# Insertar filas en una tabla (si no existe, se creará)
-YourSQL.peticion('INSERT INTO clientes (id, nombre, email, activo) VALUES (1, "Ana", "ana@example.com", TRUE), (2, "Luis O\\''Connor", NULL, FALSE);')
-# Consultar todas las filas de la tabla
-YourSQL.peticion("SELECT * FROM clientes;")
-```
-
-### Mejoras Potenciales
-
-- **Manejo de Errores**: Añadir manejo de errores para consultas no válidas.
-- **Autocompletado y Tablas**: Implementar un sistema más robusto que permita autocompletar tablas y columnas.
-- **Optimización de Consultas**: Mejorar el procesamiento de consultas SELECT, incluyendo la posibilidad de filtrar resultados.
-
-Este código proporciona una introducción básica a cómo se pueden manejar las operaciones de base de datos utilizando archivos CSV en Python.
+En resumen, la ejecución de consultas y el manejo del resultado son habilidades fundamentales en cualquier aplicación que interactúe con bases de datos. A través de estos procesos, se pueden recuperar y manipular los datos almacenados, lo que permite a las aplicaciones realizar una amplia gama de funciones y operaciones.
 
 ### yoursql
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una pequeña parte de un programa que interactúa con archivos y directorios en el sistema. En primer lugar, importa el módulo `os`, que proporciona funciones para manipular rutas del sistema operativo y listar archivos.
-
-Luego, se define la variable `carpeta_bd` con el valor "db". Esto indica que estamos trabajando con un directorio llamado "db" donde suponemos que hay varias subcarpetas o archivos relacionados con bases de datos.
-
-El código continúa usando la función `os.listdir()` para obtener una lista de todos los nombres de las carpetas y archivos en el directorio especificado por `carpeta_bd`. Esta función devuelve una lista de cadenas, donde cada cadena es el nombre de un archivo o carpeta dentro del directorio "db".
-
-Finalmente, se utiliza un bucle `for` para iterar sobre la lista generada. Para cada elemento (nombre de carpeta) en esa lista, se imprime ese nombre.
-
-Este código es importante porque te permite ver qué carpetas y archivos hay en el directorio especificado sin necesidad de abrir exploradores de archivos gráficos o herramientas externas. Es útil para verificar la estructura del sistema de archivos antes de realizar operaciones más complejas con bases de datos u otros recursos almacenados en estos directorios.
-
-`001-yoursql.py`
 
 ```python
 import os
@@ -11089,19 +9231,6 @@ for carpeta in carpetas:
 ```
 
 ### mi propio lenguaje
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para listar el contenido de una carpeta llamada `db`. Primero, importa el módulo `os`, que proporciona funciones para interactuar con el sistema operativo. Luego, declara la variable `carpeta_bd` y le asigna el valor "db", lo cual indica que queremos trabajar con la carpeta llamada "db".
-
-A continuación, usa la función `os.listdir(carpeta_bd)` para obtener una lista de todos los nombres de las carpetas y archivos dentro de la carpeta "db". Esta lista se almacena en la variable `carpetas`.
-
-Finalmente, el código itera sobre cada elemento (que representa un nombre de archivo o subcarpeta) en la lista `carpetas` usando un bucle `for`. Para cada elemento encontrado, imprime su nombre en la consola.
-
-Este tipo de script es útil cuando necesitas revisar visualmente el contenido de una carpeta específica en tu sistema de archivos.
-
-`002-mi propio lenguaje.py`
 
 ```python
 import os
@@ -11115,19 +9244,6 @@ for carpeta in carpetas:
 ```
 
 ### lo convierto en una clase
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código crea una clase llamada `YourSQL` en Python, que se utiliza para interactuar con bases de datos almacenadas en el sistema de archivos. La clase tiene dos métodos principales: un constructor (`__init__`) y otro método llamado `peticion`.
-
-El constructor inicializa la instancia de la clase estableciendo una variable de instancia llamada `carpeta_bd` a "db". Esto es probablemente donde se almacenarán las bases de datos virtuales en el sistema de archivos.
-
-El método `peticion` toma un argumento llamado `peticion`, que supuestamente representa una consulta SQL. Si la consulta es igual a `"SHOW DATABASES;"`, el código lista todos los nombres de carpetas en la carpeta definida por `carpeta_bd`. Esto simula cómo las bases de datos podrían mostrarse si estuvieras usando un sistema de gestión de base de datos real.
-
-Este bloque de código es importante porque muestra una forma simple de manejar y visualizar "bases de datos" almacenadas en archivos, ayudando a estudiantes a entender conceptos básicos sobre cómo interactuar con bases de datos desde Python.
-
-`003-lo convierto en una clase.py`
 
 ```python
 import os
@@ -11143,17 +9259,6 @@ class YourSQL():
 ```
 
 ### metodo estatico en python
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está diseñado para simular una función básica de un sistema de gestión de bases de datos (SGBD) en Python. La clase `YourSQL` tiene un atributo de clase llamado `carpeta_bd`, que es una cadena que almacena el nombre de la carpeta donde se supone que están almacenadas las bases de datos.
-
-La parte clave del código es el método estático `peticion`. Este método toma como parámetro una solicitud (`peticion`), en este caso, `"SHOW DATABASES;"`, que es un comando típico en SQL para mostrar todas las bases de datos disponibles. Dentro del método, se verifica si la solicitud coincide con el comando "SHOW DATABASES;". Si es así, utiliza la función `os.listdir()` para listar todos los archivos y carpetas dentro del directorio especificado por `carpeta_bd`. Luego, para cada elemento en esa lista (que representa las bases de datos simuladas), imprime su nombre.
-
-Este código es importante porque demuestra cómo se pueden crear métodos estáticos que realizan operaciones específicas sin necesidad de instanciar un objeto de la clase. En este caso, el método permite ejecutar una consulta simple y mostrar los resultados, imitando así una funcionalidad básica de un sistema de gestión de bases de datos en un entorno de Python más sencillo.
-
-`004-metodo estatico en python.py`
 
 ```python
 import os
@@ -11172,21 +9277,6 @@ YourSQL.peticion("SHOW DATABASES;")
 ```
 
 ### ver tablas
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una parte de un programa que simula algunas características básicas de SQL (Structured Query Language) para manejo de bases de datos, pero en este caso utilizando el sistema de archivos del ordenador. La clase `YourSQL` contiene métodos estáticos para responder a diferentes tipos de solicitudes o "peticiones" similares a las que se hacen en una base de datos.
-
-El método `peticion(peticion)` dentro de la clase es lo más relevante aquí. Este método toma como entrada un string que representa una petición SQL, como por ejemplo `"SHOW TABLES;"`. Dependiendo del tipo de solicitud, el método actúa de manera diferente:
-
-1. Si la solicitud es `"SHOW DATABASES;"`, se obtiene una lista de todos los archivos y carpetas en la carpeta definida como `carpeta_bd` (que está configurada por defecto a "db"). Luego, imprime cada uno de estos nombres, que simulan ser las bases de datos disponibles.
-
-2. Si la solicitud es `"SHOW TABLES;"`, el código asume que existe una subcarpeta dentro de `carpeta_bd` llamada "accesoadatos" donde se almacenan las tablas (simuladas como archivos en esta carpeta). El método lista todos los archivos dentro de esta subcarpeta y los imprime, simbolizando así la consulta de mostrar todas las tablas disponibles.
-
-Finalmente, el código llama directamente a `YourSQL.peticion("SHOW TABLES;")`, lo que ejecuta la simulación del comando SQL para mostrar las "tablas" disponibles en esta estructura de carpetas y archivos. Este tipo de código es útil para entender cómo se pueden manipular sistemas de archivos como si fueran bases de datos, y sirve como introducción a conceptos de manejo de datos más avanzados.
-
-`005-ver tablas.py`
 
 ```python
 import os
@@ -11210,17 +9300,6 @@ YourSQL.peticion("SHOW TABLES;")
 ```
 
 ### usar base de datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python forma parte de un programa llamado YourSQL, diseñado para emular una interfaz básica con bases de datos utilizando el sistema de archivos del ordenador. La clase `YourSQL` contiene métodos estáticos que permiten realizar operaciones simples sobre las "bases de datos", que en este caso son carpetas en el directorio especificado por la variable `carpeta_bd`.
-
-La función principal del código es procesar y responder a consultas SQL básicas simuladas. Cuando se recibe una consulta como `"SHOW DATABASES;"`, el programa lista todos los nombres de las carpetas dentro del directorio definido como "base de datos". Si la consulta incluye `"USE"`, establece la base de datos actual (es decir, selecciona la carpeta) según lo especificado en la consulta. Finalmente, si se recibe una consulta `"SHOW TABLES;"`, lista todos los archivos dentro del directorio correspondiente a la base de datos activa.
-
-Esta simulación es útil para estudiantes que están aprendiendo sobre cómo interactuar con bases de datos, ya que permite entender conceptos como la selección de bases de datos y la visualización de tablas sin necesidad de una instalación completa de un sistema de gestión de bases de datos (como MySQL o PostgreSQL).
-
-`006-usar base de datos.py`
 
 ```python
 import os
@@ -11247,19 +9326,6 @@ YourSQL.peticion("SHOW TABLES;")
 ```
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código que has presentado es parte de una clase llamada `YourSQL`, diseñada para manejar consultas SQL en un entorno simplificado. La clase incluye un método estático llamado `peticion` que recibe una consulta como parámetro y realiza acciones basadas en el tipo de consulta proporcionada. En este caso, se centra particularmente en cómo insertar datos en una tabla.
-
-El bloque clave del código te muestra cómo manejar una instrucción SQL "INSERT INTO". Este método primero utiliza expresiones regulares para analizar la consulta `INSERT` y extraer información sobre qué tabla está siendo modificada, cuáles son las columnas involucradas (si se especifican), y los valores que van a ser insertados. Luego, el código crea o abre un archivo CSV en una ruta específica basado en la estructura de carpetas configurada para almacenar datos de la base de ejemplo.
-
-La parte crucial es cómo maneja los valores insertados, especialmente cuando estos pueden incluir comillas simples dentro de cadenas literales (como nombres que contienen apóstrofes). Para esto, el código define una función personalizada `split_tuplas` para dividir correctamente las tuplas definidas en la consulta SQL. Posteriormente, utiliza `csv.reader` para parsear cada tupla en valores individuales y finalmente inserta estos datos en un archivo CSV correspondiente a la tabla afectada.
-
-Este método es importante porque demuestra cómo se pueden realizar operaciones de inserción en una base de datos ficticia utilizando archivos de texto plano (CSV), lo cual puede ser útil para entender los conceptos básicos del manejo de bases de datos y la estructura SQL sin necesidad de un motor de bases de datos real. Además, este código ofrece una buena práctica en el uso de expresiones regulares y el módulo `csv` de Python para manipulación de archivos.
-
-`007-insertar.py`
 
 ```python
 import os
@@ -11377,19 +9443,6 @@ YourSQL.peticion("INSERT INTO clientes (id, nombre, email, activo) VALUES (1, 'A
 ```
 
 ### seleccionar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una implementación simple de un sistema que simula algunas características básicas del lenguaje SQL en Python. La clase `YourSQL` proporciona métodos estáticos para manejar consultas SQL como "SHOW DATABASES", "USE database_name;", "SHOW TABLES", "INSERT INTO table (columns) VALUES (...)" y "SELECT * FROM table". 
-
-La función principal, `peticion(peticion)`, recibe una cadena que representa una consulta SQL y realiza acciones en consecuencia. Por ejemplo, si la consulta es "SHOW DATABASES;", el código lista todas las carpetas en la carpeta de base de datos predeterminada. Si la consulta es "USE database_name;", se cambia a esa base de datos especificando su nombre. Para inserciones ("INSERT INTO..."), el código crea o actualiza archivos CSV que representan tablas, usando columnas y valores proporcionados.
-
-La parte más compleja del código está en el manejo de inserciones, donde utiliza expresiones regulares para extraer la tabla a la que se insertará, las columnas (si están especificadas) y los valores. Luego, genera un archivo CSV con estos datos si no existe ya o lo añade al existente. En caso de una consulta "SELECT * FROM table;", el código verifica la existencia del archivo CSV correspondiente y, si está presente, imprime su contenido.
-
-Esta implementación es útil para estudiantes que quieren entender cómo se pueden manipular bases de datos mediante comandos SQL utilizando Python, aunque funciona a nivel de archivos CSV en lugar de una base de datos real.
-
-`008-seleccionar.py`
 
 ```python
 import os
@@ -11540,20 +9593,6 @@ YourSQL.peticion("SELECT * FROM clientes;")
 ```
 
 ### externalizar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python utiliza una clase llamada `YourSQL` que se ha importado desde un módulo llamado `yoursql`. La clase `YourSQL` parece tener un método llamado `peticion()` que permite enviar comandos SQL a una base de datos. El código realiza varias operaciones en la base de datos:
-
-1. Primero, establece el esquema o la base de datos actual con el comando "USE accesoadatos;". Esto asegura que todas las consultas y modificaciones siguientes se aplican a esta base de datos específica.
-2. Luego, lista todas las tablas disponibles en la base de datos actual utilizando el comando SQL "SHOW TABLES;".
-3. A continuación, inserta dos registros en una tabla llamada `clientes`. Estos registros incluyen información como un identificador único (`id`), el nombre del cliente, su correo electrónico y si están activos o no (marcado con valores booleanos `TRUE` y `FALSE`). Hay que notar cómo se maneja correctamente un carácter especial en 'Luis O\'Connor' para evitar errores de sintaxis SQL.
-4. Finalmente, selecciona todos los registros de la tabla `clientes`, lo que significa que recuperará toda la información almacenada hasta el momento.
-
-Este bloque de código es importante porque demuestra cómo interactuar con una base de datos mediante sentencias SQL desde Python, permitiendo a un programador realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en bases de datos.
-
-`009-externalizar.py`
 
 ```python
 from yoursql import YourSQL
@@ -11564,20 +9603,31 @@ YourSQL.peticion("INSERT INTO clientes (id, nombre, email, activo) VALUES (1, 'A
 YourSQL.peticion("SELECT * FROM clientes;")
 ```
 
+### sistema formativo
+
+```markdown
+Grado FP básico - tareas de muy escasa cualificación
+Grado Medio - SMR - Ejecuta órdenes, y tiene una cierta cualificación
+Grado Superior DAM/DAW/ASIR - Solucionar problemas
+Grado Universitario - Ingeniero Informático - Crear soluciones desde cero
+Doctorado - Docencia/Investigación
+
+Ingenieros informáticos:
+Se dedican a arreglar código
+Mucho código speguetti/legacy
+Fallos de código
+Cosas que quieren hacer y no saben como
+
+Nosotros: Todos los profesores de FP
+Recomendamos a nuestros alumnos
+PAsar de FP a universidad
+
+Todos los profesores 
+Trabajamos por la dignificación de la FP
+Mejorar en la medida de lo posible la reputación de la FP
+```
+
 ### yoursql
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una clase llamada `YourSQL` que maneja consultas SQL de forma muy básica, pero con un enfoque particular en el almacenamiento y manipulación de datos en archivos CSV. La clase permite realizar operaciones como mostrar bases de datos (`SHOW DATABASES;`), cambiar la base actual (`USE <base>;`), listar tablas dentro de una base de datos (`SHOW TABLES;`), insertar registros en una tabla (`INSERT INTO ...`) y seleccionar todos los registros de una tabla (`SELECT * FROM ...;`). 
-
-La parte más compleja del código se encuentra en el manejo de la consulta `INSERT`, donde utiliza expresiones regulares para extraer información sobre qué tabla se está modificando y cuáles son los valores a insertar. Luego, las líneas de datos se separan en tuplas y se procesan para ser escritas o añadidas al archivo CSV correspondiente.
-
-En cuanto a la consulta `SELECT`, el código verifica si existe una tabla especificada y luego imprime todos los registros del archivo CSV asociado a esa tabla. Esto es útil cuando queremos ver qué datos tenemos almacenados en nuestra base de datos virtual.
-
-Esta clase ayuda a estudiantes a entender cómo se pueden manipular bases de datos en un entorno simplificado, usando archivos de texto como sustitutos para tablas SQL reales.
-
-`yoursql.py`
 
 ```python
 class YourSQL:
@@ -11723,205 +9773,39 @@ class YourSQL:
                   print(" | ".join(fila))
 ```
 
-### Actividades propuestas
-
-It looks like you have a complete implementation of a basic SQL-like system using Python, and I can help you with further development or clarify any parts of the code. Here’s a summary of what each file does:
-
-### `yoursql.py`
-
-This is your main module that handles database operations.
-
-- **Class Definition:**
-  - `YourSQL`: Static class for handling SQL-like commands.
-  
-- **Methods:**
-  - `peticion(peticion)`: This method processes the given SQL command and performs actions based on the command type (SHOW DATABASES, SHOW TABLES, INSERT INTO, SELECT).
-
-### `009-externalizar.py`
-
-This file imports your `yoursql` module and runs some example commands:
-
-```python
-from yoursql import YourSQL
-
-YourSQL.peticion("USE accesoadatos;")
-YourSQL.peticion("SHOW TABLES;")
-YourSQL.peticion("INSERT INTO clientes (id, nombre, email, activo) VALUES (1, 'Ana', 'ana@example.com', TRUE), (2, 'Luis O\\'Connor', NULL, FALSE);")
-YourSQL.peticion("SELECT * FROM clientes;")
-```
-
-### `010-sistema formativo.md`
-
-This is a Markdown file that describes the educational system and career progression in the field of information technology.
-
-### Files to Consider Improvements or Enhancements
-
-#### 1. **Handling Different SELECT Statements:**
-
-Your current implementation only handles `"SELECT * FROM table;"`. You might want to extend it to handle more complex queries like:
-
-```sql
-SELECT column1, column2 FROM table WHERE condition;
-```
-
-Here is an example of how you can modify your `peticion` method for a more generic SELECT statement:
-
-```python
-elif peticion.strip().upper().startswith("SELECT"):
-    import re, csv
-    import os
-
-    # 1) Regex to capture the SELECT query
-    patron = re.compile(
-        r"^\s*SELECT\s+(.+)\s+FROM\s+([A-Za-z_][\w$]*)\s*(?:WHERE\s+.*)?\s*;?\s*$",
-        re.IGNORECASE
-    )
-    m = patron.match(peticion)
-    
-    if not m:
-        raise ValueError("Solo se admite: SELECT column1, column2 FROM <tabla> WHERE condition;")
-    
-    # Extract columns and table name from the match object
-    cols_str, tabla = m.group(1), m.group(2)
-
-    path_csv = os.path.join(YourSQL.carpeta_bd, YourSQL.base_actual, f"{tabla}.csv")
-
-    # 2) Check if the file exists
-    if not os.path.exists(path_csv):
-        print(f"La tabla '{tabla}' no existe en la base '{YourSQL.base_actual}'.")
-    else:
-        with open(path_csv, newline='', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            filas = list(reader)
-
-        # Filter rows based on the WHERE clause if provided
-        if m.group(3):
-            condition = m.group(3)[6:]  # Remove "WHERE" and space from start
-            
-            # Parse columns and values for comparison
-            column, value = condition.split('=')
-            column = column.strip()
-            
-            filtered_rows = [row for row in filas[1:] if row[filas[0].index(column)].strip().lower() == value.strip().lower()]
-        else:
-            filtered_rows = filas
-
-        # Print the columns
-        selected_columns = cols_str.split(',')
-        print(" | ".join(selected_columns))
-        
-        # Create a header for selected columns
-        column_indices = [filas[0].index(col.strip()) for col in selected_columns]
-        column_header = " | ".join([col for i, col in enumerate(filas[0]) if i in column_indices])
-        print("-" * len(column_header))
-
-        # Print the rows with selected columns
-        for fila in filtered_rows:
-            selected_row = [" | ".join([fila[i] for i in column_indices])]
-            print(selected_row)
-```
-
-#### 2. **Handling Multiple Databases and Table Management:**
-
-You may want to add functionality like creating new databases, tables, dropping tables, etc.
-
-```python
-elif peticion.strip().upper() == "CREATE DATABASE dbname":
-    import os
-
-    db_name = peticion.split()[2]
-    path_db = os.path.join(YourSQL.carpeta_bd, db_name)
-    
-    if not os.path.exists(path_db):
-        os.makedirs(path_db)
-        print(f"Database '{db_name}' created successfully.")
-    else:
-        print(f"Database '{db_name}' already exists.")
-
-elif peticion.strip().upper() == "DROP DATABASE dbname":
-    import shutil
-
-    db_name = peticion.split()[2]
-    path_db = os.path.join(YourSQL.carpeta_bd, db_name)
-    
-    if os.path.exists(path_db):
-        shutil.rmtree(path_db)
-        print(f"Database '{db_name}' dropped successfully.")
-    else:
-        print(f"Database '{db_name}' does not exist.")
-
-elif peticion.strip().upper() == "CREATE TABLE dbname.tablename (column1 datatype, column2 datatype, ... )":
-    import os
-
-    db_name, table_name = peticion.split()[2].split('.')
-    path_db = os.path.join(YourSQL.carpeta_bd, db_name)
-    
-    if not os.path.exists(path_db):
-        print(f"Database '{db_name}' does not exist.")
-    else:
-        columns_str = peticion[peticion.find("(")+1:peticion.find(")")]
-        column_defs = [col.strip().split(' ') for col in columns_str.split(',')]
-        
-        path_table = os.path.join(path_db, f"{table_name}.csv")
-        with open(path_table, 'w', newline='', encoding='utf-8') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=[def_[0] for def_ in column_defs])
-            writer.writeheader()
-        
-        print(f"Table '{db_name}.{table_name}' created successfully.")
-
-elif peticion.strip().upper() == "DROP TABLE dbname.tablename":
-    import os
-
-    db_name, table_name = peticion.split()[2].split('.')
-    path_table = os.path.join(YourSQL.carpeta_bd, db_name, f"{table_name}.csv")
-    
-    if os.path.exists(path_table):
-        os.remove(path_table)
-        print(f"Table '{db_name}.{table_name}' dropped successfully.")
-    else:
-        print(f"Table '{db_name}.{table_name}' does not exist.")
-```
-
-#### 3. **Improving Error Handling:**
-
-Ensure that your `peticion` method handles errors gracefully and provides meaningful error messages.
-
-### Summary
-
-This setup gives you a basic SQL-like system in Python. You can extend it by adding more complex query types, management commands, and better error handling. Let me know if there’s anything specific you’d like to add or modify!
-
-
 <a id="ejecucion-de-procedimientos-almacenados-en-la-base-de-datos"></a>
 ## Ejecución de procedimientos almacenados en la base de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/007-Ejecuci%C3%B3n%20de%20procedimientos%20almacenados%20en%20la%20base%20de%20datos)
+En esta subunidad del curso, nos centramos en la ejecución de procedimientos almacenados en la base de datos. Los procedimientos almacenados son bloques de código predefinidos que se almacenan en la base de datos y pueden ser invocados por los programas para realizar tareas específicas. Estos procedimientos optimizan el rendimiento al reducir las comunicaciones entre el cliente y el servidor, ya que el código se ejecuta directamente en el servidor.
 
+Para interactuar con los procedimientos almacenados, utilizamos conectores específicos de la base de datos que proporcionan una interfaz para establecer conexiones, enviar comandos y recibir resultados. Estos conectores manejan automáticamente las transacciones y los errores, lo que facilita su uso en aplicaciones.
+
+La ejecución de un procedimiento almacenado implica varios pasos: primero, se establece la conexión con la base de datos utilizando el conector adecuado. Luego, se prepara el comando para invocar el procedimiento, especificando los parámetros necesarios si es necesario. A continuación, se ejecuta el comando y se procesan los resultados devueltos por el procedimiento.
+
+Es importante tener en cuenta que los procedimientos almacenados pueden aceptar parámetros de entrada y salida, lo que permite una comunicación bidireccional con la base de datos. Los parámetros de entrada son valores que se pasan al procedimiento para su procesamiento, mientras que los parámetros de salida devuelven resultados del mismo.
+
+La gestión de transacciones es crucial cuando se ejecutan procedimientos almacenados, ya que pueden afectar varios registros en la base de datos. Es recomendable utilizar transacciones para asegurar que todas las operaciones dentro del procedimiento sean completadas exitosamente o deshacerse de ellas si ocurre un error.
+
+Al desarrollar aplicaciones que utilizan procedimientos almacenados, es fundamental considerar el rendimiento y la seguridad. El rendimiento se puede optimizar mediante el uso de índices adecuados y la minimización del número de llamadas al servidor. La seguridad debe garantizarse mediante el control de privilegios y la implementación de medidas de autenticación y autorización.
+
+En resumen, la ejecución de procedimientos almacenados en la base de datos es una técnica poderosa que permite mejorar el rendimiento y la eficiencia de las aplicaciones. Al utilizar conectores adecuados y seguir buenas prácticas de gestión de transacciones y seguridad, se pueden crear sistemas robustos y eficientes que aprovechen al máximo los recursos disponibles en la base de datos.
 
 <a id="gestion-de-transacciones"></a>
 ## Gestión de transacciones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/008-Gesti%C3%B3n%20de%20transacciones)
+En la subunidad "Gestión de transacciones" del módulo "Manejo de conectores", nos centramos en una de las operaciones fundamentales que cualquier sistema de bases de datos debe manejar con eficiencia y precisión. Las transacciones son conjuntos de comandos SQL que se ejecutan como una unidad, asegurando que todas las operaciones dentro de ellas sean realizadas correctamente o ninguna si ocurre un error.
 
-### Introducción a los ejercicios
+La gestión de transacciones es crucial porque permite mantener la integridad de los datos en el sistema. Cada transacción debe cumplir con cuatro principios fundamentales conocidos como ACID: Atomicidad, Coherencia, Isolación y Durabilidad. La atomicidad asegura que una transacción sea un todo o nada; si falla, todas las operaciones dentro de ella deben deshacerse para mantener la consistencia del sistema. La coherencia garantiza que una transacción cambie el estado del sistema de manera correcta según las reglas de negocio establecidas. La isolación evita que dos transacciones concurrentes interfieran entre sí, asegurando que cada una se ejecute como si no hubiera otras en curso. Finalmente, la durabilidad implica que una vez que una transacción ha sido confirmada, sus efectos son permanentes y no pueden ser revertidos.
 
-Esta carpeta contiene una serie de ejercicios en Python que te guiarán a través del manejo de conexiones y transacciones con bases de datos MySQL. Los problemas comienzan desde la conexión básica a una base de datos hasta el desarrollo de clases más complejas para gestionar consultas, devolviendo resultados tanto como texto plano como JSON. Durante estos ejercicios, practicarás competencias fundamentales en programación orientada a objetos y manejo de conexiones a bases de datos, incluyendo la prevención de inyecciones SQL mediante el uso de parámetros seguros.
+Para gestionar las transacciones en un sistema de bases de datos, es necesario utilizar comandos específicos SQL como `BEGIN`, `COMMIT` y `ROLLBACK`. El comando `BEGIN` inicia una nueva transacción. A partir de ese momento, todas las operaciones realizadas hasta que se ejecute el siguiente comando son parte de la misma transacción. Si todo funciona correctamente, se utiliza el comando `COMMIT` para confirmar la transacción y hacer efectivos los cambios en la base de datos. En caso de un error o una situación inesperada, el comando `ROLLBACK` es utilizado para deshacer todos los cambios realizados durante la transacción, restaurando así el estado del sistema a su punto inicial.
+
+Es importante destacar que la gestión de transacciones no solo se limita a las operaciones CRUD (Crear, Leer, Actualizar, Eliminar). También incluye la gestión de errores y excepciones, asegurándose de que cualquier error durante una transacción cause un deshacer completo para mantener la integridad del sistema. Además, en entornos de alta concurrencia, la gestión de transacciones debe ser eficiente y evitar problemas como el bloqueo y la incoherencia.
+
+La gestión de transacciones también puede implicar la utilización de mecanismos avanzados como los puntos de control (checkpoints) y las réplicas secundarias. Los puntos de control son instantáneas del estado actual de la base de datos que se toman periódicamente para permitir el recupero en caso de fallo. Las réplicas secundarias son copias de la base de datos principal que se mantienen sincronizadas y pueden utilizarse para aumentar la disponibilidad y la capacidad de procesamiento del sistema.
+
+En resumen, la gestión de transacciones es un componente esencial de cualquier sistema de bases de datos. Permite mantener la integridad de los datos, asegurar la coherencia del estado del sistema y proporcionar una respuesta consistente ante errores o situaciones inesperadas. A través de comandos específicos SQL y técnicas avanzadas como los puntos de control y las réplicas secundarias, es posible gestionar eficientemente las transacciones y mantener el funcionamiento correcto del sistema.
 
 ### conexion base
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para conectarse a una base de datos MySQL y realizar una consulta sencilla. Primero, importa el módulo `mysql.connector` que es la herramienta necesaria para establecer una conexión con un servidor MySQL.
-
-Luego, el script crea una conexión hacia la base de datos utilizando tu información personal (como host, usuario, contraseña y nombre de la base de datos). En este caso, se conecta a un servidor local (`localhost`) con el usuario `blog2526` y la base de datos también llamada `blog2526`.
-
-Una vez que tienes una conexión abierta, se crea un objeto cursor que te permite ejecutar comandos SQL en tu base de datos. El código ejecuta una consulta SQL simple: `"SELECT * FROM entradas"`, lo cual significa que está seleccionando todos los registros (filas) y columnas de la tabla llamada `entradas`.
-
-Después, el script recoge todas las filas devueltas por la consulta con `cursor.fetchall()` y las imprime una a una en la consola. Finalmente, cierra tanto el cursor como la conexión a la base de datos para liberar los recursos del sistema.
-
-Este tipo de código es fundamental cuando necesitas interactuar directamente con bases de datos MySQL desde Python para recuperar o manipular información.
-
-`001-conexion base.py`
 
 ```python
 import mysql.connector
@@ -11946,19 +9830,6 @@ conexion.close()
 ```
 
 ### creo una clase
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una clase en Python llamada `JVDB` que se utiliza para conectarse a una base de datos MySQL y realizar operaciones sencillas, como seleccionar datos de una tabla. La clase toma cuatro parámetros al ser inicializada: `host`, `usuario`, `contrasena` y `basedatos`. Estos parámetros son necesarios para establecer la conexión con la base de datos.
-
-Una vez que se proporcionan estos detalles, la clase crea una conexión a la base de datos utilizando el módulo `mysql.connector`. Luego, se inicializa un objeto cursor, que es necesario para ejecutar consultas SQL y manejar los resultados obtenidos. 
-
-La función `seleccionar` dentro de esta clase toma como argumento el nombre de una tabla en la base de datos. Esta función ejecuta una consulta SQL simple (`SELECT * FROM <tabla>`) que recupera todas las filas de esa tabla y luego imprime cada fila. Después de finalizar, cierra tanto el cursor como la conexión a la base de datos para liberar los recursos.
-
-Esta clase es útil porque encapsula la lógica necesaria para conectarse a una base de datos MySQL en un solo lugar y proporciona métodos específicos para realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar). Esto ayuda a organizar el código y hacerlo más fácil de mantener.
-
-`002-creo una clase.py`
 
 ```python
 import mysql.connector
@@ -11991,23 +9862,6 @@ class JVDB():
 ```
 
 ### llamo a la clase
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para interactuar con una base de datos MySQL. La clase `JVDB` se encarga de establecer la conexión a la base de datos y realizar operaciones básicas en ella, como seleccionar registros de una tabla específica.
-
-1. **Inicialización**: El método `__init__` es el constructor de la clase que inicializa los atributos de la instancia con los parámetros proporcionados (host, usuario, contraseña y nombre de la base de datos). Luego, crea una conexión a la base de datos utilizando estos detalles y abre un cursor para ejecutar consultas SQL.
-
-2. **Método `seleccionar`**: Este método toma el nombre de una tabla como parámetro y ejecuta una consulta SQL que selecciona todos los registros (`SELECT *`) de esa tabla específica. Los resultados obtenidos se almacenan en la variable `filas`, que es un conjunto de tuplas, cada una representando una fila de datos del resultado de la consulta.
-
-3. **Impresión de datos**: Finalmente, el código itera sobre los registros obtenidos y los imprime uno por uno usando un bucle `for`.
-
-4. **Uso de la clase**: Al final, se crea una instancia de la clase `JVDB` con los detalles específicos para conectarse a una base de datos MySQL en localhost con las credenciales proporcionadas. Luego, se llama al método `seleccionar` pasando el nombre de la tabla "entradas" para recuperar y mostrar todos sus registros.
-
-Este fragmento de código es importante porque demuestra cómo encapsular la lógica de conexión a una base de datos en una clase, lo que facilita su uso en otros lugares del programa. Además, muestra cómo ejecutar consultas SQL básicas desde Python, lo cual es fundamental para cualquier aplicación que interactúe con bases de datos.
-
-`003-llamo a la clase.py`
 
 ```python
 import mysql.connector
@@ -12040,19 +9894,6 @@ conexion.seleccionar("entradas")
 ```
 
 ### return
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código define una clase llamada `JVDB` en Python que se utiliza para manejar la conexión y las consultas a una base de datos MySQL. La clase tiene un método especial `__init__` que se encarga de establecer la conexión con la base de datos usando los parámetros proporcionados al crear una instancia del objeto.
-
-El método `seleccionar` dentro de la clase toma como argumento el nombre de una tabla y ejecuta una consulta SQL para seleccionar todos los registros de esa tabla. Los resultados devueltos por la consulta se recogen en una variable llamada `filas`, que luego se retorna.
-
-En el código, después de definir la clase, se crea una instancia del objeto `JVDB` con parámetros específicos para conectarse a la base de datos "blog2526". Luego, se imprime el resultado de llamar al método `seleccionar` sobre esta instancia, pasándole como argumento la tabla `"entradas"`. Esto significa que el programa imprimirá todos los registros de la tabla llamada `"entradas"` en la base de datos.
-
-Este tipo de estructura ayuda a organizar y encapsular las operaciones con la base de datos dentro de una clase, lo cual facilita su uso y mantenimiento en aplicaciones más grandes.
-
-`004-return.py`
 
 ```python
 import mysql.connector
@@ -12084,21 +9925,6 @@ print(conexion.seleccionar("entradas"))
 ```
 
 ### return como json
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una parte de un ejercicio que muestra cómo acceder a datos almacenados en una base de datos MySQL utilizando Python. En particular, se crea una clase llamada `JVDB` que encapsula la lógica para conectarse a una base de datos y realizar consultas SQL.
-
-La clase `JVDB` tiene un método especial `__init__` que se ejecuta cada vez que se crea una nueva instancia de la clase. Este método recibe cuatro parámetros: el nombre del host (generalmente "localhost"), el usuario, la contraseña y el nombre de la base de datos. Utiliza estos parámetros para establecer una conexión a la base de datos utilizando el módulo `mysql.connector`. Además, se crea un cursor que será usado para ejecutar comandos SQL.
-
-El método `seleccionar` dentro de la clase toma como argumento el nombre de la tabla sobre la cual se desea realizar la consulta. Ejecuta una instrucción SQL básica "SELECT *" que devuelve todas las filas de esa tabla y luego convierte estos datos en un formato JSON, lo cual es útil para enviar los resultados a través de una API web o almacenarlos en forma de texto humano-readable.
-
-En el código principal fuera de la clase, se crea una instancia de `JVDB` conectándose a la base de datos "blog2526" con las credenciales especificadas. Luego, se llama al método `seleccionar` para obtener todos los registros de la tabla llamada "entradas", y finalmente imprime el resultado en formato JSON.
-
-Este código es importante porque demuestra cómo interactuar con una base de datos MySQL desde Python de manera estructurada y eficiente, además de mostrar cómo preparar los resultados para su uso fuera del entorno de programación.
-
-`005-return como json.py`
 
 ```python
 import mysql.connector
@@ -12131,17 +9957,6 @@ print(conexion.seleccionar("entradas"))
 ```
 
 ### empiezo demostracion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está relacionado con la conexión a una base de datos y la realización de consultas sencillas. Primero, se importa una clase llamada `JVDB` desde otro archivo Python (`jvdb006.py`). Luego, se crea un objeto llamado `conexion` de esta clase, pasándole como parámetros los detalles necesarios para conectarse a la base de datos: el nombre del host (en este caso, "localhost"), el nombre de la base de datos ("blog2526") y las credenciales de usuario.
-
-Una vez que se ha establecido la conexión, se utiliza el método `seleccionar` del objeto `conexion`. Este método probablemente ejecuta una consulta SQL para seleccionar datos específicos de una tabla en la base de datos. En este caso, está seleccionando toda la información desde una tabla llamada "entradas".
-
-Esta forma de trabajar con bases de datos es muy común en desarrollo web y aplicaciones que necesitan interactuar con bases de datos de manera segura y eficiente. El uso de clases para manejar conexiones y consultas ayuda a organizar el código y hacerlo más fácil de mantener y modificar.
-
-`006-empiezo demostracion.py`
 
 ```python
 from jvdb006 import JVDB
@@ -12152,19 +9967,6 @@ print(conexion.seleccionar("entradas"))
 ```
 
 ### vuelvo al original
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una implementación en Python que gestiona la conexión a una base de datos MySQL y realiza una consulta SQL para seleccionar todos los registros de una tabla específica. La clase `JVDB` se encarga tanto de establecer la conexión con la base de datos como de ejecutar consultas SELECT sobre ella. Cuando se crea un objeto de esta clase, proporciona los detalles necesarios (host, usuario, contraseña y nombre de la base de datos) para conectarse a la base de datos.
-
-La función `seleccionar` dentro de la clase toma el nombre de una tabla como argumento y ejecuta una consulta SQL que selecciona todos los campos de esa tabla. Los resultados obtenidos se convierten en un formato JSON, lo cual es útil para su visualización o para ser enviado a través de una API web.
-
-Después de definir la clase `JVDB`, el código crea una instancia de esta clase utilizando parámetros específicos (como 'localhost' como host y 'blog2526' como usuario, contraseña y nombre de base de datos). Luego, llama al método `seleccionar` para seleccionar todos los registros de la tabla llamada "entradas" en la base de datos, y finalmente imprime estos registros formateados en JSON.
-
-ÚLTIMO PÁRRAFO: En comparación con el código anterior (006-empiezo demostracion.py), este archivo introduce una estructura más sofisticada mediante la definición de una clase `JVDB` que encapsula tanto la conexión a la base de datos como la ejecución de consultas, ofreciendo un manejo más limpio y modular del código. Además, el resultado devuelto por el método `seleccionar` ahora se formatea en JSON para mejorar su legibilidad y utilidad en entornos web.
-
-`006-vuelvo al original.py`
 
 ```python
 import mysql.connector
@@ -12197,19 +9999,6 @@ print(conexion.seleccionar("entradas"))
 ```
 
 ### vuelvo al original
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una clase en Python llamada `JVDB` que se utiliza para gestionar la conexión a una base de datos MySQL y realizar operaciones básicas como seleccionar filas o buscar registros específicos. La clase toma cuatro parámetros al inicializarse: host (dirección del servidor), usuario, contraseña y nombre de la base de datos.
-
-La función `__init__` se encarga de establecer una conexión con la base de datos usando los parámetros proporcionados y crea un cursor que se utilizará para ejecutar consultas SQL. Este cursor permite al objeto interactuar directamente con la base de datos.
-
-Las funciones `seleccionar(tabla)` y `buscar(tabla, columna, valor)` son métodos que permiten a un usuario recuperar información de una tabla específica en la base de datos. La función `seleccionar` devuelve todas las filas de una tabla determinada como una lista de listas, mientras que `buscar` permite buscar registros específicos basándose en condiciones proporcionadas (como el título "responsivo" en este caso). Ambos métodos convierten los resultados obtenidos a un formato JSON para facilitar la lectura y uso del resultado.
-
-Finalmente, se crea una instancia de la clase `JVDB` utilizando parámetros específicos y luego se llama al método `buscar` para buscar registros en la tabla "entradas" donde el título contiene la palabra "responsivo". El resultado se imprime en formato JSON.
-
-`007-vuelvo al original.py`
 
 ```python
 import mysql.connector
@@ -12246,19 +10035,6 @@ print(conexion.buscar("entradas","titulo","responsivo"))
 ```
 
 ### clave valor
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código define una clase llamada `JVDB` en Python, que se utiliza para manejar la conexión a una base de datos MySQL y realizar consultas SQL. La clase tiene un método `__init__` que inicializa la conexión a la base de datos usando los parámetros proporcionados (host, usuario, contraseña y nombre de la base de datos). También incluye dos métodos: `seleccionar`, que selecciona todos los registros de una tabla especificada, y `buscar`, que busca registros en una tabla basándose en un valor específico en una columna dada.
-
-El método `buscar` utiliza el operador LIKE para buscar cualquier registro donde la columna específica contenga el valor proporcionado. La consulta SQL generada por este método es segura contra inyecciones SQL gracias al uso de parámetros (`%s`) y no cadenas formateadas directamente, lo que ayuda a prevenir riesgos de seguridad.
-
-Finalmente, tanto `seleccionar` como `buscar` devuelven los resultados en formato JSON para facilitar la interpretación o el procesamiento de datos fuera del script. El uso de `json.dumps()` con `ensure_ascii=False` y `indent=2` mejora la legibilidad de la salida, especialmente útil cuando se envían los datos a un cliente web que necesita verlos fácilmente.
-
-Este tipo de abstracción de bajo nivel en una clase ayuda a mantener el código limpio y seguro al mismo tiempo que facilita su uso en aplicaciones más grandes.
-
-`008-clave valor.py`
 
 ```python
 import mysql.connector
@@ -12300,17 +10076,6 @@ print(conexion.buscar("entradas", "titulo", "responsivo"))
 ```
 
 ### jvdb006
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es parte de una clase en Python llamada `JVDB` que se encarga de gestionar la conexión a una base de datos MySQL y realizar consultas sencillas. La clase tiene un método `__init__` que establece los atributos necesarios para conectarse a la base de datos, como el host, usuario, contraseña y nombre de la base de datos. Cuando se crea una instancia de esta clase, automáticamente se conecta a la base de datos y prepara un objeto cursor para ejecutar comandos SQL.
-
-El método `seleccionar` recibe como parámetro el nombre de una tabla en la base de datos y ejecuta una consulta SQL que selecciona todos los registros de esa tabla. Los resultados de esta consulta se almacenan en una variable llamada `filas`, que contiene todas las filas devueltas por la consulta. Finalmente, estos resultados son convertidos a un string JSON con formato legible gracias a la función `json.dumps()`. Este método es útil para devolver los datos seleccionados de manera estructurada y fácilmente consumibles por otros programas o APIs web.
-
-Este tipo de código es importante en el desarrollo web y las aplicaciones que requieren trabajar con bases de datos, ya que proporciona una forma simple y segura de interactuar con MySQL desde Python.
-
-`jvdb006.py`
 
 ```python
 import mysql.connector
@@ -12338,148 +10103,38 @@ class JVDB():
     return json.dumps(filas, ensure_ascii=False, indent=2)
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Conexión a Base de Datos Básica
-
-**Descripción:** Implementa una conexión a la base de datos utilizando `mysql.connector` en Python. El objetivo es que el alumnado comprenda cómo establecer y cerrar conexiones con un servidor MySQL.
-
----
-
-### Actividad 2: Ejecución Consultas SQL Directamente
-
-**Descripción:** Escribe un programa que permita ejecutar consultas directamente sobre una tabla existente, imprimiendo los resultados obtenidos. Esta actividad ayuda a familiarizarse con el manejo de cursos y la obtención de datos.
-
----
-
-### Actividad 3: Creación y Uso de Clases para Conexiones
-
-**Descripción:** Diseña una clase `ConectorBD` similar al archivo `002-creo una clase.py`. Los estudiantes deben entender cómo encapsular el código en clases para reutilizarlo fácilmente.
-
----
-
-### Actividad 4: Mejora la Funcionalidad de la Clase ConectorBD
-
-**Descripción:** Añade un método a tu clase que permita seleccionar datos de cualquier tabla y devuelva los resultados directamente (inspirado en `004-return.py`). Esto permite aprender sobre el uso del retorno de valores desde métodos.
-
----
-
-### Actividad 5: Representación JSON de Datos Recuperados
-
-**Descripción:** Extiende la clase creada para que los datos recuperados se devuelvan como cadenas JSON, similar a `005-return como json.py`. Este ejercicio ayuda en el manejo y presentación de datos.
-
----
-
-### Actividad 6: Implementar Búsqueda Avanzada
-
-**Descripción:** Agrega un método a la clase para buscar registros basados en una columna específica con un valor parcial, similar al archivo `007-vuelvo al original.py`. Esto refuerza el uso del LIKE SQL y los métodos de búsqueda.
-
----
-
-### Actividad 7: Optimización Consultas SQL
-
-**Descripción:** Mejora la clase para usar consultas seguras que eviten problemas como inyecciones SQL, basado en `008-clave valor.py`. Esto ayuda a entender cómo proteger las aplicaciones contra amenazas de seguridad.
-
----
-
-### Actividad 8: Documentación y Explicación del Código
-
-**Descripción:** Redacta comentarios y documentación para cada una de tus funciones y clases implementadas. El objetivo es aprender sobre la importancia de la documentación clara y el estilo de código.
-
----
-
-### Actividad 9: Pruebas Automatizadas
-
-**Descripción:** Crea pruebas unitarias básicas utilizando un marco como `unittest` para verificar que tu clase funciona correctamente con diferentes tablas y consultas. Esto introduce a los estudiantes en la importancia del desarrollo guiado por pruebas.
-
----
-
-### Actividad 10: Aplicación de Transacciones
-
-**Descripción:** Diseña una aplicación simple que demuestre cómo manejar transacciones (INSERT, UPDATE, DELETE) utilizando la clase `ConectorBD`. Esto ayuda a comprender los conceptos de control de concurrencia y garantía de consistencia en bases de datos.
-
----
-
-Cada actividad está diseñada para incrementar gradualmente el nivel de dificultad y profundizar en diferentes aspectos del manejo de bases de datos con Python.
-
-
 <a id="desarrollo-de-programas-que-utilizan-bases-de-datos"></a>
 ## Desarrollo de programas que utilizan bases de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/009-Desarrollo%20de%20programas%20que%20utilizan%20bases%20de%20datos)
+Continuando con nuestra exploración del acceso a datos, nos encontramos en la subunidad "Desarrollo de programas que utilizan bases de datos". En esta sección, profundizaremos en cómo integrar las bases de datos en nuestras aplicaciones para realizar operaciones CRUD (Crear, Leer, Actualizar y Borrar) eficientemente.
 
+La creación de una conexión a una base de datos es el primer paso crucial. Utilizando los protocolos adecuados como SQL o NoSQL, podemos establecer una comunicación segura y efectiva entre nuestra aplicación y la base de datos. Los conectores son herramientas que facilitan esta tarea, proporcionando métodos para abrir y cerrar conexiones, así como ejecutar consultas.
+
+Una vez establecida la conexión, el siguiente paso es realizar operaciones CRUD en la base de datos. La creación de registros se realiza mediante sentencias INSERT, mientras que la lectura de datos se logra con SELECT. Las actualizaciones se efectúan con UPDATE y las eliminaciones con DELETE. Cada una de estas operaciones requiere un manejo adecuado de excepciones para asegurar la integridad de los datos.
+
+Además de las operaciones CRUD básicas, también es importante considerar la seguridad en el acceso a las bases de datos. Esto incluye la implementación de políticas de control de acceso y la utilización de métodos seguros para almacenar y recuperar información sensible.
+
+La eficiencia en el acceso a las bases de datos no solo depende del código, sino también de la estructura de la base de sí misma. La normalización de los datos y la creación de índices adecuados son técnicas clave para mejorar el rendimiento de las consultas.
+
+En este contexto, es fundamental utilizar herramientas de gestión de bases de datos que ofrezcan funcionalidades avanzadas como la transacción y la replicación. Las transacciones aseguran que una serie de operaciones se realicen juntas o no en absoluto, mientras que la replicación distribuye los datos para mejorar el acceso y la disponibilidad.
+
+Finalmente, es importante documentar todo el proceso de desarrollo, desde la configuración inicial hasta las modificaciones posteriores. La documentación detalla cómo funciona cada componente del sistema y cómo se deben realizar cambios futuros, lo que facilita el mantenimiento y la escalabilidad de la aplicación.
+
+En resumen, desarrollar programas que utilizan bases de datos implica una comprensión profunda de los protocolos de comunicación, las operaciones CRUD básicas, la seguridad en el acceso a los datos, la optimización del rendimiento y la documentación exhaustiva. Cada uno de estos aspectos es crucial para crear aplicaciones robustas y eficientes que puedan manejar grandes volúmenes de información con confianza.
 
 <a id="ejercicio-de-final-de-unidad-1"></a>
 ## Ejercicio de final de unidad
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/101-Ejercicio%20de%20final%20de%20unidad)
+### ejercicio
 
-### Introducción a los ejercicios
+```markdown
 
-El conjunto de ejercicios en esta carpeta está diseñado para ayudarte a consolidar tus habilidades en el manejo de conectores y acceso a datos, temas fundamentales en el desarrollo web. Este ejercicio, que se presenta en formato markdown, te permitirá practicar la conexión a bases de datos y la manipulación de datos utilizando lenguajes como SQL y PHP o similar, dependiendo del contexto anterior aprendido. Estas prácticas son cruciales para desarrollar competencias avanzadas en el acceso y gestión de información en aplicaciones web dinámicas.
-
-### Actividades propuestas
-
-Dado que la carpeta contiene un archivo Markdown titulado "ejercicio.md" en relación con el manejo de conectores y acceso a datos, podemos inferir que se trata probablemente de un ejercicio orientado a aprender sobre cómo gestionar bases de datos u otro tipo de almacenamiento de información. Sin embargo, como no dispongo del contenido exacto del archivo para especificar las habilidades o conocimientos necesarios, diseñaré actividades generales basadas en el tema de acceso a datos y manejo de conectores que son comunes en los ciclos formativos relacionados con programación.
-
-1. **Análisis del Ejercicio Markdown**
-   - Descripción: Analiza el archivo "ejercicio.md" para comprender su estructura y contenido, identificando las secciones clave.
-   - Objetivo: Mejorar la habilidad de los estudiantes para leer e interpretar documentación técnica en formato Markdown.
-
-2. **Conexión a una Base de Datos**
-   - Descripción: Realiza conexiones con diferentes tipos de bases de datos (SQL, NoSQL) y verifica que las conexiones se establecen correctamente.
-   - Objetivo: Aprender cómo establecer y gestionar conexiones seguras a diferentes sistemas de gestión de bases de datos.
-
-3. **Consultas Básicas**
-   - Descripción: Escribe consultas SQL para seleccionar, insertar, actualizar o eliminar registros en una base de datos.
-   - Objetivo: Aprender las sentencias básicas del lenguaje SQL y cómo utilizarlas para manipular datos.
-
-4. **Manejo de Transacciones**
-   - Descripción: Implementa el manejo de transacciones (BEGIN, COMMIT, ROLLBACK) en un entorno de base de datos.
-   - Objetivo: Comprender la importancia del control de concurrencia y la integridad de los datos durante las operaciones CRUD.
-
-5. **Procesamiento de Errores**
-   - Descripción: Implementa bloqueos try-catch para manejar errores comunes en el acceso a bases de datos, como excepciones SQL.
-   - Objetivo: Mejorar la capacidad de los estudiantes para crear programas robustos que manejen situaciones no deseadas.
-
-6. **Optimización de Consultas**
-   - Descripción: Analiza y optimiza consultas existentes en el ejercicio para mejorar su rendimiento.
-   - Objetivo: Aprender técnicas de optimización como la indexación, las vistas o las funciones personalizadas.
-
-7. **Interfaz con API RESTful**
-   - Descripción: Diseña una interfaz simple que permita realizar operaciones CRUD utilizando un servicio web basado en REST.
-   - Objetivo: Comprender cómo interactuar con servicios de acceso a datos externos usando protocolos estándar.
-
-8. **Documentación del Código**
-   - Descripción: Escribe documentación adicional al archivo "ejercicio.md" para mejorar la legibilidad y comprensión del código.
-   - Objetivo: Aprender los beneficios y las prácticas recomendadas de escritura de documentación técnica en proyectos de programación.
-
-Estas actividades deberían ayudar a los estudiantes a profundizar en el manejo de bases de datos, desde la conexión hasta la optimización de consultas, pasando por la creación de interfaces para servicios web basados en REST.
-
+```
 
 <a id="examen-final"></a>
 ## Examen final
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/002-Manejo%20de%20conectores/104-Examen%20final)
-
-### Introducción a los ejercicios
-
-Este conjunto de ejercicios se enfoca en el manejo avanzado de bases de datos utilizando SQL, especialmente para estudiantes del DAM (Desarrollo de Aplicaciones Multiplataforma). Los problemas abordan desde la creación y manipulación de tablas hasta la implementación de relaciones entre ellas mediante claves foráneas. También se practica la inserción de datos en esas estructuras recién creadas, así como técnicas de selección y unión (JOIN) para recuperar información compleja. Además, se introduce la creación de vistas que simplifican consultas complejas y se termina con el manejo de usuarios y permisos dentro del sistema de gestión de bases de datos. Estos ejercicios son esenciales para desarrollar competencias en diseño de bases de datos relacionales y administración de sistemas SQL.
-
 ### crear tablas
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código SQL crea una base de datos llamada `portafolioceac` y luego la selecciona para trabajar con ella. A continuación, se definen dos tablas: `Piezas` y `Categorias`.
-
-La tabla `Piezas` tiene varios campos que almacenan información sobre diferentes piezas o objetos. El campo `Identificador` es el identificador único de cada pieza y es un valor autoincremental (cada vez que se inserta una nueva pieza, este número aumentará automáticamente en uno). Otros campos como `titulo`, `descripcion`, `imagen` y `url` almacenan detalles específicos sobre cada pieza. Además, hay un campo llamado `id_categoria` que es un número entero y sirve para relacionar las piezas con sus categorías.
-
-Por otro lado, la tabla `Categorias` tiene dos campos: `Identificador`, que es el identificador único de cada categoría (de nuevo autoincremental), y los campos `titulo` y `descripcion` para almacenar información sobre el nombre y detalles de cada categoría.
-
-Esta estructura permite organizar datos de manera eficiente, permitiendo a un sistema o aplicación saber qué piezas pertenecen a qué categorías mediante la relación establecida por el campo `id_categoria`.
-
-`001-crear tablas.sql`
 
 ```sql
 CREATE DATABASE portafolioceac;
@@ -12504,17 +10159,6 @@ CREATE TABLE Categorias(
 ```
 
 ### insertar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL se utiliza para insertar nuevos registros en dos tablas diferentes: `Categorias` y `Piezas`. En el primer comando `INSERT INTO`, se agrega una nueva categoría a la tabla `Categorias`. El valor `NULL` indica que el sistema debe asignar automáticamente un identificador único (ID) para esta nueva entrada. Luego, se especifican dos campos adicionales: el nombre de la categoría (`'General'`) y una descripción (`'Esta es la categoria general'`).
-
-En el segundo comando `INSERT INTO`, se añade una pieza a la tabla `Piezas`. Nuevamente, se utiliza `NULL` para que la base de datos asigne un ID. Los campos restantes incluyen el nombre de la pieza (`'Primera pieza'`), su descripción (`'Esta es la descripcion de la primera pieza'`), una imagen asociada (`'josevicente.jpg'`) y un enlace web (`https://jocarsa.com`). Finalmente, se especifica que esta pieza pertenece a la categoría con ID `1`, estableciendo así una relación entre tablas.
-
-Este código es importante porque permite llenar las bases de datos con información inicial o demostrativa, lo cual es útil tanto para pruebas como para configuración inicial en aplicaciones web y sistemas administrativos.
-
-`002-insertar.sql`
 
 ```sql
 INSERT INTO Categorias VALUES(
@@ -12534,19 +10178,6 @@ INSERT INTO Piezas VALUES(
 ```
 
 ### fk
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código SQL añade una restricción de clave foránea a la tabla `Piezas`. Específicamente, crea una relación entre la columna `id_categoria` en la tabla `Piezas` y la columna `identificador` en la tabla `Categorias`.
-
-Lo que hace este código es asegurar que cada valor en la columna `id_categoria` de la tabla `Piezas` tenga un correspondiente valor en la columna `identificador` de la tabla `Categorias`. Esto significa que no puedes tener una pieza asociada a una categoría que no exista.
-
-Además, el código incluye dos cláusulas adicionales: `ON DELETE CASCADE` y `ON UPDATE CASCADE`. La primera asegura que si se elimina un registro en la tabla `Categorias`, también se eliminarán todas las entradas relacionadas en la tabla `Piezas`. La segunda hace lo mismo pero para cuando se actualiza el valor de la columna `identificador` en la tabla `Categorias`.
-
-Esta restricción es importante porque garantiza la integridad referencial entre tablas, manteniendo la consistencia y coherencia de los datos en tu base de datos.
-
-`003-fk.sql`
 
 ```sql
 ALTER TABLE Piezas
@@ -12557,15 +10188,6 @@ ON UPDATE CASCADE;
 ```
 
 ### selecciones
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL consta de dos consultas simples que seleccionan todos los registros de dos tablas diferentes llamadas `Categorias` y `Piezas`. La primera consulta, `SELECT * FROM Categorias;`, recupera toda la información disponible en la tabla `Categorias`, lo que significa que te devolverá todas las filas y columnas de esa tabla. De manera similar, la segunda consulta, `SELECT * FROM Piezas;`, hace exactamente lo mismo pero para la tabla `Piezas`. 
-
-Estos comandos son útiles cuando necesitas revisar el contenido actual de estas tablas sin especificar columnas individuales o aplicar condiciones adicionales. Es una forma rápida y simple de obtener un panorama general del estado de tus datos en ambas tablas, lo cual puede ser crucial para la gestión y mantenimiento de tu base de datos.
-
-`004-selecciones.sql`
 
 ```sql
 SELECT * FROM Categorias;
@@ -12574,13 +10196,6 @@ SELECT * FROM Piezas;
 ```
 
 ### left join
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código SQL realiza una operación llamada "left join" entre dos tablas, `Piezas` y `Categorias`. La función principal de un left join es combinar filas de ambas tablas basándose en la relación establecida entre ellas. En este caso, se une la tabla `Piezas` con la tabla `Categorias` usando el campo `id_categoria` de la tabla `Piezas` y el campo `Identificador` de la tabla `Categorias`. Esto significa que todas las piezas incluirán información sobre su categoría, incluso si no hay una correspondencia directa en la tabla `Categorias`, lo que resultará en valores nulos para esas filas. Es importante porque permite obtener un conjunto completo de datos desde la tabla izquierda (en este caso, `Piezas`) y agregar información adicional cuando está disponible en la tabla derecha (`Categorias`).
-
-`005-left join.sql`
 
 ```sql
 SELECT 
@@ -12591,15 +10206,6 @@ ON Piezas.id_categoria = Categorias.Identificador;
 ```
 
 ### ahora creo la vista
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL crea una vista llamada `piezas_y_categorias` que combina información de dos tablas: `Categorias` y `Piezas`. La vista selecciona detalles como el título, descripción e imagen tanto de las categorías como de las piezas, utilizando un `LEFT JOIN` para asegurar que se incluyan todas las piezas incluso si no tienen una categoría asociada. Esto es útil porque permite visualizar fácilmente cómo las piezas están relacionadas con sus categorías, o en su defecto, mostrando las piezas sin ninguna relación.
-
-Después de crear la vista, el código ejecuta un `SELECT * FROM piezas_y_categorias;` para mostrar todos los datos que se han almacenado en esta nueva vista recién creada. Esto es importante porque permite a cualquier persona con acceso a este sistema consultar directamente estos datos combinados sin tener que volver a escribir toda la lógica de cómo unir las tablas cada vez.
-
-`006-ahora creo la vista.sql`
 
 ```sql
 CREATE VIEW piezas_y_categorias AS 
@@ -12618,19 +10224,6 @@ SELECT * FROM piezas_y_categorias;
 ```
 
 ### usuario
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL te guía para crear un nuevo usuario en tu base de datos y otorgarle ciertos permisos. Primero, se crea el usuario 'portafolioceac' con una contraseña específica ('portafolioceac'). Luego, se le permite acceso básico al sistema mediante la instrucción `GRANT USAGE ON *.*`, lo que significa que este usuario puede conectarse pero no tiene privilegios en particular sobre ninguna base de datos.
-
-A continuación, el código ajusta los límites del nuevo usuario para permitirle realizar una cantidad ilimitada de acciones durante cualquier período de tiempo. Esto se logra con la sentencia `ALTER USER`, donde se quitan todos los límites, lo que significa que no hay restricciones en términos de consultas por hora, conexiones simultáneas, actualizaciones y conexiones del usuario.
-
-Finalmente, el código otorga al usuario 'portafolioceac' acceso completo a una base de datos específica llamada 'portafolioceac', permitiéndole realizar cualquier operación sobre esta. La sentencia `FLUSH PRIVILEGES` se utiliza para recargar la tabla de privilegios del servidor, lo que asegura que los cambios realizados tengan efecto inmediato en el sistema.
-
-Este proceso es crucial cuando necesitas administrar usuarios y permisos en un entorno de base de datos MySQL o MariaDB para garantizar que cada usuario tenga acceso adecuado a los recursos según sus roles y responsabilidades.
-
-`007-usuario.sql`
 
 ```sql
 -- crea usuario nuevo con contraseña
@@ -12660,37 +10253,6 @@ TO 'portafolioceac'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-### Actividades propuestas
-
-### Actividades Propuestas
-
-1. **Creación y Configuración de Base de Datos**
-   - Los estudiantes deben crear una base de datos similar a "portafolioceac" e implementar las tablas "Categorias" y "Piezas". Se espera que comprendan cómo estructurar esquemas relacionales con claves primarias y foráneas.
-
-2. **Inserción de Datos**
-   - Los estudiantes deben insertar un conjunto definido de datos en las tablas creadas anteriormente, incluyendo categorías e ítems asociados. Se espera que comprendan cómo manejar inserciones correctas con claves foráneas y valores auto-incrementales.
-
-3. **Relaciones entre Tablas**
-   - Los estudiantes deben agregar una clave foránea que vincule las tablas "Categorias" y "Piezas", estableciendo el comportamiento de acción en cascada para la eliminación y actualización. Se espera que entiendan cómo configurar relaciones entre tablas.
-
-4. **Consultas Simples**
-   - Los estudiantes deben realizar consultas básicas para recuperar todos los registros de las tablas "Categorias" y "Piezas". Se espera que comprendan cómo ejecutar select statements simples y comprender el contenido de sus resultados.
-
-5. **Consulta con Join Interno**
-   - Los estudiantes deben realizar un join entre las tablas "Piezas" e "Identificador", mostrando todos los campos relacionados. Se espera que entiendan la funcionalidad del JOIN interno para combinar datos en diferentes tablas.
-
-6. **Consulta LEFT JOIN**
-   - Los estudiantes deberán escribir una consulta LEFT JOIN que retorne todas las piezas y, opcionalmente, sus categorías asociadas si existen. Se espera que comprendan cómo manejar situaciones donde no hay coincidencias entre tablas.
-
-7. **Creación de Vista**
-   - Los estudiantes deben crear una vista que combine los datos de las dos tablas en una sola tabla unificada con alias y campos claros. Se espera que entiendan el concepto de vistas y su utilidad para simplificar consultas complejas.
-
-8. **Gestión de Usuarios y Permisos**
-   - Los estudiantes deben crear un nuevo usuario y asignarle los privilegios adecuados para acceder a la base de datos recién creada, incluyendo el manejo de restricciones y límites. Se espera que comprendan cómo gestionar usuarios y permisos en entornos de bases de datos.
-
-Estas actividades están diseñadas para ayudar a los estudiantes a familiarizarse con conceptos clave como la creación y manipulación de tablas, inserción y consulta de datos, relaciones entre registros de diferentes tablas, gestión de usuarios y vistas.
-
-
 
 <a id="herramientas-de-mapeo-objeto-relacional-orm"></a>
 # Herramientas de mapeo objeto relacional (ORM)
@@ -12698,22 +10260,30 @@ Estas actividades están diseñadas para ayudar a los estudiantes a familiarizar
 <a id="concepto-de-mapeo-objeto-relacional"></a>
 ## Concepto de mapeo objeto relacional
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/001-Concepto%20de%20mapeo%20objeto%20relacional)
+El concepto de mapeo objeto-relacional (ORM) es una técnica que permite a los desarrolladores interactuar con bases de datos relacionales utilizando objetos orientados. Este enfoque facilita la programación al permitir el acceso y manipulación de datos mediante clases y objetos, en lugar de escribir consultas SQL directamente.
 
-### Introducción a los ejercicios
+En un sistema ORM, cada tabla de la base de datos se representa como una clase en el código fuente del programa. Cada fila de la tabla es un objeto de esa clase, y las columnas corresponden a los atributos de los objetos. Este mapeo automático simplifica la creación y gestión de consultas complejas, ya que se pueden manipular directamente los objetos sin necesidad de escribir SQL.
 
-En esta carpeta de ejercicios se trabajan conceptos relacionados con el mapeo objeto-relacional (ORM), una técnica que permite la interacción entre objetos de lenguajes de programación y bases de datos relacionales. Los estudiantes aprenderán a convertir estructuras de datos en objetos Python para su almacenamiento eficiente, utilizando la biblioteca `pickle` como herramienta simplificada de persistencia de objetos. El conjunto de ejercicios incluye desde la creación de una clase simple hasta el proceso de guardar y cargar estos objetos en archivos binarios, lo que ayuda a comprender los fundamentos del manejo de datos persistentes fuera de la memoria del programa.
+La ventaja principal del ORM radica en su capacidad para abstraer el acceso a la base de datos, lo que reduce significativamente el riesgo de errores comunes asociados con la escritura manual de consultas SQL. Además, facilita la actualización y mantenimiento del código, ya que cualquier cambio en la estructura de la base de datos solo requiere modificaciones en las clases correspondientes.
+
+Un ORM también proporciona herramientas para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los objetos, lo que permite una programación más orientada a objetos. Por ejemplo, se pueden crear nuevos objetos y guardarlos en la base de datos con solo instanciar la clase correspondiente y asignar valores a sus atributos.
+
+Además, muchos ORMs ofrecen características adicionales como el soporte para transacciones, validaciones de datos y relaciones entre tablas. Estas funcionalidades añaden una capa adicional de seguridad y eficiencia al acceso a los datos.
+
+En resumen, el mapeo objeto-relacional es una herramienta poderosa que facilita la interacción entre aplicaciones orientadas a objetos y bases de datos relacionales. Al permitir un enfoque más natural y intuitivo para el acceso a los datos, ORM mejora significativamente la productividad y mantenibilidad del código, reduciendo al mismo tiempo el riesgo de errores comunes en consultas SQL directas.
+
+### Concepto previo
+
+```markdown
+En informática se me anima a trabajar con objetos
+Complejidad infinita
+
+La norma es la persistencia en bases de datos relacionales
+SQL
+Formadas por tablas
+```
 
 ### la libreria pickle
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python crea una clase llamada `Cliente` que tiene tres atributos: nombre, apellidos y emails. Cuando se instancia un objeto de la clase `Cliente`, estos atributos son inicializados con los valores proporcionados por el usuario. Luego, se crea una lista vacía llamada `clientes`. El bucle `for` añade 10 objetos `Cliente` a esta lista, todos ellos representando al mismo cliente (con nombre "Jose Vicente", apellidos "Carratala" y dos direcciones de correo electrónico). Finalmente, se imprime la lista completa de clientes.
-
-Este código es importante porque demuestra cómo crear clases en Python para modelar objetos del mundo real y almacenar múltiples instancias de estos objetos en una colección como una lista. Esto es fundamental cuando trabajas con bases de datos y necesitas representar información compleja estructurada en tu programa.
-
-`002-la libreria pickle.py`
 
 ```python
 class Cliente():
@@ -12736,17 +10306,6 @@ print(clientes)
 ```
 
 ### guardar a lo bestia
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python es una pequeña aplicación que muestra cómo guardar objetos personalizados en un archivo binario utilizando la biblioteca `pickle`. Primero, se define una clase llamada `Cliente` que tiene atributos para el nombre, apellidos y correos electrónicos del cliente. Luego, se crea una lista vacía llamada `clientes`, a la cual se añaden diez instancias de la clase `Cliente`.
-
-El código recorre un bucle 10 veces, cada vez creando una nueva instancia de `Cliente` con los mismos datos (nombre "Jose Vicente", apellidos "Carratala" y dos correos electrónicos), y agrega esta instancia a la lista `clientes`. Finalmente, el código abre un archivo binario llamado `"clientes.bin"` en modo escritura (`'wb'`) y utiliza la función `pickle.dump()` para guardar toda la lista de clientes en este archivo.
-
-Este tipo de operación es útil cuando deseas almacenar objetos complejos, como colecciones de instancias de clase, de forma persistente en el disco duro del ordenador. Con `pickle`, puedes serializar (convertir a formato binario) cualquier objeto Python y luego deserializarlo (volver a convertir a su estado original) cuando sea necesario leer la información nuevamente en una aplicación o script posteriormente.
-
-`003-guardar a lo bestia.py`
 
 ```python
 import pickle
@@ -12772,21 +10331,6 @@ pickle.dump(clientes,archivo)
 ```
 
 ### cargo de vuelta
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en Python es una parte de un ejercicio que muestra cómo cargar objetos serializados desde un archivo binario usando la librería `pickle`. La función principal aquí es recuperar datos previamente guardados en formato binario y convertirlos nuevamente en objetos utilizables en el programa.
-
-El código comienza importando la librería `pickle`, que es útil para guardar y cargar objetos complejos de Python. Luego, se define una clase llamada `Cliente` con tres atributos: nombre, apellidos y emails. Estos atributos forman parte del estado de cada objeto `Cliente`.
-
-El programa abre un archivo binario llamado `"clientes.bin"` en modo lectura binaria (`'rb'`). A continuación, usa la función `pickle.load()` para cargar los objetos serializados desde este archivo y guardarlos en una variable llamada `clientes`. Esto significa que si antes se guardaron objetos de tipo `Cliente` usando `pickle`, ahora estos objetos están disponibles nuevamente en memoria.
-
-Finalmente, el código imprime en pantalla el objeto o lista de objetos recuperados con la función `print()`. Esta operación demuestra cómo los datos previamente almacenados pueden ser fácilmente reutilizados y manipulados en un programa.
-
-Este ejercicio es importante porque ilustra una técnica común en programación para manejar grandes cantidades de datos persistentes que deben mantener su estructura compleja entre las ejecuciones del programa.
-
-`004-cargo de vuelta.py`
 
 ```python
 import pickle
@@ -12805,64 +10349,26 @@ clientes = pickle.load(archivo)
 print(clientes)
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Conceptos Básicos de Mapeo Objeto Relacional (ORM)
-**Descripción:** Estudia y documenta los conceptos fundamentales del mapeo objeto relacional a partir del archivo `001-Concepto previo.md`. Proporcionar una explicación simple y clara sobre qué es el ORM y por qué se utiliza en desarrollo de software.
-
-### Actividad 2: Crear Instancias de Objetos
-**Descripción:** Implementa un script similar a `002-la libreria pickle.py` pero cambiando los datos del cliente (nombre, apellidos, emails) para crear instancias de diferentes clientes. Aprende a trabajar con clases y objetos en Python.
-
-### Actividad 3: Serialización de Datos
-**Descripción:** Basándote en `003-guardar a lo bestia.py`, desarrolla una función que permita guardar objetos Cliente en un archivo binario utilizando la biblioteca pickle. Entiende cómo se serializan datos complejos en Python.
-
-### Actividad 4: Deserialización de Datos
-**Descripción:** A partir del archivo `004-cargo de vuelta.py`, crea una función que permita leer y deserializar los objetos Cliente guardados en un archivo binario. Practica la lectura de datos binarios y su conversión a estructuras de datos manejables.
-
-### Actividad 5: Análisis de Archivos
-**Descripción:** Analiza el contenido de cada uno de los archivos proporcionados para identificar cómo se implementan las operaciones CRUD (Crear, Leer, Actualizar y Borrar) usando pickle. Identifica los pasos necesarios en la secuencia de comandos.
-
-### Actividad 6: Documentación
-**Descripción:** Escribe una documentación básica que explique el flujo de creación, serialización, almacenamiento y deserialización de datos usando objetos y archivos binarios con pickle. Mejora las habilidades de comunicación técnica.
-
-### Actividad 7: Personalización del Modelo Cliente
-**Descripción:** Modifica la clase `Cliente` para añadir más atributos (como teléfono o dirección) y realiza los cambios necesarios en las funciones que crean, serializan, deserializan e imprimen objetos de clientes. Aprenderás a mantener código coherente con nuevas características.
-
-### Actividad 8: Manejo de Excepciones
-**Descripción:** Implementa el manejo de excepciones (try-except) en la lectura y escritura de archivos binarios basado en `003-guardar a lo bestia.py` y `004-cargo de vuelta.py`. Aprenderás a hacer que tus scripts sean más robustos frente a errores.
-
-### Actividad 9: Uso de ORM
-**Descripción:** Investiga cómo se utiliza un ORM real en lugar de pickle para manejar la persistencia de objetos. Explora bibliotecas como SQLAlchemy y realiza una breve comparación con el uso directo de pickle. Entenderás las ventajas del mapeo objeto relacional.
-
-### Actividad 10: Integración con Bases de Datos
-**Descripción:** Desarrolla un script que, en lugar de guardar datos en archivos binarios, integre los objetos Cliente directamente a una base de datos relacional usando SQLAlchemy. Aprende cómo se conectan y interactúan los modelos de la aplicación con la BD real.
-
-
 <a id="caracteristicas-de-las-herramientas-orm"></a>
 ## Características de las herramientas ORM
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/002-Caracter%C3%ADsticas%20de%20las%20herramientas%20ORM)
+Las herramientas de mapeo objeto-relacional (ORM) son una poderosa tecnología que facilitan la comunicación entre aplicaciones informáticas y bases de datos relacionales. Estas herramientas permiten a los desarrolladores trabajar con objetos en su lenguaje de programación preferido, mientras que ORM se encarga automáticamente del proceso de traducción entre estos objetos y las tablas y registros de la base de datos.
 
-### Introducción a los ejercicios
+Una de las principales ventajas de las ORM es su capacidad para abstraer el acceso a la base de datos. En lugar de escribir consultas SQL directamente en el código, los desarrolladores pueden utilizar métodos y clases proporcionados por la herramienta ORM para interactuar con la base de datos. Esta abstracción no solo simplifica significativamente el código, sino que también reduce el riesgo de errores comunes asociados con la escritura manual de consultas SQL.
 
-Esta carpeta contiene ejercicios que te ayudarán a familiarizarte con la utilización de herramientas ORM (Objeto Relacional Mapping) en Python y PHP. Los ejemplos presentan una clase llamada `JVDB` que facilita el acceso a datos almacenados en una base de datos MySQL, permitiendo realizar operaciones básicas como seleccionar todos los registros de una tabla y buscar registros por un valor específico en una columna. En particular, el último ejercicio en PHP introduce un nuevo método para listar todas las tablas presentes en la base de datos.
+Además, las ORM ofrecen una serie de características adicionales que hacen que el desarrollo sea más eficiente y seguro. Por ejemplo, muchas herramientas ORM proporcionan funcionalidades para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la base de datos con solo unas pocas líneas de código. Esto no solo ahorra tiempo y esfuerzo, sino que también reduce el riesgo de errores humanos.
 
-Estos ejercicios te permitirán practicar competencias clave como la manipulación de bases de datos mediante programación, el manejo de conexiones y consultas SQL desde un lenguaje de programación, y el uso de objetos para encapsular funcionalidades relacionadas con acceso a datos. Además, aprenderás cómo implementar y adaptar este patrón en diferentes entornos de desarrollo, como Python y PHP.
+Otra ventaja importante de las ORM es su capacidad para manejar automáticamente la persistencia de los objetos. Cuando se crean o modifican objetos en la aplicación, la herramienta ORM se encarga de actualizar automáticamente la base de datos con los cambios correspondientes. Esto facilita el mantenimiento del código y reduce la probabilidad de inconsistencias entre la memoria de la aplicación y la base de datos.
+
+Las ORM también suelen proporcionar funcionalidades avanzadas como el mapeo bidireccional, lo que permite a los desarrolladores trabajar tanto con objetos en la memoria como con registros en la base de datos. Esto facilita la implementación de relaciones complejas entre tablas y mejora la flexibilidad del diseño de aplicaciones.
+
+Además, muchas ORM ofrecen soporte para transacciones, lo que significa que se pueden realizar operaciones complejas en la base de datos de manera segura y coherente. Si ocurre un error durante una transacción, la herramienta ORM puede revertir automáticamente todos los cambios realizados, garantizando la integridad de la base de datos.
+
+En términos de seguridad, las ORM suelen proporcionar mecanismos para evitar ataques comunes como inyecciones SQL. Al utilizar métodos y clases proporcionados por la herramienta en lugar de escribir consultas SQL directamente, se minimiza el riesgo de que los desarrolladores cometan errores que puedan permitir a terceros acceder o modificar datos de forma no autorizada.
+
+En resumen, las herramientas de mapeo objeto-relacional son una tecnología valiosa para cualquier desarrollador que trabaje con bases de datos relacionales. Ofrecen una serie de ventajas significativas en términos de simplicidad, eficiencia y seguridad, lo que facilita el desarrollo de aplicaciones informáticas complejas y escalables. Aunque pueden requerir un poco más de tiempo para aprender a utilizarlas correctamente, las ORM son generalmente consideradas una inversión valiosa en el largo plazo del proyecto.
 
 ### inicio en python
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una clase llamada `JVDB` que se utiliza para interactuar con una base de datos MySQL. La clase tiene un método especial `__init__` que se ejecuta cuando creamos una instancia de la clase, y este método inicializa la conexión a la base de datos utilizando los parámetros proporcionados (host, usuario, contraseña y nombre de la base de datos). Luego crea un cursor para poder realizar operaciones en la base de datos.
-
-La clase también tiene dos métodos importantes:
-- `seleccionar(tabla)`: Este método ejecuta una consulta SQL que selecciona todos los registros de una tabla específica. Recoge las columnas y filas devueltas por la consulta, las combina para formar diccionarios (donde cada clave es el nombre de una columna y cada valor es el contenido de esa fila en la base de datos), y finalmente devuelve estos datos como un string JSON.
-- `buscar(tabla, columna, valor)`: Este método busca registros específicos dentro de una tabla. Acepta tres parámetros: el nombre de la tabla, el nombre de la columna a buscar y el valor que debe contener esa columna. Ejecuta una consulta SQL que filtra los datos según estos criterios y devuelve el resultado en formato JSON.
-
-Este código es útil porque encapsula la lógica para conectarse a una base de datos MySQL y realizar consultas, lo cual facilita trabajar con bases de datos sin preocuparse por la configuración de conexiones o detalles específicos de SQL.
-
-`001-inicio en python.py`
 
 ```python
 import mysql.connector
@@ -12904,21 +10410,6 @@ print(conexion.buscar("entradas", "titulo", "responsivo"))
 ```
 
 ### convierto a php
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es un ejemplo sencillo de cómo crear y usar una clase en PHP para interactuar con una base de datos. La clase se llama `JVDB` (posiblemente abreviatura de "Java Virtual Database" o similar) y su propósito principal es facilitar el acceso a los datos almacenados en una base de datos MySQL.
-
-Cuando se instancia la clase `JVDB`, se requieren cuatro parámetros: la dirección del host de la base de datos, el nombre del usuario para la conexión, la contraseña del usuario y el nombre de la base de datos específica. Estos valores se usan para establecer una conexión a la base de datos utilizando la función `mysqli` que es un componente integrado en PHP para manejar bases de datos MySQL.
-
-La clase ofrece dos métodos principales: `seleccionar()` y `buscar()`. El método `seleccionar($tabla)` ejecuta una consulta SQL que selecciona todos los registros de una tabla específica, mientras que el método `buscar($tabla, $columna, $valor)` permite buscar registros en una tabla basándose en un criterio específico (por ejemplo, encontrar todas las entradas con un título que contenga la palabra "responsivo").
-
-Estos métodos facilitan el trabajo con datos de bases de datos sin tener que escribir consultas SQL repetidas veces. Además, al devolver los resultados como JSON, es fácil integrar esta clase en aplicaciones web o APIs RESTful para enviar y recibir datos estructurados.
-
-En resumen, este código proporciona una base sólida para el acceso a datos orientado a objetos, simplificando las operaciones de consulta y búsqueda en bases de datos MySQL.
-
-`002-convierto a php.php`
 
 ```
 <?php
@@ -12977,23 +10468,6 @@ echo $conexion->buscar("entradas", "titulo", "responsivo");
 ```
 
 ### listado de tablas
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una clase en PHP llamada `JVDB` que sirve para interactuar con una base de datos MySQL. La clase tiene varias partes importantes:
-
-1. **Inicialización y Conexión:** En el constructor (`__construct`) se reciben los parámetros necesarios para establecer una conexión a la base de datos (host, usuario, contraseña y nombre de la base de datos). Luego, intenta conectarse a la base de datos utilizando `mysqli` y verifica si hubo algún error en la conexión.
-
-2. **Selección de Datos:** El método `seleccionar($tabla)` toma el nombre de una tabla como parámetro y ejecuta una consulta SQL que selecciona todos los registros de esa tabla. Los resultados se recorren fila por fila para almacenarlos en un array, que finalmente se convierte a JSON antes de ser devuelto.
-
-3. **Búsqueda de Datos:** El método `buscar($tabla, $columna, $valor)` busca registros específicos en una tabla según un valor dado en una columna determinada. Utiliza sentencias preparadas para prevenir inyecciones SQL y ejecuta la consulta con los valores proporcionados. Los resultados se procesan igual que antes.
-
-4. **Listado de Tablas:** El nuevo método `tablas()` muestra el listado de todas las tablas dentro de la base de datos actual a través de la sentencia SQL `SHOW TABLES`. Al igual que en otros métodos, los resultados son convertidos a un array y luego a JSON para facilitar su uso.
-
-Este tipo de clase es útil porque encapsula toda la lógica necesaria para interactuar con una base de datos en una sola entidad (en este caso, el objeto `JVDB`), lo que hace que el código principal sea más limpio y fácil de mantener.
-
-`003-listado de tablas.php`
 
 ```
 <?php
@@ -13064,177 +10538,69 @@ $conexion = new JVDB("localhost", "blog2526", "blog2526", "blog2526");
 echo $conexion->tablas();
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Implementación en Python
-
-**Descripción:** Los estudiantes deben implementar una clase similar a la que se encuentra en el archivo `001-inicio en python.py` utilizando Python. Se espera que los alumnos entiendan cómo conectar con una base de datos MySQL y realizar consultas básicas usando objetos.
-
-### Actividad 2: Conversión de Código a PHP
-
-**Descripción:** Los estudiantes deben convertir la clase implementada en el archivo `001-inicio en python.py` al lenguaje PHP, similar al contenido del archivo `002-convierto a php.php`. Esta actividad busca mejorar sus habilidades de traducción entre diferentes lenguajes de programación.
-
-### Actividad 3: Consultas Básicas con ORM
-
-**Descripción:** Los estudiantes deben crear consultas que permitan seleccionar y buscar datos en una base de datos MySQL utilizando la clase `JVDB` desde cualquiera de los archivos proporcionados. Esta actividad ayudará a entender las operaciones básicas del ORM.
-
-### Actividad 4: Refactorización del Código
-
-**Descripción:** Los estudiantes deben refactorizar el código del archivo `002-convierto a php.php` para mejorar su estructura y legibilidad, manteniendo la funcionalidad. Se espera que los alumnos comprendan cómo organizar mejor el código PHP.
-
-### Actividad 5: Implementación de Nuevo Método
-
-**Descripción:** Los estudiantes deben implementar un nuevo método en la clase `JVDB`, similar al encontrado en el archivo `003-listado de tablas.php` (método `tablas()`), que permita listar todas las tablas presentes en una base de datos. Esta actividad busca mejorar sus habilidades en consultas complejas y manejo de información.
-
-### Actividad 6: Ejecución de Consultas Parametrizadas
-
-**Descripción:** Los estudiantes deben escribir un script PHP que ejecute consultas parametrizadas usando el método `buscar()` proporcionado. Esta actividad ayudará a entender cómo protegerse contra inyecciones SQL y manipular datos dinámicamente.
-
-### Actividad 7: Pruebas Unitarias
-
-**Descripción:** Los estudiantes deben escribir pruebas unitarias para la clase `JVDB` en Python o PHP, utilizando herramientas como pytest (Python) o PHPUnit (PHP). Esta actividad ayudará a entender cómo verificar el correcto funcionamiento del código.
-
-### Actividad 8: Documentación de Código
-
-**Descripción:** Los estudiantes deben documentar los archivos de código proporcionados (`001-inicio en python.py` y `002-convierto a php.php`) utilizando comentarios claros y Markdown (si es posible) para explicar cada sección del código. Esta actividad mejora sus habilidades de comunicación técnica.
-
-### Actividad 9: Análisis de Errores
-
-**Descripción:** Los estudiantes deben identificar y corregir los posibles errores en el código proporcionado, considerando casos especiales como conexiones fallidas o consultas vacías. Esta actividad refuerza sus conocimientos sobre manejo de excepciones.
-
-### Actividad 10: Comparación entre Lenguajes
-
-**Descripción:** Los estudiantes deben escribir un informe comparativo detallado que explique las diferencias y similitudes entre el código Python en `001-inicio en python.py` y PHP en `002-convierto a php.php`, incluyendo detalles sobre sintaxis, buenas prácticas de programación y rendimiento.
-
-
 <a id="instalacion-de-una-herramienta-orm-configuracion"></a>
 ## Instalación de una herramienta ORM. Configuración
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/003-Instalaci%C3%B3n%20de%20una%20herramienta%20ORM.%20Configuraci%C3%B3n)
+La instalación y configuración de herramientas ORM son pasos cruciales para desarrolladores que desean optimizar su trabajo con bases de datos relacionales. En esta subunidad, exploraremos cómo instalar una herramienta ORM popular y cómo configurarla adecuadamente en un proyecto.
 
-### Introducción a los ejercicios
+Primero, es importante entender qué es el mapeo objeto-relacional (ORM). Este concepto permite a los desarrolladores trabajar con objetos en su lenguaje de programación preferido, mientras que la base de datos se gestiona automáticamente. ORM facilita la interacción entre aplicaciones y bases de datos, reduciendo así el código necesario para realizar operaciones CRUD.
 
-Para mejorar el diseño y la interactividad del contenedor que contiene el reproductor de audio, la imagen y la barra deslizante, puedes agregar estilos CSS y mejoras en HTML. Aquí te proporciono una versión actualizada:
+Para esta subunidad, vamos a utilizar SQLAlchemy, una de las herramientas ORM más populares en Python. La instalación de SQLAlchemy es relativamente sencilla. A través del gestor de paquetes pip, simplemente ejecutamos el siguiente comando:
 
-### HTML
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Audio</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Añadimos enlace al archivo CSS -->
-</head>
-<body>
-  <div id="contieneaudio">
-    <audio src="0802.mp3" controls></audio>
-    <img src="0802.png" alt="Descripción de la imagen">
-    <input type="range" min=0 max=1 step=0.001 id="seekbar">
-  </div>
-
-  <!-- JavaScript para controlar el reproductor -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const audioElement = document.querySelector('#contieneaudio audio');
-      const seekBar = document.getElementById('seekbar');
-
-      // Actualiza la barra de desplazamiento según la posición del tiempo
-      seekBar.oninput = function(e) {
-        audioElement.currentTime = e.target.value * audioElement.duration;
-      };
-
-      // Actualiza el valor de la barra de desplazamiento mientras se reproduce el audio
-      setInterval(() => {
-        seekBar.value = audioElement.currentTime / audioElement.duration;
-      }, 500);
-    });
-  </script>
-</body>
-</html>
+```bash
+pip install sqlalchemy
 ```
 
-### CSS (archivo `styles.css`)
+Esta línea de código instala SQLAlchemy junto con todas sus dependencias necesarias.
 
-```css
-/* Estilos globales */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
+Después de la instalación, la configuración inicial implica la definición de una conexión a la base de datos. Esto se realiza mediante la creación de un objeto `Engine` que representa la conexión al servidor de bases de datos. Por ejemplo:
 
-#contieneaudio {
-  width: 100%;
-  max-width: 800px; /* Ancho máximo para la contención central */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px; /* Espacio superior */
-}
+```python
+from sqlalchemy import create_engine
 
-#contieneaudio img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  margin-bottom: 20px; /* Margen inferior para separar la imagen del reproductor de audio */
-}
-
-#contieneaudio input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  max-width: 400px;
-  height: 6px; /* Altura de la barra deslizante */
-  border-radius: 3px; /* Redondeo del borde de la barra deslizante */
-  background-color: #ddd;
-  outline: none;
-}
-
-#contieneaudio input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px; /* Ancho del controlador de la barra deslizante */
-  height: 16px; /* Altura del controlador de la barra deslizante */
-  background-color: #f00; /* Color del controlador de la barra deslizante */
-  cursor: pointer;
-}
-
-#contieneaudio input[type="range"]::-moz-range-thumb {
-  width: 16px; /* Ancho del controlador de la barra deslizante */
-  height: 16px; /* Altura del controlador de la barra deslizante */
-  background-color: #f00; /* Color del controlador de la barra deslizante */
-  cursor: pointer;
-}
+engine = create_engine('sqlite:///mi_base_de_datos.db')
 ```
 
-### Explicación
+En este ejemplo, estamos utilizando SQLite como el sistema de gestión de bases de datos, pero SQLAlchemy también soporta otras bases de datos populares como PostgreSQL y MySQL.
 
-- **HTML**: 
-  - Añadimos un enlace al archivo CSS.
-  - Incluimos una imagen con un `alt` para proporcionar una descripción alternativa.
-  - Agregamos JavaScript para sincronizar la barra deslizante (`seekbar`) con el reproductor de audio.
+La configuración avanzada puede implicar la definición de tipos de datos personalizados, relaciones entre tablas y funciones de mapeo complejas. Sin embargo, para un proyecto básico, estos pasos son suficientes.
 
-- **CSS**:
-  - Establecemos estilos generales para el cuerpo y HTML.
-  - Alinear el contenedor central, asegurando que tenga un ancho máximo.
-  - Diseñar la imagen y establecer márgenes adecuados.
-  - Personalizar la barra deslizante y su controlador.
+Es importante recordar que SQLAlchemy es una herramienta muy flexible y extensible. A medida que el proyecto avanza, se pueden realizar ajustes y mejoras en la configuración según las necesidades específicas del desarrollo.
 
-Con estos cambios, tu página web será más atractiva visualmente e interactiva para los usuarios.
+En resumen, la instalación de una herramienta ORM como SQLAlchemy es un paso fundamental para cualquier desarrollador que trabaje con bases de datos relacionales. Con su configuración adecuada, los desarrolladores pueden disfrutar de una mayor productividad y eficiencia en sus proyectos, ya que el mapeo objeto-relacional se gestiona automáticamente.
+
+La próxima subunidad explorará cómo definir clases ORM y realizar operaciones CRUD utilizando SQLAlchemy, aprofundando así la comprensión del uso práctico de esta herramienta.
+
+### tipos de datos
+
+```markdown
+Datos en tablas
+Datos en documentos
+
+Imagen - Formato de imagen
+Video - Formatos de video
+
+Imagen (pixels, video = fotogramas con pixels)
+x - y - r,g,b
+
+Audio
+Samples = muestra = presión acústica en un micrófono, en un momento dado
+Bits = Calidad de la onda de audio = escalera de pasos que soporta cada sample
+8bits = telefono = 256pasos
+16bits = CD 16.XXX pasos
+24bits = DVD 16,7 millones de pasos
+48bits Blu-Ray 
+96bits = DVD-Audio
+Frecuencia - samples por segundo - Hz
+8KHz = Teléfono
+11KHz - Radio AM
+22KHz = Cassete
+44.1KHz = CDAudio
+48KHz = DVDVideo
+192KHz - DVDAudio
+```
 
 ### leer archivo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python utiliza la biblioteca `pydub` para cargar un archivo MP3 y luego convierte los datos del audio a una estructura de datos más fácil de manipular usando la biblioteca `numpy`. Primero, el programa carga el archivo de audio "0802.mp3" utilizando la función `from_mp3()` de `pydub`, lo que crea un objeto `AudioSegment` que contiene toda la información del archivo MP3.
-
-Luego, convierte las muestras de audio dentro del objeto `AudioSegment` a una lista de números usando el método `get_array_of_samples()`. Estas muestras representan los datos de sonido en formato numérico y se almacenan en un array de NumPy para que puedas realizar operaciones matemáticas o análisis sobre ellos.
-
-Finalmente, imprime la cantidad total de muestras y luego recorre e imprime cada muestra individual. Esto es útil si deseas revisar los datos brutos del archivo de audio o prepararte para hacer algún tipo de procesamiento más avanzado con estos datos.
-
-`002-leer archivo.py`
 
 ```python
 from pydub import AudioSegment
@@ -13252,17 +10618,6 @@ for sample in samples:
 ```
 
 ### linea
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código utiliza la biblioteca `PIL` (Python Imaging Library) para crear una imagen en blanco y luego dibuja una línea negra horizontal a través de ella. En primer lugar, el programa crea una nueva imagen con un tamaño de 800 píxeles de ancho por 200 píxeles de alto, utilizando un fondo blanco. Luego, se inicializa un objeto `ImageDraw` que permite dibujar sobre la imagen recién creada.
-
-El código sigue dibujando una línea negra con un grosor de 3 píxeles que va desde las coordenadas (50, 100) hasta (750, 100). Esto significa que la línea comienza a 50 unidades del lado izquierdo y 100 unidades del borde superior, y termina a 750 unidades del lado izquierdo pero en el mismo nivel vertical.
-
-Finalmente, la imagen se guarda como un archivo PNG llamado `linea.png` en el directorio actual. El programa imprime un mensaje para indicar que la imagen ha sido generada correctamente. Este tipo de código es útil cuando necesitas crear imágenes simples y personalizadas programáticamente, por ejemplo, para generar gráficos o diagramas en aplicaciones más complejas.
-
-`003-linea.py`
 
 ```python
 from PIL import Image, ImageDraw
@@ -13283,25 +10638,6 @@ print("Imagen generada: linea.png")
 ```
 
 ### mezclar archivos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python te muestra cómo convertir una pista de audio en un gráfico visual. Aquí esencialmente lo que hace:
-
-1. **Carga del archivo de audio**: El código comienza importando librerías necesarias y luego carga un archivo MP3 específico llamado "0802.mp3" usando la biblioteca `pydub`. Este archivo se convierte en una serie de muestras numéricas.
-
-2. **Procesamiento de las muestras**: Las muestras del audio son normalizadas para obtener valores que oscilan entre -1 y 1, basándose en el valor máximo absoluto dentro del conjunto de muestras.
-
-3. **Creación de la imagen**: Se crea una nueva imagen en blanco con un tamaño específico (800x200 píxeles) utilizando la biblioteca `PIL`. 
-
-4. **Generación del gráfico**: El código dibuja líneas verticales en esta imagen basándose en las amplitudes de las muestras de audio, creando así una representación visual del sonido.
-
-5. **Salida**: Finalmente, la imagen resultante se guarda como "linea.png" y se muestra al usuario para que pueda ver cómo suena el archivo MP3 en forma de gráfico.
-
-Esta técnica es útil para entender visivamente patrones o características del audio que no serían tan evidentes solo escuchándolo. Es una forma creativa de combinar procesamiento de audio con creación de imágenes, lo cual puede tener aplicaciones interesantes tanto en la ciencia como en el arte digital.
-
-`004-mezclar archivos.py`
 
 ```python
 from PIL import Image, ImageDraw
@@ -13338,23 +10674,6 @@ img.show()
 ```
 
 ### masbonito
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una aplicación que convierte un archivo de audio en una imagen gráfica que representa la amplitud del sonido a lo largo del tiempo. Aquí te explico cómo funciona:
-
-Primero, se importan las bibliotecas necesarias: `PIL` para trabajar con imágenes y `pydub` para manipular archivos de audio. También se utiliza numpy (`np`) para el manejo eficiente de arrays.
-
-El código comienza cargando un archivo MP3 llamado "0802.mp3" utilizando la librería `pydub`, convirtiéndolo en una estructura de datos que puede ser manipulada fácilmente. A continuación, se extrae el array de muestras del audio y se crea una imagen en blanco con un tamaño específico (anchura: 800 píxeles, altura: 200 píxeles).
-
-El código calcula la longitud total de las muestras y determina cuántos píxeles representan cada muestra para convertir el tiempo de audio en una escala visual. Luego, se encuentra el valor máximo absoluto en el array de muestras para normalizar los datos del sonido.
-
-Finalmente, se recorre la lista de muestras (cada 100,000 muestras para mejorar la velocidad) y se dibuja una línea negra en la imagen que refleja la amplitud del audio. La posición vertical de estas líneas indica el nivel de volumen relativo en ese punto específico del tiempo.
-
-Este código es importante porque permite visualizar datos sonoros de manera gráfica, lo cual puede ser útil para análisis acústicos o simplemente como una representación estética del sonido.
-
-`005-masbonito.py`
 
 ```python
 from PIL import Image, ImageDraw
@@ -13392,19 +10711,6 @@ img.show()
 ```
 
 ### redondeo al final
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código python está diseñado para visualizar una representación gráfica del audio de un archivo mp3 en forma de barras verticales redondeadas. Primero, carga el archivo mp3 y asegura que esté en mono (un solo canal de sonido) para facilitar el procesamiento. Luego, convierte las muestras de audio a una serie de números que representan la amplitud del sonido a lo largo del tiempo.
-
-La parte gráfica se crea creando una imagen en blanco con un tamaño predeterminado (800x200 píxeles). A continuación, el código dibuja barras verticales redondeadas en esta imagen para representar la amplitud de cada muestra de audio. Estas barras están distribuidas a lo largo del eje x según el tiempo en que ocurrieron las muestras de audio.
-
-La altura de estas barras se determina basándose en cuán fuerte era la señal de audio en ese punto (la amplitud). Las barras más altas representan sonidos más fuertes. Una vez dibujadas todas las barras, el código guarda la imagen como un archivo PNG y también la muestra en una ventana emergente.
-
-Este tipo de visualización puede ser útil para entender rápidamente cómo varía el volumen del audio a lo largo del tiempo sin tener que escucharlo.
-
-`006-redondeo al final.py`
 
 ```python
 from PIL import Image, ImageDraw
@@ -13478,21 +10784,6 @@ img.show()
 ```
 
 ### aplicacion de terminal
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una utilidad en línea de comandos escrita en Python que genera imágenes de ondas acústicas (waveform) en forma de cápsulas redondeadas a partir de archivos MP3. El programa toma varios parámetros del usuario, como la ruta del archivo MP3 de entrada y las dimensiones de la imagen de salida, para crear una representación visual comprimida de la onda sonora.
-
-El código comienza importando librerías necesarias como `argparse`, que facilita el manejo de argumentos de línea de comando; `PIL` (Python Imaging Library), útil para manipulación y creación de imágenes; `pydub`, una biblioteca que permite trabajar con archivos de audio en Python; y NumPy, utilizado aquí para procesar los datos del audio.
-
-La función principal es `generar_waveform_capsulas()`, la cual se encarga de cargar el archivo MP3, convertirlo a un formato interno que puede ser manipulado por las bibliotecas, y luego dibujar una línea de cápsulas redondeadas en una imagen. La amplitud del sonido es normalizada para asegurar que utiliza toda la altura disponible en la imagen. Cada "cápula" representa el volumen del audio en un momento específico, siendo más grande o pequeña según lo fuerte o suave sea esa porción de audio.
-
-El programa también incluye una función `parse_args()` que configura cómo los argumentos deben ser leídos desde la línea de comandos y los devuelve como objetos manipulables. Finalmente, el bloque principal del script (`if __name__ == "__main__":`) ejecuta las funciones adecuadas con los datos proporcionados por el usuario.
-
-Este tipo de utilidad puede ser muy útil para visualizar rápidamente la estructura sonora de un archivo MP3 sin necesidad de escucharlo, y es una excelente forma práctica de entender cómo se integran varias librerías especializadas en Python.
-
-`007-aplicacion de terminal.py`
 
 ```python
 #!/usr/bin/env python3
@@ -13717,25 +11008,6 @@ if __name__ == "__main__":
 ```
 
 ### javascript
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código HTML crea una página web interactiva que permite visualizar en tiempo real la onda sonora capturada desde el micrófono del usuario. La estructura principal incluye:
-
-1. **Configuración de estilos CSS**: Define cómo se verá la interfaz, estableciendo los colores de fondo y las propiedades básicas para elementos como botones y el lienzo donde se dibujará la onda (canvas).
-
-2. **Estructura HTML**: Se incluyen dos botones ("Iniciar captura" y "Detener"), un canvas en blanco y negro que servirá para visualizar los datos sonoros, y un área de texto que muestra mensajes informativos.
-
-3. **Funcionalidad JavaScript**:
-   - **Configuración del lienzo**: Se establecen parámetros como el número de barras visibles, el grosor y color de las líneas.
-   - **Captura del audio**: Usa `navigator.mediaDevices.getUserMedia` para solicitar acceso al micrófono. Cuando se obtiene el permiso, crea un contexto de sonido (`AudioContext`) e inicializa el analizador de señales (`AnalyserNode`). Luego conecta el flujo de medios capturados al analizador.
-   - **Dibujo del waveform**: En cada frame (ciclo de animación), se obtienen datos acústicos en tiempo real y dibuja barras verticales en el lienzo basadas en estos datos, creando así una visualización dinámica de la onda sonora.
-   - **Control de botones**: Los clics en los botones "Iniciar captura" y "Detener" gestionan las funciones `startCapture` y `stopCapture`, respectivamente. Estas funciones se encargan de iniciar o detener el flujo de audio, así como de actualizar la interfaz gráfica según sea necesario.
-
-Este código es importante porque demuestra cómo interactuar con los dispositivos del usuario (micrófono) desde una página web y visualizar datos en tiempo real utilizando HTML5 y Web Audio API. Es útil para estudiantes que quieren aprender a construir aplicaciones interactivas basadas en la captura de audio en un entorno web moderno.
-
-`008-javascript.html`
 
 ```html
 <!DOCTYPE html>
@@ -13931,27 +11203,6 @@ btnStop.addEventListener('click', stopCapture);
 ```
 
 ### jarvis
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código HTML crea una página web interactiva que muestra un efecto visual basado en el audio capturado del micrófono. La página contiene principalmente dos elementos: un lienzo de dibujo (canvas) y un botón para iniciar la grabación del sonido.
-
-### Funcionamiento:
-1. **Estilo CSS**: Establece estilos básicos para la página, incluyendo el color de fondo, tamaños y ubicaciones del canvas y del botón.
-2. **JavaScript**:
-   - Crea un lienzo en blanco (`canvas`) donde se dibujarán los anillos circulares que representan las ondas sonoras.
-   - Inicializa una función `initAudio` para obtener acceso al micrófono y capturar el audio del usuario utilizando la API de AudioContext de HTML5. Esta función también conecta un analizador de frecuencias (`analyser`) con el flujo de audio para medir su energía en diferentes bandas.
-   - Define una clase `Ring` que representa cada anillo circular, definido por un radio y parámetros como velocidad, fase inicial y tipo visual (arco simple, área tipo "quesito", etc.).
-   - La función `getBandEnergyForRing` calcula la energía del audio en la banda correspondiente a cada anillo.
-   - Finalmente, la animación se realiza con la función `animate`, que dibuja los anillos de acuerdo a su energía y modula el grosor y opacidad para reflejar las variaciones sonoras.
-
-### Importancia:
-Este ejemplo combina varios conceptos clave en desarrollo web moderno como HTML5 Canvas para renderización visual, Web Audio API para manipulación del audio en tiempo real y JavaScript puro para la lógica de animación. Aprender cómo integrar estos elementos puede ayudarte a crear interfaces interactivas con efectos visuales dinámicos basados en el sonido, lo que es útil en aplicaciones web como visualizadores multimedia o juegos interactivos.
-
-En resumen, este código proporciona un ejemplo práctico de cómo capturar y mostrar gráficamente la energía del audio en tiempo real a través de una animación en Canvas.
-
-`009-jarvis.html`
 
 ```html
 <!DOCTYPE html>
@@ -14180,17 +11431,6 @@ En resumen, este código proporciona un ejemplo práctico de cómo capturar y mo
 ```
 
 ### rebote ia
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este archivo HTML es un ejemplo interactivo que combina la visualización en tiempo real del sonido capturado por el micrófono y una simulación de voz sintética. La página presenta dos paneles circulares que representan los niveles de energía acústica de forma radial, uno para el audio humano (grabado desde el micrófono) y otro para la respuesta sintética de un sistema inteligente artificial.
-
-El archivo utiliza JavaScript para manejar la grabación del sonido a través del micrófono del usuario y para generar una voz sintética que replica lo que dice el usuario. La página también incluye CSS para dar estilo a los elementos, como las etiquetas HTML, botones y canva (dibujos circulares).
-
-En resumen, este código permite a los usuarios interactuar con un sistema de reconocimiento vocal e interpretación de voz en tiempo real, mientras que la visualización radial proporciona una representación gráfica dinámica de la energía acústica capturada.
-
-`010-rebote ia.html`
 
 ```html
 <!DOCTYPE html>
@@ -14584,25 +11824,6 @@ En resumen, este código permite a los usuarios interactuar con un sistema de re
 ```
 
 ### mas rebote IA
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código HTML crea una página web interactiva que simula un sistema de "Bounce AI" utilizando dos visualizadores circulares para mostrar la actividad auditiva tanto del usuario humano como de un asistente inteligente virtual (AI). 
-
-La estructura principal incluye dos áreas principales: el botón de inicio y los elementos gráficos. El botón de inicio (`id="startBtn"`) es responsable de activar tanto el micrófono para capturar la voz del usuario, como el reconocimiento de voz y la síntesis de texto en voz.
-
-En cuanto a los visualizadores circulares, hay dos canvas (`id="humanCanvas"` y `id="aiCanvas"`), cada uno con un tamaño de 400x400 píxeles. Estos canvas utilizan gráficos para representar la actividad auditiva tanto del usuario como del sistema AI.
-
-El código JavaScript dentro del `<script>` tag implementa varias funcionalidades clave:
-1. **Configuración y inicialización**: Se definen parámetros de visualización (como el número de anillos, sus anchos, etc.) y se crean instancias para manejar los datos auditivos.
-2. **Manejo del Audio**: Se utiliza `getUserMedia` para permitir al usuario compartir su micrófono en tiempo real. La página también implementa un simulador de sonido AI que imita el comportamiento del análisis del audio humano, pero sin realmente acceder a una fuente de datos de voz.
-3. **Reconocimiento y Síntesis de Voz**: Se utiliza `SpeechRecognition` para transcribir la voz del usuario en texto y `SpeechSynthesisUtterance` para convertir el texto generado por la AI en voz sintética.
-4. **Animación Visual**: El código dibuja patrones circulares (anillos) que se expanden y contraen basándose en la actividad auditiva detectada, proporcionando una representación visual de la intensidad del sonido tanto desde el micrófono como desde la simulación AI.
-
-En resumen, este código crea un entorno interactivo donde los usuarios pueden hablar con el sistema, ver cómo su voz se transcribe y sintetiza en texto y voz, y observar gráficamente cómo estos procesos están siendo gestionados. Este tipo de visualización es útil para entender mejor cómo funcionan las tecnologías de reconocimiento y síntesis de voz.
-
-`011-mas rebote IA.html`
 
 ```html
 <!DOCTYPE html>
@@ -15021,19 +12242,6 @@ En resumen, este código crea un entorno interactivo donde los usuarios pueden h
 ```
 
 ### reproductor audio
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código HTML es muy diferente del anterior y se ha simplificado considerablemente. En lugar de un complejo sistema de visualización en tiempo real basado en la entrada de audio, este archivo solo contiene una etiqueta `<audio>` que permite reproducir un archivo de audio MP3.
-
-La etiqueta `<audio>` dentro del cuerpo (`<body>`) del documento sirve para incorporar y controlar el reproductor de audio directamente en la página web. El atributo `src` especifica la ubicación del archivo de audio a reproducir, que en este caso es "0802.mp3". Además, se incluye un atributo `controls`, lo cual añade una interfaz básica al reproductor para permitir al usuario controlar el audio (reproducir, pausar, ajustar el volumen, etc.).
-
-En comparación con la versión anterior, este código elimina toda la lógica compleja relacionada con la detección de voz y la síntesis de habla, así como los elementos visuales animados. En cambio, proporciona una experiencia mucho más simple que se centra en la reproducción de un archivo de audio específico.
-
-En resumen, este código ha simplificado la interfaz del usuario, reemplazando todas las características interactivas y visuales del sistema de visualización por voz anterior con un elemento de audio estándar. Esto hace que el documento sea significativamente más sencillo en términos de estructura y funcionalidad.
-
-`011-reproductor audio.html`
 
 ```html
 <!DOCTYPE html>
@@ -15049,21 +12257,6 @@ En resumen, este código ha simplificado la interfaz del usuario, reemplazando t
 ```
 
 ### contenedor
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código HTML crea una página web sencilla que incluye un reproductor de audio básico y un control deslizante para ajustar el volumen del audio. La estructura básica de la página está dada por las etiquetas `<html>`, `<head>` y `<body>`. En el cuerpo (`<body>`) se encuentra una división (`<div>`) con el id "contieneaudio", que alberga los elementos principales:
-
-1. Una etiqueta `<audio>` que carga un archivo de audio llamado "0802.mp3". Esta etiqueta permite reproducir el sonido directamente en la página web.
-
-2. Un icono o imagen (`<img>`) con una fuente relativa al directorio actual del archivo llamada "0802.png", que probablemente es un ícono de audio para indicar visualmente que se trata de un reproductor de audio.
-
-3. Un control deslizante (`<input type="range">`) que permite a los usuarios ajustar el volumen desde 0 hasta 1 con incrementos muy pequeños (0.001). Este tipo de entrada es común para elementos interactivos en páginas web, como barras de desplazamiento o controles de volumen.
-
-Este código es útil porque proporciona una experiencia básica y directa al usuario para reproducir audio desde un navegador web y controlar su volumen sin necesidad de plugins adicionales.
-
-`012-contenedor.html`
 
 ```html
 <!DOCTYPE html>
@@ -15083,20 +12276,6 @@ Este código es útil porque proporciona una experiencia básica y directa al us
 ```
 
 ### un poco de estilo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código HTML crea una página web simple que permite reproducir un archivo de audio y controlar su volumen mediante una barra deslizante. La estructura principal del documento se define con etiquetas como `<!DOCTYPE html>`, `<html>`, `<head>` y `<body>`. Dentro de la etiqueta `<head>`, se especifica el conjunto de caracteres (`UTF-8`) que utiliza la página, además de un título descriptivo "Audio". 
-
-En la parte del cuerpo (`<body>`), hay una caja divida por la etiqueta `<div id="contieneaudio">` que contiene tres elementos principales: 
-1. Un elemento `<audio>` con el atributo `src` apuntando a un archivo de audio llamado "0802.mp3".
-2. Una imagen (`<img>`) con el atributo `src` apuntando a una imagen "0802.png", que probablemente es la portada o representación visual del archivo de audio.
-3. Un control deslizante (`<input type="range">`) utilizado para ajustar el volumen del audio, donde el valor mínimo es 0, el máximo es 1 y cada paso en el rango se incrementa en 0.001.
-
-Este tipo de página es útil cuando necesitas un contenedor simple para reproducir audios con funcionalidades básicas como la barra deslizante para controlar el volumen.
-
-`013-un poco de estilo.html`
 
 ```html
 <!DOCTYPE html>
@@ -15118,231 +12297,145 @@ Este tipo de página es útil cuando necesitas un contenedor simple para reprodu
 </html>
 ```
 
-### Actividades propuestas
-
-Vamos a mejorar la presentación y funcionalidad de tu página HTML para que sea más interactiva y estéticamente atractiva. A continuaremos con el código de `013-un poco de estilo.html` e incorporaremos algunas mejoras en términos de diseño, así como la integración del reproductor de audio controlado por una barra deslizante.
-
-### Paso 1: Estilizar los elementos HTML
-
-Primero, vamos a añadir algunos estilos básicos para mejorar el aspecto visual de la página. A continuaremos con tus elementos existentes y les daremos un diseño más moderno.
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <title>Audio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #contieneaudio {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 75%;
-        }
-
-        audio {
-            display: block;
-            margin-bottom: 20px;
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            background-color: #ddd;
-            outline: none;
-            cursor: pointer;
-            height: 4px;
-            border-radius: 2px;
-        }
-
-        input[type="range"]:hover {
-            background-color: #ccc;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            cursor: pointer;
-            margin-top: -7.5px; /* center thumb on track */
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div id="contieneaudio">
-      <audio id="reproductor" src="0802.mp3"></audio>
-      <img id="miniatura" src="0802.png">
-      <input type="range" min=0 max=1 step=0.001 id="tiempo">
-    </div>
-
-    <script>
-        document.getElementById('tiempo').addEventListener('change', function() {
-            var audio = document.getElementById('reproductor');
-            audio.currentTime = this.value;
-        });
-
-        document.getElementById('reproductor').addEventListener('timeupdate', function() {
-            document.getElementById('tiempo').value = this.currentTime / this.duration;
-        });
-    </script>
-</body>
-</html>
-```
-
-### Explicación de las Mejoras:
-
-1. **Estilo del Cuerpo**: 
-   - La página se centra en la pantalla utilizando CSS Flexbox para un diseño moderno.
-   
-2. **Div Contenedor**:
-   - El contenedor (`#contieneaudio`) tiene un fondo blanco con sombra y bordes redondeados, haciendo que los elementos sean más atractivos.
-
-3. **Imagen de Miniatura**:
-   - La imagen se muestra en tamaño proporcional con bordes redondeados para mejorar su apariencia.
-
-4. **Reproductor de Audio**:
-   - El reproductor de audio tiene bordes redondeados y ocupa todo el ancho del contenedor.
-
-5. **Barra Deslizante (Range Slider)**:
-   - La barra deslizante es estilizada con una apariencia personalizada usando CSS. Esto incluye un thumb (elemento de control) en forma de círculo.
-
-6. **Interactividad**:
-   - Se ha añadido lógica JavaScript para sincronizar el valor del `range slider` con la posición actual del tiempo en el reproductor de audio, permitiendo al usuario controlar directamente el punto del audio usando la barra deslizante.
-
-Este diseño ofrece una experiencia interactiva y visualmente atractiva para los usuarios. Puedes seguir ajustando los estilos según tus preferencias o necesidades específicas.
-
-
 <a id="estructura-de-un-fichero-de-mapeo"></a>
 ## Estructura de un fichero de mapeo
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/004-Estructura%20de%20un%20fichero%20de%20mapeo)
+En la subunidad "Estructura de un fichero de mapeo" del módulo de Herramientas de Mapeo Objeto Relacional (ORM), se profundiza en el formato específico que sigue un archivo de configuración para definir cómo se relacionan los objetos de una aplicación con las tablas y columnas de una base de datos. Este fichero es fundamental para automatizar el proceso de acceso a la información, minimizando así la redundancia y aumentando la eficiencia en la gestión de datos.
 
-### index
-<small>Creado: 2026-04-16 17:39</small>
+El contenido del fichero de mapeo se organiza en bloques que corresponden a cada clase o entidad de la aplicación. Cada bloque comienza con una declaración que indica el nombre de la clase y los detalles sobre su estructura, como las propiedades y sus tipos de datos asociados. A continuación, se especifican las relaciones entre las clases, definiendo cómo un objeto pertenece a otro o cómo varios objetos están relacionados entre sí.
 
-`index.html`
+Además del mapeo básico de las entidades, el fichero puede incluir configuraciones adicionales que controlan el comportamiento de la persistencia de los datos. Esto puede implicar especificar estrategias para la actualización y sincronización de los objetos con la base de datos, así como definir políticas de seguridad que limiten el acceso a ciertos campos o métodos.
 
-```html
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>TAME-IA</title>
-    <link rel="stylesheet" href="estilo/estilo.css">
-  </head>
-  <body>
-    <nav>
-      <img src="logo.png">
-      <section id="conversaciones"></section>
-      </section>
-    </nav>
-    <main>
-      <header>
-        <h1>jocarsa | chat</h1>
-        <span id="logout">➜]</span>
-      </header>
-      <section>
-        <h1>Empezamos cuando quieras</h1>
-      </section>
-      <footer>
-        <div id="prompt">
-          <input type="text">
-        </div>
-      </footer>
-    </main>
-    <div id="contienemodal">
-      <div id="modal">
-        <div id="corporativo">
-        <img src="logo.png">
-        <h1>jocarsa | chat</h1>
-        </div>
-        <div id="formulario">
-          <input type="text" id="usuario" placeholder="usuario:">
-          <input type="password" id="contrasena" placeholder="contraseña:">
-          <input type="submit" id="enviar">
-        </div>
-      </div>
-    </div>
-    <script src="js/comportamiento.js"></script>
-  </body>
-</html>
-```
+El uso de un fichero de mapeo ORM permite una mayor flexibilidad en el diseño de aplicaciones, ya que permite cambiar fácilmente la estructura interna del código sin necesidad de modificar las consultas SQL directamente. Esto facilita el mantenimiento y evolución del software a lo largo del tiempo.
 
+Además, los ficheros de mapeo ORM suelen soportar la definición de métodos personalizados que pueden ser ejecutados en el contexto de un objeto persistido. Estos métodos pueden incluir lógica de negocio compleja o operaciones específicas que requieren acceso a múltiples tablas.
+
+La estructura del fichero de mapeo ORM también puede incluir configuraciones para la gestión de relaciones bidireccionales, lo que permite que los objetos puedan referirse entre sí sin necesidad de realizar consultas adicionales. Esto mejora significativamente el rendimiento y la simplicidad en la manipulación de datos relacionados.
+
+En resumen, la estructura de un fichero de mapeo ORM es una herramienta poderosa que facilita la integración entre aplicaciones y bases de datos, permitiendo un acceso eficiente y seguro a los datos mientras se mantiene el código limpio y organizado. Este enfoque no solo simplifica el desarrollo de software, sino que también mejora su mantenibilidad y escalabilidad a largo plazo.
 
 <a id="mapeo-basado-en-anotaciones"></a>
 ## Mapeo basado en anotaciones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/005-Mapeo%20basado%20en%20anotaciones)
+En la subunidad "Mapeo basado en anotaciones" del módulo de Herramientas de Mapeo Objeto Relacional (ORM), nos centramos en una técnica que facilita la integración entre el mundo orientado a objetos y la base de datos relacional. Esta metodología permite definir las relaciones entre clases y tablas directamente dentro del código fuente, utilizando anotaciones específicas.
 
+La ventaja principal del mapeo basado en anotaciones es su simplicidad y eficiencia. Al no requerir la creación de archivos XML separados para el mapeo, se reduce significativamente la complejidad del proyecto. Además, esta técnica permite una mayor flexibilidad y adaptabilidad, ya que los cambios en las clases pueden reflejarse automáticamente en la base de datos sin necesidad de modificar archivos adicionales.
+
+Para implementar el mapeo basado en anotaciones, es necesario seleccionar una herramienta ORM compatible con este método. Algunas opciones populares incluyen Hibernate para Java y Entity Framework para .NET. Estas herramientas proporcionan un conjunto completo de funcionalidades que facilitan la creación, consulta y actualización de objetos a través de la base de datos.
+
+Una de las anotaciones más comunes utilizadas en este contexto es `@Entity`, que se aplica a las clases que representan tablas en la base de datos. Esta anotación marca la clase como una entidad y proporciona información sobre su nombre en la base de datos, si es necesario.
+
+Además de `@Entity`, existen otras anotaciones importantes como `@Table` para especificar el nombre de la tabla correspondiente, `@Id` para definir la clave primaria de la entidad, y `@Column` para mapear las propiedades de la clase a los campos de la tabla. Estas anotaciones permiten una gran personalización y control sobre cómo se relacionan los objetos con las tablas en la base de datos.
+
+El uso del mapeo basado en anotaciones también facilita el desarrollo de aplicaciones que utilizan ORM, ya que permite un flujo más natural entre el código orientado a objetos y la lógica de acceso a datos. Esto puede resultar en menos errores y una mayor productividad durante el desarrollo.
+
+En resumen, el mapeo basado en anotaciones es una técnica poderosa y eficiente para integrar ORM en proyectos de programación. Su simplicidad y flexibilidad hacen que sea una opción popular entre los desarrolladores, permitiendo una mejor organización del código y facilitando la gestión de relaciones entre objetos y tablas en la base de datos.
 
 <a id="clases-persistentes"></a>
 ## Clases persistentes
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/006-Clases%20persistentes)
+En este capítulo, nos adentramos en la comprensión y aplicación de las clases persistentes en el contexto del mapeo objeto-relacional (ORM). Las clases persistentes son una parte fundamental del ORM, ya que representan los objetos que interactúan con la base de datos. Estas clases definen cómo se estructuran los datos y cómo se manipulan dentro del sistema.
 
+Las clases persistentes deben ser diseñadas cuidadosamente para reflejar las entidades y relaciones de la base de datos. Cada propiedad de la clase corresponde a un campo en la tabla de la base de datos, mientras que los métodos definen las operaciones que pueden realizarse sobre estos objetos. Por ejemplo, si tenemos una entidad "Cliente", nuestra clase persistente podría incluir propiedades como `nombre`, `email` y `id`, así como métodos para actualizar o eliminar un cliente.
+
+La implementación de clases persistentes en ORM facilita la manipulación de datos complejos, ya que permite trabajar con objetos en lugar de sentencias SQL. Esto no solo mejora la legibilidad del código, sino que también reduce el riesgo de errores tipográficos y aumenta la eficiencia al utilizar las capacidades de optimización internas del ORM.
+
+Además, las clases persistentes permiten una mayor abstracción sobre los detalles de la base de datos. Esto significa que podemos cambiar el esquema de la base de datos sin necesidad de modificar el código fuente de nuestras clases persistentes, siempre y cuando sigamos un enfoque consistente en cómo se representan las entidades.
+
+En el mundo real, trabajar con ORM implica no solo diseñar y implementar clases persistentes, sino también gestionar sesiones de conexión a la base de datos. Las sesiones son contenedores que mantienen el estado del sistema durante una operación de acceso a la base de datos. Es importante asegurarse de manejar adecuadamente las transacciones dentro de estas sesiones para mantener la integridad y consistencia de los datos.
+
+La persistencia de objetos es un concepto clave en el mapeo objeto-relacional, y las clases persistentes son la implementación concreta de este concepto. Al diseñar y utilizar clases persistentes correctamente, podemos aprovechar al máximo las ventajas del ORM, como la simplificación del acceso a datos y la reducción de errores comunes.
+
+En resumen, las clases persistentes son una herramienta poderosa en el mapeo objeto-relacional, que nos permiten trabajar con objetos en lugar de sentencias SQL. Su diseño cuidadoso y correcta implementación son fundamentales para aprovechar al máximo las capacidades del ORM y mantener la eficiencia y consistencia de nuestro sistema.
 
 <a id="sesiones-estados-de-un-objeto"></a>
 ## Sesiones; estados de un objeto
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/007-Sesiones%3B%20estados%20de%20un%20objeto)
+En el mundo del desarrollo de software moderno, la utilización de herramientas ORM (Object-Relational Mapping) ha ganado popularidad debido a su capacidad para simplificar significativamente la interacción entre aplicaciones y bases de datos relacionales. Una sesión en un contexto ORM se refiere al estado actual de una entidad o colección de entidades que están siendo gestionadas por el framework ORM. Esta sesión es crucial porque permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los objetos de la aplicación sin necesidad de escribir directamente consultas SQL.
 
+Cuando se inicia una sesión en un ORM, este establece una conexión con la base de datos y prepara el entorno para que las operaciones posteriores puedan ser realizadas. Durante la vida útil de la sesión, el ORM mantiene un registro de los cambios realizados en las entidades gestionadas. Esto es fundamental porque permite realizar transacciones atómicas, asegurando que todos los cambios se apliquen o ninguno si ocurre algún error.
+
+La gestión de estados de objetos es otro aspecto crucial del uso de ORM. Cada objeto mapeado a una tabla de la base de datos tiene un estado asociado con él. Este estado puede ser uno de varios, como "nuevo", "modificado" o "eliminado". El ORM utiliza este estado para determinar cuándo y cómo se deben sincronizar los cambios en la base de datos.
+
+Una vez que se han realizado las operaciones deseadas, es importante cerrar la sesión. Esto implica que el ORM envíe todos los cambios pendientes a la base de datos y libera los recursos asociados con la conexión. La finalización de una sesión asegura que todas las transacciones sean completadas correctamente y que no queden residuos en la memoria.
+
+Además, durante la vida de una sesión, es común realizar consultas para recuperar información de la base de datos. El ORM facilita este proceso proporcionando métodos para ejecutar consultas y mapear los resultados a objetos de aplicación. Esta funcionalidad simplifica significativamente el acceso a los datos, permitiendo que los desarrolladores se centren en la lógica de negocio sin preocuparse por detalles técnicos.
+
+La gestión de sesiones en ORM también implica la detección y manejo de excepciones. Si ocurre algún error durante las operaciones realizadas dentro de una sesión, el ORM debe ser capaz de revertir los cambios parciales y propagar la excepción para que pueda ser manejada adecuadamente por el código de la aplicación.
+
+En resumen, las sesiones en un ORM son entidades vitales que gestionan el estado de los objetos mapeados a la base de datos. Su correcta utilización es fundamental para mantener la integridad de los datos y facilitar el desarrollo de aplicaciones eficientes y robustas. A través del manejo adecuado de sesiones, se pueden realizar operaciones CRUD de manera sencilla y segura, lo que permite a los desarrolladores centrarse en la implementación de la lógica de negocio sin preocuparse por detalles técnicos de acceso a datos.
 
 <a id="carga-almacenamiento-y-modificacion-de-objetos"></a>
 ## Carga, almacenamiento y modificación de objetos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/008-Carga%2C%20almacenamiento%20y%20modificaci%C3%B3n%20de%20objetos)
+En el mundo de la programación orientada a objetos, el mapeo objeto-relacional (ORM) es una técnica que facilita la interacción entre aplicaciones basadas en objetos y bases de datos relacionales. Esta herramienta permite a los desarrolladores trabajar con objetos en su lenguaje de programación preferido mientras ORM se encarga del proceso de traducción automática entre estos objetos y las tablas y registros de la base de datos.
 
+La carga de objetos desde la base de datos es un paso fundamental en el uso de ORM. Este proceso implica leer los datos almacenados en una tabla específica y convertirlos en instancias de clases definidas por el desarrollador. Por ejemplo, si tenemos una tabla llamada "Clientes" con campos como nombre, dirección y teléfono, ORM nos permite cargar estos datos en objetos de la clase Cliente.
+
+Almacenar objetos en la base de datos es otro aspecto crucial del mapeo objeto-relacional. Cuando se crea o modifica un objeto en el código, ORM se encarga de actualizar la base de datos con los cambios correspondientes. Esto puede implicar insertar nuevos registros, modificar existentes o eliminar registros según las operaciones realizadas en los objetos.
+
+La modificación de objetos es una extensión natural del almacenamiento. Al igual que al cargar objetos, cuando se realiza algún cambio en un objeto (como actualizar el nombre de un cliente), ORM se encarga de reflejar estos cambios en la base de datos. Esta capacidad permite a los desarrolladores trabajar directamente con objetos y no tener que preocuparse por las consultas SQL complejas necesarias para realizar estas operaciones.
+
+El mapeo objeto-relacional también facilita el manejo de relaciones entre objetos. Por ejemplo, si un cliente tiene varios pedidos asociados, ORM puede gestionar automáticamente estos relacionamientos, permitiendo a los desarrolladores acceder fácilmente a todos los pedidos de un cliente simplemente consultando su objeto Cliente.
+
+Además de la carga y almacenamiento de objetos, ORM también proporciona herramientas para realizar consultas complejas sobre la base de datos. A través de métodos y funciones específicas del ORM, se pueden ejecutar consultas que devuelven conjuntos de objetos en lugar de conjuntos de filas y columnas. Esto simplifica el trabajo con los datos y permite una programación más orientada a objetos.
+
+La gestión de transacciones es otro aspecto importante del mapeo objeto-relacional. ORM permite agrupar varias operaciones en una sola transacción, asegurando que todas las modificaciones se realicen juntas o ninguna se aplique si ocurre un error. Esto ayuda a mantener la integridad de los datos y prevenir situaciones como el "parcial commit", donde solo parte de una operación se realiza correctamente.
+
+En resumen, el mapeo objeto-relacional es una herramienta poderosa que facilita la interacción entre aplicaciones orientadas a objetos y bases de datos relacionales. A través del ORM, los desarrolladores pueden trabajar con objetos en su lenguaje preferido mientras ORM se encarga del proceso de traducción automática entre estos objetos y las tablas y registros de la base de datos. Esta técnica no solo simplifica el acceso y modificación de los datos, sino que también facilita el manejo de relaciones complejas y consultas avanzadas, permitiendo una programación más orientada a objetos y eficiente.
 
 <a id="consultas-sql"></a>
 ## Consultas SQL
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/009-Consultas%20SQL)
+En el mundo de la programación orientada a objetos, el mapeo objeto-relacional (ORM) es una técnica que permite interactuar con bases de datos relacionales utilizando un lenguaje de programación orientado a objetos. Esta herramienta facilita la creación y gestión de consultas SQL complejas, reduciendo así el riesgo de errores humanos en la escritura directa de estas consultas.
 
+La utilización de ORM no solo simplifica la interacción con las bases de datos, sino que también mejora la legibilidad del código. Al escribir consultas en un lenguaje orientado a objetos, los desarrolladores pueden aprovechar las ventajas de la programación orientada a objetos, como la encapsulación y el polimorfismo, lo que hace que el código sea más mantenible y escalable.
+
+Una de las principales ventajas del ORM es su capacidad para gestionar automáticamente la conversión entre los tipos de datos de la base de datos y los tipos de datos del lenguaje de programación. Esto significa que los desarrolladores pueden trabajar con objetos en lugar de con filas y columnas, lo que facilita el trabajo con relaciones complejas y las consultas que implican múltiples tablas.
+
+Además, ORM proporciona herramientas para realizar operaciones avanzadas como la paginación, la ordenación y el filtrado de resultados. Estas funcionalidades pueden ser implementadas en una sola línea de código, lo que hace que los programas sean más eficientes y fáciles de entender.
+
+Sin embargo, es importante recordar que aunque ORM simplifica muchas tareas, no elimina completamente la necesidad de conocer SQL. Algunos aspectos complejos de las consultas pueden ser más fáciles de expresar directamente en SQL, especialmente cuando se requiere un alto nivel de rendimiento o optimización.
+
+En resumen, el mapeo objeto-relacional es una herramienta poderosa y eficiente para interactuar con bases de datos relacionales desde lenguajes orientados a objetos. Aunque tiene sus limitaciones, su capacidad para simplificar la programación y mejorar la legibilidad del código lo hace un recurso valioso en cualquier proyecto que involucre el acceso a datos estructurados.
 
 <a id="gestion-de-transacciones-1"></a>
 ## Gestión de transacciones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/010-Gesti%C3%B3n%20de%20transacciones)
+En el mundo del desarrollo de software, la gestión eficiente de transacciones es un aspecto crucial para mantener la integridad y coherencia de los datos. Las herramientas de mapeo objeto-relacional (ORM) ofrecen una forma conveniente y segura de gestionar estas transacciones, simplificando el código y reduciendo errores comunes.
 
+Las transacciones en ORM se definen como bloques de código que contienen operaciones que deben ser ejecutadas juntas. Si todas las operaciones dentro del bloque son exitosas, la transacción se considera completada con éxito. En caso contrario, si ocurre un error, toda la transacción debe deshacerse para mantener la consistencia de los datos.
+
+Para gestionar transacciones en ORM, es común utilizar métodos específicos proporcionados por las bibliotecas ORM que estás utilizando. Por ejemplo, en Entity Framework (una popular ORM para .NET), puedes usar el método `BeginTransaction` para iniciar una nueva transacción y luego llamar a `Commit` para finalizarla si todas las operaciones son correctas, o `Rollback` si ocurre un error.
+
+Es importante recordar que la gestión de transacciones debe ser manejada con cuidado. Cualquier excepción no controlada dentro del bloque de transacción puede llevar a un desastre, ya que el sistema podría quedar en un estado inconsistente. Por lo tanto, es recomendable utilizar bloques `try-catch` para capturar y manejar posibles errores.
+
+Además de la gestión manual de transacciones, muchas ORM proporcionan funcionalidades adicionales como el soporte para transacciones distribuidas y la capacidad de configurar los niveles de aislamiento de las transacciones. El nivel de aislamiento determina cómo se ven afectados los datos por otras transacciones mientras una transacción está en curso.
+
+La gestión eficiente de transacciones no solo mejora la confiabilidad del sistema, sino que también puede mejorar el rendimiento al permitir operaciones paralelas y reduciendo el tiempo de bloqueo. Por ejemplo, si tienes varias transacciones que pueden ejecutarse simultáneamente sin interferirse entre sí, puedes utilizar transacciones aisladas para optimizar el uso de los recursos.
+
+En resumen, la gestión de transacciones es una habilidad fundamental en el desarrollo de software utilizando ORM. A través del manejo adecuado de las transacciones, puedes asegurar que tus aplicaciones sean seguras, consistentes y eficientes. Comprender cómo utilizar las funcionalidades proporcionadas por las ORM para gestionar transacciones te permitirá escribir código más robusto y menos propenso a errores.
 
 <a id="desarrollo-de-programas-que-utilizan-bases-de-datos-a-traves-de-herramientas-orm"></a>
 ## Desarrollo de programas que utilizan bases de datos a través de herramientas ORM
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/003-Herramientas%20de%20mapeo%20objeto%20relacional%20%28ORM%29/011-Desarrollo%20de%20programas%20que%20utilizan%20bases%20de%20datos%20a%20trav%C3%A9s%20de%20herramientas%20ORM)
+Continuando con nuestra exploración del mundo del acceso a datos mediante herramientas de mapeo objeto-relacional (ORM), nos encontramos en la última subunidad dedicada al desarrollo práctico de aplicaciones que utilizan bases de datos a través de estas herramientas. 
 
+En esta sección, profundizaremos en cómo implementar y utilizar ORM para interactuar con las bases de datos, enfocándonos en los aspectos técnicos y prácticos necesarios para crear soluciones eficientes y escalables. Comenzaremos por revisar la estructura básica de un proyecto que utiliza ORM, identificando los componentes clave como clases persistentes, sesiones y consultas SQL.
+
+A continuación, nos adentraremos en el proceso de mapeo basado en anotaciones, una técnica popular para definir cómo se relacionan las clases del modelo de objetos con las tablas de la base de datos. A través de este método, podemos simplificar significativamente el código y mejorar su legibilidad, ya que los detalles de mapeo se especifican directamente dentro de las clases.
+
+Una vez familiarizados con el concepto básico de mapeo basado en anotaciones, pasaremos a explorar la carga, almacenamiento y modificación de objetos. Aprenderemos cómo crear nuevas instancias de objetos, persistirlos en la base de datos y recuperarlos cuando sea necesario, así como cómo gestionar las relaciones entre diferentes entidades.
+
+Además, dedicaremos tiempo a la realización de consultas SQL mediante ORM. Aunque ORM nos permite interactuar con la base de datos utilizando un lenguaje orientado a objetos, es útil conocer cómo realizar consultas directamente en SQL para obtener información específica o realizar operaciones complejas que no pueden ser expresadas fácilmente con el lenguaje del ORM.
+
+Finalmente, terminaremos nuestra exploración con una sección sobre gestión de transacciones. Aprenderemos cómo manejar las transacciones en un entorno de base de datos utilizando ORM, asegurándonos de que nuestras operaciones sean consistentes y seguras frente a posibles errores o problemas de concurrencia.
+
+A lo largo de esta subunidad, hemos cubierto los aspectos fundamentales del desarrollo de aplicaciones que utilizan bases de datos a través de herramientas ORM. Desde la estructura básica del proyecto hasta la realización de consultas SQL y la gestión de transacciones, hemos proporcionado una visión completa y práctica de cómo implementar estas técnicas en un entorno real.
+
+Esta experiencia te permitirá desarrollar habilidades valiosas para trabajar con bases de datos utilizando ORM, lo que facilitará el desarrollo de aplicaciones eficientes y escalables. Recuerda que la práctica es clave para dominar estos conceptos, así que asegúrate de experimentar con diferentes escenarios y problemas reales para fortalecer tus conocimientos.
+
+En resumen, hemos explorado cómo utilizar herramientas de mapeo objeto-relacional (ORM) para interactuar con bases de datos en aplicaciones. A través del desarrollo práctico de proyectos que utilizan ORM, hemos aprendido a definir clases persistentes, realizar consultas SQL y gestionar transacciones, lo que nos ha proporcionado una sólida base para trabajar con bases de datos en un entorno orientado a objetos.
 
 
 <a id="bases-de-datos-objeto-relacionales-y-orientadas-a-objetos"></a>
@@ -15351,1486 +12444,142 @@ Este diseño ofrece una experiencia interactiva y visualmente atractiva para los
 <a id="gestores-de-bases-de-datos-objeto-relacionales"></a>
 ## Gestores de bases de datos objeto relacionales
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/001-Gestores%20de%20bases%20de%20datos%20objeto%20relacionales)
+En este capítulo, nos adentramos en la comprensión de los gestores de bases de datos objeto-relacionales (ODBMs), una evolución importante dentro del campo de las bases de datos. Los ODBMs son sistemas que permiten almacenar y gestionar objetos de programación orientados a objetos directamente como elementos de la base de datos, lo que facilita su uso en aplicaciones empresariales complejas.
 
-### Introducción a los ejercicios
+Los gestores de bases de datos objeto-relacionales ofrecen una forma más intuitiva y natural de trabajar con los datos, ya que permiten representar los objetos de la aplicación como entidades dentro de la base de datos. Esto a diferencia de las bases de datos relacionales tradicionales, donde los datos se almacenan en tablas y relaciones entre ellas.
 
-**Introducción**
+Un gestor de ODBM puede manejar tanto objetos simples como complejos, incluyendo relaciones entre ellos, lo que facilita el modelado de aplicaciones empresariales. Además, estos sistemas suelen proporcionar funcionalidades avanzadas como la persistencia automática de los cambios en los objetos, la gestión de transacciones y la capacidad para realizar consultas complejas sobre los datos.
 
-En este conjunto de ejercicios, se aborda la creación y gestión de bases de datos objeto relacionales utilizando un lenguaje de consultas SQL. Se trabajan ejercicios que van desde la creación de una base de datos hasta la implementación de consultas complejas para obtener coincidencias exactas o parciales en los registros de la base de datos.
+La elección del gestor de ODBM adecuado depende de varios factores, incluyendo el lenguaje de programación utilizado, las necesidades específicas de la aplicación y la infraestructura disponible. Algunos ejemplos populares de ODBMs son Hibernate para Java, Entity Framework para .NET y Doctrine para PHP.
 
-**Problemas y competencias**
+En este capítulo, exploraremos en profundidad los conceptos básicos de los gestores de bases de datos objeto-relacionales, desde su funcionamiento interno hasta sus ventajas y desventajas. Aprenderemos cómo configurar un ODBM, cómo mapear objetos a tablas y cómo realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre estos objetos en la base de datos.
 
-Los problemas presentados son de carácter práctico, donde se deben aplicar conceptos teóricos aprendidos durante el curso. Se trata de:
+Además, discutiremos las mejores prácticas para el uso de los gestores de ODBMs, como la gestión adecuada de transacciones, la optimización de consultas y la seguridad de los datos. También exploraremos cómo integrar los ODBMs con otras tecnologías, como las bases de datos relacionales, para aprovechar las ventajas de ambos en una misma aplicación.
 
-* Creación de una base de datos objeto relacional.
-* Consultas SQL para obtener coincidencias exactas o parciales en los registros.
-* Uso de operadores LIKE y comparaciones para obtener resultados relevantes.
-
-En general, se buscan desarrollar las competencias siguientes:
-* Crear una base de datos objecto-relacional.
-* Realizar consultas SQL precisas y efectivas.
-* Analizar y comprender la estructura de los datos en una base de datos.
-* Aplicar operadores y comparaciones para obtener resultados relevantes.
-
-### creo base de datos de prueba
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-**Crear una base de datos y tabla**
-
-En este código, se crea una base de datos llamada `bd_pruebas_frases` y se define su estructura. La primera línea, `CREATE DATABASE IF NOT EXISTS bd_pruebas_frases`, es el comando para crear una nueva base de datos. El `IF NOT EXISTS` significa que si la base de datos ya existe, no se volverá a crear.
-
-A continuación, se define el conjunto de caracteres y la codificación de la base de datos con las palabras clave `CHARACTER SET utf8mb4` y `COLLATE utf8mb4_unicode_ci`. Esto significa que la base de datos utilizará la codificación UTF-8 con una función de coincidencia personalizada para manejar carácteres internacionales.
-
-**Usar la base de datos**
-
-La siguiente línea, `USE bd_pruebas_frases;`, es el comando para seleccionar o "usar" la base de datos que acabamos de crear. Esto significa que todas las operaciones posteriores se realizarán dentro de esta base de datos específica.
-
-**Crear una tabla**
-
-Luego, se crea una tabla llamada `frases` con seis columnas: `id`, `texto`, `autor`, `fecha_creacion`. La primera columna es la clave primaria y autoincrementa el valor del `id` en cada nuevo registro. Las columnas `texto` y `autor` almacenan datos de texto, mientras que la columna `fecha_creacion` almacena la fecha y hora actual.
-
-**Insertar frases**
-
-Finalmente, se insertan algunas frases con sus autores utilizando el comando `INSERT INTO`. Estas frases son simplemente ejemplos para demostrar la funcionalidad de la base de datos.
-
-`001-creo base de datos de prueba.sql`
-
-```sql
--- 1. Crear la base de datos
-CREATE DATABASE IF NOT EXISTS bd_pruebas_frases
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
--- 2. Usar la base de datos
-USE bd_pruebas_frases;
-
--- 3. Crear la tabla de frases
-CREATE TABLE IF NOT EXISTS frases (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    texto VARCHAR(500) NOT NULL,
-    autor VARCHAR(200),
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- 4. Insertar frases de muestra
-INSERT INTO frases (texto, autor) VALUES
-('La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.', 'John Lennon'),
-('El éxito es la suma de pequeños esfuerzos repetidos día tras día.', 'Robert Collier'),
-('No cuentes los días, haz que los días cuenten.', 'Muhammad Ali'),
-('La simplicidad es la máxima sofisticación.', 'Leonardo da Vinci'),
-('El conocimiento es poder.', 'Francis Bacon'),
-('Si buscas resultados distintos, no hagas siempre lo mismo.', 'Albert Einstein'),
-('La imaginación lo es todo. Es la vista previa de las próximas atracciones de la vida.', 'Albert Einstein'),
-('No dejes para mañana lo que puedas hacer hoy.', 'Benjamin Franklin'),
-('Nunca es tarde para ser lo que podrías haber sido.', 'George Eliot'),
-('El futuro pertenece a quienes creen en la belleza de sus sueños.', 'Eleanor Roosevelt');
-```
-
-### coincidencia exacta
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código SQL realiza una consulta a una base de datos para encontrar registros en la tabla "frases" donde el campo "texto" tiene un valor específico.
-
-En otras palabras, estamos pidiendo a la base de datos que nos muestre todos los registros de la tabla "frases" en las que el texto coincide exactamente con 'La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.'
-
-`002-coincidencia exacta.sql`
-
-```sql
-SELECT * FROM `frases` 
-WHERE
-`texto` = 'La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.';
-```
-
-### coincidencia parcial
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código se utiliza para buscar registros en una base de datos relacionales utilizando la función `LIKE` de SQL. La función `LIKE` permite realizar búsquedas que incluyen patrones específicos en el texto.
-
-En este caso, hay dos opciones: la primera busca el texto exacto ("aquello que te ocurre") y la segunda busca un patrón que coincide parcialmente con el texto ("aquello que te ocurre"). La primera opción es ineficiente porque requiere comparar el texto completo con cada registro de la tabla "frases", lo que puede ser lento para grandes conjuntos de datos. Por otro lado, la segunda opción utiliza un patrón de búsqueda más flexible y efectiva, ya que busca cualquier palabra o frase que contenga el texto específico. Esto hace que sea una opción más eficiente en comparación con la primera opción.
-
-`003-coincidencia parcial.sql`
-
-```sql
-SELECT * FROM `frases` 
-WHERE
-`texto` = 'aquello que te ocurre';
--- (falso)
-
-SELECT * FROM `frases` 
-WHERE
-`texto` LIKE '%aquello que te ocurre%';
-```
-
-### otro planteamiento
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código SQL busca todos los registros en una tabla llamada "frases" donde el texto de la frase contiene las palabras "aquello que te ocurre mientras haces otros planes". El patrón de búsqueda es como una regla de búsqueda que se aplica a todas las columnas (o campos) de la tabla "frases".
-
-Este tipo de patrón de búsqueda se llama LIKE y se utiliza para buscar cadenas de caracteres en una base de datos. La sintaxis utilizada en este código es `texto LIKE '%patrón%'`, donde el `%` simboliza cualquier conjunto de caracteres (incluyendo cero caracteres). En este caso, el patrón de búsqueda es un patrón de coincidencia parcial.
-
-La importancia de este código es que permite a los usuarios buscar y visualizar frases en la base de datos donde se mencione una o más palabras específicas. Esto puede ser útil para realizar búsquedas en textos grandes, como en un sistema de gestión de contenido, por ejemplo.
-
-`004-otro planteamiento.sql`
-
-```sql
-SELECT * FROM `frases` 
-WHERE
-`texto` LIKE '%Aquello que te ocurre mientras haces otros planes, es la vida%';
-```
-
-### concepto de similitud
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código se enfoca en comparar la coincidencia de palabras entre dos frases. Un "token" es una parte simple de un lenguaje, como una palabra o un carácter. En este caso, estamos utilizando tokens para comparar las palabras de dos frases.
-
-El código realiza dos comparaciones: la primera con la frase alternativa 1 y la segunda con la frase alternativa 2. Cada vez que se encuentra una coincidencia entre palabras de ambas frases, el contador aumenta en 1. El resultado es la cantidad total de coincidencias encontradas.
-
-Es importante entender cómo funcionan los tokens y las comparaciones para seguir programando de manera efectiva.
-
-`005-concepto de similitud.py`
-
-```python
-frase = 'La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.'
-
-# tokens
-palabras = frase.lower().split(" ")
-print(palabras) 
-
-frase_alternativa_1 = "Aquello que te ocurre mientras haces otros planes, es la vida"
-frase_alternativa_2 = "El éxito es la suma de pequeños esfuerzos repetidos día tras día."
-
-# Voy a empezar con la frase 1
-explotado2 = frase_alternativa_1.lower().split(" ")
-contador = 0
-for palabra in palabras:
-  for palabra2 in explotado2:
-    if palabra == palabra2:
-      contador+= 1
-print("Calificacion",contador)
-
-# Voy a empezar con la frase 2
-explotado2 = frase_alternativa_2.lower().split(" ")
-contador = 0
-for palabra in palabras:
-  for palabra2 in explotado2:
-    if palabra == palabra2:
-      contador+= 1
-print("Calificacion",contador)
-```
-
-### Actividades propuestas
-
-**Actividades para estudiantes de Formación Profesional**
-
-A continuación, se presentan las actividades propuestas basadas en el contenido del ejercicio proporcionado:
-
-1. **Crear una base de datos de prueba**: El alumnado debe crear una base de datos llamada `bd_pruebas_frases` y realizar la creación de una tabla llamada `frases` con los campos `id`, `texto`, `autor` y `fecha_creacion`.
- * Se pretende que aprendan a utilizar el lenguaje SQL para crear bases de datos y tablas.
-2. **Insertar frases en la base de datos**: El alumnado debe insertar una serie de frases en la tabla `frases` creada anteriormente.
- * Se pretende que aprendan a utilizar el comando `INSERT INTO` para insertar datos en una base de datos.
-3. **Realizar coincidencia exacta**: El alumnado debe realizar una consulta SQL para encontrar todas las filas donde el texto sea igual a 'La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.'.
- * Se pretende que aprendan a utilizar el operador `=` en la consulta SQL.
-4. **Realizar coincidencia parcial**: El alumnado debe realizar dos consultas SQL para encontrar todas las filas donde el texto sea igual a 'aquello que te ocurre' (falso) y luego hacer una búsqueda similar con un patrón de coincidencia parcial utilizando el operador `LIKE`.
- * Se pretende que aprendan a utilizar el operador `LIKE` en la consulta SQL.
-5. **Realizar coincidencia parcial avanzada**: El alumnado debe realizar una consulta SQL para encontrar todas las filas donde el texto sea igual a 'aquello que te ocurre mientras haces otros planes, es la vida'.
- * Se pretende que aprendan a utilizar el operador `LIKE` y patrones de coincidencia avanzados en la consulta SQL.
-6. **Detección de similitud**: El alumnado debe escribir un programa Python para comparar la similitud entre dos frases dadas utilizando técnicas de tokenización y conteo de palabras.
- * Se pretende que aprendan a utilizar técnicas de procesamiento del lenguaje natural en Python.
-7. **Realizar búsqueda similar**: El alumnado debe realizar una consulta SQL para encontrar todas las filas donde el texto sea igual a un patrón similar a 'La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes, es la vida'.
- * Se pretende que aprendan a utilizar técnicas de búsqueda similar en la consulta SQL.
-8. **Verificar coincidencia**: El alumnado debe escribir un programa Python para verificar si una palabra es igual a una palabra dada en un texto.
- * Se pretende que aprendan a utilizar técnicas de comparación de cadenas en Python.
-
-**Nota:** Estas actividades están diseñadas para cubrir diferentes conceptos y habilidades relacionados con bases de datos, consultas SQL y procesamiento del lenguaje natural.
-
+Al finalizar este capítulo, deberás tener una comprensión sólida de los gestores de bases de datos objeto-relacionales y cómo pueden mejorar significativamente la eficiencia y escalabilidad de tus aplicaciones empresariales.
 
 <a id="gestion-de-objetos-con-sql-ansi-sql"></a>
 ## Gestión de objetos con SQL; ANSI SQL
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/002-Gesti%C3%B3n%20de%20objetos%20con%20SQL%3B%20ANSI%20SQL)
+En este capítulo, nos adentramos en la gestión de objetos con SQL, una técnica fundamental para interactuar con bases de datos orientadas a objetos (ODBMS) utilizando el estándar ANSI SQL. A diferencia de las bases de datos relacionales tradicionales, que almacenan y gestionan los datos en tablas, las ODBMS representan los datos como objetos, lo que permite una mayor flexibilidad y coherencia.
 
-### Introducción a los ejercicios
+La gestión de objetos con SQL implica la creación, modificación y eliminación de objetos dentro de la base de datos. A través del lenguaje SQL, podemos definir clases de objetos, instanciar objetos, modificar sus atributos y eliminarlos cuando ya no sean necesarios. Este proceso se realiza a través de sentencias SQL específicas que interactúan con el motor de la base de datos.
 
-**Introducción a la carpeta de ejercicios**
+Una de las ventajas principales de gestionar objetos con SQL es la capacidad de realizar consultas complejas sobre los datos almacenados en forma de objetos. A diferencia de las bases de datos relacionales, donde las consultas se realizan sobre tablas y columnas, en las ODBMS podemos realizar consultas que recorren relaciones entre objetos, lo que permite obtener información más rica y contextualizada.
 
-La carpeta de ejercicios proporcionada es un conjunto de archivos que te guiarán a través de una serie de desafíos relacionados con la gestión de objetos en base de datos objeto-relacional y orientadas a objetos, utilizando SQL (Lenguaje de Consulta Relacional) como herramienta fundamental. Estos ejercicios están diseñados para ayudarte a entender cómo se pueden aplicar técnicas de modelado y querying en una base de datos utilizando la biblioteca Chroma.
+Además, la gestión de objetos con SQL facilita el mantenimiento y actualización del esquema de la base de datos. Al definir clases de objetos y sus relaciones en el lenguaje SQL, podemos modificar fácilmente el modelo de datos sin afectar los datos existentes, siempre que sigamos las reglas de integridad referencial establecidas.
 
-**Tipo de problemas y competencias**
+Es importante destacar que, aunque ANSI SQL es un estándar universal para la gestión de bases de datos relacionales, su uso en ODBMS puede presentar algunas limitaciones. Por ejemplo, algunos operadores y funciones específicas de SQL pueden no estar disponibles o podrían funcionar de manera diferente en las ODBMS. Por lo tanto, es crucial conocer las características y restricciones del sistema específico que estemos utilizando.
 
-Los desafíos incluyen varias partes:
+En este capítulo, exploraremos cómo definir clases de objetos, instanciar objetos, modificar sus atributos y eliminarlos utilizando sentencias SQL estándar. También aprenderemos a realizar consultas complejas sobre los datos almacenados en forma de objetos y cómo gestionar el esquema de la base de datos de manera eficiente.
 
-1.  **Generación de embeddings**: Utilizaremos el modelo Ollama para generar vectores de representación (embeddings) de frases de texto.
-2.  **Inserción en Chroma**: Guardaremos estos embeddings en una base de datos llamada Chroma, conectándola a la API de Ollama y definiendo colecciones y documentos para almacenar el contenido relacionado con las frases insertadas.
-3.  **Busqueda de similitud**: Buscaremos frases similares en nuestra base de datos utilizando el mismo modelo de embajada que antes, y encontraremos el mejor candidato (documentos más cerca al texto de búsqueda) mediante una consulta SQL personalizada.
+A lo largo del capítulo, trabajaremos con ejemplos prácticos que ilustran cómo aplicar estos conceptos en situaciones reales. A través de estas ejercicios, desarrollaremos una comprensión profunda de cómo gestionar objetos con SQL y cómo aprovechar al máximo las capacidades de las bases de datos orientadas a objetos para almacenar y recuperar información de manera eficiente y coherente.
 
-Al trabajar a través de estos desafíos, desarrollarás habilidades clave como:
+Al final del capítulo, reflexionaremos sobre los desafíos y limitaciones asociados con la gestión de objetos con SQL en ODBMS. Aprenderemos cómo superar estas dificultades y cómo utilizar las herramientas disponibles para optimizar el rendimiento y la seguridad de nuestras aplicaciones que interactúan con bases de datos orientadas a objetos.
 
-*   Conocimiento básico del lenguaje SQL y cómo se puede utilizar en la gestión de bases de datos.
-*   Entendimiento de cómo los modelos de embajada (Ollama) pueden ayudarte a buscar similitudes entre textos.
-*   Habilidad para gestionar estructuras de datos complejas utilizando una base de datos y herramientas adicionales.
-
-**Práctica y aplicación**
-
-Estes desafíos te permiten aplicar estos conceptos en un entorno práctico, experimentando con diferentes frases y vemos cómo la similitud se puede determinar y cómo se pueden encontrar documentos que se ajusten mejor a una búsqueda.
-
-### instalamos chroma en python
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-¡Hola estudiantes! Hoy vamos a hablar sobre cómo instalar una biblioteca llamada ChromaDB en Python.
-
-El código `pip install chromadb` es una instrucción que utiliza la herramienta pip, que es el gestor de paquetes de Python. pip se encarga de descargar y instalar las dependencias necesarias para ejecutar nuestro script. En este caso, estamos instalando la biblioteca ChromaDB, que parece ser una herramienta relacionada con la gestión de datos y objetos.
-
-Esto significa que una vez que hayamos terminado de instalar ChromaDB, podremos utilizar sus funcionalidades en nuestro código Python sin tener que preocuparnos por las implementaciones detalladas. La instalación se hace automáticamente cuando ejecutamos el comando `pip install chromadb` en la terminal o línea de comandos.
-
-`001-instalamos chroma en python.py`
-
-```python
-pip install chromadb
-```
-
-### convertir frases a embedding con ollama
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es el inicio de una secuencia de instrucciones para interactuar con la herramienta Ollama, que se utiliza en el contexto de gestión de objetos y aprendizaje automático. 
-
-La primera línea, "ollama list", indica al programa que liste todos los objetos existentes dentro del espacio de nombres de Ollama. Esto puede ser útil para ver qué tipo de objetos está dispuesto a trabajar con la herramienta.
-
-La segunda instrucción, "ollama pull nomic-embed-text", solicita a Ollama que actualice y descargue un conjunto de objetos específicos llamados 'nomic-embed-text'. En este contexto, los objetos 'nomic-embed-text' deben contener información de texto.
-
-`002-convertir frases a embedding con ollama.py`
-
-```python
-ollama list
-
-ollama pull nomic-embed-text
-```
-
-### obtener embedding
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es un ejemplo de cómo obtener un vector de embebidos (o embeddings) para una frase utilizando la API de Chroma, una herramienta de inteligencia artificial que permite generar y procesar modelos de lenguaje. 
-
-El código utiliza la biblioteca `requests` para enviar una solicitud POST a la API de Chroma en el puerto 11434. La solicitud contiene los datos necesarios para generar un vector de embebido: el modelo de lenguaje (`nomic-embed-text`) y la frase que se quiere procesar (`sentence`). 
-
-Una vez recibida la respuesta, el código extrae el vector de embebido a partir del resultado de la API y lo imprime en pantalla. Además, se imprimen dos fragmentos del vector: su dimension y los primeros 10 elementos del vector.
-
-Este código es importante porque muestra cómo se pueden integrar herramientas de inteligencia artificial como Chroma en un entorno de programación Python, permitiendo el procesamiento de textos y la generación de vectores que pueden ser utilizados para tareas como la clasificación de opiniones o la búsqueda de similitud entre frases.
-
-`003-obtener embedding.py`
-
-```python
-import requests
-import json
-
-sentence = "Esta es una frase de prueba"
-
-response = requests.post(
-    "http://localhost:11434/api/embeddings",
-    json={
-        "model": "nomic-embed-text",
-        "prompt": sentence
-    }
-)
-
-vector = response.json()["embedding"]
-
-print("Embedding dimension:", len(vector))
-print(vector)
-print(vector[:10])
-```
-
-### guardar embeddings en chroma
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código presentado en el archivo `chroma.py` es una implementación de un sistema para guardar y utilizar embeddings de texto utilizando la biblioteca `Chroma` y la API de Ollama. A continuación, se explica qué hace cada sección del código:
-
-1. **Dependencias**: El código comienza con la declaración de las dependencias necesarias para ejecutar el script. Se instalan las bibliotecas `chromadb` y `requests`, así como se ejecuta una comando `ollama pull nomic-embed-text` que carga los modelos de texto de Ollama.
-
-2. **Función para obtener embeddings**: La función `ollama_embed` permite a los usuarios recibir una lista de textos y, en consecuencia, devuelve una lista de vectores (embeddings) usando la API de Ollama. Esta función es fundamental para guardar las frases motivacionales con sus correspondientes embeddings.
-
-3. **Inicializar cliente de Chroma**: Se inicia un cliente de Chroma llamado `PersistentClient` y se crea una colección de texto llamada `"frase_motivacional"` en la base de datos del sistema.
-
-4. **Definir las frases y autores**: Las frases motivacionales se definen en una lista, junto con sus respectivos autores. Se utiliza esta información para generar los embeddings necesarios para guardarlas en la base de datos.
-
-5. **Generar embeddings con Ollama**: La función `ollama_embed` es utilizada para generar embeddings para cada frase motivacional y se imprime el número total de embeddings generados.
-
-`004-guardar embeddings en chroma.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-# from chromadb.config import Settings  # <- ELIMINAR
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe una lista de textos y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Inicializar cliente de Chroma (persistente, NUEVO) ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_frases")
-
-collection = client.get_or_create_collection(
-    name="frases_motivacionales",
-    # aquí de momento no necesitamos embedding_function, porque tú le pasas los
-    # embeddings explícitamente al hacer add()
-    metadata={"hnsw:space": "cosine"}  # opcional, puedes incluso quitarlo
-)
-
-
-# ---------- 3. Definir las frases y autores (las de tu INSERT SQL) ----------
-
-frases = [
-    {
-        "texto": "La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.",
-        "autor": "John Lennon",
-    },
-    {
-        "texto": "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
-        "autor": "Robert Collier",
-    },
-    {
-        "texto": "No cuentes los días, haz que los días cuenten.",
-        "autor": "Muhammad Ali",
-    },
-    {
-        "texto": "La simplicidad es la máxima sofisticación.",
-        "autor": "Leonardo da Vinci",
-    },
-    {
-        "texto": "El conocimiento es poder.",
-        "autor": "Francis Bacon",
-    },
-    {
-        "texto": "Si buscas resultados distintos, no hagas siempre lo mismo.",
-        "autor": "Albert Einstein",
-    },
-    {
-        "texto": "La imaginación lo es todo. Es la vista previa de las próximas atracciones de la vida.",
-        "autor": "Albert Einstein",
-    },
-    {
-        "texto": "No dejes para mañana lo que puedas hacer hoy.",
-        "autor": "Benjamin Franklin",
-    },
-    {
-        "texto": "Nunca es tarde para ser lo que podrías haber sido.",
-        "autor": "George Eliot",
-    },
-    {
-        "texto": "El futuro pertenece a quienes creen en la belleza de sus sueños.",
-        "autor": "Eleanor Roosevelt",
-    },
-]
-
-textos = [f["texto"] for f in frases]
-autores = [f["autor"] for f in frases]
-ids = [f"frase_{i+1}" for i in range(len(frases))]
-
-
-# ---------- 4. Generar embeddings con Ollama ----------
-
-print("Generando embeddings con Ollama...")
-embeddings = ollama_embed(textos)  # list[list[float]]
-print(f"Generados {len(embeddings)} embeddings.")
-print(embeddings)
-```
-
-### ahora si que los guardo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una combinación de funcionalidades de Ollama, una API que permite obtener vectores (embdings) de texto, y Chroma, una base de datos para almacenar y gestionar objetos relacionados entre sí.
-
-La función `ollama_embed` recibe una lista de textos como entrada y devuelve una lista de vectores (embeddings) correspondientes. Estos embeddings se obtienen a través de la API de Ollama en localhost:11434.
-
-El código también inicia un cliente de Chroma persistente, que es capaz de guardar y recuperar datos en un archivo local. La función `get_or_create_collection` crea una colección llamada "frases_motivacionales" si no existe ya, y establece algunas metadatos para la colección.
-
-Luego, se definen las frases y autores que se van a almacenar en Chroma. Estas frases se convierten a listas de texto y autor para ser procesadas por Ollama y almacenadas en Chroma.
-
-El código luego llama a la función `ollama_embed` para obtener los embeddings para cada frase, y al final guarda las frases, autores y embeddings en la colección de Chroma. Esto permite asociar cada frase con sus correspondientes embeddings, lo que puede ser útil en aplicaciones como el análisis de sentimiento o la búsqueda de similitud entre textos.
-
-Es importante destacar que este código es un ejemplo de cómo integrar una API externa (Ollama) con una base de datos (Chroma), y cómo utilizar la programación orientada a objetos para organizar y estructurar los datos.
-
-`005-ahora si que los guardo.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-# from chromadb.config import Settings  # <- ELIMINAR
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe una lista de textos y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Inicializar cliente de Chroma (persistente, NUEVO) ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_frases")
-
-collection = client.get_or_create_collection(
-    name="frases_motivacionales",
-    # aquí de momento no necesitamos embedding_function, porque tú le pasas los
-    # embeddings explícitamente al hacer add()
-    metadata={"hnsw:space": "cosine"}  # opcional, puedes incluso quitarlo
-)
-
-
-# ---------- 3. Definir las frases y autores (las de tu INSERT SQL) ----------
-
-frases = [
-    {
-        "texto": "La vida es aquello que te ocurre mientras estás ocupado haciendo otros planes.",
-        "autor": "John Lennon",
-    },
-    {
-        "texto": "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
-        "autor": "Robert Collier",
-    },
-    {
-        "texto": "No cuentes los días, haz que los días cuenten.",
-        "autor": "Muhammad Ali",
-    },
-    {
-        "texto": "La simplicidad es la máxima sofisticación.",
-        "autor": "Leonardo da Vinci",
-    },
-    {
-        "texto": "El conocimiento es poder.",
-        "autor": "Francis Bacon",
-    },
-    {
-        "texto": "Si buscas resultados distintos, no hagas siempre lo mismo.",
-        "autor": "Albert Einstein",
-    },
-    {
-        "texto": "La imaginación lo es todo. Es la vista previa de las próximas atracciones de la vida.",
-        "autor": "Albert Einstein",
-    },
-    {
-        "texto": "No dejes para mañana lo que puedas hacer hoy.",
-        "autor": "Benjamin Franklin",
-    },
-    {
-        "texto": "Nunca es tarde para ser lo que podrías haber sido.",
-        "autor": "George Eliot",
-    },
-    {
-        "texto": "El futuro pertenece a quienes creen en la belleza de sus sueños.",
-        "autor": "Eleanor Roosevelt",
-    },
-]
-
-textos = [f["texto"] for f in frases]
-autores = [f["autor"] for f in frases]
-ids = [f"frase_{i+1}" for i in range(len(frases))]
-
-
-# ---------- 4. Generar embeddings con Ollama ----------
-
-print("Generando embeddings con Ollama...")
-embeddings = ollama_embed(textos)  # list[list[float]]
-print(f"Generados {len(embeddings)} embeddings.")
-print(embeddings)
-
-# ---------- 5. Guardar en Chroma ----------
-
-collection.add(
-    ids=ids,
-    documents=textos,
-    metadatas=[{"autor": autor} for autor in autores],
-    embeddings=embeddings,
-)
-
-print("✅ Frases insertadas en Chroma y base persistida en ./chroma_ollama_frases")
-```
-
-### busqueda de similitud
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-**Análisis del código**
-
-El código proporcionado es una aplicación de búsqueda de similitud utilizando la biblioteca `chromadb` y la API de Ollama. El objetivo es encontrar frases similares a una frase de consulta utilizando los embeddings obtenidos con la API de Ollama.
-
-**Función `ollama_embed`**
-
-La función `ollama_embed` recibe un string o una lista de strings y devuelve una lista de vectores (embeddings) usando la API de Ollama en localhost:11434. La función es flexible, ya que puede manejar frases individuales o listas de frases.
-
-**Conexión con la base de Chroma**
-
-La aplicación se conecta a una base de datos existente llamada `chroma_ollama_frases` utilizando el cliente `PersistentClient` de la biblioteca `chromadb`. Se selecciona la colección "frases_motivacionales" para realizar la búsqueda.
-
-**Frase nueva para buscar similitudes**
-
-Se introduce una frase nueva como entrada para realizar la búsqueda. Si no se introduce ninguna frase, se muestra un mensaje de error y se sale del programa.
-
-**Consultar Chroma por similitud**
-
-La función `query` de la colección de Chroma se utiliza para realizar la búsqueda. Se especifican los parámetros: `n_resultados` (número de frases a recuperar), `include` (para obtener solo los documentos, metadatos y distancias) y `query_embeddings` (los embeddings obtenidos con la API de Ollama).
-
-**Mostrar resultados**
-
-Los resultados se muestran en pantalla, incluyendo el ID, autor, distancia y frase correspondientes a cada documento recuperado.
-
-En resumen, este código utiliza la biblioteca `chromadb` y la API de Ollama para realizar una búsqueda de similitud de frases en una base de datos existente.
-
-`006-busqueda de similitud.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Conectar con la base de Chroma existente ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_frases")
-collection = client.get_collection("frases_motivacionales")
-
-
-# ---------- 3. Frase nueva para buscar similitudes ----------
-
-nueva_frase = "Aquello que te ocurre mientras haces otros planes, es la vida"
-
-if not nueva_frase:
-    print("No se ha introducido ninguna frase.")
-    exit(0)
-
-# Obtener embedding de la frase de consulta
-embedding_consulta = ollama_embed(nueva_frase)[0]
-
-
-# ---------- 4. Consultar Chroma por similitud ----------
-
-n_resultados = 5  # cuántas frases quieres recuperar
-
-resultados = collection.query(
-    query_embeddings=[embedding_consulta],
-    n_results=n_resultados,
-    include=["documents", "metadatas", "distances"],  # <- sin "ids"
-)
-
-# ---------- 5. Mostrar resultados ----------
-
-print("\nFrase de consulta:")
-print(f"  {nueva_frase}")
-print("\nFrases más similares:\n")
-
-docs = resultados["documents"][0]
-metas = resultados["metadatas"][0]
-dists = resultados["distances"][0]
-ids = resultados["ids"][0]  # se siguen devolviendo, aunque no vayan en include
-
-for doc, meta, dist, _id in zip(docs, metas, dists, ids):
-    print(f"ID:       {_id}")
-    print(f"Autor:    {meta.get('autor', 'Desconocido')}")
-    print(f"Distancia (menor = más similar): {dist:.4f}")
-    print(f"Frase:    {doc}")
-    print("-" * 60)
-```
-
-### mejor candidato
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una herramienta de búsqueda de similitudes entre frases utilizando la API de Ollama y la base de datos Chroma. A continuación, te explicaré paso a paso cómo funciona:
-
-El código comienza creando una función llamada `ollama_embed` que recibe un string o una lista de strings y devuelve una lista de vectores (embeddings) utilizando la API de Ollama en localhost:11434. La función se utiliza para obtener el embedding de una frase dada.
-
-Luego, se conecta a la base de datos Chroma existente usando el cliente `chromadb.PersistentClient`. La base de datos contiene colecciones llamadas "frases_motivacionales", y se selecciona la colección correspondiente utilizando `client.get_collection`.
-
-A continuación, se introduce una nueva frase para buscar similitudes. El código verifica si la frase está vacía y, en ese caso, termina ejecutándose.
-
-El código obtiene el embedding de la frase de consulta mediante la función `ollama_embed`. Luego, utiliza la base de datos Chroma para consultar los documentos que tienen una coincidencia cercana con el embedding obtenido. El parámetro `n_results=1` indica que solo se deben mostrar los resultados con la mejor coincidencia.
-
-Finalmente, el código muestra la mejor coincidencia encontrada, incluyendo el ID del documento, el autor y la frase misma.
-
-En resumen, este código es una herramienta de búsqueda de similitudes entre frases utilizando la API de Ollama y la base de datos Chroma. Permite encontrar los documentos más cercanos a una frase dada en función de su contenido.
-
-`007-mejor candidato.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Conectar con la base de Chroma existente ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_frases")
-collection = client.get_collection("frases_motivacionales")
-
-
-# ---------- 3. Frase nueva para buscar similitudes ----------
-
-nueva_frase = "Aquello que te ocurre mientras haces otros planes, es la vida"
-
-if not nueva_frase:
-    print("No se ha introducido ninguna frase.")
-    exit(0)
-
-# Obtener embedding de la frase de consulta
-embedding_consulta = ollama_embed(nueva_frase)[0]
-
-
-# ---------- 4. Consultar Chroma por similitud (solo mejor resultado) ----------
-
-resultados = collection.query(
-    query_embeddings=[embedding_consulta],
-    n_results=1,  # <-- solo queremos la mejor coincidencia
-    include=["documents", "metadatas"],  # no necesitamos distances ni embeddings
-)
-
-
-# ---------- 5. Mostrar SOLO la mejor coincidencia (best guess) ----------
-
-print("\nFrase de consulta:")
-print(f"  {nueva_frase}\n")
-
-docs = resultados["documents"][0]
-metas = resultados["metadatas"][0]
-ids = resultados["ids"][0]
-
-# como n_results=1, solo hay un elemento
-mejor_doc = docs[0]
-mejor_meta = metas[0]
-mejor_id = ids[0]
-
-print("Mejor coincidencia encontrada:")
-print(f"ID:     {mejor_id}")
-print(f"Autor:  {mejor_meta.get('autor', 'Desconocido')}")
-print(f"Frase:  {mejor_doc}")
-```
-
-### otra prueba
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-¡Hola estudiantes! Hoy vamos a analizar un fragmento de código que utiliza las bibliotecas Python `requests` y `chromadb` para interactuar con la API de Chroma. 
-
-Este código se divide en varias partes, pero vamos a enfocarnos en el proceso de búsqueda de similitudes entre una frase dada y otras frases almacenadas en la base de datos de Chroma.
-
-El código inicia conectándose a una base de datos existente llamada "frases_motivacionales" utilizando la clase `PersistentClient` de `chromadb`. Luego, se define una función `ollama_embed` que utiliza la API de Ollama para obtener vectores (embeddings) de las frases. En este caso, se utiliza la API para obtener el embedding de la frase de consulta "haz hoy lo que puedas, y no lo deje para mañana".
-
-La parte interesante del código es cuando se realiza la búsqueda de similitudes en Chroma utilizando la función `query` de la clase `collection`. Se pasa un listado con el embedding obtenido anteriormente como parámetro de consulta. El número de resultados a devolver se establece en 1, lo que significa que solo se mostrará la mejor coincidencia.
-
-Finalmente, se extraen los detalles del resultado más relevante (ID, autor y frase) y se imprimen en pantalla. En resumen, este código utiliza las API de Ollama y Chroma para buscar similitudes entre una frase dada y otras frases almacenadas en la base de datos de Chroma.
-
-`008-otra prueba.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Conectar con la base de Chroma existente ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_frases")
-collection = client.get_collection("frases_motivacionales")
-
-
-# ---------- 3. Frase nueva para buscar similitudes ----------
-
-nueva_frase = "haz hoy lo que puedas, y no lo dejes para mañana"
-
-if not nueva_frase:
-    print("No se ha introducido ninguna frase.")
-    exit(0)
-
-# Obtener embedding de la frase de consulta
-embedding_consulta = ollama_embed(nueva_frase)[0]
-
-
-# ---------- 4. Consultar Chroma por similitud (solo mejor resultado) ----------
-
-resultados = collection.query(
-    query_embeddings=[embedding_consulta],
-    n_results=1,  # <-- solo queremos la mejor coincidencia
-    include=["documents", "metadatas"],  # no necesitamos distances ni embeddings
-)
-
-
-# ---------- 5. Mostrar SOLO la mejor coincidencia (best guess) ----------
-
-print("\nFrase de consulta:")
-print(f"  {nueva_frase}\n")
-
-docs = resultados["documents"][0]
-metas = resultados["metadatas"][0]
-ids = resultados["ids"][0]
-
-# como n_results=1, solo hay un elemento
-mejor_doc = docs[0]
-mejor_meta = metas[0]
-mejor_id = ids[0]
-
-print("Mejor coincidencia encontrada:")
-print(f"ID:     {mejor_id}")
-print(f"Autor:  {mejor_meta.get('autor', 'Desconocido')}")
-print(f"Frase:  {mejor_doc}")
-```
-
-### Actividades propuestas
-
-**Actividades para estudiantes de Formación Profesional**
-
-A continuación, se presentan una lista de actividades basadas en el código proporcionado, diseñadas para estimular el aprendizaje y la práctica en áreas relacionadas con bases de datos objeto-relacionales y orientadas a objetos.
-
-1. **Análisis de Frases**: Se proporciona un conjunto de frases motivacionales. Pregunta al estudiante qué frase le parece la más inspiradora y por qué. Anota las razones de cada respuesta en una base de datos. Utiliza Ollama para obtener embeddings de las frases y consulta Chroma para encontrar la frase más similar.
-2. **Búsqueda de Similitud**: Se presenta una nueva frase que no está incluida en el conjunto original. Pregunta al estudiante si encuentra alguna conexión entre esta frase y las frases originales. Utiliza Ollama para obtener embeddings de la frase de consulta y consulta Chroma para encontrar las frases más similares.
-3. **Mejor Coincidencia**: Se presenta una nueva frase que se debe comparar con el conjunto original. Pregunta al estudiante si consideraría esta frase como un mejor "candidato" para inspiración en lugar de alguna de las opciones originales. Utiliza Ollama para obtener embeddings de la frase de consulta y consulta Chroma para encontrar la frase más similar.
-4. **Análisis de Autor**: Se proporcionan las metadatas de las frases incluidas en la base de datos, como el autor. Pregunta al estudiante si puede identificar patrones en el autoría de las frases inspiradoras. Utiliza Chroma para comparar las metadatas y encontrar relaciones entre las frases.
-5. **Creación de un Conjunto**: Se le pide al estudiante que cree su propio conjunto de frases inspiradoras utilizando Ollama y Chroma.
-
-**Requisitos**
-
-* Conocimientos básicos de bases de datos objeto-relacionales y orientadas a objetos.
-* Experiencia previa con herramientas como Ollama y Chroma.
-* Capacidad para analizar y comparar información utilizando técnicas de aprendizaje automático.
-
-**Evaluación**
-
-* Análisis de las respuestas de los estudiantes en cada actividad.
-* Evaluación del código propuesto por los estudiantes para implementar las actividades.
-* Comparación de los resultados con las metadatas y frases originales.
-
+En resumen, gestionar objetos con SQL es una habilidad crucial para trabajar con bases de datos orientadas a objetos. A través del lenguaje estándar ANSI SQL, podemos definir clases de objetos, instanciar objetos, modificar sus atributos y eliminarlos de manera eficiente. Este proceso nos permite realizar consultas complejas sobre los datos almacenados en forma de objetos y gestionar el esquema de la base de datos de manera eficiente. A lo largo del capítulo, trabajaremos con ejemplos prácticos que ilustran cómo aplicar estos conceptos en situaciones reales y reflexionaremos sobre los desafíos y limitaciones asociados con esta técnica.
 
 <a id="acceso-a-las-funciones-del-gestor-de-base-de-datos-objeto-relacional"></a>
 ## Acceso a las funciones del gestor de base de datos objeto-relacional
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/003-Acceso%20a%20las%20funciones%20del%20gestor%20de%20base%20de%20datos%20objeto-relacional)
+En esta subunidad del curso, nos adentramos en la exploración de cómo acceder a las funciones del gestor de base de datos objeto-relacional (ODB). El acceso a estas funciones es fundamental para interactuar con los objetos persistidos en una base de datos orientada a objetos. Comenzamos por entender el concepto básico de mapeo objeto-relacional, que permite representar los objetos de la aplicación como entidades y relaciones en una base de datos relacional.
 
-### Introducción a los ejercicios
+A medida que avanzamos, nos familiarizamos con las características específicas de las herramientas ORM disponibles, aprendiendo cómo instalarlas y configurarlas para nuestro proyecto. La estructura de un fichero de mapeo es crucial, ya que define cómo se relacionan los objetos de la aplicación con las tablas y columnas de la base de datos.
 
-**Introducción**
+Además, exploramos el uso de anotaciones para simplificar el proceso de mapeo, lo que facilita la gestión del código. Las clases persistentes son el núcleo de nuestra aplicación en este contexto, representando los objetos que deseamos almacenar y recuperar desde la base de datos. La gestión de sesiones es otro aspecto importante, ya que permite controlar el ciclo de vida de los objetos persistidos.
 
-En este conjunto de ejercicios, se busca aplicar conceptos relacionados con la acceso a datos y procesamiento de texto utilizando herramientas como ChromaDB y Ollama para el modelado de lenguaje natural. Los ejercicios se estructuran en torno a la creación de una aplicación web de chat que utiliza ChromaDB para almacenar y recuperar transcripciones de clases, así como Ollama para obtener embeddings y similitudes entre textos.
+La carga, almacenamiento y modificación de objetos son operaciones fundamentales en cualquier sistema ORM. Aprenderemos cómo realizar estas acciones eficientemente, utilizando métodos específicos proporcionados por la herramienta ORM. Consultas SQL también desempeñan un papel crucial, permitiendo realizar búsquedas complejas sobre los datos almacenados.
 
-**Resumen de competencias**
+Finalmente, el manejo de transacciones es una cuestión crítica en cualquier sistema que interactúe con bases de datos. Aprenderemos cómo gestionar las transacciones para garantizar la integridad y consistencia de los datos. Desarrollaremos programas que utilizan bases de datos a través de herramientas ORM, aplicando todo lo aprendido hasta ahora.
 
-Los ejercicios abordan las siguientes competencias:
-
-*   **Acceso a datos**: Utilización de ChromaDB para almacenar y recuperar transcripciones de clases.
-*   **Procesamiento de texto**: Aplicación de técnicas como troceado de texto, obtención de embeddings y similitudes entre textos utilizando Ollama.
-*   **Desarrollo web**: Creación de una aplicación web de chat que integra las funcionalidades mencionadas anteriormente.
-
-**Estructura y desarrollo**
-
-Los ejercicios están organizados en tres archivos principales:
-
-1.  `app.py`: Esta es la aplicación web del chat, donde se definen las rutas y funciones para procesar las consultas de los usuarios.
-2.  `002-probar.py`: Este archivo contiene pruebas unitarias básicas para las funcionalidades de ChromaDB y Ollama.
-3.  `Archivo sin título.py` y `101-Ejercicios/001-entrenar.py`: Estos archivos proporcionan ejemplos de entrenamiento, prueba y uso de ChromaDB y Ollama en los contextos específicos de la aplicación web.
-
-En general, se busca que los estudiantes comprendan cómo integrar estas herramientas para crear una aplicación funcional y escalable.
-
-### entrenar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código es una aplicación Python que utiliza varias herramientas para procesar y indexar un conjunto de archivos Markdown (.md) desde la carpeta "corpus/" en busca de fragmentos útiles. Estos fragmentos se guardan en una base persistente utilizando la librería Chroma.
-
-Primero, se importan las dependencias necesarias como os, glob, requests y chromadb. Luego se definen tres funciones:
-
-1.  `ollama_embed(texts, model_name: str = "nomic-embed-text")`: Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings) usando la API de Ollama en localhost:11434.
-
-2.  `chunk_text(text, max_chars=800)` : Divide un texto en fragmentos de como máximo max_chars caracteres, procurando cortar por saltos de línea en lugar de a mitad de palabra.
-
-3.  Conectar con Chroma (base persistente para el corpus).
-
-Se conecta a la base Chroma y se crea una colección llamada "corpus_clases_md" si no existe ya. Luego, se buscan todos los archivos .md en la carpeta "corpus/" utilizando glob.glob().
-
-Por último, se procesan los archivos encontrados, se leen, se trocean en fragmentos y se guardan en Chroma. Este proceso tiene un manejo de errores para evitar saltar archivos que no pueden procesarse debido a problemas con los embeddings o la inserción en la base de datos.
-
-`001-entrenar.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import os
-import glob
-import requests
-import chromadb
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Función para trocear texto largo en fragmentos ----------
-
-def chunk_text(text, max_chars=800):
-    """
-    Divide un texto en fragmentos de como máximo max_chars, procurando
-    cortar por saltos de línea en lugar de a mitad de palabra.
-    """
-    fragments = []
-    current = ""
-
-    for line in text.splitlines(keepends=True):
-        # Si añadir la línea supera el límite, cerramos fragmento
-        if len(current) + len(line) > max_chars and current:
-            fragments.append(current.strip())
-            current = line
-        else:
-            current += line
-
-    if current.strip():
-        fragments.append(current.strip())
-
-    # Filtrar fragmentos vacíos
-    return [f for f in fragments if f.strip()]
-
-
-# ---------- 3. Conectar con Chroma (base persistente para el corpus) ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_corpus")
-
-collection = client.get_or_create_collection(
-    name="corpus_clases_md",
-    metadata={"descripcion": "Transcripciones de clases en Markdown"},
-)
-
-
-# ---------- 4. Recorrer todos los .md de la carpeta corpus/ ----------
-
-base_path = "./corpus"
-pattern = os.path.join(base_path, "**", "*.md")
-
-files = glob.glob(pattern, recursive=True)
-
-if not files:
-    print("No se han encontrado archivos .md en la carpeta 'corpus/'.")
-    exit(0)
-
-print(f"Encontrados {len(files)} archivos .md en '{base_path}'.")
-
-
-# ---------- 5. Indexar archivo a archivo ----------
-
-global_counter = 0
-
-for file_path in files:
-    print(f"\nProcesando: {file_path}")
-
-    # Leer contenido del archivo
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
-
-    # Trocear en fragmentos
-    chunks = chunk_text(text, max_chars=800)
-
-    if not chunks:
-        print("  (Archivo vacío o sin texto útil, se omite)")
-        continue
-
-    print(f"  Fragmentos generados: {len(chunks)}")
-
-    # Crear IDs y metadatos
-    ids = []
-    metadatas = []
-    for idx, _ in enumerate(chunks):
-        global_counter += 1
-        chunk_id = f"chunk_{global_counter}"
-        ids.append(chunk_id)
-
-        metadatas.append({
-            "archivo": os.path.relpath(file_path, base_path),
-            "indice_fragmento": idx,
-        })
-
-    # ---------- NUEVO: manejo de errores de embeddings ----------
-    try:
-        embeddings = ollama_embed(chunks)
-    except Exception as e:
-        print(f"  ❌ ERROR al obtener embeddings:")
-        print(f"     {str(e)}")
-        print("  → Archivo saltado.\n")
-        continue
-    # ------------------------------------------------------------
-
-    # Guardar en Chroma
-    try:
-        collection.add(
-            ids=ids,
-            documents=chunks,
-            metadatas=metadatas,
-            embeddings=embeddings,
-        )
-    except Exception as e:
-        print(f"  ❌ ERROR al insertar en Chroma:")
-        print(f"     {str(e)}")
-        print("  → Archivo saltado.\n")
-        continue
-
-    print(f"  Insertados {len(chunks)} fragmentos en la colección.")
-
-
-
-print("\n✅ Indexación completada.")
-print(f"Total de fragmentos insertados: {global_counter}")
-print("Base vectorial en: ./chroma_ollama_corpus (colección: corpus_clases_md)")
-```
-
-### probar
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python es una aplicación básica de búsqueda de textos en un corpus ya indexado utilizando la API de Ollama y Chroma. Su objetivo principal es encontrar el documento más relevante en el corpus según la similitud del embedding del texto de búsqueda.
-
-En primer lugar, se importan las bibliotecas necesarias: `requests` para hacer peticiones HTTP y `chromadb` para interactuar con Chroma, un gestor de corpora. Luego, se define una función llamada `ollama_embed()` que toma como parámetro un texto o una lista de textos y devuelve una lista de vectores (embeddings) utilizando la API de Ollama en localhost:11434.
-
-A continuación, se conecta con Chroma utilizando el client `PersistentClient`, al que se le pasa el path de un corpus ya indexado. Luego, se obtiene la colección "corpus_clases_md" del cliente.
-
-El programa entra en un bucle infinito donde solicita al usuario una pregunta o tema que buscar en el corpus. Si la entrada es vacía, se sale del programa. En otro caso, se llama a la función `ollama_embed()` para obtener el embedding de la consulta y luego se hace una búsqueda en Chroma utilizando la función `query()`. La función devuelve un resultado con los documentos más relevantes según la similitud del embedding.
-
-El programa muestra los resultados más relevantes encontrados, que incluyen el ID del documento, el archivo donde se encuentra el documento, el fragmento del documento y el contenido del documento.
-
-`002-probar.py`
-
-```python
-# dependencias:
-# pip install chromadb requests
-# ollama pull nomic-embed-text
-
-import requests
-import chromadb
-
-# ---------- 1. Función para obtener embeddings desde Ollama ----------
-
-def ollama_embed(texts, model_name: str = "nomic-embed-text"):
-    """
-    Recibe un string o una lista de strings y devuelve una lista de vectores (embeddings)
-    usando la API de Ollama en localhost:11434.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            "http://localhost:11434/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ---------- 2. Conectar con Chroma (corpus ya indexado) ----------
-
-client = chromadb.PersistentClient(path="./chroma_ollama_corpus")
-collection = client.get_collection("corpus_clases_md")
-
-
-# ---------- 3. Bucle de consultas ----------
-
-print("Buscador sobre tus clases (enter vacío para salir)\n")
-
-while True:
-    consulta = input("Escribe tu pregunta o tema: ").strip()
-    if not consulta:
-        print("Saliendo.")
-        break
-
-    # Obtener embedding de la consulta
-    try:
-        embedding_consulta = ollama_embed(consulta)[0]
-    except Exception as e:
-        print(f"Error obteniendo embedding desde Ollama: {e}")
-        continue
-
-    # Consultar Chroma por similitud (mejor resultado)
-    try:
-        resultados = collection.query(
-            query_embeddings=[embedding_consulta],
-            n_results=1,
-            include=["documents", "metadatas"],  # ids vienen siempre
-        )
-    except Exception as e:
-        print(f"Error consultando Chroma: {e}")
-        continue
-
-    if not resultados["documents"] or not resultados["documents"][0]:
-        print("No se han encontrado fragmentos relevantes.")
-        continue
-
-    best_doc = resultados["documents"][0][0]
-    best_meta = resultados["metadatas"][0][0]
-    best_id = resultados["ids"][0][0]
-
-    archivo = best_meta.get("archivo", "desconocido")
-    indice = best_meta.get("indice_fragmento", "N/A")
-
-    print("\n=== MEJOR COINCIDENCIA EN EL CORPUS ===")
-    print(f"ID:        {best_id}")
-    print(f"Archivo:   {archivo}")
-    print(f"Fragmento: #{indice}")
-    print("----------------------------------------")
-    print(best_doc)
-    print("========================================\n")
-```
-
-### app
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una implementación básica de un chatbot utilizando el lenguaje de programación Python y la biblioteca Flask para crear una aplicación web. El chatbot se conecta a una base de datos llamada Chroma, que almacena documentos y metadatos relacionados con transcripciones de clases.
-
-El código define varias funciones principales:
-
-1.  **ollama_embed**: Esta función utiliza la API Ollama para obtener embeddings (representaciones numéricas) de un texto o una lista de textos. Los embeddings se utilizan posteriormente para realizar busquedas en Chroma.
-2.  **retrieve_context**: En este caso, se busca contexto relacionado con un mensaje del usuario utilizando el mismo servicio Ollama y luego busca fragmentos similares dentro de la base de datos Chroma. El resultado es un conjunto de bloques de texto que contienen las partes relevantes del contexto.
-3.  **generate_answer**: Esta función llama al servicio chat de Ollama para generar una respuesta a un mensaje del usuario, usando el contexto previamente encontrado y el propio mensaje como entrada.
-
-El código también define dos rutas en la aplicación Flask:
-
-*   **/**: Una ruta por defecto que muestra una plantilla HTML llamada "index.html".
-*   **/chat**: Una ruta para manejar peticiones POST relacionadas con conversaciones. Esta función procesa los mensajes del usuario, busca contexto relevante, genera una respuesta y la devuelve a través de JSON.
-
-El código se ejecuta cuando se arranca el script como programa principal (`if __name__ == "__main__":`).
-
-Este fragmento de código tiene como objetivo crear un sistema que permita a los usuarios interactuar con un chatbot que puede responder preguntas basado en contextos previos. La integración de Chroma para acceder al conocimiento almacenado y el uso de Ollama para generar respuestas demuestran una solución compleja pero interesante para aplicaciones relacionadas con la educación, la investigación y el asesoramiento.
-
-`app.py`
-
-```python
-import os
-import requests
-from flask import Flask, render_template, request, jsonify
-import chromadb
-
-# ----------------- Configuration ----------------- #
-
-OLLAMA_BASE_URL = "http://localhost:11434"
-CHAT_MODEL = "qwen2.5:3b-instruct"          # change if you use another chat model
-EMBED_MODEL = "nomic-embed-text" # embedding model
-
-CHROMA_PATH = "./chroma_ollama_corpus"
-CHROMA_COLLECTION = "corpus_clases_md"
-
-# ----------------- Flask app ----------------- #
-
-app = Flask(__name__)
-
-# ----------------- Chroma connection ----------------- #
-
-client = chromadb.PersistentClient(path=CHROMA_PATH)
-collection = client.get_collection(CHROMA_COLLECTION)
-
-
-# ----------------- Embeddings via Ollama ----------------- #
-
-def ollama_embed(texts, model_name: str = EMBED_MODEL):
-    """
-    Takes a string or a list of strings and returns a list of embeddings.
-    """
-    if isinstance(texts, str):
-        texts = [texts]
-
-    embeddings = []
-    for text in texts:
-        response = requests.post(
-            f"{OLLAMA_BASE_URL}/api/embeddings",
-            json={
-                "model": model_name,
-                "prompt": text
-            }
-        )
-        response.raise_for_status()
-        data = response.json()
-        embeddings.append(data["embedding"])
-    return embeddings
-
-
-# ----------------- Retrieval from Chroma ----------------- #
-
-def retrieve_context(query: str, top_k: int = 5):
-    """
-    Given a user query, returns the top_k most similar fragments from the corpus.
-    """
-    query_embedding = ollama_embed(query)[0]
-
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=top_k,
-        include=["documents", "metadatas"],
-    )
-
-    docs = results["documents"][0]
-    metas = results["metadatas"][0]
-
-    # Build a text block with the retrieved context
-    context_blocks = []
-    for doc, meta in zip(docs, metas):
-        archivo = meta.get("archivo", "desconocido")
-        indice = meta.get("indice_fragmento", "N/A")
-        context_blocks.append(
-            f"[Archivo: {archivo} | Fragmento: {indice}]\n{doc}"
-        )
-
-    full_context = "\n\n---\n\n".join(context_blocks)
-    return full_context, context_blocks
-
-
-# ----------------- Generation via Ollama (RAG) ----------------- #
-
-def generate_answer(user_query: str, context: str) -> str:
-    """
-    Calls Ollama /api/chat with the retrieved context and user query.
-    """
-    system_prompt = (
-        "Eres un profesor que responde usando únicamente la información "
-        "proveniente del contexto de transcripciones de clases. "
-        "Si el contexto no contiene la respuesta, dilo explícitamente.\n\n"
-        "Responde en español, de forma clara y breve."
-    )
-
-    user_message = (
-        "Contexto de referencia (transcripciones):\n"
-        f"{context}\n\n"
-        "Pregunta del usuario:\n"
-        f"{user_query}\n\n"
-        "Respuesta:"
-    )
-
-    payload = {
-        "model": CHAT_MODEL,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_message},
-        ],
-        "stream": False,
-    }
-
-    response = requests.post(
-        f"{OLLAMA_BASE_URL}/api/chat",
-        json=payload
-    )
-    response.raise_for_status()
-    data = response.json()
-
-    # Ollama /api/chat returns {"message": {"content": "..."} , ...}
-    answer = data["message"]["content"]
-    return answer
-
-
-# ----------------- Routes ----------------- #
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/chat", methods=["POST"])
-def chat():
-    data = request.get_json(force=True)
-    user_message = data.get("message", "").strip()
-
-    if not user_message:
-        return jsonify({"error": "Empty message"}), 400
-
-    try:
-        context, context_blocks = retrieve_context(user_message, top_k=5)
-        answer = generate_answer(user_message, context)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-    return jsonify({
-        "answer": answer,
-        "context_snippets": context_blocks,  # optional, for debugging or UI
-    })
-
-
-if __name__ == "__main__":
-    # For development only; in production use gunicorn/uwsgi + reverse proxy
-    app.run(host="0.0.0.0", port=5000, debug=True)
-```
-
-### Archivo sin título
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código se encuentra dentro de una clase, específicamente en el método `__init__`, que es el constructor de la clase. Este método se utiliza para inicializar los atributos o variables de la clase.
-
-El código `self Conn = db.connect(host="localhost", database="nombre_base")` establece una conexión con una base de datos específica. La función `db.connect` parece ser parte de un módulo de interacción con bases de datos, pero no tengo información sobre este módulo específico.
-
-La variable `Conn` se utiliza para almacenar la conexión a la base de datos y es una referencia al objeto que representa la conexión. Este objeto proporciona métodos para interactuar con la base de datos, como realizar consultas SQL o insertar datos.
-
-En resumen, el código establece una conexión con una base de datos utilizando un método específico del módulo `db` y almacena ese objeto en la variable `Conn`.
-
-`Archivo sin título`
-
-```
-
-```
-
-### Actividades propuestas
-
-Aquí te presento una lista de actividades para el alumnado basadas en los ejercicios proporcionados:
-
-**Actividad 1: Creación de una función para obtener embeddings**
-
-* Descripción: En este ejercicio, debes crear una función que utilize la API de Ollama para obtener embeddings de un texto o lista de textos.
-* Objetivo: Entender cómo se utiliza la API de Ollama y cómo se pueden procesar los embeddings en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con la API de Ollama.
-
-**Actividad 2: Indexación de archivos**
-
-* Descripción: En este ejercicio, debes leer un archivo MD, trocearlo en fragmentos y indexar cada fragmento utilizando Chroma.
-* Objetivo: Entender cómo se puede utilizar Chroma para indexar contenido y cómo se pueden procesar los datos en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Chroma.
-
-**Actividad 3: Consultas a Chroma**
-
-* Descripción: En este ejercicio, debes crear una función que busque un texto o lista de textos en Chroma utilizando embeddings y devuelva los resultados más relevantes.
-* Objetivo: Entender cómo se puede utilizar Chroma para realizar consultas y cómo se pueden procesar los datos en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Chroma.
-
-**Actividad 4: Generación de respuesta**
-
-* Descripción: En este ejercicio, debes crear una función que genere una respuesta a una pregunta utilizando el contexto de transcripciones y la API de Ollama.
-* Objetivo: Entender cómo se puede utilizar la API de Ollama para generar respuestas y cómo se pueden procesar los datos en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con la API de Ollama.
-
-**Actividad 5: Desarrollo de una aplicación web**
-
-* Descripción: En este ejercicio, debes desarrollar una aplicación web que permita a los usuarios interactuar con Chroma utilizando embeddings y obtener respuestas.
-* Objetivo: Entender cómo se puede utilizar Flask para desarrollar una aplicación web y cómo se pueden procesar los datos en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Flask.
-
-**Actividad 6: Optimización de la búsqueda**
-
-* Descripción: En este ejercicio, debes optimizar la búsqueda en Chroma utilizando técnicas como la normalización de embeddings y la comparación de similitud.
-* Objetivo: Entender cómo se puede mejorar la eficiencia de la búsqueda en Chroma y cómo se pueden procesar los datos en Python.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Chroma.
-
-**Actividad 7: Análisis de los resultados**
-
-* Descripción: En este ejercicio, debes analizar los resultados obtenidos después de realizar las consultas a Chroma y evaluar la efectividad del sistema.
-* Objetivo: Entender cómo se pueden interpretar los resultados obtenidos después de realizar las consultas a Chroma y cómo se pueden mejorar el sistema.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Chroma.
-
-**Actividad 8: Creación de un protocolo de datos**
-
-* Descripción: En este ejercicio, debes crear un protocolo de datos que describa la estructura y contenido de los archivos MD indexados en Chroma.
-* Objetivo: Entender cómo se puede definir un protocolo de datos para el almacenamiento y procesamiento de datos en Chroma.
-* Requerimientos: Conocimiento básico de Python y familiaridad con Chroma.
-
+A lo largo de esta subunidad, hemos cubierto desde el concepto básico del mapeo objeto-relacional hasta las operaciones avanzadas en un sistema ORM. Cada paso ha sido diseñado para proporcionar una comprensión profunda y práctica del acceso a las funciones del gestor de base de datos objeto-relacional, preparándonos para aplicar estos conocimientos en proyectos futuros que involucren el uso de bases de datos orientadas a objetos.
 
 <a id="gestores-de-bases-de-datos-orientadas-a-objetos"></a>
 ## Gestores de bases de datos orientadas a objetos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/004-Gestores%20de%20bases%20de%20datos%20orientadas%20a%20objetos)
+En este capítulo, nos adentramos en la comprensión y gestión de las bases de datos orientadas a objetos (ODBMs), una evolución importante dentro del campo de los sistemas de gestión de bases de datos. A diferencia de las bases de datos relacionales tradicionales que utilizan tablas para almacenar datos, las ODBMs permiten un enfoque más natural y intuitivo al trabajar con objetos orientados a la programación.
 
+Las ODBMs son sistemas que proporcionan una forma directa de persistir los objetos del lenguaje de programación en una base de datos. Esta abstracción facilita el trabajo con objetos, ya que permite interactuar con ellos como si estuvieran almacenados en memoria, mientras que la ODBM se encarga de gestionar su persistencia en el disco.
+
+Un gestor de bases de datos orientadas a objetos (ODB) es un software que proporciona una interfaz para crear, leer, actualizar y eliminar objetos persistentes. Este gestor oculta los detalles técnicos de cómo estos objetos son almacenados físicamente en la base de datos, permitiendo al programador interactuar con ellos utilizando métodos y atributos del lenguaje de programación.
+
+La principal ventaja de las ODBMs es que facilitan el trabajo con objetos complejos y relaciones entre ellos. Al trabajar directamente con objetos, los desarrolladores pueden expresar la lógica de su aplicación en términos naturales, lo que resulta en código más legible y fácil de mantener.
+
+Sin embargo, también existen desafíos asociados a las ODBMs. La persistencia de objetos puede ser más compleja que la de tablas relacionales, especialmente cuando se consideran relaciones bidireccionales o herencias múltiples. Además, el rendimiento puede verse afectado en comparación con las bases de datos relacionales optimizadas para consultas y transacciones intensivas.
+
+En este capítulo, exploraremos los fundamentos de las ODBMs, incluyendo cómo funcionan los gestores de estas bases de datos y cuáles son sus principales características. Aprenderemos también sobre la sintaxis específica utilizada por cada gestor de ODBM para interactuar con objetos persistentes, así como técnicas avanzadas para optimizar el rendimiento y gestionar las relaciones entre objetos.
+
+Además, discutiremos cómo migrar datos existentes desde bases de datos relacionales a ODBMs, lo que puede ser un proceso crucial cuando se decide adoptar este tipo de sistema. También exploraremos la seguridad en ODBMs, incluyendo cómo proteger los datos persistentes y gestionar los permisos de acceso.
+
+Finalmente, ilustraremos con ejemplos prácticos cómo implementar y utilizar gestores de bases de datos orientadas a objetos en proyectos reales, demostrando cómo estas herramientas pueden mejorar significativamente la eficiencia y escalabilidad de las aplicaciones basadas en objetos.
 
 <a id="gestion-de-la-persistencia-de-objetos"></a>
 ## Gestión de la persistencia de objetos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/005-Gesti%C3%B3n%20de%20la%20persistencia%20de%20objetos)
+La gestión de la persistencia de objetos es un aspecto crucial en el desarrollo de aplicaciones que utilizan bases de datos objeto-relacional (OR) o orientadas a objetos. Este proceso implica cómo se almacenan y recuperan los objetos en una base de datos, asegurando que la información esté disponible para su uso en el sistema.
 
+En un entorno OR, cada objeto es mapeado a una entidad en la base de datos, lo que facilita la manipulación de datos estructurados. La persistencia de objetos se realiza mediante operaciones CRUD (Crear, Leer, Actualizar y Borrar), que corresponden directamente a las operaciones de base de datos.
+
+La gestión de transacciones es otro elemento fundamental en la persistencia de objetos. Las transacciones son conjuntos de operaciones que deben ejecutarse como una unidad para mantener la integridad de los datos. En un sistema OR, estas transacciones pueden implicar el acceso a múltiples entidades y relaciones, lo que requiere mecanismos robustos para garantizar que todas las operaciones se realicen correctamente o no se produzca ningún cambio.
+
+Además de la persistencia de objetos en una base de datos OR, también es importante considerar la persistencia de los estados de un objeto a lo largo del tiempo. Esto implica cómo se manejan los cambios en el estado de los objetos y cómo se recuperan estos estados cuando se necesita acceder a ellos nuevamente.
+
+La gestión de la persistencia de objetos también incluye la serialización y deserialización de objetos, que es el proceso de convertir un objeto en una forma que pueda ser almacenada o transmitida y luego reconstruirlo en su estado original. Esta capacidad es esencial para la comunicación entre diferentes partes del sistema y para el almacenamiento de objetos en formatos no relacionales.
+
+En un entorno OR, también se pueden utilizar herramientas ORM (Object-Relational Mapping) para simplificar la gestión de la persistencia de objetos. Estas herramientas proporcionan una capa de abstracción que permite a los desarrolladores trabajar con objetos y no tener que preocuparse por las operaciones de base de datos subyacentes.
+
+La gestión de la persistencia de objetos es un aspecto complejo pero fundamental en el desarrollo de aplicaciones OR. A través del uso de transacciones, serialización, deserialización y herramientas ORM, se puede asegurar que los datos estén disponibles y consistentes en todo momento, lo que es crucial para mantener la confiabilidad y la eficiencia del sistema.
+
+En resumen, la gestión de la persistencia de objetos es un proceso integral en el desarrollo de aplicaciones OR. Involucra la manipulación de datos estructurados, la gestión de transacciones, la persistencia de estados de objetos y la utilización de herramientas ORM para simplificar el proceso. A través de estos mecanismos, se puede garantizar que los datos estén disponibles y consistentes en todo momento, lo que es crucial para mantener la confiabilidad y la eficiencia del sistema.
 
 <a id="el-interfaz-de-programacion-de-aplicaciones-de-la-base-de-datos-orientada-a-objetos"></a>
 ## El interfaz de programación de aplicaciones de la base de datos orientada a objetos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/006-El%20interfaz%20de%20programaci%C3%B3n%20de%20aplicaciones%20de%20la%20base%20de%20datos%20orientada%20a%20objetos)
+En la subunidad "El interfaz de programación de aplicaciones de la base de datos orientada a objetos", nos adentramos en el aspecto práctico de cómo interactuar con las bases de datos objeto-relacionales (OR) desde un lenguaje de programación. Este interfaz, también conocido como API o Interfaz de Programación de Aplicaciones, es una herramienta fundamental que permite a los desarrolladores acceder y manipular la información almacenada en estas bases de datos.
 
+El primer paso para interactuar con una base de datos OR es establecer una conexión. Esta conexión se realiza mediante un objeto específico proporcionado por el gestor de la base de datos OR, que actúa como puente entre el código del programa y la base de datos. Este proceso implica especificar los detalles de la conexión, como el nombre del servidor, el nombre de la base de datos, el usuario y la contraseña.
+
+Una vez establecida la conexión, se pueden ejecutar consultas SQL para recuperar o modificar la información almacenada en la base de datos. Sin embargo, las bases de datos OR ofrecen una alternativa más orientada a objetos que permite acceder directamente a los objetos persistidos en la base de datos, sin necesidad de escribir consultas SQL explícitas. Esta característica es especialmente útil para desarrolladores que prefieren trabajar con objetos y no con tablas y registros.
+
+El interfaz de programación de aplicaciones de las bases de datos OR también proporciona métodos para crear, modificar y eliminar objetos en la base de datos. Estos métodos son directamente correspondientes a los operadores CRUD (Crear, Leer, Actualizar, Eliminar) que se utilizan comúnmente en el acceso a bases de datos relacionales.
+
+Además del acceso a objetos individuales, las APIs de las bases de datos OR también permiten realizar consultas complejas y obtener resultados en forma de colecciones de objetos. Esta funcionalidad es especialmente útil para aplicaciones empresariales que requieren procesar grandes volúmenes de datos y generar informes dinámicos.
+
+Es importante destacar que, aunque el interfaz de programación de aplicaciones de las bases de datos OR facilita la manipulación de objetos en lugar de tablas, aún es necesario tener conocimientos básicos de SQL para realizar consultas complejas o optimizar el rendimiento de las operaciones de acceso a la base de datos.
+
+En resumen, el interfaz de programación de aplicaciones de las bases de datos orientadas a objetos proporciona una forma poderosa y eficiente de interactuar con estas bases de datos desde un lenguaje de programación. A través de este interfaz, los desarrolladores pueden acceder, manipular y gestionar la información almacenada en las bases de datos OR de manera intuitiva y orientada a objetos, lo que facilita el desarrollo de aplicaciones empresariales complejas y escalables.
 
 <a id="gestion-de-transacciones-2"></a>
 ## Gestión de transacciones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/007-Gesti%C3%B3n%20de%20transacciones)
+En el mundo digital actual, las bases de datos objeto-relacionales (OR) y orientadas a objetos (OO) han ganado una importancia cada vez mayor debido a su capacidad para manejar complejas relaciones entre los datos. Esta subunidad se centra específicamente en la gestión de transacciones dentro de estos sistemas, un aspecto crucial para garantizar la integridad y consistencia de los datos.
 
+La gestión de transacciones en bases de datos OR y OO implica el control de las operaciones que modifican el estado del sistema. Cada transacción se considera una unidad de trabajo que puede ser ejecutada como una sola unidad, asegurando que todos sus componentes sean procesados correctamente o ninguno lo sea. Este proceso es fundamental para evitar inconsistencias y errores en los datos.
+
+Para gestionar las transacciones, los sistemas OR y OO utilizan un conjunto de mecanismos que incluyen la definición de transacciones, su ejecución, confirmación (commit), anulación (rollback) y aislamiento. La definición de una transacción implica especificar qué operaciones deben realizarse en el sistema, mientras que su ejecución es el proceso de procesar estas operaciones en orden.
+
+La confirmación de una transacción se realiza cuando todas las operaciones dentro de ella han sido exitosamente procesadas y los cambios reflejados en la base de datos. En caso de un error durante la ejecución, la anulación (rollback) permite revertir todos los cambios realizados por la transacción, restaurando el estado del sistema a su punto inicial.
+
+El aislamiento es otro concepto crucial en la gestión de transacciones, que se refiere a la capacidad de una transacción para operar sin interferencia con otras transacciones simultáneas. Esto garantiza que los cambios realizados por una transacción no sean visibles hasta que ésta ha sido confirmada, preveniendo así problemas como las lecturas sucias o las perdidas de actualizaciones.
+
+Además de estos mecanismos básicos, los sistemas OR y OO ofrecen herramientas avanzadas para la gestión de transacciones. Por ejemplo, la capacidad de manejar subtransacciones permite dividir una gran operación en varias partes más pequeñas, facilitando su control y mejora el rendimiento del sistema.
+
+La gestión eficiente de las transacciones es esencial no solo para mantener la integridad de los datos, sino también para mejorar el rendimiento general del sistema. Al optimizar las transacciones, se pueden reducir tiempos de respuesta y aumentar la capacidad de procesamiento del sistema.
+
+En conclusión, la gestión de transacciones en bases de datos objeto-relacionales y orientadas a objetos es un tema fundamental que requiere una comprensión profunda para desarrollar sistemas robustos y confiables. A través de la definición, ejecución, confirmación, anulación y aislamiento de las transacciones, se puede asegurar la consistencia y integridad de los datos, lo cual es crucial en un mundo cada vez más digitalizado donde la precisión y la confiabilidad son imperativas.
 
 <a id="desarrollo-de-programas-que-gestionan-objetos-en-bases-de-datos"></a>
 ## Desarrollo de programas que gestionan objetos en bases de datos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/004-Bases%20de%20datos%20objeto%20relacionales%20y%20orientadas%20a%20objetos/008-Desarrollo%20de%20programas%20que%20gestionan%20objetos%20en%20bases%20de%20datos)
+En este capítulo, nos adentramos en la gestión de objetos en bases de datos objeto-relacionales (ORDBMS) y orientadas a objetos (ODBMS). Comenzamos por entender cómo se manejan los objetos dentro de estas bases de datos, explorando el concepto de persistencia del objeto y cómo se almacenan y recuperan los datos.
 
+A medida que avanzamos, nos familiarizamos con las herramientas y métodos específicos para interactuar con ORDBMS y ODBMS. Aprenderemos a crear clases persistentes, mapear atributos y métodos de objetos a tablas y columnas en la base de datos, y cómo gestionar transacciones para mantener la integridad de los datos.
+
+Además, exploramos el uso de sesiones y estados de un objeto, así como técnicas avanzadas como la carga perezosa y el almacenamiento de objetos complejos. Aprenderemos a realizar consultas SQL en ORDBMS y cómo utilizar ORM para simplificar estas operaciones.
+
+El capítulo culmina con ejemplos prácticos de desarrollo de programas que utilizan bases de datos objeto-relacionales y orientadas a objetos, demostrando cómo aplicar los conocimientos adquiridos en situaciones reales. A lo largo del camino, nos enfocamos en la importancia de la seguridad y el manejo adecuado de excepciones para garantizar la robustez y confiabilidad de nuestras aplicaciones.
+
+A medida que avanzamos en este tema, es crucial entender cómo las bases de datos objeto-relacionales y orientadas a objetos ofrecen una forma más natural y eficiente de trabajar con datos complejos, permitiendo un acceso directo y intuitivo a los mismos desde el código. Este conocimiento es fundamental para desarrollar aplicaciones modernas que requieren manejo sofisticado de información estructurada y relacionada.
 
 
 <a id="bases-de-datos-documentales"></a>
@@ -16839,50 +12588,63 @@ Aquí te presento una lista de actividades para el alumnado basadas en los ejerc
 <a id="bases-de-datos-documentales-nativas"></a>
 ## Bases de datos documentales nativas
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/001-Bases%20de%20datos%20documentales%20nativas)
+En el vasto mundo de la programación y la gestión de datos, las bases de datos documentales nativas representan una innovadora forma de almacenar y recuperar información. Estas bases de datos son especialmente útiles para aplicaciones que requieren un alto nivel de flexibilidad y escalabilidad en su estructura de datos.
 
-### Introducción a los ejercicios
+La naturaleza documental de estas bases de datos significa que cada registro se almacena como un documento completo, generalmente en formato JSON o BSON, lo que permite una representación natural y detallada de los datos. Esta característica es particularmente ventajosa cuando se trabaja con información compleja y heterogénea, ya que no requiere la definición previa de tablas y relaciones como ocurre con las bases de datos relacionales.
 
-Esta carpeta contiene un conjunto de ejercicios diseñados para introducir a los estudiantes a las bases de datos documentales nativas, específicamente MongoDB. Los ejercicios abarcan desde la creación y manejo de una base de datos hasta la inserción, consulta y actualización de documentos JSON. Estos ejercicios ayudan a desarrollar competencias clave en el uso de lenguajes como JavaScript para interactuar con bases de datos no relacionales, así como la comprensión de formatos de documentos como XML y JSON. Los estudiantes aprenderán cómo estructurar y manipular datos en una base de datos documental, realizando operaciones básicas y avanzadas.
+Las bases de datos documentales nativas ofrecen una serie de ventajas significativas. Primero, su estructura flexible permite un diseño más intuitivo y adaptable a los cambios en los requisitos del negocio. Segundo, su capacidad para almacenar y recuperar información de manera eficiente es superior a las bases de datos relacionales tradicionales, especialmente cuando se trata de grandes volúmenes de datos complejos.
+
+Para interactuar con estas bases de datos, se utilizan lenguajes específicos como MongoDB Query Language (MQL) o el estándar JSON Query Language. Estos lenguajes permiten realizar consultas y operaciones avanzadas sobre los documentos almacenados, facilitando la manipulación y análisis de los datos.
+
+La gestión de transacciones en las bases de datos documentales nativas es otro aspecto importante a considerar. A diferencia de las bases de datos relacionales, que utilizan un modelo ACID (Atomicidad, Coherencia, Isolación, Durabilidad), estas bases de datos suelen implementar modelos de transacción más simples pero eficientes, adaptados a su naturaleza documental.
+
+La seguridad es otro factor crucial en el uso de bases de datos documentales nativas. Estas bases de datos ofrecen mecanismos avanzados para controlar el acceso y la modificación de los documentos, lo que es fundamental en aplicaciones empresariales donde la confidencialidad y la integridad de los datos son prioridades.
+
+En conclusión, las bases de datos documentales nativas representan una herramienta poderosa y flexible para el almacenamiento y gestión de información compleja. Su naturaleza documental permite un diseño más intuitivo y adaptable a los cambios en los requisitos del negocio, mientras que su eficiencia y seguridad hacen de ellas una opción ideal para aplicaciones empresariales modernas.
+
+### Lenguajes de documentos
+
+```markdown
+XML -> JSON
+HTML - Interfaces
+MD
+TXT
+DOC (MS) - DOCX DOC+XML - ODT OpenDocumenT
+Binario
+CSV - tablas con filas y columnas
+PDF - PostScriptv2.0 - Adobe
+
+Formato propio?
+```
+
+### MongoDB
+
+```markdown
+Concepto de base de datos
+MongoDB llama a las agrupaciones de datos: "colecciones"
+
+Una colección tiene documentos
+
+Los documentos son JSON
+
+Tenemos todo lo que tiene un json
+
+_id con hash de identificacion
+```
 
 ### crear base de datos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-El código `use empresadam;` es una instrucción en JavaScript utilizada para interactuar con MongoDB, que es un sistema de gestión de bases de datos no relacional. En este caso, la instrucción cambia el contexto actual del cliente de MongoDB a la base de datos llamada "empresadam". Esto significa que cualquier operación posterior, como crear colecciones o insertar documentos, se realizará dentro de esta base de datos específica.
-
-Es importante utilizar esta instrucción antes de empezar a trabajar con una base de datos particular para asegurar que todas las acciones realizadas sean pertinentes y aplicables a esa base de datos. Sin esta instrucción, MongoDB no sabrá a qué base de datos debe dirigirse cuando se ejecuten comandos posteriores.
-
-En resumen, `use empresadam;` es la manera en que un programador indica a MongoDB que está listo para comenzar a trabajar con una base de datos llamada "empresadam", lo cual es crucial antes de realizar cualquier otra operación relacionada con esa base de datos.
-
-`003-crear base de datos.js`
 
 ```javascript
 use empresadam;
 ```
 
 ### crear coleccion
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código JavaScript es utilizado en el contexto de MongoDB, una base de datos no relacional que almacena los datos en formato JSON. La línea `db.createCollection("clientes");` está creando una nueva colección dentro de la base de datos actualmente activa. En este caso, la colección se llama "clientes". Una colección es como una tabla en SQL pero más flexible y adecuada para almacenar documentos en formato JSON o BSON (Binary JSON). Es importante porque antes de poder guardar documentos relacionados con clientes, debes asegurarte de que la colección exista. Esto prepara el espacio donde los datos del cliente serán guardados posteriormente.
-
-`004-crear coleccion.js`
 
 ```javascript
 db.createCollection("clientes");
 ```
 
 ### insertar un cliente
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código JavaScript se utiliza en una base de datos documental, específicamente con MongoDB, para insertar un nuevo documento (registro) dentro de una colección llamada "clientes". En este caso, el documento que se está insertando contiene información básica sobre un cliente: su nombre completo, apellidos, número telefónico y dirección de correo electrónico. La función `insertOne()` es fundamental porque permite añadir un solo registro a la base de datos, garantizando así que cada nuevo cliente pueda ser almacenado individualmente con sus propios detalles. Es importante destacar cómo se estructura el documento como un objeto JSON para facilitar su manipulación y lectura tanto por humanos como por el motor de MongoDB.
-
-`005-insertar un cliente.js`
 
 ```javascript
 db.clientes.insertOne({
@@ -16894,17 +12656,6 @@ db.clientes.insertOne({
 ```
 
 ### inserto objeto complejo
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está insertando un nuevo documento en una colección llamada `clientes` dentro de una base de datos documental como MongoDB. El documento es un objeto complejo que incluye detalles sobre un cliente, como su nombre, apellidos, número telefónico y correo electrónico. Además, también contiene una lista de direcciones asociadas al cliente.
-
-La función `insertOne()` se utiliza para añadir un solo documento a la base de datos. En este caso, el documento es un objeto JSON que contiene información detallada sobre el cliente Juan García. Este ejemplo demuestra cómo puedes almacenar y organizar información estructurada de forma eficiente en una base de datos documental.
-
-Es importante destacar que al incluir un campo `direcciones` como un array de strings, se está permitiendo la representación directa de relaciones uno-a-muchos sin necesidad de crear tablas adicionales para cada dirección del cliente. Esto es una característica clave de las bases de datos documentales, ya que permite almacenar y gestionar información relacionada de manera natural y flexible.
-
-`006-inserto objeto complejo.js`
 
 ```javascript
 db.clientes.insertOne({
@@ -16920,17 +12671,6 @@ db.clientes.insertOne({
 ```
 
 ### inserto muchos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una operación en MongoDB que se utiliza para insertar múltiples documentos en la colección llamada `clientes`. En este caso, el código está añadiendo tres nuevos clientes a la base de datos.
-
-La función `insertMany` recibe un array como argumento, donde cada elemento del array es un objeto que representa los detalles de un cliente. Cada uno de estos objetos tiene las mismas propiedades: `nombre`, `apellidos`, `telefono` y `email`. Al ejecutar esta línea de código, MongoDB añadirá estos tres clientes a la colección `clientes`.
-
-Es importante destacar que este tipo de operación es útil cuando se necesita agregar varias entradas a una base de datos en un solo comando, lo cual simplifica el proceso y mejora la eficiencia.
-
-`007-inserto muchos.js`
 
 ```javascript
 db.clientes.insertMany(
@@ -16958,62 +12698,24 @@ db.clientes.insertMany(
 ```
 
 ### seleccionamos clientes
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en JavaScript es una consulta básica utilizando el motor de base de datos MongoDB. La función `find()` se utiliza para buscar todos los documentos dentro de la colección llamada "clientes". En otras palabras, este comando recupera y muestra cada uno de los registros que existen en esa colección sin aplicar ningún tipo de filtro o condición adicional.
-
-Es importante entender que ejecutar solo `db.clientes.find()` devuelve todos los documentos presentes en la colección "clientes", lo cual puede ser útil cuando se quieren revisar todos los datos almacenados o cuando la base de datos contiene un número limitado de registros. Sin embargo, para bases de datos más grandes, es recomendable usar filtros adicionales con `find()` para mejorar el rendimiento y obtener solo la información necesaria.
-
-Esta operación es fundamental en el manejo de bases de datos documentales porque permite a los desarrolladores acceder fácilmente a todos los datos almacenados en una colección específica, lo que facilita la exploración y el análisis de datos.
-
-`008-seleccionamos clientes.js`
 
 ```javascript
 db.clientes.find()
 ```
 
 ### solo el primer elemento
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código en JavaScript, específico para MongoDB, se utiliza para buscar y devolver solo el primer documento (o elemento) de una colección llamada "clientes". La función `findOne()` es muy útil cuando necesitas obtener los datos del primer registro sin recorrer toda la colección. Es importante porque ahorra recursos al no traer todos los documentos, especialmente si trabajas con grandes bases de datos donde solo te interesan algunos datos iniciales.
-
-En resumen, este fragmento busca en la base de datos actual (en MongoDB se refiere a la base activa como "db") dentro de la colección llamada "clientes" y devuelve el primer documento que encuentra. Si no hay documentos o si no se especifican criterios adicionales para encontrar un documento específico, devolverá `null`.
-
-`009-solo el primer elemento.js`
 
 ```javascript
 db.clientes.findOne()
 ```
 
 ### where
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código JavaScript está diseñado para trabajar con una base de datos documental, específicamente con MongoDB. La función `find()` se utiliza para buscar documentos en la colección llamada `clientes` que coincidan con un criterio específico. En este caso, el código busca todos los documentos donde el campo `email` sea igual a 'info@juan.com'. 
-
-Lo que hace esta línea de código es enviar una consulta a la base de datos para recuperar solo aquellos registros en la colección `clientes` que tienen registrado ese correo electrónico exacto. Es importante porque te permite filtrar y obtener información específica basada en un criterio concreto, como el email de un cliente determinado.
-
-Esta consulta es útil cuando necesitas acceder a información precisa sin tener que revisar todos los registros manualmente o utilizar otros métodos menos eficientes.
-
-`010-where.js`
 
 ```javascript
 db.clientes.find({email:'info@juan.com'})
 ```
 
 ### actualizar uno
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código es una operación en MongoDB que actualiza un documento específico en la base de datos. La función `updateOne` busca y modifica el primer documento que cumpla con ciertos criterios, en este caso, está buscando a un cliente cuyo nombre sea 'Jose Vicente'. Si encuentra ese documento, utiliza la parte `$set` para actualizar el campo `email` de ese documento específico, cambiándolo por "info@jocarsa.com". Es importante destacar que esta operación solo modificará una única entrada que coincida con el criterio proporcionado.
-
-`011-actualizar uno.js`
 
 ```javascript
 db.clientes.updateOne(
@@ -17026,15 +12728,6 @@ db.clientes.updateOne(
 ```
 
 ### actualiza muchos
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código está escrito en JavaScript y se usa para interactuar con una base de datos MongoDB. Lo que hace específicamente es buscar todos los documentos (registros) en la colección llamada "clientes" donde el campo `email` sea igual a 'info@juan.com'. Luego, actualiza estos documentos encontrados, estableciendo el valor del campo `telefono` como "11111111". 
-
-El método `updateMany()` es importante porque permite actualizar múltiples registros en una sola operación basándose en un criterio específico (en este caso, el correo electrónico). Esto es muy útil cuando necesitas modificar la información de varios clientes que comparten alguna característica común sin tener que hacer cambios uno por uno.
-
-`012-actualiza muchos.js`
 
 ```javascript
 db.clientes.updateMany(
@@ -17047,15 +12740,6 @@ db.clientes.updateMany(
 ```
 
 ### eliminar uno
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código JavaScript está diseñado para interactuar con una base de datos documental, específicamente usando el motor MongoDB. La función `deleteOne` se utiliza para eliminar un solo documento que cumpla con ciertas condiciones del conjunto de documentos llamado "clientes". En este caso, busca y elimina al cliente cuyo campo "nombre" es igual a 'Jose Vicente'.
-
-Es importante destacar que `deleteOne` asegura la eliminación de sólo el primer registro que coincida con la condición especificada, lo cual es útil cuando se quiere eliminar un documento sin riesgo de afectar múltiples documentos si hay más de uno que cumpla con las mismas características.
-
-`013-eliminar uno.js`
 
 ```javascript
 db.clientes.deleteOne(
@@ -17064,13 +12748,6 @@ db.clientes.deleteOne(
 ```
 
 ### delete many
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este fragmento de código en JavaScript se utiliza para eliminar múltiples documentos (registros) de una colección llamada `clientes` en una base de datos documental como MongoDB. La función `deleteMany()` es muy útil cuando necesitas borrar varios registros que cumplen con ciertas condiciones, en este caso, todos los documentos donde el campo `email` sea igual a `'info@juan.com'`. Es importante destacar que esta operación puede ser irreversible y afectará a todos los documentos que cumplan la condición especificada. Por lo tanto, siempre es una buena práctica hacer una copia de seguridad antes de realizar eliminaciones en masa como esta.
-
-`014-delete many.js`
 
 ```javascript
 db.clientes.deleteMany(
@@ -17078,58 +12755,49 @@ db.clientes.deleteMany(
 )
 ```
 
-### Actividades propuestas
+### Que tiene mongodb
 
-### Actividades Propuestas
+```markdown
+Esta basado en json para guardar documentos
+Tiene un lenguaje de consultas
+El lenguaje es Javascript
+Sobre ese lenguaje hay una serie de objetos y métodos para ejecutar las consultas
 
-1. **Creación de Bases de Datos en MongoDB**
-   - **Descripción:** Los estudiantes deberán crear una base de datos y una colección utilizando el shell de MongoDB, similar a los ejercicios `003-crear base de datos.js` y `004-crear coleccion.js`. Se espera que comprendan cómo iniciar un entorno de trabajo con MongoDB.
-
-2. **Insertar Documentos Simples**
-   - **Descripción:** A partir del ejercicio `005-insertar un cliente.js`, los estudiantes deben insertar varios documentos simples en una colección existente, aprendiendo a estructurar datos básicos y cómo almacenarlos en MongoDB.
-
-3. **Inserción de Datos Complejos**
-   - **Descripción:** Basándose en el código del archivo `006-inserto objeto complejo.js`, los estudiantes deben practicar la inserción de documentos con arrays dentro, comprendiendo así cómo manejar datos más estructurados y anidados.
-
-4. **Inserción Múltiple**
-   - **Descripción:** Utilizando el código en `007-inserto muchos.js`, se les pedirá a los estudiantes insertar múltiples documentos de una sola vez, aprendiendo a manejar listas y bucles para la inserción masiva.
-
-5. **Selección Básica de Datos**
-   - **Descripción:** Los alumnos deben consultar todos los documentos en una colección, similar al ejercicio `008-seleccionamos clientes.js`, para entender cómo recuperar datos almacenados en MongoDB.
-
-6. **Consulta Avanzada con `findOne` y `find`**
-   - **Descripción:** A partir de los ejercicios `009-solo el primer elemento.js` y `010-where.js`, se les pedirá a los estudiantes que implementen consultas para obtener un solo documento o todos los documentos que cumplan ciertas condiciones.
-
-7. **Actualización de Documentos**
-   - **Descripción:** Basándose en `011-actualizar uno.js` y `012-actualiza muchos.js`, los alumnos deberán actualizar campos específicos de un único documento y múltiples documentos, aprendiendo a manipular datos existentes.
-
-8. **Eliminación de Datos**
-   - **Descripción:** Utilizando el código de `013-eliminar uno.js` y `014-delete many.js`, los estudiantes deberán eliminar un solo documento o varios documentos basados en ciertas condiciones, para entender cómo mantener la integridad del sistema.
-
-Estas actividades ayudarán a los estudiantes a familiarizarse con MongoDB desde una perspectiva práctica, enfatizando el manejo de datos complejos y la importancia de operaciones CRUD en bases de datos documentales.
-
+Debe haber
+1.-Un formato para guardar datos
+2.-Un lenguaje para realizar consultas
+```
 
 <a id="establecimiento-y-cierre-de-conexiones"></a>
 ## Establecimiento y cierre de conexiones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/002-Establecimiento%20y%20cierre%20de%20conexiones)
+En el vasto mundo de la programación, las bases de datos documentales representan una forma innovadora de almacenar y gestionar información. Estas bases de datos, que incluyen MongoDB, CouchDB o Firebase, se caracterizan por su estructura flexible y su capacidad para manejar datos complejos en formato JSON.
 
-### Introducción a los ejercicios
+El primer paso en el uso de bases de datos documentales es establecer una conexión con ellas. Este proceso implica la configuración adecuada del entorno de desarrollo y la selección del protocolo de comunicación apropiado. En MongoDB, por ejemplo, se utiliza el protocolo TCP/IP para establecer conexiones entre el cliente y el servidor.
 
-Esta carpeta contiene ejercicios relacionados con el envío de solicitudes HTTP para la detección de objetos en imágenes utilizando un modelo preentrenado. Los archivos proporcionan una introducción a cómo interactuar con APIs basadas en modelos de inteligencia artificial para analizar contenido visual. Los estudiantes practicarán habilidades como la codificación de imágenes en base64, el envío de solicitudes HTTP POST y la manipulación de respuestas JSON.
+La conexión a una base de datos documental es un objeto que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los datos almacenados. Este objeto suele proporcionar métodos específicos para cada tipo de operación, lo que facilita la manipulación de los datos de manera segura y eficiente.
 
-Es importante notar que aunque los ejercicios se centran en la detección de objetos en imágenes con Python y un modelo específico, el objetivo principal es entender cómo estructurar y enviar peticiones a APIs para obtener información basada en datos proporcionados.
+Es importante destacar que el establecimiento de una conexión a una base de datos documental implica la autenticación del usuario. Esto asegura que solo aquellos con permisos adecuados puedan acceder y modificar los datos almacenados. En MongoDB, por ejemplo, se utiliza un sistema de roles y privilegios para controlar el acceso a las colecciones y documentos.
+
+Una vez establecida la conexión, es necesario cerrarla cuando ya no sea necesaria. Esto libera los recursos utilizados durante la sesión y asegura que los cambios realizados en la base de datos sean guardados correctamente. En MongoDB, por ejemplo, se utiliza el método `close()` para cerrar una conexión.
+
+La gestión adecuada de las conexiones a bases de datos documentales es crucial para mantener el rendimiento y la seguridad del sistema. Es recomendable utilizar un pool de conexiones para evitar el agotamiento de recursos y optimizar el acceso a los datos.
+
+En resumen, establecer y cerrar conexiones con bases de datos documentales es una tarea fundamental en el desarrollo de aplicaciones que utilizan estas tecnologías. A través del uso adecuado de objetos de conexión y métodos específicos para cada operación, se puede realizar un manejo seguro y eficiente de los datos almacenados.
+
+La comprensión de estos conceptos es esencial para cualquier desarrollador que quiera trabajar con bases de datos documentales en su proyecto. Al dominar la gestión de conexiones, se abre el camino a una mayor flexibilidad y escalabilidad en la creación de aplicaciones informáticas.
+
+### Instalacion de modelo
+
+```markdown
+ollama pull llava
+
+ollama pull bakllava
+
+ollama run llava "what is in this image?" -i gato.jpg
+```
 
 ### detectar imagen
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python está diseñado para enviar una imagen a un servidor web y recibir una descripción de lo que contiene la imagen. Primero, el programa abre un archivo llamado `gato.jpg` en modo binario y utiliza la biblioteca `base64` para codificarlo en formato ASCII legible por humanos. Luego, el código envía esta imagen codificada a través de una solicitud POST a un servidor local que está esperando solicitudes en la URL "http://localhost:11434/api/generate". El servidor recibe la imagen y genera una descripción basada en su contenido utilizando un modelo preentrenado. Finalmente, el programa imprime la respuesta del servidor, que es una descripción de lo que se ve en la imagen.
-
-Esta tarea es importante porque demuestra cómo interactuar con servicios web para realizar tareas complejas como el reconocimiento de imágenes, y cómo manejar datos binarios (como imágenes) en Python.
-
-`001-detectar imagen.py`
 
 ```python
 import base64, requests
@@ -17151,15 +12819,6 @@ print(r.json()["response"])
 ```
 
 ### perro
-<small>Creado: 2026-04-16 17:39</small>
-
-#### Explicación
-
-Este código Python se utiliza para enviar una imagen de un perro en formato JPEG a un servidor web y recibir una descripción de la imagen como respuesta. Primero, el programa abre el archivo "perro.jpg" en modo binario y lo codifica en base64, que es un sistema estándar para convertir datos binarios en texto legible por computadora. Luego, envía esta imagen codificada a través de una solicitud POST a la URL "http://localhost:11434/api/generate", junto con algunas opciones como el modelo a utilizar y la pregunta que se hace sobre la imagen ("¿Qué hay en esta imagen?"). Finalmente, imprime la respuesta generada por el servidor web.
-
-Este tipo de código es importante porque permite interactuar fácilmente con servicios web que proporcionan análisis o descripciones basadas en imágenes. Es útil para aplicaciones como sistemas de reconocimiento de objetos, descripción automática de fotos y otros proyectos relacionados con inteligencia artificial visual.
-
-`002-perro.py`
 
 ```python
 import base64, requests
@@ -17180,13797 +12839,108 @@ r = requests.post(
 print(r.json()["response"])
 ```
 
-### Actividades propuestas
-
-### Actividad 1: Instalación de Modelos
-**Descripción:** Los estudiantes deben instalar y configurar los modelos proporcionados en el archivo markdown. Se pretende que comprendan cómo funciona la instalación de modelos desde un servidor remoto.
-
-### Actividad 2: Análisis del Código Python
-**Descripción:** Los alumnos analizarán el código `001-detectar imagen.py` para comprender cómo se envían imágenes a través de solicitudes HTTP. Se espera que aprendan sobre la codificación y descodificación de imágenes.
-
-### Actividad 3: Ejecución y Prueba
-**Descripción:** Los estudiantes deberán ejecutar el código en `001-detectar imagen.py` con una imagen propia para verificar su funcionamiento. Esto permitirá comprender cómo interactuar con un modelo preinstalado.
-
-### Actividad 4: Comparación de Respuestas
-**Descripción:** Los alumnos deben realizar pruebas tanto con `001-detectar imagen.py` como con `002-perro.py` y comparar las respuestas obtenidas. Se espera que comprendan cómo la entrada afecta a los resultados del modelo.
-
-### Actividad 5: Modificación de Imagenes
-**Descripción:** Los estudiantes modificarán el nombre del archivo de imagen en ambos scripts Python para probar con diferentes imágenes, observando y documentando las diferencias en las respuestas del modelo. Esto ayudará a entender la importancia de los datos de entrada.
-
-### Actividad 6: Documentación de Proceso
-**Descripción:** Los estudiantes escribirán una breve guía paso a paso sobre cómo configurar el ambiente de trabajo, desde la instalación hasta la ejecución de las pruebas con imágenes. Se espera que aprendan a documentar procesos técnicos.
-
-### Actividad 7: Análisis de Respuestas JSON
-**Descripción:** Los alumnos analizarán los resultados JSON generados por los scripts Python para entender mejor cómo se estructuran y qué significado tienen. Esto ayudará en la interpretación de respuestas futuras.
-
-### Actividad 8: Crear un Script Similar
-**Descripción:** Utilizando lo aprendido, los estudiantes crearán su propio script similar al proporcionado pero con una pregunta diferente (por ejemplo, "¿cuántos elementos hay en esta imagen?"). Se espera que apliquen sus conocimientos para generar nuevos scripts funcionales.
-
-### Actividad 9: Identificación de Errores Comunes
-**Descripción:** Los estudiantes buscarán y documentarán posibles errores comunes que podrían ocurrir durante la ejecución del código, como problemas con los enlaces o formatos incorrectos. Esto promoverá la resiliencia a los fallos técnicos.
-
-### Actividad 10: Mejoras Propias
-**Descripción:** Finalmente, cada estudiante propondrá y aplicará mejoras al código existente para mejorar su eficiencia u optimizar sus respuestas (por ejemplo, usando más imágenes en un solo envío). Esto impulsará la creatividad y la resolución de problemas.
-
-
 <a id="colecciones-y-documentos"></a>
 ## Colecciones y documentos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/003-Colecciones%20y%20documentos)
+En el mundo digital actual, las bases de datos documentales han ganado un papel cada vez más relevante debido a su capacidad para almacenar y gestionar información compleja y heterogénea. En esta subunidad didáctica, nos adentramos en los fundamentos del acceso a datos mediante bases de datos documentales, centrándonos específicamente en las colecciones y documentos.
 
-### prueba
-<small>Creado: 2026-04-16 17:39</small>
+Las colecciones son el contenedor principal en una base de datos documental, similar a cómo las tablas funcionan en las bases de datos relacionales. Cada colección puede contener múltiples documentos, que son los elementos individuales de la colección. Los documentos pueden tener estructuras diferentes entre sí, lo que les da la flexibilidad necesaria para almacenar una variedad de tipos de información.
 
-`002-prueba.json`
+La relación entre colecciones y documentos es fundamental en el diseño de bases de datos documentales. Cada documento puede estar relacionado con uno o varios documentos en otras colecciones a través de claves de referencia, creando así una red compleja de relaciones que permite la consulta y análisis de los datos de manera eficiente.
 
-```json
-{
-  "vista":"estaba conduciendo por una carretera",
-  "momento":"2025-12-15",
-  "oido":"-",
-  "sentimos":"tenia prisa por llegar",
-  "olemos":"-",
-  "sabor":"-",
-  "palpamos":"frío de diciembre por la ventana",
-  "pensamos":"tenia prisa por llegar",
-  "ubicacion":"carretera circunvalacion Valencia"
-}
-```
+La gestión de las colecciones y documentos requiere un enfoque diferente al utilizado en bases de datos relacionales. En lugar de definir esquemas rigurosos para los datos, las bases de datos documentales permiten una mayor flexibilidad en la estructura de los documentos. Esto significa que los mismos campos pueden existir o no en diferentes documentos dentro de la misma colección, lo que facilita el almacenamiento y consulta de información heterogénea.
 
-### memento
-<small>Creado: 2026-04-16 17:39</small>
+Además, las colecciones y documentos son unidades fundamentales para realizar consultas complejas en bases de datos documentales. A través del uso de lenguajes de consulta específicos como MongoDB Query Language (MQL), es posible realizar búsquedas precisas y eficientes dentro de las colecciones y documentos. Las capacidades de búsqueda avanzada, incluyendo la capacidad de realizar consultas por campos anidados o por expresiones regulares, hacen que las bases de datos documentales sean una herramienta poderosa para el análisis de grandes volúmenes de información.
 
-`003-memento.html`
+La gestión de las colecciones y documentos también implica consideraciones sobre la consistencia y la integridad de los datos. En las bases de datos documentales, es común utilizar técnicas como transacciones y validación de datos para garantizar que los documentos dentro de una misma colección estén en un estado coherente. Esto es crucial cuando se realizan operaciones complejas que involucran múltiples documentos o colecciones.
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: #f0f8ff;
-        }
-        .form-container {
-            width: 300px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin: 20px;
-        }
-        .form-container input,
-        .form-container textarea,
-        .form-container select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-container button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .form-container button:hover {
-            background-color: #45a049;
-        }
-        .stage {
-            flex: 1;
-            position: relative;
-            background-color: #e6f2ff;
-            border-radius: 10px;
-            margin: 20px;
-            overflow: hidden;
-        }
-        .bubble {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            max-width: 200px;
-            word-wrap: break-word;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <label for="vista">Vista:</label>
-            <textarea id="vista" rows="2" required></textarea>
+La importancia de las colecciones y documentos no se limita solo a la gestión de información, sino también a la escalabilidad y el rendimiento de las bases de datos documentales. Al permitir una estructura flexible y dinámica, estas bases de datos pueden adaptarse mejor a los cambios en los patrones de uso y en la cantidad de datos almacenados, lo que les hace ideales para aplicaciones con alto volumen de tráfico o requerimientos de escalabilidad.
 
-            <label for="momento">Momento:</label>
-            <input type="date" id="momento" required>
-
-            <label for="oido">Oído:</label>
-            <textarea id="oido" rows="2"></textarea>
-
-            <label for="sentimos">Sentimos:</label>
-            <textarea id="sentimos" rows="2"></textarea>
-
-            <label for="olemos">Olemos:</label>
-            <textarea id="olemos" rows="2"></textarea>
-
-            <label for="sabor">Sabor:</label>
-            <textarea id="sabor" rows="2"></textarea>
-
-            <label for="palpamos">Palpamos:</label>
-            <textarea id="palpamos" rows="2"></textarea>
-
-            <label for="pensamos">Pensamos:</label>
-            <textarea id="pensamos" rows="2"></textarea>
-
-            <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion" required>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-        <button id="recordButton">🎤 Grabar Voz</button>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <script>
-        // Grabación de voz
-        const recordButton = document.getElementById('recordButton');
-        let recognition;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recordButton.addEventListener('click', () => {
-                recognition.start();
-                recordButton.textContent = '🎤 Grabando...';
-            });
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                document.getElementById('oido').value = transcript;
-                recordButton.textContent = '🎤 Grabar Voz';
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-                recordButton.textContent = '🎤 Grabar Voz';
-            };
-        } else {
-            recordButton.style.display = 'none';
-            alert('Tu navegador no soporta la grabación de voz.');
-        }
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const stage = document.getElementById('stage');
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            createBubble(memory);
-            memoryForm.reset();
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 200);
-            const y = Math.random() * (stage.offsetHeight - 200);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Contenido de la burbuja
-            bubble.innerHTML = `
-                <strong>${memory.ubicacion}</strong><br>
-                ${memory.momento}<br>
-                <small>${memory.vista}</small>
-            `;
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Lógica para agrupar burbujas por palabras clave
-            setTimeout(() => {
-                attractSimilarBubbles(bubble, memory);
-            }, 100);
-        }
-
-        function attractSimilarBubbles(newBubble, newMemory) {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const keywords = [
-                newMemory.vista,
-                newMemory.ubicacion,
-                newMemory.sentimos,
-                newMemory.pensamos
-            ].filter(kw => kw.trim().length > 0);
-
-            allBubbles.forEach(bubble => {
-                if (bubble !== newBubble) {
-                    const bubbleText = bubble.textContent.toLowerCase();
-                    const hasSimilarKeyword = keywords.some(
-                        kw => bubbleText.includes(kw.toLowerCase())
-                    );
-
-                    if (hasSimilarKeyword) {
-                        // Mover burbujas similares más cerca
-                        const newX = parseFloat(newBubble.style.left);
-                        const newY = parseFloat(newBubble.style.top);
-                        const bubbleX = parseFloat(bubble.style.left);
-                        const bubbleY = parseFloat(bubble.style.top);
-
-                        const distance = Math.sqrt(
-                            Math.pow(newX - bubbleX, 2) + Math.pow(newY - bubbleY, 2)
-                        );
-
-                        if (distance > 50) {
-                            const angle = Math.atan2(newY - bubbleY, newX - bubbleX);
-                            const moveX = Math.cos(angle) * 10;
-                            const moveY = Math.sin(angle) * 10;
-
-                            bubble.style.left = `${bubbleX + moveX}px`;
-                            bubble.style.top = `${bubbleY + moveY}px`;
-                        }
-                    }
-                }
-            });
-        }
-    </script>
-</body>
-</html>
-```
-
-### mejoras
-<small>Creado: 2026-04-16 17:39</small>
-
-`004-mejoras.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: flex-start;
-            padding: 15px;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            max-width: 200px;
-            word-wrap: break-word;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            font-size: 14px;
-            line-height: 1.4;
-            transition: transform 0.3s;
-        }
-
-        .bubble:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px var(--shadow-color);
-        }
-
-        .bubble strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .bubble small {
-            color: #666;
-            font-size: 12px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(3deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const stage = document.getElementById('stage');
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            createBubble(memory);
-            memoryForm.reset();
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 200);
-            const y = Math.random() * (stage.offsetHeight - 200);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Contenido de la burbuja
-            bubble.innerHTML = `
-                <strong>${memory.ubicacion || 'Sin ubicación'}</strong>
-                <small>${memory.momento || 'Sin fecha'}</small><br>
-                ${memory.vista || ''}
-            `;
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Lógica para agrupar burbujas por palabras clave
-            setTimeout(() => {
-                attractSimilarBubbles(bubble, memory);
-            }, 100);
-        }
-
-        function attractSimilarBubbles(newBubble, newMemory) {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const keywords = [
-                newMemory.vista,
-                newMemory.ubicacion,
-                newMemory.sentimos,
-                newMemory.pensamos
-            ].filter(kw => kw && kw.trim().length > 0);
-
-            allBubbles.forEach(bubble => {
-                if (bubble !== newBubble) {
-                    const bubbleText = bubble.textContent.toLowerCase();
-                    const hasSimilarKeyword = keywords.some(
-                        kw => bubbleText.includes(kw.toLowerCase())
-                    );
-
-                    if (hasSimilarKeyword) {
-                        // Mover burbujas similares más cerca
-                        const newX = parseFloat(newBubble.style.left);
-                        const newY = parseFloat(newBubble.style.top);
-                        const bubbleX = parseFloat(bubble.style.left);
-                        const bubbleY = parseFloat(bubble.style.top);
-
-                        const distance = Math.sqrt(
-                            Math.pow(newX - bubbleX, 2) + Math.pow(newY - bubbleY, 2)
-                        );
-
-                        if (distance > 50) {
-                            const angle = Math.atan2(newY - bubbleY, newX - bubbleX);
-                            const moveX = Math.cos(angle) * 10;
-                            const moveY = Math.sin(angle) * 10;
-
-                            bubble.style.left = `${bubbleX + moveX}px`;
-                            bubble.style.top = `${bubbleY + moveY}px`;
-                        }
-                    }
-                }
-            });
-        }
-    </script>
-</body>
-</html>
-```
-
-### navegacion
-<small>Creado: 2026-04-16 17:39</small>
-
-`005-navegacion.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow: hidden;
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-            z-index: 10;
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            max-width: 200px;
-            word-wrap: break-word;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            font-size: 14px;
-            line-height: 1.4;
-            transition: transform 0.3s;
-            transform-origin: center center;
-            user-select: none;
-        }
-
-        .bubble:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px var(--shadow-color);
-            z-index: 100;
-        }
-
-        .bubble strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .bubble small {
-            color: #666;
-            font-size: 12px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(3deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Variables para el drag-pan y zoom
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
-        let scale = 1;
-        const stage = document.getElementById('stage');
-
-        // Función para aplicar transformaciones al escenario
-        function applyTransform() {
-            stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
-
-        // Eventos para arrastrar el escenario
-        stage.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            stage.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            applyTransform();
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            stage.style.cursor = 'grab';
-        });
-
-        // Evento para zoom con la rueda del ratón
-        stage.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? 0.9 : 1.1;
-            const rect = stage.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-
-            // Ajustar el zoom centrado en el cursor
-            const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-            const scaleFactor = newScale / scale;
-
-            translateX = mouseX - (mouseX - translateX) * scaleFactor;
-            translateY = mouseY - (mouseY - translateY) * scaleFactor;
-            scale = newScale;
-
-            applyTransform();
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            createBubble(memory);
-            memoryForm.reset();
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 200);
-            const y = Math.random() * (stage.offsetHeight - 200);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Contenido de la burbuja
-            bubble.innerHTML = `
-                <strong>${memory.ubicacion || 'Sin ubicación'}</strong>
-                <small>${memory.momento || 'Sin fecha'}</small><br>
-                ${memory.vista || ''}
-            `;
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Lógica para agrupar burbujas por palabras clave
-            setTimeout(() => {
-                attractSimilarBubbles(bubble, memory);
-            }, 100);
-        }
-
-        function attractSimilarBubbles(newBubble, newMemory) {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const keywords = [
-                newMemory.vista,
-                newMemory.ubicacion,
-                newMemory.sentimos,
-                newMemory.pensamos
-            ].filter(kw => kw && kw.trim().length > 0);
-
-            allBubbles.forEach(bubble => {
-                if (bubble !== newBubble) {
-                    const bubbleText = bubble.textContent.toLowerCase();
-                    const hasSimilarKeyword = keywords.some(
-                        kw => bubbleText.includes(kw.toLowerCase())
-                    );
-
-                    if (hasSimilarKeyword) {
-                        // Mover burbujas similares más cerca
-                        const newX = parseFloat(newBubble.style.left);
-                        const newY = parseFloat(newBubble.style.top);
-                        const bubbleX = parseFloat(bubble.style.left);
-                        const bubbleY = parseFloat(bubble.style.top);
-
-                        const distance = Math.sqrt(
-                            Math.pow(newX - bubbleX, 2) + Math.pow(newY - bubbleY, 2)
-                        );
-
-                        if (distance > 50) {
-                            const angle = Math.atan2(newY - bubbleY, newX - bubbleX);
-                            const moveX = Math.cos(angle) * 10;
-                            const moveY = Math.sin(angle) * 10;
-
-                            bubble.style.left = `${bubbleX + moveX}px`;
-                            bubble.style.top = `${bubbleY + moveY}px`;
-                        }
-                    }
-                }
-            });
-        }
-    </script>
-</body>
-</html>
-```
-
-### buscador
-<small>Creado: 2026-04-16 17:39</small>
-
-`006-buscador.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow: hidden;
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-            z-index: 10;
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .search-container {
-            margin-bottom: 20px;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            max-width: 200px;
-            word-wrap: break-word;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            font-size: 14px;
-            line-height: 1.4;
-            transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-            transform-origin: center center;
-            user-select: none;
-        }
-
-        .bubble:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px var(--shadow-color);
-            z-index: 100;
-        }
-
-        .bubble strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .bubble small {
-            color: #666;
-            font-size: 12px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(3deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-
-        <div class="search-container">
-            <label for="search">Buscar en recuerdos:</label>
-            <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-        </div>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Variables para el drag-pan y zoom
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
-        let scale = 1;
-        const stage = document.getElementById('stage');
-
-        // Función para aplicar transformaciones al escenario
-        function applyTransform() {
-            stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
-
-        // Eventos para arrastrar el escenario
-        stage.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            stage.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            applyTransform();
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            stage.style.cursor = 'grab';
-        });
-
-        // Evento para zoom con la rueda del ratón
-        stage.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? 0.9 : 1.1;
-            const rect = stage.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-
-            // Ajustar el zoom centrado en el cursor
-            const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-            const scaleFactor = newScale / scale;
-
-            translateX = mouseX - (mouseX - translateX) * scaleFactor;
-            translateY = mouseY - (mouseY - translateY) * scaleFactor;
-            scale = newScale;
-
-            applyTransform();
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const searchInput = document.getElementById('search');
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            createBubble(memory);
-            memoryForm.reset();
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 200);
-            const y = Math.random() * (stage.offsetHeight - 200);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Contenido de la burbuja
-            bubble.innerHTML = `
-                <strong>${memory.ubicacion || 'Sin ubicación'}</strong>
-                <small>${memory.momento || 'Sin fecha'}</small><br>
-                ${memory.vista || ''}
-            `;
-
-            // Guardar los datos del recuerdo en el elemento
-            bubble.dataset.memory = JSON.stringify(memory);
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Lógica para agrupar burbujas por palabras clave
-            setTimeout(() => {
-                attractSimilarBubbles(bubble, memory);
-            }, 100);
-        }
-
-        function attractSimilarBubbles(newBubble, newMemory) {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const keywords = [
-                newMemory.vista,
-                newMemory.ubicacion,
-                newMemory.sentimos,
-                newMemory.pensamos
-            ].filter(kw => kw && kw.trim().length > 0);
-
-            allBubbles.forEach(bubble => {
-                if (bubble !== newBubble) {
-                    const bubbleText = bubble.textContent.toLowerCase();
-                    const hasSimilarKeyword = keywords.some(
-                        kw => bubbleText.includes(kw.toLowerCase())
-                    );
-
-                    if (hasSimilarKeyword) {
-                        // Mover burbujas similares más cerca
-                        const newX = parseFloat(newBubble.style.left);
-                        const newY = parseFloat(newBubble.style.top);
-                        const bubbleX = parseFloat(bubble.style.left);
-                        const bubbleY = parseFloat(bubble.style.top);
-
-                        const distance = Math.sqrt(
-                            Math.pow(newX - bubbleX, 2) + Math.pow(newY - bubbleY, 2)
-                        );
-
-                        if (distance > 50) {
-                            const angle = Math.atan2(newY - bubbleY, newX - bubbleX);
-                            const moveX = Math.cos(angle) * 10;
-                            const moveY = Math.sin(angle) * 10;
-
-                            bubble.style.left = `${bubbleX + moveX}px`;
-                            bubble.style.top = `${bubbleY + moveY}px`;
-                        }
-                    }
-                }
-            });
-        }
-
-        // Función para buscar y resaltar coincidencias
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const allBubbles = document.querySelectorAll('.bubble');
-
-            allBubbles.forEach(bubble => {
-                const memory = JSON.parse(bubble.dataset.memory);
-                const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-                if (searchTerm === '') {
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                    return;
-                }
-
-                const matches = searchTerm.split(' ').filter(term => term.length > 0);
-                let matchCount = 0;
-
-                matches.forEach(term => {
-                    if (memoryText.includes(term)) {
-                        matchCount++;
-                    }
-                });
-
-                if (matchCount > 0) {
-                    const borderWidth = 1 + (matchCount * 2); // Aumentar grosor según coincidencias
-                    const borderColorIntensity = Math.min(100, matchCount * 20); // Aumentar intensidad del color
-                    bubble.style.borderWidth = `${borderWidth}px`;
-                    bubble.style.borderColor = `rgba(147, 112, 219, ${0.3 + (matchCount * 0.1)})`;
-                } else {
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-```
-
-### burbujas
-<small>Creado: 2026-04-16 17:39</small>
-
-`007-burbujas.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow: hidden;
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-            z-index: 10;
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .search-container {
-            margin-bottom: 20px;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-            transform-origin: center center;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px var(--shadow-color);
-            z-index: 100;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 20px;
-            border-radius: 12px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .close-button:hover {
-            color: var(--text-color);
-        }
-
-        .modal-body {
-            margin-bottom: 15px;
-        }
-
-        .modal-body p {
-            margin: 8px 0;
-        }
-
-        .modal-body strong {
-            color: var(--primary-color);
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-
-        <div class="search-container">
-            <label for="search">Buscar en recuerdos:</label>
-            <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-        </div>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <!-- Modal -->
-    <div id="memoryModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Detalles del Recuerdo</h3>
-                <button class="close-button" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalContent">
-                <!-- El contenido del recuerdo se mostrará aquí -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Variables para el drag-pan y zoom
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
-        let scale = 1;
-        const stage = document.getElementById('stage');
-
-        // Función para aplicar transformaciones al escenario
-        function applyTransform() {
-            stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
-
-        // Eventos para arrastrar el escenario
-        stage.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            stage.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            applyTransform();
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            stage.style.cursor = 'grab';
-        });
-
-        // Evento para zoom con la rueda del ratón
-        stage.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? 0.9 : 1.1;
-            const rect = stage.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-
-            // Ajustar el zoom centrado en el cursor
-            const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-            const scaleFactor = newScale / scale;
-
-            translateX = mouseX - (mouseX - translateX) * scaleFactor;
-            translateY = mouseY - (mouseY - translateY) * scaleFactor;
-            scale = newScale;
-
-            applyTransform();
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const searchInput = document.getElementById('search');
-        const modal = document.getElementById('memoryModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModal = document.getElementById('closeModal');
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            createBubble(memory);
-            memoryForm.reset();
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 100);
-            const y = Math.random() * (stage.offsetHeight - 100);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Guardar los datos del recuerdo en el elemento
-            bubble.dataset.memory = JSON.stringify(memory);
-
-            // Icono o emoji dentro de la burbuja
-            bubble.textContent = '💭';
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Evento para abrir el modal al hacer clic en la burbuja
-            bubble.addEventListener('click', () => {
-                showMemoryModal(memory);
-            });
-
-            // Lógica para agrupar burbujas por palabras clave
-            setTimeout(() => {
-                attractSimilarBubbles(bubble, memory);
-            }, 100);
-        }
-
-        function showMemoryModal(memory) {
-            modalContent.innerHTML = `
-                <p><strong>Ubicación:</strong> ${memory.ubicacion || 'Sin ubicación'}</p>
-                <p><strong>Momento:</strong> ${memory.momento || 'Sin fecha'}</p>
-                <p><strong>Vista:</strong> ${memory.vista || 'Nada'}</p>
-                <p><strong>Oído:</strong> ${memory.oido || 'Nada'}</p>
-                <p><strong>Sentimos:</strong> ${memory.sentimos || 'Nada'}</p>
-                <p><strong>Olemos:</strong> ${memory.olemos || 'Nada'}</p>
-                <p><strong>Sabor:</strong> ${memory.sabor || 'Nada'}</p>
-                <p><strong>Palpamos:</strong> ${memory.palpamos || 'Nada'}</p>
-                <p><strong>Pensamos:</strong> ${memory.pensamos || 'Nada'}</p>
-            `;
-            modal.style.display = 'flex';
-        }
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        function attractSimilarBubbles(newBubble, newMemory) {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const keywords = [
-                newMemory.vista,
-                newMemory.ubicacion,
-                newMemory.sentimos,
-                newMemory.pensamos
-            ].filter(kw => kw && kw.trim().length > 0);
-
-            allBubbles.forEach(bubble => {
-                if (bubble !== newBubble) {
-                    const bubbleMemory = JSON.parse(bubble.dataset.memory);
-                    const bubbleText = Object.values(bubbleMemory).join(' ').toLowerCase();
-                    const hasSimilarKeyword = keywords.some(
-                        kw => bubbleText.includes(kw.toLowerCase())
-                    );
-
-                    if (hasSimilarKeyword) {
-                        // Mover burbujas similares más cerca
-                        const newX = parseFloat(newBubble.style.left);
-                        const newY = parseFloat(newBubble.style.top);
-                        const bubbleX = parseFloat(bubble.style.left);
-                        const bubbleY = parseFloat(bubble.style.top);
-
-                        const distance = Math.sqrt(
-                            Math.pow(newX - bubbleX, 2) + Math.pow(newY - bubbleY, 2)
-                        );
-
-                        if (distance > 50) {
-                            const angle = Math.atan2(newY - bubbleY, newX - bubbleX);
-                            const moveX = Math.cos(angle) * 10;
-                            const moveY = Math.sin(angle) * 10;
-
-                            bubble.style.left = `${bubbleX + moveX}px`;
-                            bubble.style.top = `${bubbleY + moveY}px`;
-                        }
-                    }
-                }
-            });
-        }
-
-        // Función para buscar y resaltar coincidencias
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const allBubbles = document.querySelectorAll('.bubble');
-
-            allBubbles.forEach(bubble => {
-                const memory = JSON.parse(bubble.dataset.memory);
-                const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-                if (searchTerm === '') {
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                    return;
-                }
-
-                const matches = searchTerm.split(' ').filter(term => term.length > 0);
-                let matchCount = 0;
-
-                matches.forEach(term => {
-                    if (memoryText.includes(term)) {
-                        matchCount++;
-                    }
-                });
-
-                if (matchCount > 0) {
-                    const borderWidth = 1 + (matchCount * 1.5); // Aumentar grosor según coincidencias
-                    const borderColorIntensity = Math.min(1, 0.3 + (matchCount * 0.1)); // Aumentar intensidad del color
-                    bubble.style.borderWidth = `${borderWidth}px`;
-                    bubble.style.borderColor = `rgba(147, 112, 219, ${borderColorIntensity})`;
-                } else {
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-```
-
-### guardar
-<small>Creado: 2026-04-16 17:39</small>
-
-`008-guardar.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --highlight-color: #ffeb3b; /* Amarillo visible */
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow: hidden;
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-            z-index: 10;
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .search-container {
-            margin-bottom: 20px;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-            transform-origin: center center;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px var(--shadow-color);
-            z-index: 100;
-        }
-
-        .bubble.highlight {
-            border-color: var(--highlight-color);
-            border-width: 3px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 20px;
-            border-radius: 12px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .close-button:hover {
-            color: var(--text-color);
-        }
-
-        .modal-body {
-            margin-bottom: 15px;
-        }
-
-        .modal-body p {
-            margin: 8px 0;
-        }
-
-        .modal-body strong {
-            color: var(--primary-color);
-        }
-
-        /* Líneas entre burbujas */
-        .connection-line {
-            position: absolute;
-            background-color: rgba(147, 112, 219, 0.5);
-            height: 2px;
-            transform-origin: 0 0;
-            z-index: -1;
-            pointer-events: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-
-        <div class="search-container">
-            <label for="search">Buscar en recuerdos:</label>
-            <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-        </div>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <!-- Modal -->
-    <div id="memoryModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Detalles del Recuerdo</h3>
-                <button class="close-button" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalContent">
-                <!-- El contenido del recuerdo se mostrará aquí -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Variables para el drag-pan y zoom
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
-        let scale = 1;
-        const stage = document.getElementById('stage');
-
-        // Función para aplicar transformaciones al escenario
-        function applyTransform() {
-            stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
-
-        // Eventos para arrastrar el escenario
-        stage.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            stage.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            applyTransform();
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            stage.style.cursor = 'grab';
-        });
-
-        // Evento para zoom con la rueda del ratón
-        stage.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? 0.9 : 1.1;
-            const rect = stage.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-
-            // Ajustar el zoom centrado en el cursor
-            const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-            const scaleFactor = newScale / scale;
-
-            translateX = mouseX - (mouseX - translateX) * scaleFactor;
-            translateY = mouseY - (mouseY - translateY) * scaleFactor;
-            scale = newScale;
-
-            applyTransform();
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const searchInput = document.getElementById('search');
-        const modal = document.getElementById('memoryModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModal = document.getElementById('closeModal');
-
-        // Cargar recuerdos al iniciar
-        document.addEventListener('DOMContentLoaded', loadMemories);
-
-        function loadMemories() {
-            fetch('save_memories.php')
-                .then(response => response.json())
-                .then(memories => {
-                    memories.forEach(memory => {
-                        createBubble(memory);
-                    });
-                    updateConnections();
-                })
-                .catch(error => console.error('Error al cargar recuerdos:', error));
-        }
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            // Guardar el recuerdo en el servidor
-            fetch('save_memories.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(memory),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    createBubble(memory);
-                    memoryForm.reset();
-                    updateConnections();
-                }
-            })
-            .catch(error => console.error('Error al guardar el recuerdo:', error));
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 100);
-            const y = Math.random() * (stage.offsetHeight - 100);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Guardar los datos del recuerdo en el elemento
-            bubble.dataset.memory = JSON.stringify(memory);
-            bubble.dataset.id = Date.now(); // ID único para cada burbuja
-
-            // Icono dentro de la burbuja
-            bubble.textContent = '💭';
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Evento para abrir el modal al hacer clic en la burbuja
-            bubble.addEventListener('click', () => {
-                showMemoryModal(memory);
-            });
-
-            return bubble;
-        }
-
-        function showMemoryModal(memory) {
-            modalContent.innerHTML = `
-                <p><strong>Ubicación:</strong> ${memory.ubicacion || 'Sin ubicación'}</p>
-                <p><strong>Momento:</strong> ${memory.momento || 'Sin fecha'}</p>
-                <p><strong>Vista:</strong> ${memory.vista || 'Nada'}</p>
-                <p><strong>Oído:</strong> ${memory.oido || 'Nada'}</p>
-                <p><strong>Sentimos:</strong> ${memory.sentimos || 'Nada'}</p>
-                <p><strong>Olemos:</strong> ${memory.olemos || 'Nada'}</p>
-                <p><strong>Sabor:</strong> ${memory.sabor || 'Nada'}</p>
-                <p><strong>Palpamos:</strong> ${memory.palpamos || 'Nada'}</p>
-                <p><strong>Pensamos:</strong> ${memory.pensamos || 'Nada'}</p>
-            `;
-            modal.style.display = 'flex';
-        }
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Función para buscar y resaltar coincidencias
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const allBubbles = document.querySelectorAll('.bubble');
-
-            allBubbles.forEach(bubble => {
-                const memory = JSON.parse(bubble.dataset.memory);
-                const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-                if (searchTerm === '') {
-                    bubble.classList.remove('highlight');
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                    return;
-                }
-
-                const matches = searchTerm.split(' ').filter(term => term.length > 0);
-                let matchCount = 0;
-
-                matches.forEach(term => {
-                    if (memoryText.includes(term)) {
-                        matchCount++;
-                    }
-                });
-
-                if (matchCount > 0) {
-                    bubble.classList.add('highlight');
-                    const borderWidth = 1 + (matchCount * 1.5);
-                    bubble.style.borderWidth = `${borderWidth}px`;
-                } else {
-                    bubble.classList.remove('highlight');
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                }
-            });
-        });
-
-        // Función para conectar burbujas con líneas
-        function updateConnections() {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const connections = [];
-
-            // Eliminar líneas existentes
-            document.querySelectorAll('.connection-line').forEach(line => line.remove());
-
-            // Comparar cada par de burbujas
-            allBubbles.forEach((bubble1, index1) => {
-                const memory1 = JSON.parse(bubble1.dataset.memory);
-                const keywords1 = [
-                    memory1.vista,
-                    memory1.ubicacion,
-                    memory1.sentimos,
-                    memory1.pensamos
-                ].filter(kw => kw && kw.trim().length > 0);
-
-                allBubbles.forEach((bubble2, index2) => {
-                    if (index1 >= index2) return; // Evitar duplicados
-
-                    const memory2 = JSON.parse(bubble2.dataset.memory);
-                    const keywords2 = [
-                        memory2.vista,
-                        memory2.ubicacion,
-                        memory2.sentimos,
-                        memory2.pensamos
-                    ].filter(kw => kw && kw.trim().length > 0);
-
-                    // Contar palabras clave compartidas
-                    let sharedKeywords = 0;
-                    keywords1.forEach(kw1 => {
-                        if (keywords2.some(kw2 => kw1.toLowerCase() === kw2.toLowerCase())) {
-                            sharedKeywords++;
-                        }
-                    });
-
-                    if (sharedKeywords > 0) {
-                        connections.push({
-                            bubble1,
-                            bubble2,
-                            sharedKeywords,
-                        });
-                    }
-                });
-            });
-
-            // Dibujar líneas entre burbujas conectadas
-            connections.forEach(conn => {
-                const line = document.createElement('div');
-                line.className = 'connection-line';
-
-                const rect1 = conn.bubble1.getBoundingClientRect();
-                const rect2 = conn.bubble2.getBoundingClientRect();
-
-                const x1 = rect1.left + rect1.width / 2;
-                const y1 = rect1.top + rect1.height / 2;
-                const x2 = rect2.left + rect2.width / 2;
-                const y2 = rect2.top + rect2.height / 2;
-
-                const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
-
-                line.style.width = `${length}px`;
-                line.style.left = `${x1}px`;
-                line.style.top = `${y1}px`;
-                line.style.transform = `rotate(${angle}deg)`;
-                line.style.height = `${2 + conn.sharedKeywords * 1.5}px`; // Grosor según palabras compartidas
-                line.style.backgroundColor = `rgba(147, 112, 219, ${0.3 + conn.sharedKeywords * 0.1})`;
-
-                stage.appendChild(line);
-            });
-        }
-    </script>
-</body>
-</html>
-```
-
-### lineas
-<small>Creado: 2026-04-16 17:39</small>
-
-`009-lineas.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memories Recorder</title>
-    <style>
-        :root {
-            --primary-color: #6a5acd;
-            --secondary-color: #9370db;
-            --background-color: #f9f7ff;
-            --bubble-color: #fff;
-            --text-color: #333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --highlight-color: #ffeb3b;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow: hidden;
-        }
-
-        .form-container {
-            width: 350px;
-            padding: 25px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border-radius: 12px;
-            margin: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 40px);
-            z-index: 10;
-        }
-
-        .form-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group textarea,
-        .form-group input[type="text"],
-        .form-group input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: vertical;
-            min-height: 40px;
-        }
-
-        .form-group textarea {
-            min-height: 60px;
-        }
-
-        .record-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .record-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .form-container button[type="submit"] {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button[type="submit"]:hover {
-            background-color: #5a4fbf;
-        }
-
-        .search-container {
-            margin-bottom: 20px;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .stage {
-            flex: 1;
-            position: relative;
-            background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-            border-radius: 12px;
-            margin: 20px;
-            overflow: hidden;
-            cursor: grab;
-            transform-origin: 0 0;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: var(--bubble-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            cursor: pointer;
-            animation: float 8s ease-in-out infinite;
-            border: 1px solid rgba(147, 112, 219, 0.3);
-            transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-            transform-origin: center center;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px var(--shadow-color);
-            z-index: 100;
-        }
-
-        .bubble.highlight {
-            border-color: var(--highlight-color);
-            border-width: 3px;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        .input-with-button {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 20px;
-            border-radius: 12px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-
-        .close-button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .close-button:hover {
-            color: var(--text-color);
-        }
-
-        .modal-body {
-            margin-bottom: 15px;
-        }
-
-        .modal-body p {
-            margin: 8px 0;
-        }
-
-        .modal-body strong {
-            color: var(--primary-color);
-        }
-
-        /* Líneas entre burbujas */
-        .connection-line {
-            position: absolute;
-            background-color: rgba(147, 112, 219, 0.5);
-            height: 2px;
-            transform-origin: 0 0;
-            z-index: -1;
-            pointer-events: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h2>Nuevo Recuerdo</h2>
-        <form id="memoryForm">
-            <div class="form-group">
-                <label for="vista">Vista:</label>
-                <div class="input-with-button">
-                    <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-                    <button type="button" class="record-button" data-target="vista">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="momento">Momento:</label>
-                <input type="date" id="momento">
-            </div>
-
-            <div class="form-group">
-                <label for="oido">Oído:</label>
-                <div class="input-with-button">
-                    <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-                    <button type="button" class="record-button" data-target="oido">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sentimos">Sentimos:</label>
-                <div class="input-with-button">
-                    <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-                    <button type="button" class="record-button" data-target="sentimos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="olemos">Olemos:</label>
-                <div class="input-with-button">
-                    <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-                    <button type="button" class="record-button" data-target="olemos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="sabor">Sabor:</label>
-                <div class="input-with-button">
-                    <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-                    <button type="button" class="record-button" data-target="sabor">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="palpamos">Palpamos:</label>
-                <div class="input-with-button">
-                    <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-                    <button type="button" class="record-button" data-target="palpamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="pensamos">Pensamos:</label>
-                <div class="input-with-button">
-                    <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-                    <button type="button" class="record-button" data-target="pensamos">🎤</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="ubicacion">Ubicación:</label>
-                <div class="input-with-button">
-                    <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-                    <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-                </div>
-            </div>
-
-            <button type="submit">Guardar Recuerdo</button>
-        </form>
-
-        <div class="search-container">
-            <label for="search">Buscar en recuerdos:</label>
-            <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-        </div>
-    </div>
-
-    <div class="stage" id="stage">
-        <!-- Las burbujas de recuerdos aparecerán aquí -->
-    </div>
-
-    <!-- Modal -->
-    <div id="memoryModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Detalles del Recuerdo</h3>
-                <button class="close-button" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalContent">
-                <!-- El contenido del recuerdo se mostrará aquí -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Inicializar reconocimiento de voz
-        let recognition;
-        let currentTarget = null;
-
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'es-ES';
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (currentTarget) {
-                    document.getElementById(currentTarget).value = transcript;
-                }
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Error en grabación:', event.error);
-            };
-        } else {
-            alert('Tu navegador no soporta la grabación de voz.');
-            const recordButtons = document.querySelectorAll('.record-button');
-            recordButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
-
-        // Asignar evento a los botones de grabación
-        const recordButtons = document.querySelectorAll('.record-button');
-        recordButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentTarget = button.getAttribute('data-target');
-                if (recognition) {
-                    recognition.start();
-                    button.textContent = '🛑';
-                    recognition.onend = () => {
-                        button.textContent = '🎤';
-                    };
-                }
-            });
-        });
-
-        // Variables para el drag-pan y zoom
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
-        let scale = 1;
-        const stage = document.getElementById('stage');
-
-        // Función para aplicar transformaciones al escenario
-        function applyTransform() {
-            stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
-
-        // Eventos para arrastrar el escenario
-        stage.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            stage.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            applyTransform();
-            updateConnections(); // Actualizar líneas mientras se arrastra
-        });
-
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-            stage.style.cursor = 'grab';
-        });
-
-        // Evento para zoom con la rueda del ratón
-        stage.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? 0.9 : 1.1;
-            const rect = stage.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-
-            // Ajustar el zoom centrado en el cursor
-            const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-            const scaleFactor = newScale / scale;
-
-            translateX = mouseX - (mouseX - translateX) * scaleFactor;
-            translateY = mouseY - (mouseY - translateY) * scaleFactor;
-            scale = newScale;
-
-            applyTransform();
-            updateConnections(); // Actualizar líneas después del zoom
-        });
-
-        // Crear burbujas de recuerdos
-        const memoryForm = document.getElementById('memoryForm');
-        const searchInput = document.getElementById('search');
-        const modal = document.getElementById('memoryModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModal = document.getElementById('closeModal');
-
-        // Cargar recuerdos al iniciar
-        document.addEventListener('DOMContentLoaded', loadMemories);
-
-        function loadMemories() {
-            fetch('save_memories.php')
-                .then(response => response.json())
-                .then(memories => {
-                    memories.forEach(memory => {
-                        createBubble(memory);
-                    });
-                    updateConnections();
-                })
-                .catch(error => console.error('Error al cargar recuerdos:', error));
-        }
-
-        memoryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const memory = {
-                vista: document.getElementById('vista').value,
-                momento: document.getElementById('momento').value,
-                oido: document.getElementById('oido').value,
-                sentimos: document.getElementById('sentimos').value,
-                olemos: document.getElementById('olemos').value,
-                sabor: document.getElementById('sabor').value,
-                palpamos: document.getElementById('palpamos').value,
-                pensamos: document.getElementById('pensamos').value,
-                ubicacion: document.getElementById('ubicacion').value,
-            };
-
-            // Guardar el recuerdo en el servidor
-            fetch('save_memories.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(memory),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    createBubble(memory);
-                    memoryForm.reset();
-                    updateConnections();
-                }
-            })
-            .catch(error => console.error('Error al guardar el recuerdo:', error));
-        });
-
-        function createBubble(memory) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-
-            // Posición aleatoria en el escenario
-            const x = Math.random() * (stage.offsetWidth - 100);
-            const y = Math.random() * (stage.offsetHeight - 100);
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-
-            // Guardar los datos del recuerdo en el elemento
-            bubble.dataset.memory = JSON.stringify(memory);
-            bubble.dataset.id = Date.now(); // ID único para cada burbuja
-
-            // Icono dentro de la burbuja
-            bubble.textContent = '💭';
-
-            // Agregar al escenario
-            stage.appendChild(bubble);
-
-            // Evento para abrir el modal al hacer clic en la burbuja
-            bubble.addEventListener('click', () => {
-                showMemoryModal(memory);
-            });
-
-            return bubble;
-        }
-
-        function showMemoryModal(memory) {
-            modalContent.innerHTML = `
-                <p><strong>Ubicación:</strong> ${memory.ubicacion || 'Sin ubicación'}</p>
-                <p><strong>Momento:</strong> ${memory.momento || 'Sin fecha'}</p>
-                <p><strong>Vista:</strong> ${memory.vista || 'Nada'}</p>
-                <p><strong>Oído:</strong> ${memory.oido || 'Nada'}</p>
-                <p><strong>Sentimos:</strong> ${memory.sentimos || 'Nada'}</p>
-                <p><strong>Olemos:</strong> ${memory.olemos || 'Nada'}</p>
-                <p><strong>Sabor:</strong> ${memory.sabor || 'Nada'}</p>
-                <p><strong>Palpamos:</strong> ${memory.palpamos || 'Nada'}</p>
-                <p><strong>Pensamos:</strong> ${memory.pensamos || 'Nada'}</p>
-            `;
-            modal.style.display = 'flex';
-        }
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Función para buscar y resaltar coincidencias
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const allBubbles = document.querySelectorAll('.bubble');
-
-            allBubbles.forEach(bubble => {
-                const memory = JSON.parse(bubble.dataset.memory);
-                const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-                if (searchTerm === '') {
-                    bubble.classList.remove('highlight');
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                    return;
-                }
-
-                const matches = searchTerm.split(' ').filter(term => term.length > 0);
-                let matchCount = 0;
-
-                matches.forEach(term => {
-                    if (memoryText.includes(term)) {
-                        matchCount++;
-                    }
-                });
-
-                if (matchCount > 0) {
-                    bubble.classList.add('highlight');
-                    const borderWidth = 1 + (matchCount * 1.5);
-                    bubble.style.borderWidth = `${borderWidth}px`;
-                } else {
-                    bubble.classList.remove('highlight');
-                    bubble.style.borderWidth = '1px';
-                    bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-                }
-            });
-        });
-
-        // Función para conectar burbujas con líneas
-        function updateConnections() {
-            const allBubbles = document.querySelectorAll('.bubble');
-            const connections = [];
-
-            // Eliminar líneas existentes
-            document.querySelectorAll('.connection-line').forEach(line => line.remove());
-
-            // Comparar cada par de burbujas
-            allBubbles.forEach((bubble1, index1) => {
-                const memory1 = JSON.parse(bubble1.dataset.memory);
-                const keywords1 = [
-                    memory1.vista,
-                    memory1.ubicacion,
-                    memory1.sentimos,
-                    memory1.pensamos
-                ].filter(kw => kw && kw.trim().length > 0).map(kw => kw.toLowerCase());
-
-                allBubbles.forEach((bubble2, index2) => {
-                    if (index1 >= index2) return; // Evitar duplicados
-
-                    const memory2 = JSON.parse(bubble2.dataset.memory);
-                    const keywords2 = [
-                        memory2.vista,
-                        memory2.ubicacion,
-                        memory2.sentimos,
-                        memory2.pensamos
-                    ].filter(kw => kw && kw.trim().length > 0).map(kw => kw.toLowerCase());
-
-                    // Contar palabras clave compartidas
-                    let sharedKeywords = 0;
-                    keywords1.forEach(kw1 => {
-                        if (keywords2.includes(kw1)) {
-                            sharedKeywords++;
-                        }
-                    });
-
-                    if (sharedKeywords > 0) {
-                        connections.push({
-                            bubble1,
-                            bubble2,
-                            sharedKeywords,
-                        });
-                    }
-                });
-            });
-
-            // Dibujar líneas entre burbujas conectadas
-            connections.forEach(conn => {
-                const line = document.createElement('div');
-                line.className = 'connection-line';
-
-                // Obtener posiciones de las burbujas (relativas al escenario)
-                const rect1 = conn.bubble1.getBoundingClientRect();
-                const rect2 = conn.bubble2.getBoundingClientRect();
-                const stageRect = stage.getBoundingClientRect();
-
-                // Posiciones relativas al escenario
-                const x1 = rect1.left - stageRect.left + rect1.width / 2;
-                const y1 = rect1.top - stageRect.top + rect1.height / 2;
-                const x2 = rect2.left - stageRect.left + rect2.width / 2;
-                const y2 = rect2.top - stageRect.top + rect2.height / 2;
-
-                // Calcular longitud y ángulo de la línea
-                const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
-
-                // Estilo de la línea
-                line.style.width = `${length}px`;
-                line.style.left = `${x1}px`;
-                line.style.top = `${y1}px`;
-                line.style.transform = `rotate(${angle}deg)`;
-                line.style.height = `${2 + conn.sharedKeywords * 1.5}px`;
-                line.style.backgroundColor = `rgba(147, 112, 219, ${0.3 + conn.sharedKeywords * 0.1})`;
-
-                stage.appendChild(line);
-            });
-        }
-    </script>
-</body>
-</html>
-```
-
-### lineas mas
-<small>Creado: 2026-04-16 17:39</small>
-
-`010-lineas mas.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memories Recorder</title>
-  <style>
-    :root {
-      --primary-color: #6a5acd;
-      --secondary-color: #9370db;
-      --background-color: #f9f7ff;
-      --bubble-color: #fff;
-      --text-color: #333;
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      --highlight-color: #ffeb3b;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      height: 100vh;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      overflow: hidden;
-    }
-
-    .form-container {
-      width: 350px;
-      padding: 25px;
-      background-color: white;
-      box-shadow: 0 4px 15px var(--shadow-color);
-      border-radius: 12px;
-      margin: 20px;
-      overflow-y: auto;
-      max-height: calc(100vh - 40px);
-      z-index: 10;
-    }
-
-    .form-container h2 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      font-size: 24px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-      box-sizing: border-box;
-      resize: vertical;
-      min-height: 40px;
-    }
-
-    .form-group textarea {
-      min-height: 60px;
-    }
-
-    .record-button {
-      background-color: var(--secondary-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
-      transition: background-color 0.3s;
-    }
-
-    .record-button:hover {
-      background-color: var(--primary-color);
-    }
-
-    .form-container button[type="submit"] {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      margin-top: 10px;
-      transition: background-color 0.3s;
-    }
-
-    .form-container button[type="submit"]:hover {
-      background-color: #5a4fbf;
-    }
-
-    .search-container {
-      margin-bottom: 20px;
-    }
-
-    .search-container input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .stage {
-      flex: 1;
-      position: relative;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      border-radius: 12px;
-      margin: 20px;
-      overflow: hidden;
-      cursor: grab;
-      transform-origin: 0 0;
-    }
-
-    .bubble {
-      position: absolute;
-      z-index: 2; /* Burbujas por encima de las líneas */
-      background-color: var(--bubble-color);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      box-shadow: 0 4px 10px var(--shadow-color);
-      cursor: pointer;
-      animation: float 8s ease-in-out infinite;
-      border: 1px solid rgba(147, 112, 219, 0.3);
-      transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-      transform-origin: center center;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-    }
-
-    .bubble:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px var(--shadow-color);
-      z-index: 100;
-    }
-
-    .bubble.highlight {
-      border-color: var(--highlight-color);
-      border-width: 3px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    .input-with-button {
-      display: flex;
-      align-items: center;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      overflow: auto;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: auto;
-      padding: 20px;
-      border-radius: 12px;
-      width: 80%;
-      max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .modal-header h3 {
-      margin: 0;
-      color: var(--primary-color);
-    }
-
-    .close-button {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #aaa;
-    }
-
-    .close-button:hover {
-      color: var(--text-color);
-    }
-
-    .modal-body { margin-bottom: 15px; }
-    .modal-body p { margin: 8px 0; }
-    .modal-body strong { color: var(--primary-color); }
-
-    /* Líneas entre burbujas */
-    .connection-line {
-      position: absolute;
-      z-index: 1; /* detrás de burbujas pero visible */
-      pointer-events: none;
-      transform-origin: 0 0;
-      background-color: rgba(147, 112, 219, 0.5);
-      height: 2px;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-    </div>
-  </div>
-
-  <div class="stage" id="stage"></div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voz (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) {
-          document.getElementById(currentTarget).value = transcript;
-        }
-      };
-
-      recognition.onerror = (event) => {
-        console.error('Error en grabación:', event.error);
-      };
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Pan/Zoom del stage
-    // ----------------------------
-    let isDragging = false;
-    let startX, startY;
-    let translateX = 0, translateY = 0;
-    let scale = 1;
-    const stage = document.getElementById('stage');
-
-    function applyTransform() {
-      stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-    }
-
-    stage.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX - translateX;
-      startY = e.clientY - translateY;
-      stage.style.cursor = 'grabbing';
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      translateX = e.clientX - startX;
-      translateY = e.clientY - startY;
-      applyTransform();
-      // NO hace falta updateConnections aquí: líneas y burbujas se transforman juntas
-    });
-
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-      stage.style.cursor = 'grab';
-    });
-
-    stage.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      const delta = e.deltaY > 0 ? 0.9 : 1.1;
-      const rect = stage.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-      const scaleFactor = newScale / scale;
-
-      translateX = mouseX - (mouseX - translateX) * scaleFactor;
-      translateY = mouseY - (mouseY - translateY) * scaleFactor;
-      scale = newScale;
-
-      applyTransform();
-      // NO hace falta updateConnections aquí
-    });
-
-    // ----------------------------
-    // Memorias + UI
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-    const searchInput = document.getElementById('search');
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    document.addEventListener('DOMContentLoaded', loadMemories);
-
-    function loadMemories() {
-      fetch('save_memories.php')
-        .then(r => r.json())
-        .then(memories => {
-          memories.forEach(memory => createBubble(memory));
-          updateConnections();
-        })
-        .catch(err => console.error('Error al cargar recuerdos:', err));
-    }
-
-    memoryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value,
-      };
-
-      fetch('save_memories.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(memory),
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) {
-          createBubble(memory);
-          memoryForm.reset();
-          updateConnections();
-        }
-      })
-      .catch(err => console.error('Error al guardar el recuerdo:', err));
-    });
-
-    function createBubble(memory) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-
-      const x = Math.random() * (stage.offsetWidth - 100);
-      const y = Math.random() * (stage.offsetHeight - 100);
-      bubble.style.left = `${x}px`;
-      bubble.style.top  = `${y}px`;
-
-      bubble.dataset.memory = JSON.stringify(memory);
-      bubble.dataset.id = Date.now() + "-" + Math.random().toString(16).slice(2);
-
-      bubble.textContent = '💭';
-      stage.appendChild(bubble);
-
-      bubble.addEventListener('click', () => showMemoryModal(memory));
-      return bubble;
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    // ----------------------------
-    // Búsqueda y resaltado
-    // ----------------------------
-    searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      const allBubbles = document.querySelectorAll('.bubble');
-
-      allBubbles.forEach(bubble => {
-        const memory = JSON.parse(bubble.dataset.memory);
-        const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-        if (searchTerm === '') {
-          bubble.classList.remove('highlight');
-          bubble.style.borderWidth = '1px';
-          bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-          return;
-        }
-
-        const matches = searchTerm.split(' ').filter(t => t.length > 0);
-        let matchCount = 0;
-
-        matches.forEach(term => {
-          if (memoryText.includes(term)) matchCount++;
-        });
-
-        if (matchCount > 0) {
-          bubble.classList.add('highlight');
-          const borderWidth = 1 + (matchCount * 1.5);
-          bubble.style.borderWidth = `${borderWidth}px`;
-        } else {
-          bubble.classList.remove('highlight');
-          bubble.style.borderWidth = '1px';
-          bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-        }
-      });
-    });
-
-    // ----------------------------
-    // Conexiones (FIX)
-    // - Coordenadas locales (offsetLeft/Top)
-    // - Coincidencia por palabras (tokenización)
-    // ----------------------------
-    function tokenize(text) {
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quitar acentos
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")               // puntuación -> espacio
-        .split(/\s+/)
-        .filter(w => w.length >= 3);                      // filtrar palabras cortas
-    }
-
-    function memoryTokens(memory) {
-      const fields = [
-        memory.vista, memory.ubicacion, memory.sentimos, memory.pensamos,
-        memory.oido, memory.olemos, memory.sabor, memory.palpamos
-      ];
-      const set = new Set();
-      fields.forEach(t => tokenize(t).forEach(w => set.add(w)));
-      return set;
-    }
-
-    function updateConnections() {
-      const allBubbles = Array.from(document.querySelectorAll('.bubble'));
-
-      // eliminar líneas existentes
-      document.querySelectorAll('.connection-line').forEach(line => line.remove());
-
-      // precalcular tokens
-      const tokensByBubble = new Map();
-      allBubbles.forEach(b => {
-        tokensByBubble.set(b, memoryTokens(JSON.parse(b.dataset.memory)));
-      });
-
-      for (let i = 0; i < allBubbles.length; i++) {
-        for (let j = i + 1; j < allBubbles.length; j++) {
-          const b1 = allBubbles[i];
-          const b2 = allBubbles[j];
-
-          const s1 = tokensByBubble.get(b1);
-          const s2 = tokensByBubble.get(b2);
-
-          let shared = 0;
-          for (const w of s1) if (s2.has(w)) shared++;
-
-          if (shared > 0) {
-            const line = document.createElement('div');
-            line.className = 'connection-line';
-
-            // coordenadas locales del stage
-            const x1 = b1.offsetLeft + b1.offsetWidth / 2;
-            const y1 = b1.offsetTop  + b1.offsetHeight / 2;
-            const x2 = b2.offsetLeft + b2.offsetWidth / 2;
-            const y2 = b2.offsetTop  + b2.offsetHeight / 2;
-
-            const dx = x2 - x1;
-            const dy = y2 - y1;
-
-            const length = Math.hypot(dx, dy);
-            const angle  = Math.atan2(dy, dx) * (180 / Math.PI);
-
-            line.style.width = `${length}px`;
-            line.style.left  = `${x1}px`;
-            line.style.top   = `${y1}px`;
-            line.style.transform = `rotate(${angle}deg)`;
-
-            // grosor/opacidad según nº de palabras compartidas
-            line.style.height = `${Math.min(10, 2 + shared * 1.5)}px`;
-            line.style.opacity = `${Math.min(1, 0.25 + shared * 0.08)}`;
-
-            stage.appendChild(line);
-          }
-        }
-      }
-    }
-  </script>
-</body>
-</html>
-```
-
-### memories
-<small>Creado: 2026-04-16 17:39</small>
-
-`memories.json`
-
-```json
-[
-    {
-        "vista": "estaba conduciendo en el coche en una carretera y era de d\u00eda",
-        "momento": "",
-        "oido": "",
-        "sentimos": "",
-        "olemos": "",
-        "sabor": "",
-        "palpamos": "c\u00f3mo estamos en diciembre y es casi invierno hac\u00eda fr\u00edo que entraba por la ventana",
-        "pensamos": "estaba pensando que no quer\u00eda llegar tarde a clase",
-        "ubicacion": "estaba en una carretera cerca de Valencia"
-    },
-    {
-        "vista": "ayer por la noche iba conduciendo con el coche por la carretera",
-        "momento": "",
-        "oido": "",
-        "sentimos": "",
-        "olemos": "",
-        "sabor": "",
-        "palpamos": "",
-        "pensamos": "estaba pensando que no hab\u00eda llovido mucho",
-        "ubicacion": "estaba en Valencia"
-    },
-    {
-        "vista": "estoy ahora mismo dando una clase",
-        "momento": "",
-        "oido": "",
-        "sentimos": "",
-        "olemos": "",
-        "sabor": "",
-        "palpamos": "aqu\u00ed hace calor",
-        "pensamos": "estoy pensando que este ejercicio quiero que quede bien",
-        "ubicacion": "estoy en Mislata"
-    },
-    {
-        "vista": "un d\u00eda iba en la bici y me gir\u00e9 para mirar un coche y me hice una contractura en el cuello",
-        "momento": "",
-        "oido": "",
-        "sentimos": "sent\u00ed mucho dolor",
-        "olemos": "",
-        "sabor": "",
-        "palpamos": "era un d\u00eda de primavera y hac\u00eda calor",
-        "pensamos": "pens\u00e9 que desconozco el motivo por el cual me hago una contractura cada a\u00f1o",
-        "ubicacion": "estaba en el antiguo cauce del r\u00edo de Valencia"
-    }
-]
-```
-
-### save_memories
-<small>Creado: 2026-04-16 17:39</small>
-
-`save_memories.php`
-
-```
-<?php
-header('Content-Type: application/json');
-
-// Ruta al archivo JSON donde se guardarán los recuerdos
-$file = 'memories.json';
-
-// Obtener los datos enviados
-$data = json_decode(file_get_contents('php://input'), true);
-
-// Si es una solicitud POST, guardar los datos
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $memories = [];
-    if (file_exists($file)) {
-        $memories = json_decode(file_get_contents($file), true);
-    }
-    $memories[] = $data;
-    file_put_contents($file, json_encode($memories, JSON_PRETTY_PRINT));
-    echo json_encode(['success' => true]);
-    exit;
-}
-
-// Si es una solicitud GET, devolver los recuerdos guardados
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (file_exists($file)) {
-        echo file_get_contents($file);
-    } else {
-        echo json_encode([]);
-    }
-    exit;
-}
-?>
-```
-
+En conclusión, las colecciones y documentos son elementos esenciales en el acceso a datos mediante bases de datos documentales. Su diseño flexible y su capacidad para representar información compleja hacen que sean una herramienta poderosa y versátil para el almacenamiento y análisis de grandes volúmenes de datos. A través del estudio de estas estructuras, los desarrolladores pueden adquirir las habilidades necesarias para trabajar eficazmente con bases de datos documentales en sus proyectos informáticos.
 
 <a id="creacion-y-borrado-de-colecciones"></a>
 ## Creación y borrado de colecciones
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/004-Creaci%C3%B3n%20y%20borrado%20de%20colecciones)
+En el vasto universo de la programación y la gestión de datos, una colección es un concepto fundamental que desempeña un papel crucial. Una colección puede ser entendida como un contenedor que agrupa varios elementos relacionados entre sí, facilitando su acceso, manipulación y almacenamiento. En el contexto específico de las bases de datos documentales, la creación y borrado de colecciones son operaciones esenciales que permiten estructurar y organizar los datos de manera eficiente.
 
-### estado inicial
-<small>Creado: 2026-04-16 17:39</small>
+La creación de una colección en una base de datos documental implica la definición de un espacio donde se almacenarán documentos. Cada documento puede tener una estructura diferente, pero todos comparten el mismo contenedor. Esta operación es similar a crear una carpeta en un sistema de archivos tradicional, donde puedes organizar y almacenar diversos tipos de archivos.
 
-`001-estado inicial.html`
+El proceso de creación de una colección generalmente implica la especificación de su nombre y, posiblemente, algunas propiedades adicionales que definen cómo se manejarán los documentos dentro de ella. Por ejemplo, se pueden establecer restricciones sobre el formato o el contenido de los documentos permitidos en la colección.
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memories Recorder</title>
-  <style>
-    :root {
-      --primary-color: #6a5acd;
-      --secondary-color: #9370db;
-      --background-color: #f9f7ff;
-      --bubble-color: #fff;
-      --text-color: #333;
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      --highlight-color: #ffeb3b;
-    }
+El borrado de una colección es otro aspecto fundamental del manejo de datos en bases de datos documentales. Este proceso implica eliminar completamente un contenedor y todos los documentos que contiene. Es importante tener cuidado con esta operación, ya que no hay deshacer disponible para recuperar los datos eliminados.
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      height: 100vh;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      overflow: hidden;
-    }
+La creación y borrado de colecciones son operaciones que se realizan a menudo durante el desarrollo y mantenimiento de aplicaciones basadas en bases de datos documentales. Estas operaciones permiten adaptar la estructura del sistema a las necesidades cambiantes de los usuarios, facilitando la actualización y evolución del software.
 
-    .form-container {
-      width: 350px;
-      padding: 25px;
-      background-color: white;
-      box-shadow: 0 4px 15px var(--shadow-color);
-      border-radius: 12px;
-      margin: 20px;
-      overflow-y: auto;
-      max-height: calc(100vh - 40px);
-      z-index: 10;
-    }
+Además de estas operaciones básicas, las bases de datos documentales ofrecen una serie de herramientas y métodos para gestionar colecciones. Por ejemplo, es posible crear índices en las colecciones para mejorar el rendimiento de las consultas, o bien utilizar funciones específicas para migrar documentos entre colecciones.
 
-    .form-container h2 {
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      font-size: 24px;
-      text-align: center;
-    }
+La creación y borrado de colecciones son operaciones que requieren un enfoque cuidadoso y planificado. Es importante considerar la estructura general del sistema, los requisitos de acceso a los datos y las necesidades futuras al momento de definir el diseño inicial de las colecciones.
 
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-      box-sizing: border-box;
-      resize: vertical;
-      min-height: 40px;
-    }
-
-    .form-group textarea {
-      min-height: 60px;
-    }
-
-    .record-button {
-      background-color: var(--secondary-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
-      transition: background-color 0.3s;
-    }
-
-    .record-button:hover {
-      background-color: var(--primary-color);
-    }
-
-    .form-container button[type="submit"] {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      margin-top: 10px;
-      transition: background-color 0.3s;
-    }
-
-    .form-container button[type="submit"]:hover {
-      background-color: #5a4fbf;
-    }
-
-    .search-container {
-      margin-bottom: 20px;
-    }
-
-    .search-container input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .stage {
-      flex: 1;
-      position: relative;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      border-radius: 12px;
-      margin: 20px;
-      overflow: hidden;
-      cursor: grab;
-      transform-origin: 0 0;
-    }
-
-    .bubble {
-      position: absolute;
-      z-index: 2; /* Burbujas por encima de las líneas */
-      background-color: var(--bubble-color);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      box-shadow: 0 4px 10px var(--shadow-color);
-      cursor: pointer;
-      animation: float 8s ease-in-out infinite;
-      border: 1px solid rgba(147, 112, 219, 0.3);
-      transition: transform 0.3s, border-width 0.3s, border-color 0.3s;
-      transform-origin: center center;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-    }
-
-    .bubble:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px var(--shadow-color);
-      z-index: 100;
-    }
-
-    .bubble.highlight {
-      border-color: var(--highlight-color);
-      border-width: 3px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    .input-with-button {
-      display: flex;
-      align-items: center;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      overflow: auto;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: auto;
-      padding: 20px;
-      border-radius: 12px;
-      width: 80%;
-      max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .modal-header h3 {
-      margin: 0;
-      color: var(--primary-color);
-    }
-
-    .close-button {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #aaa;
-    }
-
-    .close-button:hover {
-      color: var(--text-color);
-    }
-
-    .modal-body { margin-bottom: 15px; }
-    .modal-body p { margin: 8px 0; }
-    .modal-body strong { color: var(--primary-color); }
-
-    /* Líneas entre burbujas */
-    .connection-line {
-      position: absolute;
-      z-index: 1; /* detrás de burbujas pero visible */
-      pointer-events: none;
-      transform-origin: 0 0;
-      background-color: rgba(147, 112, 219, 0.5);
-      height: 2px;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-    </div>
-  </div>
-
-  <div class="stage" id="stage"></div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voz (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) {
-          document.getElementById(currentTarget).value = transcript;
-        }
-      };
-
-      recognition.onerror = (event) => {
-        console.error('Error en grabación:', event.error);
-      };
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Pan/Zoom del stage
-    // ----------------------------
-    let isDragging = false;
-    let startX, startY;
-    let translateX = 0, translateY = 0;
-    let scale = 1;
-    const stage = document.getElementById('stage');
-
-    function applyTransform() {
-      stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-    }
-
-    stage.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX - translateX;
-      startY = e.clientY - translateY;
-      stage.style.cursor = 'grabbing';
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      translateX = e.clientX - startX;
-      translateY = e.clientY - startY;
-      applyTransform();
-      // NO hace falta updateConnections aquí: líneas y burbujas se transforman juntas
-    });
-
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-      stage.style.cursor = 'grab';
-    });
-
-    stage.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      const delta = e.deltaY > 0 ? 0.9 : 1.1;
-      const rect = stage.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const newScale = Math.min(Math.max(scale * delta, 0.5), 2);
-      const scaleFactor = newScale / scale;
-
-      translateX = mouseX - (mouseX - translateX) * scaleFactor;
-      translateY = mouseY - (mouseY - translateY) * scaleFactor;
-      scale = newScale;
-
-      applyTransform();
-      // NO hace falta updateConnections aquí
-    });
-
-    // ----------------------------
-    // Memorias + UI
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-    const searchInput = document.getElementById('search');
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    document.addEventListener('DOMContentLoaded', loadMemories);
-
-    function loadMemories() {
-      fetch('save_memories.php')
-        .then(r => r.json())
-        .then(memories => {
-          memories.forEach(memory => createBubble(memory));
-          updateConnections();
-        })
-        .catch(err => console.error('Error al cargar recuerdos:', err));
-    }
-
-    memoryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value,
-      };
-
-      fetch('save_memories.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(memory),
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) {
-          createBubble(memory);
-          memoryForm.reset();
-          updateConnections();
-        }
-      })
-      .catch(err => console.error('Error al guardar el recuerdo:', err));
-    });
-
-    function createBubble(memory) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-
-      const x = Math.random() * (stage.offsetWidth - 100);
-      const y = Math.random() * (stage.offsetHeight - 100);
-      bubble.style.left = `${x}px`;
-      bubble.style.top  = `${y}px`;
-
-      bubble.dataset.memory = JSON.stringify(memory);
-      bubble.dataset.id = Date.now() + "-" + Math.random().toString(16).slice(2);
-
-      bubble.textContent = '💭';
-      stage.appendChild(bubble);
-
-      bubble.addEventListener('click', () => showMemoryModal(memory));
-      return bubble;
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    // ----------------------------
-    // Búsqueda y resaltado
-    // ----------------------------
-    searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      const allBubbles = document.querySelectorAll('.bubble');
-
-      allBubbles.forEach(bubble => {
-        const memory = JSON.parse(bubble.dataset.memory);
-        const memoryText = Object.values(memory).join(' ').toLowerCase();
-
-        if (searchTerm === '') {
-          bubble.classList.remove('highlight');
-          bubble.style.borderWidth = '1px';
-          bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-          return;
-        }
-
-        const matches = searchTerm.split(' ').filter(t => t.length > 0);
-        let matchCount = 0;
-
-        matches.forEach(term => {
-          if (memoryText.includes(term)) matchCount++;
-        });
-
-        if (matchCount > 0) {
-          bubble.classList.add('highlight');
-          const borderWidth = 1 + (matchCount * 1.5);
-          bubble.style.borderWidth = `${borderWidth}px`;
-        } else {
-          bubble.classList.remove('highlight');
-          bubble.style.borderWidth = '1px';
-          bubble.style.borderColor = 'rgba(147, 112, 219, 0.3)';
-        }
-      });
-    });
-
-    // ----------------------------
-    // Conexiones (FIX)
-    // - Coordenadas locales (offsetLeft/Top)
-    // - Coincidencia por palabras (tokenización)
-    // ----------------------------
-    function tokenize(text) {
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quitar acentos
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")               // puntuación -> espacio
-        .split(/\s+/)
-        .filter(w => w.length >= 3);                      // filtrar palabras cortas
-    }
-
-    function memoryTokens(memory) {
-      const fields = [
-        memory.vista, memory.ubicacion, memory.sentimos, memory.pensamos,
-        memory.oido, memory.olemos, memory.sabor, memory.palpamos
-      ];
-      const set = new Set();
-      fields.forEach(t => tokenize(t).forEach(w => set.add(w)));
-      return set;
-    }
-
-    function updateConnections() {
-      const allBubbles = Array.from(document.querySelectorAll('.bubble'));
-
-      // eliminar líneas existentes
-      document.querySelectorAll('.connection-line').forEach(line => line.remove());
-
-      // precalcular tokens
-      const tokensByBubble = new Map();
-      allBubbles.forEach(b => {
-        tokensByBubble.set(b, memoryTokens(JSON.parse(b.dataset.memory)));
-      });
-
-      for (let i = 0; i < allBubbles.length; i++) {
-        for (let j = i + 1; j < allBubbles.length; j++) {
-          const b1 = allBubbles[i];
-          const b2 = allBubbles[j];
-
-          const s1 = tokensByBubble.get(b1);
-          const s2 = tokensByBubble.get(b2);
-
-          let shared = 0;
-          for (const w of s1) if (s2.has(w)) shared++;
-
-          if (shared > 0) {
-            const line = document.createElement('div');
-            line.className = 'connection-line';
-
-            // coordenadas locales del stage
-            const x1 = b1.offsetLeft + b1.offsetWidth / 2;
-            const y1 = b1.offsetTop  + b1.offsetHeight / 2;
-            const x2 = b2.offsetLeft + b2.offsetWidth / 2;
-            const y2 = b2.offsetTop  + b2.offsetHeight / 2;
-
-            const dx = x2 - x1;
-            const dy = y2 - y1;
-
-            const length = Math.hypot(dx, dy);
-            const angle  = Math.atan2(dy, dx) * (180 / Math.PI);
-
-            line.style.width = `${length}px`;
-            line.style.left  = `${x1}px`;
-            line.style.top   = `${y1}px`;
-            line.style.transform = `rotate(${angle}deg)`;
-
-            // grosor/opacidad según nº de palabras compartidas
-            line.style.height = `${Math.min(10, 2 + shared * 1.5)}px`;
-            line.style.opacity = `${Math.min(1, 0.25 + shared * 0.08)}`;
-
-            stage.appendChild(line);
-          }
-        }
-      }
-    }
-  </script>
-</body>
-</html>
-```
-
-### fusion de proyectos
-<small>Creado: 2026-04-16 17:39</small>
-
-`002-fusion de proyectos.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.1);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:350px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin-bottom:20px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex: 0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-    }
-
-    /* Controls overlay */
-    #controls{
-      position:absolute;
-      top:10px;
-      right:10px;
-      padding:10px 12px;
-      background:rgba(255,255,255,0.92);
-      border:1px solid #ccc;
-      border-radius:10px;
-      font-size:12px;
-      z-index:20;
-      max-height:calc(100% - 20px);
-      overflow:auto;
-      width:260px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.12);
-    }
-    #controls label{ display:block; margin-bottom:6px; }
-    #controls input[type=range]{ width:160px; }
-    #controls .value{
-      display:inline-block;
-      width:28px;
-      text-align:right;
-      margin-left:6px;
-      font-variant-numeric: tabular-nums;
-    }
-    #controls .row{ margin-top:8px; }
-    #propControls .prop-block{
-      border-top:1px solid #e5e5e5;
-      margin-top:6px;
-      padding-top:6px;
-    }
-    #propControls .prop-title{
-      font-weight:700;
-      margin-bottom:4px;
-      color:var(--primary-color);
-    }
-    #propControls label{
-      display:block;
-      margin:2px 0;
-      color:#444;
-    }
-
-    /* Modal (as you had) */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:520px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para buscar...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <div id="controls">
-      <label>
-        Min thickness
-        <input id="minThickness" type="range" min="1" max="10" value="1">
-        <span id="minThicknessValue" class="value">1</span>
-      </label>
-      <label>
-        Max thickness
-        <input id="maxThickness" type="range" min="1" max="20" value="6">
-        <span id="maxThicknessValue" class="value">6</span>
-      </label>
-
-      <div class="row">
-        <label><input id="chkShowLines" type="checkbox" checked> Show connections</label>
-      </div>
-
-      <div class="row">
-        <div><strong>Properties</strong> (auto from JSON)</div>
-        <div id="propControls"></div>
-      </div>
-    </div>
-
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voz (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal helpers
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    // ----------------------------
-    // Canvas + physics approach
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      // account for devicePixelRatio for sharp lines
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", () => resizeCanvas());
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    function hashString(str){
-      let hash=0;
-      for(let i=0;i<str.length;i++) hash=(hash*31 + str.charCodeAt(i))|0;
-      return Math.abs(hash);
-    }
-
-    // Tokenization (so "Valencia" connects even if not identical sentences)
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function tokensForMemoryByProp(memory, prop){
-      if (!memory || !(prop in memory)) return new Set();
-      const val = memory[prop];
-      if (prop === "momento") {
-        // date: keep exact match token
-        return new Set(val ? [String(val)] : []);
-      }
-      return new Set(tokenize(String(val || "")));
-    }
-
-    // Controls
-    let minLineThickness = 1;
-    let maxLineThickness = 6;
-    let showLines = true;
-
-    const minSlider = document.getElementById("minThickness");
-    const maxSlider = document.getElementById("maxThickness");
-    const minValueSpan = document.getElementById("minThicknessValue");
-    const maxValueSpan = document.getElementById("maxThicknessValue");
-    const chkShowLines = document.getElementById("chkShowLines");
-    const propControlsDiv = document.getElementById("propControls");
-
-    minSlider.addEventListener("input", () => {
-      minLineThickness = parseFloat(minSlider.value);
-      minValueSpan.textContent = minSlider.value;
-      if (minLineThickness > maxLineThickness) {
-        maxLineThickness = minLineThickness;
-        maxSlider.value = maxLineThickness;
-        maxValueSpan.textContent = maxLineThickness;
-      }
-    });
-    maxSlider.addEventListener("input", () => {
-      maxLineThickness = parseFloat(maxSlider.value);
-      maxValueSpan.textContent = maxSlider.value;
-      if (maxLineThickness < minLineThickness) {
-        minLineThickness = maxLineThickness;
-        minSlider.value = minLineThickness;
-        minValueSpan.textContent = minLineThickness;
-      }
-    });
-    chkShowLines.addEventListener("change", () => showLines = chkShowLines.checked);
-
-    let propertyKeys = [];
-    let relationProps = {}; // use in relation/physics
-    let showProps = {};     // show in label
-
-    function createPropertyControls(keys){
-      propControlsDiv.innerHTML = "";
-      propertyKeys = keys.slice();
-
-      propertyKeys.forEach(prop => {
-        if (!(prop in relationProps)) relationProps[prop] = true;
-        if (!(prop in showProps))     showProps[prop] = (prop === "ubicacion" || prop === "momento" || prop === "vista"); // sensible default
-
-        const block = document.createElement("div");
-        block.className = "prop-block";
-
-        const title = document.createElement("div");
-        title.className = "prop-title";
-        title.textContent = prop;
-        block.appendChild(title);
-
-        const labelUse = document.createElement("label");
-        const chkUse = document.createElement("input");
-        chkUse.type = "checkbox";
-        chkUse.checked = relationProps[prop];
-        chkUse.addEventListener("change", () => relationProps[prop] = chkUse.checked);
-        labelUse.appendChild(chkUse);
-        labelUse.appendChild(document.createTextNode(" Use in relation"));
-        block.appendChild(labelUse);
-
-        const labelShow = document.createElement("label");
-        const chkShow = document.createElement("input");
-        chkShow.type = "checkbox";
-        chkShow.checked = showProps[prop];
-        chkShow.addEventListener("change", () => showProps[prop] = chkShow.checked);
-        labelShow.appendChild(chkShow);
-        labelShow.appendChild(document.createTextNode(" Show in label"));
-        block.appendChild(labelShow);
-
-        propControlsDiv.appendChild(block);
-      });
-    }
-
-    // Search highlighting
-    const searchInput = document.getElementById('search');
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.toLowerCase().trim();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length > 0) : [];
-    });
-
-    // Particles
-    let particles = [];
-    let memories = [];
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-        this.v = 0.5;
-
-        this.vx = Math.cos(a) * this.v;
-        this.vy = Math.sin(a) * this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        this.radius = 26;
-      }
-
-      matchesSearch(){
-        if (!searchTerms.length) return 0;
-        const text = Object.values(this.data).join(" ").toLowerCase();
-        let count = 0;
-        for (const t of searchTerms) if (text.includes(t)) count++;
-        return count;
-      }
-
-      // compute overlap count using active relation props
-      sharedScore(other){
-        let shared = 0;
-        let anyActive = false;
-
-        for (const prop of propertyKeys){
-          if (!relationProps[prop]) continue;
-          anyActive = true;
-
-          const a = tokensForMemoryByProp(this.data, prop);
-          const b = tokensForMemoryByProp(other.data, prop);
-
-          // date: exact match
-          if (prop === "momento") {
-            if (this.data.momento && this.data.momento === other.data.momento) shared += 3;
-            continue;
-          }
-
-          let local = 0;
-          for (const w of a) if (b.has(w)) local++;
-          shared += local;
-        }
-        return anyActive ? shared : 0;
-      }
-
-      drawLabel(){
-        const visibleProps = propertyKeys.filter(p => showProps[p]);
-        const lines = [];
-
-        for (const p of visibleProps){
-          const v = this.data[p];
-          if (v !== undefined && v !== null && String(v).trim() !== "") {
-            lines.push(String(v));
-          }
-        }
-        if (!lines.length) lines.push("💭");
-
-        // pill size based on line count
-        const lineHeight = 12;
-        const padX = 12;
-        const padY = 8;
-        const maxLines = Math.min(lines.length, 3);
-        const shown = lines.slice(0, maxLines);
-
-        // compute width (rough)
-        ctx.font = "12px sans-serif";
-        let w = 60;
-        shown.forEach((t,i)=>{
-          ctx.font = (i===0 ? "12px sans-serif" : "10px sans-serif");
-          w = Math.max(w, ctx.measureText(t).width + padX*2);
-        });
-        w = Math.min(w, 220);
-
-        const h = maxLines * lineHeight + padY*2;
-        const r = h/2;
-
-        // highlight if search matches
-        const matchCount = this.matchesSearch();
-        const borderW = matchCount ? Math.min(8, 1 + matchCount*1.5) : 1;
-
-        // draw pill
-        ctx.lineWidth = borderW;
-        ctx.fillStyle = "white";
-        ctx.strokeStyle = matchCount ? "#ffeb3b" : "rgba(0,0,0,0.85)";
-
-        const x = this.x, y = this.y;
-        const left = x - w/2, top = y - h/2;
-
-        ctx.beginPath();
-        ctx.moveTo(left + r, top);
-        ctx.lineTo(left + w - r, top);
-        ctx.arc(left + w - r, top + r, r, -Math.PI/2, Math.PI/2);
-        ctx.lineTo(left + r, top + h);
-        ctx.arc(left + r, top + r, r, Math.PI/2, -Math.PI/2);
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-
-        // text
-        ctx.fillStyle = "black";
-        const startY = y - ((maxLines - 1) * lineHeight) / 2;
-        shown.forEach((t,i)=>{
-          ctx.font = (i===0 ? "12px sans-serif" : "10px sans-serif");
-          const clipped = t.length > 34 ? t.slice(0, 34) + "…" : t;
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.fillText(clipped, x, startY + i*lineHeight);
-        });
-
-        // store hitbox size for clicking
-        this._hitW = w;
-        this._hitH = h;
-      }
-
-      drawLines(){
-        if (!showLines) return;
-
-        for (let i=0;i<particles.length;i++){
-          const p = particles[i];
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d > 180) continue;
-
-          const shared = this.sharedScore(p);
-          if (shared <= 0) continue;
-
-          // color by relation key (approx)
-          const key = "shared_" + shared;
-          const h = hashString(key) % 360;
-          const alpha = 0.20 + 0.55 * (1 - d/180);
-          ctx.strokeStyle = `hsla(${h}, 70%, 45%, ${alpha})`;
-
-          const segments = 20;
-          for (let s=0;s<segments;s++){
-            const t1 = s/segments;
-            const t2 = (s+1)/segments;
-
-            const x1 = this.x + (p.x - this.x) * t1;
-            const y1 = this.y + (p.y - this.y) * t1;
-            const x2 = this.x + (p.x - this.x) * t2;
-            const y2 = this.y + (p.y - this.y) * t2;
-
-            const tc = (t1+t2)/2;
-            const factor = 4*(tc-0.5)*(tc-0.5); // thick ends, thin middle
-            const w = minLineThickness + (maxLineThickness - minLineThickness)*factor;
-
-            ctx.lineWidth = w + Math.min(6, shared*0.4);
-            ctx.lineCap = "round";
-            ctx.beginPath();
-            ctx.moveTo(x1,y1);
-            ctx.lineTo(x2,y2);
-            ctx.stroke();
-          }
-        }
-      }
-
-      interactions(){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        const distTarget = 120;
-        const distMin = 70;
-        const distRepelNoMatch = 220;
-
-        const kStrong = 0.0015;
-        const kMedium = 0.0009;
-        const kRepelNoMatchK = 0.001;
-        const kRepelClose = 0.06;
-
-        let fx=0, fy=0;
-
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          // strong close repulsion (avoid overlap)
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          const shared = this.sharedScore(p);
-
-          if (shared >= 4){
-            const delta = d - distTarget;
-            fx += ux * delta * kStrong;
-            fy += uy * delta * kStrong;
-          } else if (shared >= 1){
-            const delta = d - distTarget;
-            fx += ux * delta * kMedium;
-            fy += uy * delta * kMedium;
-          } else {
-            if (d < distRepelNoMatch){
-              const intensity = (distRepelNoMatch - d) * kRepelNoMatchK;
-              fx -= ux * intensity;
-              fy -= uy * intensity;
-            }
-          }
-        }
-
-        const maxForce = 0.05;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(boundsW, boundsH){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const friction = 0.93;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // settle
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-        if (speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        // bounce
-        const rebound = -0.5;
-        const pad = 10;
-        if (this.x > boundsW - pad){ this.x = boundsW - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > boundsH - pad){ this.y = boundsH - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      hitTest(mx,my){
-        const w = this._hitW || 80;
-        const h = this._hitH || 40;
-        return (mx >= this.x - w/2 && mx <= this.x + w/2 && my >= this.y - h/2 && my <= this.y + h/2);
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      // physics
-      for (const p of particles) p.interactions();
-      for (const p of particles) p.move(w,h);
-
-      // draw lines first
-      for (const p of particles) p.drawLines();
-      // draw labels on top
-      for (const p of particles) p.drawLabel();
-
-      requestAnimationFrame(loop);
-    }
-
-    // Click selection on canvas
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      // find topmost hit (last drawn = later in array, but we can just check reverse)
-      for (let i = particles.length - 1; i >= 0; i--){
-        const p = particles[i];
-        if (p.hitTest(mx,my)){
-          showMemoryModal(p.data);
-          return;
-        }
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same approach as your PHP)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function detectKeysFromMemories(memories){
-      const set = new Set();
-      memories.forEach(m => Object.keys(m).forEach(k => set.add(k)));
-      return Array.from(set);
-    }
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          const keys = detectKeysFromMemories(memories);
-          createPropertyControls(keys);
-
-          particles = memories.map(m => new Particle(
-            Math.random() * (canvas.getBoundingClientRect().width  - 40) + 20,
-            Math.random() * (canvas.getBoundingClientRect().height - 40) + 20,
-            Math.random() * Math.PI * 2,
-            m
-          ));
-        });
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value
-      };
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-
-        // update keys/controls if new keys appear (unlikely here, but safe)
-        const keys = detectKeysFromMemories(memories);
-        createPropertyControls(keys);
-
-        particles.push(new Particle(
-          Math.random() * (canvas.getBoundingClientRect().width  - 40) + 20,
-          Math.random() * (canvas.getBoundingClientRect().height - 40) + 20,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        // allow movement again so it can re-stabilize
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-
-        memoryForm.reset();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### recuerdos se agrupan
-<small>Creado: 2026-04-16 17:39</small>
-
-`003-recuerdos se agrupan.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.12);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:350px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin:0 0 20px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex:0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-      cursor: default;
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:520px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para conectar recuerdos relacionados...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voice (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    // ----------------------------
-    // Canvas + physics
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width  = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", resizeCanvas);
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    // Tokenization
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function memoryText(memory){
-      return Object.values(memory).join(" ");
-    }
-
-    function memoryTokens(memory){
-      return new Set(tokenize(memoryText(memory)));
-    }
-
-    // Search state
-    const searchInput = document.getElementById("search");
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.trim().toLowerCase();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length >= 2) : [];
-      // When search changes: unlock particles to let them re-cluster
-      particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-    });
-
-    function matchCount(tokens, terms){
-      if (!terms.length) return 0;
-      let c = 0;
-      for (const t of terms){
-        // allow partial match: if any token startsWith term or includes term
-        for (const w of tokens){
-          if (w.includes(t)) { c++; break; }
-        }
-      }
-      return c;
-    }
-
-    // Particles
-    let memories = [];
-    let particles = [];
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-        this.v = 0.4;
-
-        this.vx = Math.cos(a)*this.v;
-        this.vy = Math.sin(a)*this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-        this.tokens = memoryTokens(memory);
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        // glass bubble radius
-        this.r = 18 + Math.random()*10; // 18..28
-      }
-
-      // How much this memory matches current search
-      score(){
-        return matchCount(this.tokens, searchTerms);
-      }
-
-      interactions(width,height){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        // Base: gentle separation always (avoid overlap)
-        const distMin = 45;
-
-        // Only when searching: attract matching memories to each other
-        const searching = searchTerms.length > 0;
-
-        // Tuning
-        const kRepelClose = 0.10;
-        const kRepelFar   = 0.002;
-
-        const kAttract    = 0.0022;   // attraction strength
-        const distTarget  = 140;      // target distance for clustered group
-        const distMaxLink = 220;      // only connect within this range (visual & force)
-
-        let fx=0, fy=0;
-
-        const myScore = this.score();
-        const amActive = searching && myScore > 0;
-
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          // Strong repulsion when too close
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          // Mild repulsion overall to keep scene spread
-          const repelRange = 260;
-          if (d < repelRange){
-            const intensity = (repelRange - d) * kRepelFar;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          }
-
-          if (!searching) continue;
-
-          const otherScore = p.score();
-          const otherActive = otherScore > 0;
-
-          // If both match search: attract
-          if (amActive && otherActive){
-            // stronger if they match more terms (so cluster tighter)
-            const weight = 0.6 + 0.25 * Math.min(6, Math.min(myScore, otherScore));
-            const delta = d - distTarget;
-
-            // limit attraction to mid distances so it doesn't pull everything from far away instantly
-            if (d < distMaxLink*1.8){
-              fx += ux * delta * kAttract * weight;
-              fy += uy * delta * kAttract * weight;
-            }
-          }
-        }
-
-        // cap force
-        const maxForce = 0.08;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(width,height){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const friction = 0.92;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // settle if not searching (keeps scene stable)
-        const searching = searchTerms.length > 0;
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-
-        if (!searching && speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        // bounce
-        const pad = this.r + 8;
-        const rebound = -0.5;
-
-        if (this.x > width - pad){ this.x = width - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > height - pad){ this.y = height - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      drawBubble(){
-        // Glass bubble (no text)
-        const x = this.x, y = this.y, r = this.r;
-
-        // subtle shadow
-        ctx.save();
-        ctx.globalAlpha = 0.22;
-        ctx.beginPath();
-        ctx.ellipse(x + r*0.25, y + r*0.35, r*0.85, r*0.65, 0, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.restore();
-
-        // main bubble gradient
-        const g = ctx.createRadialGradient(x - r*0.35, y - r*0.35, r*0.2, x, y, r);
-        g.addColorStop(0, "rgba(255,255,255,0.65)");
-        g.addColorStop(0.35, "rgba(255,255,255,0.22)");
-        g.addColorStop(1, "rgba(255,255,255,0.10)");
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = g;
-        ctx.fill();
-
-        // border
-        const score = this.score();
-        ctx.lineWidth = score > 0 ? 2.5 : 1.2;
-        ctx.strokeStyle = score > 0 ? "rgba(255,235,59,0.85)" : "rgba(255,255,255,0.55)";
-        ctx.stroke();
-
-        // highlight glint
-        ctx.beginPath();
-        ctx.arc(x - r*0.25, y - r*0.25, r*0.25, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(255,255,255,0.55)";
-        ctx.fill();
-
-        // tiny inner ring
-        ctx.beginPath();
-        ctx.arc(x, y, r*0.82, 0, Math.PI*2);
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "rgba(106,90,205,0.12)";
-        ctx.stroke();
-      }
-
-      hitTest(mx,my){
-        const d = distance2D(mx,my,this.x,this.y);
-        return d <= this.r + 6;
-      }
-    }
-
-    // Draw connections ONLY among matching memories while searching
-    function drawConnections(){
-      if (searchTerms.length === 0) return;
-
-      const maxLinkDist = 220;
-
-      for (let i=0;i<particles.length;i++){
-        const a = particles[i];
-        const sa = a.score();
-        if (sa <= 0) continue;
-
-        for (let j=i+1;j<particles.length;j++){
-          const b = particles[j];
-          const sb = b.score();
-          if (sb <= 0) continue;
-
-          const d = distance2D(a.x,a.y,b.x,b.y);
-          if (d > maxLinkDist) continue;
-
-          // thickness/opacity by relevance + distance
-          const relevance = Math.min(10, sa + sb);
-          const alpha = Math.max(0.08, 0.45 * (1 - d/maxLinkDist));
-          const w = 1 + Math.min(8, relevance * 0.35);
-
-          // slight hue shift by relevance (still consistent look)
-          ctx.strokeStyle = `rgba(147,112,219,${alpha})`;
-          ctx.lineWidth = w;
-          ctx.lineCap = "round";
-
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      // physics
-      for (const p of particles) p.interactions(w,h);
-      for (const p of particles) p.move(w,h);
-
-      // lines then bubbles
-      drawConnections();
-      for (const p of particles) p.drawBubble();
-
-      requestAnimationFrame(loop);
-    }
-
-    // Click bubble -> modal
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (let i = particles.length - 1; i >= 0; i--){
-        if (particles[i].hitTest(mx,my)){
-          showMemoryModal(particles[i].data);
-          return;
-        }
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same PHP endpoint)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          particles = memories.map(m => new Particle(
-            Math.random() * (canvas.getBoundingClientRect().width  - 60) + 30,
-            Math.random() * (canvas.getBoundingClientRect().height - 60) + 30,
-            Math.random() * Math.PI * 2,
-            m
-          ));
-        });
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value
-      };
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-        particles.push(new Particle(
-          Math.random() * (canvas.getBoundingClientRect().width  - 60) + 30,
-          Math.random() * (canvas.getBoundingClientRect().height - 60) + 30,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        // allow re-layout if searching
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-
-        memoryForm.reset();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### agrupamiento mejor
-<small>Creado: 2026-04-16 17:39</small>
-
-`004-agrupamiento mejor.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.12);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:350px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin:0 0 20px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex:0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-      cursor: default;
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:520px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para conectar recuerdos relacionados...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voice (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    // ----------------------------
-    // Canvas + physics
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width  = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", resizeCanvas);
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    // Tokenization
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function memoryText(memory){
-      return Object.values(memory).join(" ");
-    }
-
-    function memoryTokens(memory){
-      return new Set(tokenize(memoryText(memory)));
-    }
-
-    // Search state
-    const searchInput = document.getElementById("search");
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.trim().toLowerCase();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length >= 2) : [];
-
-      // Wake/unlock so they can re-cluster immediately
-      particles.forEach(p => {
-        p.fija = false;
-        p.estableFrames = 0;
-        p.vx *= 0.2;
-        p.vy *= 0.2;
-      });
-    });
-
-    function matchCount(tokens, terms){
-      if (!terms.length) return 0;
-      let c = 0;
-      for (const t of terms){
-        for (const w of tokens){
-          if (w.includes(t)) { c++; break; }
-        }
-      }
-      return c;
-    }
-
-    // Particles
-    let memories = [];
-    let particles = [];
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-        this.v = 0.4;
-
-        this.vx = Math.cos(a)*this.v;
-        this.vy = Math.sin(a)*this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-        this.tokens = memoryTokens(memory);
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        // glass bubble radius
-        this.r = 18 + Math.random()*10; // 18..28
-      }
-
-      // How much this memory matches current search
-      score(){
-        return matchCount(this.tokens, searchTerms);
-      }
-
-      interactions(width,height){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        // Always: avoid overlap
-        const distMin = 45;
-
-        const searching = searchTerms.length > 0;
-
-        // Tuning
-        const kRepelClose = 0.10;
-
-        // While searching:
-        // - Far-range attraction (no threshold) so matching bubbles find each other anywhere
-        // - Gentle pull to the center so the matching cluster settles in the middle
-        const kAttractFar  = 0.0009;   // long-range "find each other"
-        const kAttractNear = 0.0022;   // near-range "tighten the cluster"
-        const distTarget   = 140;      // preferred spacing inside cluster
-
-        const kCenterPull  = 0.0020;   // pull matching bubbles to stage center
-        const center = { x: width * 0.5, y: height * 0.5 };
-
-        let fx=0, fy=0;
-
-        const myScore = this.score();
-        const amActive = searching && myScore > 0;
-
-        // 1) Center pull (only for matching bubbles, only while searching)
-        if (amActive) {
-          const dxC = center.x - this.x;
-          const dyC = center.y - this.y;
-          fx += dxC * kCenterPull;
-          fy += dyC * kCenterPull;
-        }
-
-        // 2) Pairwise forces
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          // Strong repulsion when too close (avoid overlap)
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          if (!searching) continue;
-
-          const otherScore = p.score();
-          const otherActive = otherScore > 0;
-
-          // If both match: ATTRACT at any distance (no threshold)
-          if (amActive && otherActive){
-            // weight by relevance so stronger matches cluster more decisively
-            const weight = 0.7 + 0.25 * Math.min(6, Math.min(myScore, otherScore));
-
-            // Far-range attraction: always active, gently pulls regardless distance
-            fx += ux * kAttractFar * weight * d;
-            fy += uy * kAttractFar * weight * d;
-
-            // Near-range tightening around a target distance
-            const delta = d - distTarget;
-            fx += ux * delta * kAttractNear * weight;
-            fy += uy * delta * kAttractNear * weight;
-          }
-        }
-
-        // cap force
-        const maxForce = 0.12;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(width,height){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const friction = 0.92;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // settle if not searching (keeps scene stable)
-        const searching = searchTerms.length > 0;
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-
-        if (!searching && speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        // bounce
-        const pad = this.r + 8;
-        const rebound = -0.5;
-
-        if (this.x > width - pad){ this.x = width - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > height - pad){ this.y = height - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      drawBubble(){
-        // Glass bubble (no text)
-        const x = this.x, y = this.y, r = this.r;
-
-        // subtle shadow
-        ctx.save();
-        ctx.globalAlpha = 0.22;
-        ctx.beginPath();
-        ctx.ellipse(x + r*0.25, y + r*0.35, r*0.85, r*0.65, 0, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.restore();
-
-        // main bubble gradient
-        const g = ctx.createRadialGradient(x - r*0.35, y - r*0.35, r*0.2, x, y, r);
-        g.addColorStop(0, "rgba(255,255,255,0.65)");
-        g.addColorStop(0.35, "rgba(255,255,255,0.22)");
-        g.addColorStop(1, "rgba(255,255,255,0.10)");
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = g;
-        ctx.fill();
-
-        // border
-        const score = this.score();
-        ctx.lineWidth = score > 0 ? 2.5 : 1.2;
-        ctx.strokeStyle = score > 0 ? "rgba(255,235,59,0.85)" : "rgba(255,255,255,0.55)";
-        ctx.stroke();
-
-        // highlight glint
-        ctx.beginPath();
-        ctx.arc(x - r*0.25, y - r*0.25, r*0.25, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(255,255,255,0.55)";
-        ctx.fill();
-
-        // tiny inner ring
-        ctx.beginPath();
-        ctx.arc(x, y, r*0.82, 0, Math.PI*2);
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "rgba(106,90,205,0.12)";
-        ctx.stroke();
-      }
-
-      hitTest(mx,my){
-        const d = distance2D(mx,my,this.x,this.y);
-        return d <= this.r + 6;
-      }
-    }
-
-    // Draw connections ONLY among matching memories while searching
-    function drawConnections(){
-      if (searchTerms.length === 0) return;
-
-      // visual linking threshold only (attraction has NO threshold)
-      const maxLinkDist = 320;
-
-      for (let i=0;i<particles.length;i++){
-        const a = particles[i];
-        const sa = a.score();
-        if (sa <= 0) continue;
-
-        for (let j=i+1;j<particles.length;j++){
-          const b = particles[j];
-          const sb = b.score();
-          if (sb <= 0) continue;
-
-          const d = distance2D(a.x,a.y,b.x,b.y);
-          if (d > maxLinkDist) continue;
-
-          // thickness/opacity by relevance + distance
-          const relevance = Math.min(10, sa + sb);
-          const alpha = Math.max(0.06, 0.40 * (1 - d/maxLinkDist));
-          const w = 1 + Math.min(10, relevance * 0.40);
-
-          ctx.strokeStyle = `rgba(147,112,219,${alpha})`;
-          ctx.lineWidth = w;
-          ctx.lineCap = "round";
-
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      // physics
-      for (const p of particles) p.interactions(w,h);
-      for (const p of particles) p.move(w,h);
-
-      // lines then bubbles
-      drawConnections();
-      for (const p of particles) p.drawBubble();
-
-      requestAnimationFrame(loop);
-    }
-
-    // Click bubble -> modal
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (let i = particles.length - 1; i >= 0; i--){
-        if (particles[i].hitTest(mx,my)){
-          showMemoryModal(particles[i].data);
-          return;
-        }
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same PHP endpoint)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          particles = memories.map(m => new Particle(
-            Math.random() * (canvas.getBoundingClientRect().width  - 60) + 30,
-            Math.random() * (canvas.getBoundingClientRect().height - 60) + 30,
-            Math.random() * Math.PI * 2,
-            m
-          ));
-        });
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value
-      };
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-        particles.push(new Particle(
-          Math.random() * (canvas.getBoundingClientRect().width  - 60) + 30,
-          Math.random() * (canvas.getBoundingClientRect().height - 60) + 30,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        // allow re-layout if searching
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-
-        memoryForm.reset();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### espaciado entre burbujas
-<small>Creado: 2026-04-16 17:39</small>
-
-`005-espaciado entre burbujas.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.12);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:350px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin:0 0 20px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex:0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-      cursor: default;
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:520px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para conectar recuerdos relacionados...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // Voice (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function showMemoryModal(memory) {
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    // ----------------------------
-    // Canvas + physics
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width  = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", resizeCanvas);
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    // Tokenization
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function memoryTokens(memory){
-      return new Set(tokenize(Object.values(memory).join(" ")));
-    }
-
-    // Search state
-    const searchInput = document.getElementById("search");
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.trim().toLowerCase();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length >= 2) : [];
-
-      // Wake/unlock so they can re-cluster immediately
-      particles.forEach(p => {
-        p.fija = false;
-        p.estableFrames = 0;
-        p.vx *= 0.2;
-        p.vy *= 0.2;
-      });
-    });
-
-    function matchCount(tokens, terms){
-      if (!terms.length) return 0;
-      let c = 0;
-      for (const t of terms){
-        for (const w of tokens){
-          if (w.includes(t)) { c++; break; }
-        }
-      }
-      return c;
-    }
-
-    // Particles
-    let memories = [];
-    let particles = [];
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-
-        this.v = 0.45;
-        this.vx = Math.cos(a)*this.v;
-        this.vy = Math.sin(a)*this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-        this.tokens = memoryTokens(memory);
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        this.r = 18 + Math.random()*10; // glass bubble radius 18..28
-      }
-
-      score(){ return matchCount(this.tokens, searchTerms); }
-
-      interactions(width,height){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        const searching = searchTerms.length > 0;
-        const myScore = this.score();
-        const amActive = searching && myScore > 0;
-
-        // --- Core distances ---
-        // Big improvement vs previous:
-        // 1) bring back "peripheral spacing": global gentle repulsion at mid-range
-        // 2) keep cluster distance: larger personal space + strong overlap repulsion + target spacing
-        const distMin        = 62;   // stronger personal space (prevents too-close clustering)
-        const distRepelMid   = 260;  // global spacing range
-        const distRepelOuter = 520;  // weak outer repulsion to preserve spread on the canvas
-
-        // --- Repulsion tuning (spacing behavior) ---
-        const kRepelClose = 0.11;    // strong: prevent overlap
-        const kRepelMid   = 0.0018;  // keeps non-matching bubbles apart (peripheral feel)
-        const kRepelOuter = 0.00025; // very gentle: avoids entire pile-up
-
-        // --- Attraction tuning (search clustering) ---
-        // Far attraction: no threshold (find each other anywhere) BUT gentle
-        const kAttractFar  = 0.00055;
-        // Near tightening: around a target distance so they don't compress
-        const kAttractNear = 0.00125;
-        const distTarget   = 190;    // bigger target spacing inside the cluster
-
-        // --- Center pull (only for active matching bubbles) ---
-        const kCenterPull = 0.00095; // gentle, so it doesn't crush them into the center
-        const center = { x: width * 0.5, y: height * 0.5 };
-
-        let fx=0, fy=0;
-
-        // Keep matching memories drifting to center (but gently)
-        if (amActive) {
-          const dxC = center.x - this.x;
-          const dyC = center.y - this.y;
-          fx += dxC * kCenterPull;
-          fy += dyC * kCenterPull;
-        }
-
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          // 1) Strong close repulsion (prevents overlapping and too-tight clusters)
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          // 2) Global mid-range repulsion (restores that nice "peripheral spread" feel)
-          if (d < distRepelMid){
-            const intensity = (distRepelMid - d) * kRepelMid;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          } else if (d < distRepelOuter){
-            // 3) Very weak outer repulsion to avoid everyone drifting into the same region
-            const intensity = (distRepelOuter - d) * kRepelOuter;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          }
-
-          if (!searching) continue;
-
-          const otherScore = p.score();
-          const otherActive = otherScore > 0;
-
-          // During search:
-          // - only matching bubbles attract each other
-          if (amActive && otherActive){
-            const weight = 0.75 + 0.20 * Math.min(6, Math.min(myScore, otherScore));
-
-            // Far-range attraction (no threshold) — gentle pull from anywhere
-            fx += ux * (kAttractFar * weight * d);
-            fy += uy * (kAttractFar * weight * d);
-
-            // Near-range tightening around target spacing (prevents them sticking too close)
-            const delta = d - distTarget;
-            fx += ux * (delta * kAttractNear * weight);
-            fy += uy * (delta * kAttractNear * weight);
-          }
-        }
-
-        // Cap forces
-        const maxForce = 0.11;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(width,height){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const searching = searchTerms.length > 0;
-
-        // More friction when searching (reduces "pile jitter" in the cluster)
-        const friction = searching ? 0.90 : 0.925;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Settle only when NOT searching (like before)
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-        if (!searching && speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        // Bounce
-        const pad = this.r + 10;
-        const rebound = -0.5;
-
-        if (this.x > width - pad){ this.x = width - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > height - pad){ this.y = height - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      drawBubble(){
-        const x = this.x, y = this.y, r = this.r;
-
-        // Shadow
-        ctx.save();
-        ctx.globalAlpha = 0.20;
-        ctx.beginPath();
-        ctx.ellipse(x + r*0.25, y + r*0.38, r*0.90, r*0.70, 0, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.restore();
-
-        // Glass gradient
-        const g = ctx.createRadialGradient(x - r*0.35, y - r*0.35, r*0.2, x, y, r);
-        g.addColorStop(0, "rgba(255,255,255,0.70)");
-        g.addColorStop(0.35, "rgba(255,255,255,0.22)");
-        g.addColorStop(1, "rgba(255,255,255,0.10)");
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = g;
-        ctx.fill();
-
-        // Border highlight for matches
-        const score = this.score();
-        ctx.lineWidth = score > 0 ? 2.5 : 1.2;
-        ctx.strokeStyle = score > 0 ? "rgba(255,235,59,0.85)" : "rgba(255,255,255,0.55)";
-        ctx.stroke();
-
-        // Glint
-        ctx.beginPath();
-        ctx.arc(x - r*0.25, y - r*0.25, r*0.25, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(255,255,255,0.55)";
-        ctx.fill();
-
-        // Inner ring
-        ctx.beginPath();
-        ctx.arc(x, y, r*0.82, 0, Math.PI*2);
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "rgba(106,90,205,0.12)";
-        ctx.stroke();
-      }
-
-      hitTest(mx,my){
-        const d = distance2D(mx,my,this.x,this.y);
-        return d <= this.r + 6;
-      }
-    }
-
-    // Visual connections:
-    // - keep a radius threshold for drawing (purely visual)
-    // - cluster attraction has NO radius threshold
-    function drawConnections(){
-      if (searchTerms.length === 0) return;
-
-      const maxLinkDist = 360;
-
-      for (let i=0;i<particles.length;i++){
-        const a = particles[i];
-        const sa = a.score();
-        if (sa <= 0) continue;
-
-        for (let j=i+1;j<particles.length;j++){
-          const b = particles[j];
-          const sb = b.score();
-          if (sb <= 0) continue;
-
-          const d = distance2D(a.x,a.y,b.x,b.y);
-          if (d > maxLinkDist) continue;
-
-          const relevance = Math.min(10, sa + sb);
-          const alpha = Math.max(0.05, 0.34 * (1 - d/maxLinkDist));
-          const w = 1 + Math.min(8, relevance * 0.35);
-
-          ctx.strokeStyle = `rgba(147,112,219,${alpha})`;
-          ctx.lineWidth = w;
-          ctx.lineCap = "round";
-
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      for (const p of particles) p.interactions(w,h);
-      for (const p of particles) p.move(w,h);
-
-      drawConnections();
-      for (const p of particles) p.drawBubble();
-
-      requestAnimationFrame(loop);
-    }
-
-    // Click bubble -> modal
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (let i = particles.length - 1; i >= 0; i--){
-        if (particles[i].hitTest(mx,my)){
-          showMemoryModal(particles[i].data);
-          return;
-        }
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same PHP endpoint)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          const rect = canvas.getBoundingClientRect();
-          particles = memories.map(m => new Particle(
-            Math.random() * (rect.width  - 80) + 40,
-            Math.random() * (rect.height - 80) + 40,
-            Math.random() * Math.PI * 2,
-            m
-          ));
-        });
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const memory = {
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value
-      };
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-
-        const rect = canvas.getBoundingClientRect();
-        particles.push(new Particle(
-          Math.random() * (rect.width  - 80) + 40,
-          Math.random() * (rect.height - 80) + 40,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-        memoryForm.reset();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### colores
-<small>Creado: 2026-04-16 17:39</small>
-
-`006-colores.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.12);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:360px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin:0 0 14px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex:0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Emotions block */
-    .emotions{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid #eee;
-    }
-    .emotions h3{
-      margin:0 0 10px;
-      font-size:14px;
-      color:var(--primary-color);
-    }
-    .emo-row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      align-items:center;
-      margin-bottom:10px;
-    }
-    .emo-label{
-      font-size:13px;
-      color:#444;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .emo-dot{
-      width:10px;height:10px;border-radius:50%;
-      box-shadow:0 1px 3px rgba(0,0,0,0.18);
-      flex:0 0 auto;
-    }
-    .emo-slider{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .emo-slider input[type="range"]{ width:100%; }
-    .emo-value{
-      width:22px;
-      text-align:right;
-      font-size:12px;
-      color:#666;
-      flex:0 0 auto;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-      cursor: default;
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:560px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-    .emo-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:10px 0 0;
-    }
-    .badge{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,0.08);
-      background:rgba(0,0,0,0.03);
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    .badge .dot{
-      width:10px;height:10px;border-radius:50%;
-      box-shadow:0 1px 3px rgba(0,0,0,0.18);
-    }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <!-- Ekman emotions -->
-      <div class="emotions">
-        <h3>Emociones principales (0–10)</h3>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_alegria"></span>Alegría</div>
-          <div class="emo-slider">
-            <input id="alegria" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_alegria">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_tristeza"></span>Tristeza</div>
-          <div class="emo-slider">
-            <input id="tristeza" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_tristeza">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_miedo"></span>Miedo</div>
-          <div class="emo-slider">
-            <input id="miedo" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_miedo">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_ira"></span>Ira</div>
-          <div class="emo-slider">
-            <input id="ira" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_ira">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_asco"></span>Asco</div>
-          <div class="emo-slider">
-            <input id="asco" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_asco">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row" style="margin-bottom:0;">
-          <div class="emo-label"><span class="emo-dot" id="dot_sorpresa"></span>Sorpresa</div>
-          <div class="emo-slider">
-            <input id="sorpresa" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_sorpresa">0</span>
-          </div>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para conectar recuerdos relacionados...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // "Inside Out"-like palette (approx)
-    // ----------------------------
-    const EMO = [
-      { key:"alegria",  label:"Alegría",  color:[255, 215,  64] }, // yellow
-      { key:"tristeza", label:"Tristeza", color:[ 64, 156, 255] }, // blue
-      { key:"miedo",    label:"Miedo",    color:[170,  80, 220] }, // purple
-      { key:"ira",      label:"Ira",      color:[255,  80,  80] }, // red
-      { key:"asco",     label:"Asco",     color:[ 90, 200,  90] }, // green
-      { key:"sorpresa", label:"Sorpresa", color:[255, 170,  70] }, // orange
-    ];
-
-    function clamp01(x){ return Math.max(0, Math.min(1, x)); }
-
-    function mixColorsRGB(baseRGB, weights){
-      // baseRGB: array of [r,g,b] per emotion (same order as EMO)
-      // weights:  0..1 per emotion
-      let r=0,g=0,b=0, sum=0;
-      for (let i=0;i<baseRGB.length;i++){
-        const w = Math.max(0, weights[i]);
-        sum += w;
-        r += baseRGB[i][0] * w;
-        g += baseRGB[i][1] * w;
-        b += baseRGB[i][2] * w;
-      }
-      if (sum <= 0) return [255,255,255];
-      return [r/sum, g/sum, b/sum];
-    }
-
-    function dominantEmotion(emotions){
-      // emotions: object {alegria:0..10, ...}
-      let best = { key: null, val: -1 };
-      for (const e of EMO){
-        const v = Number(emotions?.[e.key] ?? 0);
-        if (v > best.val){ best = { key:e.key, val:v }; }
-      }
-      return best.key;
-    }
-
-    function bubbleColorFromEmotions(emotions){
-      // normalize 0..10 -> 0..1
-      const weights = EMO.map(e => clamp01((Number(emotions?.[e.key] ?? 0)) / 10));
-      const rgb = mixColorsRGB(EMO.map(e=>e.color), weights);
-
-      const dom = dominantEmotion(emotions);
-      const domColor = EMO.find(e=>e.key===dom)?.color || [255,255,255];
-
-      return { rgb, domColor };
-    }
-
-    // Color dots in UI
-    function rgbToCss(rgb, a=1){
-      return `rgba(${Math.round(rgb[0])},${Math.round(rgb[1])},${Math.round(rgb[2])},${a})`;
-    }
-
-    function setupEmotionUI(){
-      for (const e of EMO){
-        const slider = document.getElementById(e.key);
-        const valSpan = document.getElementById("val_"+e.key);
-        const dot = document.getElementById("dot_"+e.key);
-        dot.style.background = rgbToCss(e.color, 1);
-
-        const sync = () => { valSpan.textContent = slider.value; };
-        slider.addEventListener("input", sync);
-        sync();
-      }
-    }
-
-    function readEmotionsFromForm(){
-      const emotions = {};
-      for (const e of EMO){
-        emotions[e.key] = Number(document.getElementById(e.key).value || 0);
-      }
-      return emotions;
-    }
-
-    function resetEmotions(){
-      for (const e of EMO){
-        const slider = document.getElementById(e.key);
-        slider.value = "0";
-        document.getElementById("val_"+e.key).textContent = "0";
-      }
-    }
-
-    // ----------------------------
-    // Voice (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function renderEmotionBadges(emotions){
-      const parts = [];
-      for (const e of EMO){
-        const v = Number(emotions?.[e.key] ?? 0);
-        if (v <= 0) continue;
-        parts.push(`
-          <span class="badge">
-            <span class="dot" style="background:${rgbToCss(e.color,1)}"></span>
-            ${escapeHtml(e.label)}: ${v}
-          </span>
-        `);
-      }
-      if (!parts.length) return `<div class="emo-badges"><span class="badge">Sin emociones registradas</span></div>`;
-      return `<div class="emo-badges">${parts.join("")}</div>`;
-    }
-
-    function showMemoryModal(memory) {
-      const emoHtml = renderEmotionBadges(memory.emociones || {});
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-        ${emoHtml}
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-    // ----------------------------
-    // Canvas + physics
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width  = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", resizeCanvas);
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    // Tokenization
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function memoryTokens(memory){
-      return new Set(tokenize(Object.values(memory).join(" ")));
-    }
-
-    // Search state
-    const searchInput = document.getElementById("search");
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.trim().toLowerCase();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length >= 2) : [];
-
-      // Wake/unlock so they can re-cluster immediately
-      particles.forEach(p => {
-        p.fija = false;
-        p.estableFrames = 0;
-        p.vx *= 0.2;
-        p.vy *= 0.2;
-      });
-    });
-
-    function matchCount(tokens, terms){
-      if (!terms.length) return 0;
-      let c = 0;
-      for (const t of terms){
-        for (const w of tokens){
-          if (w.includes(t)) { c++; break; }
-        }
-      }
-      return c;
-    }
-
-    // Particles
-    let memories = [];
-    let particles = [];
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-
-        this.v = 0.45;
-        this.vx = Math.cos(a)*this.v;
-        this.vy = Math.sin(a)*this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-        this.tokens = memoryTokens(memory);
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        this.r = 18 + Math.random()*10;
-
-        // bubble tint derived from emotions
-        const emo = bubbleColorFromEmotions(memory.emociones || {});
-        this.tint = emo.rgb;          // main mixture color
-        this.domColor = emo.domColor; // dominant emotion accent
-      }
-
-      score(){ return matchCount(this.tokens, searchTerms); }
-
-      interactions(width,height){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        const searching = searchTerms.length > 0;
-        const myScore = this.score();
-        const amActive = searching && myScore > 0;
-
-        const distMin        = 62;
-        const distRepelMid   = 260;
-        const distRepelOuter = 520;
-
-        const kRepelClose = 0.11;
-        const kRepelMid   = 0.0018;
-        const kRepelOuter = 0.00025;
-
-        const kAttractFar  = 0.00055;
-        const kAttractNear = 0.00125;
-        const distTarget   = 190;
-
-        const kCenterPull = 0.00095;
-        const center = { x: width * 0.5, y: height * 0.5 };
-
-        let fx=0, fy=0;
-
-        if (amActive) {
-          const dxC = center.x - this.x;
-          const dyC = center.y - this.y;
-          fx += dxC * kCenterPull;
-          fy += dyC * kCenterPull;
-        }
-
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          if (d < distRepelMid){
-            const intensity = (distRepelMid - d) * kRepelMid;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          } else if (d < distRepelOuter){
-            const intensity = (distRepelOuter - d) * kRepelOuter;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          }
-
-          if (!searching) continue;
-
-          const otherScore = p.score();
-          const otherActive = otherScore > 0;
-
-          if (amActive && otherActive){
-            const weight = 0.75 + 0.20 * Math.min(6, Math.min(myScore, otherScore));
-            fx += ux * (kAttractFar * weight * d);
-            fy += uy * (kAttractFar * weight * d);
-
-            const delta = d - distTarget;
-            fx += ux * (delta * kAttractNear * weight);
-            fy += uy * (delta * kAttractNear * weight);
-          }
-        }
-
-        const maxForce = 0.11;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(width,height){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const searching = searchTerms.length > 0;
-        const friction = searching ? 0.90 : 0.925;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-        if (!searching && speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        const pad = this.r + 10;
-        const rebound = -0.5;
-
-        if (this.x > width - pad){ this.x = width - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > height - pad){ this.y = height - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      drawBubble(){
-        const x = this.x, y = this.y, r = this.r;
-
-        // Shadow
-        ctx.save();
-        ctx.globalAlpha = 0.18;
-        ctx.beginPath();
-        ctx.ellipse(x + r*0.25, y + r*0.40, r*0.95, r*0.75, 0, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.restore();
-
-        // Glass + tint: base glass gradient + colored glaze overlay
-        const glass = ctx.createRadialGradient(x - r*0.35, y - r*0.35, r*0.2, x, y, r);
-        glass.addColorStop(0, "rgba(255,255,255,0.75)");
-        glass.addColorStop(0.35, "rgba(255,255,255,0.20)");
-        glass.addColorStop(1, "rgba(255,255,255,0.10)");
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = glass;
-        ctx.fill();
-
-        // Tint overlay (emotion mixture)
-        ctx.save();
-        ctx.globalCompositeOperation = "source-atop";
-        ctx.globalAlpha = 0.38; // strength of emotion color
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = rgbToCss(this.tint, 1);
-        ctx.fill();
-        ctx.restore();
-
-        // Border (dominant emotion accent) + search highlight
-        const score = this.score();
-        const borderColor = score > 0 ? [255,235,59] : this.domColor;
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.lineWidth = score > 0 ? 2.6 : 1.6;
-        ctx.strokeStyle = rgbToCss(borderColor, score > 0 ? 0.95 : 0.65);
-        ctx.stroke();
-
-        // Glint
-        ctx.beginPath();
-        ctx.arc(x - r*0.25, y - r*0.25, r*0.25, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(255,255,255,0.58)";
-        ctx.fill();
-
-        // Inner ring
-        ctx.beginPath();
-        ctx.arc(x, y, r*0.82, 0, Math.PI*2);
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "rgba(255,255,255,0.30)";
-        ctx.stroke();
-      }
-
-      hitTest(mx,my){
-        const d = distance2D(mx,my,this.x,this.y);
-        return d <= this.r + 6;
-      }
-    }
-
-    function drawConnections(){
-      if (searchTerms.length === 0) return;
-
-      const maxLinkDist = 360;
-
-      for (let i=0;i<particles.length;i++){
-        const a = particles[i];
-        const sa = a.score();
-        if (sa <= 0) continue;
-
-        for (let j=i+1;j<particles.length;j++){
-          const b = particles[j];
-          const sb = b.score();
-          if (sb <= 0) continue;
-
-          const d = distance2D(a.x,a.y,b.x,b.y);
-          if (d > maxLinkDist) continue;
-
-          const relevance = Math.min(10, sa + sb);
-          const alpha = Math.max(0.05, 0.34 * (1 - d/maxLinkDist));
-          const w = 1 + Math.min(8, relevance * 0.35);
-
-          ctx.strokeStyle = `rgba(147,112,219,${alpha})`;
-          ctx.lineWidth = w;
-          ctx.lineCap = "round";
-
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      for (const p of particles) p.interactions(w,h);
-      for (const p of particles) p.move(w,h);
-
-      drawConnections();
-      for (const p of particles) p.drawBubble();
-
-      requestAnimationFrame(loop);
-    }
-
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (let i = particles.length - 1; i >= 0; i--){
-        if (particles[i].hitTest(mx,my)){
-          showMemoryModal(particles[i].data);
-          return;
-        }
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same PHP endpoint)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          const rect = canvas.getBoundingClientRect();
-          particles = memories.map(m => new Particle(
-            Math.random() * (rect.width  - 80) + 40,
-            Math.random() * (rect.height - 80) + 40,
-            Math.random() * Math.PI * 2,
-            normalizeMemoryEmotions(m)
-          ));
-        });
-    }
-
-    function normalizeMemoryEmotions(m){
-      // Backward compatible:
-      // - if memory.emociones doesn't exist, create it with zeros
-      if (!m.emociones) {
-        m.emociones = {};
-        for (const e of EMO) m.emociones[e.key] = 0;
-      } else {
-        for (const e of EMO) {
-          if (m.emociones[e.key] === undefined) m.emociones[e.key] = 0;
-          m.emociones[e.key] = Number(m.emociones[e.key] || 0);
-        }
-      }
-      return m;
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const emotions = readEmotionsFromForm();
-
-      const memory = normalizeMemoryEmotions({
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value,
-        emociones: emotions
-      });
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-
-        const rect = canvas.getBoundingClientRect();
-        particles.push(new Particle(
-          Math.random() * (rect.width  - 80) + 40,
-          Math.random() * (rect.height - 80) + 40,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-        memoryForm.reset();
-        resetEmotions();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      setupEmotionUI();
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### aprendizaje
-<small>Creado: 2026-04-16 17:39</small>
-
-`007-aprendizaje.html`
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memories Recorder</title>
-  <style>
-    :root{
-      --primary-color:#6a5acd;
-      --secondary-color:#9370db;
-      --background-color:#f9f7ff;
-      --text-color:#333;
-      --shadow-color:rgba(0,0,0,0.12);
-      --highlight-color:#ffeb3b;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin:0;
-      padding:0;
-      display:flex;
-      height:100vh;
-      background:var(--background-color);
-      color:var(--text-color);
-      overflow:hidden;
-    }
-
-    .form-container{
-      width:360px;
-      padding:25px;
-      background:#fff;
-      box-shadow:0 4px 15px var(--shadow-color);
-      border-radius:12px;
-      margin:20px;
-      overflow-y:auto;
-      max-height:calc(100vh - 40px);
-      z-index:10;
-    }
-
-    .form-container h2{
-      color:var(--primary-color);
-      margin:0 0 14px;
-      font-size:24px;
-      text-align:center;
-    }
-
-    .form-group{ margin-bottom:15px; }
-    .form-group label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:600;
-      color:var(--primary-color);
-    }
-
-    .form-group textarea,
-    .form-group input[type="text"],
-    .form-group input[type="date"]{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-      resize:vertical;
-      min-height:40px;
-    }
-
-    .form-group textarea{ min-height:60px; }
-
-    .input-with-button{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .record-button{
-      background:var(--secondary-color);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      width:35px;
-      height:35px;
-      cursor:pointer;
-      font-size:16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:background-color .3s;
-      flex:0 0 auto;
-    }
-    .record-button:hover{ background:var(--primary-color); }
-
-    .form-container button[type="submit"]{
-      background:var(--primary-color);
-      color:#fff;
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      width:100%;
-      margin-top:10px;
-      transition:background-color .3s;
-    }
-    .form-container button[type="submit"]:hover{ background:#5a4fbf; }
-
-    .search-container{ margin:20px 0 0; }
-    .search-container input{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:6px;
-      font-size:14px;
-    }
-
-    /* Emotions block */
-    .emotions{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid #eee;
-    }
-    .emotions h3{
-      margin:0 0 10px;
-      font-size:14px;
-      color:var(--primary-color);
-    }
-    .emo-row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      align-items:center;
-      margin-bottom:10px;
-    }
-    .emo-label{
-      font-size:13px;
-      color:#444;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .emo-dot{
-      width:10px;height:10px;border-radius:50%;
-      box-shadow:0 1px 3px rgba(0,0,0,0.18);
-      flex:0 0 auto;
-    }
-    .emo-slider{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .emo-slider input[type="range"]{ width:100%; }
-    .emo-value{
-      width:22px;
-      text-align:right;
-      font-size:12px;
-      color:#666;
-      flex:0 0 auto;
-    }
-
-    /* Canvas stage */
-    .stage-wrap{
-      flex:1;
-      position:relative;
-      margin:20px;
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(135deg, #e6e6fa 0%, #d8bfd8 100%);
-      box-shadow:0 4px 15px var(--shadow-color);
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      display:block;
-      cursor: default;
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1000;
-      left:0; top:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.5);
-      align-items:center;
-      justify-content:center;
-    }
-    .modal-content{
-      background:#fff;
-      margin:auto;
-      padding:20px;
-      border-radius:12px;
-      width:80%;
-      max-width:560px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
-    .modal-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:15px;
-      padding-bottom:10px;
-      border-bottom:1px solid #eee;
-    }
-    .modal-header h3{
-      margin:0;
-      color:var(--primary-color);
-    }
-    .close-button{
-      background:none;
-      border:none;
-      font-size:20px;
-      cursor:pointer;
-      color:#aaa;
-    }
-    .close-button:hover{ color:var(--text-color); }
-    .modal-body p{ margin:8px 0; }
-    .modal-body strong{ color:var(--primary-color); }
-    .emo-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:10px 0 0;
-    }
-    .badge{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,0.08);
-      background:rgba(0,0,0,0.03);
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    .badge .dot{
-      width:10px;height:10px;border-radius:50%;
-      box-shadow:0 1px 3px rgba(0,0,0,0.18);
-    }
-  </style>
-</head>
-
-<body>
-  <div class="form-container">
-    <h2>Nuevo Recuerdo</h2>
-    <form id="memoryForm">
-      <div class="form-group">
-        <label for="vista">Vista:</label>
-        <div class="input-with-button">
-          <textarea id="vista" placeholder="Describe lo que viste..."></textarea>
-          <button type="button" class="record-button" data-target="vista">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="momento">Momento:</label>
-        <input type="date" id="momento">
-      </div>
-
-      <div class="form-group">
-        <label for="oido">Oído:</label>
-        <div class="input-with-button">
-          <textarea id="oido" placeholder="Describe lo que escuchaste..."></textarea>
-          <button type="button" class="record-button" data-target="oido">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sentimos">Sentimos:</label>
-        <div class="input-with-button">
-          <textarea id="sentimos" placeholder="Describe lo que sentiste..."></textarea>
-          <button type="button" class="record-button" data-target="sentimos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="olemos">Olemos:</label>
-        <div class="input-with-button">
-          <textarea id="olemos" placeholder="Describe lo que oliste..."></textarea>
-          <button type="button" class="record-button" data-target="olemos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="sabor">Sabor:</label>
-        <div class="input-with-button">
-          <textarea id="sabor" placeholder="Describe lo que saboreaste..."></textarea>
-          <button type="button" class="record-button" data-target="sabor">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="palpamos">Palpamos:</label>
-        <div class="input-with-button">
-          <textarea id="palpamos" placeholder="Describe lo que tocaste..."></textarea>
-          <button type="button" class="record-button" data-target="palpamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="pensamos">Pensamos:</label>
-        <div class="input-with-button">
-          <textarea id="pensamos" placeholder="Describe en qué pensaste..."></textarea>
-          <button type="button" class="record-button" data-target="pensamos">🎤</button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ubicacion">Ubicación:</label>
-        <div class="input-with-button">
-          <input type="text" id="ubicacion" placeholder="¿Dónde estabas?">
-          <button type="button" class="record-button" data-target="ubicacion">🎤</button>
-        </div>
-      </div>
-
-      <!-- NEW: Lecciones aprendidas -->
-      <div class="form-group">
-        <label for="lecciones">Lecciones aprendidas:</label>
-        <div class="input-with-button">
-          <textarea id="lecciones" placeholder="¿Qué has aprendido de este recuerdo?"></textarea>
-          <button type="button" class="record-button" data-target="lecciones">🎤</button>
-        </div>
-      </div>
-
-      <!-- Ekman emotions -->
-      <div class="emotions">
-        <h3>Emociones principales (0–10)</h3>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_alegria"></span>Alegría</div>
-          <div class="emo-slider">
-            <input id="alegria" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_alegria">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_tristeza"></span>Tristeza</div>
-          <div class="emo-slider">
-            <input id="tristeza" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_tristeza">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_miedo"></span>Miedo</div>
-          <div class="emo-slider">
-            <input id="miedo" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_miedo">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_ira"></span>Ira</div>
-          <div class="emo-slider">
-            <input id="ira" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_ira">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row">
-          <div class="emo-label"><span class="emo-dot" id="dot_asco"></span>Asco</div>
-          <div class="emo-slider">
-            <input id="asco" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_asco">0</span>
-          </div>
-        </div>
-
-        <div class="emo-row" style="margin-bottom:0;">
-          <div class="emo-label"><span class="emo-dot" id="dot_sorpresa"></span>Sorpresa</div>
-          <div class="emo-slider">
-            <input id="sorpresa" type="range" min="0" max="10" value="0">
-            <span class="emo-value" id="val_sorpresa">0</span>
-          </div>
-        </div>
-      </div>
-
-      <button type="submit">Guardar Recuerdo</button>
-    </form>
-
-    <div class="search-container">
-      <label for="search">Buscar en recuerdos:</label>
-      <input type="text" id="search" placeholder="Escribe aquí para conectar recuerdos relacionados...">
-    </div>
-  </div>
-
-  <div class="stage-wrap">
-    <canvas id="canvas"></canvas>
-  </div>
-
-  <!-- Modal -->
-  <div id="memoryModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Detalles del Recuerdo</h3>
-        <button class="close-button" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body" id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    // ----------------------------
-    // "Inside Out"-like palette (approx)
-    // ----------------------------
-    const EMO = [
-      { key:"alegria",  label:"Alegría",  color:[255, 215,  64] }, // yellow
-      { key:"tristeza", label:"Tristeza", color:[ 64, 156, 255] }, // blue
-      { key:"miedo",    label:"Miedo",    color:[170,  80, 220] }, // purple
-      { key:"ira",      label:"Ira",      color:[255,  80,  80] }, // red
-      { key:"asco",     label:"Asco",     color:[ 90, 200,  90] }, // green
-      { key:"sorpresa", label:"Sorpresa", color:[255, 170,  70] }, // orange
-    ];
-
-    function clamp01(x){ return Math.max(0, Math.min(1, x)); }
-
-    function mixColorsRGB(baseRGB, weights){
-      let r=0,g=0,b=0, sum=0;
-      for (let i=0;i<baseRGB.length;i++){
-        const w = Math.max(0, weights[i]);
-        sum += w;
-        r += baseRGB[i][0] * w;
-        g += baseRGB[i][1] * w;
-        b += baseRGB[i][2] * w;
-      }
-      if (sum <= 0) return [255,255,255];
-      return [r/sum, g/sum, b/sum];
-    }
-
-    function bubbleColorFromEmotions(emotions){
-      const weights = EMO.map(e => clamp01((Number(emotions?.[e.key] ?? 0)) / 10));
-      const rgb = mixColorsRGB(EMO.map(e=>e.color), weights);
-      return { rgb };
-    }
-
-    function rgbToCss(rgb, a=1){
-      return `rgba(${Math.round(rgb[0])},${Math.round(rgb[1])},${Math.round(rgb[2])},${a})`;
-    }
-
-    function setupEmotionUI(){
-      for (const e of EMO){
-        const slider = document.getElementById(e.key);
-        const valSpan = document.getElementById("val_"+e.key);
-        const dot = document.getElementById("dot_"+e.key);
-        dot.style.background = rgbToCss(e.color, 1);
-
-        const sync = () => { valSpan.textContent = slider.value; };
-        slider.addEventListener("input", sync);
-        sync();
-      }
-    }
-
-    function readEmotionsFromForm(){
-      const emotions = {};
-      for (const e of EMO){
-        emotions[e.key] = Number(document.getElementById(e.key).value || 0);
-      }
-      return emotions;
-    }
-
-    function resetEmotions(){
-      for (const e of EMO){
-        const slider = document.getElementById(e.key);
-        slider.value = "0";
-        document.getElementById("val_"+e.key).textContent = "0";
-      }
-    }
-
-    // ----------------------------
-    // Voice (webkitSpeechRecognition)
-    // ----------------------------
-    let recognition;
-    let currentTarget = null;
-
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'es-ES';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (currentTarget) document.getElementById(currentTarget).value = transcript;
-      };
-
-      recognition.onerror = (event) => console.error('Error en grabación:', event.error);
-    } else {
-      alert('Tu navegador no soporta la grabación de voz.');
-      document.querySelectorAll('.record-button').forEach(b => b.style.display = 'none');
-    }
-
-    document.querySelectorAll('.record-button').forEach(button => {
-      button.addEventListener('click', () => {
-        currentTarget = button.getAttribute('data-target');
-        if (recognition) {
-          recognition.start();
-          button.textContent = '🛑';
-          recognition.onend = () => { button.textContent = '🎤'; };
-        }
-      });
-    });
-
-    // ----------------------------
-    // Modal
-    // ----------------------------
-    const modal = document.getElementById('memoryModal');
-    const modalContent = document.getElementById('modalContent');
-    const closeModal = document.getElementById('closeModal');
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-      }[m]));
-    }
-
-    function renderEmotionBadges(emotions){
-      const parts = [];
-      for (const e of EMO){
-        const v = Number(emotions?.[e.key] ?? 0);
-        if (v <= 0) continue;
-        parts.push(`
-          <span class="badge">
-            <span class="dot" style="background:${rgbToCss(e.color,1)}"></span>
-            ${escapeHtml(e.label)}: ${v}
-          </span>
-        `);
-      }
-      if (!parts.length) return `<div class="emo-badges"><span class="badge">Sin emociones registradas</span></div>`;
-      return `<div class="emo-badges">${parts.join("")}</div>`;
-    }
-
-    function showMemoryModal(memory) {
-      const emoHtml = renderEmotionBadges(memory.emociones || {});
-      modalContent.innerHTML = `
-        <p><strong>Ubicación:</strong> ${escapeHtml(memory.ubicacion || 'Sin ubicación')}</p>
-        <p><strong>Momento:</strong> ${escapeHtml(memory.momento || 'Sin fecha')}</p>
-        <p><strong>Vista:</strong> ${escapeHtml(memory.vista || 'Nada')}</p>
-        <p><strong>Oído:</strong> ${escapeHtml(memory.oido || 'Nada')}</p>
-        <p><strong>Sentimos:</strong> ${escapeHtml(memory.sentimos || 'Nada')}</p>
-        <p><strong>Olemos:</strong> ${escapeHtml(memory.olemos || 'Nada')}</p>
-        <p><strong>Sabor:</strong> ${escapeHtml(memory.sabor || 'Nada')}</p>
-        <p><strong>Palpamos:</strong> ${escapeHtml(memory.palpamos || 'Nada')}</p>
-        <p><strong>Pensamos:</strong> ${escapeHtml(memory.pensamos || 'Nada')}</p>
-        <p><strong>Lecciones aprendidas:</strong> ${escapeHtml(memory.lecciones || '')}</p>
-        ${emoHtml}
-      `;
-      modal.style.display = 'flex';
-    }
-
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-
-    // ----------------------------
-    // Canvas + physics
-    // ----------------------------
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width  = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener("resize", resizeCanvas);
-
-    function distance2D(x1,y1,x2,y2){
-      const dx=x2-x1, dy=y2-y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
-
-    // Tokenization
-    function tokenize(text){
-      return (text || "")
-        .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\p{L}\p{N}\s]+/gu, " ")
-        .split(/\s+/)
-        .filter(w => w.length >= 3);
-    }
-
-    function memoryTokens(memory){
-      // include "lecciones" too (and ignore emociones object)
-      const fields = [
-        memory.vista, memory.momento, memory.oido, memory.sentimos,
-        memory.olemos, memory.sabor, memory.palpamos, memory.pensamos,
-        memory.ubicacion, memory.lecciones
-      ];
-      return new Set(tokenize(fields.join(" ")));
-    }
-
-    // Search state
-    const searchInput = document.getElementById("search");
-    let searchTerms = [];
-    searchInput.addEventListener("input", () => {
-      const raw = searchInput.value.trim().toLowerCase();
-      searchTerms = raw ? raw.split(/\s+/).filter(t => t.length >= 2) : [];
-
-      particles.forEach(p => {
-        p.fija = false;
-        p.estableFrames = 0;
-        p.vx *= 0.2;
-        p.vy *= 0.2;
-      });
-    });
-
-    function matchCount(tokens, terms){
-      if (!terms.length) return 0;
-      let c = 0;
-      for (const t of terms){
-        for (const w of tokens){
-          if (w.includes(t)) { c++; break; }
-        }
-      }
-      return c;
-    }
-
-    // Particles
-    let memories = [];
-    let particles = [];
-    let selectedParticleId = null;
-
-    class Particle{
-      constructor(x,y,a, memory){
-        this.x = x; this.y = y;
-
-        this.v = 0.45;
-        this.vx = Math.cos(a)*this.v;
-        this.vy = Math.sin(a)*this.v;
-
-        this.ax = 0; this.ay = 0;
-        this.data = memory;
-        this.tokens = memoryTokens(memory);
-
-        this.fija = false;
-        this.estableFrames = 0;
-
-        this.r = 18 + Math.random()*10;
-
-        const emo = bubbleColorFromEmotions(memory.emociones || {});
-        this.tint = emo.rgb;
-
-        this.id = (memory._id || (Date.now() + "-" + Math.random().toString(16).slice(2)));
-        memory._id = this.id;
-      }
-
-      score(){ return matchCount(this.tokens, searchTerms); }
-      isSelected(){ return this.id === selectedParticleId; }
-
-      interactions(width,height){
-        if (this.fija){ this.ax=0; this.ay=0; return; }
-
-        const searching = searchTerms.length > 0;
-        const myScore = this.score();
-        const amActive = searching && myScore > 0;
-
-        const distMin        = 62;
-        const distRepelMid   = 260;
-        const distRepelOuter = 520;
-
-        const kRepelClose = 0.11;
-        const kRepelMid   = 0.0018;
-        const kRepelOuter = 0.00025;
-
-        const kAttractFar  = 0.00055;
-        const kAttractNear = 0.00125;
-        const distTarget   = 190;
-
-        const kCenterPull = 0.00095;
-        const center = { x: width * 0.5, y: height * 0.5 };
-
-        let fx=0, fy=0;
-
-        if (amActive) {
-          const dxC = center.x - this.x;
-          const dyC = center.y - this.y;
-          fx += dxC * kCenterPull;
-          fy += dyC * kCenterPull;
-        }
-
-        for (const p of particles){
-          if (p === this) continue;
-
-          const d = distance2D(this.x,this.y,p.x,p.y);
-          if (d === 0) continue;
-
-          const dx = p.x - this.x;
-          const dy = p.y - this.y;
-          const ux = dx / d;
-          const uy = dy / d;
-
-          if (d < distMin){
-            const intensity = (distMin - d) * kRepelClose;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-            continue;
-          }
-
-          if (d < distRepelMid){
-            const intensity = (distRepelMid - d) * kRepelMid;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          } else if (d < distRepelOuter){
-            const intensity = (distRepelOuter - d) * kRepelOuter;
-            fx -= ux * intensity;
-            fy -= uy * intensity;
-          }
-
-          if (!searching) continue;
-
-          const otherScore = p.score();
-          const otherActive = otherScore > 0;
-
-          if (amActive && otherActive){
-            const weight = 0.75 + 0.20 * Math.min(6, Math.min(myScore, otherScore));
-            fx += ux * (kAttractFar * weight * d);
-            fy += uy * (kAttractFar * weight * d);
-
-            const delta = d - distTarget;
-            fx += ux * (delta * kAttractNear * weight);
-            fy += uy * (delta * kAttractNear * weight);
-          }
-        }
-
-        const maxForce = 0.11;
-        const mag = Math.sqrt(fx*fx + fy*fy);
-        if (mag > maxForce){
-          fx = fx/mag*maxForce;
-          fy = fy/mag*maxForce;
-        }
-
-        this.ax = fx;
-        this.ay = fy;
-      }
-
-      move(width,height){
-        if (this.fija) return;
-
-        this.vx += this.ax;
-        this.vy += this.ay;
-
-        const searching = searchTerms.length > 0;
-        const friction = searching ? 0.90 : 0.925;
-        this.vx *= friction;
-        this.vy *= friction;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
-        const force = Math.sqrt(this.ax*this.ax + this.ay*this.ay);
-        if (!searching && speed < 0.02 && force < 0.002){
-          this.estableFrames++;
-          if (this.estableFrames > 60){
-            this.fija = true;
-            this.vx=0; this.vy=0;
-          }
-        } else {
-          this.estableFrames = 0;
-        }
-
-        const pad = this.r + 10;
-        const rebound = -0.5;
-
-        if (this.x > width - pad){ this.x = width - pad; this.vx *= rebound; }
-        if (this.x < pad){ this.x = pad; this.vx *= rebound; }
-        if (this.y > height - pad){ this.y = height - pad; this.vy *= rebound; }
-        if (this.y < pad){ this.y = pad; this.vy *= rebound; }
-      }
-
-      drawBubble(){
-        const x = this.x, y = this.y, r = this.r;
-
-        // Shadow
-        ctx.save();
-        ctx.globalAlpha = 0.18;
-        ctx.beginPath();
-        ctx.ellipse(x + r*0.25, y + r*0.40, r*0.95, r*0.75, 0, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(0,0,0,0.35)";
-        ctx.fill();
-        ctx.restore();
-
-        // Base glass
-        const glass = ctx.createRadialGradient(x - r*0.35, y - r*0.35, r*0.2, x, y, r);
-        glass.addColorStop(0, "rgba(255,255,255,0.65)");
-glass.addColorStop(0.35, "rgba(255,255,255,0.18)");
-glass.addColorStop(1, "rgba(255,255,255,0.08)");
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = glass;
-        ctx.fill();
-
-        // NEW: Color INSIDE bubble (emotion) - keep translucent, with depth
-        ctx.save();
-        ctx.globalCompositeOperation = "multiply";
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        const inner = ctx.createRadialGradient(x - r*0.95, y - r*0.95, r*0.95, x, y, r);
-        inner.addColorStop(0, rgbToCss(this.tint, 1.0));
-inner.addColorStop(1, rgbToCss(this.tint, 0.95));
-        ctx.fillStyle = inner;
-        ctx.fill();
-        ctx.restore();
-
-        // Border: neutral by default; yellow if selected or matched
-        const score = this.score();
-        const highlighted = this.isSelected() || score > 0;
-
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.lineWidth = highlighted ? 8.8 : 1.4;
-        ctx.strokeStyle = highlighted ? "rgba(0,0,0,0.95)" : "rgba(255,255,255,0.65)";
-        ctx.stroke();
-
-        // Glint
-        ctx.beginPath();
-        ctx.arc(x - r*0.25, y - r*0.25, r*0.25, 0, Math.PI*2);
-        ctx.fillStyle = "rgba(255,255,255,0.60)";
-        ctx.fill();
-
-        // Inner ring
-        ctx.beginPath();
-        ctx.arc(x, y, r*0.82, 0, Math.PI*2);
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "rgba(255,255,255,0.28)";
-        ctx.stroke();
-      }
-
-      hitTest(mx,my){
-        const d = distance2D(mx,my,this.x,this.y);
-        return d <= this.r + 6;
-      }
-    }
-
-    function drawConnections(){
-      if (searchTerms.length === 0) return;
-
-      const maxLinkDist = 360;
-
-      for (let i=0;i<particles.length;i++){
-        const a = particles[i];
-        const sa = a.score();
-        if (sa <= 0) continue;
-
-        for (let j=i+1;j<particles.length;j++){
-          const b = particles[j];
-          const sb = b.score();
-          if (sb <= 0) continue;
-
-          const d = distance2D(a.x,a.y,b.x,b.y);
-          if (d > maxLinkDist) continue;
-
-          const relevance = Math.min(10, sa + sb);
-          const alpha = Math.max(0.25, 0.84 * (1 - d/maxLinkDist));
-          const w = 1 + Math.min(8, relevance * 0.35);
-
-          ctx.strokeStyle = `rgba(147,112,219,${alpha})`;
-          ctx.lineWidth = w;
-          ctx.lineCap = "round";
-
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    function loop(){
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0,0,w,h);
-
-      for (const p of particles) p.interactions(w,h);
-      for (const p of particles) p.move(w,h);
-
-      drawConnections();
-      for (const p of particles) p.drawBubble();
-
-      requestAnimationFrame(loop);
-    }
-
-    // click to select + open modal (yellow border while selected)
-    canvas.addEventListener("click", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (let i = particles.length - 1; i >= 0; i--){
-        if (particles[i].hitTest(mx,my)){
-          selectedParticleId = particles[i].id;
-          showMemoryModal(particles[i].data);
-          return;
-        }
-      }
-
-      // clicked empty space -> deselect
-      selectedParticleId = null;
-    });
-
-    // deselect when closing modal
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-      selectedParticleId = null;
-    });
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        selectedParticleId = null;
-      }
-    });
-
-    // ----------------------------
-    // Load + Save (same PHP endpoint)
-    // ----------------------------
-    const memoryForm = document.getElementById('memoryForm');
-
-    function normalizeMemory(m){
-      // emotions backward compatible
-      if (!m.emociones) {
-        m.emociones = {};
-        for (const e of EMO) m.emociones[e.key] = 0;
-      } else {
-        for (const e of EMO) {
-          if (m.emociones[e.key] === undefined) m.emociones[e.key] = 0;
-          m.emociones[e.key] = Number(m.emociones[e.key] || 0);
-        }
-      }
-
-      // NEW: lecciones backward compatible
-      if (m.lecciones === undefined || m.lecciones === null) m.lecciones = "";
-
-      return m;
-    }
-
-    function loadMemories(){
-      return fetch("save_memories.php")
-        .then(r => r.json())
-        .then(list => {
-          memories = Array.isArray(list) ? list : [];
-          const rect = canvas.getBoundingClientRect();
-          particles = memories.map(m => new Particle(
-            Math.random() * (rect.width  - 80) + 40,
-            Math.random() * (rect.height - 80) + 40,
-            Math.random() * Math.PI * 2,
-            normalizeMemory(m)
-          ));
-        });
-    }
-
-    memoryForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const emotions = readEmotionsFromForm();
-
-      const memory = normalizeMemory({
-        vista: document.getElementById('vista').value,
-        momento: document.getElementById('momento').value,
-        oido: document.getElementById('oido').value,
-        sentimos: document.getElementById('sentimos').value,
-        olemos: document.getElementById('olemos').value,
-        sabor: document.getElementById('sabor').value,
-        palpamos: document.getElementById('palpamos').value,
-        pensamos: document.getElementById('pensamos').value,
-        ubicacion: document.getElementById('ubicacion').value,
-        lecciones: document.getElementById('lecciones').value, // NEW
-        emociones: emotions
-      });
-
-      fetch("save_memories.php", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify(memory)
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (!data || !data.success) return;
-
-        memories.push(memory);
-
-        const rect = canvas.getBoundingClientRect();
-        particles.push(new Particle(
-          Math.random() * (rect.width  - 80) + 40,
-          Math.random() * (rect.height - 80) + 40,
-          Math.random() * Math.PI * 2,
-          memory
-        ));
-
-        particles.forEach(p => { p.fija = false; p.estableFrames = 0; });
-        memoryForm.reset();
-        resetEmotions();
-      })
-      .catch(err => console.error("Error al guardar:", err));
-    });
-
-    // ----------------------------
-    // Boot
-    // ----------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      setupEmotionUI();
-      resizeCanvas();
-      loadMemories()
-        .then(() => requestAnimationFrame(loop))
-        .catch(err => console.error("Error al cargar recuerdos:", err));
-    });
-  </script>
-</body>
-</html>
-```
-
-### memories
-<small>Creado: 2026-04-16 17:39</small>
-
-`memories.json`
-
-```json
-[
-  {
-    "vista": "estaba conduciendo en el coche por una carretera y era de día",
-    "momento": "2025-12-02",
-    "oido": "la radio baja y el ruido constante del motor",
-    "sentimos": "algo de prisa y concentración",
-    "olemos": "olor tenue a calefacción del coche",
-    "sabor": "",
-    "palpamos": "hacía frío de diciembre entrando por la ventana",
-    "pensamos": "no quería llegar tarde a clase",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 8,
-      "miedo": 3,
-      "ira": 6,
-      "asco": 5,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "ayer por la noche iba conduciendo por la carretera con pocas luces",
-    "momento": "2025-12-10",
-    "oido": "los neumáticos sobre el asfalto mojado",
-    "sentimos": "tranquilidad con un punto de cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "me sorprendió que no hubiera llovido mucho",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 1,
-      "miedo": 0,
-      "ira": 7,
-      "asco": 3,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "estoy dando una clase y veo a los alumnos tomando apuntes",
-    "momento": "2025-12-16",
-    "oido": "teclados, sillas y murmullos puntuales",
-    "sentimos": "responsabilidad y ganas de que quede claro",
-    "olemos": "olor a aula y rotulador",
-    "sabor": "",
-    "palpamos": "aquí hace calor",
-    "pensamos": "quiero que este ejercicio quede bien",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 7,
-      "miedo": 3,
-      "ira": 5,
-      "asco": 5,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "iba en la bici y al girarme para mirar un coche noté un tirón",
-    "momento": "2025-05-14",
-    "oido": "ruido de tráfico y viento",
-    "sentimos": "dolor fuerte en el cuello",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "era un día de primavera y hacía calor",
-    "pensamos": "cada año me pasa alguna contractura y no sé por qué",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 10,
-      "miedo": 6,
-      "ira": 3,
-      "asco": 10,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "camino por una calle con tiendas y gente mirando escaparates",
-    "momento": "2025-11-28",
-    "oido": "conversaciones y una moto pasando",
-    "sentimos": "curiosidad y calma",
-    "olemos": "olor a castañas asadas",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "debería comprar un detalle para casa",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 0,
-      "ira": 7,
-      "asco": 1,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en un supermercado comparando precios en la estantería",
-    "momento": "2025-10-03",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "ligera saturación por el ruido",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 3,
-      "miedo": 1,
-      "ira": 9,
-      "asco": 5,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en la cocina preparando café por la mañana",
-    "momento": "2025-12-01",
-    "oido": "la cafetera burbujeando",
-    "sentimos": "sueño y rutina",
-    "olemos": "café intenso",
-    "sabor": "primer sorbo amargo",
-    "palpamos": "taza caliente en las manos",
-    "pensamos": "hoy toca avanzar trabajo",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 5,
-      "miedo": 9,
-      "ira": 0,
-      "asco": 4,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "paseo por el parque con árboles y hojas en el suelo",
-    "momento": "2025-11-09",
-    "oido": "pájaros y niños a lo lejos",
-    "sentimos": "descanso mental",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "necesitaba parar un rato",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 4,
-      "miedo": 0,
-      "ira": 9,
-      "asco": 10,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en un aula con proyector mostrando código en pantalla",
-    "momento": "2025-10-21",
-    "oido": "preguntas y teclas",
-    "sentimos": "motivación",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "voy a poner un ejemplo más simple",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 3,
-      "miedo": 1,
-      "ira": 7,
-      "asco": 7,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "reunión rápida en un pasillo antes de entrar",
-    "momento": "2025-12-05",
-    "oido": "eco del pasillo y pasos",
-    "sentimos": "prisa",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "no quiero olvidarme del material",
-    "ubicacion": "instituto en Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 6,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 7,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "tarde de lluvia mirando por la ventana",
-    "momento": "2025-10-29",
-    "oido": "gotas golpeando el cristal",
-    "sentimos": "melancolía ligera",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "calor de la manta",
-    "pensamos": "mañana reorganizo todo",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 4,
-      "miedo": 2,
-      "ira": 9,
-      "asco": 3,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en el coche, parado en un semáforo con luces rojas",
-    "momento": "2025-12-07",
-    "oido": "intermitente y motor al ralentí",
-    "sentimos": "paciencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "tengo que responder correos",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 7,
-      "miedo": 5,
-      "ira": 9,
-      "asco": 1,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "subiendo escaleras con prisa por llegar",
-    "momento": "2025-09-18",
-    "oido": "pasos y respiración",
-    "sentimos": "agobio breve",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "corazón acelerado",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 6,
-      "miedo": 2,
-      "ira": 3,
-      "asco": 6,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en una cafetería con gente trabajando con portátil",
-    "momento": "2025-11-15",
-    "oido": "tazas, murmullos, una máquina de café",
-    "sentimos": "concentración",
-    "olemos": "café y bollería",
-    "sabor": "café con leche",
-    "palpamos": "mesa fría",
-    "pensamos": "este diseño va a quedar bien",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 0,
-      "miedo": 7,
-      "ira": 8,
-      "asco": 8,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "paseando cerca de un río con carril bici",
-    "momento": "2025-04-22",
-    "oido": "ruido de bicis y pájaros",
-    "sentimos": "energía",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "sol en la piel",
-    "pensamos": "debería salir más a menudo",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 6,
-      "miedo": 1,
-      "ira": 1,
-      "asco": 4,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en casa, ordenando papeles en una mesa",
-    "momento": "2025-08-30",
-    "oido": "silencio y alguna notificación del móvil",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "papel áspero",
-    "pensamos": "si lo dejo listo hoy, mañana descanso",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 3,
-      "miedo": 1,
-      "ira": 6,
-      "asco": 7,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en una parada esperando el autobús",
-    "momento": "2025-12-12",
-    "oido": "tráfico y un bus frenando",
-    "sentimos": "frío y paciencia",
-    "olemos": "humo de escape",
-    "sabor": "",
-    "palpamos": "manos frías",
-    "pensamos": "llego justo, pero llego",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 3,
-      "miedo": 2,
-      "ira": 6,
-      "asco": 7,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "caminando por una avenida grande con semáforos",
-    "momento": "2025-09-06",
-    "oido": "coches y sirena a lo lejos",
-    "sentimos": "alerta",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "calor fuerte",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 3,
-      "miedo": 8,
-      "ira": 10,
-      "asco": 1,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en el aula, un alumno pregunta y el resto mira",
-    "momento": "2025-11-19",
-    "oido": "una pregunta clara y breve silencio",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "esta duda es buena, la explico a todos",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 4,
-      "miedo": 9,
-      "ira": 4,
-      "asco": 5,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en un paso de peatones esperando para cruzar",
-    "momento": "2025-10-11",
-    "oido": "pitido de semáforo y pasos",
-    "sentimos": "prisa",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "viento",
-    "pensamos": "no quiero perder el tren",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 3,
-      "miedo": 7,
-      "ira": 3,
-      "asco": 2,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "por la tarde, revisando código en una pantalla grande",
-    "momento": "2025-12-03",
-    "oido": "ventilador del ordenador",
-    "sentimos": "concentración y cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "ojos secos",
-    "pensamos": "voy a simplificar la función",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 2,
-      "miedo": 4,
-      "ira": 9,
-      "asco": 3,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en un aula, explicando un ejercicio paso a paso",
-    "momento": "2025-10-08",
-    "oido": "teclas y alguna risa",
-    "sentimos": "confianza",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "si lo ven en pequeño, lo entienden",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 6,
-      "miedo": 4,
-      "ira": 3,
-      "asco": 8,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en un trayecto corto en coche con el sol bajo",
-    "momento": "2025-11-02",
-    "oido": "radio con noticias",
-    "sentimos": "tranquilidad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "luz cálida en la cara",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 10,
-      "miedo": 1,
-      "ira": 10,
-      "asco": 7,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en una biblioteca buscando un libro en una estantería alta",
-    "momento": "2025-09-26",
-    "oido": "silencio y páginas pasando",
-    "sentimos": "curiosidad",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "cubierta dura",
-    "pensamos": "quiero algo práctico y directo",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 0,
-      "miedo": 7,
-      "ira": 3,
-      "asco": 7,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una terraza con una bebida fría al atardecer",
-    "momento": "2025-07-19",
-    "oido": "voces y platos",
-    "sentimos": "relajación",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "aire templado",
-    "pensamos": "necesitaba desconectar",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 4,
-      "miedo": 3,
-      "ira": 1,
-      "asco": 0,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en un gimnasio mirando el espejo antes de empezar",
-    "momento": "2025-06-06",
-    "oido": "música y pesas",
-    "sentimos": "motivación",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "sudor",
-    "pensamos": "con constancia, mejora",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 9,
-      "miedo": 3,
-      "ira": 1,
-      "asco": 5,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en la cocina preparando una cena sencilla",
-    "momento": "2025-10-17",
-    "oido": "sartén y agua hirviendo",
-    "sentimos": "calma",
-    "olemos": "ajo y aceite",
-    "sabor": "sal y tomate",
-    "palpamos": "calor de los fogones",
-    "pensamos": "me apetece algo rápido",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 7,
-      "miedo": 9,
-      "ira": 4,
-      "asco": 10,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en un pasillo del centro, saludando a alguien de lejos",
-    "momento": "2025-12-09",
-    "oido": "pasos y voces",
-    "sentimos": "buen humor",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "hoy voy con tiempo",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 10,
-      "miedo": 9,
-      "ira": 9,
-      "asco": 5,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en el coche buscando aparcamiento, dando vueltas",
-    "momento": "2025-11-25",
-    "oido": "intermitente y coches",
-    "sentimos": "impaciencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "siempre pasa lo mismo a esta hora",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 5,
-      "miedo": 5,
-      "ira": 2,
-      "asco": 0,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en un aula, corrigiendo ejercicios con calma",
-    "momento": "2025-10-30",
-    "oido": "silencio y teclado",
-    "sentimos": "foco",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "voy a dar feedback claro",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 0,
-      "miedo": 9,
-      "ira": 10,
-      "asco": 3,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "paseo corto por la mañana temprano con poca gente",
-    "momento": "2025-12-04",
-    "oido": "pájaros y algún coche",
-    "sentimos": "energía tranquila",
-    "olemos": "aire frío",
-    "sabor": "",
-    "palpamos": "frío en la nariz",
-    "pensamos": "me viene bien caminar",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 6,
-      "miedo": 10,
-      "ira": 5,
-      "asco": 2,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en un tren mirando por la ventanilla",
-    "momento": "2025-08-12",
-    "oido": "ruido rítmico de vías",
-    "sentimos": "desconexión",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "vibración del asiento",
-    "pensamos": "voy a aprovechar para leer",
-    "ubicacion": "trayecto en tren",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 1,
-      "miedo": 3,
-      "ira": 0,
-      "asco": 7,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en un aula, explicando cómo funciona una API",
-    "momento": "2025-11-07",
-    "oido": "preguntas y respuestas",
-    "sentimos": "entusiasmo",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "si lo conectan con un ejemplo real, lo retienen",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 1,
-      "miedo": 6,
-      "ira": 1,
-      "asco": 6,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en la calle, el cielo estaba gris y amenazaba lluvia",
-    "momento": "2025-11-03",
-    "oido": "viento entre edificios",
-    "sentimos": "prudencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "viento fuerte",
-    "pensamos": "me llevo chaqueta por si acaso",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 2,
-      "miedo": 10,
-      "ira": 8,
-      "asco": 1,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en casa, haciendo una copia de seguridad del ordenador",
-    "momento": "2025-09-14",
-    "oido": "disco trabajando",
-    "sentimos": "seguridad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "mejor prevenir que perder datos",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 6,
-      "miedo": 4,
-      "ira": 6,
-      "asco": 4,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en un aula, mirando un error en consola y encontrando la causa",
-    "momento": "2025-12-13",
-    "oido": "un 'ah' general cuando se entiende",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "la explicación breve funciona",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 6,
-      "miedo": 0,
-      "ira": 4,
-      "asco": 9,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "caminando por una calle estrecha con luces de navidad",
-    "momento": "2025-12-11",
-    "oido": "gente hablando y música de fondo",
-    "sentimos": "ambiente agradable",
-    "olemos": "dulces y chocolate",
-    "sabor": "",
-    "palpamos": "frío",
-    "pensamos": "la ciudad cambia mucho en diciembre",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 6,
-      "miedo": 0,
-      "ira": 5,
-      "asco": 10,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en una sala silenciosa revisando notas en una libreta",
-    "momento": "2025-10-06",
-    "oido": "bolígrafo sobre papel",
-    "sentimos": "orden mental",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "papel suave",
-    "pensamos": "así lo tengo claro para la próxima clase",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 6,
-      "miedo": 3,
-      "ira": 0,
-      "asco": 6,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en un aparcamiento subterráneo buscando el coche",
-    "momento": "2025-09-09",
-    "oido": "eco y motores",
-    "sentimos": "desorientación breve",
-    "olemos": "humedad y gasolina",
-    "sabor": "",
-    "palpamos": "aire frío",
-    "pensamos": "tengo que recordar la columna",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 1,
-      "miedo": 1,
-      "ira": 6,
-      "asco": 9,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una clase, escribiendo en la pizarra un esquema",
-    "momento": "2025-11-26",
-    "oido": "tiza y silencio atento",
-    "sentimos": "claridad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "estructura primero, detalle después",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 2,
-      "miedo": 2,
-      "ira": 0,
-      "asco": 0,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-03-19",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "responsabilidad",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "casa (despacho)",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 10,
-      "miedo": 6,
-      "ira": 1,
-      "asco": 9,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-01-30",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "satisfacción",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "corazón acelerado",
-    "pensamos": "respondo mensajes luego",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 8,
-      "miedo": 2,
-      "ira": 2,
-      "asco": 5,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-02-16",
-    "oido": "motor al ralentí",
-    "sentimos": "motivación",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "ojos secos",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 8,
-      "miedo": 2,
-      "ira": 1,
-      "asco": 1,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-10-27",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "concentración",
-    "olemos": "olor a lluvia",
-    "sabor": "café con leche",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 3,
-      "miedo": 4,
-      "ira": 2,
-      "asco": 0,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-08-03",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "ligera saturación",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 0,
-      "miedo": 9,
-      "ira": 10,
-      "asco": 6,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en casa, revisando notas y preparando la siguiente clase",
-    "momento": "2025-10-25",
-    "oido": "ventilador del ordenador",
-    "sentimos": "responsabilidad",
-    "olemos": "olor a lluvia",
-    "sabor": "chocolate caliente",
-    "palpamos": "taza caliente",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 2,
-      "miedo": 10,
-      "ira": 3,
-      "asco": 9,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-01-31",
-    "oido": "ventilador del ordenador",
-    "sentimos": "satisfacción",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "frío",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "estación de tren",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 3,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 9,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-05-08",
-    "oido": "",
-    "sentimos": "prisa",
-    "olemos": "aire limpio",
-    "sabor": "refresco dulce",
-    "palpamos": "taza caliente",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "casa (salón)",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 8,
-      "ira": 2,
-      "asco": 6,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-06-25",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "paciencia",
-    "olemos": "rotulador",
-    "sabor": "un sorbo amargo",
-    "palpamos": "taza caliente",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 2,
-      "miedo": 3,
-      "ira": 3,
-      "asco": 0,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-06-25",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "orden y control",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 0,
-      "miedo": 10,
-      "ira": 5,
-      "asco": 1,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en un gimnasio empezando la rutina",
-    "momento": "2025-10-13",
-    "oido": "ventilador del ordenador",
-    "sentimos": "alerta",
-    "olemos": "castañas asadas",
-    "sabor": "chocolate caliente",
-    "palpamos": "",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 7,
-      "miedo": 8,
-      "ira": 10,
-      "asco": 4,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-10-24",
-    "oido": "",
-    "sentimos": "paciencia",
-    "olemos": "pan recién hecho",
-    "sabor": "un sorbo amargo",
-    "palpamos": "calor en el aula",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 4,
-      "miedo": 9,
-      "ira": 3,
-      "asco": 6,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-06-08",
-    "oido": "pasos y maletas",
-    "sentimos": "buen humor",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "vibración del asiento",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 5,
-      "miedo": 7,
-      "ira": 8,
-      "asco": 7,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-07-01",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "buen humor",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "mejor hacerlo hoy y descansar mañana",
-    "ubicacion": "casa (salón)",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 0,
-      "miedo": 9,
-      "ira": 7,
-      "asco": 7,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-05-07",
-    "oido": "pasos y maletas",
-    "sentimos": "motivación",
-    "olemos": "papel viejo",
-    "sabor": "un sorbo amargo",
-    "palpamos": "vibración del asiento",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 9,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 7,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-08-09",
-    "oido": "ruido rítmico de vías",
-    "sentimos": "cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "vibración del asiento",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 1,
-      "miedo": 2,
-      "ira": 5,
-      "asco": 6,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-04-01",
-    "oido": "ruido rítmico de vías",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "frío",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "estación de tren",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 7,
-      "miedo": 8,
-      "ira": 8,
-      "asco": 10,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-01-03",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "motivación",
-    "olemos": "ambientador del coche",
-    "sabor": "chocolate caliente",
-    "palpamos": "vibración del asiento",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "casa (cocina)",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 10,
-      "miedo": 2,
-      "ira": 1,
-      "asco": 5,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-09-21",
-    "oido": "ventilador del ordenador",
-    "sentimos": "responsabilidad",
-    "olemos": "",
-    "sabor": "café con leche",
-    "palpamos": "calor de los fogones",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "paseo marítimo en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 0,
-      "miedo": 8,
-      "ira": 6,
-      "asco": 10,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-07-23",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "motivación",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "respondo mensajes luego",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 1,
-      "miedo": 9,
-      "ira": 1,
-      "asco": 3,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-02-04",
-    "oido": "motor al ralentí",
-    "sentimos": "paciencia",
-    "olemos": "tierra húmeda",
-    "sabor": "un sorbo amargo",
-    "palpamos": "viento fuerte",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 4,
-      "miedo": 2,
-      "ira": 10,
-      "asco": 3,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-10-18",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "ligera saturación",
-    "olemos": "pan recién hecho",
-    "sabor": "chocolate caliente",
-    "palpamos": "vibración del asiento",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 9,
-      "miedo": 4,
-      "ira": 2,
-      "asco": 5,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-04-17",
-    "oido": "ventilador del ordenador",
-    "sentimos": "motivación",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "viento fuerte",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "casa (despacho)",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 7,
-      "miedo": 2,
-      "ira": 4,
-      "asco": 8,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-03-04",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "relajación",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "calor de los fogones",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "casa (salón)",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 9,
-      "miedo": 4,
-      "ira": 9,
-      "asco": 8,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-03-15",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "descanso mental",
-    "olemos": "castañas asadas",
-    "sabor": "",
-    "palpamos": "calor de los fogones",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 5,
-      "miedo": 0,
-      "ira": 3,
-      "asco": 2,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "paseando por el parque con el cielo despejado",
-    "momento": "2025-01-12",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "ligera saturación",
-    "olemos": "castañas asadas",
-    "sabor": "agua fresca",
-    "palpamos": "",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 10,
-      "miedo": 4,
-      "ira": 10,
-      "asco": 5,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en un gimnasio empezando la rutina",
-    "momento": "2025-09-28",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "responsabilidad",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 4,
-      "miedo": 1,
-      "ira": 8,
-      "asco": 0,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-04-25",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "ligera saturación",
-    "olemos": "ambientador del coche",
-    "sabor": "chocolate caliente",
-    "palpamos": "",
-    "pensamos": "mejor hacerlo hoy y descansar mañana",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 7,
-      "miedo": 8,
-      "ira": 8,
-      "asco": 9,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en un gimnasio empezando la rutina",
-    "momento": "2025-04-10",
-    "oido": "",
-    "sentimos": "satisfacción",
-    "olemos": "ajo y aceite",
-    "sabor": "refresco dulce",
-    "palpamos": "ojos secos",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "cafetería en Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 8,
-      "miedo": 10,
-      "ira": 6,
-      "asco": 5,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-01-15",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "alerta",
-    "olemos": "rotulador",
-    "sabor": "",
-    "palpamos": "calor en el aula",
-    "pensamos": "mejor hacerlo hoy y descansar mañana",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 5,
-      "miedo": 9,
-      "ira": 2,
-      "asco": 5,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-08-17",
-    "oido": "",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "chocolate caliente",
-    "palpamos": "viento fuerte",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 7,
-      "miedo": 3,
-      "ira": 2,
-      "asco": 9,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-04-27",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "satisfacción",
-    "olemos": "castañas asadas",
-    "sabor": "refresco dulce",
-    "palpamos": "calor de los fogones",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 8,
-      "miedo": 4,
-      "ira": 4,
-      "asco": 10,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-01-01",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "chocolate caliente",
-    "palpamos": "",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "instituto en Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 5,
-      "miedo": 0,
-      "ira": 0,
-      "asco": 3,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-07-18",
-    "oido": "radio con noticias",
-    "sentimos": "descanso mental",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "respondo mensajes luego",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 9,
-      "miedo": 10,
-      "ira": 6,
-      "asco": 6,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-07-22",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "motivación",
-    "olemos": "",
-    "sabor": "un sorbo amargo",
-    "palpamos": "",
-    "pensamos": "no quiero llegar tarde",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 0,
-      "miedo": 2,
-      "ira": 7,
-      "asco": 3,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-01-15",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "buen humor",
-    "olemos": "papel viejo",
-    "sabor": "agua fresca",
-    "palpamos": "vibración del asiento",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 0,
-      "miedo": 0,
-      "ira": 0,
-      "asco": 0,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-12-03",
-    "oido": "motor al ralentí",
-    "sentimos": "prisa",
-    "olemos": "ambientador del coche",
-    "sabor": "agua fresca",
-    "palpamos": "frío en las manos",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 4,
-      "miedo": 1,
-      "ira": 8,
-      "asco": 5,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "paseando por el parque con el cielo despejado",
-    "momento": "2025-03-13",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "relajación",
-    "olemos": "olor a lluvia",
-    "sabor": "refresco dulce",
-    "palpamos": "frío en las manos",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 6,
-      "miedo": 9,
-      "ira": 4,
-      "asco": 9,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-09-14",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "alerta",
-    "olemos": "aire frío",
-    "sabor": "chocolate caliente",
-    "palpamos": "calor en el aula",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 5,
-      "miedo": 9,
-      "ira": 7,
-      "asco": 2,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-03-09",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "chocolate caliente",
-    "palpamos": "calor de los fogones",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "estación de tren",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 3,
-      "miedo": 2,
-      "ira": 7,
-      "asco": 1,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-09-30",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "ligera saturación",
-    "olemos": "ambientador del coche",
-    "sabor": "café con leche",
-    "palpamos": "calor de los fogones",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 2,
-      "miedo": 10,
-      "ira": 4,
-      "asco": 6,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-01-03",
-    "oido": "",
-    "sentimos": "alerta",
-    "olemos": "tierra húmeda",
-    "sabor": "agua fresca",
-    "palpamos": "brisa suave",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 0,
-      "miedo": 10,
-      "ira": 8,
-      "asco": 5,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en la calle esperando para cruzar",
-    "momento": "2025-03-03",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "concentración",
-    "olemos": "castañas asadas",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 9,
-      "miedo": 7,
-      "ira": 9,
-      "asco": 8,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-04-08",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "concentración",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 2,
-      "miedo": 0,
-      "ira": 0,
-      "asco": 0,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-06-16",
-    "oido": "ventilador del ordenador",
-    "sentimos": "ligera saturación",
-    "olemos": "aire frío",
-    "sabor": "refresco dulce",
-    "palpamos": "",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "avenida en Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 2,
-      "ira": 3,
-      "asco": 2,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "paseando por el parque con el cielo despejado",
-    "momento": "2025-10-01",
-    "oido": "",
-    "sentimos": "paciencia",
-    "olemos": "ambientador del coche",
-    "sabor": "refresco dulce",
-    "palpamos": "",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "mercado en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 0,
-      "miedo": 9,
-      "ira": 8,
-      "asco": 10,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-10-14",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "relajación",
-    "olemos": "papel viejo",
-    "sabor": "agua fresca",
-    "palpamos": "frío",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 6,
-      "miedo": 3,
-      "ira": 8,
-      "asco": 9,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-12-10",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "motivación",
-    "olemos": "pan recién hecho",
-    "sabor": "refresco dulce",
-    "palpamos": "",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "instituto en Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 10,
-      "miedo": 10,
-      "ira": 6,
-      "asco": 9,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-03-21",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "responsabilidad",
-    "olemos": "",
-    "sabor": "chocolate caliente",
-    "palpamos": "brisa suave",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 4,
-      "miedo": 1,
-      "ira": 4,
-      "asco": 10,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-04-23",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "calma",
-    "olemos": "ajo y aceite",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 8,
-      "miedo": 0,
-      "ira": 6,
-      "asco": 6,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-08-09",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "motivación",
-    "olemos": "castañas asadas",
-    "sabor": "",
-    "palpamos": "ojos secos",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "casa (cocina)",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 10,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 3,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-07-07",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "curiosidad",
-    "olemos": "ambientador del coche",
-    "sabor": "",
-    "palpamos": "calor de los fogones",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 3,
-      "miedo": 10,
-      "ira": 0,
-      "asco": 1,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-06-19",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "buen humor",
-    "olemos": "rotulador",
-    "sabor": "un sorbo amargo",
-    "palpamos": "taza caliente",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 0,
-      "miedo": 4,
-      "ira": 10,
-      "asco": 8,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-02-23",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "cansancio",
-    "olemos": "rotulador",
-    "sabor": "café con leche",
-    "palpamos": "brisa suave",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 10,
-      "miedo": 8,
-      "ira": 4,
-      "asco": 4,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-08-05",
-    "oido": "sirena a lo lejos y tráfico",
-    "sentimos": "relajación",
-    "olemos": "rotulador",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 1,
-      "miedo": 8,
-      "ira": 0,
-      "asco": 2,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-09-11",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "curiosidad",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 3,
-      "miedo": 2,
-      "ira": 5,
-      "asco": 3,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-02-07",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "concentración",
-    "olemos": "",
-    "sabor": "un sorbo amargo",
-    "palpamos": "calor en el aula",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 9,
-      "miedo": 3,
-      "ira": 6,
-      "asco": 10,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-04-24",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "cansancio",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "paseo marítimo en Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 7,
-      "miedo": 7,
-      "ira": 8,
-      "asco": 0,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-05-18",
-    "oido": "ventilador del ordenador",
-    "sentimos": "prisa",
-    "olemos": "café",
-    "sabor": "refresco dulce",
-    "palpamos": "taza caliente",
-    "pensamos": "no quiero llegar tarde",
-    "ubicacion": "mercado en Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 3,
-      "miedo": 9,
-      "ira": 4,
-      "asco": 3,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-04-03",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "orden y control",
-    "olemos": "rotulador",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 9,
-      "miedo": 1,
-      "ira": 9,
-      "asco": 2,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-08-17",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "responsabilidad",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "viento fuerte",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 0,
-      "miedo": 1,
-      "ira": 1,
-      "asco": 9,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-01-19",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "concentración",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 2,
-      "miedo": 0,
-      "ira": 0,
-      "asco": 0,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-08-17",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "responsabilidad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "paseo marítimo en Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 10,
-      "miedo": 0,
-      "ira": 1,
-      "asco": 0,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-07-21",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "cansancio",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "ojos secos",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 5,
-      "miedo": 3,
-      "ira": 8,
-      "asco": 10,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-11-22",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "motivación",
-    "olemos": "castañas asadas",
-    "sabor": "café con leche",
-    "palpamos": "brisa suave",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 1,
-      "miedo": 3,
-      "ira": 3,
-      "asco": 3,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-05-11",
-    "oido": "pasos y maletas",
-    "sentimos": "prisa",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 0,
-      "miedo": 10,
-      "ira": 1,
-      "asco": 10,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-05-31",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "paciencia",
-    "olemos": "tierra húmeda",
-    "sabor": "agua fresca",
-    "palpamos": "calor en el aula",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 7,
-      "miedo": 1,
-      "ira": 2,
-      "asco": 1,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-07-06",
-    "oido": "pájaros y viento suave",
-    "sentimos": "ligera saturación",
-    "olemos": "castañas asadas",
-    "sabor": "refresco dulce",
-    "palpamos": "frío en las manos",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 4,
-      "miedo": 5,
-      "ira": 5,
-      "asco": 6,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-04-04",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "curiosidad",
-    "olemos": "ajo y aceite",
-    "sabor": "un sorbo amargo",
-    "palpamos": "calor de los fogones",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 5,
-      "miedo": 4,
-      "ira": 4,
-      "asco": 0,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-04-13",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "ligera saturación",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "calor en el aula",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 9,
-      "miedo": 8,
-      "ira": 7,
-      "asco": 4,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-07-24",
-    "oido": "ruido del tráfico",
-    "sentimos": "concentración",
-    "olemos": "ajo y aceite",
-    "sabor": "café con leche",
-    "palpamos": "calor en el aula",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 0,
-      "ira": 6,
-      "asco": 8,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-10-27",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "relajación",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "viento fuerte",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "cafetería en Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 7,
-      "miedo": 0,
-      "ira": 8,
-      "asco": 9,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-05-26",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "buen humor",
-    "olemos": "",
-    "sabor": "agua fresca",
-    "palpamos": "frío en las manos",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 9,
-      "miedo": 4,
-      "ira": 2,
-      "asco": 6,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-08-08",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "descanso mental",
-    "olemos": "ambientador del coche",
-    "sabor": "agua fresca",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 3,
-      "miedo": 4,
-      "ira": 0,
-      "asco": 0,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-01-09",
-    "oido": "sirena a lo lejos y tráfico",
-    "sentimos": "buen humor",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "taza caliente",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 1,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 7,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en casa, delante del ordenador con varias ventanas abiertas",
-    "momento": "2025-11-23",
-    "oido": "motor al ralentí",
-    "sentimos": "calma",
-    "olemos": "ajo y aceite",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 8,
-      "miedo": 4,
-      "ira": 9,
-      "asco": 2,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-09-30",
-    "oido": "sirena a lo lejos y tráfico",
-    "sentimos": "satisfacción",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 3,
-      "miedo": 7,
-      "ira": 2,
-      "asco": 1,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en la calle esperando para cruzar",
-    "momento": "2025-09-15",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "calma",
-    "olemos": "",
-    "sabor": "un sorbo amargo",
-    "palpamos": "",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "cafetería en Valencia",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 7,
-      "miedo": 8,
-      "ira": 1,
-      "asco": 10,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-02-08",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "ojos secos",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 1,
-      "miedo": 6,
-      "ira": 6,
-      "asco": 1,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-07-15",
-    "oido": "ruido del tráfico",
-    "sentimos": "paciencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "carretera cerca de Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 0,
-      "miedo": 5,
-      "ira": 3,
-      "asco": 4,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-11-04",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "curiosidad",
-    "olemos": "rotulador",
-    "sabor": "",
-    "palpamos": "vibración del asiento",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 8,
-      "miedo": 8,
-      "ira": 2,
-      "asco": 6,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-09-04",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "paciencia",
-    "olemos": "rotulador",
-    "sabor": "un sorbo amargo",
-    "palpamos": "",
-    "pensamos": "mejor hacerlo hoy y descansar mañana",
-    "ubicacion": "cafetería en Valencia",
-    "emociones": {
-      "alegria": 3,
-      "tristeza": 7,
-      "miedo": 2,
-      "ira": 8,
-      "asco": 9,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-09-22",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "paciencia",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 0,
-      "miedo": 5,
-      "ira": 9,
-      "asco": 5,
-      "sorpresa": 8
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-02-13",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "concentración",
-    "olemos": "rotulador",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 7,
-      "miedo": 10,
-      "ira": 8,
-      "asco": 5,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-05-18",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "satisfacción",
-    "olemos": "olor a lluvia",
-    "sabor": "un sorbo amargo",
-    "palpamos": "vibración del asiento",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 7,
-      "miedo": 4,
-      "ira": 9,
-      "asco": 3,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en la calle esperando para cruzar",
-    "momento": "2025-09-26",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "curiosidad",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "casa (despacho)",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 7,
-      "miedo": 10,
-      "ira": 3,
-      "asco": 8,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-09-12",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "motivación",
-    "olemos": "café",
-    "sabor": "agua fresca",
-    "palpamos": "frío en las manos",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "avenida en Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 4,
-      "miedo": 9,
-      "ira": 2,
-      "asco": 2,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-03-14",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "curiosidad",
-    "olemos": "ajo y aceite",
-    "sabor": "chocolate caliente",
-    "palpamos": "taza caliente",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "casa (cocina)",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 9,
-      "miedo": 8,
-      "ira": 5,
-      "asco": 2,
-      "sorpresa": 3
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-06-16",
-    "oido": "",
-    "sentimos": "curiosidad",
-    "olemos": "ajo y aceite",
-    "sabor": "un sorbo amargo",
-    "palpamos": "ojos secos",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "Mislata",
-    "emociones": {
-      "alegria": 5,
-      "tristeza": 3,
-      "miedo": 4,
-      "ira": 1,
-      "asco": 2,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-05-29",
-    "oido": "avisos por megafonía",
-    "sentimos": "curiosidad",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "frío",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "estación de tren",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 3,
-      "miedo": 6,
-      "ira": 2,
-      "asco": 2,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-08-08",
-    "oido": "",
-    "sentimos": "cansancio",
-    "olemos": "café",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "casa (salón)",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 6,
-      "miedo": 4,
-      "ira": 3,
-      "asco": 1,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-03-18",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "cansancio",
-    "olemos": "ajo y aceite",
-    "sabor": "chocolate caliente",
-    "palpamos": "ojos secos",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "casa (despacho)",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 4,
-      "miedo": 3,
-      "ira": 6,
-      "asco": 7,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en un gimnasio empezando la rutina",
-    "momento": "2025-08-08",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "alerta",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 6,
-      "ira": 3,
-      "asco": 8,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en la calle esperando para cruzar",
-    "momento": "2025-02-11",
-    "oido": "murmullos y pasos alrededor",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "calor de los fogones",
-    "pensamos": "quiero dejarlo claro y simple",
-    "ubicacion": "parque en Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 7,
-      "miedo": 0,
-      "ira": 2,
-      "asco": 4,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-05-27",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "concentración",
-    "olemos": "ambientador del coche",
-    "sabor": "agua fresca",
-    "palpamos": "brisa suave",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 0,
-      "miedo": 3,
-      "ira": 6,
-      "asco": 9,
-      "sorpresa": 9
-    }
-  },
-  {
-    "vista": "en un supermercado eligiendo frutas",
-    "momento": "2025-05-25",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "corazón acelerado",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 6,
-      "miedo": 3,
-      "ira": 10,
-      "asco": 10,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-09-05",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "responsabilidad",
-    "olemos": "ajo y aceite",
-    "sabor": "un sorbo amargo",
-    "palpamos": "brisa suave",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "centro de Valencia",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 3,
-      "miedo": 10,
-      "ira": 2,
-      "asco": 10,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-04-17",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "orden y control",
-    "olemos": "papel viejo",
-    "sabor": "refresco dulce",
-    "palpamos": "calor de los fogones",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "avenida en Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 6,
-      "miedo": 5,
-      "ira": 4,
-      "asco": 10,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-03-13",
-    "oido": "lluvia golpeando el cristal",
-    "sentimos": "satisfacción",
-    "olemos": "olor a lluvia",
-    "sabor": "un sorbo amargo",
-    "palpamos": "brisa suave",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "paseo marítimo en Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 3,
-      "miedo": 6,
-      "ira": 10,
-      "asco": 2,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en el aula explicando un concepto con ejemplos",
-    "momento": "2025-06-13",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "curiosidad",
-    "olemos": "rotulador",
-    "sabor": "refresco dulce",
-    "palpamos": "frío en las manos",
-    "pensamos": "debería cuidar más la postura",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 7,
-      "miedo": 7,
-      "ira": 0,
-      "asco": 9,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-07-31",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "ligera saturación",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "calor en el aula",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 10,
-      "miedo": 10,
-      "ira": 2,
-      "asco": 10,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-05-23",
-    "oido": "ventilador del ordenador",
-    "sentimos": "curiosidad",
-    "olemos": "tierra húmeda",
-    "sabor": "refresco dulce",
-    "palpamos": "taza caliente",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "biblioteca en Valencia",
-    "emociones": {
-      "alegria": 0,
-      "tristeza": 6,
-      "miedo": 7,
-      "ira": 1,
-      "asco": 0,
-      "sorpresa": 4
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-07-24",
-    "oido": "sirena a lo lejos y tráfico",
-    "sentimos": "paciencia",
-    "olemos": "ajo y aceite",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "no quiero llegar tarde",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 3,
-      "miedo": 2,
-      "ira": 3,
-      "asco": 8,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una biblioteca revisando apuntes",
-    "momento": "2025-08-31",
-    "oido": "ventilador del ordenador",
-    "sentimos": "paciencia",
-    "olemos": "café",
-    "sabor": "un sorbo amargo",
-    "palpamos": "corazón acelerado",
-    "pensamos": "voy con tiempo",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 9,
-      "miedo": 7,
-      "ira": 8,
-      "asco": 3,
-      "sorpresa": 7
-    }
-  },
-  {
-    "vista": "en el mercado viendo puestos de verduras",
-    "momento": "2025-08-28",
-    "oido": "tazas, cucharillas y una cafetera",
-    "sentimos": "satisfacción",
-    "olemos": "pan recién hecho",
-    "sabor": "refresco dulce",
-    "palpamos": "brisa suave",
-    "pensamos": "no quiero llegar tarde",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 0,
-      "miedo": 10,
-      "ira": 5,
-      "asco": 8,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-02-25",
-    "oido": "intermitente y coches pasando",
-    "sentimos": "descanso mental",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 7,
-      "miedo": 3,
-      "ira": 10,
-      "asco": 2,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-03-06",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "buen humor",
-    "olemos": "café",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "mercado en Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 1,
-      "miedo": 9,
-      "ira": 5,
-      "asco": 10,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "paseando por el parque con el cielo despejado",
-    "momento": "2025-11-22",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "descanso mental",
-    "olemos": "pan recién hecho",
-    "sabor": "un sorbo amargo",
-    "palpamos": "taza caliente",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "polideportivo en Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 4,
-      "miedo": 6,
-      "ira": 6,
-      "asco": 0,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-04-09",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "cansancio",
-    "olemos": "olor a lluvia",
-    "sabor": "café con leche",
-    "palpamos": "frío en las manos",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "casa (salón)",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 6,
-      "miedo": 6,
-      "ira": 10,
-      "asco": 10,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-05-23",
-    "oido": "pájaros y viento suave",
-    "sentimos": "responsabilidad",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "mejor hacerlo hoy y descansar mañana",
-    "ubicacion": "paseo marítimo en Valencia",
-    "emociones": {
-      "alegria": 9,
-      "tristeza": 4,
-      "miedo": 1,
-      "ira": 3,
-      "asco": 4,
-      "sorpresa": 6
-    }
-  },
-  {
-    "vista": "en el coche, conduciendo por una avenida con semáforos",
-    "momento": "2025-01-15",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "descanso mental",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 3,
-      "miedo": 6,
-      "ira": 7,
-      "asco": 3,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-12-12",
-    "oido": "sirena a lo lejos y tráfico",
-    "sentimos": "motivación",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "ojos secos",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 2,
-      "tristeza": 1,
-      "miedo": 10,
-      "ira": 3,
-      "asco": 7,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-07-09",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "paciencia",
-    "olemos": "café",
-    "sabor": "chocolate caliente",
-    "palpamos": "",
-    "pensamos": "respondo mensajes luego",
-    "ubicacion": "casa (despacho)",
-    "emociones": {
-      "alegria": 8,
-      "tristeza": 3,
-      "miedo": 2,
-      "ira": 5,
-      "asco": 10,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en un pasillo saludando a alguien",
-    "momento": "2025-07-22",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "concentración",
-    "olemos": "rotulador",
-    "sabor": "un sorbo amargo",
-    "palpamos": "ojos secos",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "cauce del Turia, Valencia",
-    "emociones": {
-      "alegria": 6,
-      "tristeza": 7,
-      "miedo": 4,
-      "ira": 8,
-      "asco": 10,
-      "sorpresa": 2
-    }
-  },
-  {
-    "vista": "en el metro, de pie sujetando la barra",
-    "momento": "2025-04-10",
-    "oido": "sonido del metro y avisos por megafonía",
-    "sentimos": "paciencia",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "calor en el aula",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "antiguo cauce del río de Valencia",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 5,
-      "miedo": 3,
-      "ira": 4,
-      "asco": 6,
-      "sorpresa": 10
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-11-09",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "orden y control",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "corazón acelerado",
-    "pensamos": "me viene bien parar un rato",
-    "ubicacion": "Valencia",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 6,
-      "miedo": 10,
-      "ira": 2,
-      "asco": 7,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en la cocina preparando algo rápido",
-    "momento": "2025-03-16",
-    "oido": "silencio roto por páginas pasando",
-    "sentimos": "concentración",
-    "olemos": "olor a lluvia",
-    "sabor": "café con leche",
-    "palpamos": "vibración del asiento",
-    "pensamos": "no quiero llegar tarde",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 4,
-      "tristeza": 5,
-      "miedo": 3,
-      "ira": 10,
-      "asco": 4,
-      "sorpresa": 5
-    }
-  },
-  {
-    "vista": "caminando por una calle con gente y escaparates",
-    "momento": "2025-01-31",
-    "oido": "ruido del motor y la radio baja",
-    "sentimos": "motivación",
-    "olemos": "papel viejo",
-    "sabor": "chocolate caliente",
-    "palpamos": "",
-    "pensamos": "voy a simplificar la explicación",
-    "ubicacion": "casa",
-    "emociones": {
-      "alegria": 7,
-      "tristeza": 7,
-      "miedo": 6,
-      "ira": 9,
-      "asco": 10,
-      "sorpresa": 1
-    }
-  },
-  {
-    "vista": "en casa, organizando tareas y notas",
-    "momento": "2025-03-26",
-    "oido": "pasos y maletas",
-    "sentimos": "satisfacción",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "frío",
-    "pensamos": "necesito priorizar tareas",
-    "ubicacion": "metro en Valencia",
-    "emociones": {
-      "alegria": 10,
-      "tristeza": 5,
-      "miedo": 2,
-      "ira": 4,
-      "asco": 6,
-      "sorpresa": 0
-    }
-  },
-  {
-    "vista": "en una cafetería con portátil y libreta",
-    "momento": "2025-03-28",
-    "oido": "teclados y alguna pregunta",
-    "sentimos": "concentración",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "taza caliente",
-    "pensamos": "esto con un ejemplo real se entiende",
-    "ubicacion": "parada de bus en Mislata",
-    "emociones": {
-      "alegria": 1,
-      "tristeza": 9,
-      "miedo": 5,
-      "ira": 2,
-      "asco": 8,
-      "sorpresa": 5
-    }
-  }
-]
-```
-
-### memories_old
-<small>Creado: 2026-04-16 17:39</small>
-
-`memories_old.json`
-
-```json
-[
-  {
-    "vista": "estaba conduciendo en el coche por una carretera y era de día",
-    "momento": "2025-12-02",
-    "oido": "la radio baja y el ruido constante del motor",
-    "sentimos": "algo de prisa y concentración",
-    "olemos": "olor tenue a calefacción del coche",
-    "sabor": "",
-    "palpamos": "hacía frío de diciembre entrando por la ventana",
-    "pensamos": "no quería llegar tarde a clase",
-    "ubicacion": "carretera cerca de Valencia"
-  },
-  {
-    "vista": "ayer por la noche iba conduciendo por la carretera con pocas luces",
-    "momento": "2025-12-10",
-    "oido": "los neumáticos sobre el asfalto mojado",
-    "sentimos": "tranquilidad con un punto de cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "me sorprendió que no hubiera llovido mucho",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "estoy dando una clase y veo a los alumnos tomando apuntes",
-    "momento": "2025-12-16",
-    "oido": "teclados, sillas y murmullos puntuales",
-    "sentimos": "responsabilidad y ganas de que quede claro",
-    "olemos": "olor a aula y rotulador",
-    "sabor": "",
-    "palpamos": "aquí hace calor",
-    "pensamos": "quiero que este ejercicio quede bien",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "iba en la bici y al girarme para mirar un coche noté un tirón",
-    "momento": "2025-05-14",
-    "oido": "ruido de tráfico y viento",
-    "sentimos": "dolor fuerte en el cuello",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "era un día de primavera y hacía calor",
-    "pensamos": "cada año me pasa alguna contractura y no sé por qué",
-    "ubicacion": "antiguo cauce del río de Valencia"
-  },
-
-  {
-    "vista": "camino por una calle con tiendas y gente mirando escaparates",
-    "momento": "2025-11-28",
-    "oido": "conversaciones y una moto pasando",
-    "sentimos": "curiosidad y calma",
-    "olemos": "olor a castañas asadas",
-    "sabor": "",
-    "palpamos": "aire fresco en la cara",
-    "pensamos": "debería comprar un detalle para casa",
-    "ubicacion": "centro de Valencia"
-  },
-  {
-    "vista": "en un supermercado comparando precios en la estantería",
-    "momento": "2025-10-03",
-    "oido": "carros y pitidos de caja",
-    "sentimos": "ligera saturación por el ruido",
-    "olemos": "pan recién hecho",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "tengo que organizar mejor la lista",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en la cocina preparando café por la mañana",
-    "momento": "2025-12-01",
-    "oido": "la cafetera burbujeando",
-    "sentimos": "sueño y rutina",
-    "olemos": "café intenso",
-    "sabor": "primer sorbo amargo",
-    "palpamos": "taza caliente en las manos",
-    "pensamos": "hoy toca avanzar trabajo",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "paseo por el parque con árboles y hojas en el suelo",
-    "momento": "2025-11-09",
-    "oido": "pájaros y niños a lo lejos",
-    "sentimos": "descanso mental",
-    "olemos": "tierra húmeda",
-    "sabor": "",
-    "palpamos": "brisa suave",
-    "pensamos": "necesitaba parar un rato",
-    "ubicacion": "parque en Mislata"
-  },
-  {
-    "vista": "en un aula con proyector mostrando código en pantalla",
-    "momento": "2025-10-21",
-    "oido": "preguntas y teclas",
-    "sentimos": "motivación",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "voy a poner un ejemplo más simple",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "reunión rápida en un pasillo antes de entrar",
-    "momento": "2025-12-05",
-    "oido": "eco del pasillo y pasos",
-    "sentimos": "prisa",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "frío en las manos",
-    "pensamos": "no quiero olvidarme del material",
-    "ubicacion": "instituto en Valencia"
-  },
-  {
-    "vista": "tarde de lluvia mirando por la ventana",
-    "momento": "2025-10-29",
-    "oido": "gotas golpeando el cristal",
-    "sentimos": "melancolía ligera",
-    "olemos": "olor a lluvia",
-    "sabor": "",
-    "palpamos": "calor de la manta",
-    "pensamos": "mañana reorganizo todo",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "en el coche, parado en un semáforo con luces rojas",
-    "momento": "2025-12-07",
-    "oido": "intermitente y motor al ralentí",
-    "sentimos": "paciencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "tengo que responder correos",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "subiendo escaleras con prisa por llegar",
-    "momento": "2025-09-18",
-    "oido": "pasos y respiración",
-    "sentimos": "agobio breve",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "corazón acelerado",
-    "pensamos": "voy justo de tiempo",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en una cafetería con gente trabajando con portátil",
-    "momento": "2025-11-15",
-    "oido": "tazas, murmullos, una máquina de café",
-    "sentimos": "concentración",
-    "olemos": "café y bollería",
-    "sabor": "café con leche",
-    "palpamos": "mesa fría",
-    "pensamos": "este diseño va a quedar bien",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "paseando cerca de un río con carril bici",
-    "momento": "2025-04-22",
-    "oido": "ruido de bicis y pájaros",
-    "sentimos": "energía",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "sol en la piel",
-    "pensamos": "debería salir más a menudo",
-    "ubicacion": "cauce del Turia, Valencia"
-  },
-
-  {
-    "vista": "en casa, ordenando papeles en una mesa",
-    "momento": "2025-08-30",
-    "oido": "silencio y alguna notificación del móvil",
-    "sentimos": "orden y control",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "papel áspero",
-    "pensamos": "si lo dejo listo hoy, mañana descanso",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "en una parada esperando el autobús",
-    "momento": "2025-12-12",
-    "oido": "tráfico y un bus frenando",
-    "sentimos": "frío y paciencia",
-    "olemos": "humo de escape",
-    "sabor": "",
-    "palpamos": "manos frías",
-    "pensamos": "llego justo, pero llego",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "caminando por una avenida grande con semáforos",
-    "momento": "2025-09-06",
-    "oido": "coches y sirena a lo lejos",
-    "sentimos": "alerta",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "calor fuerte",
-    "pensamos": "tengo que hidratarme más",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en el aula, un alumno pregunta y el resto mira",
-    "momento": "2025-11-19",
-    "oido": "una pregunta clara y breve silencio",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "esta duda es buena, la explico a todos",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en un paso de peatones esperando para cruzar",
-    "momento": "2025-10-11",
-    "oido": "pitido de semáforo y pasos",
-    "sentimos": "prisa",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "viento",
-    "pensamos": "no quiero perder el tren",
-    "ubicacion": "Valencia"
-  },
-
-  {
-    "vista": "por la tarde, revisando código en una pantalla grande",
-    "momento": "2025-12-03",
-    "oido": "ventilador del ordenador",
-    "sentimos": "concentración y cansancio",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "ojos secos",
-    "pensamos": "voy a simplificar la función",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "en un aula, explicando un ejercicio paso a paso",
-    "momento": "2025-10-08",
-    "oido": "teclas y alguna risa",
-    "sentimos": "confianza",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "si lo ven en pequeño, lo entienden",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en un trayecto corto en coche con el sol bajo",
-    "momento": "2025-11-02",
-    "oido": "radio con noticias",
-    "sentimos": "tranquilidad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "luz cálida en la cara",
-    "pensamos": "hoy el día ha rendido",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en una biblioteca buscando un libro en una estantería alta",
-    "momento": "2025-09-26",
-    "oido": "silencio y páginas pasando",
-    "sentimos": "curiosidad",
-    "olemos": "papel viejo",
-    "sabor": "",
-    "palpamos": "cubierta dura",
-    "pensamos": "quiero algo práctico y directo",
-    "ubicacion": "biblioteca en Valencia"
-  },
-  {
-    "vista": "en una terraza con una bebida fría al atardecer",
-    "momento": "2025-07-19",
-    "oido": "voces y platos",
-    "sentimos": "relajación",
-    "olemos": "",
-    "sabor": "refresco dulce",
-    "palpamos": "aire templado",
-    "pensamos": "necesitaba desconectar",
-    "ubicacion": "Valencia"
-  },
-
-  {
-    "vista": "en un gimnasio mirando el espejo antes de empezar",
-    "momento": "2025-06-06",
-    "oido": "música y pesas",
-    "sentimos": "motivación",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "sudor",
-    "pensamos": "con constancia, mejora",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en la cocina preparando una cena sencilla",
-    "momento": "2025-10-17",
-    "oido": "sartén y agua hirviendo",
-    "sentimos": "calma",
-    "olemos": "ajo y aceite",
-    "sabor": "sal y tomate",
-    "palpamos": "calor de los fogones",
-    "pensamos": "me apetece algo rápido",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "en un pasillo del centro, saludando a alguien de lejos",
-    "momento": "2025-12-09",
-    "oido": "pasos y voces",
-    "sentimos": "buen humor",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "hoy voy con tiempo",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en el coche buscando aparcamiento, dando vueltas",
-    "momento": "2025-11-25",
-    "oido": "intermitente y coches",
-    "sentimos": "impaciencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "siempre pasa lo mismo a esta hora",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en un aula, corrigiendo ejercicios con calma",
-    "momento": "2025-10-30",
-    "oido": "silencio y teclado",
-    "sentimos": "foco",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "voy a dar feedback claro",
-    "ubicacion": "Mislata"
-  },
-
-  {
-    "vista": "paseo corto por la mañana temprano con poca gente",
-    "momento": "2025-12-04",
-    "oido": "pájaros y algún coche",
-    "sentimos": "energía tranquila",
-    "olemos": "aire frío",
-    "sabor": "",
-    "palpamos": "frío en la nariz",
-    "pensamos": "me viene bien caminar",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en un tren mirando por la ventanilla",
-    "momento": "2025-08-12",
-    "oido": "ruido rítmico de vías",
-    "sentimos": "desconexión",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "vibración del asiento",
-    "pensamos": "voy a aprovechar para leer",
-    "ubicacion": "trayecto en tren"
-  },
-  {
-    "vista": "en un aula, explicando cómo funciona una API",
-    "momento": "2025-11-07",
-    "oido": "preguntas y respuestas",
-    "sentimos": "entusiasmo",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "si lo conectan con un ejemplo real, lo retienen",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "en la calle, el cielo estaba gris y amenazaba lluvia",
-    "momento": "2025-11-03",
-    "oido": "viento entre edificios",
-    "sentimos": "prudencia",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "viento fuerte",
-    "pensamos": "me llevo chaqueta por si acaso",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en casa, haciendo una copia de seguridad del ordenador",
-    "momento": "2025-09-14",
-    "oido": "disco trabajando",
-    "sentimos": "seguridad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "mejor prevenir que perder datos",
-    "ubicacion": "casa"
-  },
-
-  {
-    "vista": "en un aula, mirando un error en consola y encontrando la causa",
-    "momento": "2025-12-13",
-    "oido": "un 'ah' general cuando se entiende",
-    "sentimos": "satisfacción",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "la explicación breve funciona",
-    "ubicacion": "Mislata"
-  },
-  {
-    "vista": "caminando por una calle estrecha con luces de navidad",
-    "momento": "2025-12-11",
-    "oido": "gente hablando y música de fondo",
-    "sentimos": "ambiente agradable",
-    "olemos": "dulces y chocolate",
-    "sabor": "",
-    "palpamos": "frío",
-    "pensamos": "la ciudad cambia mucho en diciembre",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en una sala silenciosa revisando notas en una libreta",
-    "momento": "2025-10-06",
-    "oido": "bolígrafo sobre papel",
-    "sentimos": "orden mental",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "papel suave",
-    "pensamos": "así lo tengo claro para la próxima clase",
-    "ubicacion": "casa"
-  },
-  {
-    "vista": "en un aparcamiento subterráneo buscando el coche",
-    "momento": "2025-09-09",
-    "oido": "eco y motores",
-    "sentimos": "desorientación breve",
-    "olemos": "humedad y gasolina",
-    "sabor": "",
-    "palpamos": "aire frío",
-    "pensamos": "tengo que recordar la columna",
-    "ubicacion": "Valencia"
-  },
-  {
-    "vista": "en una clase, escribiendo en la pizarra un esquema",
-    "momento": "2025-11-26",
-    "oido": "tiza y silencio atento",
-    "sentimos": "claridad",
-    "olemos": "",
-    "sabor": "",
-    "palpamos": "",
-    "pensamos": "estructura primero, detalle después",
-    "ubicacion": "Mislata"
-  }
-]
-```
-
-### save_memories
-<small>Creado: 2026-04-16 17:39</small>
-
-`save_memories.php`
-
-```
-<?php
-header('Content-Type: application/json; charset=utf-8');
-
-$file = __DIR__ . '/memories.json';
-
-function read_json_file($path) {
-  if (!file_exists($path)) return [];
-  $raw = file_get_contents($path);
-  if ($raw === false || trim($raw) === '') return [];
-  $data = json_decode($raw, true);
-  return is_array($data) ? $data : [];
-}
-
-function write_json_file($path, $data) {
-  $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-  // LOCK_EX to avoid concurrent write corruption
-  return file_put_contents($path, $json, LOCK_EX) !== false;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $data = json_decode(file_get_contents('php://input'), true);
-  if (!is_array($data)) {
-    echo json_encode(['success' => false, 'error' => 'JSON inválido']);
-    exit;
-  }
-
-  $memories = read_json_file($file);
-  $memories[] = $data;
-
-  if (!write_json_file($file, $memories)) {
-    echo json_encode(['success' => false, 'error' => 'No se pudo escribir el archivo']);
-    exit;
-  }
-
-  echo json_encode(['success' => true]);
-  exit;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  echo json_encode(read_json_file($file), JSON_UNESCAPED_UNICODE);
-  exit;
-}
-
-echo json_encode(['success' => false, 'error' => 'Método no soportado']);
-```
-
+En resumen, la creación y borrado de colecciones son operaciones fundamentales en el manejo de bases de datos documentales. Estas operaciones permiten estructurar y organizar los datos de manera eficiente, adaptándose a las necesidades cambiantes del sistema y facilitando su evolución a lo largo del tiempo.
 
 <a id="anadir-modificar-y-eliminar-documentos"></a>
 ## Añadir, modificar y eliminar documentos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/005-A%C3%B1adir%2C%20modificar%20y%20eliminar%20documentos)
+En el vasto mundo de la programación y la gestión de datos, las bases de datos documentales representan un paradigma innovador que ha revolucionado cómo almacenamos y recuperamos información. A diferencia de los sistemas tradicionales basados en tablas, estas bases nos permiten organizar y gestionar datos de una manera más flexible y escalable.
 
+En esta subunidad didáctica, nos adentramos en la práctica de añadir, modificar y eliminar documentos en las bases de datos documentales. Este proceso es fundamental para mantener los sistemas informáticos actualizados y eficientes, permitiendo a los usuarios interactuar directamente con la información almacenada.
+
+Para comenzar, debemos entender cómo estructurar nuestros documentos. En una base de datos documental, cada documento puede tener una estructura diferente, lo que significa que podemos representar datos complejos y jerárquicos de manera natural. Este enfoque es especialmente útil para aplicaciones que manejan información semiestructurada o semiunestructurada.
+
+Añadir documentos a una base de datos documental es un proceso sencillo pero poderoso. Utilizando herramientas como MongoDB, podemos insertar nuevos documentos directamente en la colección deseada. Cada documento puede contener cualquier tipo de dato, desde simples valores hasta objetos complejos y arrays anidados.
+
+La modificación de documentos es otro aspecto crucial del manejo de bases de datos documentales. A diferencia de las tablas relacionales, donde los cambios requieren una actualización completa del registro, en las bases documentales podemos modificar solo las partes específicas que necesitamos cambiar. Esto no solo mejora la eficiencia, sino que también facilita el mantenimiento y la evolución de nuestros sistemas.
+
+Por último, pero no menos importante, eliminar documentos es un proceso necesario para mantener la integridad y la eficiencia de nuestro sistema. Al eliminar un documento, eliminamos toda su información asociada, lo que libera espacio en la base de datos y facilita el mantenimiento del sistema.
+
+A lo largo de esta subunidad, exploraremos técnicas avanzadas para gestionar documentos en bases de datos documentales, incluyendo consultas complejas, índices eficientes y estrategias de replicación. Estas herramientas nos permitirán no solo añadir, modificar y eliminar documentos, sino que también optimizar el rendimiento de nuestros sistemas informáticos.
+
+En conclusión, la gestión de documentos en bases de datos documentales es una habilidad esencial para cualquier programador o administrador de sistemas informáticos. A través de esta subunidad, hemos explorado los fundamentos y las técnicas avanzadas necesarias para trabajar eficazmente con estos sistemas innovadores. Con un buen dominio de estas operaciones básicas, podremos construir aplicaciones robustas y escalables que manejen información semiestructurada de manera eficiente y efectiva.
 
 <a id="lenguajes-de-consulta-realizacion-de-consultas"></a>
 ## Lenguajes de consulta. Realización de consultas
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/006-Lenguajes%20de%20consulta.%20Realizaci%C3%B3n%20de%20consultas)
+En el vasto campo de la programación y la gestión de datos, las bases de datos documentales representan una innovadora forma de almacenar y recuperar información. Esta carpeta del contenido nos guía a través de los fundamentos y aplicaciones prácticas de estos sistemas de almacenamiento.
 
+Comenzamos por entender qué son las bases de datos documentales. Estas bases almacenan datos en documentos estructurados, donde cada documento puede tener una forma diferente pero todos comparten un formato común. Este enfoque permite una gran flexibilidad y escalabilidad en el manejo de información compleja.
+
+El lenguaje de consulta utilizado en estas bases es crucial para su eficacia. A diferencia de las bases relacionales que utilizan SQL, las bases documentales tienen sus propios lenguajes específicos. Uno de los más conocidos es MongoDB Query Language (MQL), aunque existen otros como JSONiq o XQuery. Estos lenguajes permiten realizar consultas complejas y eficientes sobre los documentos almacenados.
+
+La realización de consultas en bases documentales implica una comprensión profunda del modelo de datos utilizado. Los documentos se organizan en colecciones, y las consultas se construyen para seleccionar documentos que cumplan ciertos criterios. Este proceso puede incluir la proyección de campos específicos, el filtrado por valores, la ordenación de resultados y la agrupación de documentos.
+
+La importancia de la optimización de consultas no debe ser subestimada en bases documentales. Aunque estas bases son altamente escalables, su rendimiento puede verse afectado si las consultas no están bien formuladas. Optimizar consultas implica entender cómo se estructuran los índices y cómo se pueden utilizar para mejorar la velocidad de acceso a los datos.
+
+Además de las consultas básicas, las bases documentales también permiten realizar operaciones avanzadas como el agregado de datos, la actualización de documentos y la eliminación de registros. Estas operaciones son esenciales para mantener la integridad y coherencia de la información almacenada.
+
+La gestión de transacciones en bases documentales es otro aspecto crucial a considerar. Las transacciones permiten realizar múltiples operaciones como una sola unidad, asegurando que todas las modificaciones sean consistentes y completas. En caso de error, se puede revertir toda la transacción, manteniendo el estado del sistema.
+
+La seguridad en bases documentales es otro tema de gran importancia. A diferencia de las bases relacionales, las bases documentales pueden almacenar información sensible que requiere protección adicional. Implementar políticas de acceso y control de usuarios es fundamental para mantener la integridad y confidencialidad de los datos.
+
+La conversión entre diferentes formatos de documentos también es una habilidad valiosa en el manejo de bases documentales. A menudo, se necesita convertir información almacenada en un formato a otro para su uso en otras aplicaciones o sistemas. Herramientas y bibliotecas específicas pueden facilitar este proceso.
+
+En conclusión, las bases de datos documentales representan una poderosa herramienta para el manejo de grandes volúmenes de información compleja. A través del lenguaje de consulta adecuado y la comprensión de los modelos de datos utilizados, es posible realizar consultas eficientes y optimizar el rendimiento del sistema. Además, la gestión de transacciones y la seguridad son aspectos cruciales que no deben ser ignorados en este tipo de bases de datos.
 
 <a id="desarrollo-de-programas-que-utilizan-bases-de-datos-documentales"></a>
 ## Desarrollo de programas que utilizan bases de datos documentales
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/005-Bases%20de%20datos%20documentales/007-Desarrollo%20de%20programas%20que%20utilizan%20bases%20de%20datos%20documentales)
+En este capítulo, nos adentramos en la creación de programas que interactúan con bases de datos documentales, una tecnología cada vez más utilizada para almacenar y gestionar grandes volúmenes de información. Las bases de datos documentales son sistemas que almacenan datos en forma jerárquica o en formato JSON, lo que les permite representar estructuras complejas de manera natural.
 
+La interacción con estas bases de datos requiere un enfoque diferente al utilizado con las bases de datos relacionales tradicionales. En lugar de definir tablas y relaciones entre ellas, se utilizan colecciones y documentos para organizar los datos. Cada documento puede tener una estructura diferente, lo que ofrece flexibilidad pero también presenta desafíos en términos de consulta y consistencia.
+
+Para interactuar con bases de datos documentales, existen varias herramientas y lenguajes de programación disponibles. En este capítulo, nos centraremos en cómo utilizar Python para acceder a estas bases de datos. Python es una excelente elección debido a su facilidad de uso y la amplia gama de bibliotecas que facilitan el trabajo con diferentes tipos de bases de datos.
+
+La primera etapa del desarrollo implica establecer una conexión con la base de datos. Esto se realiza mediante un cliente específico para cada tipo de base de datos documental, como PyMongo para MongoDB o PyArango para ArangoDB. Una vez establecida la conexión, podemos realizar operaciones básicas como crear colecciones, insertar documentos y consultarlos.
+
+La consulta en bases de datos documentales es particularmente poderosa debido a su capacidad para expresar consultas complejas utilizando un lenguaje específico del motor de base de datos. En Python, esto se logra mediante el uso de métodos proporcionados por las bibliotecas mencionadas anteriormente. Por ejemplo, PyMongo permite realizar consultas utilizando la sintaxis de MongoDB, lo que facilita la creación de criterios de búsqueda sofisticados.
+
+Además de las operaciones básicas, es importante considerar la persistencia y la transacción en nuestras aplicaciones. Las bases de datos documentales suelen soportar transacciones ACID (Atomicidad, Coherencia, Isolamiento, Durabilidad), lo que garantiza que las operaciones complejas sean ejecutadas de manera segura y coherente. En Python, podemos utilizar el manejo de excepciones para asegurar la consistencia de nuestras transacciones.
+
+La gestión de errores es otro aspecto crucial en el desarrollo con bases de datos documentales. A diferencia de las bases de datos relacionales, donde los errores pueden ser más predecibles y manejables, las bases de datos documentales pueden presentar problemas inesperados debido a la naturaleza dinámica de sus estructuras. En Python, podemos utilizar técnicas como el manejo de excepciones para capturar y tratar estos errores de manera efectiva.
+
+La creación de informes es otro desafío en el desarrollo con bases de datos documentales. A diferencia de las bases de datos relacionales, donde los informes suelen basarse en consultas SQL predefinidas, las bases de datos documentales requieren una mayor flexibilidad y creatividad en la generación de informes. En Python, podemos utilizar bibliotecas como pandas para procesar y visualizar los datos obtenidos de las consultas a la base de datos.
+
+La seguridad es un aspecto fundamental en el desarrollo con cualquier tipo de base de datos, pero especialmente importante en las bases de datos documentales. Las bases de datos documentales suelen almacenar información sensible y personal, lo que requiere una implementación robusta de medidas de seguridad. En Python, podemos utilizar técnicas como la autenticación y autorización para proteger nuestros sistemas contra accesos no autorizados.
+
+En conclusión, el desarrollo con bases de datos documentales implica un enfoque diferente al utilizado con las bases de datos relacionales tradicionales. Aunque puede presentar desafíos adicionales, también ofrece una gran flexibilidad y capacidad para representar estructuras complejas de manera natural. Con Python como herramienta principal, podemos crear aplicaciones que interactúan eficazmente con estas bases de datos, aprovechando sus ventajas y superando sus limitaciones.
 
 
 <a id="programacion-de-componentes-de-acceso-a-datos"></a>
@@ -30979,38 +12949,98 @@ echo json_encode(['success' => false, 'error' => 'Método no soportado']);
 <a id="concepto-de-componente"></a>
 ## Concepto de componente
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/001-Concepto%20de%20componente)
+En la subunidad "Concepto de componente" del módulo "Acceso a datos", se introduce el concepto fundamental que forma la base para el desarrollo de interfaces gráficas y aplicaciones interactivas. Un componente es una unidad funcional independiente dentro de un sistema, diseñado para realizar una tarea específica y reutilizable en diferentes partes del software. Este diseño modular facilita la mantenibilidad, la escalabilidad y la colaboración entre desarrolladores.
 
+Los componentes pueden ser físicamente representados como clases o módulos en el código fuente, cada uno con sus propias propiedades, métodos y eventos. Por ejemplo, un componente de botón puede tener propiedades como su texto, color de fondo y tamaño, y métodos para manejar acciones como hacer clic. Los eventos son mecanismos que permiten a los componentes interactuar entre sí y con el usuario final.
+
+La programación de componentes permite una gran flexibilidad en la creación de interfaces de usuario. Un componente puede ser diseñado para funcionar en diferentes contextos, adaptándose automáticamente al espacio disponible y proporcionando una experiencia coherente. Además, gracias a su naturaleza modular, los componentes pueden ser actualizados o reemplazados sin afectar el resto del sistema.
+
+Para desarrollar componentes de manera eficiente, es crucial seguir ciertas prácticas recomendadas. Primero, se debe definir claramente las interfaces y contratos que un componente expone, asegurando que sea fácilmente integrable con otros componentes o sistemas. Segundo, el código interno del componente debe estar bien encapsulado para proteger sus detalles internos y facilitar su mantenimiento.
+
+Además de la programación de componentes, es importante considerar su distribución y empaquetado. Los componentes deben ser diseñados de tal manera que puedan ser fácilmente instalados y desinstalados en diferentes entornos, lo que aumenta la portabilidad del software. Herramientas especializadas pueden ayudar en este proceso, facilitando la creación de paquetes autoinstalables y el manejo de dependencias.
+
+La documentación es otro aspecto crucial al programar componentes. Debe proporcionarse información detallada sobre cómo utilizar los componentes, sus propiedades y métodos, así como ejemplos prácticos de su uso. La buena documentación facilita la comprensión del componente por parte de otros desarrolladores y reduce el tiempo necesario para aprender a usarlo.
+
+En resumen, la programación de componentes es una práctica fundamental en el desarrollo moderno de software, permitiendo la creación de interfaces gráficas interactivas y sistemas modulares. Al seguir buenas prácticas en diseño, implementación y documentación, los desarrolladores pueden crear componentes reutilizables y eficientes que mejoren significativamente la calidad del software final.
 
 <a id="propiedades-y-atributos"></a>
 ## Propiedades y atributos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/002-Propiedades%20y%20atributos)
+En el mundo digital actual, los componentes de acceso a datos desempeñan un papel crucial en la interacción entre aplicaciones y bases de datos. Estos componentes son esenciales para la manipulación eficiente de información, proporcionando una capa abstrata que oculta los detalles complejos del almacenamiento y recuperación de datos.
 
+La programación de componentes de acceso a datos implica el diseño y implementación de clases y objetos que encapsulan las operaciones básicas necesarias para interactuar con la base de datos. Estos componentes pueden ser utilizados en una variedad de aplicaciones, desde sistemas empresariales hasta aplicaciones web interactivas.
+
+Una de las características fundamentales de estos componentes es su capacidad para manejar propiedades y atributos. Las propiedades son variables que representan el estado del objeto y proporcionan un mecanismo para acceder y modificar ese estado de manera segura y controlada. Los atributos, por otro lado, son los datos que almacenan la información relevante sobre el objeto.
+
+La programación de componentes de acceso a datos implica no solo definir las propiedades y atributos, sino también implementar métodos para manipularlos. Estos métodos pueden incluir operaciones como la inserción, modificación y eliminación de registros en la base de datos, así como consultas para recuperar información.
+
+Además de las propiedades y los métodos, los componentes de acceso a datos suelen implementar eventos que permiten asociar acciones específicas con ciertos estados o cambios. Por ejemplo, un evento puede ser desencadenado cuando se inserta un nuevo registro en la base de datos, lo que permite ejecutar código adicional sin necesidad de modificar el flujo principal del programa.
+
+La programación de componentes de acceso a datos también implica considerar la persistencia del componente. Esto significa asegurarse de que los cambios realizados en el objeto se reflejen adecuadamente en la base de datos, y viceversa. La gestión de transacciones es un aspecto crucial de esta persistencia, ya que permite garantizar que las operaciones sean completadas de manera coherente y segura.
+
+En resumen, la programación de componentes de acceso a datos es una práctica fundamental en el desarrollo de aplicaciones que interactúan con bases de datos. Al diseñar y implementar estos componentes, se asegura que la información sea gestionada eficientemente y de manera segura, lo que contribuye al funcionamiento correcto y robusto del sistema.
 
 <a id="eventos-asociacion-de-acciones-a-eventos"></a>
 ## Eventos; asociación de acciones a eventos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/003-Eventos%3B%20asociaci%C3%B3n%20de%20acciones%20a%20eventos)
+En este capítulo, nos adentramos en la programación de componentes de acceso a datos, un aspecto crucial para el desarrollo eficiente de aplicaciones que interactúan con bases de datos. Los componentes de acceso a datos son entidades que encapsulan las operaciones necesarias para manipular los datos almacenados en una base de datos, proporcionando una interfaz simplificada y segura para su uso.
 
+La programación de eventos es un concepto fundamental en la interacción entre el usuario y los componentes de acceso a datos. Los eventos son acciones o ocurrencias que pueden producirse dentro del sistema, como el clic de un botón, la entrada de texto en una caja de texto o la recepción de un mensaje de red. Al asociar acciones a estos eventos, podemos controlar cómo se responde el componente de acceso a datos a diferentes situaciones.
+
+Para asociar acciones a eventos, los componentes de acceso a datos suelen proporcionar métodos específicos que permiten definir qué debe hacerse cuando ocurre un evento particular. Por ejemplo, en una interfaz gráfica, podríamos asociar el clic de un botón con un método que ejecuta una consulta SQL para actualizar la base de datos.
+
+Es importante destacar que la programación de eventos no solo permite responder a acciones del usuario, sino también a cambios internos dentro del componente de acceso a datos. Por ejemplo, cuando se inserta o actualiza un registro en la base de datos, el componente puede emitir un evento que notifica a otros componentes sobre este cambio.
+
+La gestión adecuada de eventos es esencial para mantener la coherencia y la integridad de los datos. Al asociar acciones a eventos, podemos asegurarnos de que las operaciones en la base de datos se realicen correctamente y que el estado del sistema esté actualizado en tiempo real.
+
+Además, la programación de eventos facilita la creación de interfaces de usuario más interactivas y dinámicas. Al permitir asociar acciones a eventos, podemos crear componentes que respondan de manera inmediata a las acciones del usuario, proporcionando una experiencia de usuario más fluida y satisfactoria.
+
+En resumen, la programación de eventos es un concepto fundamental en el desarrollo de componentes de acceso a datos. Al asociar acciones a eventos, podemos controlar cómo se responde el componente a diferentes situaciones, mantener la coherencia y la integridad de los datos, y crear interfaces de usuario más interactivas y dinámicas. Este conocimiento es esencial para desarrolladores que trabajan con bases de datos y necesitan crear aplicaciones que interactúen eficientemente con ellas.
 
 <a id="persistencia-del-componente"></a>
 ## Persistencia del componente
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/004-Persistencia%20del%20componente)
+En la programación orientada a objetos, la persistencia del componente es un concepto fundamental que permite almacenar y recuperar el estado de los objetos entre diferentes ejecuciones del programa. Este proceso es esencial para mantener la integridad de los datos y proporcionar una experiencia coherente al usuario.
 
+La persistencia se realiza mediante mecanismos específicos que dependen del lenguaje de programación y las herramientas utilizadas. En muchos casos, esto implica el uso de bases de datos o archivos en el sistema de almacenamiento. La idea es serializar los objetos (es decir, convertirlos en una forma que pueda ser almacenada) y luego deserializarlos cuando sea necesario recuperar su estado.
+
+Un componente persistente puede interactuar con diferentes tipos de almacenes de datos. Por ejemplo, si se está utilizando una base de datos relacional, el componente podría utilizar SQL para insertar, actualizar o eliminar registros en la base de datos. Si se prefiere un enfoque más orientado a objetos, el componente podría usar ORM (Object-Relational Mapping) para mapear directamente las clases del programa con tablas y columnas de la base de datos.
+
+La gestión de la persistencia también implica consideraciones sobre la concurrencia. En entornos donde varios componentes pueden intentar acceder simultáneamente a los mismos datos, es crucial implementar mecanismos para evitar conflictos y garantizar la coherencia de los datos.
+
+Además de las bases de datos, el almacenamiento en archivos también es una forma común de persistir objetos. Los archivos pueden ser de texto plano o binarios, dependiendo del tipo de datos que se quieran almacenar. La elección del formato adecuado puede influir en la eficiencia y la facilidad de acceso a los datos.
+
+La persistencia no solo implica guardar el estado actual de los objetos, sino también manejar su ciclo de vida completo. Esto incluye la creación, modificación y eliminación de objetos persistentes, así como la recuperación de objetos previamente almacenados cuando se necesita trabajar con ellos nuevamente.
+
+En resumen, la persistencia del componente es un aspecto crucial de la programación orientada a objetos que permite mantener los datos entre diferentes ejecuciones del programa. A través de mecanismos como bases de datos y archivos, los componentes pueden guardar su estado y recuperarlo cuando sea necesario, lo que es fundamental para mantener la integridad y coherencia de la información en aplicaciones complejas.
 
 <a id="herramientas-para-desarrollo-de-componentes"></a>
 ## Herramientas para desarrollo de componentes
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/005-Herramientas%20para%20desarrollo%20de%20componentes)
+En este capítulo, nos adentramos en la programación de componentes de acceso a datos, un aspecto crucial para el desarrollo eficiente de aplicaciones que interactúan con bases de datos. Comenzamos por entender qué es un componente en el contexto de la programación y cómo se relaciona con el acceso a datos. Aprenderemos sobre las propiedades y atributos que definen los componentes, así como cómo asociar acciones a eventos para su control.
 
+Continuando, exploraremos cómo persistir el estado del componente, lo que implica guardar y recuperar información de manera segura y eficiente. Además, aprenderemos sobre las herramientas disponibles para desarrollar componentes, tanto propietarias como libres, que facilitan la creación y gestión de estos elementos. Estas herramientas ofrecen una variedad de funcionalidades que permiten a los desarrolladores centrarse en el diseño y el comportamiento del componente, sin preocuparse por detalles técnicos innecesarios.
+
+A medida que avanzamos, nos enfocaremos en cómo pruebas los componentes para asegurar su correcto funcionamiento. Esto incluirá la creación de pruebas unitarias y la documentación de las incidencias detectadas, lo que es fundamental para mantener el código limpio y funcional. También aprenderemos sobre la empaquetado de componentes, un proceso que prepara los archivos necesarios para su distribución y uso en otros proyectos.
+
+Finalmente, reflexionaremos sobre cómo crear interfaces gráficas para interactuar con los componentes de acceso a datos. Esto implica entender cómo vincular eventos a acciones específicas y cómo diseñar componentes visuales que sean intuitivos y fáciles de usar. A lo largo del capítulo, se presentan ejemplos prácticos que ilustran cada concepto, permitiendo al lector aplicar directamente lo aprendido en su propio trabajo.
+
+En resumen, este capítulo proporciona una comprensión profunda de cómo programar componentes de acceso a datos, desde la definición de sus propiedades y atributos hasta su empaquetado y distribución. A través de ejemplos prácticos y herramientas disponibles, se demuestra cómo crear componentes funcionales y eficientes que faciliten el desarrollo de aplicaciones que interactúan con bases de datos.
 
 <a id="desarrollo-empaquetado-y-utilizacion-de-componentes"></a>
 ## Desarrollo, empaquetado y utilización de componentes
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/006-Programaci%C3%B3n%20de%20componentes%20de%20acceso%20a%20datos/006-Desarrollo%2C%20empaquetado%20y%20utilizaci%C3%B3n%20de%20componentes)
+En este capítulo, nos adentramos en la programación de componentes de acceso a datos, un aspecto fundamental para el desarrollo de aplicaciones que interactúan con bases de datos. Comenzamos por entender qué es un componente, sus propiedades y atributos, y cómo se asocian a orígenes de datos. Aprenderemos también cómo asociar acciones a eventos, lo que permite una interacción dinámica entre el usuario y la aplicación.
 
+El desarrollo de componentes implica la creación de clases con métodos y propiedades específicas para interactuar con los datos. Estos componentes pueden ser utilizados en aplicaciones gráficas o interfaces naturales de usuario, permitiendo un acceso intuitivo a la información almacenada. La persistencia del componente es otro aspecto crucial, ya que permite guardar el estado actual del objeto y recuperarlo cuando sea necesario.
+
+Herramientas para desarrollo de componentes son fundamentales para facilitar este proceso. Estas herramientas pueden ser librerías nativas o multiplataforma, proporcionando una interfaz gráfica para la definición y edición de componentes. Además, es importante aprender a pruebas los componentes, asegurándose de que funcionen correctamente en diferentes escenarios.
+
+El empaquetado de componentes es otro paso crucial en el desarrollo completo del componente. Esto implica preparar el componente para su distribución y uso en otros proyectos o aplicaciones. Herramientas especializadas pueden facilitar este proceso, permitiendo la creación de instaladores y paquetes autoinstalables.
+
+Finalmente, la utilización de componentes es el objetivo final del desarrollo y empaquetado. Esto implica cómo los componentes se integran en la aplicación principal, cómo se asocian con orígenes de datos y cómo se gestionan eventos para una interacción fluida y eficiente. Es importante documentar este proceso, asegurándose de que otros desarrolladores puedan entender y utilizar el componente sin problemas.
+
+En resumen, programar componentes de acceso a datos es un proceso integral que implica desde la definición de clases hasta su empaquetado y distribución. Cada paso es crucial para garantizar una aplicación funcional y eficiente que pueda interactuar con bases de datos de manera segura y eficaz.
 
 
 <a id="actividad-libre-de-final-de-evaluacion-la-milla-extra"></a>
@@ -31019,80 +13049,8 @@ echo json_encode(['success' => false, 'error' => 'Método no soportado']);
 <a id="la-milla-extra-primera-evaluacion"></a>
 ## La Milla Extra - Primera evaluación
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/201-Actividad%20libre%20de%20final%20de%20evaluaci%C3%B3n%20-%20La%20milla%20extra/001-La%20Milla%20Extra%20-%20Primera%20evaluaci%C3%B3n)
+### ejercicio
 
-### Introducción a los ejercicios
+```markdown
 
-La carpeta que se presenta contiene un conjunto de ejercicios diseñados específicamente para reforzar y aplicar los conocimientos adquiridos sobre acceso a datos en el contexto del curso DAM2526. Estos ejercicios buscan que los estudiantes apliquen técnicas avanzadas de manejo y manipulación de bases de datos, trabajando con consultas complejas y optimización de rendimiento. Los problemas propuestos ayudan a desarrollar competencias como la resolución de problemas, la capacidad de análisis y el pensamiento lógico en relación con las operaciones CRUD (Crear, Leer, Actualizar, Borrar) sobre bases de datos relacional.
-
-En esta actividad libre, los estudiantes tienen la oportunidad de demostrar su creatividad e iniciativa al enfrentarse a retos que van más allá del contenido básico cubierto durante el curso.
-
-### Actividades propuestas
-
-### Actividad 1: Análisis y Refactorización del Código Markdown
-
-**Descripción:** Analiza el archivo `ejercicio.md` proporcionado y realiza mejoras en su estructura y presentación. El objetivo es que los estudiantes aprendan a leer, entender y mejorar la documentación técnica escrita en formato markdown.
-
-### Actividad 2: Documentación de Código Propio
-
-**Descripción:** Escribe una guía markdown para un código nuevo que has escrito basándote en el estilo y estructura del archivo `ejercicio.md`. La intención es que los estudiantes practiquen la creación de documentación clara y coherente.
-
-### Actividad 3: Identificación de Mejores Prácticas Markdown
-
-**Descripción:** Investiga y enumera las mejores prácticas en el uso de markdown para la documentación técnica. Los alumnos deben identificar al menos cinco mejores prácticas y justificar por qué son importantes.
-
-### Actividad 4: Comparativa entre Formatos de Documentación
-
-**Descripción:** Realiza una comparación entre el formato markdown y otros formatos comunes utilizados en la industria para documentar código. Los estudiantes deben aprender a valorar las ventajas y desventajas de cada uno.
-
-### Actividad 5: Integración Markdown con Git
-
-**Descripción:** Muestra cómo incorporar archivos markdown en un repositorio git y utiliza los comandos básicos (commit, push) para gestionar cambios. Se espera que los estudiantes aprendan a trabajar eficazmente con herramientas de control de versiones.
-
-### Actividad 6: Creación de Páginas Markdown
-
-**Descripción:** Crea una serie de páginas markdown interconectadas para documentar un proyecto. El objetivo es enseñar cómo estructurar y organizar la información en múltiples archivos markdown.
-
-### Actividad 7: Herramientas Markdown para Desarrolladores
-
-**Descripción:** Investiga y presenta varias herramientas web que facilitan el uso del formato markdown. Los estudiantes deben aprender a seleccionar e integrar herramientas adecuadas para sus necesidades.
-
-### Actividad 8: Traducción de Documentación Técnica
-
-**Descripción:** Elige un documento técnico en inglés escrito en markdown y realiza una traducción al español, manteniendo el estilo original. Los estudiantes aprenderán sobre la importancia del lenguaje claro y preciso en la documentación técnica.
-
-### Actividad 9: Resolución de Problemas Markdown
-
-**Descripción:** Proporciona un conjunto de problemas comunes encontrados en archivos markdown (errores sintácticos, falta de estructura) e invita a los estudiantes a encontrar soluciones. Se pretende que aprendan a depurar y mejorar la documentación existente.
-
-### Actividad 10: Presentación Markdown como Diapositivas
-
-**Descripción:** Utiliza herramientas específicas para convertir archivos markdown en presentaciones de diapositivas. Los estudiantes deben aprender cómo aprovechar el formato markdown no solo para la documentación, sino también para la creación de presentaciones.
-
-
-
-<a id="actividades-final-de-unidad-segundo-trimestre"></a>
-# Actividades final de unidad - Segundo trimestre
-
-<a id="proyecto-en-el-cual-me-demostreis-que-podeis-leer-multiples-formatos-de-archivo"></a>
-## Proyecto en el cual me demostréis que podéis leer multiples formatos de archivo
-
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/301-Actividades%20final%20de%20unidad%20-%20Segundo%20trimestre/001-Proyecto%20en%20el%20cual%20me%20demostr%C3%A9is%20que%20pod%C3%A9is%20leer%20multiples%20formatos%20de%20archivo)
-
-
-<a id="clase-personalizada-de-conexion-y-acceso-a-datos-de-vuestra-eleccion"></a>
-## Clase personalizada de conexión y acceso a datos de vuestra elección
-
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/301-Actividades%20final%20de%20unidad%20-%20Segundo%20trimestre/002-Clase%20personalizada%20de%20conexi%C3%B3n%20y%20acceso%20a%20datos%20de%20vuestra%20elecci%C3%B3n)
-
-
-<a id="jocarsa-chat-chatgpt-personalizado-con-usuarios"></a>
-## JOCARSA - Chat - ChatGPT personalizado con usuarios
-
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/301-Actividades%20final%20de%20unidad%20-%20Segundo%20trimestre/003-JOCARSA%20-%20Chat%20-%20ChatGPT%20personalizado%20con%20usuarios)
-
-
-<a id="entrenamiento-de-una-inteligencia-artificial-semantica-chromadb-rag"></a>
-## Entrenamiento de una inteligencia artificial semántica - ChromaDB - RAG
-
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Acceso%20a%20datos/301-Actividades%20final%20de%20unidad%20-%20Segundo%20trimestre/004-%20Entrenamiento%20de%20una%20inteligencia%20artificial%20sem%C3%A1ntica%20-%20ChromaDB%20-%20RAG)
+```

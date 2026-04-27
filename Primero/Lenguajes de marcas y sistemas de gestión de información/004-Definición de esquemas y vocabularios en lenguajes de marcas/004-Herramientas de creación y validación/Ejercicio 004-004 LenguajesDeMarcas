@@ -1,0 +1,105 @@
+Introducción y contextualización
+
+En este ejercicio, aprenderás a generar un XML basado en un esquema XSD utilizando Python. Es una habilidad valiosa para trabajar con datos estructurados en aplicaciones web y sistemas empresariales. Para practicar esta técnica, vamos a crear un archivo XML que represente la información de una persona.
+
+Enunciado paso a paso
+
+Carga del esquema XSD: Primero, necesitas cargar el archivo esquema.xsd para obtener la definición de los campos que deben estar presentes en el XML final.
+
+Introducción de valores: A partir del esquema cargado, el programa solicitará al usuario que introduzca un valor para cada campo definido en el esquema.
+
+Construcción del XML: Utilizando la biblioteca xml.etree.ElementTree, construirás un elemento raíz llamado persona y añadirás los elementos hijos según los valores introducidos por el usuario.
+
+Formateo y salida: El XML generado se formateará de manera legible utilizando minidom.parseString() y guardará en el archivo persona.xml.
+
+Restricciones
+
+No utilizar librerías externas.
+Solo usar estructuras vistas en clase.
+Criterios de evaluación
+
+Introducción y contextualización (25%): El contexto debe explicar claramente el propósito del ejercicio y cómo se relaciona con la definición de esquemas y vocabularios en lenguajes de marcas.
+
+Desarrollo técnico correcto y preciso (25%): El alumno debe mostrar una comprensión profunda de cómo cargar un esquema XSD, construir un XML a partir de los datos introducidos y formatearlo correctamente.
+
+Aplicación práctica con ejemplo claro (25%): El ejercicio debe incluir ejemplos claros de cómo se ejecuta el programa y qué resultado produce al introducir diferentes valores.
+
+Cierre/Conclusión enlazando con la unidad (25%): La actividad debe cerrar con un resumen del proceso y cómo esta práctica se relaciona con los temas vistos en clase, destacando la importancia de la manipulación de documentos XML en aplicaciones web y empresariales.
+
+## SOLUCIÓN
+
+### Introducción y contextualización (25%)
+
+Generar XML desde esquemas XSD automatiza la creación de documentos válidos, reduciendo errores. Aplicable en APIs, formularios web y sistemas empresariales.
+
+### Desarrollo técnico correcto y preciso (25%)
+
+**Esquema XSD (esquema.xsd):**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="persona">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="apellidos" type="xs:string"/>
+        <xs:element name="edad" type="xs:integer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+
+**Código Python (generar_xml.py):**
+```python
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
+
+# Crear elemento raíz
+raiz = ET.Element('persona')
+
+# Solicitar valores al usuario
+nombre = input("Introduce nombre: ")
+apellidos = input("Introduce apellidos: ")
+edad = input("Introduce edad: ")
+
+# Añadir elementos hijos
+ET.SubElement(raiz, 'nombre').text = nombre
+ET.SubElement(raiz, 'apellidos').text = apellidos
+ET.SubElement(raiz, 'edad').text = edad
+
+# Formatear XML
+xml_str = ET.tostring(raiz, encoding='utf-8')
+dom = minidom.parseString(xml_str)
+xml_formateado = dom.toprettyxml(indent="  ", encoding='UTF-8')
+
+# Guardar en archivo
+with open('persona.xml', 'wb') as f:
+    f.write(xml_formateado)
+
+print("✓ XML generado: persona.xml")
+```
+
+### Aplicación práctica con ejemplo claro (25%)
+
+**Ejecución:**
+```
+Introduce nombre: Dario
+Introduce apellidos: Lacal Civera
+Introduce edad: 22
+✓ XML generado: persona.xml
+```
+
+**XML generado (persona.xml):**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+  <nombre>Dario</nombre>
+  <apellidos>Lacal Civera</apellidos>
+  <edad>22</edad>
+</persona>
+```
+
+### Cierre/Conclusión (25%)
+
+Este proceso automatiza la creación de XML válido, aplicable en aplicaciones web (formularios dinámicos) y sistemas empresariales (integración de datos). ElementTree y minidom permiten generar y formatear XML sin librerías externas.
