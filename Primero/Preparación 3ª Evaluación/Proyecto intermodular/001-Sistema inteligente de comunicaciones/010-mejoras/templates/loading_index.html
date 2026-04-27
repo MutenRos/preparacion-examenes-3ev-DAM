@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="topbar">
+    <div class="row-between">
+      <div>
+        <h1 id="title">Cargando…</h1>
+        <p class="muted">Se está leyendo IMAP y procesando con Ollama.</p>
+      </div>
+      <div class="inline">
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="spinner small" aria-hidden="true"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="list" id="list">
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  </section>
+
+<script>
+(function(){
+  const tab = "{{tab}}";
+  const n = "{{n}}";
+
+  function setActiveNav(tab){
+    document.getElementById("navA").classList.toggle("active", tab==="A");
+    document.getElementById("navB").classList.toggle("active", tab==="B");
+  }
+
+  function pillClass(priority){
+    if(priority === null || priority === undefined) return "pill p0";
+    const p = Math.max(0, Math.min(10, parseInt(priority, 10)));
+    return "pill p" + p;
+  }
+
+  fetch(`/data?tab=${encodeURIComponent(tab)}&n=${encodeURIComponent(n)}`)
+    .then(r => r.json())
+    .then(data => {
+      // sidebar counts
+      document.getElementById("countA").textContent = data.counts.A;
+      document.getElementById("countB").textContent = data.counts.B;
+      setActiveNav(data.tab);
+
+      // title
+      const title = (data.tab === "B") ? "Importantes" : "Publicidad / Automáticos";
+      document.getElementById("title").textContent = title;
+
+      // list
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      if(!data.items || data.items.length === 0){
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "No hay correos en esta categoría.";
+        list.appendChild(empty);
+        return;
+      }
+
+      for(const e of data.items){
+        const a = document.createElement("a");
+        a.className = "card";
+        a.href = `/email/${encodeURIComponent(e.id)}?n=${encodeURIComponent(data.n)}`;
+
+        const head = document.createElement("div");
+        head.className = "card-head";
+
+        const from = document.createElement("div");
+        from.className = "from";
+        from.textContent = e.from || "";
+
+        const pill = document.createElement("div");
+        if(data.tab === "B"){
+          pill.className = pillClass(e.priority);
+          pill.textContent = `Prioridad ${e.priority}/10`;
+        }else{
+          pill.className = "pill neutral";
+          pill.textContent = "Auto";
+        }
+
+        head.appendChild(from);
+        head.appendChild(pill);
+
+        const subject = document.createElement("div");
+        subject.className = "subject";
+        subject.textContent = e.subject || "(Sin asunto)";
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.textContent = e.date || "";
+
+        const summary = document.createElement("div");
+        summary.className = "summary";
+        summary.textContent = e.summary || "";
+
+        a.appendChild(head);
+        a.appendChild(subject);
+        a.appendChild(meta);
+        a.appendChild(summary);
+
+        list.appendChild(a);
+      }
+    })
+    .catch(err => {
+      document.getElementById("title").textContent = "Error cargando";
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+      const box = document.createElement("div");
+      box.className = "empty";
+      box.textContent = "No se pudo cargar la información. Revisa IMAP/Ollama y vuelve a refrescar.";
+      list.appendChild(box);
+      console.error(err);
+    });
+})();
+</script>
+{% endblock %}

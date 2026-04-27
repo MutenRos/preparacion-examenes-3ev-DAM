@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba texto Ollama</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:20px}
+    textarea,input,button{width:100%;box-sizing:border-box;margin-top:10px;padding:10px}
+    pre{background:#f4f4f4;padding:15px;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>Enviar texto</h1>
+
+  <input id="url" value="https://covalently-untasked-daphne.ngrok-free.dev/api/">
+  <input id="user" value="jocarsa">
+  <input id="password" value="jocarsa">
+  <input id="model" value="qwen3.5:latest">
+  <textarea id="system" rows="4" placeholder="System opcional"></textarea>
+  <textarea id="question" rows="6" placeholder="Escribe tu pregunta"></textarea>
+  <button onclick="enviar()">Enviar</button>
+
+  <h2>Respuesta</h2>
+  <pre id="out"></pre>
+
+  <script>
+    async function enviar() {
+      const out = document.getElementById('out');
+      out.textContent = 'Cargando...';
+
+      const payload = {
+        user: document.getElementById('user').value,
+        password: document.getElementById('password').value,
+        action: 'generate',
+        model: document.getElementById('model').value,
+        system: document.getElementById('system').value,
+        question: document.getElementById('question').value
+      };
+
+      try {
+        const res = await fetch(document.getElementById('url').value, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        const txt = await res.text();
+
+        try {
+          const json = JSON.parse(txt);
+          out.textContent = JSON.stringify(json, null, 2);
+        } catch(e) {
+          out.textContent = txt;
+        }
+      } catch (err) {
+        out.textContent = 'Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
