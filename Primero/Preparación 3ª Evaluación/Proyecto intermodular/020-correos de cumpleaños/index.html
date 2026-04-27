@@ -2,50 +2,130 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Correos de Cumpleanios</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎂 Correos de Cumpleaños</title>
+
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
-  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
-  h1{color:#e945db;font-size:2.2em;margin-bottom:8px}
-  .subtitle{color:#d4b00f;font-size:1.1em}
-  .content{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  @media(max-width:600px){.content{grid-template-columns:1fr}}
-  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3)}
-  .card h2{color:#d4b00f;margin-bottom:12px;font-size:1.1em}
-  .card p,.card li{color:#aaa;font-size:.9em;line-height:1.7}
-  .card ul{padding-left:18px}
-  .code{background:#0d0d1a;border-radius:8px;padding:12px 16px;font-family:monospace;font-size:.85em;color:#e945db;margin-top:10px;white-space:pre-line}
-  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin:3px 3px 0 0}
-  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
+:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
+header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
+h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
+.subtitle{color:var(--gold);font-size:1.05em;position:relative}
+.page{max-width:980px;margin:0 auto;padding:36px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
+.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
+.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
+.card ul{padding-left:18px}
+.card li{margin-bottom:4px}
+.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
+.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
+.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
+.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
+pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
+code{font-family:'Fira Code','Cascadia Code',monospace}
+.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
+.file-tree .dir{color:var(--gold)}
+.file-tree .py{color:#35aa58}
+.file-tree .php{color:#6495ed}
+.file-tree .html{color:#e945db}
+.file-tree .md{color:#999}
+.file-tree .other{color:#aaa}
+.wide{grid-column:1/-1}
+.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
+.arch-arrow{color:var(--pink);font-size:1.1em}
+.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
+footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
+a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
+a.btn:hover{opacity:.85}
+a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
+h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
 </style>
+
 </head>
 <body>
 <header>
-  <h1>Cake Correos de Cumpleanios</h1>
-  <p class="subtitle">Email automatico de felicitacion por cumpleanos con Python</p>
+  <h1>🎂 Correos de Cumpleaños</h1>
+  <p class="subtitle">Python lee un Google Sheets CSV, detecta cumpleaños de hoy y envía email HTML personalizado por SMTP SSL</p>
 </header>
-<div class="content">
-  <div class="card">
-    <h2>Descripcion</h2>
-    <p>Lee agenda CSV, detecta cumpleanos del dia y envia email HTML personalizado via SMTP/Gmail.</p>
-  </div>
-  <div class="card">
-    <h2>Tecnologias</h2>
-    <span class="tag">Python 3</span><span class="tag">smtplib</span><span class="tag">Gmail</span><span class="tag">CSV</span><span class="tag">cron</span>
-  </div>
-  <div class="card">
-    <h2>Como ejecutar</h2>
-    <div class="code">pip install schedule
-python cumpleanos.py
-# Cron: 0 9 * * * python cumpleanos.py</div>
-  </div>
-  <div class="card">
-    <h2>Caracteristicas</h2>
-    <ul><li>Agenda CSV</li><li>Deteccion dia</li><li>Email HTML</li><li>Gmail SMTP</li><li>Ejecucion cron</li><li>Log envios</li></ul>
+<div class="page">
+
+<div class="grid">
+  <div class="card wide">
+    <h2>📖 Qué hace realmente</h2>
+    <p>Script Python que cada día: (1) descarga un Google Sheets CSV con nombres, apellidos, emails y fechas de nacimiento, (2) compara solo día y mes con la fecha actual, (3) si hay coincidencia calcula la edad exacta y (4) envía un email HTML personalizado con <code>smtplib.SMTP_SSL</code>. El email tiene un diseño con gradiente, saludo personalizado con nombre + apellidos + edad y fallback en texto plano.</p>
   </div>
 </div>
-<footer><p>Proyecto Intermodular DAM - 3a Evaluacion 2026</p></footer>
+
+<h3 class="section">Fragmento de código real</h3>
+<div class="card wide">
+<pre><code class="python">URL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?output=csv"
+
+def is_birthday_today(birth_date: date, today: date) -> bool:
+    return birth_date.day == today.day and birth_date.month == today.month
+
+def years_old_today(birth_date: date, today: date) -> int:
+    age = today.year - birth_date.year
+    if (today.month, today.day) < (birth_date.month, birth_date.day):
+        age -= 1
+    return age
+
+# Para cada persona con cumpleaños hoy:
+age = years_old_today(birth_date, today)
+msg = build_birthday_message(from_email, to_email, name, surnames, age)
+# envío con smtplib.SMTP_SSL(host, port)
+</code></pre>
+</div>
+
+<div class="grid" style="margin-top:20px">
+  <div class="card">
+    <h2>🛠 Librerías reales</h2>
+    <span class="tag green">Python 3</span>
+    <span class="tag green">requests</span>
+    <span class="tag green">csv + io.StringIO</span>
+    <span class="tag green">smtplib.SMTP_SSL</span>
+    <span class="tag green">email.message.EmailMessage</span>
+    <span class="tag green">datetime</span>
+  </div>
+  <div class="card">
+    <h2>📁 Progresión real</h2>
+    <div class="file-tree">
+<span class="py">001-direccion de la hoja.py</span>  ← URL Sheets
+<span class="py">002-consumo de datos.py</span>       ← fgetcsv Python
+<span class="py">003-comprobar cumpleaños.py</span>   ← lógica fecha
+<span class="py">004-enviar correo.py</span>          ← SMTP SSL
+<span class="py">005-correo HTML.py</span>            ← plantilla HTML</div>
+  </div>
+  <div class="card">
+    <h2>⚙️ Para ejecutar diariamente</h2>
+    <ul>
+      <li>Añadir al crontab del servidor</li>
+      <li><code>0 9 * * * python /ruta/005-correo\ HTML.py</code></li>
+      <li>Credenciales desde variables de entorno</li>
+      <li>Sin instalar nada extra: solo <code>requests</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="card" style="margin-top:20px">
+  <h2>🚀 Cómo ejecutar</h2>
+<pre><code>pip install requests
+
+export SMTP_HOST=smtp.gmail.com
+export SMTP_USER=tu@gmail.com
+export SMTP_PASS=tu_app_password
+
+# Ejecutar manualmente
+python 005-correo\ HTML.py
+
+# O programar con cron (ejecutar cada día a las 9:00)
+0 9 * * * /usr/bin/python3 /ruta/005-correo\ HTML.py</code></pre>
+</div>
+
+</div>
+<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
 </body>
 </html>
