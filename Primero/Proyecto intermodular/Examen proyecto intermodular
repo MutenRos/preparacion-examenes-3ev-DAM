@@ -1,0 +1,430 @@
+
+
+
+Pues solo nos queda juntarlo todo en un solo proyecto, usar flask para que el script que acabamos de hacer tambien funcione con la pagina web y que muestre los proyectos en la web.
+
+## Resumen de los 5 exámenes previos
+
+### 1. Sistemas Informáticos
+Instalamos Ubuntu Server 20.04.3 LTS en VirtualBox con las siguientes características:
+- 4GB RAM, 32GB disco, 2 procesadores
+- Red en modo puente para acceso a internet
+- Servicios instalados: OpenSSH, Apache2, MySQL, PHP, phpMyAdmin
+
+Conexión SSH:
+```bash
+ssh dario@192.168.1.80
+```
+
+### 2. Bases de Datos
+Creamos la base de datos `Examen` con dos tablas relacionadas:
+
+**Tabla Proyectos:**
+- ID (PK, Auto Increment)
+- Nombre (VARCHAR 50)
+- Descripcion (TEXT 200)
+- Fecha (DATE)
+- Categoria (FK → Categorias)
+
+**Tabla Categorias:**
+- ID (PK, Auto Increment)
+- Nombre (VARCHAR 50)
+- Nivel_de_peligrosidad (INT 1)
+
+Insertamos 5 proyectos de GitHub y 5 categorías, estableciendo la relación entre tablas.
+
+### 3. Lenguajes de Marcas
+Creamos el portfolio web en `/var/www/html/portfolio/`:
+- `index.html`: Estructura con articles para cada proyecto
+- `styles.css`: Estilo synthwave (rosa neón, azul eléctrico, púrpura oscuro)
+- `datos.json`: JSON con los proyectos del GitHub
+- JavaScript fetch para cargar dinámicamente los proyectos
+
+### 4. Programación
+Script Python `portfolio_crud.py` con operaciones CRUD:
+- Conexión MySQL con `mysql.connector`
+- Funciones: ver_proyectos(), anadir_proyecto(), actualizar_proyecto(), eliminar_proyecto()
+- Credenciales: host="localhost", user="root", password="root", database="Examen", ssl_disabled=True
+- Menú interactivo con while loop
+
+### 5. Entornos de Desarrollo
+Refactorización del código de programación:
+- Clase `DatabaseConnection`: gestión de conexiones
+- Clase `ProjectManager`: operaciones CRUD encapsuladas
+- Documentación completa con comentarios hash (#)
+- Commit y push a GitHub con mensaje: "Examen 1ª Evaluación Entornos de Desarrollo - Refactorización y Documentación"
+
+## Solución Proyecto Intermodular: Flask Web App
+
+Ahora integramos todo en una aplicación Flask que conecte la base de datos MySQL con la interfaz web.
+
+
+Ahora que nuestra amiga la IA nos ha sumarizado los 5 examenes anteriores, vamos a proceder a crear la aplicacion Flask que integre todo.
+Primero y primordial, instalar flask y el conector mysql para python en la VM.
+
+```bash
+ssh dario@192.168.1.80
+cd /var/www/html/portfolio
+sudo apt install python3-pip -y
+pip3 install flask mysql-connector-python
+```
+
+
+Una vez instalado, famos a integrar las funciones flask en el script de python que ya tenemos y lo conectamos a la base de datos y a la web que ya hicimos en el examen de marcas.
+
+
+```Python
+
+
+# Importación de la librería mysql.connector para conectar con MySQL
+import mysql.connector
+
+class DatabaseConnection:
+
+    def __init__(self, host, user, password, database):
+        
+        self.host = "localhost"          # Guardamos el host
+        self.user = "root"              # Guardamos el usuario
+        self.password = "root"      # Guardamos la contraseña
+        self.database = "Examen"      # Guardamos el nombre de la BD
+
+    def connect(self):
+        
+        return mysql.connector.connect(
+            host=self.host,
+            user=self.user,
+            password=self.password,
+            database=self.database,
+            ssl_disabled=True         # Deshabilitamos SSL por compatibilidad
+        )
+
+class ProjectManager:
+   
+    
+    def __init__(self, db_connection):
+      
+        self.db_connection = db_connection  # Guardamos la conexión
+    
+    def ver_proyectos(self):
+        
+        # Conectamos a la base de datos
+        conexion = self.db_connection.connect()
+        cursor = conexion.cursor()
+        
+        # Ejecutamos la consulta SELECT para obtener todos los proyectos
+        cursor.execute("SELECT * FROM Proyectos")
+        proyectos = cursor.fetchall()  # Obtenemos todos los resultados
+        
+        # Mostramos los proyectos por pantalla
+        print("\n--- Lista de Proyectos ---")
+        for proyecto in proyectos:
+            print(f"ID: {proyecto[0]}, Nombre: {proyecto[1]}, Descripcion: {proyecto[2]}, Fecha: {proyecto[3]}, Categoria: {proyecto[4]}")
+        print()
+        
+        # Cerramos cursor y conexión
+        cursor.close()
+        conexion.close()
+    
+    def anadir_proyecto(self):
+    
+        print("\n--- Añadir Nuevo Proyecto ---")
+        
+        # Solicitamos datos del nuevo proyecto al usuario
+        nombre = input("Nombre del proyecto: ")
+        descripcion = input("Descripción: ")
+        fecha = input("Fecha (YYYY-MM-DD): ")
+        categoria = input("ID de categoría: ")
+        
+        # Conectamos a la base de datos
+        conexion = self.db_connection.connect()
+        cursor = conexion.cursor()
+        
+        # Preparamos la consulta INSERT con placeholders para evitar SQL injection
+        sql = "INSERT INTO Proyectos (Nombre, Descripcion, Fecha, Categoria) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, (nombre, descripcion, fecha, categoria))
+        conexion.commit()  # Confirmamos los cambios
+        
+        print("✔ Proyecto añadido correctamente\n")
+        
+        # Cerramos cursor y conexión
+        cursor.close()
+        conexion.close()
+    
+    def actualizar_proyecto(self):
+    
+        print("\n--- Actualizar Proyecto ---")
+        
+        # Solicitamos ID del proyecto a actualizar y los nuevos datos
+        id_proyecto = input("ID del proyecto a actualizar: ")
+        nombre = input("Nuevo nombre: ")
+        descripcion = input("Nueva descripción: ")
+        fecha = input("Nueva fecha (YYYY-MM-DD): ")
+        categoria = input("Nuevo ID de categoría: ")
+        
+        # Conectamos a la base de datos
+        conexion = self.db_connection.connect()
+        cursor = conexion.cursor()
+        
+        # Ejecutamos UPDATE con los nuevos valores
+        sql = "UPDATE Proyectos SET Nombre=%s, Descripcion=%s, Fecha=%s, Categoria=%s WHERE ID=%s"
+        cursor.execute(sql, (nombre, descripcion, fecha, categoria, id_proyecto))
+        conexion.commit()  # Confirmamos los cambios
+        
+        print("✔ Proyecto actualizado correctamente\n")
+        
+        # Cerramos cursor y conexión
+        cursor.close()
+        conexion.close()
+    
+    def eliminar_proyecto(self):
+ 
+        print("\n--- Eliminar Proyecto ---")
+        
+        # Solicitamos ID del proyecto a eliminar
+        id_proyecto = input("ID del proyecto a eliminar: ")
+        # Pedimos confirmación para evitar borrados accidentales
+        confirmacion = input(f"¿Seguro que quieres eliminar el proyecto {id_proyecto}? (s/n): ")
+        
+        if confirmacion.lower() == 's':
+            # Si el usuario confirma, procedemos con la eliminación
+            conexion = self.db_connection.connect()
+            cursor = conexion.cursor()
+            
+            # Ejecutamos DELETE
+            sql = "DELETE FROM Proyectos WHERE ID=%s"
+            cursor.execute(sql, (id_proyecto,))
+            conexion.commit()  # Confirmamos los cambios
+            
+            print("✔ Proyecto eliminado correctamente\n")
+            
+            # Cerramos cursor y conexión
+            cursor.close()
+            conexion.close()
+        else:
+            # Si el usuario cancela, no hacemos nada
+            print("⚠ Operación cancelada\n")
+
+def bienvenida():
+  
+    print("Bienvenido al gestor de portfolio")
+    print(".·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.")
+
+def main():
+ 
+    # Mostramos mensaje de bienvenida
+    bienvenida()
+    
+    # Creamos la conexión a la base de datos con las credenciales
+    db_connection = DatabaseConnection("localhost", "root", "root", "Examen")
+    
+    # Inicializamos el gestor de proyectos
+    project_manager = ProjectManager(db_connection)
+    
+    # Bucle principal del menú
+    while True:
+        # Mostramos las opciones disponibles
+        print("\nSeleccione una opcion:")
+        print("1. Ver proyectos")          # Listar todos los proyectos (READ)
+        print("2. Añadir proyecto")        # Crear un nuevo proyecto (CREATE)
+        print("3. Actualizar proyecto")    # Modificar un proyecto (UPDATE)
+        print("4. Eliminar proyecto")      # Borrar un proyecto (DELETE)
+        print("5. Salir")                  # Cerrar la aplicación
+        
+        # Capturamos la opción del usuario
+        opcion = input("Opcion: ")
+        
+        # Procesamos la opción seleccionada
+        if opcion == "1":
+            project_manager.ver_proyectos()        # Llamamos a ver proyectos
+        elif opcion == "2":
+            project_manager.anadir_proyecto()      # Llamamos a añadir proyecto
+        elif opcion == "3":
+            project_manager.actualizar_proyecto()  # Llamamos a actualizar proyecto
+        elif opcion == "4":
+            project_manager.eliminar_proyecto()    # Llamamos a eliminar proyecto
+        elif opcion == "5":
+            print("Saliendo...")
+            break  # Salimos del bucle y terminamos el programa
+        else:
+            print("Opcion no valida, intente de nuevo.")
+
+# Punto de entrada del programa
+if __name__ == "__main__":  
+    main()  # Ejecutamos la función principal
+```
+
+Ese es el código del CRUD de consola. Ahora creamos la versión web con Flask.
+
+## Creando app_flask.py
+
+```Python
+# Aplicación Flask - Portfolio Intermodular
+from flask import Flask
+import mysql.connector
+
+app = Flask(__name__)
+
+class DatabaseConnection:
+    def __init__(self):
+        self.host = "localhost"
+        self.user = "root"
+        self.password = "root"
+        self.database = "Examen"
+    
+    def connect(self):
+        return mysql.connector.connect(
+            host=self.host,
+            user=self.user,
+            password=self.password,
+            database=self.database,
+            ssl_disabled=True
+        )
+
+@app.route('/')
+def index():
+    db = DatabaseConnection()
+    conexion = db.connect()
+    cursor = conexion.cursor()
+    
+    cursor.execute("""
+        SELECT P.ID, P.Nombre, P.Descripcion, P.Fecha, C.Nombre, C.Nivel_de_peligrosidad
+        FROM Proyectos P 
+        LEFT JOIN Categorias C ON P.Categoria = C.ID
+        ORDER BY P.Fecha DESC
+    """)
+    proyectos = cursor.fetchall()
+    
+    # HTML dinámico sin templates
+    html = """<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Flask</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #13136e, #1a1a2e);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #371657;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 { color: #e945db; font-size: 2.5em; margin: 0; }
+        .subtitle { color: #d4b00f; }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #371657;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid rgba(233,69,219,0.3);
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(233,69,219,0.4);
+        }
+        h3 { color: #e945db; }
+        .info { color: #d4b00f; font-size: 0.9em; }
+        .badge { padding: 4px 12px; border-radius: 12px; font-weight: bold; }
+        .peligro-1 { background: #28a745; }
+        .peligro-2 { background: #5bc0de; }
+        .peligro-3 { background: #ffc107; color: black; }
+        .peligro-4 { background: #fd7e14; }
+        .peligro-5 { background: #dc3545; }
+        footer { background: #0f3460; padding: 30px; text-align: center; margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 Portfolio Intermodular</h1>
+        <p class="subtitle">MySQL + Flask + Python</p>
+    </header>
+    <main>
+"""
+    
+    for p in proyectos:
+        nombre = p[1]
+        desc = p[2]
+        fecha = p[3]
+        cat = p[4] if p[4] else 'Sin categoría'
+        peligro = p[5] if p[5] else 0
+        
+        html += f"""
+        <article class="card">
+            <h3>💼 {nombre}</h3>
+            <p>{desc}</p>
+            <p class="info">📅 {fecha}</p>
+            <p class="info">🏷️ {cat}</p>
+            <p class="info">⚠️ <span class="badge peligro-{peligro}">Nivel {peligro}/5</span></p>
+        </article>
+        """
+    
+    html += f"""
+    </main>
+    <footer>
+        <p style="color: #e945db; font-size: 1.2em;">📊 Total: {len(proyectos)} proyectos</p>
+        <p>✅ Sistemas + BD + Marcas + Programación + Entornos</p>
+    </footer>
+</body>
+</html>
+"""
+    
+    cursor.close()
+    conexion.close()
+    return html
+
+@app.route('/api/proyectos')
+def api():
+    db = DatabaseConnection()
+    conexion = db.connect()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT ID, Nombre, Descripcion, Fecha FROM Proyectos")
+    proyectos = cursor.fetchall()
+    
+    json_str = '{"proyectos":['
+    for i, p in enumerate(proyectos):
+        if i > 0: json_str += ','
+        json_str += f'{{"id":{p[0]},"nombre":"{p[1]}","desc":"{p[2]}","fecha":"{p[3]}"}}'
+    json_str += ']}'
+    
+    cursor.close()
+    conexion.close()
+    return json_str, 200, {'Content-Type': 'application/json'}
+
+if __name__ == '__main__':
+    print("🚀 Flask iniciado en http://192.168.1.80:5000/")
+    app.run(host='0.0.0.0', port=5000, debug=True)
+```
+
+## Ejecutar
+
+```bash
+ssh dario@192.168.1.80
+cd /var/www/html/portfolio
+sudo python3 app_flask.py
+```
+Ahora para que funcione, tenemos que meterlos en la maquina virtual y ejecutarlo.
+```bash
+ssh dario@192.168.1.80
+cd /var/www/html/portfolio
+sudo python3 app_flask.py
+```
+
+Acceder desde navegador:
+- **Web:** http://192.168.1.80:5000/
+- **API:** http://192.168.1.80:5000/api/proyectos
+
+Si todo ha salido bien y no hemos llorado mucho, deberíamos tener una aplicación web perfectamente funcional que muestre los proyectos de la base de datos con estilo synthwave.
+
+

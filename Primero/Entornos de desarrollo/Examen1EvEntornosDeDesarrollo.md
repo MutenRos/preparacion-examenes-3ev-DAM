@@ -277,45 +277,21 @@ Ahora que ya tenemos el codigo comentado, vamos a ver que podemos refactorizar p
 Aunque hay veces que no es necesario refactorizar (este codigo no lo veria necesario, posible si, pero necesario no, ya que es un codigo simple y directo), es importante saber cuando hacerlo y cuando no, para no complicar innecesariamente el codigo. Aun asi, lo vamos a refactorizar por "vicio", y por que de eso va el examen.
 
 ```Python
-"""
-Sistema de Gestión de Portfolio - Versión Refactorizada
-Aplicación CRUD para gestionar proyectos en una base de datos MySQL
-Autor: Dario
-Fecha: Noviembre 2025
-"""
 
 # Importación de la librería mysql.connector para conectar con MySQL
 import mysql.connector
 
 class DatabaseConnection:
-    """
-    Clase para gestionar la conexión a la base de datos MySQL.
-    Encapsula las credenciales y el método de conexión.
-    """
-    
+
     def __init__(self, host, user, password, database):
-        """
-        Inicializa los parámetros de conexión a la base de datos.
         
-        Args:
-            host (str): Dirección del servidor MySQL (localhost)
-            user (str): Usuario de la base de datos (root)
-            password (str): Contraseña del usuario (root)
-            database (str): Nombre de la base de datos (Examen)
-        """
-        self.host = host              # Guardamos el host
-        self.user = user              # Guardamos el usuario
-        self.password = password      # Guardamos la contraseña
-        self.database = database      # Guardamos el nombre de la BD
+        self.host = "localhost"          # Guardamos el host
+        self.user = "root"              # Guardamos el usuario
+        self.password = "root"      # Guardamos la contraseña
+        self.database = "Examen"      # Guardamos el nombre de la BD
 
     def connect(self):
-        """
-        Establece y retorna una conexión con la base de datos MySQL.
-        SSL está deshabilitado para evitar problemas de compatibilidad.
         
-        Returns:
-            connection: Objeto de conexión MySQL
-        """
         return mysql.connector.connect(
             host=self.host,
             user=self.user,
@@ -325,25 +301,14 @@ class DatabaseConnection:
         )
 
 class ProjectManager:
-    """
-    Clase para gestionar las operaciones CRUD sobre la tabla de Proyectos.
-    Implementa: Crear, Leer, Actualizar y Eliminar proyectos.
-    """
+   
     
     def __init__(self, db_connection):
-        """
-        Inicializa el gestor de proyectos con una conexión a la BD.
-        
-        Args:
-            db_connection (DatabaseConnection): Objeto de conexión a la BD
-        """
+      
         self.db_connection = db_connection  # Guardamos la conexión
     
     def ver_proyectos(self):
-        """
-        Lista todos los proyectos almacenados en la base de datos.
-        Muestra: ID, Nombre, Descripción, Fecha y Categoría.
-        """
+        
         # Conectamos a la base de datos
         conexion = self.db_connection.connect()
         cursor = conexion.cursor()
@@ -363,10 +328,7 @@ class ProjectManager:
         conexion.close()
     
     def anadir_proyecto(self):
-        """
-        Añade un nuevo proyecto a la base de datos.
-        Solicita: nombre, descripción, fecha y categoría del proyecto.
-        """
+    
         print("\n--- Añadir Nuevo Proyecto ---")
         
         # Solicitamos datos del nuevo proyecto al usuario
@@ -391,10 +353,7 @@ class ProjectManager:
         conexion.close()
     
     def actualizar_proyecto(self):
-        """
-        Actualiza un proyecto existente en la base de datos.
-        Solicita el ID del proyecto y los nuevos valores para sus campos.
-        """
+    
         print("\n--- Actualizar Proyecto ---")
         
         # Solicitamos ID del proyecto a actualizar y los nuevos datos
@@ -420,10 +379,7 @@ class ProjectManager:
         conexion.close()
     
     def eliminar_proyecto(self):
-        """
-        Elimina un proyecto de la base de datos.
-        Solicita confirmación antes de eliminar (operación irreversible).
-        """
+ 
         print("\n--- Eliminar Proyecto ---")
         
         # Solicitamos ID del proyecto a eliminar
@@ -451,18 +407,12 @@ class ProjectManager:
             print("⚠ Operación cancelada\n")
 
 def bienvenida():
-    """
-    Muestra el mensaje de bienvenida al usuario al iniciar la aplicación.
-    Indica que el script se ha iniciado correctamente.
-    """
+  
     print("Bienvenido al gestor de portfolio")
     print(".·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.")
 
 def main():
-    """
-    Función principal que ejecuta el bucle del menú de la aplicación.
-    Gestiona la interacción del usuario con las operaciones CRUD.
-    """
+ 
     # Mostramos mensaje de bienvenida
     bienvenida()
     
@@ -505,19 +455,15 @@ if __name__ == "__main__":
     main()  # Ejecutamos la función principal
 ```
 
-Así tenemos nuestro código refactorizado con:
-- ✅ **Clases bien definidas**: `DatabaseConnection` para la gestión de la conexión y `ProjectManager` para las operaciones CRUD
-- ✅ **Código organizado**: Separación de responsabilidades clara
-- ✅ **Documentación completa**: Docstrings y comentarios explicativos
-- ✅ **Mantenibilidad mejorada**: Fácil de extender y modificar
-- ✅ **Función bienvenida incluida**: No faltaba nada
+Al usar clases, hemos conseguido agrupar las funciones relacionadas, mejorando la organizacion del código y facilitando su mantenimiento, y gracias a los comentarios, cualquiera puede ver de lejos que parte se puede modificar para hacer cambios o ampliaciones en el futuro sin necesidad de consultarnos. El codigo, como podemos observar, se ha quedado mas o menos igual de extenso que antes, pero nos lo veiamos venir, por eso dijimos que no iba a ser tan necesario refactorizar, pero ordenado sy mejor comentado si que nos ha quedado.
+y tras comprobar que funcxiona exactamente igualq ue antes, solo nos queda publicarlo en github ya que la base de datos la teniamos creada del examen de bases de datos.
+``bash
+git init
+git add .
+git commit -m "Examen 1ª Evaluación Entornos de Desarrollo - Refactorización y Documentación"
+git branch -M main
+git remote add origin <https://github.com/MutenRos/ExamenEntornos>
+git push -u origin main
+```
 
-El código está listo para el examen de Entornos de Desarrollo. Ahora solo faltaría subirlo a GitHub siguiendo las instrucciones del examen:
-
-1. Crear un repositorio nuevo en GitHub
-2. Clonarlo en tu equipo
-3. Añadir el archivo refactorizado
-4. Hacer commit con un mensaje descriptivo
-5. Push al repositorio
-
-Y con esto, ¡otro 10 más conseguido! 🎯
+Cuando escuchemos el "clack" del teclado, sabremos que hemos terminado y que nuestro proyecto esta en github.

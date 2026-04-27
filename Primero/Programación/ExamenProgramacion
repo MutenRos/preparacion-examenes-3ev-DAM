@@ -1,0 +1,286 @@
+
+4º Examen. Programacion. la recta final en la que vamos a empeza a gestionar nuestro portfolio mediante una base de datos mysql, tambien creada en el examen anterior.
+Vamos a empezar conectandonos a la maquina virtual que creamos, en la que estan todos los servicios levantados (apache, mysql, phpmyadmin...)
+Nos conectamos via ssh:
+```
+ssh dario@192.168.1.80
+```
+Por que al parecer ya no tenemos la misma ip que el lunes, asi que la comprobamos con:
+```
+ip a
+```
+Navegamos hasta la carpeta de nuestro proyecto con:
+```
+cd /var/www/html/portfolio
+```
+hacemos un `LS` para ver que tenemos ahi, y efectivamente, ahi esta nuestro proyecto.
+Ahora vamos a crear el script en `PYTHON` que nos permita gestionar la base de datos que creamos en el examen anterior.
+Creamos un archivo llamado `portfolio_crud.py` con:
+```
+sudo nano portfolio_crud.py
+```
+Y empezamos a bocetar las funciones que queremos que tenga nuestro script:
+- Dar una bienvenida inicial:
+```python
+def bienvenida():
+    print("Bienvenido al gestor de portfolio")
+```
+- Usar while ture para que el programa no se cierre hasta que el usuario quiera:
+```python
+def main():
+    bienvenida()
+    while True:
+        print("Seleccione una opcion:")
+        print("1. Ver proyectos")
+        print("2. Añadir proyecto")
+        print("3. Actualizar proyecto")
+        print("4. Eliminar proyecto")
+        print("5. Salir")
+        
+        opcion = input("Opcion: ")
+        
+        if opcion == "1":
+            ver_proyectos()
+        elif opcion == "2":
+            anadir_proyecto()
+        elif opcion == "3":
+            actualizar_proyecto()
+        elif opcion == "4":
+            eliminar_proyecto()
+        elif opcion == "5":
+            print("Saliendo...")
+            break
+        else:
+            print("Opcion no valida, intente de nuevo.")
+
+```
+
+Ahora, vamos a crear las funciones responsables de las acciones de CRUD
+
+- Crear
+- Leer
+- Actualizar (Update)
+- Borrar (Delete)
+
+O como las hemos llamado en nuestro menu:
+- Ver proyectos
+- Actualizar proyecto
+- Añadir proyecto
+- Eliminar proyecto
+
+
+Primero primerisimo, crearemos la conexion del script con la base de datos mysql que tenemos en la maquina virtual.
+Para ello, necesitamos importar el modulo `mysql.connector` al principio del scriptrecordamos las credenciales de la base de datos:
+```python
+import mysql.connector
+
+def conectar():
+    return mysql.connector.connect(
+        host="localhost",
+        user="dario",
+        password="692145043-Dario",
+        database="Examen"
+    )
+``` 
+Y ahora empezaremos a definir las funciones de CRUD (reciclando codigo para variar)
+
+- Ver proyectos (Read)
+```python
+def ver_proyectos():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM Proyectos")
+    proyectos = cursor.fetchall()
+    
+    print("\n--- Lista de Proyectos ---")
+    for proyecto in proyectos:
+        print(f"ID: {proyecto[0]}, Nombre: {proyecto[1]}, Descripcion: {proyecto[2]}, Fecha: {proyecto[3]}, Categoria: {proyecto[4]}")
+    print()
+    
+    cursor.close()
+    conexion.close()
+```
+
+- Añadir proyecto (Create)
+```python
+def anadir_proyecto():
+    print("\n--- Añadir Nuevo Proyecto ---")
+    nombre = input("Nombre del proyecto: ")
+    descripcion = input("Descripción: ")
+    fecha = input("Fecha (YYYY-MM-DD): ")
+    categoria = input("ID de categoría: ")
+    
+    conexion = conectar()
+    cursor = conexion.cursor()
+    sql = "INSERT INTO Proyectos (Nombre, Descripcion, Fecha, Categoria) VALUES (%s, %s, %s, %s)"
+    cursor.execute(sql, (nombre, descripcion, fecha, categoria))
+    conexion.commit()
+    
+    print("✔ Proyecto añadido correctamente\n")
+    cursor.close()
+    conexion.close()
+```
+
+- Actualizar proyecto (Update)
+```python
+def actualizar_proyecto():
+    print("\n--- Actualizar Proyecto ---")
+    id_proyecto = input("ID del proyecto a actualizar: ")
+    nombre = input("Nuevo nombre: ")
+    descripcion = input("Nueva descripción: ")
+    fecha = input("Nueva fecha (YYYY-MM-DD): ")
+    categoria = input("Nuevo ID de categoría: ")
+    
+    conexion = conectar()
+    cursor = conexion.cursor()
+    sql = "UPDATE Proyectos SET Nombre=%s, Descripcion=%s, Fecha=%s, Categoria=%s WHERE ID=%s"
+    cursor.execute(sql, (nombre, descripcion, fecha, categoria, id_proyecto))
+    conexion.commit()
+    
+    print("✔ Proyecto actualizado correctamente\n")
+    cursor.close()
+    conexion.close()
+```
+
+- Eliminar proyecto (Delete)
+```python
+def eliminar_proyecto():
+    print("\n--- Eliminar Proyecto ---")
+    id_proyecto = input("ID del proyecto a eliminar: ")
+    confirmacion = input(f"¿Seguro que quieres eliminar el proyecto {id_proyecto}? (s/n): ")
+    
+    if confirmacion.lower() == 's':
+        conexion = conectar()
+        cursor = conexion.cursor()
+        sql = "DELETE FROM Proyectos WHERE ID=%s"
+        cursor.execute(sql, (id_proyecto,))
+        conexion.commit()
+        
+        print("✔ Proyecto eliminado correctamente\n")
+        cursor.close()
+        conexion.close()
+    else:
+        print("⚠ Operación cancelada\n")
+```
+
+Y por ultimo, no nos olvidemos de añadir al final del archivo el punto de entrada del programa:
+```python
+if __name__ == "__main__":
+    main()
+```
+
+El archivo completo `portfolio_crud.py` nos quedaria asi:
+
+```Python
+import mysql.connector
+
+def conectar():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="Examen",
+        ssl_disabled=True
+    )
+
+def bienvenida():
+    print("Bienvenido al gestor de portfolio")
+    print(".·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.·.")
+
+def ver_proyectos():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM Proyectos")
+    proyectos = cursor.fetchall()
+    
+    print("\n--- Lista de Proyectos ---")
+    for proyecto in proyectos:
+        print(f"ID: {proyecto[0]}, Nombre: {proyecto[1]}, Descripcion: {proyecto[2]}, Fecha: {proyecto[3]}, Categoria: {proyecto[4]}")
+    print()
+    
+    cursor.close()
+    conexion.close()
+
+def anadir_proyecto():
+    print("\n--- Añadir Nuevo Proyecto ---")
+    nombre = input("Nombre del proyecto: ")
+    descripcion = input("Descripción: ")
+    fecha = input("Fecha (YYYY-MM-DD): ")
+    categoria = input("ID de categoría: ")
+    
+    conexion = conectar()
+    cursor = conexion.cursor()
+    sql = "INSERT INTO Proyectos (Nombre, Descripcion, Fecha, Categoria) VALUES (%s, %s, %s, %s)"
+    cursor.execute(sql, (nombre, descripcion, fecha, categoria))
+    conexion.commit()
+    
+    print("✔ Proyecto añadido correctamente\n")
+    cursor.close()
+    conexion.close()
+
+def actualizar_proyecto():
+    print("\n--- Actualizar Proyecto ---")
+    id_proyecto = input("ID del proyecto a actualizar: ")
+    nombre = input("Nuevo nombre: ")
+    descripcion = input("Nueva descripción: ")
+    fecha = input("Nueva fecha (YYYY-MM-DD): ")
+    categoria = input("Nuevo ID de categoría: ")
+    
+    conexion = conectar()
+    cursor = conexion.cursor()
+    sql = "UPDATE Proyectos SET Nombre=%s, Descripcion=%s, Fecha=%s, Categoria=%s WHERE ID=%s"
+    cursor.execute(sql, (nombre, descripcion, fecha, categoria, id_proyecto))
+    conexion.commit()
+    
+    print("✔ Proyecto actualizado correctamente\n")
+    cursor.close()
+    conexion.close()
+
+def eliminar_proyecto():
+    print("\n--- Eliminar Proyecto ---")
+    id_proyecto = input("ID del proyecto a eliminar: ")
+    confirmacion = input(f"¿Seguro que quieres eliminar el proyecto {id_proyecto}? (s/n): ")
+    
+    if confirmacion.lower() == 's':
+        conexion = conectar()
+        cursor = conexion.cursor()
+        sql = "DELETE FROM Proyectos WHERE ID=%s"
+        cursor.execute(sql, (id_proyecto,))
+        conexion.commit()
+        
+        print("✔ Proyecto eliminado correctamente\n")
+        cursor.close()
+        conexion.close()
+    else:
+        print("⚠ Operación cancelada\n")
+
+def main():
+    bienvenida()
+    while True:
+        print("\nSeleccione una opcion:")
+        print("1. Ver proyectos")
+        print("2. Añadir proyecto")
+        print("3. Actualizar proyecto")
+        print("4. Eliminar proyecto")
+        print("5. Salir")
+        
+        opcion = input("Opcion: ")
+        
+        if opcion == "1":
+            ver_proyectos()
+        elif opcion == "2":
+            anadir_proyecto()
+        elif opcion == "3":
+            actualizar_proyecto()
+        elif opcion == "4":
+            eliminar_proyecto()
+        elif opcion == "5":
+            print("Saliendo...")
+            break
+        else:
+            print("Opcion no valida, intente de nuevo.")
+
+if __name__ == "__main__":
+    main()
+```
+Y asi de facil y sencillo y excediendo el tiempo previsto hemos conseguido realizar un crud en nuestra base de datos dentro de una maquina virtual desde un script de python que nos realiza las 4 operaciones basicas de cualquier base de datos. 

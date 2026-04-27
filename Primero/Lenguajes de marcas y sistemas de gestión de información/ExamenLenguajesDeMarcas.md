@@ -464,5 +464,15 @@ h3 {
   ]
 }
 ```
+Por ultimo, vamos a hacer que los articulos aparezcan en 2 columnas en la pantalla, para ello usaremos `CSS Grid`. Modificamos el `main` en `styles.css` para que quede asi:
+```css
+main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+```
+
 Ahora si que ya podemos entrar, comprobar que todo esta en su sitio, rudimentariamente pero en su sitio, y nos queda un portfolio ampliable que tener en nuestra pagina personal de desarrollador.
 Y con esto hemos terminado el examen de `Lenguajes De Marcas`. Nos vemos en el siguiente examen. Habiendo utilizado elementos externos al html para extraer informacion. Pero lo mas importante es que nos acabamos de conseguir otro 10! :D
