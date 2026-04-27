@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informática Gráfica - Canvas API</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
+  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
+  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
+  .subtitle{color:#d4b00f;font-size:1.1em}
+  main{max-width:1100px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
+  .card h3{color:#e945db;margin-bottom:10px;font-size:1.2em}
+  .card p{color:#aaa;font-size:.9em;line-height:1.5}
+  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
+  footer{text-align:center;padding:30px;color:#666;margin-top:40px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🖼️ Informática Gráfica</h1>
+  <p class="subtitle">Canvas API — Gráficos 2D con HTML5 y JavaScript</p>
+</header>
+<main>
+  <a href="101-Ejercicios/001-lienzo.html" class="card">
+    <h3>01 — El lienzo (canvas)</h3>
+    <p>Creación del elemento canvas y configuración del contexto 2D básico.</p>
+    <span class="tag">Canvas API</span>
+  </a>
+  <a href="101-Ejercicios/002-contexto.html" class="card">
+    <h3>02 — Contexto 2D</h3>
+    <p>Exploración del objeto contexto y sus propiedades principales.</p>
+    <span class="tag">Context2D</span>
+  </a>
+  <a href="101-Ejercicios/004-dibujo un rectangulo.html" class="card">
+    <h3>04 — Rectángulos</h3>
+    <p>Dibujo de rectángulos con fillRect, strokeRect y clearRect.</p>
+    <span class="tag">Formas</span>
+  </a>
+  <a href="101-Ejercicios/005-muchos rectangulos.html" class="card">
+    <h3>05 — Muchos rectángulos</h3>
+    <p>Generación dinámica de rectángulos con bucles y colores aleatorios.</p>
+    <span class="tag">Bucles</span>
+  </a>
+  <a href="101-Ejercicios/008-circulo relleno.html" class="card">
+    <h3>08 — Círculos</h3>
+    <p>Dibujo de círculos y arcos con arc() y rellenos.</p>
+    <span class="tag">Arcos</span>
+  </a>
+  <a href="101-Ejercicios/010-muchas lineas.html" class="card">
+    <h3>10 — Muchas líneas</h3>
+    <p>Trazado de líneas con moveTo/lineTo y efectos visuales.</p>
+    <span class="tag">Líneas</span>
+  </a>
+  <a href="101-Ejercicios/014-porcion pintada.html" class="card">
+    <h3>14 — Porciones (Pie chart)</h3>
+    <p>Gráfico de tarta / sector circular con datos proporcionales.</p>
+    <span class="tag">Charts</span>
+  </a>
+  <a href="101-Ejercicios/017-datos con texto.html" class="card">
+    <h3>17 — Datos con texto</h3>
+    <p>Visualización de datos con etiquetas de texto sobre el canvas.</p>
+    <span class="tag">Texto</span>
+  </a>
+</main>
+<footer>
+  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
+</footer>
+</body>
+</html>

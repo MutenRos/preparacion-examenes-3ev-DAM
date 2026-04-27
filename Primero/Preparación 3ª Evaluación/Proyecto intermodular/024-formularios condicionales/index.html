@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formularios Condicionales</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
+  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
+  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
+  .subtitle{color:#d4b00f;font-size:1.1em}
+  main{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
+  .card h3{color:#e945db;margin-bottom:10px}
+  .card p{color:#aaa;font-size:.9em;line-height:1.5}
+  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
+  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>📋 Formularios Condicionales</h1>
+  <p class="subtitle">Formularios web con lógica dinámica y preguntas adaptativas</p>
+</header>
+<main>
+  <a href="001-formulario basico.html" class="card">
+    <h3>01 — Formulario Básico</h3>
+    <p>Estructura base de un formulario HTML con campos esenciales y validación.</p>
+    <span class="tag">HTML</span>
+  </a>
+  <a href="002-pregunta de elección.html" class="card">
+    <h3>02 — Preguntas de Elección</h3>
+    <p>Campos tipo radio/checkbox que disparan la aparición de nuevas preguntas según la selección.</p>
+    <span class="tag">JS Condicional</span>
+  </a>
+</main>
+<footer>
+  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
+</footer>
+</body>
+</html>

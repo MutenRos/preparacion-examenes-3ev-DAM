@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correos de Cumpleanios</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
+  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
+  h1{color:#e945db;font-size:2.2em;margin-bottom:8px}
+  .subtitle{color:#d4b00f;font-size:1.1em}
+  .content{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:600px){.content{grid-template-columns:1fr}}
+  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3)}
+  .card h2{color:#d4b00f;margin-bottom:12px;font-size:1.1em}
+  .card p,.card li{color:#aaa;font-size:.9em;line-height:1.7}
+  .card ul{padding-left:18px}
+  .code{background:#0d0d1a;border-radius:8px;padding:12px 16px;font-family:monospace;font-size:.85em;color:#e945db;margin-top:10px;white-space:pre-line}
+  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin:3px 3px 0 0}
+  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Cake Correos de Cumpleanios</h1>
+  <p class="subtitle">Email automatico de felicitacion por cumpleanos con Python</p>
+</header>
+<div class="content">
+  <div class="card">
+    <h2>Descripcion</h2>
+    <p>Lee agenda CSV, detecta cumpleanos del dia y envia email HTML personalizado via SMTP/Gmail.</p>
+  </div>
+  <div class="card">
+    <h2>Tecnologias</h2>
+    <span class="tag">Python 3</span><span class="tag">smtplib</span><span class="tag">Gmail</span><span class="tag">CSV</span><span class="tag">cron</span>
+  </div>
+  <div class="card">
+    <h2>Como ejecutar</h2>
+    <div class="code">pip install schedule
+python cumpleanos.py
+# Cron: 0 9 * * * python cumpleanos.py</div>
+  </div>
+  <div class="card">
+    <h2>Caracteristicas</h2>
+    <ul><li>Agenda CSV</li><li>Deteccion dia</li><li>Email HTML</li><li>Gmail SMTP</li><li>Ejecucion cron</li><li>Log envios</li></ul>
+  </div>
+</div>
+<footer><p>Proyecto Intermodular DAM - 3a Evaluacion 2026</p></footer>
+</body>
+</html>

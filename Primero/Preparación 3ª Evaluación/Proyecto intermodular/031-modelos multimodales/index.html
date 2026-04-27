@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos Multimodales IA</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
+  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
+  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
+  .subtitle{color:#d4b00f;font-size:1.1em}
+  main{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
+  .card h3{color:#e945db;margin-bottom:10px}
+  .card p{color:#aaa;font-size:.9em;line-height:1.5}
+  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
+  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🤖 Modelos Multimodales</h1>
+  <p class="subtitle">Interfaces web para IA de texto, visión e imagen con Ollama / Stable Diffusion</p>
+</header>
+<main>
+  <a href="008-texto.html" class="card">
+    <h3>08 — Chat de Texto</h3>
+    <p>Interfaz de chat que envía prompts a un modelo de lenguaje local vía Ollama y muestra la respuesta en streaming.</p>
+    <span class="tag">LLM</span>
+    <span class="tag">Ollama</span>
+  </a>
+  <a href="009-vision.html" class="card">
+    <h3>09 — Visión artificial</h3>
+    <p>Sube o captura una imagen y el modelo multimodal (LLaVA/Qwen-VL) la describe en lenguaje natural.</p>
+    <span class="tag">Vision</span>
+    <span class="tag">LLaVA</span>
+  </a>
+  <a href="010-imagen.html" class="card">
+    <h3>10 — Generación de imágenes</h3>
+    <p>Genera imágenes desde un prompt de texto usando Stable Diffusion y muestra el resultado en el navegador.</p>
+    <span class="tag">Stable Diffusion</span>
+    <span class="tag">txt2img</span>
+  </a>
+</main>
+<footer>
+  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
+</footer>
+</body>
+</html>

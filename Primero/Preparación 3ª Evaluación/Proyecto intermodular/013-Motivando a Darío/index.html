@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivando a Darío - Canvas Creative</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
+  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
+  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
+  .subtitle{color:#d4b00f;font-size:1.1em}
+  main{max-width:1000px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
+  .card h3{color:#e945db;margin-bottom:10px}
+  .card p{color:#aaa;font-size:.9em;line-height:1.5}
+  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
+  footer{text-align:center;padding:30px;color:#666;margin-top:40px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎨 Motivando a Darío</h1>
+  <p class="subtitle">Herramientas de dibujo interactivo con Canvas HTML5</p>
+</header>
+<main>
+  <a href="101-Ejercicios/001-canvas mousemove.html" class="card">
+    <h3>01 — Canvas + MouseMove</h3>
+    <p>Dibuja a mano alzada siguiendo el movimiento del ratón sobre el lienzo.</p>
+    <span class="tag">Eventos ratón</span>
+  </a>
+  <a href="101-Ejercicios/002-mas controles.html" class="card">
+    <h3>02 — Más controles</h3>
+    <p>Panel de herramientas con control de color, grosor y forma del trazo.</p>
+    <span class="tag">UI Controls</span>
+  </a>
+  <a href="101-Ejercicios/003-oleo.html" class="card">
+    <h3>03 — Efecto óleo</h3>
+    <p>Simulación de pinceladas con efecto textura de pintura al óleo.</p>
+    <span class="tag">Efectos</span>
+  </a>
+  <a href="101-Ejercicios/004-contaminacion.html" class="card">
+    <h3>04 — Contaminación</h3>
+    <p>Visualización artística de datos medioambientales con Canvas.</p>
+    <span class="tag">Data Art</span>
+  </a>
+  <a href="101-Ejercicios/005-longitud de trazo.html" class="card">
+    <h3>05 — Longitud de trazo</h3>
+    <p>Cálculo en tiempo real de la longitud total del trazo dibujado.</p>
+    <span class="tag">Geometría</span>
+  </a>
+  <a href="101-Ejercicios/006-jocarsa CAD.html" class="card">
+    <h3>06 — jocarsa CAD</h3>
+    <p>Mini aplicación de dibujo técnico con herramientas CAD básicas.</p>
+    <span class="tag">CAD</span>
+  </a>
+</main>
+<footer>
+  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
+</footer>
+</body>
+</html>
