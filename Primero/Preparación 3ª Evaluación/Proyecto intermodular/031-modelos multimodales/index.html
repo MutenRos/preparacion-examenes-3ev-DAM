@@ -2,50 +2,146 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modelos Multimodales IA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>👁 Modelos multimodales</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
-  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
-  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
-  .subtitle{color:#d4b00f;font-size:1.1em}
-  main{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
-  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
-  .card h3{color:#e945db;margin-bottom:10px}
-  .card p{color:#aaa;font-size:.9em;line-height:1.5}
-  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
-  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
-</style>
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#a855f7;--c:#22d3ee;--y:#facc15;--bg:#080610;--bg2:#0e0a18;--card:#15102b;--border:#241c44;--mut:#6c6489}
+body{font-family:Inter,sans-serif;background:var(--bg);color:#cec8e0;min-height:100vh}
+
+header{padding:46px 24px 30px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+header::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 30%,rgba(168,85,247,.18),transparent 40%),
+  radial-gradient(circle at 80% 30%,rgba(34,211,238,.15),transparent 40%),
+  radial-gradient(circle at 50% 100%,rgba(250,204,21,.1),transparent 50%);pointer-events:none}
+.h-content{position:relative;z-index:1}
+h1{font-size:2.4em;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
+h1 b{background:linear-gradient(135deg,var(--p),var(--c),var(--y));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--mut);font-size:.95em;max-width:540px;margin:0 auto;line-height:1.55}
+
+main{max-width:1000px;margin:30px auto;padding:0 20px 36px}
+
+/* tabs */
+.tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:0;overflow:hidden}
+.tab{flex:1;padding:14px 12px;text-align:center;font-weight:700;font-size:.9em;color:var(--mut);border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab.active{background:var(--bg2);color:#fff}
+.tab.active.t1{box-shadow:inset 0 -2px 0 var(--p);color:var(--p)}
+.tab.active.t2{box-shadow:inset 0 -2px 0 var(--c);color:var(--c)}
+.tab.active.t3{box-shadow:inset 0 -2px 0 var(--y);color:var(--y)}
+.tab .ic{font-size:1.1em}
+@media(max-width:540px){.tab{font-size:.78em;padding:10px 6px}}
+
+/* panels stacked, all visible */
+.panels{display:grid;gap:14px;margin:14px 0 28px;grid-template-columns:1fr 1fr 1fr}
+@media(max-width:760px){.panels{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.panel.p1{border-color:rgba(168,85,247,.3);box-shadow:0 0 24px rgba(168,85,247,.08)}
+.panel.p2{border-color:rgba(34,211,238,.3);box-shadow:0 0 24px rgba(34,211,238,.08)}
+.panel.p3{border-color:rgba(250,204,21,.3);box-shadow:0 0 24px rgba(250,204,21,.08)}
+.panel-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.p1 .panel-head{background:rgba(168,85,247,.06)}
+.p2 .panel-head{background:rgba(34,211,238,.06)}
+.p3 .panel-head{background:rgba(250,204,21,.06)}
+.panel-head h3{font-size:.78em;letter-spacing:.1em;text-transform:uppercase;font-weight:800;font-family:'JetBrains Mono',monospace}
+.p1 .panel-head h3{color:var(--p)}
+.p2 .panel-head h3{color:var(--c)}
+.p3 .panel-head h3{color:var(--y)}
+.panel-head .badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.66em;color:var(--mut);background:var(--bg);padding:1px 7px;border-radius:3px;border:1px solid var(--border)}
+.panel-body{padding:18px 20px;flex:1;font-size:.85em;line-height:1.55;color:#a9a3c4}
+.demo-block{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:.74em;color:#8e88a8;margin-bottom:10px}
+.demo-block b{color:#fff;font-weight:600;display:block;font-family:Inter;font-size:1.1em;margin-bottom:3px}
+
+.image-mock{background:linear-gradient(135deg,#3a2a55,#1a1a3a,#0e2640);height:120px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:2em;color:#fff8;margin-bottom:10px;position:relative;overflow:hidden}
+.image-mock::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 6px,transparent 6px,transparent 12px)}
+
+.flow{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:24px;text-align:center}
+.flow h3{font-family:'JetBrains Mono',monospace;font-size:.74em;letter-spacing:.1em;text-transform:uppercase;color:#9990b8;margin-bottom:14px;font-weight:700}
+.flow-text{font-size:.92em;color:#a9a3c4;line-height:1.7}
+.flow-text b.p{color:var(--p)}
+.flow-text b.c{color:var(--c)}
+.flow-text b.y{color:var(--y)}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+@media(max-width:680px){.duo{grid-template-columns:1fr}}
+.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.icard ul{list-style:none}
+.icard li{font-size:.85em;color:#9990b8;padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.55}
+.icard li:last-child{border:none}
+.icard li code{font-family:'JetBrains Mono',monospace;color:var(--c);background:rgba(34,211,238,.06);padding:1px 5px;border-radius:3px;font-size:.92em}
+
+footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace}
+</style></head>
 <body>
-<header>
-  <h1>🤖 Modelos Multimodales</h1>
-  <p class="subtitle">Interfaces web para IA de texto, visión e imagen con Ollama / Stable Diffusion</p>
-</header>
+<header><div class="h-content">
+  <h1>👁 Modelos <b>multimodales</b></h1>
+  <p class="sub">Tres capacidades distintas en un mismo proyecto: chat de texto, análisis de imagen (visión) y generación de imagen (texto → imagen). Todo local con Ollama y Stable Diffusion.</p>
+</div></header>
+
 <main>
-  <a href="008-texto.html" class="card">
-    <h3>08 — Chat de Texto</h3>
-    <p>Interfaz de chat que envía prompts a un modelo de lenguaje local vía Ollama y muestra la respuesta en streaming.</p>
-    <span class="tag">LLM</span>
-    <span class="tag">Ollama</span>
-  </a>
-  <a href="009-vision.html" class="card">
-    <h3>09 — Visión artificial</h3>
-    <p>Sube o captura una imagen y el modelo multimodal (LLaVA/Qwen-VL) la describe en lenguaje natural.</p>
-    <span class="tag">Vision</span>
-    <span class="tag">LLaVA</span>
-  </a>
-  <a href="010-imagen.html" class="card">
-    <h3>10 — Generación de imágenes</h3>
-    <p>Genera imágenes desde un prompt de texto usando Stable Diffusion y muestra el resultado en el navegador.</p>
-    <span class="tag">Stable Diffusion</span>
-    <span class="tag">txt2img</span>
-  </a>
+
+  <div class="tabs">
+    <div class="tab t1 active"><span class="ic">💬</span>texto</div>
+    <div class="tab t2 active"><span class="ic">👁</span>visión</div>
+    <div class="tab t3 active"><span class="ic">🎨</span>generación</div>
+  </div>
+
+  <div class="panels">
+    <div class="panel p1">
+      <div class="panel-head"><h3>💬 chat texto</h3><span class="badge">llama3.1:8b</span></div>
+      <div class="panel-body">
+        <div class="demo-block"><b>USER</b>"Explica qué es un transformer en 3 líneas"</div>
+        <div class="demo-block" style="color:#cabbe5"><b>AI</b>Arquitectura de red neuronal basada en self-attention. Procesa secuencias en paralelo. Base de los modelos LLM modernos (GPT, BERT, Llama).</div>
+        <p>Modelo conversacional clásico: prompt + contexto → respuesta de texto.</p>
+      </div>
+    </div>
+    <div class="panel p2">
+      <div class="panel-head"><h3>👁 análisis visual</h3><span class="badge">llava:7b</span></div>
+      <div class="panel-body">
+        <div class="image-mock">📸</div>
+        <div class="demo-block"><b>PROMPT</b>"¿Qué hay en esta imagen?"</div>
+        <div class="demo-block" style="color:#aedef0"><b>AI</b>"Una calle urbana al atardecer con varios edificios de ladrillo, faroles encendidos y una persona caminando con un paraguas."</div>
+      </div>
+    </div>
+    <div class="panel p3">
+      <div class="panel-head"><h3>🎨 generación</h3><span class="badge">SD-1.5</span></div>
+      <div class="panel-body">
+        <div class="demo-block"><b>PROMPT</b>"un dragón rojo volando sobre montañas, estilo pintura japonesa"</div>
+        <div class="image-mock" style="background:linear-gradient(135deg,#7e1a1a,#3a1a55)">🐲</div>
+        <p>Texto → imagen. Difusión de ruido guiada por embeddings del prompt.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <h3>// arquitectura común</h3>
+    <p class="flow-text">Una sola interfaz web. Detrás, <b class="p">Ollama</b> sirve los modelos de texto y visión, mientras <b class="c">Stable Diffusion</b> corre en su propio endpoint para la generación. PHP enruta cada petición al backend correcto según la pestaña activa, y devuelve <b class="y">JSON con texto o base64 de imagen</b>.</p>
+  </div>
+
+  <div class="duo">
+    <div class="icard">
+      <h3>// stack</h3>
+      <ul>
+        <li>PHP frontend con tabs</li>
+        <li>Ollama serving texto + visión</li>
+        <li>Stable Diffusion en GPU/CPU</li>
+        <li>Imágenes vía base64 → <code>img.src</code></li>
+        <li>Carga de archivos para visión</li>
+      </ul>
+    </div>
+    <div class="icard">
+      <h3>// modelos disponibles</h3>
+      <ul>
+        <li><code>llama3.1:8b</code> · texto general</li>
+        <li><code>llava:7b</code> · imagen → texto</li>
+        <li><code>qwen2.5:7b</code> · texto rápido</li>
+        <li><code>SD-1.5</code> · texto → imagen</li>
+        <li>Todos locales, sin API externa</li>
+      </ul>
+    </div>
+  </div>
+
 </main>
-<footer>
-  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
-</footer>
-</body>
-</html>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body></html>

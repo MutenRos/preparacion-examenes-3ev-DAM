@@ -2,42 +2,139 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formularios Condicionales</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🌿 Formularios condicionales</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
-  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
-  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
-  .subtitle{color:#d4b00f;font-size:1.1em}
-  main{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
-  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
-  .card h3{color:#e945db;margin-bottom:10px}
-  .card p{color:#aaa;font-size:.9em;line-height:1.5}
-  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
-  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
-</style>
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--mint:#10b981;--mint2:#34d399;--bg:#0a100d;--bg2:#0f1714;--card:#16201c;--border:#1f2c27;--mut:#5d7368}
+body{font-family:Geist,system-ui,sans-serif;background:var(--bg);color:#cbd9d3;min-height:100vh}
+
+header{padding:46px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+.eyebrow{display:inline-block;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:var(--mint2);padding:3px 10px;border-radius:14px;font-family:'Geist Mono',monospace;font-size:.7em;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+h1{font-size:2.4em;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
+h1 b{color:var(--mint2)}
+.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
+
+main{max-width:980px;margin:32px auto;padding:0 20px 36px}
+
+/* tree diagram */
+.tree-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px 24px;margin-bottom:28px;overflow-x:auto}
+.tree-card h3{font-family:'Geist Mono',monospace;font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--mint2);margin-bottom:24px;text-align:center}
+.tree{display:flex;flex-direction:column;align-items:center;gap:0;min-width:560px}
+.node{background:var(--bg2);border:2px solid var(--border);border-radius:8px;padding:10px 16px;font-size:.86em;color:#dbe7e1;font-family:'Geist Mono',monospace;text-align:center;position:relative;font-weight:500}
+.node.q{border-color:var(--mint2);color:var(--mint2)}
+.node.end{border-color:var(--mint);background:rgba(16,185,129,.08);color:var(--mint2);border-style:dashed}
+.branch{display:flex;gap:60px;justify-content:center;position:relative;margin-top:32px}
+.branch::before{content:'';position:absolute;top:-32px;left:50%;width:1px;height:16px;background:var(--mint)}
+.branch-item{display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
+.branch-item::before{content:'';position:absolute;top:-16px;width:1px;height:16px;background:var(--mint)}
+.branch-line{position:absolute;top:-16px;height:1px;background:var(--mint)}
+.label{font-family:'Geist Mono',monospace;font-size:.74em;color:var(--mint2);background:var(--card);padding:1px 8px;border-radius:3px;border:1px solid var(--border);position:absolute;top:-26px;white-space:nowrap;font-weight:600}
+.branch-item .node{margin-top:0}
+
+/* connecting line for top branch */
+.h-line{position:absolute;top:-16px;height:1px;background:var(--mint);left:50%;transform:translateX(-50%)}
+
+.duo{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-bottom:24px}
+@media(max-width:680px){.duo{grid-template-columns:1fr}}
+.code{background:#06080a;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.code-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 16px;font-family:'Geist Mono',monospace;font-size:.74em;color:var(--mut)}
+.code-head b{color:var(--mint2)}
+pre{padding:18px 22px;font-family:'Geist Mono',monospace;font-size:.8em;line-height:1.7;color:#9bb5ab;overflow-x:auto}
+.kw{color:#c084fc} .str{color:var(--mint2)} .nu{color:#fbbf24} .cm{color:var(--mut);font-style:italic} .nb{color:#7dd3fc}
+
+.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--mint2);margin-bottom:10px;font-weight:700;font-family:'Geist Mono',monospace}
+.icard ul{list-style:none}
+.icard li{font-size:.85em;color:#7c948b;padding:5px 0;border-bottom:1px dashed var(--border);line-height:1.5}
+.icard li:last-child{border:none}
+.icard li code{font-family:'Geist Mono',monospace;color:var(--mint2);background:rgba(16,185,129,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
+
+footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'Geist Mono',monospace}
+</style></head>
 <body>
 <header>
-  <h1>📋 Formularios Condicionales</h1>
-  <p class="subtitle">Formularios web con lógica dinámica y preguntas adaptativas</p>
+  <span class="eyebrow">PROYECTO 024 · LÓGICA RAMIFICADA</span>
+  <h1>🌿 Formularios <b>condicionales</b></h1>
+  <p class="sub">El cuestionario cambia su flujo según las respuestas anteriores: si dices "no", saltas a otra pregunta. Cada camino lleva a su propio resultado.</p>
 </header>
+
 <main>
-  <a href="001-formulario basico.html" class="card">
-    <h3>01 — Formulario Básico</h3>
-    <p>Estructura base de un formulario HTML con campos esenciales y validación.</p>
-    <span class="tag">HTML</span>
-  </a>
-  <a href="002-pregunta de elección.html" class="card">
-    <h3>02 — Preguntas de Elección</h3>
-    <p>Campos tipo radio/checkbox que disparan la aparición de nuevas preguntas según la selección.</p>
-    <span class="tag">JS Condicional</span>
-  </a>
+
+  <div class="tree-card">
+    <h3>// flujo ramificado de ejemplo</h3>
+    <div class="tree">
+
+      <div class="node q">¿Has comprado online en el último mes?</div>
+
+      <div class="branch">
+        <div class="branch-item">
+          <span class="label" style="left:50%;transform:translateX(-50%)">SÍ</span>
+          <div class="node q">¿Lo recomendarías?</div>
+          <div class="branch">
+            <div class="branch-item">
+              <span class="label" style="left:50%;transform:translateX(-50%)">SÍ</span>
+              <div class="node end">+5 puntos · cliente fan</div>
+            </div>
+            <div class="branch-item">
+              <span class="label" style="left:50%;transform:translateX(-50%)">NO</span>
+              <div class="node end">+1 punto · neutro</div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-item">
+          <span class="label" style="left:50%;transform:translateX(-50%)">NO</span>
+          <div class="node q">¿Por qué no?</div>
+          <div class="branch">
+            <div class="branch-item">
+              <span class="label" style="left:50%;transform:translateX(-50%)">PRECIO</span>
+              <div class="node end">cupón → reintentar</div>
+            </div>
+            <div class="branch-item">
+              <span class="label" style="left:50%;transform:translateX(-50%)">DUDA</span>
+              <div class="node end">FAQ + chat</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="duo">
+    <div class="code">
+      <div class="code-head">// motor del salto condicional — <b>logic.js</b></div>
+<pre><span class="cm">// Cada pregunta declara qué pregunta sigue</span>
+<span class="kw">const</span> flow = {
+  q1: { text: <span class="str">"¿Compraste online?"</span>,
+        next: { yes: <span class="str">"q2"</span>, no: <span class="str">"q3"</span> } },
+  q2: { text: <span class="str">"¿Lo recomendarías?"</span>,
+        next: { yes: <span class="str">"END_FAN"</span>, no: <span class="str">"END_NEUTRO"</span> } },
+  q3: { text: <span class="str">"¿Por qué no?"</span>,
+        next: { precio: <span class="str">"END_CUPON"</span>, duda: <span class="str">"END_FAQ"</span> } }
+};
+
+<span class="kw">function</span> avanzar(qid, respuesta) {
+  <span class="kw">const</span> destino = flow[qid].next[respuesta];
+  <span class="kw">if</span> (destino.startsWith(<span class="str">"END_"</span>)) <span class="kw">return</span> finalizar(destino);
+  pintar(flow[destino]);
+}</pre>
+    </div>
+
+    <div class="icard">
+      <h3>// claves del proyecto</h3>
+      <ul>
+        <li>JSON describe el árbol completo</li>
+        <li>Saltos por respuesta · sin reglas hardcoded</li>
+        <li>Cada nodo: pregunta o final</li>
+        <li>Resultados acumulan puntos por rama</li>
+        <li>Sin frameworks — JS vanilla</li>
+        <li>Backend PHP guarda el camino seguido</li>
+      </ul>
+    </div>
+  </div>
+
 </main>
-<footer>
-  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
-</footer>
-</body>
-</html>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body></html>

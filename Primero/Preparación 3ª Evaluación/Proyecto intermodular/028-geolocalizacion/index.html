@@ -2,47 +2,146 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geolocalización Web</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📍 Geolocalización + Leaflet</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
-  header{background:#371657;padding:40px 20px;text-align:center;border-bottom:2px solid #e945db}
-  h1{color:#e945db;font-size:2.5em;margin-bottom:8px}
-  .subtitle{color:#d4b00f;font-size:1.1em}
-  main{max-width:900px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-  .card{background:#371657;border-radius:12px;padding:24px;border:2px solid rgba(233,69,219,.3);transition:all .3s;text-decoration:none;color:inherit;display:block}
-  .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(233,69,219,.5);border-color:#e945db}
-  .card h3{color:#e945db;margin-bottom:10px}
-  .card p{color:#aaa;font-size:.9em;line-height:1.5}
-  .tag{display:inline-block;background:rgba(233,69,219,.2);color:#e945db;padding:2px 10px;border-radius:10px;font-size:.8em;margin-top:10px}
-  footer{text-align:center;padding:30px;color:#666;margin-top:20px}
-</style>
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#10b981;--g2:#34d399;--bg:#091210;--bg2:#0e1a17;--card:#152521;--border:#1d3530;--mut:#647a73}
+body{font-family:Manrope,sans-serif;background:var(--bg);color:#c5d6cf;min-height:100vh}
+
+header{padding:42px 24px 28px;text-align:center;border-bottom:1px solid var(--border)}
+h1{font-size:2.3em;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:4px}
+h1 b{color:var(--g2)}
+.sub{color:var(--mut);font-size:.95em;max-width:540px;margin:0 auto;line-height:1.55}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74em;letter-spacing:.16em;color:var(--g2);margin-bottom:8px}
+
+main{max-width:1000px;margin:30px auto;padding:0 20px 36px}
+
+/* map */
+.map-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:28px;position:relative}
+.map-toolbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.78em}
+.map-toolbar .layer{background:rgba(16,185,129,.08);color:var(--g2);padding:3px 9px;border-radius:4px;border:1px solid rgba(16,185,129,.2);font-size:.85em}
+.map-toolbar .coords{margin-left:auto;color:var(--mut)}
+.map-toolbar .coords b{color:#fff;font-weight:600}
+@media(max-width:560px){.map-toolbar .coords{font-size:.7em}}
+
+.map{position:relative;height:380px;background:
+  radial-gradient(circle at 50% 50%,#1a3530,#0d1f1c 70%),
+  linear-gradient(rgba(16,185,129,.08) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(16,185,129,.08) 1px,transparent 1px);
+  background-size:auto,48px 48px,48px 48px;
+  overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%;opacity:.35}
+
+.pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);font-size:2.4em;animation:bounce 2s ease-in-out infinite;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
+@keyframes bounce{0%,100%{transform:translate(-50%,-100%)}50%{transform:translate(-50%,-110%)}}
+.pin-pulse{position:absolute;left:50%;top:50%;width:30px;height:30px;border-radius:50%;background:rgba(52,211,153,.4);transform:translate(-50%,-50%);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.6}100%{transform:translate(-50%,-50%) scale(4);opacity:0}}
+
+.attribution{position:absolute;bottom:6px;right:8px;font-family:'JetBrains Mono',monospace;font-size:.66em;color:var(--mut);background:rgba(0,0,0,.4);padding:2px 7px;border-radius:3px}
+
+.popup{position:absolute;left:50%;top:50%;transform:translate(-50%,-260%);background:#fff;color:#222;border-radius:6px;padding:10px 14px;font-size:.82em;box-shadow:0 6px 16px rgba(0,0,0,.4);min-width:180px;font-family:Manrope}
+.popup::after{content:'';position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border:8px solid transparent;border-top-color:#fff}
+.popup b{color:var(--g);display:block;font-weight:800;margin-bottom:2px;font-size:.92em}
+.popup small{color:#666;font-family:'JetBrains Mono',monospace;font-size:.78em}
+
+/* metric cards */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:24px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.metric .label{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.metric .val{font-family:'JetBrains Mono',monospace;color:var(--g2);font-size:1.3em;font-weight:700;letter-spacing:-.02em}
+.metric .unit{color:var(--mut);font-size:.7em;margin-left:3px;font-weight:400}
+
+.duo{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+@media(max-width:680px){.duo{grid-template-columns:1fr}}
+.code{background:#06090a;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.code-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 16px;font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut)}
+.code-head b{color:var(--g2)}
+pre{padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:.8em;line-height:1.7;color:#a3c4b9;overflow-x:auto}
+.kw{color:var(--g2)} .str{color:#86efac} .nu{color:#fbbf24} .cm{color:var(--mut);font-style:italic} .nb{color:#7dd3fc}
+
+.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.icard ul{list-style:none}
+.icard li{font-size:.85em;color:#8aa39c;padding:5px 0;border-bottom:1px dashed var(--border);line-height:1.55}
+.icard li:last-child{border:none}
+.icard li code{font-family:'JetBrains Mono',monospace;color:var(--g2);background:rgba(16,185,129,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
+
+footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;margin-top:24px}
+</style></head>
 <body>
 <header>
-  <h1>🗺️ Geolocalización Web</h1>
-  <p class="subtitle">API de geolocalización del navegador + mapas interactivos</p>
+  <p class="eyebrow">PROYECTO 028 · WEB GIS</p>
+  <h1>📍 Geolocalización <b>+ Leaflet</b></h1>
+  <p class="sub">El navegador pide permiso de ubicación, captura latitud/longitud y altitud, las pinta en un mapa Leaflet y guarda la sesión en SQLite.</p>
 </header>
+
 <main>
-  <a href="001-geoloc.html" class="card">
-    <h3>01 — Geolocalización básica</h3>
-    <p>Obtención de coordenadas GPS del navegador con la Geolocation API y visualización de latitud/longitud.</p>
-    <span class="tag">Geolocation API</span>
-  </a>
-  <a href="002-openstreetmapapi.html" class="card">
-    <h3>02 — OpenStreetMap API</h3>
-    <p>Integración con Leaflet.js y OpenStreetMap para mostrar la posición en un mapa interactivo.</p>
-    <span class="tag">Leaflet.js</span>
-  </a>
-  <a href="003-geolocalizacion y mapa.html" class="card">
-    <h3>03 — Geolocalización + Mapa</h3>
-    <p>Combinación completa: detección de posición en tiempo real con actualización dinámica del marcador en el mapa.</p>
-    <span class="tag">Real-time</span>
-  </a>
+
+  <div class="map-wrap">
+    <div class="map-toolbar">
+      <span class="layer">🗺 OSM tiles</span>
+      <span class="layer">📡 GPS · 8 satélites</span>
+      <span class="coords">lat <b>39.4699</b> · lon <b>-0.3763</b></span>
+    </div>
+    <div class="map">
+      <svg viewBox="0 0 600 380" preserveAspectRatio="none">
+        <path d="M0,180 Q120,150 200,180 T380,170 Q480,200 600,180" stroke="#10b981" stroke-width="1.5" fill="none" stroke-dasharray="4 4" opacity=".5"/>
+        <path d="M50,80 Q150,100 250,90 T450,110 Q540,95 600,100" stroke="#10b981" stroke-width="1" fill="none" opacity=".4"/>
+        <path d="M0,300 Q160,280 280,310 T520,290 L600,300" stroke="#10b981" stroke-width="1" fill="none" opacity=".4"/>
+        <circle cx="120" cy="120" r="3" fill="#34d399"/>
+        <circle cx="480" cy="240" r="3" fill="#34d399"/>
+        <circle cx="200" cy="280" r="3" fill="#34d399"/>
+        <circle cx="420" cy="80" r="3" fill="#34d399"/>
+      </svg>
+      <div class="pin-pulse"></div>
+      <div class="popup"><b>Tu ubicación</b><small>± 12 m de precisión</small></div>
+      <div class="pin">📍</div>
+      <span class="attribution">© OpenStreetMap · Leaflet</span>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="label">Latitud</div><div class="val">39.4699<span class="unit">°N</span></div></div>
+    <div class="metric"><div class="label">Longitud</div><div class="val">-0.3763<span class="unit">°W</span></div></div>
+    <div class="metric"><div class="label">Altitud</div><div class="val">15<span class="unit">m</span></div></div>
+    <div class="metric"><div class="label">Precisión</div><div class="val">±12<span class="unit">m</span></div></div>
+    <div class="metric"><div class="label">Velocidad</div><div class="val">0.0<span class="unit">m/s</span></div></div>
+  </div>
+
+  <div class="duo">
+    <div class="code">
+      <div class="code-head">// captura del navegador — <b>app.js</b></div>
+<pre><span class="cm">// Pedimos permiso y posición continua</span>
+<span class="nb">navigator</span>.geolocation.<span class="kw">watchPosition</span>(
+  (pos) =&gt; {
+    <span class="kw">const</span> { latitude, longitude, altitude, accuracy } = pos.coords;
+    map.setView([latitude, longitude], <span class="nu">17</span>);
+    marker.setLatLng([latitude, longitude]);
+    <span class="cm">// guardar al backend</span>
+    <span class="kw">fetch</span>(<span class="str">"/save.php"</span>, {
+      method: <span class="str">"POST"</span>,
+      body: <span class="nb">JSON</span>.stringify({ latitude, longitude, altitude })
+    });
+  },
+  (err) =&gt; <span class="nb">console</span>.error(<span class="str">"GPS error"</span>, err),
+  { enableHighAccuracy: <span class="kw">true</span> }
+);</pre>
+    </div>
+    <div class="icard">
+      <h3>// stack</h3>
+      <ul>
+        <li><code>navigator.geolocation</code></li>
+        <li><code>watchPosition</code> · stream continuo</li>
+        <li>Leaflet 1.9 + tiles OSM</li>
+        <li>PHP + SQLite para histórico</li>
+        <li>Permiso explícito del navegador</li>
+        <li>HTTPS obligatorio en producción</li>
+      </ul>
+    </div>
+  </div>
+
 </main>
-<footer>
-  <p>Proyecto Intermodular DAM — 3ª Evaluación 2026</p>
-</footer>
-</body>
-</html>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body></html>

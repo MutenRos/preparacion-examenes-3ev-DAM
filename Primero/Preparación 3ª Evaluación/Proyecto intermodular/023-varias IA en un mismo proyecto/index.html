@@ -3,137 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🧩 Varias IA en un Proyecto</title>
-
+<title>🤖🤖 Dos IA en un mismo proyecto</title>
 <style>
-:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
-header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
-h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
-.subtitle{color:var(--gold);font-size:1.05em;position:relative}
-.page{max-width:980px;margin:0 auto;padding:36px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
-.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
-.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
-.card ul{padding-left:18px}
-.card li{margin-bottom:4px}
-.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
-.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
-.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
-.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
-pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
-code{font-family:'Fira Code','Cascadia Code',monospace}
-.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
-.file-tree .dir{color:var(--gold)}
-.file-tree .py{color:#35aa58}
-.file-tree .php{color:#6495ed}
-.file-tree .html{color:#e945db}
-.file-tree .md{color:#999}
-.file-tree .other{color:#aaa}
-.wide{grid-column:1/-1}
-.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
-.arch-arrow{color:var(--pink);font-size:1.1em}
-.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
-footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
-a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
-a.btn:hover{opacity:.85}
-a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
-h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
-</style>
+:root{--bg:#0a0a12;--bg2:#0e0e1a;--card:#161624;--border:#252538;--mut:#6b6b85;
+  --ll:#3b82f6;--ll2:#60a5fa;     /* llama3.1 */
+  --co:#22c55e;--co2:#4ade80;     /* codellama */}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:#cccada;min-height:100vh}
 
-</head>
+header{padding:42px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+h1{font-size:2.3em;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
+h1 .a{color:var(--ll2)}
+h1 .b{color:var(--co2)}
+.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74em;letter-spacing:.16em;color:var(--mut);margin-bottom:8px}
+
+main{max-width:1080px;margin:30px auto;padding:0 20px 36px}
+
+/* split screen */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px;position:relative}
+@media(max-width:720px){.split{grid-template-columns:1fr}}
+.split::before{content:'VS';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--bg);border:2px solid var(--border);color:#fff;font-weight:800;width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.85em;letter-spacing:.04em;z-index:5;box-shadow:0 0 0 6px var(--bg)}
+@media(max-width:720px){.split::before{display:none}}
+
+.side{padding:24px 24px 28px;background:var(--card)}
+.side.a{background:linear-gradient(180deg,#0e1a30,#0a1424);border-right:1px solid var(--border)}
+.side.b{background:linear-gradient(180deg,#0e2417,#0a1a10)}
+@media(max-width:720px){.side.a{border-right:none;border-bottom:1px solid var(--border)}}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ava{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.1em;font-weight:700;color:#fff}
+.side.a .ava{background:linear-gradient(135deg,var(--ll),var(--ll2));box-shadow:0 0 16px var(--ll)55}
+.side.b .ava{background:linear-gradient(135deg,var(--co),var(--co2));box-shadow:0 0 16px var(--co)55}
+.head .name{font-weight:800;color:#fff;font-size:1.05em;letter-spacing:-.01em}
+.head .role{font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut);margin-top:1px}
+.head .dot{margin-left:auto;width:8px;height:8px;border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+.side.a .dot{background:var(--ll2)}
+.side.b .dot{background:var(--co2)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 currentColor}50%{box-shadow:0 0 0 6px transparent}}
+
+.message{font-size:.88em;line-height:1.65;color:#dbdaef}
+.message strong{color:#fff;font-weight:600}
+.side.a .message em{color:var(--ll2);font-style:normal;font-weight:600}
+.side.b .message em{color:var(--co2);font-style:normal;font-weight:600}
+.message pre{margin-top:10px;background:#06060c;border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:.78em;color:#a8b8c8;overflow-x:auto;line-height:1.6}
+.side.b .message pre{color:#9adcb0}
+
+.props{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
+.props span{background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:.7em;padding:2px 8px;border-radius:4px;color:var(--mut);border:1px solid var(--border)}
+.side.a .props span{color:var(--ll2);border-color:rgba(96,165,250,.3)}
+.side.b .props span{color:var(--co2);border-color:rgba(74,222,128,.3)}
+
+/* shared question */
+.prompt{margin-bottom:28px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 22px;text-align:center}
+.prompt .label{font-family:'JetBrains Mono',monospace;font-size:.7em;letter-spacing:.16em;color:var(--mut);text-transform:uppercase;margin-bottom:6px}
+.prompt .text{font-size:1.05em;color:#fff;font-weight:600}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+@media(max-width:680px){.duo{grid-template-columns:1fr}}
+.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:#a8b3cd;margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.icard ul{list-style:none}
+.icard li{font-size:.85em;color:#9090ad;padding:4px 0;border-bottom:1px dashed var(--border)}
+.icard li:last-child{border:none}
+.icard li code{font-family:'JetBrains Mono',monospace;color:var(--ll2);background:rgba(96,165,250,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
+
+footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace}
+</style></head>
 <body>
 <header>
-  <h1>🧩 Varias IA en un Proyecto</h1>
-  <p class="subtitle">Libro de C++ generado por dos Ollama paralelos: llama3.1:8b para teoría, codellama:7b para código</p>
+  <p class="eyebrow">PROYECTO 023 · MULTI-MODELO</p>
+  <h1>🤖 Dos IA, <span class="a">un mismo</span> <span class="b">proyecto</span></h1>
+  <p class="sub">App PHP que envía la misma pregunta a dos modelos distintos de Ollama en paralelo y muestra ambas respuestas lado a lado para comparar.</p>
 </header>
-<div class="page">
 
-<div class="grid">
-  <div class="card wide">
-    <h2>📖 Qué hace realmente</h2>
-    <p>No es un chatbot multi-modal. Es un <strong>generador automático de libro de texto de C++</strong>. Lee el temario de programación desde <code>programacion.txt</code>, y para cada sección llama a <em>dos modelos distintos</em> de Ollama: <code>llama3.1:8b</code> para el texto explicativo y <code>codellama:7b</code> para los ejercicios de código. El resultado se acumula en <code>resultado.md</code>. Un sistema de prompt de ~60 líneas impone normas pedagógicas estrictas: nunca anticipar conceptos futuros, cada paso debe compilar de forma autónoma, código incremental sobre el del paso anterior.</p>
+<main>
+
+  <div class="prompt">
+    <div class="label">// pregunta del usuario</div>
+    <div class="text">"Escribe una función que invierta una cadena en Python."</div>
   </div>
-</div>
 
-<h3 class="section">La arquitectura dual de modelos</h3>
-<div class="card">
-  <div class="arch">
-    <div class="arch-box">programacion.txt<br/><small>temario C++</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">for cada sección</div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">llama3.1:8b<br/><small>teoría + explicación</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">resultado.md<br/><small>libro completo</small></div>
+  <div class="split">
+
+    <div class="side a">
+      <div class="head">
+        <div class="ava">🦙</div>
+        <div><div class="name">Llama 3.1</div><div class="role">8B · generalista</div></div>
+        <div class="dot"></div>
+      </div>
+      <div class="message">
+        <p>Para <em>invertir una cadena</em> en Python lo más limpio es usar <strong>slicing</strong>. Es la forma idiomática y la más rápida en CPython:</p>
+<pre>def invertir(s):
+    return s[::-1]
+
+print(invertir("hola"))  # → "aloh"</pre>
+        <p style="margin-top:8px">El slice <em>[::-1]</em> recorre la cadena de derecha a izquierda con paso -1.</p>
+        <div class="props"><span>tono explicativo</span><span>una sola opción</span><span>idiomático</span></div>
+      </div>
+    </div>
+
+    <div class="side b">
+      <div class="head">
+        <div class="ava">🐍</div>
+        <div><div class="name">CodeLlama</div><div class="role">13B · código</div></div>
+        <div class="dot"></div>
+      </div>
+      <div class="message">
+        <p><em>Tres formas equivalentes</em>, ordenadas de más a menos pythónica:</p>
+<pre>def reverse_a(s): return s[::-1]
+def reverse_b(s): return "".join(reversed(s))
+def reverse_c(s):
+    out = ""
+    for ch in s: out = ch + out
+    return out
+
+# benchmark: a > b > c</pre>
+        <p style="margin-top:8px">Ojo: <em>reverse_c</em> es <strong>O(n²)</strong> por concat de strings.</p>
+        <div class="props"><span>varias opciones</span><span>complejidad O()</span><span>benchmark</span></div>
+      </div>
+    </div>
+
   </div>
-  <div class="arch" style="margin-top:8px">
-    <div class="arch-box" style="opacity:0">spacer</div>
-    <div class="arch-arrow" style="opacity:0">→</div>
-    <div class="arch-box" style="opacity:0">spacer</div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">codellama:7b<br/><small>ejercicios en C++</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">resultado.md<br/><small>(mismo archivo)</small></div>
+
+  <div class="duo">
+    <div class="icard">
+      <h3>// arquitectura</h3>
+      <ul>
+        <li>PHP — formulario único + render</li>
+        <li>2 llamadas paralelas con <code>curl_multi</code></li>
+        <li>Endpoint Ollama: <code>POST /api/generate</code></li>
+        <li>Respuesta JSON, render lado a lado</li>
+        <li>Mismo prompt, dos resultados</li>
+      </ul>
+    </div>
+    <div class="icard">
+      <h3>// modelos posibles</h3>
+      <ul>
+        <li><code>llama3.1:8b</code> · generalista</li>
+        <li><code>codellama:13b</code> · programación</li>
+        <li><code>qwen2.5:3b</code> · ligero</li>
+        <li><code>mistral:7b</code> · balanceado</li>
+        <li>Combinables: 2 cualesquiera</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<h3 class="section">Fragmento real del sistema de prompt</h3>
-<div class="card wide">
-<pre><code class="python">MODELO_TEXTO  = "llama3.1:8b"
-MODELO_CODIGO = "codellama:7b"
-LENGUAJE      = "C++"
-REINTENTAR_SALIDA_DEFECTUOSA = True
-MAX_INTENTOS  = 2
-
-# Reglas del sistema de escritura (extracto real):
-# "Nunca anticipes conceptos futuros del temario."
-# "Cada paso de código debe ser un programa COMPLETO y compilable."
-# "Cada paso parte EXACTAMENTE del código del paso anterior."
-# "El texto debe ser EN ESPAÑOL y de tono docente, cercano y claro."
-# "Los ejercicios deben ir de menos a más dificultad dentro de cada tema."
-</code></pre>
-</div>
-
-<div class="grid" style="margin-top:20px">
-  <div class="card">
-    <h2>🛠 Librerías reales</h2>
-    <span class="tag green">Python 3</span>
-    <span class="tag green">requests</span>
-    <span class="tag green">re, time, os</span>
-    <span class="tag">Ollama llama3.1:8b</span>
-    <span class="tag">Ollama codellama:7b</span>
-  </div>
-  <div class="card">
-    <h2>📁 Ficheros</h2>
-    <div class="file-tree">
-<span class="md">001-repaso.md</span>              ← notas previas
-<span class="py">002-peticion sencilla.py</span>   ← primera llamada
-<span class="py">009-final.py</span>               ← versión completa
-<span class="other">programacion.txt</span>           ← temario C++
-<span class="other">resultado.md</span>               ← libro generado</div>
-  </div>
-</div>
-
-<div class="card" style="margin-top:20px">
-  <h2>🚀 Cómo ejecutar</h2>
-<pre><code># Requiere dos modelos en Ollama
-ollama pull llama3.1:8b
-ollama pull codellama:7b
-ollama serve
-
-pip install requests
-
-# Genera el libro completo (puede tardar mucho)
-python 009-final.py
-# → resultado.md (libro de C++ completo)</code></pre>
-</div>
-
-</div>
-<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
-</body>
-</html>
+</main>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body></html>

@@ -3,129 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🎂 Correos de Cumpleaños</title>
-
+<title>🎂 Correos de cumpleaños</title>
 <style>
-:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
-header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
-h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
-.subtitle{color:var(--gold);font-size:1.05em;position:relative}
-.page{max-width:980px;margin:0 auto;padding:36px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
-.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
-.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
-.card ul{padding-left:18px}
-.card li{margin-bottom:4px}
-.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
-.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
-.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
-.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
-pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
-code{font-family:'Fira Code','Cascadia Code',monospace}
-.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
-.file-tree .dir{color:var(--gold)}
-.file-tree .py{color:#35aa58}
-.file-tree .php{color:#6495ed}
-.file-tree .html{color:#e945db}
-.file-tree .md{color:#999}
-.file-tree .other{color:#aaa}
-.wide{grid-column:1/-1}
-.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
-.arch-arrow{color:var(--pink);font-size:1.1em}
-.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
-footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
-a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
-a.btn:hover{opacity:.85}
-a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
-h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
-</style>
+:root{--p:#ec4899;--o:#fb923c;--y:#fde047;--c:#22d3ee;--bg:#1a0b1a;--bg2:#22102a;--card:#2c1538;--border:#3d2050;--mut:#a892b8}
+body{font-family:Quicksand,sans-serif;background:var(--bg);color:#f5e9f5;min-height:100vh;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 10% 20%,rgba(236,72,153,.18),transparent 40%),
+    radial-gradient(circle at 90% 30%,rgba(251,146,60,.16),transparent 40%),
+    radial-gradient(circle at 50% 100%,rgba(34,211,238,.14),transparent 50%);
+}
 
-</head>
+/* confeti pieces */
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.confetti i{position:absolute;width:8px;height:14px;border-radius:2px;animation:fall 6s linear infinite;opacity:.7}
+@keyframes fall{0%{transform:translateY(-20vh) rotate(0)}100%{transform:translateY(110vh) rotate(720deg)}}
+
+header{padding:48px 24px 28px;text-align:center;position:relative;z-index:1}
+h1{font-family:Pacifico,cursive;font-size:3.2em;font-weight:400;color:#fff;line-height:1;letter-spacing:-.01em;margin-bottom:6px;text-shadow:0 4px 24px rgba(236,72,153,.35)}
+h1 b{font-family:Pacifico;background:linear-gradient(135deg,var(--p),var(--o),var(--y));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--mut);font-size:1em;max-width:520px;margin:0 auto;line-height:1.55}
+
+main{max-width:920px;margin:24px auto;padding:0 22px 36px;position:relative;z-index:1}
+
+/* card stack */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:30px}
+.card{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;transition:transform .25s}
+.card:hover{transform:translateY(-3px) rotate(-.5deg)}
+.card::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:var(--accent);opacity:.18}
+.card.p{--accent:var(--p)} .card.o{--accent:var(--o)} .card.y{--accent:var(--y)} .card.c{--accent:var(--c)}
+.cake{font-size:2em;display:block;margin-bottom:6px;position:relative}
+.card .name{font-weight:700;color:#fff;font-size:1.05em;letter-spacing:-.01em;position:relative}
+.card .date{font-family:'JetBrains Mono',monospace;color:var(--mut);font-size:.8em;position:relative;margin-top:2px}
+.card .msg{margin-top:10px;color:#d8c5da;font-size:.84em;font-style:italic;line-height:1.5;position:relative}
+.card .tag{display:inline-block;background:rgba(255,255,255,.08);color:var(--accent);padding:2px 8px;border-radius:10px;font-size:.7em;font-weight:700;letter-spacing:.05em;margin-top:8px;position:relative}
+
+/* email mock */
+.email{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:24px}
+.email-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:13px 20px;display:flex;align-items:center;gap:10px}
+.email-head .ic{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--o));display:inline-flex;align-items:center;justify-content:center;font-size:.9em}
+.email-head .meta{font-size:.78em;color:var(--mut);font-family:'JetBrains Mono',monospace}
+.email-head .meta b{color:#fff}
+.email-body{padding:24px 28px;color:#dcc6e0;font-size:.92em;line-height:1.6}
+.email-body h2{font-family:Pacifico,cursive;color:var(--p);font-size:2em;line-height:1;margin-bottom:14px;font-weight:400}
+.email-body p{margin-bottom:10px}
+.email-body p em{color:var(--y);font-style:italic;font-weight:600}
+.email-body .signature{font-family:Pacifico,cursive;color:var(--c);font-size:1.4em;margin-top:14px}
+
+/* code */
+.code{background:#0d0510;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:24px}
+.code-head{padding:9px 18px;background:var(--bg2);border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut)}
+.code-head b{color:var(--p)}
+pre{padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:.78em;line-height:1.7;color:#c8b4d0;overflow-x:auto}
+.kw{color:var(--p)} .str{color:#a8e063} .nu{color:var(--y)} .cm{color:#71557a;font-style:italic} .nb{color:var(--c)}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+@media(max-width:680px){.duo{grid-template-columns:1fr}}
+.icard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.icard h3{font-family:Pacifico,cursive;font-size:1.3em;color:var(--y);font-weight:400;margin-bottom:8px}
+.icard ul{list-style:none}
+.icard li{font-size:.85em;color:#c8b4d0;padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.5}
+.icard li:last-child{border:none}
+.icard li code{font-family:'JetBrains Mono',monospace;background:rgba(236,72,153,.1);color:var(--p);padding:1px 6px;border-radius:3px;font-size:.92em}
+
+footer{text-align:center;padding:24px;color:var(--border);font-size:.85em;font-family:Pacifico,cursive;position:relative;z-index:1}
+</style></head>
 <body>
+
+<div class="confetti">
+  <i style="left:5%;background:#ec4899;animation-delay:-1s"></i>
+  <i style="left:15%;background:#fb923c;animation-delay:-2s"></i>
+  <i style="left:25%;background:#fde047;animation-delay:-3s"></i>
+  <i style="left:35%;background:#22d3ee;animation-delay:-4s"></i>
+  <i style="left:48%;background:#a855f7;animation-delay:-1.5s"></i>
+  <i style="left:58%;background:#ec4899;animation-delay:-3.5s"></i>
+  <i style="left:70%;background:#fb923c;animation-delay:-2.5s"></i>
+  <i style="left:82%;background:#fde047;animation-delay:-4.5s"></i>
+  <i style="left:92%;background:#22d3ee;animation-delay:-.5s"></i>
+</div>
+
 <header>
-  <h1>🎂 Correos de Cumpleaños</h1>
-  <p class="subtitle">Python lee un Google Sheets CSV, detecta cumpleaños de hoy y envía email HTML personalizado por SMTP SSL</p>
+  <h1>🎂 <b>Correos</b> de cumpleaños</h1>
+  <p class="sub">Script Python que cada día revisa la BD y envía felicitaciones automáticas por email a quien cumpla años.</p>
 </header>
-<div class="page">
 
-<div class="grid">
-  <div class="card wide">
-    <h2>📖 Qué hace realmente</h2>
-    <p>Script Python que cada día: (1) descarga un Google Sheets CSV con nombres, apellidos, emails y fechas de nacimiento, (2) compara solo día y mes con la fecha actual, (3) si hay coincidencia calcula la edad exacta y (4) envía un email HTML personalizado con <code>smtplib.SMTP_SSL</code>. El email tiene un diseño con gradiente, saludo personalizado con nombre + apellidos + edad y fallback en texto plano.</p>
+<main>
+
+  <div class="cards">
+    <div class="card p">
+      <span class="cake">🎂</span>
+      <div class="name">María García</div>
+      <div class="date">12 / nov · hoy</div>
+      <p class="msg">"¡Te mando un abrazo enorme en tu día!"</p>
+      <span class="tag">enviado ✓</span>
+    </div>
+    <div class="card o">
+      <span class="cake">🎈</span>
+      <div class="name">Juan Pérez</div>
+      <div class="date">15 / nov · en 3 días</div>
+      <p class="msg">"Que cumplas muchos más, salud y suerte."</p>
+      <span class="tag">programado</span>
+    </div>
+    <div class="card y">
+      <span class="cake">🎁</span>
+      <div class="name">Ana López</div>
+      <div class="date">28 / nov · pendiente</div>
+      <p class="msg">"Un día especial para una persona especial."</p>
+      <span class="tag">programado</span>
+    </div>
+    <div class="card c">
+      <span class="cake">🎉</span>
+      <div class="name">Carlos Ruiz</div>
+      <div class="date">3 / dic · pendiente</div>
+      <p class="msg">"Felicidades, que disfrutes mucho hoy!"</p>
+      <span class="tag">programado</span>
+    </div>
   </div>
-</div>
 
-<h3 class="section">Fragmento de código real</h3>
-<div class="card wide">
-<pre><code class="python">URL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?output=csv"
-
-def is_birthday_today(birth_date: date, today: date) -> bool:
-    return birth_date.day == today.day and birth_date.month == today.month
-
-def years_old_today(birth_date: date, today: date) -> int:
-    age = today.year - birth_date.year
-    if (today.month, today.day) < (birth_date.month, birth_date.day):
-        age -= 1
-    return age
-
-# Para cada persona con cumpleaños hoy:
-age = years_old_today(birth_date, today)
-msg = build_birthday_message(from_email, to_email, name, surnames, age)
-# envío con smtplib.SMTP_SSL(host, port)
-</code></pre>
-</div>
-
-<div class="grid" style="margin-top:20px">
-  <div class="card">
-    <h2>🛠 Librerías reales</h2>
-    <span class="tag green">Python 3</span>
-    <span class="tag green">requests</span>
-    <span class="tag green">csv + io.StringIO</span>
-    <span class="tag green">smtplib.SMTP_SSL</span>
-    <span class="tag green">email.message.EmailMessage</span>
-    <span class="tag green">datetime</span>
+  <div class="email">
+    <div class="email-head">
+      <div class="ic">📨</div>
+      <div class="meta">de: <b>cumple@miapp.com</b> · para: <b>maria@example.com</b> · 12-nov 09:00</div>
+    </div>
+    <div class="email-body">
+      <h2>¡Feliz cumpleaños, María!</h2>
+      <p>Te deseamos un día <em>maravilloso</em> rodeada de quien quieres. Que este nuevo año te traiga proyectos ilusionantes y muchísima salud.</p>
+      <p>Un fuerte abrazo,</p>
+      <p class="signature">— el equipo</p>
+    </div>
   </div>
-  <div class="card">
-    <h2>📁 Progresión real</h2>
-    <div class="file-tree">
-<span class="py">001-direccion de la hoja.py</span>  ← URL Sheets
-<span class="py">002-consumo de datos.py</span>       ← fgetcsv Python
-<span class="py">003-comprobar cumpleaños.py</span>   ← lógica fecha
-<span class="py">004-enviar correo.py</span>          ← SMTP SSL
-<span class="py">005-correo HTML.py</span>            ← plantilla HTML</div>
+
+  <div class="code">
+    <div class="code-head">📜 <b>003-cumpleanos final.py</b> — el corazón del cron</div>
+<pre><span class="cm"># Conectar con la base de datos y obtener cumples del día</span>
+hoy = datetime.now().strftime(<span class="str">"%m-%d"</span>)
+cur.execute(<span class="str">"SELECT nombre, email FROM personas WHERE strftime('%m-%d', fecha_nac)=?"</span>, (hoy,))
+
+<span class="kw">for</span> nombre, email <span class="kw">in</span> cur.fetchall():
+    asunto = <span class="str">f"¡Feliz cumpleaños, {nombre}!"</span>
+    cuerpo = plantilla.format(nombre=nombre)
+
+    <span class="kw">with</span> smtplib.<span class="nb">SMTP_SSL</span>(<span class="str">"smtp.gmail.com"</span>, <span class="nu">465</span>) <span class="kw">as</span> s:
+        s.login(USER, APP_PASSWORD)
+        s.send_message(build_message(email, asunto, cuerpo))</pre>
   </div>
-  <div class="card">
-    <h2>⚙️ Para ejecutar diariamente</h2>
-    <ul>
-      <li>Añadir al crontab del servidor</li>
-      <li><code>0 9 * * * python /ruta/005-correo\ HTML.py</code></li>
-      <li>Credenciales desde variables de entorno</li>
-      <li>Sin instalar nada extra: solo <code>requests</code></li>
-    </ul>
+
+  <div class="duo">
+    <div class="icard">
+      <h3>Tecnología</h3>
+      <ul>
+        <li>Python 3 + <code>smtplib</code></li>
+        <li><code>SMTP_SSL</code> · Gmail App Password</li>
+        <li><code>email.mime.multipart</code> + HTML</li>
+        <li>SQLite con personas y fechas</li>
+        <li>Cron diario a las 09:00</li>
+      </ul>
+    </div>
+    <div class="icard">
+      <h3>Configuración</h3>
+      <ul>
+        <li><code>SMTP_USER</code> · <code>SMTP_PASS</code></li>
+        <li>Variables de entorno (no en código)</li>
+        <li>App Password en cuentas con 2FA</li>
+        <li>Plantilla HTML personalizable</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="card" style="margin-top:20px">
-  <h2>🚀 Cómo ejecutar</h2>
-<pre><code>pip install requests
-
-export SMTP_HOST=smtp.gmail.com
-export SMTP_USER=tu@gmail.com
-export SMTP_PASS=tu_app_password
-
-# Ejecutar manualmente
-python 005-correo\ HTML.py
-
-# O programar con cron (ejecutar cada día a las 9:00)
-0 9 * * * /usr/bin/python3 /ruta/005-correo\ HTML.py</code></pre>
-</div>
-
-</div>
-<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
-</body>
-</html>
+</main>
+<footer>· proyecto intermodular DAM · 3ª evaluación 2025-26 ·</footer>
+</body></html>

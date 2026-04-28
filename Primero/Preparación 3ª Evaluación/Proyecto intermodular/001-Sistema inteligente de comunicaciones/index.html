@@ -4,149 +4,130 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>📨 Sistema Inteligente de Comunicaciones</title>
-
 <style>
-:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
-header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
-h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
-.subtitle{color:var(--gold);font-size:1.05em;position:relative}
-.page{max-width:980px;margin:0 auto;padding:36px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
-.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
-.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
-.card ul{padding-left:18px}
-.card li{margin-bottom:4px}
-.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
-.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
-.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
-.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
-pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
-code{font-family:'Fira Code','Cascadia Code',monospace}
-.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
-.file-tree .dir{color:var(--gold)}
-.file-tree .py{color:#35aa58}
-.file-tree .php{color:#6495ed}
-.file-tree .html{color:#e945db}
-.file-tree .md{color:#999}
-.file-tree .other{color:#aaa}
-.wide{grid-column:1/-1}
-.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
-.arch-arrow{color:var(--pink);font-size:1.1em}
-.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
-footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
-a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
-a.btn:hover{opacity:.85}
-a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
-h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
-</style>
+:root{--ai:#10b981;--w:#3b82f6;--p:#a855f7;--bg:#0a0e14;--bg2:#10151c;--card:#161c26;--border:#222b38;--mut:#5a6678}
+body{font-family:Manrope,sans-serif;background:var(--bg);color:#cad5e2;min-height:100vh;line-height:1.5}
+header{padding:48px 24px 36px;text-align:center;border-bottom:1px solid var(--border)}
+h1{font-size:2.2em;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
+h1 .ai{background:linear-gradient(135deg,var(--ai),#5eead4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--mut);font-size:.9em;max-width:540px;margin:0 auto}
+.tags{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tag{background:var(--card);border:1px solid var(--border);color:#8a98ad;padding:3px 10px;border-radius:5px;font-size:.74em;font-family:'JetBrains Mono',monospace}
 
-</head>
+.layout{max-width:980px;margin:0 auto;padding:32px 20px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:720px){.layout{grid-template-columns:1fr}}
+
+/* mock inbox card */
+.mock{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;grid-column:1/-1}
+.mock-head{background:var(--card);border-bottom:1px solid var(--border);padding:10px 14px;font-size:.78em;color:var(--mut);display:flex;align-items:center;gap:10px}
+.mock-head::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--ai);box-shadow:0 0 8px var(--ai)}
+.mock-list{padding:4px 0}
+.mail{display:grid;grid-template-columns:80px 180px 1fr auto;gap:14px;padding:11px 16px;border-bottom:1px solid var(--border);align-items:center;font-size:.85em}
+.mail:last-child{border:none}
+@media(max-width:600px){.mail{grid-template-columns:70px 1fr;gap:8px}.mail .body,.mail time{display:none}}
+.mail .cat{font-size:.7em;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:4px;text-align:center}
+.cat.work{background:rgba(59,130,246,.15);color:var(--w)}
+.cat.bills{background:rgba(168,85,247,.15);color:var(--p)}
+.cat.spam{background:rgba(239,68,68,.15);color:#ef4444}
+.cat.personal{background:rgba(16,185,129,.15);color:var(--ai)}
+.mail .from{font-weight:700;color:#dde6f0}
+.mail .body{color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mail .body strong{color:#cad5e2;font-weight:600}
+.mail time{color:#3a4555;font-size:.78em;font-family:'JetBrains Mono',monospace}
+
+/* arch flow */
+.arch{grid-column:1/-1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.arch-step{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:.78em;text-align:center;min-width:90px}
+.arch-step b{color:#fff;display:block;font-weight:700;margin-bottom:2px}
+.arch-step span{color:var(--mut);font-size:.78em;font-family:'JetBrains Mono',monospace}
+.arch-arrow{color:var(--ai);font-size:1.2em}
+
+/* info cards */
+.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.icard h3{font-size:.78em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ai);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.icard ul{list-style:none}
+.icard li{font-size:.84em;color:#8a98ad;padding:4px 0;border-bottom:1px dashed var(--border)}
+.icard li:last-child{border:none}
+.icard li code{background:rgba(16,185,129,.08);color:var(--ai);padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.86em}
+.routes li{display:flex;gap:10px}
+.routes .verb{background:var(--ai);color:#000;font-weight:700;font-size:.72em;padding:1px 7px;border-radius:3px;font-family:'JetBrains Mono',monospace;flex-shrink:0;align-self:center}
+
+.code-block{grid-column:1/-1;background:#06090e;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.code-head{background:var(--card);border-bottom:1px solid var(--border);padding:8px 14px;font-size:.74em;color:var(--mut);font-family:'JetBrains Mono',monospace}
+pre{padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:.78em;line-height:1.7;color:#9eaec1;overflow-x:auto}
+.kw{color:#c084fc} .str{color:#86efac} .nb{color:#7dd3fc} .cm{color:#475569;font-style:italic}
+
+footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border)}
+</style></head>
 <body>
 <header>
-  <h1>📨 Sistema Inteligente de Comunicaciones</h1>
-  <p class="subtitle">Cliente de correo web con clasificación y resumen automático por IA (Ollama + IMAP)</p>
+  <h1>📨 Sistema <span class="ai">Inteligente</span> de Comunicaciones</h1>
+  <p class="sub">Cliente de correo web que lee IMAP real, decodifica MIME y deja que un LLM clasifique y resuma cada email automáticamente.</p>
+  <div class="tags"><span class="tag">Flask</span><span class="tag">imaplib</span><span class="tag">Ollama qwen2.5:3b</span><span class="tag">async</span></div>
 </header>
-<div class="page">
 
-<div class="grid">
-  <div class="card wide">
-    <h2>📖 Qué hace realmente</h2>
-    <p>Se conecta a un buzón IMAP real mediante variables de entorno, descarga los últimos N correos, decodifica MIME (multipart, base64, charsets variables), limpia el HTML a texto plano con regex y llama a Ollama (<code>qwen2.5:3b-instruct</code>) para <strong>clasificar y resumir</strong> cada email en segundo plano.</p>
-    <p style="margin-top:10px">La interfaz Flask muestra los correos agrupados por categoría IA. El resumen de cada email se carga de forma asíncrona (endpoint <code>/api/summary/&lt;id&gt;</code>) con spinner de carga. Un endpoint <code>/api/refresh</code> fuerza la re-descarga del IMAP.</p>
+<main class="layout">
+
+  <div class="mock">
+    <div class="mock-head">📥 Bandeja agrupada por categoría IA · 5 últimos correos</div>
+    <div class="mock-list">
+      <div class="mail"><span class="cat work">Trabajo</span><span class="from">jocarsa</span><span class="body"><strong>Reunión teams</strong> — La IA detectó: convocatoria de reunión interna…</span><time>09:42</time></div>
+      <div class="mail"><span class="cat bills">Facturas</span><span class="from">Namecheap</span><span class="body"><strong>Domain renewal</strong> — Renovación de dominio jocarsa.com el 12/05…</span><time>08:17</time></div>
+      <div class="mail"><span class="cat work">Trabajo</span><span class="from">GitHub</span><span class="body"><strong>Security alert</strong> — Nuevo inicio de sesión desde Madrid…</span><time>ayer</time></div>
+      <div class="mail"><span class="cat personal">Personal</span><span class="from">Darío G.</span><span class="body"><strong>Re: entrega</strong> — Adjunta versión revisada del proyecto intermodular…</span><time>ayer</time></div>
+      <div class="mail"><span class="cat spam">Spam</span><span class="from">unknown</span><span class="body"><strong>You won 1M$</strong> — Email promocional clasificado como spam por la IA…</span><time>2d</time></div>
+    </div>
   </div>
-</div>
 
-<h3 class="section">Arquitectura real</h3>
-<div class="card">
   <div class="arch">
-    <div class="arch-box">IMAP<br/><small>imaplib</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">Decode MIME<br/><small>email + regex</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">Ollama API<br/><small>qwen2.5:3b-instruct</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">Flask<br/><small>JSON async</small></div>
-    <div class="arch-arrow">→</div>
-    <div class="arch-box">Interfaz web<br/><small>HTML + fetch</small></div>
+    <div class="arch-step"><b>IMAP</b><span>imaplib</span></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-step"><b>Decode MIME</b><span>multipart, b64</span></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-step"><b>Ollama</b><span>qwen2.5:3b</span></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-step"><b>Flask</b><span>JSON async</span></div>
+    <span class="arch-arrow">→</span>
+    <div class="arch-step"><b>UI</b><span>fetch()</span></div>
   </div>
-</div>
 
-<div class="grid" style="margin-top:20px">
-  <div class="card">
-    <h2>🛠 Librerías reales</h2>
-    <span class="tag green">Python 3</span>
-    <span class="tag green">Flask</span>
-    <span class="tag green">imaplib</span>
-    <span class="tag green">email</span>
-    <span class="tag">Ollama API</span>
-    <span class="tag">qwen2.5:3b</span>
-  </div>
-  <div class="card">
-    <h2>⚙️ Variables de entorno</h2>
+  <div class="icard">
+    <h3>⚙️ Variables de entorno</h3>
     <ul>
       <li><code>MI_CORREO_JOCARSA</code></li>
       <li><code>MI_CONTRASENA_CORREO_JOCARSA</code></li>
       <li><code>MI_SERVIDORIMAP_CORREO_JOCARSA</code></li>
-      <li><code>OLLAMA_URL</code> (default: localhost:11434)</li>
-      <li><code>OLLAMA_MODEL</code> (default: qwen2.5:3b-instruct)</li>
-      <li><code>N_ULTIMOS</code> (default: 5)</li>
+      <li><code>OLLAMA_URL</code> · <code>OLLAMA_MODEL</code></li>
+      <li><code>N_ULTIMOS</code> = 5</li>
     </ul>
   </div>
-  <div class="card">
-    <h2>🗺 Rutas Flask reales</h2>
-    <ul>
-      <li><code>GET /</code> — lista de emails agrupados por categoría</li>
-      <li><code>GET /email/&lt;id&gt;</code> — vista de detalle</li>
-      <li><code>GET /api/summary/&lt;id&gt;</code> — resumen async</li>
-      <li><code>GET /api/refresh</code> — fuerza re-fetch IMAP</li>
+  <div class="icard">
+    <h3>🗺 Rutas Flask</h3>
+    <ul class="routes">
+      <li><span class="verb">GET</span><span><code>/</code> — lista agrupada</span></li>
+      <li><span class="verb">GET</span><span><code>/email/&lt;id&gt;</code> — detalle</span></li>
+      <li><span class="verb">GET</span><span><code>/api/summary/&lt;id&gt;</code> — resumen async</span></li>
+      <li><span class="verb">GET</span><span><code>/api/refresh</code> — re-fetch IMAP</span></li>
     </ul>
   </div>
-  <div class="card">
-    <h2>📁 Ficheros del proyecto</h2>
-    <div class="file-tree">
-<span class="py">002-recibir correo.py</span>            → conexión IMAP básica
-<span class="md">003-variables de entorno.md</span>      → doc env vars
-<span class="py">005-recibir correo con imap.py</span>   → fetch + decode MIME
-<span class="py">006-resumen con ia.py</span>            → llamada Ollama
-<span class="py">007-clasificación de correos.py</span>  → categorizado IA
-<span class="py">008-priorizacion.py</span>              → orden por prioridad
-<span class="dir">009-interfaz flask/</span>             → app Flask inicial
-<span class="dir">010-mejoras/</span>                    → versión final</div>
+
+  <div class="code-block">
+    <div class="code-head">$ cat 010-mejoras/app.py — fragmento real</div>
+<pre><span class="cm"># Resumen async de cada email cuando el usuario lo abre</span>
+<span class="kw">@app</span>.route(<span class="str">"/api/summary/&lt;int:msg_id&gt;"</span>)
+<span class="kw">def</span> api_summary(msg_id):
+    body = fetch_message_body(msg_id)
+    payload = {
+        <span class="str">"model"</span>:  OLLAMA_MODEL,
+        <span class="str">"prompt"</span>: <span class="str">f"Resume en 2 frases:\n\n{body[:4000]}"</span>,
+        <span class="str">"stream"</span>: <span class="kw">False</span>,
+    }
+    r = requests.post(OLLAMA_URL, json=payload, timeout=<span class="nb">90</span>)
+    <span class="kw">return</span> jsonify({<span class="str">"summary"</span>: r.json()[<span class="str">"response"</span>]})</pre>
   </div>
-</div>
 
-<h3 class="section">Fragmento de código real</h3>
-<div class="card wide">
-<pre><code class="python">OLLAMA_URL   = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/generate")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:3b-instruct")
-N_ULTIMOS    = int(os.environ.get("N_ULTIMOS", "5"))
-
-def html_to_text(content: str) -> str:
-    content = re.sub(r"&lt;script.*?&gt;.*?&lt;/script&gt;", "", content, flags=re.S | re.I)
-    content = re.sub(r"&lt;[^&gt;]+&gt;", " ", content)
-    return re.sub(r"\s+", " ", content).strip()
-</code></pre>
-</div>
-
-<div class="card" style="margin-top:20px">
-  <h2>🚀 Cómo ejecutar</h2>
-<pre><code>export MI_CORREO_JOCARSA=tu@email.com
-export MI_CONTRASENA_CORREO_JOCARSA=tu_contraseña
-export MI_SERVIDORIMAP_CORREO_JOCARSA=imap.tu-proveedor.com
-export OLLAMA_URL=http://localhost:11434/api/generate
-
-cd 010-mejoras
-pip install flask
-python app.py
-# → http://localhost:5000</code></pre>
-</div>
-
-</div>
-<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
-</body>
-</html>
+</main>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body></html>

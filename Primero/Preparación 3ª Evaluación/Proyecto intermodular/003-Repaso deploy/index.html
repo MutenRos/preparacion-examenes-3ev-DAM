@@ -4,88 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🚀 Repaso de Deploy</title>
-
 <style>
-:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cabin:wght@400;500;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
-header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
-h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
-.subtitle{color:var(--gold);font-size:1.05em;position:relative}
-.page{max-width:980px;margin:0 auto;padding:36px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
-.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
-.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
-.card ul{padding-left:18px}
-.card li{margin-bottom:4px}
-.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
-.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
-.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
-.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
-pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
-code{font-family:'Fira Code','Cascadia Code',monospace}
-.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
-.file-tree .dir{color:var(--gold)}
-.file-tree .py{color:#35aa58}
-.file-tree .php{color:#6495ed}
-.file-tree .html{color:#e945db}
-.file-tree .md{color:#999}
-.file-tree .other{color:#aaa}
-.wide{grid-column:1/-1}
-.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
-.arch-arrow{color:var(--pink);font-size:1.1em}
-.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
-footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
-a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
-a.btn:hover{opacity:.85}
-a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
-h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
-</style>
+:root{--paper:#1a1814;--paper2:#222018;--ink:#e8dec0;--blue:#7eb6ff;--red:#ff8a7a;--green:#a8e063;--mut:#82785f;--lines:#2c2820;--marg:#3d2f1a}
+body{font-family:Cabin,sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 28px,#23211a 28px,#23211a 29px);}
+header{padding:52px 24px 24px;text-align:center;border-bottom:2px solid var(--marg);background:#15130f;position:relative}
+header::before{content:'';position:absolute;left:60px;top:0;bottom:0;width:1.5px;background:var(--red);opacity:.6}
+h1{font-family:Caveat;font-size:3em;font-weight:700;color:var(--ink);transform:rotate(-1deg);display:inline-block}
+h1 .star{color:var(--red);font-size:.8em}
+.sub{color:var(--mut);font-size:1em;font-style:italic;margin-top:4px}
+.notice{max-width:700px;margin:18px auto 0;padding:10px 18px;background:rgba(255,138,122,.08);border-left:3px solid var(--red);font-size:.88em;color:#e8a89e}
 
-</head>
+.notebook{max-width:760px;margin:0 auto;padding:32px 30px 32px 80px;position:relative}
+.notebook::before{content:'';position:absolute;left:60px;top:0;bottom:0;width:1.5px;background:var(--red);opacity:.4}
+.holes{position:absolute;left:18px;top:30px;display:flex;flex-direction:column;gap:60px}
+.holes i{width:16px;height:16px;border-radius:50%;background:var(--paper);border:1px solid #3a352a;box-shadow:inset 0 1px 2px rgba(0,0,0,.5);display:block}
+
+h2{font-family:Caveat;font-size:1.8em;font-weight:700;color:var(--blue);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+h2::before{content:'#';color:var(--red);font-family:Caveat;font-size:1.4em}
+ul{list-style:none}
+li{font-size:1.02em;line-height:2;padding-left:30px;position:relative;color:var(--ink)}
+li::before{content:'☐';position:absolute;left:0;top:0;color:var(--green);font-size:1.1em;font-weight:700}
+li.done{color:var(--mut);text-decoration:line-through;text-decoration-color:var(--red)}
+li.done::before{content:'☑';color:var(--green)}
+li code{font-family:'Cabin',sans-serif;background:rgba(126,182,255,.12);color:var(--blue);padding:1px 8px;border-radius:3px;font-weight:500}
+.scribble{font-family:Caveat;color:var(--red);font-size:1.15em;display:block;margin-left:30px;margin-top:-2px;margin-bottom:6px}
+.tape{display:inline-block;background:rgba(255,200,80,.2);border:1px dashed rgba(255,200,80,.4);color:#ffd070;padding:1px 8px;font-size:.85em;border-radius:2px;font-family:Caveat;font-weight:700}
+
+.files{margin-top:32px;background:#13110d;border:1px solid var(--marg);border-radius:6px;padding:18px 22px;font-family:'Courier New',monospace;font-size:.88em}
+.files h3{font-family:Caveat;font-size:1.5em;color:var(--blue);margin-bottom:8px}
+.files .f{display:flex;gap:12px;padding:3px 0;color:var(--ink)}
+.files .f .name{color:var(--green);min-width:230px}
+.files .f .desc{color:var(--mut);font-style:italic}
+
+.run{margin-top:24px;border:2px dashed var(--marg);border-radius:6px;padding:18px 20px;background:#0f0d09}
+.run h3{font-family:Caveat;font-size:1.4em;color:var(--red);margin-bottom:8px}
+.run pre{font-family:'Courier New',monospace;font-size:.86em;color:var(--green);line-height:1.6}
+
+footer{text-align:center;padding:24px;color:var(--marg);font-size:.85em;font-family:Caveat;font-size:1.1em;border-top:2px dashed var(--marg);margin-top:32px}
+</style></head>
 <body>
 <header>
-  <h1>🚀 Repaso de Deploy</h1>
-  <p class="subtitle">Guía de estudio con apuntes de despliegue en servidor: Apache, Nginx, Docker, SSL y CI/CD</p>
+  <h1>📓 Repaso de <span class="star">★</span> Deploy</h1>
+  <p class="sub">apuntes de despliegue — 3ª evaluación</p>
+  <p class="notice">📌 Este proyecto es <em>solo documentación</em>: dos archivos Markdown con apuntes y una lista de tareas. Nada de código ejecutable.</p>
 </header>
-<div class="page">
 
-<div class="notice">
-  ℹ️ Este proyecto es documentación de estudio, no una aplicación ejecutable. Contiene dos archivos Markdown con notas y tareas sobre despliegue web.
-</div>
+<div class="notebook">
+  <div class="holes"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
-<div class="grid">
-  <div class="card">
-    <h2>📁 Ficheros reales</h2>
-    <div class="file-tree">
-<span class="md">001-introduccion.md</span>    → introducción al deploy
-<span class="md">002-Tarea a realizar.md</span> → checklist de tareas
-<span class="html">index.html</span>             → esta página</div>
+  <h2>Tareas a realizar</h2>
+  <ul>
+    <li class="done">Acceso SSH al VPS — generar y subir clave pública</li>
+    <li class="done">Configuración de Virtual Hosts en <code>Apache</code></li>
+    <li>Proxy inverso con <code>Nginx</code> apuntando a app interna</li>
+    <span class="scribble">↳ ojo a los headers X-Forwarded-For</span>
+    <li>Certificados SSL con <code>Certbot</code> (Let's Encrypt) — auto-renew</li>
+    <li>Contenedores con <code>Docker</code> y <code>docker compose</code></li>
+    <li>Pipeline CI/CD con <span class="tape">GitHub Actions</span></li>
+    <li>Variables de entorno en producción · <code>.env</code> · secrets</li>
+  </ul>
+
+  <h2>Cosas que tengo que estudiar</h2>
+  <ul>
+    <li>Diferencia entre <code>worker_processes</code> de Nginx y MPM de Apache</li>
+    <li>Qué hace exactamente <code>STARTTLS</code> en SMTP</li>
+    <li>Cuándo usar contenedor vs servicio systemd nativo</li>
+  </ul>
+
+  <div class="files">
+    <h3>📁 archivos en el proyecto</h3>
+    <div class="f"><span class="name">001-introduccion.md</span><span class="desc">— introducción al deploy</span></div>
+    <div class="f"><span class="name">002-Tarea a realizar.md</span><span class="desc">— checklist completa</span></div>
+    <div class="f"><span class="name">index.html</span><span class="desc">— esta libreta</span></div>
   </div>
-  <div class="card">
-    <h2>📚 Temas cubiertos</h2>
-    <ul>
-      <li>Acceso SSH a VPS</li>
-      <li>Configuración de Virtual Hosts Apache</li>
-      <li>Proxy inverso con Nginx</li>
-      <li>Certificados SSL con Certbot (Let's Encrypt)</li>
-      <li>Contenedores Docker y Docker Compose</li>
-      <li>Pipelines CI/CD con GitHub Actions</li>
-      <li>Gestión de variables de entorno en producción</li>
-    </ul>
+
+  <div class="run">
+    <h3>cómo verlo</h3>
+<pre>cat 001-introduccion.md
+cat "002-Tarea a realizar.md"</pre>
   </div>
 </div>
 
-<div class="card" style="margin-top:20px">
-  <h2>📖 Ver los apuntes</h2>
-<pre><code>cat 001-introduccion.md
-cat 002-Tarea\ a\ realizar.md</code></pre>
-</div>
-
-</div>
-<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
-</body>
-</html>
+<footer>Proyecto Intermodular DAM · 3ª Evaluación 2025-2026 ✦</footer>
+</body></html>

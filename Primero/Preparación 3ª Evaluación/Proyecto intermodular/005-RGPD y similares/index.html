@@ -3,104 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🔒 RGPD y Similares</title>
-
+<title>🔒 RGPD y similares</title>
 <style>
-:root{--pink:#e945db;--gold:#d4b00f;--purple:#371657;--dark:#1a1a2e;--darker:#13136e;--code:#0d0d1a}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,var(--darker),var(--dark));color:#e0e0e0;min-height:100vh;line-height:1.6}
-header{background:var(--purple);padding:48px 24px 36px;text-align:center;border-bottom:2px solid var(--pink);position:relative;overflow:hidden}
-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(233,69,219,.12),transparent 70%)}
-h1{color:var(--pink);font-size:2.2em;margin-bottom:10px;position:relative}
-.subtitle{color:var(--gold);font-size:1.05em;position:relative}
-.page{max-width:980px;margin:0 auto;padding:36px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px}
-.card{background:rgba(55,22,87,.7);border-radius:14px;padding:22px;border:1px solid rgba(233,69,219,.22);backdrop-filter:blur(4px)}
-.card h2{color:var(--gold);font-size:.95em;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card p,.card li{color:#bbb;font-size:.9em;line-height:1.65}
-.card ul{padding-left:18px}
-.card li{margin-bottom:4px}
-.tag{display:inline-block;background:rgba(233,69,219,.13);color:var(--pink);border:1px solid rgba(233,69,219,.3);padding:3px 11px;border-radius:20px;font-size:.78em;margin:3px 3px 0 0}
-.tag.green{background:rgba(53,170,88,.13);color:#35aa58;border-color:rgba(53,170,88,.3)}
-.tag.blue{background:rgba(100,149,237,.13);color:#6495ed;border-color:rgba(100,149,237,.3)}
-.tag.gold{background:rgba(212,176,15,.13);color:var(--gold);border-color:rgba(212,176,15,.3)}
-pre{background:var(--code);border:1px solid rgba(233,69,219,.2);border-radius:10px;padding:16px;font-size:.82em;overflow-x:auto;color:#c8f0d0;line-height:1.5;margin-top:8px;white-space:pre}
-code{font-family:'Fira Code','Cascadia Code',monospace}
-.file-tree{background:var(--code);border-radius:10px;padding:16px;font-size:.82em;font-family:monospace;color:#aaa;border:1px solid rgba(233,69,219,.15)}
-.file-tree .dir{color:var(--gold)}
-.file-tree .py{color:#35aa58}
-.file-tree .php{color:#6495ed}
-.file-tree .html{color:#e945db}
-.file-tree .md{color:#999}
-.file-tree .other{color:#aaa}
-.wide{grid-column:1/-1}
-.arch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.arch-box{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.3);border-radius:8px;padding:6px 14px;font-size:.82em;color:#ddd;white-space:nowrap}
-.arch-arrow{color:var(--pink);font-size:1.1em}
-.notice{background:rgba(212,176,15,.08);border:1px solid rgba(212,176,15,.3);border-radius:10px;padding:14px 18px;color:#c8b560;font-size:.88em;margin-bottom:20px}
-footer{text-align:center;padding:28px;color:#555;border-top:1px solid rgba(233,69,219,.1);margin-top:10px;font-size:.85em}
-a.btn{display:inline-block;background:var(--pink);color:#1a1a2e;padding:9px 22px;border-radius:22px;text-decoration:none;font-weight:bold;font-size:.88em;margin-top:14px;transition:opacity .2s}
-a.btn:hover{opacity:.85}
-a.btn.outline{background:transparent;color:var(--pink);border:1px solid var(--pink)}
-h3.section{color:var(--pink);font-size:1.1em;margin:28px 0 14px;border-bottom:1px solid rgba(233,69,219,.2);padding-bottom:8px}
-</style>
+:root{--ink:#1a1a1a;--paper:#f4ecda;--paper2:#ebe2c9;--gold:#8a6d3b;--red:#922e2e;--mut:#6b5c40}
+body{font-family:'Source Serif 4',Georgia,serif;background:#0d0c08;color:#cfc5a8;min-height:100vh;padding:24px}
+.doc{max-width:760px;margin:0 auto;background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,0,0,.04);padding:64px 60px 48px;position:relative;border-radius:2px}
+.doc::before{content:'';position:absolute;left:0;right:0;top:0;height:6px;background:var(--red)}
+@media(max-width:600px){.doc{padding:40px 26px}}
 
-</head>
+.stamp{position:absolute;top:30px;right:30px;border:3px solid var(--red);color:var(--red);font-family:Playfair Display;font-weight:800;letter-spacing:.1em;padding:5px 14px;text-transform:uppercase;font-size:.7em;transform:rotate(8deg);opacity:.85}
+
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.7em;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+h1{font-family:Playfair Display;font-size:2.7em;font-weight:800;color:var(--ink);line-height:1.05;margin-bottom:10px;letter-spacing:-.01em}
+.lede{font-size:1.05em;color:#3a3528;line-height:1.6;font-style:italic;border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+h2{font-family:Playfair Display;font-size:1.4em;font-weight:700;color:var(--ink);margin:28px 0 10px;border-bottom:1px solid #00000022;padding-bottom:5px}
+.section-num{font-family:'JetBrains Mono',monospace;color:var(--red);font-size:.65em;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+p{font-size:.96em;line-height:1.7;color:#2a2618;margin-bottom:12px}
+p code,li code{background:#0000000a;color:var(--red);padding:1px 5px;border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:.86em}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}
+@media(max-width:560px){.cols{grid-template-columns:1fr}}
+.box{background:var(--paper2);border-left:3px solid var(--gold);padding:14px 18px}
+.box h3{font-family:Playfair Display;font-size:1em;font-weight:700;color:var(--ink);margin-bottom:6px}
+.box ul{list-style:none}
+.box li{font-size:.86em;line-height:1.7;color:#3a3528;padding-left:14px;position:relative}
+.box li::before{content:'§';position:absolute;left:0;top:0;color:var(--red);font-weight:700}
+
+.code-block{margin-top:14px;background:#1f1c14;border-radius:4px;padding:14px 16px;color:#d8c79a;font-family:'JetBrains Mono',monospace;font-size:.82em;line-height:1.6;overflow-x:auto}
+
+.signature{display:flex;justify-content:space-between;align-items:flex-end;margin-top:38px;padding-top:18px;border-top:1px solid #00000022;font-family:'JetBrains Mono',monospace;font-size:.78em;color:var(--mut)}
+.signature .left{text-align:left}
+.signature .right{text-align:right;font-family:Playfair Display;font-style:italic;color:var(--ink)}
+.signature b{display:block;color:var(--ink);font-family:Playfair Display;font-style:italic;font-weight:600;font-size:1.1em}
+</style></head>
 <body>
-<header>
-  <h1>🔒 RGPD y Similares</h1>
-  <p class="subtitle">Web PHP con secciones legales GDPR integradas: Aviso Legal, Privacidad y Cookies — mismo SMTP manual</p>
-</header>
-<div class="page">
+<div class="doc">
+  <div class="stamp">v2 · final</div>
+  <p class="eyebrow">DOCUMENTO TÉCNICO · 005</p>
+  <h1>RGPD y secciones legales</h1>
+  <p class="lede">Evolución del proyecto 002 — la misma web personal con cumplimiento legal: aviso legal, política de privacidad y política de cookies. Mismo cliente SMTP manual, ahora con cuatro secciones.</p>
 
-<div class="grid">
-  <div class="card wide">
-    <h2>📖 Qué hace realmente</h2>
-    <p>Evolución del proyecto 002. El mismo <code>index.php</code> ahora incluye <strong>cuatro secciones legales</strong> renderizadas como páginas separadas: Home, Aviso Legal, Política de Privacidad y Política de Cookies — todas en un único archivo PHP sin router externo. El formulario de contacto mantiene el cliente SMTP manual con socket raw y STARTTLS.</p>
-    <p style="margin-top:10px"><em>001-inicial/</em> es la versión sin secciones legales; <em>002-final/</em> es la versión completa con cumplimiento RGPD.</p>
-  </div>
-</div>
+  <p class="section-num">§ 01 — Resumen</p>
+  <h2>Qué hace</h2>
+  <p>Un único <code>index.php</code> que, mediante <em>switch/case</em>, sirve cuatro secciones diferentes: <strong>Home</strong>, <strong>Aviso Legal</strong>, <strong>Política de Privacidad</strong> y <strong>Política de Cookies</strong>. El formulario de contacto sigue enviando emails con el cliente SMTP manual heredado de la versión 002 (socket TCP raw + STARTTLS + AUTH LOGIN — sin <code>mail()</code>, sin PHPMailer, sin Composer).</p>
 
-<div class="grid">
-  <div class="card">
-    <h2>📁 Estructura real</h2>
-    <div class="file-tree">
-<span class="dir">001-inicial/</span>
-  <span class="php">  index.php</span>       ← web sin RGPD
-<span class="dir">002-final/</span>
-  <span class="php">  index.php</span>       ← con secciones legales
-  <span class="other">  styles.css</span>
-<span class="html">index.html</span></div>
+  <p class="section-num">§ 02 — Estructura</p>
+  <h2>Dos versiones del proyecto</h2>
+  <div class="cols">
+    <div class="box">
+      <h3>001-inicial/</h3>
+      <ul>
+        <li>index.php — sin secciones legales</li>
+        <li>versión heredada de 002</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>002-final/</h3>
+      <ul>
+        <li>index.php — con switch de secciones</li>
+        <li>styles.css — paleta refinada</li>
+        <li>cumplimiento RGPD completo</li>
+      </ul>
+    </div>
   </div>
-  <div class="card">
-    <h2>⚖️ Secciones legales añadidas</h2>
-    <ul>
-      <li>Aviso Legal (responsable, domicilio, NIF)</li>
-      <li>Política de Privacidad (base jurídica, derechos ARCO)</li>
-      <li>Política de Cookies (tipos, gestión, consentimiento)</li>
-      <li>Navegación entre secciones sin JS</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2>🛠 Tecnología</h2>
-    <span class="tag blue">PHP puro</span>
-    <span class="tag blue">fsockopen (SMTP)</span>
-    <span class="tag blue">STARTTLS</span>
-    <span class="tag">Sin frameworks</span>
-    <span class="tag">Sin cookies JS</span>
-  </div>
-</div>
 
-<div class="card" style="margin-top:20px">
-  <h2>🚀 Cómo ejecutar</h2>
-<pre><code>export SMTP_HOST=smtp.ionos.es SMTP_PORT=587
+  <p class="section-num">§ 03 — Cumplimiento</p>
+  <h2>Secciones legales añadidas</h2>
+  <div class="cols">
+    <div class="box">
+      <h3>Aviso Legal</h3>
+      <ul><li>Responsable, NIF, domicilio</li><li>Condiciones de uso del sitio</li><li>Contacto del responsable</li></ul>
+    </div>
+    <div class="box">
+      <h3>Política de Privacidad</h3>
+      <ul><li>Base jurídica del tratamiento</li><li>Finalidad de los datos</li><li>Derechos ARCO ejercitables</li></ul>
+    </div>
+    <div class="box">
+      <h3>Política de Cookies</h3>
+      <ul><li>Tipos de cookies utilizadas</li><li>Gestión y consentimiento</li><li>Sin cookies de seguimiento JS</li></ul>
+    </div>
+    <div class="box">
+      <h3>Tecnología</h3>
+      <ul><li>PHP puro · sin frameworks</li><li>fsockopen + STARTTLS</li><li>No hay JavaScript externo</li></ul>
+    </div>
+  </div>
+
+  <p class="section-num">§ 04 — Ejecución</p>
+  <h2>Para arrancar</h2>
+  <div class="code-block">export SMTP_HOST=smtp.ionos.es SMTP_PORT=587
 export SMTP_USER=info@jocarsa.com SMTP_PASS=tu_contraseña
 
 cd 002-final
-php -S localhost:8000</code></pre>
-</div>
+php -S localhost:8000</div>
 
+  <div class="signature">
+    <div class="left">
+      <b>jocarsa</b>
+      info@jocarsa.com
+    </div>
+    <div class="right">Curso 2025-2026<br>3ª Evaluación · DAM</div>
+  </div>
 </div>
-<footer><p>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</p></footer>
-</body>
-</html>
+</body></html>
