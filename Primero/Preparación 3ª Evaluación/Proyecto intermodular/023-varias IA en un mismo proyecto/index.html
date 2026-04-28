@@ -1,154 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🤖🤖 Dos IA en un mismo proyecto</title>
+<title>Varias IA en un mismo proyecto · DAM</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0a0a12;--bg2:#0e0e1a;--card:#161624;--border:#252538;--mut:#6b6b85;
-  --ll:#3b82f6;--ll2:#60a5fa;     /* llama3.1 */
-  --co:#22c55e;--co2:#4ade80;     /* codellama */}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:#cccada;min-height:100vh}
-
-header{padding:42px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
-h1{font-size:2.3em;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
-h1 .a{color:var(--ll2)}
-h1 .b{color:var(--co2)}
-.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74em;letter-spacing:.16em;color:var(--mut);margin-bottom:8px}
-
-main{max-width:1080px;margin:30px auto;padding:0 20px 36px}
-
-/* split screen */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px;position:relative}
-@media(max-width:720px){.split{grid-template-columns:1fr}}
-.split::before{content:'VS';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--bg);border:2px solid var(--border);color:#fff;font-weight:800;width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.85em;letter-spacing:.04em;z-index:5;box-shadow:0 0 0 6px var(--bg)}
-@media(max-width:720px){.split::before{display:none}}
-
-.side{padding:24px 24px 28px;background:var(--card)}
-.side.a{background:linear-gradient(180deg,#0e1a30,#0a1424);border-right:1px solid var(--border)}
-.side.b{background:linear-gradient(180deg,#0e2417,#0a1a10)}
-@media(max-width:720px){.side.a{border-right:none;border-bottom:1px solid var(--border)}}
-.head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.ava{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.1em;font-weight:700;color:#fff}
-.side.a .ava{background:linear-gradient(135deg,var(--ll),var(--ll2));box-shadow:0 0 16px var(--ll)55}
-.side.b .ava{background:linear-gradient(135deg,var(--co),var(--co2));box-shadow:0 0 16px var(--co)55}
-.head .name{font-weight:800;color:#fff;font-size:1.05em;letter-spacing:-.01em}
-.head .role{font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut);margin-top:1px}
-.head .dot{margin-left:auto;width:8px;height:8px;border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
-.side.a .dot{background:var(--ll2)}
-.side.b .dot{background:var(--co2)}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 currentColor}50%{box-shadow:0 0 0 6px transparent}}
-
-.message{font-size:.88em;line-height:1.65;color:#dbdaef}
-.message strong{color:#fff;font-weight:600}
-.side.a .message em{color:var(--ll2);font-style:normal;font-weight:600}
-.side.b .message em{color:var(--co2);font-style:normal;font-weight:600}
-.message pre{margin-top:10px;background:#06060c;border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:.78em;color:#a8b8c8;overflow-x:auto;line-height:1.6}
-.side.b .message pre{color:#9adcb0}
-
-.props{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
-.props span{background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:.7em;padding:2px 8px;border-radius:4px;color:var(--mut);border:1px solid var(--border)}
-.side.a .props span{color:var(--ll2);border-color:rgba(96,165,250,.3)}
-.side.b .props span{color:var(--co2);border-color:rgba(74,222,128,.3)}
-
-/* shared question */
-.prompt{margin-bottom:28px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 22px;text-align:center}
-.prompt .label{font-family:'JetBrains Mono',monospace;font-size:.7em;letter-spacing:.16em;color:var(--mut);text-transform:uppercase;margin-bottom:6px}
-.prompt .text{font-size:1.05em;color:#fff;font-weight:600}
-
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
-.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:#a8b3cd;margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.85em;color:#9090ad;padding:4px 0;border-bottom:1px dashed var(--border)}
-.icard li:last-child{border:none}
-.icard li code{font-family:'JetBrains Mono',monospace;color:var(--ll2);background:rgba(96,165,250,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace}
-</style></head>
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1020;color:#e2e8f0;min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{padding:34px 22px 14px;text-align:center}
+header h1{font-size:2rem;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+header p{color:#94a3b8;font-size:.95em}
+.layout{max-width:1200px;margin:auto;padding:0 22px 26px}
+.config{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 22px;margin-bottom:18px;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end}
+.config label{font-size:.78em;color:#94a3b8;display:block;margin-bottom:4px;font-weight:600}
+.config input,.config select{background:#0f172a;border:1px solid #334155;color:#e2e8f0;padding:8px 12px;border-radius:6px;font-family:inherit;font-size:.9em;min-width:160px}
+.config .btn{background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;border:0;padding:10px 18px;border-radius:7px;font-weight:700;cursor:pointer;font-family:inherit;margin-left:auto}
+.config .btn:hover{filter:brightness(1.1)}
+.config .btn:disabled{opacity:.5;cursor:not-allowed}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:780px){.dual{grid-template-columns:1fr}}
+.modelo{background:#1e293b;border:1px solid #334155;border-radius:12px;overflow:hidden}
+.modelo .head{padding:14px 18px;background:linear-gradient(135deg,rgba(59,130,246,.2),rgba(139,92,246,.2));border-bottom:1px solid #334155;display:flex;justify-content:space-between;align-items:center}
+.modelo.cod .head{background:linear-gradient(135deg,rgba(236,72,153,.2),rgba(245,158,11,.2))}
+.modelo .head h2{font-size:1em;display:flex;align-items:center;gap:8px}
+.modelo .badge{font-size:.7em;background:#334155;color:#cbd5e1;padding:3px 9px;border-radius:999px;font-family:ui-monospace,monospace}
+.modelo .body{padding:18px;min-height:340px;font-size:.88em;line-height:1.65;max-height:520px;overflow-y:auto}
+.modelo .body p{margin-bottom:10px;color:#cbd5e1}
+.modelo .body h3{color:#3b82f6;margin:16px 0 8px;font-size:1em}
+.modelo.cod .body h3{color:#ec4899}
+.modelo .body code{background:#0f172a;padding:1px 6px;border-radius:3px;color:#fbbf24;font-family:ui-monospace,monospace;font-size:.92em}
+.modelo .body pre{background:#020617;color:#86efac;padding:14px;border-radius:6px;overflow-x:auto;margin:10px 0;font-size:.82em;font-family:ui-monospace,monospace;line-height:1.55}
+.modelo .body pre .com{color:#64748b}
+.modelo .body pre .kw{color:#c084fc}
+.modelo .body pre .str{color:#fbbf24}
+.placeholder{color:#64748b;text-align:center;padding:60px 20px;font-style:italic}
+.steps{margin:14px 0;display:flex;gap:6px;flex-wrap:wrap}
+.step{font-size:.78em;background:#0f172a;border:1px solid #334155;color:#94a3b8;padding:5px 11px;border-radius:999px}
+.step.act{background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-color:transparent;color:#fff}
+.step.ok{background:#10b981;border-color:#10b981;color:#fff}
+.spin{display:inline-block;width:10px;height:10px;border:2px solid #3b82f6;border-top-color:transparent;border-radius:50%;animation:r 1s linear infinite;vertical-align:middle;margin-right:5px}
+@keyframes r{to{transform:rotate(360deg)}}
+.fade-in{animation:fi .4s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.flow{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:.85em;color:#94a3b8;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.flow b{color:#e2e8f0;background:#0f172a;padding:4px 10px;border-radius:5px;font-family:ui-monospace,monospace;font-size:.92em}
+.flow span{color:#475569}
+footer{text-align:center;padding:18px;color:#475569;font-size:.82em}
+</style>
+</head>
 <body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · 2 modelos Ollama en paralelo (texto + código) · <code>http://localhost:11434/api/generate</code> simulado en JS</div>
+
 <header>
-  <p class="eyebrow">PROYECTO 023 · MULTI-MODELO</p>
-  <h1>🤖 Dos IA, <span class="a">un mismo</span> <span class="b">proyecto</span></h1>
-  <p class="sub">App PHP que envía la misma pregunta a dos modelos distintos de Ollama en paralelo y muestra ambas respuestas lado a lado para comparar.</p>
+  <h1>🤖🤖 Varias IA en un mismo proyecto</h1>
+  <p>Un modelo redacta el manual, otro genera el código. En paralelo.</p>
 </header>
 
-<main>
-
-  <div class="prompt">
-    <div class="label">// pregunta del usuario</div>
-    <div class="text">"Escribe una función que invierta una cadena en Python."</div>
+<div class="layout">
+  <div class="flow">
+    <span>📚 <code style="background:#0f172a;padding:3px 8px;border-radius:4px">programacion.txt</code></span>
+    <span>→</span>
+    <b>llama3.1:8b</b>
+    <span>(redacta)</span>
+    <span>+</span>
+    <b>codellama:7b</b>
+    <span>(programa)</span>
+    <span>→</span>
+    <span>📄 <code style="background:#0f172a;padding:3px 8px;border-radius:4px">resultado.md</code></span>
   </div>
 
-  <div class="split">
+  <div class="config">
+    <div>
+      <label>Lenguaje</label>
+      <select id="lang">
+        <option>C++</option>
+        <option>Python</option>
+        <option>Java</option>
+        <option>JavaScript</option>
+      </select>
+    </div>
+    <div>
+      <label>Tema del capítulo</label>
+      <select id="tema">
+        <option>Variables y tipos de datos</option>
+        <option>Estructuras de control: if/else</option>
+        <option>Bucles: for y while</option>
+        <option>Funciones</option>
+        <option>Clases y objetos</option>
+        <option>Lectura y escritura de ficheros</option>
+      </select>
+    </div>
+    <div>
+      <label>Modelo texto</label>
+      <input id="mtxt" value="llama3.1:8b">
+    </div>
+    <div>
+      <label>Modelo código</label>
+      <input id="mcod" value="codellama:7b">
+    </div>
+    <button class="btn" id="go" onclick="generar()">▶ Generar capítulo</button>
+  </div>
 
-    <div class="side a">
+  <div class="steps" id="steps">
+    <div class="step" data-s="1">1. Cargar temario</div>
+    <div class="step" data-s="2">2. Llamar llama3.1 (texto)</div>
+    <div class="step" data-s="3">3. Llamar codellama (código)</div>
+    <div class="step" data-s="4">4. Fusionar en resultado.md</div>
+  </div>
+
+  <div class="dual">
+    <div class="modelo txt">
       <div class="head">
-        <div class="ava">🦙</div>
-        <div><div class="name">Llama 3.1</div><div class="role">8B · generalista</div></div>
-        <div class="dot"></div>
+        <h2>📝 <span id="mtxtN">llama3.1:8b</span></h2>
+        <span class="badge">redactor técnico</span>
       </div>
-      <div class="message">
-        <p>Para <em>invertir una cadena</em> en Python lo más limpio es usar <strong>slicing</strong>. Es la forma idiomática y la más rápida en CPython:</p>
-<pre>def invertir(s):
-    return s[::-1]
-
-print(invertir("hola"))  # → "aloh"</pre>
-        <p style="margin-top:8px">El slice <em>[::-1]</em> recorre la cadena de derecha a izquierda con paso -1.</p>
-        <div class="props"><span>tono explicativo</span><span>una sola opción</span><span>idiomático</span></div>
+      <div class="body" id="bTxt">
+        <div class="placeholder">Pulsa "Generar capítulo" para empezar…</div>
       </div>
     </div>
 
-    <div class="side b">
+    <div class="modelo cod">
       <div class="head">
-        <div class="ava">🐍</div>
-        <div><div class="name">CodeLlama</div><div class="role">13B · código</div></div>
-        <div class="dot"></div>
+        <h2>💻 <span id="mcodN">codellama:7b</span></h2>
+        <span class="badge">generador código</span>
       </div>
-      <div class="message">
-        <p><em>Tres formas equivalentes</em>, ordenadas de más a menos pythónica:</p>
-<pre>def reverse_a(s): return s[::-1]
-def reverse_b(s): return "".join(reversed(s))
-def reverse_c(s):
-    out = ""
-    for ch in s: out = ch + out
-    return out
-
-# benchmark: a > b > c</pre>
-        <p style="margin-top:8px">Ojo: <em>reverse_c</em> es <strong>O(n²)</strong> por concat de strings.</p>
-        <div class="props"><span>varias opciones</span><span>complejidad O()</span><span>benchmark</span></div>
+      <div class="body" id="bCod">
+        <div class="placeholder">Esperando texto del modelo redactor…</div>
       </div>
     </div>
-
   </div>
+</div>
 
-  <div class="duo">
-    <div class="icard">
-      <h3>// arquitectura</h3>
-      <ul>
-        <li>PHP — formulario único + render</li>
-        <li>2 llamadas paralelas con <code>curl_multi</code></li>
-        <li>Endpoint Ollama: <code>POST /api/generate</code></li>
-        <li>Respuesta JSON, render lado a lado</li>
-        <li>Mismo prompt, dos resultados</li>
-      </ul>
-    </div>
-    <div class="icard">
-      <h3>// modelos posibles</h3>
-      <ul>
-        <li><code>llama3.1:8b</code> · generalista</li>
-        <li><code>codellama:13b</code> · programación</li>
-        <li><code>qwen2.5:3b</code> · ligero</li>
-        <li><code>mistral:7b</code> · balanceado</li>
-        <li>Combinables: 2 cualesquiera</li>
-      </ul>
-    </div>
-  </div>
+<footer>Proyecto Intermodular DAM · 023 · Multi-modelo Ollama local</footer>
 
-</main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+<script>
+const TEXTOS = {
+  'Variables y tipos de datos': {
+    expl: 'En todo programa, una <b>variable</b> es un nombre simbólico asociado a una posición de memoria que almacena un valor. En {LANG} declaramos primero el tipo y después el identificador. Los tipos primitivos básicos son: enteros, números reales, caracteres y booleanos.',
+    sub: 'Conviene siempre inicializar las variables al declararlas para evitar valores indeterminados.'
+  },
+  'Estructuras de control: if/else': {
+    expl: 'Las <b>estructuras de selección</b> permiten ejecutar un bloque u otro según el resultado de una condición booleana. En {LANG} la forma básica es <code>if (condición) { ... } else { ... }</code>. Pueden anidarse y encadenarse con <code>else if</code>.',
+    sub: 'La condición debe evaluar a un valor booleano. Cuidado con confundir <code>=</code> (asignación) con <code>==</code> (comparación).'
+  },
+  'Bucles: for y while': {
+    expl: 'Los <b>bucles</b> repiten un bloque de código mientras se cumpla una condición. <code>while</code> evalúa primero, <code>do-while</code> después, y <code>for</code> es ideal cuando el número de iteraciones es conocido.',
+    sub: 'Asegúrate de modificar la variable de control dentro del bucle para evitar bucles infinitos.'
+  },
+  'Funciones': {
+    expl: 'Una <b>función</b> agrupa un conjunto de instrucciones bajo un nombre, con parámetros de entrada y opcionalmente un valor de retorno. Las funciones permiten reutilizar código y descomponer programas grandes.',
+    sub: 'Declara los parámetros con su tipo. Si la función no devuelve nada, usa <code>void</code>.'
+  },
+  'Clases y objetos': {
+    expl: 'Una <b>clase</b> es un molde que define propiedades (datos) y métodos (comportamiento). Un <b>objeto</b> es una instancia concreta de una clase, con sus propios valores. La encapsulación se logra con modificadores como <code>private</code> y <code>public</code>.',
+    sub: 'El <b>constructor</b> es un método especial que se ejecuta al crear el objeto y sirve para inicializar sus campos.'
+  },
+  'Lectura y escritura de ficheros': {
+    expl: 'Para leer y escribir ficheros se utilizan <b>streams</b>. En {LANG} debemos abrir el fichero en modo lectura o escritura, comprobar errores, operar línea a línea y cerrar al terminar.',
+    sub: 'Es imprescindible cerrar el fichero al acabar para liberar el recurso del sistema operativo.'
+  }
+};
+
+const CODIGO = {
+  'C++': {
+    'Variables y tipos de datos': `<span class="com">// Declaración e inicialización</span>
+<span class="kw">#include</span> &lt;iostream&gt;
+
+<span class="kw">int</span> main() {
+    <span class="kw">int</span> edad = <span class="str">25</span>;
+    <span class="kw">double</span> altura = <span class="str">1.75</span>;
+    <span class="kw">char</span> inicial = <span class="str">'A'</span>;
+    <span class="kw">bool</span> activo = <span class="kw">true</span>;
+    std::cout &lt;&lt; edad &lt;&lt; std::endl;
+    <span class="kw">return</span> 0;
+}`,
+    'Estructuras de control: if/else': `<span class="kw">int</span> nota = <span class="str">7</span>;
+<span class="kw">if</span> (nota &gt;= <span class="str">5</span>) {
+    std::cout &lt;&lt; <span class="str">"Aprobado"</span>;
+} <span class="kw">else</span> {
+    std::cout &lt;&lt; <span class="str">"Suspenso"</span>;
+}`,
+    'Bucles: for y while': `<span class="kw">for</span> (<span class="kw">int</span> i = <span class="str">0</span>; i &lt; <span class="str">5</span>; i++) {
+    std::cout &lt;&lt; i &lt;&lt; std::endl;
+}`,
+    'Funciones': `<span class="kw">int</span> suma(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    <span class="kw">return</span> a + b;
+}
+
+<span class="kw">int</span> main() {
+    std::cout &lt;&lt; suma(<span class="str">3</span>, <span class="str">4</span>);
+    <span class="kw">return</span> 0;
+}`,
+    'Clases y objetos': `<span class="kw">class</span> Persona {
+<span class="kw">private</span>:
+    std::string nombre;
+<span class="kw">public</span>:
+    Persona(std::string n) : nombre(n) {}
+    <span class="kw">void</span> saludar() {
+        std::cout &lt;&lt; <span class="str">"Hola, "</span> &lt;&lt; nombre;
+    }
+};`,
+    'Lectura y escritura de ficheros': `<span class="kw">#include</span> &lt;fstream&gt;
+std::ifstream f(<span class="str">"datos.txt"</span>);
+std::string linea;
+<span class="kw">while</span> (std::getline(f, linea)) {
+    std::cout &lt;&lt; linea &lt;&lt; std::endl;
+}
+f.close();`
+  }
+};
+
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function setStep(n, st){
+  document.querySelectorAll('.step').forEach(s=>{
+    const i = +s.dataset.s;
+    s.classList.remove('act','ok');
+    if(i < n) s.classList.add('ok');
+    else if(i === n) s.classList.add(st || 'act');
+  });
+}
+
+async function generar(){
+  const btn = document.getElementById('go');
+  btn.disabled = true; btn.textContent = 'Generando…';
+  const lang = document.getElementById('lang').value;
+  const tema = document.getElementById('tema').value;
+  document.getElementById('mtxtN').textContent = document.getElementById('mtxt').value;
+  document.getElementById('mcodN').textContent = document.getElementById('mcod').value;
+
+  setStep(1); await sleep(400);
+  setStep(2);
+  document.getElementById('bTxt').innerHTML = '<div class="placeholder"><span class="spin"></span>llama3.1 redactando…</div>';
+  await sleep(1100);
+  const t = TEXTOS[tema] || {expl:'',sub:''};
+  document.getElementById('bTxt').innerHTML = `<div class="fade-in"><h3>📖 ${tema}</h3>
+    <p>${t.expl.replace('{LANG}', lang)}</p>
+    <h3>💡 Idea clave</h3>
+    <p>${t.sub.replace('{LANG}', lang)}</p>
+    <p style="font-size:.78em;color:#475569;margin-top:18px">— Generado por ${document.getElementById('mtxt').value} · 287 tokens · 1.1 s</p></div>`;
+
+  setStep(3);
+  document.getElementById('bCod').innerHTML = '<div class="placeholder"><span class="spin"></span>codellama programando…</div>';
+  await sleep(1300);
+  const langCode = CODIGO[lang] || CODIGO['C++'];
+  const codeBlock = langCode[tema] || langCode['Variables y tipos de datos'] || '<span class="com">// Código de ejemplo no disponible para esta combinación</span>';
+  document.getElementById('bCod').innerHTML = `<div class="fade-in"><h3>💻 Ejemplo en ${lang}</h3>
+    <pre>${codeBlock}</pre>
+    <p style="font-size:.78em;color:#475569;margin-top:14px">— Generado por ${document.getElementById('mcod').value} · 152 tokens · 0.9 s</p></div>`;
+
+  setStep(4); await sleep(400);
+  setStep(5, 'ok');
+  document.querySelectorAll('.step').forEach(s=>s.classList.add('ok'));
+
+  btn.disabled = false; btn.textContent = '▶ Generar capítulo';
+}
+</script>
+</body>
+</html>

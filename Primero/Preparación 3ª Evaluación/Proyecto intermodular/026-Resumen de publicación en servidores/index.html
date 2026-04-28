@@ -1,153 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🖥 Resumen de publicación en servidores</title>
+<title>Resumen publicación en servidores · DAM</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--cy:#06b6d4;--cy2:#22d3ee;--bg:#06090d;--bg2:#0a1218;--rack:#0e1a22;--card:#101920;--border:#1c2933;--mut:#586876;--ok:#22c55e;--warn:#f59e0b}
-body{font-family:Inter,sans-serif;background:var(--bg);color:#cad9e3;min-height:100vh}
-
-header{padding:42px 24px 28px;text-align:center;border-bottom:1px solid var(--border)}
-h1{font-size:2.3em;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:4px}
-h1 b{color:var(--cy2);font-weight:700}
-.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.74em;letter-spacing:.16em;color:var(--cy2);margin-bottom:8px}
-
-main{max-width:980px;margin:30px auto;padding:0 20px 36px}
-
-/* server rack */
-.rack{background:linear-gradient(180deg,var(--rack),#080e13);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:28px;box-shadow:inset 0 0 30px rgba(0,0,0,.5)}
-.rack-head{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.74em;color:var(--mut);padding:0 6px 12px;border-bottom:1px dashed var(--border);margin-bottom:10px}
-.rack-head .led{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 6px var(--ok);animation:pulse 1.6s infinite}
-.rack-head .led.warn{background:var(--warn);box-shadow:0 0 6px var(--warn)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.rack-head .right{margin-left:auto}
-.unit{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:5px;padding:12px 16px;margin-bottom:5px;font-family:'IBM Plex Mono',monospace}
-@media(max-width:560px){.unit{grid-template-columns:auto 1fr;gap:8px}.unit .ports,.unit .stat{display:none}}
-.unit .slot{font-size:.7em;color:var(--mut);font-weight:700;letter-spacing:.05em;width:32px;text-align:center}
-.unit .info b{display:block;color:#fff;font-size:.92em;font-family:Inter;font-weight:600}
-.unit .info span{font-size:.74em;color:var(--mut)}
-.unit .ports{font-size:.72em;color:var(--cy2);background:rgba(34,211,238,.06);padding:2px 8px;border-radius:3px;border:1px solid rgba(34,211,238,.2)}
-.unit .stat{font-size:.7em;display:inline-flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.05em}
-.unit .stat::before{content:'';width:6px;height:6px;border-radius:50%;display:inline-block}
-.stat.up{color:var(--ok)} .stat.up::before{background:var(--ok);box-shadow:0 0 4px var(--ok)}
-.stat.warn{color:var(--warn)} .stat.warn::before{background:var(--warn);box-shadow:0 0 4px var(--warn)}
-
-/* terminal */
-.terminal{background:#04070a;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:28px}
-.term-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 14px;display:flex;align-items:center;gap:8px}
-.term-head .dots{display:flex;gap:5px}
-.term-head .dots i{width:10px;height:10px;border-radius:50%;display:inline-block}
-.term-head .dots i:nth-child(1){background:#ff5f57} .term-head .dots i:nth-child(2){background:#febc2e} .term-head .dots i:nth-child(3){background:#28c840}
-.term-head .title{flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.74em;color:var(--mut)}
-.term-body{padding:18px 22px;font-family:'IBM Plex Mono',monospace;font-size:.84em;line-height:1.7;color:#a4c0cf}
-.term-body .p{color:var(--cy2)}
-.term-body .ok{color:var(--ok)}
-.term-body .cm{color:var(--mut);font-style:italic}
-.term-body .cmd{color:#fff}
-
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px 20px}
-.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--cy2);margin-bottom:10px;font-weight:700;font-family:'IBM Plex Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.85em;color:#85a0b0;padding:5px 0;border-bottom:1px dashed var(--border);line-height:1.55}
-.icard li:last-child{border:none}
-.icard li code{font-family:'IBM Plex Mono',monospace;color:var(--cy2);background:rgba(34,211,238,.06);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace}
-</style></head>
+body{font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:#0f172a;background:#f8fafc}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{background:linear-gradient(135deg,#0c4a6e 0%,#0e7490 100%);color:#fff;padding:50px 24px;text-align:center}
+header h1{font-size:2.2rem;margin-bottom:8px}
+header p{opacity:.9;font-size:1.02rem}
+.layout{display:grid;grid-template-columns:240px 1fr;max-width:1200px;margin:auto;gap:24px;padding:24px}
+nav.toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);font-size:.9em}
+nav.toc h3{font-size:.78em;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:10px}
+nav.toc a{display:block;padding:7px 10px;color:#334155;text-decoration:none;border-radius:5px;margin-bottom:2px}
+nav.toc a:hover{background:#f1f5f9;color:#0c4a6e}
+main{min-width:0}
+section{background:#fff;border-radius:10px;padding:26px 30px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+section h2{color:#0c4a6e;font-size:1.45rem;margin-bottom:14px;border-bottom:2px solid #fbbf24;padding-bottom:8px;display:flex;align-items:center;gap:10px}
+section p{margin-bottom:10px;color:#334155}
+ul{padding-left:22px;margin:8px 0}
+li{margin:4px 0;color:#334155}
+pre{background:#0f172a;color:#86efac;padding:14px 18px;border-radius:8px;overflow-x:auto;margin:12px 0;font-size:.85em;font-family:ui-monospace,monospace;line-height:1.5}
+pre.shell{color:#fbbf24}
+code{background:#e2e8f0;padding:1px 6px;border-radius:3px;font-family:ui-monospace,monospace;font-size:.92em}
+.box{padding:12px 16px;border-radius:8px;margin:12px 0;font-size:.94em}
+.box.info{background:#dbeafe;border-left:4px solid #2563eb;color:#1e3a8a}
+.box.warn{background:#fef3c7;border-left:4px solid #f59e0b;color:#78350f}
+.box.ok{background:#dcfce7;border-left:4px solid #16a34a;color:#14532d}
+.flow{display:flex;align-items:center;gap:10px;margin:18px 0;flex-wrap:wrap;justify-content:center}
+.fb{padding:12px 18px;border-radius:8px;color:#fff;font-weight:600;font-size:.88em}
+.fb.client{background:#2563eb}.fb.proxy{background:#0c4a6e}.fb.gunicorn{background:#16a34a}.fb.flask{background:#dc2626}
+.arr{color:#94a3b8;font-size:1.3em}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+th{background:#f1f5f9;text-align:left;padding:10px;font-weight:600;color:#0f172a}
+td{padding:10px;border-top:1px solid #e2e8f0;color:#334155}
+footer{text-align:center;padding:20px;color:#64748b;font-size:.85em}
+@media(max-width:780px){.layout{grid-template-columns:1fr}nav.toc{position:static}}
+</style>
+</head>
 <body>
+<div class="mock-banner">📚 Resumen de publicación en servidores · proyecto 026 (8 archivos .md → vista navegable)</div>
+
 <header>
-  <p class="eyebrow">PROYECTO 026 · NOTAS DE DEPLOY</p>
-  <h1>🖥 Resumen de <b>publicación</b> en servidores</h1>
-  <p class="sub">Apuntes en Markdown sobre cómo subir webs PHP a servidores reales: Apache, Nginx, certificados SSL con Let's Encrypt y troubleshooting.</p>
+  <h1>📦 Publicación en servidores</h1>
+  <p>De Apache a Flask con proxy inverso, gunicorn y systemd. Una guía visual.</p>
 </header>
 
-<main>
+<div class="layout">
+  <nav class="toc">
+    <h3>Índice</h3>
+    <a href="#tipos">1. Tipos de servidor</a>
+    <a href="#vhost">2. Virtualhosts</a>
+    <a href="#colores">3. Subdominios</a>
+    <a href="#proxy">4. Proxy inverso</a>
+    <a href="#service">5. Flask como servicio</a>
+    <a href="#contratos">6. Contrataciones</a>
+    <a href="#monitor">7. Monitorización</a>
+  </nav>
 
-  <div class="rack">
-    <div class="rack-head">
-      <span class="led"></span>
-      <span>RACK · /var/www/sitios</span>
-      <span class="right">3 servicios · 1 warning</span>
-    </div>
-    <div class="unit">
-      <span class="slot">U1</span>
-      <span class="info"><b>Apache 2.4</b><span>jocarsa.com → /var/www/jocarsa</span></span>
-      <span class="ports">:80 :443</span>
-      <span class="stat up">UP</span>
-    </div>
-    <div class="unit">
-      <span class="slot">U2</span>
-      <span class="info"><b>Nginx (proxy inverso)</b><span>app.jocarsa.com → 127.0.0.1:8080</span></span>
-      <span class="ports">:443 H2</span>
-      <span class="stat up">UP</span>
-    </div>
-    <div class="unit">
-      <span class="slot">U3</span>
-      <span class="info"><b>Let's Encrypt · certbot</b><span>auto-renew · 4 dominios cubiertos</span></span>
-      <span class="ports">cron</span>
-      <span class="stat up">UP</span>
-    </div>
-    <div class="unit">
-      <span class="slot">U4</span>
-      <span class="info"><b>PHP-FPM 8.2</b><span>pool www · 8 workers</span></span>
-      <span class="ports">unix:/run</span>
-      <span class="stat warn">HIGH CPU</span>
-    </div>
-    <div class="unit">
-      <span class="slot">U5</span>
-      <span class="info"><b>UFW firewall</b><span>22, 80, 443 abiertos</span></span>
-      <span class="ports">3 rules</span>
-      <span class="stat up">UP</span>
-    </div>
-  </div>
+  <main>
+    <section id="tipos">
+      <h2>🖥️ 1. Tipos de servidor</h2>
+      <p>Fundamentalmente tenemos <strong>dos tipos</strong>:</p>
+      <table>
+        <tr><th>Apache (puerto 80)</th><th>Flask (puertos altos)</th></tr>
+        <tr>
+          <td>Multipropósito. Te abre <code>/var/www/html</code> y dentro pones lo que quieras en subcarpetas. Stack <strong>LAMP</strong> (PHP).</td>
+          <td>Trabaja en un puerto determinado: 5000, 5001, 5002… Pero la gente solo carga por el puerto 80 → necesitamos <strong>proxy inverso</strong>.</td>
+        </tr>
+      </table>
+    </section>
 
-  <div class="terminal">
-    <div class="term-head"><div class="dots"><i></i><i></i><i></i></div><div class="title">root@server:/etc/apache2# — log de despliegue</div></div>
-    <div class="term-body">
-<div><span class="p">$</span> <span class="cmd">a2ensite jocarsa.conf</span></div>
-<div>Site jocarsa already enabled</div>
-<div><span class="p">$</span> <span class="cmd">systemctl reload apache2</span></div>
-<div class="cm"># obteniendo certificado SSL</div>
-<div><span class="p">$</span> <span class="cmd">certbot --apache -d jocarsa.com -d www.jocarsa.com</span></div>
-<div><span class="ok">Successfully deployed certificate for jocarsa.com</span></div>
-<div><span class="ok">Successfully deployed certificate for www.jocarsa.com</span></div>
-<div>Your certificate will expire on 2026-02-04 · auto-renew enabled</div>
-<div class="cm"># comprobando</div>
-<div><span class="p">$</span> <span class="cmd">curl -I https://jocarsa.com</span></div>
-<div>HTTP/2 200</div>
-<div>server: Apache/2.4 · strict-transport-security: max-age=31536000</div>
-    </div>
-  </div>
+    <section id="vhost">
+      <h2>🌐 2. Virtualhost de jocarsa</h2>
+      <p>Cada dominio o subdominio lleva a su propia carpeta:</p>
+<pre>&lt;VirtualHost *:80&gt;
+    ServerName jocarsa.com
+    ServerAlias www.jocarsa.com
+    DocumentRoot /var/www/html/jocarsa
+    &lt;Directory /var/www/html/jocarsa&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</pre>
+<pre class="shell">sudo a2ensite jocarsa.com.conf
+sudo apachectl configtest
+sudo systemctl reload apache2</pre>
+    </section>
 
-  <div class="duo">
-    <div class="icard">
-      <h3>// contenido del repo</h3>
+    <section id="colores">
+      <h2>🎨 3. Subdominio colores.jocarsa.com</h2>
+      <p>Mismo patrón, distinta carpeta:</p>
+<pre>&lt;VirtualHost *:80&gt;
+    ServerName colores.jocarsa.com
+    DocumentRoot /var/www/html/colores
+&lt;/VirtualHost&gt;</pre>
+      <div class="box info">📌 El DNS debe apuntar el subdominio a la IP del servidor (registro A o CNAME).</div>
+    </section>
+
+    <section id="proxy">
+      <h2>🔁 4. Configurar Apache como proxy inverso</h2>
+      <p>El usuario entra por el puerto 80, Apache redirige internamente a Flask en 127.0.0.1:5000.</p>
+
+      <div class="flow">
+        <div class="fb client">🌐 Usuario :443</div>
+        <span class="arr">→</span>
+        <div class="fb proxy">🛡️ Apache vhost</div>
+        <span class="arr">→</span>
+        <div class="fb gunicorn">⚙️ gunicorn 127.0.0.1:5000</div>
+        <span class="arr">→</span>
+        <div class="fb flask">🐍 Flask app</div>
+      </div>
+
+<pre class="shell">sudo a2enmod proxy proxy_http headers
+sudo systemctl restart apache2</pre>
+
+<pre>&lt;VirtualHost *:443&gt;
+    ServerName flask.jocarsa.com
+    SSLEngine on
+    SSLCertificateFile /etc/apache2/ssl/jocarsa_combined.cer
+    SSLCertificateKeyFile /etc/apache2/ssl/jocarsa.key
+
+    ProxyPreserveHost On
+    RequestHeader set X-Forwarded-Proto "https"
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000/
+&lt;/VirtualHost&gt;</pre>
+    </section>
+
+    <section id="service">
+      <h2>⚙️ 5. Flask como servicio (systemd + gunicorn)</h2>
+      <p>Para que la app arranque sola y se reinicie si cae:</p>
+<pre class="shell">pip install gunicorn</pre>
+
+      <p style="margin-top:14px"><strong>app.py</strong> con <code>ProxyFix</code>:</p>
+<pre>from flask import Flask
+from werkzeug.middleware.proxy_fix import ProxyFix
+
+app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+@app.route("/")
+def home():
+    return "Hello from Flask with SSL"</pre>
+
+      <p style="margin-top:14px"><strong>/etc/systemd/system/flask-jocarsa.service</strong>:</p>
+<pre>[Unit]
+Description=Flask app for flask.jocarsa.com
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/miniservidor/
+Environment="PATH=/home/miniservidor/venv/bin"
+ExecStart=/home/miniservidor/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:5000 app:app
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target</pre>
+
+<pre class="shell">sudo systemctl daemon-reload
+sudo systemctl enable flask-jocarsa
+sudo systemctl start flask-jocarsa</pre>
+
+      <div class="box ok">✅ Con esto Flask arranca al iniciar el servidor y sobrevive a reinicios.</div>
+    </section>
+
+    <section id="contratos">
+      <h2>📋 7. Resumen de contrataciones</h2>
+      <p>Para tener una web profesional necesitas:</p>
       <ul>
-        <li>Solo <strong>Markdown</strong>, sin código ejecutable</li>
-        <li>Apuntes paso a paso de despliegue</li>
-        <li>Comandos copy-paste reales</li>
-        <li>Errores típicos y solución</li>
-        <li>Configuración de VirtualHost</li>
+        <li>🖥️ Servidor (VPS o dedicado)</li>
+        <li>🌍 Dominio (registrado)</li>
+        <li>🔒 Certificado SSL (Let's Encrypt es gratis)</li>
+        <li>📧 Email asociado al dominio</li>
+        <li>📊 Sistema de monitorización</li>
       </ul>
-    </div>
-    <div class="icard">
-      <h3>// temas cubiertos</h3>
-      <ul>
-        <li><code>VirtualHost</code> de Apache</li>
-        <li><code>server_block</code> de Nginx</li>
-        <li><code>certbot --apache</code> SSL gratuito</li>
-        <li>Auto-renew con <code>cron</code></li>
-        <li>Permisos <code>www-data</code></li>
-      </ul>
-    </div>
-  </div>
+    </section>
 
-</main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+    <section id="monitor">
+      <h2>📈 8. Comprobación de recursos</h2>
+      <p>Comandos útiles para monitorizar el servidor:</p>
+<pre class="shell">htop                  # CPU + RAM en tiempo real
+df -h                 # Espacio en disco
+free -h               # Memoria
+systemctl status XXX  # Estado de un servicio
+journalctl -u XXX -f  # Logs en directo</pre>
+    </section>
+  </main>
+</div>
+
+<footer>Proyecto Intermodular DAM · 026 · Resumen de publicación en servidores</footer>
+</body>
+</html>

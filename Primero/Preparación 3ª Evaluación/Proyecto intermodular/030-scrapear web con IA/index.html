@@ -1,169 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🕸 Scrapear web con IA</title>
+<title>Scrapear web con IA · Demo</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--am:#f97316;--am2:#fb923c;--bg:#0a0806;--bg2:#100c08;--card:#1a140d;--border:#2a2014;--mut:#7a6c5a;--ok:#22c55e}
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:#d8c8b0;min-height:100vh}
-
-header{padding:42px 24px 28px;text-align:center;border-bottom:1px solid var(--border)}
-h1{font-size:2.3em;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:4px}
-h1 b{color:var(--am2)}
-.sub{color:var(--mut);font-size:.95em;max-width:540px;margin:0 auto;line-height:1.55}
-.eyebrow{font-family:'Space Mono',monospace;font-size:.74em;letter-spacing:.16em;color:var(--am2);margin-bottom:8px}
-
-main{max-width:1000px;margin:30px auto;padding:0 20px 36px}
-
-/* pipeline 4 stage with arrows */
-.pipeline{margin-bottom:28px}
-.pipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:stretch;position:relative}
-@media(max-width:760px){.pipe-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:460px){.pipe-grid{grid-template-columns:1fr}}
-.stage{background:var(--card);border:1px solid var(--border);padding:20px 18px;position:relative;border-radius:0}
-.stage:first-child{border-radius:10px 0 0 10px}
-.stage:last-child{border-radius:0 10px 10px 0}
-@media(max-width:760px){.stage{border-radius:0}.stage:first-child{border-radius:10px 10px 0 0}.stage:last-child{border-radius:0 0 10px 10px}}
-.stage::after{content:'▸';position:absolute;top:50%;right:-14px;transform:translateY(-50%);background:var(--bg);color:var(--am2);font-size:1.5em;z-index:2;width:26px;text-align:center;font-weight:700}
-.stage:last-child::after{display:none}
-@media(max-width:760px){.stage::after{display:none}}
-.stage .num{font-family:'Space Mono',monospace;font-size:.7em;color:var(--am);font-weight:700;letter-spacing:.1em}
-.stage h3{font-size:1em;color:#fff;font-weight:700;margin-top:4px;margin-bottom:6px}
-.stage p{font-family:'Space Mono',monospace;font-size:.74em;color:var(--mut);line-height:1.55}
-.stage .ic{font-size:1.5em;margin-bottom:10px;display:block}
-
-/* mock URL bar -> output */
-.demo{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:28px}
-.demo-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:11px 16px;display:flex;align-items:center;gap:10px}
-.url-bar{flex:1;background:#06050a;border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-family:'Space Mono',monospace;font-size:.85em;color:#dab98a;display:flex;align-items:center;gap:8px}
-.url-bar::before{content:'🌐';font-size:.9em}
-.url-bar b{color:var(--am2);font-weight:400}
-.btn{background:var(--am);color:#fff;border:none;padding:8px 14px;border-radius:6px;font-weight:700;font-size:.78em;font-family:'Space Grotesk'}
-.demo-body{display:grid;grid-template-columns:1fr 1fr;min-height:240px}
-@media(max-width:680px){.demo-body{grid-template-columns:1fr}}
-.demo-body > div{padding:18px 20px}
-.demo-body > div:first-child{border-right:1px solid var(--border)}
-@media(max-width:680px){.demo-body > div:first-child{border-right:none;border-bottom:1px solid var(--border)}}
-.demo .panel-h{font-family:'Space Mono',monospace;font-size:.7em;letter-spacing:.12em;color:var(--mut);margin-bottom:10px;text-transform:uppercase}
-.demo .raw{font-family:'Space Mono',monospace;font-size:.76em;color:#8a7a64;line-height:1.65;white-space:pre-wrap;word-break:break-word}
-.demo .raw .tag{color:var(--am2)} .demo .raw .attr{color:#86efac} .demo .raw .str{color:#fbbf24}
-.demo .summary{font-size:.92em;color:#dccdb0;line-height:1.65}
-.demo .summary h4{color:var(--am2);font-size:1em;margin-bottom:8px;font-weight:700}
-.demo .summary ul{list-style:none;margin-top:8px}
-.demo .summary li{padding-left:18px;position:relative;margin-bottom:5px;font-size:.88em;color:#bcaa8a}
-.demo .summary li::before{content:'▸';position:absolute;left:0;color:var(--am)}
-
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
-.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--am2);margin-bottom:10px;font-weight:700;font-family:'Space Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.85em;color:#a39074;padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.55}
-.icard li:last-child{border:none}
-.icard li code{font-family:'Space Mono',monospace;color:var(--am2);background:rgba(249,115,22,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'Space Mono',monospace}
-</style></head>
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{padding:38px 24px 18px;text-align:center}
+header h1{font-size:2rem;background:linear-gradient(90deg,#06b6d4,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+header p{color:#94a3b8}
+.layout{max-width:1100px;margin:auto;padding:18px 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+@media(max-width:780px){.layout{grid-template-columns:1fr}}
+.panel{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.panel h2{font-size:1.05em;color:#f1f5f9;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+label{display:block;font-size:.82em;color:#94a3b8;margin:12px 0 6px;font-weight:600}
+input,select,textarea{width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:7px;color:#e2e8f0;font-family:inherit;font-size:.92em;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#06b6d4}
+textarea{min-height:90px;resize:vertical;font-family:ui-monospace,monospace;font-size:.85em}
+.btn{margin-top:14px;width:100%;padding:11px;background:linear-gradient(135deg,#06b6d4,#a855f7);border:0;border-radius:7px;color:#fff;font-weight:700;cursor:pointer;font-family:inherit;font-size:.95em}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.examples{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.ex{background:#0f172a;border:1px solid #334155;color:#94a3b8;padding:5px 11px;border-radius:999px;font-size:.78em;cursor:pointer}
+.ex:hover{border-color:#06b6d4;color:#06b6d4}
+.steps{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.step{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;background:#0f172a;font-size:.85em;color:#64748b;border-left:3px solid #334155}
+.step.act{color:#06b6d4;border-left-color:#06b6d4;background:rgba(6,182,212,.08)}
+.step.ok{color:#10b981;border-left-color:#10b981}
+.step .ic{width:18px;text-align:center}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid #06b6d4;border-top-color:transparent;border-radius:50%;animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+.html-preview{background:#020617;border-radius:7px;padding:12px;font-family:ui-monospace,monospace;font-size:.78em;max-height:180px;overflow:auto;color:#94a3b8;white-space:pre-wrap;word-break:break-all;margin-top:10px;display:none}
+.html-preview.show{display:block}
+.html-preview .tag{color:#f472b6}
+.html-preview .att{color:#fbbf24}
+.resumen{background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(168,85,247,.1));border:1px solid #06b6d4;border-radius:8px;padding:18px;margin-top:14px;line-height:1.65;font-size:.94em;color:#e2e8f0;display:none}
+.resumen.show{display:block;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.resumen h3{color:#06b6d4;margin-bottom:8px;font-size:.9em;text-transform:uppercase;letter-spacing:.08em}
+.code-block{background:#020617;border-radius:7px;padding:14px;font-family:ui-monospace,monospace;font-size:.78em;color:#86efac;overflow-x:auto;margin-top:10px;line-height:1.6}
+.code-block .kw{color:#f472b6}
+.code-block .str{color:#fbbf24}
+.code-block .com{color:#64748b;font-style:italic}
+footer{text-align:center;padding:18px;color:#64748b;font-size:.82em}
+</style>
+</head>
 <body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Pipeline real: <code>requests</code> → HTML → <code>ollama qwen2.5-coder:7b</code> → resumen · Scraping y respuesta de IA simulados</div>
+
 <header>
-  <p class="eyebrow">PROYECTO 030 · CRAWLER + LLM</p>
-  <h1>🕸 Scrapear web <b>con IA</b></h1>
-  <p class="sub">Le pasas una URL, descarga el HTML, lo limpia, lo manda al modelo qwen2.5:7b y te devuelve un resumen estructurado en JSON.</p>
+  <h1>🕷️ Scrapear web con IA</h1>
+  <p>Descarga una página, pásala a Ollama, recibe un resumen del negocio</p>
 </header>
 
-<main>
+<div class="layout">
+  <div class="panel">
+    <h2>⚙️ Configuración</h2>
+    <label>URL a scrapear</label>
+    <input id="url" type="url" value="https://jocarsa.com">
+    <div class="examples">
+      <span class="ex" onclick="setUrl('https://jocarsa.com')">jocarsa.com</span>
+      <span class="ex" onclick="setUrl('https://github.com')">github.com</span>
+      <span class="ex" onclick="setUrl('https://elpais.com')">elpais.com</span>
+      <span class="ex" onclick="setUrl('https://wikipedia.org')">wikipedia.org</span>
+    </div>
 
-  <div class="pipeline">
-    <div class="pipe-grid">
-      <div class="stage">
-        <span class="num">01</span>
-        <span class="ic">🔗</span>
-        <h3>URL</h3>
-        <p>El usuario pega una dirección en el formulario. Validación básica.</p>
-      </div>
-      <div class="stage">
-        <span class="num">02</span>
-        <span class="ic">⬇</span>
-        <h3>Fetch HTML</h3>
-        <p>requests.get() con User-Agent realista y timeout de 15 s.</p>
-      </div>
-      <div class="stage">
-        <span class="num">03</span>
-        <span class="ic">🧹</span>
-        <h3>Limpiar</h3>
-        <p>BeautifulSoup quita scripts, estilos y queda solo el texto útil.</p>
-      </div>
-      <div class="stage">
-        <span class="num">04</span>
-        <span class="ic">🤖</span>
-        <h3>Resumir IA</h3>
-        <p>Ollama qwen2.5:7b devuelve título + 5 puntos clave.</p>
-      </div>
+    <label>Modelo Ollama</label>
+    <select id="modelo">
+      <option>qwen2.5-coder:7b</option>
+      <option>llama3.2:3b</option>
+      <option>mistral:7b</option>
+      <option>gemma2:2b</option>
+    </select>
+
+    <label>Prompt</label>
+    <textarea id="prompt">Te voy a pasar el código fuente de una página web. Resume en un párrafo cuál es la actividad de esa empresa. Solo párrafo, no pongas nada de código:</textarea>
+
+    <button class="btn" id="go" onclick="ejecutar()">▶ Ejecutar pipeline</button>
+
+    <div class="steps" id="steps">
+      <div class="step" data-s="1"><span class="ic">📥</span><span>requests.get(url)</span></div>
+      <div class="step" data-s="2"><span class="ic">📄</span><span>response.text → html</span></div>
+      <div class="step" data-s="3"><span class="ic">🤖</span><span>subprocess ollama run</span></div>
+      <div class="step" data-s="4"><span class="ic">✨</span><span>print(resultado)</span></div>
     </div>
   </div>
 
-  <div class="demo">
-    <div class="demo-head">
-      <span class="url-bar">https://es.wikipedia.org/wiki/<b>Inteligencia_artificial</b></span>
-      <button class="btn">Scrapear</button>
-    </div>
-    <div class="demo-body">
-      <div>
-        <div class="panel-h">📄 HTML CRUDO (recortado)</div>
-        <div class="raw"><span class="tag">&lt;article</span> <span class="attr">id</span>=<span class="str">"content"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;h1&gt;</span>Inteligencia artificial<span class="tag">&lt;/h1&gt;</span>
-  <span class="tag">&lt;p&gt;</span>La inteligencia artificial es la
-  inteligencia exhibida por máquinas…
-  <span class="tag">&lt;/p&gt;</span>
-  <span class="tag">&lt;h2&gt;</span>Historia<span class="tag">&lt;/h2&gt;</span>
-  <span class="tag">&lt;p&gt;</span>El término fue acuñado por John
-  McCarthy en 1956 durante la conferencia
-  de Dartmouth…<span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;/article&gt;</span></div>
-      </div>
-      <div>
-        <div class="panel-h">🤖 RESUMEN IA</div>
-        <div class="summary">
-          <h4>Inteligencia Artificial</h4>
-          <p>Disciplina de la informática que estudia máquinas capaces de exhibir comportamiento inteligente.</p>
-          <ul>
-            <li>Término acuñado por John McCarthy en 1956 en Dartmouth</li>
-            <li>Subdivide en IA débil (especializada) e IA fuerte (general)</li>
-            <li>Ramas: aprendizaje automático, NLP, visión artificial</li>
-            <li>Auge actual basado en redes neuronales profundas</li>
-            <li>Aplicaciones en salud, transporte, finanzas, asistentes</li>
-          </ul>
-        </div>
-      </div>
+  <div class="panel">
+    <h2>📊 Resultado</h2>
+    <div style="font-size:.82em;color:#94a3b8;margin-bottom:8px">Esperando ejecución…</div>
+    <div class="html-preview" id="htmlPrev"></div>
+    <div class="resumen" id="resumen"></div>
+
+    <div style="margin-top:18px">
+      <h2>📜 Código original</h2>
+      <div class="code-block"><span class="com"># 005-afinar un poco el prompt.py</span>
+<span class="kw">import</span> requests
+<span class="kw">import</span> subprocess
+
+url = <span class="str">"https://jocarsa.com"</span>
+response = requests.get(url)
+html = response.text
+
+prompt = <span class="str">f"Te voy a pasar el codigo... {html}"</span>
+
+result = subprocess.run(
+    [<span class="str">"ollama"</span>, <span class="str">"run"</span>, <span class="str">"qwen2.5-coder:7b"</span>, prompt],
+    capture_output=<span class="kw">True</span>, text=<span class="kw">True</span>
+)
+<span class="kw">print</span>(<span class="str">"RESUMEN:\n"</span>)
+<span class="kw">print</span>(result.stdout)</div>
     </div>
   </div>
+</div>
 
-  <div class="duo">
-    <div class="icard">
-      <h3>// stack técnico</h3>
-      <ul>
-        <li>Python 3 + Flask</li>
-        <li><code>requests</code> + <code>BeautifulSoup4</code></li>
-        <li>Ollama API · <code>qwen2.5:7b</code></li>
-        <li>JSON estructurado de respuesta</li>
-        <li>Cache local de URLs ya scrapeadas</li>
-      </ul>
-    </div>
-    <div class="icard">
-      <h3>// el prompt</h3>
-      <ul>
-        <li>"Resume este artículo en 5 puntos"</li>
-        <li>"Devuelve un JSON con título y bullets"</li>
-        <li>Ventana 8K tokens · suficiente para Wikipedia</li>
-        <li>Streaming desactivado · respuesta completa</li>
-        <li>Truncado a 8000 caracteres si es muy largo</li>
-      </ul>
-    </div>
-  </div>
+<footer>Proyecto Intermodular DAM · 030 · Scrapear con requests + Ollama</footer>
 
-</main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+<script>
+const RESPUESTAS = {
+  "jocarsa.com": "jocarsa es una consultora tecnológica española especializada en desarrollo de software a medida, formación en programación (Ciclo DAM), e implementación de soluciones de Inteligencia Artificial open-source para PYMES. Ofrecen también consultoría en automatización de procesos y servicios cloud.",
+  "github.com": "GitHub es una plataforma de desarrollo colaborativo basada en Git que permite alojar repositorios de código, realizar control de versiones, gestionar proyectos mediante issues y pull requests, automatizar flujos con GitHub Actions, y publicar sitios estáticos vía GitHub Pages. Es propiedad de Microsoft.",
+  "elpais.com": "El País es uno de los principales diarios generalistas de España, con cobertura nacional e internacional. Su web ofrece noticias en tiempo real, análisis, opinión, secciones temáticas (política, economía, deportes, cultura, tecnología) y suscripción premium para acceso a contenido exclusivo.",
+  "wikipedia.org": "Wikipedia es una enciclopedia libre, multilingüe y colaborativa, mantenida por la Fundación Wikimedia. Permite a cualquier usuario crear y editar artículos sobre cualquier tema. Disponible en más de 300 idiomas y financiada exclusivamente por donaciones."
+};
+function setUrl(u){ document.getElementById('url').value = u; }
+function dom(host){
+  const m = host.match(/(?:https?:\/\/)?(?:www\.)?([^\/]+)/);
+  return m?m[1]:host;
+}
+async function ejecutar(){
+  const url = document.getElementById('url').value.trim();
+  if(!url) return;
+  const host = dom(url);
+  const btn = document.getElementById('go');
+  btn.disabled = true; btn.textContent = 'Ejecutando…';
+  document.querySelectorAll('.step').forEach(s=>{s.classList.remove('act','ok');});
+  document.getElementById('htmlPrev').classList.remove('show');
+  document.getElementById('resumen').classList.remove('show');
+
+  // paso 1: requests.get
+  const s1 = document.querySelector('[data-s="1"]');
+  s1.classList.add('act'); s1.querySelector('.ic').innerHTML = '<span class="spin"></span>';
+  await sleep(700);
+  s1.classList.remove('act'); s1.classList.add('ok'); s1.querySelector('.ic').textContent = '✓';
+
+  // paso 2: html preview
+  const s2 = document.querySelector('[data-s="2"]');
+  s2.classList.add('act'); s2.querySelector('.ic').innerHTML = '<span class="spin"></span>';
+  await sleep(450);
+  const fakeHtml = `&lt;<span class="tag">html</span>&gt;\n  &lt;<span class="tag">head</span>&gt;\n    &lt;<span class="tag">title</span>&gt;${host}&lt;/<span class="tag">title</span>&gt;\n    &lt;<span class="tag">meta</span> <span class="att">name</span>="description" <span class="att">content</span>="..."&gt;\n  &lt;/<span class="tag">head</span>&gt;\n  &lt;<span class="tag">body</span>&gt;\n    &lt;<span class="tag">h1</span>&gt;Bienvenido a ${host}&lt;/<span class="tag">h1</span>&gt;\n    &lt;<span class="tag">div</span> <span class="att">class</span>="content"&gt;...&lt;/<span class="tag">div</span>&gt;\n  &lt;/<span class="tag">body</span>&gt;\n&lt;/<span class="tag">html</span>&gt;`;
+  document.getElementById('htmlPrev').innerHTML = `<strong style="color:#06b6d4">📄 ${host} · 24.3 KB recibidos</strong>\n\n${fakeHtml}`;
+  document.getElementById('htmlPrev').classList.add('show');
+  s2.classList.remove('act'); s2.classList.add('ok'); s2.querySelector('.ic').textContent = '✓';
+
+  // paso 3: ollama
+  const s3 = document.querySelector('[data-s="3"]');
+  s3.classList.add('act'); s3.querySelector('.ic').innerHTML = '<span class="spin"></span>';
+  await sleep(1300);
+  s3.classList.remove('act'); s3.classList.add('ok'); s3.querySelector('.ic').textContent = '✓';
+
+  // paso 4: resumen
+  const s4 = document.querySelector('[data-s="4"]');
+  s4.classList.add('act'); s4.querySelector('.ic').innerHTML = '<span class="spin"></span>';
+  await sleep(300);
+  let texto = RESPUESTAS[host];
+  if(!texto){
+    texto = `Sitio web identificado en ${host}. Por el código HTML detecto que se trata de una organización con presencia online activa. Sin más datos específicos no puedo afinar el resumen del negocio.`;
+  }
+  document.getElementById('resumen').innerHTML = `<h3>✨ Resumen generado por Ollama</h3>${texto}<div style="margin-top:14px;font-size:.78em;color:#94a3b8;font-family:ui-monospace,monospace">qwen2.5-coder:7b · 412 tokens · 1.8 s</div>`;
+  document.getElementById('resumen').classList.add('show');
+  s4.classList.remove('act'); s4.classList.add('ok'); s4.querySelector('.ic').textContent = '✓';
+
+  btn.disabled = false; btn.textContent = '▶ Ejecutar pipeline';
+}
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+</script>
+</body>
+</html>

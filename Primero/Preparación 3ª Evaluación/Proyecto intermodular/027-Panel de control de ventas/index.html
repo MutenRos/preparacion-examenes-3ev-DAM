@@ -1,169 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>📊 Panel de Ventas · CRUD genérico</title>
+<title>Panel de ventas · jocarsa</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--p:#6366f1;--p2:#818cf8;--bg:#080a14;--bg2:#0d1020;--card:#131730;--border:#1f2542;--mut:#5d6488;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444}
-body{font-family:Inter,sans-serif;background:var(--bg);color:#c8cce4;min-height:100vh}
-
-/* topbar */
-.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 22px;display:flex;align-items:center;gap:14px}
-.topbar .logo{font-weight:700;color:#fff;font-size:1em}
-.topbar .logo .ic{display:inline-block;width:24px;height:24px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:6px;color:#fff;text-align:center;line-height:24px;margin-right:8px;font-size:.85em}
-.topbar nav{display:flex;gap:14px;font-size:.85em;font-family:'JetBrains Mono',monospace;color:var(--mut)}
-.topbar nav a{color:var(--mut);text-decoration:none}
-.topbar nav a.active{color:var(--p2);border-bottom:2px solid var(--p2);padding-bottom:1px}
-.topbar .right{margin-left:auto;font-size:.74em;color:var(--mut);font-family:'JetBrains Mono',monospace}
-.topbar .right b{color:var(--p2)}
-@media(max-width:600px){.topbar nav{display:none}.topbar .right{display:none}}
-
-/* hero/intro */
-.intro{padding:32px 22px 24px;text-align:center;border-bottom:1px solid var(--border)}
-h1{font-size:2.1em;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:4px}
-h1 b{color:var(--p2)}
-.sub{color:var(--mut);font-size:.92em;max-width:540px;margin:0 auto;line-height:1.55}
-
-main{max-width:1080px;margin:24px auto;padding:0 16px 36px}
-
-/* CRUD grid */
-.crud{display:grid;grid-template-columns:auto 1fr;gap:14px;margin-bottom:24px}
-@media(max-width:780px){.crud{grid-template-columns:1fr}}
-
-.sidebar{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;width:200px}
-@media(max-width:780px){.sidebar{width:100%}}
-.sidebar h4{font-size:.7em;letter-spacing:.12em;color:var(--mut);text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:10px;font-weight:700}
-.sidebar ul{list-style:none}
-.sidebar li{padding:7px 10px;border-radius:5px;font-size:.86em;color:#a8aecf;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace}
-.sidebar li.active{background:rgba(99,102,241,.12);color:var(--p2);font-weight:600}
-.sidebar li::before{content:'▸';color:var(--mut);font-size:.85em}
-.sidebar li.active::before{color:var(--p2)}
-
-.maincontent{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.mc-toolbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:11px 16px;display:flex;align-items:center;gap:10px}
-.mc-toolbar h3{flex:1;font-size:.95em;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px}
-.mc-toolbar h3 code{font-family:'JetBrains Mono',monospace;font-size:.78em;color:var(--p2);background:rgba(99,102,241,.08);padding:1px 7px;border-radius:3px;font-weight:400}
-.btn{background:var(--p);color:#fff;border:none;border-radius:5px;padding:6px 12px;font-size:.78em;font-weight:600;font-family:Inter;cursor:pointer}
-.btn-ic{background:var(--bg2);color:var(--mut);border:1px solid var(--border);border-radius:5px;padding:6px 9px;font-size:.78em}
-
-table{width:100%;border-collapse:collapse;font-size:.84em}
-th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace}
-th{background:var(--bg2);font-size:.7em;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:700}
-th .sort{color:var(--p2);margin-left:4px}
-td{color:#cdd1ea}
-td.id{color:var(--mut);font-size:.8em}
-td.num{text-align:right;color:var(--ok)}
-td .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7em;font-weight:700;letter-spacing:.05em}
-.badge.activo{background:rgba(34,197,94,.12);color:var(--ok)}
-.badge.pendiente{background:rgba(245,158,11,.12);color:var(--warn)}
-.badge.cancelado{background:rgba(239,68,68,.12);color:var(--err)}
-tr:hover td{background:rgba(99,102,241,.04)}
-
-.duo{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.code{background:#06080f;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.code-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 16px;font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut)}
-.code-head b{color:var(--p2)}
-pre{padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:.78em;line-height:1.7;color:#9ca3c8;overflow-x:auto}
-.kw{color:#c084fc} .str{color:#86efac} .nu{color:#fbbf24} .cm{color:#48507a;font-style:italic} .nb{color:#7dd3fc}
-
-.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
-.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--p2);margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.85em;color:#8a8fb3;padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.55}
-.icard li:last-child{border:none}
-.icard li code{font-family:'JetBrains Mono',monospace;color:var(--p2);background:rgba(99,102,241,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;margin-top:24px}
-</style></head>
+body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f172a;display:flex;min-height:100vh}
+.mock-banner{position:fixed;top:0;left:0;right:0;background:#fef3c7;border-bottom:1px solid #f59e0b;padding:6px 14px;text-align:center;font:500 .8rem/1.4 inherit;color:#78350f;z-index:99}
+nav.side{width:230px;background:#0f172a;color:#cbd5e1;padding:60px 0 20px;position:fixed;top:0;bottom:0;left:0;overflow-y:auto}
+nav.side h1{padding:18px 20px;font-size:1.1rem;color:#fff;border-bottom:1px solid #1e293b;display:flex;align-items:center;gap:8px}
+nav.side a{display:block;padding:12px 22px;color:#94a3b8;text-decoration:none;font-size:.92em;border-left:3px solid transparent;cursor:pointer}
+nav.side a:hover{background:#1e293b;color:#fff}
+nav.side a.active{background:#1e293b;color:#60a5fa;border-left-color:#60a5fa}
+nav.side .sec{padding:18px 22px 6px;font-size:.7em;color:#64748b;letter-spacing:.1em;text-transform:uppercase}
+main{flex:1;margin-left:230px;padding:60px 0 0}
+.toolbar{background:#fff;border-bottom:1px solid #e2e8f0;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.toolbar h2{font-size:1.15rem}
+.toolbar .actions{display:flex;gap:8px}
+.btn{padding:8px 14px;border-radius:6px;border:0;cursor:pointer;font-size:.88em;font-weight:600;font-family:inherit}
+.btn-prim{background:#2563eb;color:#fff}
+.btn-prim:hover{background:#1d4ed8}
+.btn-ia{background:#7c3aed;color:#fff}
+.btn-del{background:#dc2626;color:#fff;padding:5px 10px;font-size:.8em}
+.btn-edit{background:#0891b2;color:#fff;padding:5px 10px;font-size:.8em}
+.content{padding:22px 24px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}
+.kpi{background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.kpi small{color:#64748b;font-size:.78em;text-transform:uppercase;letter-spacing:.06em}
+.kpi b{display:block;font-size:1.7rem;color:#0f172a;margin-top:4px}
+.kpi.ok b{color:#059669}.kpi.warn b{color:#d97706}.kpi.info b{color:#2563eb}
+.tabla{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9em}
+th{background:#f8fafc;color:#475569;padding:11px 14px;text-align:left;font-weight:600;font-size:.85em;border-bottom:2px solid #e2e8f0}
+td{padding:11px 14px;border-bottom:1px solid #f1f5f9}
+tr:hover td{background:#f8fafc}
+tr.fk td:first-child{background:#dbeafe;font-weight:600}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.78em;font-weight:600}
+.b-pag{background:#dcfce7;color:#166534}
+.b-pen{background:#fef3c7;color:#854d0e}
+.b-can{background:#fee2e2;color:#991b1b}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.modal.show{display:flex}
+.modal-card{background:#fff;border-radius:12px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:26px}
+.modal-card h3{margin-bottom:14px}
+.modal-card label{display:block;font-size:.82em;color:#475569;margin:10px 0 4px;font-weight:600}
+.modal-card input,.modal-card select{width:100%;padding:9px 12px;border:1px solid #cbd5e1;border-radius:6px;font-size:.92em;font-family:inherit}
+.btnrow{display:flex;gap:8px;margin-top:18px;justify-content:flex-end}
+.ia-out{background:#faf5ff;border-left:3px solid #7c3aed;padding:14px 16px;margin-top:14px;border-radius:6px;font-size:.88em;color:#4c1d95;line-height:1.6;display:none}
+.ia-out.show{display:block;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
 <body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Panel de control real (jocarsa.db / SQLite + PHP) · Datos en memoria, IA simulada</div>
 
-<div class="topbar">
-  <div class="logo"><span class="ic">📊</span>VentasAdmin</div>
-  <nav>
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Ventas</a>
-    <a href="#">Clientes</a>
-    <a href="#">Productos</a>
-  </nav>
-  <div class="right">conectado a <b>db.sqlite</b></div>
-</div>
-
-<div class="intro">
-  <h1>Panel de Ventas <b>CRUD genérico</b></h1>
-  <p class="sub">Una sola interfaz que se adapta a cualquier tabla SQLite leyendo su <code style="color:var(--p2);font-family:'JetBrains Mono',monospace;background:rgba(99,102,241,.08);padding:1px 6px;border-radius:3px;font-size:.85em">PRAGMA table_info</code>. Crea, lista, edita y borra cualquier registro sin escribir formularios. Si no hay tabla, una IA te las propone.</p>
-</div>
+<nav class="side">
+  <h1>📊 jocarsa Panel</h1>
+  <div class="sec">CRUD</div>
+  <a class="tab active" data-t="dashboard">📈 Dashboard</a>
+  <a class="tab" data-t="clientes">👥 Clientes</a>
+  <a class="tab" data-t="productos">📦 Productos</a>
+  <a class="tab" data-t="pedidos">🧾 Pedidos</a>
+  <div class="sec">Inteligencia</div>
+  <a class="tab" data-t="ia">🤖 Sugerencias IA</a>
+  <a class="tab" data-t="informes">📑 Informes</a>
+</nav>
 
 <main>
+  <div class="toolbar">
+    <h2 id="tit">📈 Dashboard</h2>
+    <div class="actions" id="acts"></div>
+  </div>
+  <div class="content" id="cont"></div>
+</main>
 
-  <div class="crud">
-    <div class="sidebar">
-      <h4>Tablas</h4>
-      <ul>
-        <li>clientes</li>
-        <li class="active">ventas</li>
-        <li>productos</li>
-        <li>categorias</li>
-        <li>vendedores</li>
-      </ul>
-    </div>
-
-    <div class="maincontent">
-      <div class="mc-toolbar">
-        <h3>📋 ventas <code>5 columnas · 248 filas</code></h3>
-        <button class="btn-ic">⚙</button>
-        <button class="btn">+ Nueva venta</button>
-      </div>
-      <table>
-        <thead>
-          <tr><th>id <span class="sort">↑</span></th><th>cliente</th><th>producto</th><th>importe</th><th>estado</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="id">#001</td><td>María García</td><td>Bal&oacute;n Champions</td><td class="num">29.95€</td><td><span class="badge activo">activo</span></td></tr>
-          <tr><td class="id">#002</td><td>Juan Pérez</td><td>Camiseta Real Madrid</td><td class="num">79.00€</td><td><span class="badge activo">activo</span></td></tr>
-          <tr><td class="id">#003</td><td>Ana López</td><td>Raqueta Wilson</td><td class="num">189.00€</td><td><span class="badge pendiente">pendiente</span></td></tr>
-          <tr><td class="id">#004</td><td>Carlos Ruiz</td><td>Asics Gel-Kayano</td><td class="num">145.50€</td><td><span class="badge activo">activo</span></td></tr>
-          <tr><td class="id">#005</td><td>Lucía Vega</td><td>Mochila Borealis</td><td class="num">89.99€</td><td><span class="badge cancelado">cancelado</span></td></tr>
-          <tr><td class="id">#006</td><td>David Soto</td><td>Set pesas 10kg</td><td class="num">42.00€</td><td><span class="badge activo">activo</span></td></tr>
-        </tbody>
-      </table>
+<div class="modal" id="mod">
+  <div class="modal-card">
+    <h3 id="mtit">Editar</h3>
+    <div id="mbody"></div>
+    <div class="btnrow">
+      <button class="btn" style="background:#e2e8f0;color:#334155" onclick="cerrar()">Cancelar</button>
+      <button class="btn btn-prim" onclick="guardar()">Guardar</button>
     </div>
   </div>
+</div>
 
-  <div class="duo">
-    <div class="code">
-      <div class="code-head">// el corazón del CRUD genérico — <b>describe.php</b></div>
-<pre><span class="cm">// Lee la estructura de cualquier tabla y construye formulario</span>
-<span class="kw">function</span> describe_table(<span class="nb">PDO</span> $pdo, $tabla): <span class="nb">array</span> {
-    $stmt = $pdo-&gt;query(<span class="str">"PRAGMA table_info('"</span> . $tabla . <span class="str">"')"</span>);
-    <span class="kw">return</span> $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);
+<script>
+// Datos mock
+const CLI = [
+  {id:1,nombre:"María López",email:"maria@ejemplo.com",ciudad:"Valencia"},
+  {id:2,nombre:"Juan García",email:"juan@ejemplo.com",ciudad:"Madrid"},
+  {id:3,nombre:"Ana Ruiz",email:"ana@ejemplo.com",ciudad:"Barcelona"},
+  {id:4,nombre:"Pedro Sanz",email:"pedro@ejemplo.com",ciudad:"Sevilla"},
+  {id:5,nombre:"Lucía Pérez",email:"lucia@ejemplo.com",ciudad:"Valencia"}
+];
+const PRO = [
+  {id:1,nombre:"Balón fútbol",precio:24.90,stock:48},
+  {id:2,nombre:"Zapatillas running",precio:79.00,stock:23},
+  {id:3,nombre:"Bicicleta urbana",precio:349.00,stock:5},
+  {id:4,nombre:"Raqueta tenis",precio:65.50,stock:18},
+  {id:5,nombre:"Mochila",precio:42.50,stock:31}
+];
+const PED = [
+  {id:1,cliente_id:1,producto_id:2,cantidad:2,total:158.00,estado:"pagado",fecha:"2026-04-25"},
+  {id:2,cliente_id:3,producto_id:3,cantidad:1,total:349.00,estado:"pagado",fecha:"2026-04-26"},
+  {id:3,cliente_id:2,producto_id:1,cantidad:3,total:74.70,estado:"pendiente",fecha:"2026-04-27"},
+  {id:4,cliente_id:5,producto_id:5,cantidad:1,total:42.50,estado:"pagado",fecha:"2026-04-27"},
+  {id:5,cliente_id:4,producto_id:4,cantidad:1,total:65.50,estado:"cancelado",fecha:"2026-04-28"}
+];
+const ESTADO = {pagado:'b-pag',pendiente:'b-pen',cancelado:'b-can'};
+let curTab = 'dashboard';
+let editCtx = null;
+
+function find(arr,id){return arr.find(x=>x.id==id)}
+function nombreCli(id){const c=find(CLI,id);return c?c.nombre:'?'}
+function nombrePro(id){const p=find(PRO,id);return p?p.nombre:'?'}
+
+function render(){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.t===curTab));
+  const tit = {dashboard:'📈 Dashboard',clientes:'👥 Clientes',productos:'📦 Productos',pedidos:'🧾 Pedidos',ia:'🤖 Sugerencias IA',informes:'📑 Informes'}[curTab];
+  document.getElementById('tit').textContent = tit;
+
+  const acts = document.getElementById('acts');
+  if(['clientes','productos','pedidos'].includes(curTab)){
+    acts.innerHTML = `<button class="btn btn-prim" onclick="nuevo()">+ Nuevo</button>`;
+  } else { acts.innerHTML = ''; }
+
+  const c = document.getElementById('cont');
+
+  if(curTab==='dashboard'){
+    const totalVentas = PED.filter(p=>p.estado==='pagado').reduce((a,b)=>a+b.total,0);
+    const pendientes = PED.filter(p=>p.estado==='pendiente').length;
+    c.innerHTML = `
+      <div class="kpis">
+        <div class="kpi info"><small>Ventas (pagadas)</small><b>${totalVentas.toFixed(2).replace('.',',')} €</b></div>
+        <div class="kpi ok"><small>Clientes</small><b>${CLI.length}</b></div>
+        <div class="kpi"><small>Productos</small><b>${PRO.length}</b></div>
+        <div class="kpi warn"><small>Pendientes</small><b>${pendientes}</b></div>
+      </div>
+      <div class="tabla"><table><thead><tr><th>Últimos pedidos</th><th>Cliente</th><th>Producto</th><th>Total</th><th>Estado</th></tr></thead>
+      <tbody>${PED.slice(-5).reverse().map(p=>`<tr><td>#${p.id}</td><td>${nombreCli(p.cliente_id)}</td><td>${nombrePro(p.producto_id)}</td><td>${p.total.toFixed(2).replace('.',',')} €</td><td><span class="badge ${ESTADO[p.estado]}">${p.estado}</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  else if(curTab==='clientes'){
+    c.innerHTML = `<div class="tabla"><table><thead><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Ciudad</th><th></th></tr></thead><tbody>${CLI.map(x=>`<tr><td>${x.id}</td><td>${x.nombre}</td><td>${x.email}</td><td>${x.ciudad}</td><td><button class="btn btn-edit" onclick="edit('cli',${x.id})">Editar</button> <button class="btn btn-del" onclick="del('cli',${x.id})">×</button></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  else if(curTab==='productos'){
+    c.innerHTML = `<div class="tabla"><table><thead><tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th></th></tr></thead><tbody>${PRO.map(x=>`<tr><td>${x.id}</td><td>${x.nombre}</td><td>${x.precio.toFixed(2).replace('.',',')} €</td><td>${x.stock}</td><td><button class="btn btn-edit" onclick="edit('pro',${x.id})">Editar</button> <button class="btn btn-del" onclick="del('pro',${x.id})">×</button></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  else if(curTab==='pedidos'){
+    c.innerHTML = `<div class="tabla"><table><thead><tr><th>ID</th><th>Cliente <small style="color:#94a3b8">(FK)</small></th><th>Producto <small style="color:#94a3b8">(FK)</small></th><th>Cant</th><th>Total</th><th>Estado</th><th>Fecha</th><th></th></tr></thead><tbody>${PED.map(p=>`<tr class="fk"><td>${p.id}</td><td>${nombreCli(p.cliente_id)}</td><td>${nombrePro(p.producto_id)}</td><td>${p.cantidad}</td><td>${p.total.toFixed(2).replace('.',',')} €</td><td><span class="badge ${ESTADO[p.estado]}">${p.estado}</span></td><td>${p.fecha}</td><td><button class="btn btn-del" onclick="del('ped',${p.id})">×</button></td></tr>`).join('')}</tbody></table></div>
+    <p style="font-size:.82em;color:#64748b;margin-top:10px">💡 La detección automática de claves foráneas es la característica clave de <code style="background:#e2e8f0;padding:1px 6px;border-radius:3px">panel/index.php</code>: <code>if(!in_array($fk_table, ['clientes','productos','pedidos']))</code></p>`;
+  }
+  else if(curTab==='ia'){
+    c.innerHTML = `<div class="kpi" style="border-left:4px solid #7c3aed">
+      <h3 style="margin-bottom:10px">🤖 Sugerencias del asistente IA</h3>
+      <p style="color:#64748b;font-size:.92em">Pulsa para que la IA analice tus datos. En el proyecto real esto llama a <code>panel/ia.php</code> o <code>panel/iaremota.php</code>.</p>
+      <button class="btn btn-ia" style="margin-top:14px" onclick="lanzaIA()">Pedir análisis</button>
+      <div class="ia-out" id="iaout"></div>
+    </div>`;
+  }
+  else if(curTab==='informes'){
+    c.innerHTML = `<div class="kpi"><h3 style="margin-bottom:10px">📑 Informes generados</h3>
+      <ul style="list-style:none;font-size:.92em;color:#475569">
+        <li style="padding:8px 0;border-bottom:1px solid #e2e8f0">📄 ventas_2026-04.pdf <span style="float:right;color:#94a3b8">28 abr</span></li>
+        <li style="padding:8px 0;border-bottom:1px solid #e2e8f0">📄 stock_bajo.csv <span style="float:right;color:#94a3b8">27 abr</span></li>
+        <li style="padding:8px 0">📄 clientes_top.xlsx <span style="float:right;color:#94a3b8">25 abr</span></li>
+      </ul>
+      <p style="font-size:.82em;color:#64748b;margin-top:14px">Carpeta real: <code>panel/informes/</code></p>
+    </div>`;
+  }
 }
 
-<span class="cm">// Genera input según el tipo de cada columna</span>
-<span class="kw">foreach</span> (describe_table($pdo, $tabla) <span class="kw">as</span> $col) {
-    <span class="kw">switch</span> ($col[<span class="str">'type'</span>]) {
-        <span class="kw">case</span> <span class="str">'INTEGER'</span>: input(<span class="str">'number'</span>, $col[<span class="str">'name'</span>]); <span class="kw">break</span>;
-        <span class="kw">case</span> <span class="str">'TEXT'</span>:    input(<span class="str">'text'</span>,   $col[<span class="str">'name'</span>]); <span class="kw">break</span>;
-        <span class="kw">case</span> <span class="str">'REAL'</span>:    input(<span class="str">'number'</span>, $col[<span class="str">'name'</span>], step=<span class="str">'0.01'</span>);
-    }
-}</pre>
-    </div>
-    <div class="icard">
-      <h3>// stack</h3>
-      <ul>
-        <li>PHP + <code>PDO SQLite</code></li>
-        <li><code>PRAGMA table_info</code> → schema</li>
-        <li>Form auto-generado por tipo</li>
-        <li>Ollama propone schemas si DB vacía</li>
-        <li>CRUD: list / create / edit / delete</li>
-        <li>Validación según tipo de columna</li>
-      </ul>
-    </div>
-  </div>
+document.querySelectorAll('.tab').forEach(t=>t.onclick=function(){curTab=t.dataset.t;render()});
 
-</main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+function nuevo(){
+  if(curTab==='clientes') edit('cli', null);
+  else if(curTab==='productos') edit('pro', null);
+  else if(curTab==='pedidos') edit('ped', null);
+}
+function edit(tipo, id){
+  editCtx = {tipo,id};
+  const m = document.getElementById('mbody');
+  if(tipo==='cli'){
+    const x = id?find(CLI,id):{nombre:'',email:'',ciudad:''};
+    document.getElementById('mtit').textContent = id?'Editar cliente':'Nuevo cliente';
+    m.innerHTML = `<label>Nombre</label><input id="f1" value="${x.nombre}"><label>Email</label><input id="f2" value="${x.email}"><label>Ciudad</label><input id="f3" value="${x.ciudad}">`;
+  } else if(tipo==='pro'){
+    const x = id?find(PRO,id):{nombre:'',precio:0,stock:0};
+    document.getElementById('mtit').textContent = id?'Editar producto':'Nuevo producto';
+    m.innerHTML = `<label>Nombre</label><input id="f1" value="${x.nombre}"><label>Precio</label><input id="f2" type="number" step="0.01" value="${x.precio}"><label>Stock</label><input id="f3" type="number" value="${x.stock}">`;
+  } else {
+    const x = {cliente_id:CLI[0].id,producto_id:PRO[0].id,cantidad:1,estado:'pendiente'};
+    document.getElementById('mtit').textContent = 'Nuevo pedido';
+    m.innerHTML = `<label>Cliente</label><select id="f1">${CLI.map(c=>`<option value="${c.id}">${c.nombre}</option>`).join('')}</select><label>Producto</label><select id="f2">${PRO.map(p=>`<option value="${p.id}">${p.nombre}</option>`).join('')}</select><label>Cantidad</label><input id="f3" type="number" value="1"><label>Estado</label><select id="f4"><option>pendiente</option><option>pagado</option><option>cancelado</option></select>`;
+  }
+  document.getElementById('mod').classList.add('show');
+}
+function cerrar(){ document.getElementById('mod').classList.remove('show'); }
+function guardar(){
+  const {tipo,id} = editCtx;
+  if(tipo==='cli'){
+    const dat = {nombre:f1.value,email:f2.value,ciudad:f3.value};
+    if(id){ Object.assign(find(CLI,id),dat); }
+    else { CLI.push({id:Math.max(...CLI.map(c=>c.id))+1,...dat}); }
+  } else if(tipo==='pro'){
+    const dat = {nombre:f1.value,precio:parseFloat(f2.value),stock:parseInt(f3.value)};
+    if(id){ Object.assign(find(PRO,id),dat); }
+    else { PRO.push({id:Math.max(...PRO.map(c=>c.id))+1,...dat}); }
+  } else {
+    const cli = parseInt(f1.value), pro = parseInt(f2.value), cant = parseInt(f3.value);
+    const p = find(PRO, pro);
+    PED.push({id:Math.max(...PED.map(c=>c.id))+1,cliente_id:cli,producto_id:pro,cantidad:cant,total:cant*p.precio,estado:f4.value,fecha:new Date().toISOString().slice(0,10)});
+  }
+  cerrar(); render();
+}
+function del(tipo,id){
+  if(!confirm('¿Eliminar?')) return;
+  const arr = tipo==='cli'?CLI:tipo==='pro'?PRO:PED;
+  const i = arr.findIndex(x=>x.id==id);
+  if(i>=0) arr.splice(i,1);
+  render();
+}
+function lanzaIA(){
+  const out = document.getElementById('iaout');
+  out.innerHTML = '<em>Analizando datos…</em>';
+  out.classList.add('show');
+  setTimeout(()=>{
+    out.innerHTML = `<strong>Análisis:</strong><br>
+    • <b>Producto estrella:</b> Bicicleta urbana (349€) representa el <b>49,3%</b> de tus ventas pagadas.<br>
+    • <b>Stock crítico:</b> "Bicicleta urbana" tiene solo 5 unidades — recomiendo reponer.<br>
+    • <b>Ciudad líder:</b> Valencia con 2 clientes (40% del total).<br>
+    • <b>Acción sugerida:</b> Llama al pedido #3 (pendiente desde hace 1 día) para confirmar pago.<br>
+    <small style="color:#94a3b8">— Generado por modelo Ollama local (mockup)</small>`;
+  }, 1100);
+}
+render();
+</script>
+</body>
+</html>

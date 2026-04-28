@@ -1,142 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🤖 Asistente de IA con Avatar 3D</title>
+<title>Asistente IA · jocarsa (mockup)</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ne:#a78bfa;--cy:#22d3ee;--bg:#08070f;--bg2:#0e0c1c;--card:#15132a;--border:#272447;--mut:#5e5878;--ok:#34d399}
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:#d8d2ed;min-height:100vh;overflow-x:hidden}
-
-header{position:relative;padding:48px 24px 36px;text-align:center;border-bottom:1px solid var(--border);overflow:hidden}
-header::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(167,139,250,.15),transparent 60%)}
-.h-content{position:relative;z-index:1}
-h1{font-size:2.5em;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
-h1 b{background:linear-gradient(135deg,var(--ne),var(--cy));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
-
-/* avatar hero */
-.avatar-stage{max-width:760px;margin:36px auto 24px;padding:0 20px}
-.stage{background:radial-gradient(circle at 50% 30%,rgba(167,139,250,.18),transparent 70%),var(--card);border:1px solid var(--border);border-radius:18px;padding:36px 24px;text-align:center;position:relative;overflow:hidden}
-.stage::before{content:'';position:absolute;inset:0;background:
-  repeating-linear-gradient(0deg,transparent 0,transparent 18px,rgba(167,139,250,.04) 18px,rgba(167,139,250,.04) 19px);
-  pointer-events:none}
-.avatar{display:inline-block;position:relative;width:170px;height:170px;border-radius:50%;background:linear-gradient(135deg,#3a3060,#241d40);box-shadow:0 0 60px rgba(167,139,250,.4);font-size:5em;line-height:170px;animation:bob 3s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.mouth{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);width:36px;height:6px;background:#1a1530;border-radius:50%;animation:talk .4s ease-in-out infinite alternate;box-shadow:0 0 12px rgba(167,139,250,.6)}
-@keyframes talk{0%{height:4px;width:38px}100%{height:14px;width:30px}}
-.speech{margin-top:24px;display:inline-block;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.3);color:var(--cy);padding:9px 18px;border-radius:18px;font-size:.92em;max-width:480px;font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.84em}
-.bars{display:inline-flex;gap:3px;margin-left:8px;align-items:flex-end}
-.bars i{width:3px;background:var(--cy);border-radius:1px;animation:bar 1s ease-in-out infinite}
-.bars i:nth-child(1){height:6px;animation-delay:0s}
-.bars i:nth-child(2){height:14px;animation-delay:.15s}
-.bars i:nth-child(3){height:8px;animation-delay:.3s}
-.bars i:nth-child(4){height:12px;animation-delay:.45s}
-.bars i:nth-child(5){height:5px;animation-delay:.6s}
-@keyframes bar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1.2)}}
-
-main{max-width:880px;margin:0 auto;padding:0 20px 32px}
-.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 24px;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:12px}
-.flow-step{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:.78em;text-align:center;min-width:130px;flex:1}
-.flow-step b{color:#fff;display:block;font-weight:700}
-.flow-step span{color:var(--mut);font-family:'JetBrains Mono',monospace;font-size:.85em}
-.flow-arr{color:var(--ne);font-weight:700}
-
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-@media(max-width:680px){.cols{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
-.icard h3{font-size:.72em;letter-spacing:.12em;text-transform:uppercase;color:var(--ne);margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.83em;color:#9c95b8;padding:5px 0;border-bottom:1px dashed var(--border)}
-.icard li:last-child{border:none}
-.icard li code{background:rgba(167,139,250,.08);color:var(--ne);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.92em}
-.tags span{display:inline-block;background:rgba(167,139,250,.1);color:var(--ne);border:1px solid rgba(167,139,250,.2);border-radius:14px;padding:2px 10px;font-size:.74em;margin:2px}
-
-.code{background:#06050d;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.code-head{background:var(--card);border-bottom:1px solid var(--border);padding:10px 16px;font-family:'JetBrains Mono',monospace;font-size:.74em;color:var(--mut)}
-pre{padding:18px 22px;font-family:'JetBrains Mono',monospace;font-size:.78em;line-height:1.7;color:#9b94be;overflow-x:auto}
-.kw{color:var(--ne)} .str{color:var(--ok)} .nu{color:#fbbf24} .cm{color:#5e5878;font-style:italic} .nb{color:var(--cy)}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);margin-top:32px;font-family:'JetBrains Mono',monospace}
-</style></head>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f5f6f8;color:#111}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.layout{max-width:1100px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1.1fr 1.4fr;gap:16px;min-height:calc(100vh - 36px)}
+@media(max-width:780px){.layout{grid-template-columns:1fr}}
+.avatar-panel{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#ec4899 100%);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;min-height:380px}
+.avatar-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent 50%);pointer-events:none}
+.avatar{width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:6em;position:relative;margin-bottom:18px;transition:transform .15s ease;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.avatar.talk{animation:talk .35s ease infinite alternate}
+@keyframes talk{from{transform:scale(1)}to{transform:scale(1.04)}}
+.avatar-name{font-size:1.4em;font-weight:700;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.avatar-sub{font-size:.85em;opacity:.85;margin-top:4px;text-align:center}
+.controls{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.ctrl{background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);color:#fff;padding:9px 16px;border-radius:8px;font-size:.85em;cursor:pointer;font-family:inherit;font-weight:600;display:flex;align-items:center;gap:6px}
+.ctrl:hover{background:rgba(255,255,255,.3)}
+.ctrl.rec.on{background:#dc2626;border-color:#fca5a5;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
+.voice-sel{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:9px 12px;border-radius:8px;font-size:.85em;font-family:inherit}
+.voice-sel option{background:#4f46e5}
+.chat-panel{background:#fff;border-radius:14px;border:1px solid #e6e6e6;display:flex;flex-direction:column;overflow:hidden}
+.chat-head{padding:14px 18px;border-bottom:1px solid #e6e6e6;display:flex;justify-content:space-between;align-items:center;background:#fafafa}
+.chat-head h2{font-size:1.05em;color:#333}
+.status{display:flex;align-items:center;gap:6px;font-size:.78em;color:#666}
+.dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:bp 2s infinite}
+@keyframes bp{50%{opacity:.3}}
+.chat{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:340px;max-height:60vh}
+.msg{padding:10px 14px;border-radius:14px;max-width:85%;line-height:1.5;font-size:.94em;animation:in .2s ease}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.msg.usr{background:#eef2ff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.ast{background:#f3f4f6;align-self:flex-start;border-bottom-left-radius:4px}
+.msg .role{font-size:.7em;color:#6b7280;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.composer{padding:14px;border-top:1px solid #e6e6e6;background:#fafafa}
+.composer form{display:flex;gap:8px}
+.composer input{flex:1;padding:11px 14px;border:1px solid #d9d9d9;border-radius:10px;font-size:.95em;outline:none;font-family:inherit}
+.composer input:focus{border-color:#6366f1}
+.send{padding:11px 20px;background:#6366f1;color:#fff;border:0;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit}
+.send:hover{background:#4f46e5}
+.feature-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tag{background:#fff;border:1px solid #e6e6e6;padding:4px 10px;border-radius:999px;font-size:.75em;color:#666}
+.tag.on{background:#10b981;color:#fff;border-color:#10b981}
+.kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px;font-size:.78em;width:100%}
+.kpi{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:8px 10px;border-radius:6px;color:rgba(255,255,255,.9)}
+.kpi b{display:block;font-size:1.1em;color:#fff}
+</style>
+</head>
 <body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Asistente IA con avatar 3D + síntesis de voz · El reconocimiento usa Web Speech API real (si tu navegador la soporta)</div>
 
-<header><div class="h-content">
-  <h1>🤖 Asistente con <b>Avatar 3D</b></h1>
-  <p class="sub">Chatbot web con personaje GLB animado en A-Frame, voz real (Web Speech API) y LLM local servido con Ollama. 24 iteraciones hasta el lip-sync sincronizado.</p>
-</div></header>
+<div class="layout">
+  <div class="avatar-panel">
+    <div class="avatar" id="avatar">🤖</div>
+    <div class="avatar-name">Jocarsa Assistant</div>
+    <div class="avatar-sub">Modelo Qwen + LoRA · TTS local</div>
+    <div class="controls">
+      <button class="ctrl rec" id="recBtn" onclick="toggleRec()">🎤 <span id="recLbl">Hablar</span></button>
+      <select class="voice-sel" id="voiceSel" title="Selector de voces"></select>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><small>Modelo</small><b>Qwen-0.5B</b></div>
+      <div class="kpi"><small>Latencia</small><b>~600ms</b></div>
+    </div>
+  </div>
 
-<div class="avatar-stage">
-  <div class="stage">
-    <div class="avatar">🧙‍♂️<div class="mouth"></div></div>
-    <div class="speech">Hola, soy tu asistente. ¿En qué puedo ayudarte hoy?<span class="bars"><i></i><i></i><i></i><i></i><i></i></span></div>
+  <div class="chat-panel">
+    <div class="chat-head">
+      <div>
+        <h2>💬 Chat con voz</h2>
+        <div class="feature-tags">
+          <span class="tag on" id="tag-tts">🔊 TTS</span>
+          <span class="tag" id="tag-rec">🎤 STT</span>
+          <span class="tag on">👤 Avatar</span>
+          <span class="tag on">🧠 LoRA</span>
+        </div>
+      </div>
+      <div class="status"><span class="dot"></span> En línea</div>
+    </div>
+
+    <div class="chat" id="chat">
+      <div class="msg ast"><div class="role">asistente</div>¡Hola! Soy tu asistente IA. Puedes escribirme o hablar con el botón del micrófono. Activa el altavoz para que te responda en voz.</div>
+    </div>
+
+    <div class="composer">
+      <form onsubmit="event.preventDefault();enviar();">
+        <input id="prompt" type="text" placeholder="Escribe tu mensaje..." autocomplete="off">
+        <button class="send" type="submit">Enviar</button>
+      </form>
+    </div>
   </div>
 </div>
 
-<main>
+<script>
+// ==== Síntesis de voz (TTS real con Web Speech) ====
+const synth = window.speechSynthesis;
+let voices = [];
+function loadVoices(){
+  voices = synth.getVoices().filter(v=>v.lang.startsWith('es') || v.lang.startsWith('en'));
+  const sel = document.getElementById('voiceSel');
+  sel.innerHTML = voices.length
+    ? voices.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join('')
+    : '<option>(sin voces)</option>';
+  // Preferir voz española femenina
+  const fem = voices.findIndex(v=>v.lang.startsWith('es') && /fem|mujer|women|maria|sara|elena|monica/i.test(v.name));
+  if(fem>=0) sel.value = fem;
+}
+loadVoices();
+synth.onvoiceschanged = loadVoices;
 
-  <div class="flow">
-    <div class="flow-step"><b>SpeechRecognition</b><span>voz → texto</span></div>
-    <span class="flow-arr">→</span>
-    <div class="flow-step"><b>fetch PHP</b><span>proxy Ollama</span></div>
-    <span class="flow-arr">→</span>
-    <div class="flow-step"><b>Ollama API</b><span>llama / qwen</span></div>
-    <span class="flow-arr">→</span>
-    <div class="flow-step"><b>SpeechSynthesis</b><span>tts → voz</span></div>
-    <span class="flow-arr">→</span>
-    <div class="flow-step"><b>Morph targets</b><span>A-Frame GLB</span></div>
-  </div>
+function speak(t){
+  if(!synth) return;
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(t);
+  const i = parseInt(document.getElementById('voiceSel').value);
+  if(voices[i]) u.voice = voices[i];
+  u.lang = u.voice ? u.voice.lang : 'es-ES';
+  u.rate = 1.05;
+  const av = document.getElementById('avatar');
+  u.onstart = ()=>av.classList.add('talk');
+  u.onend = ()=>av.classList.remove('talk');
+  synth.speak(u);
+}
 
-  <div class="cols">
-    <div class="icard">
-      <h3>// stack</h3>
-      <div class="tags">
-        <span>PHP proxy</span><span>A-Frame 1.6.0</span><span>WebXR · GLB</span>
-        <span>Web Speech API</span><span>SpeechSynthesis</span><span>Python LoRA</span>
-      </div>
-    </div>
-    <div class="icard">
-      <h3>// el truco del lip-sync</h3>
-      <ul>
-        <li><code>utterance.onstart</code> → setInterval anima morphs</li>
-        <li><code>utterance.onend</code> → clearInterval, boca cerrada</li>
-        <li>El avatar SOLO se mueve cuando habla</li>
-        <li>Debug overlay con estado 3D en tiempo real</li>
-      </ul>
-    </div>
-    <div class="icard" style="grid-column:1/-1">
-      <h3>// evolución (24 versiones)</h3>
-      <ul>
-        <li><code>008-chatbot base.html</code> — primera versión, sin avatar</li>
-        <li><code>016-carga glb.php</code> — A-Frame + carga modelo GLB</li>
-        <li><code>020-voz.php</code> — integración Web Speech API</li>
-        <li><code>024-animar solo al hablar.php</code> — versión final, lip-sync</li>
-      </ul>
-    </div>
-  </div>
+// ==== Reconocimiento de voz ====
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, recOn = false;
+if(SR){
+  rec = new SR();
+  rec.lang = 'es-ES';
+  rec.continuous = false;
+  rec.interimResults = false;
+  rec.onresult = e => {
+    const txt = e.results[0][0].transcript;
+    document.getElementById('prompt').value = txt;
+    enviar();
+  };
+  rec.onend = ()=>{ recOn = false; document.getElementById('recBtn').classList.remove('on'); document.getElementById('recLbl').textContent='Hablar'; };
+  document.getElementById('tag-rec').classList.add('on');
+}
+function toggleRec(){
+  if(!rec){ alert('Tu navegador no soporta Web Speech API. Prueba con Chrome.'); return; }
+  if(recOn){ rec.stop(); return; }
+  recOn = true;
+  document.getElementById('recBtn').classList.add('on');
+  document.getElementById('recLbl').textContent='Escuchando…';
+  rec.start();
+}
 
-  <div class="code">
-    <div class="code-head">// 024-animar solo al hablar.php — el corazón del lip-sync</div>
-<pre><span class="cm">// Morph targets sincronizados con la síntesis de voz</span>
-<span class="kw">const</span> utterance = <span class="kw">new</span> <span class="nb">SpeechSynthesisUtterance</span>(text);
-
-utterance.onstart = () =&gt; {
-    morphInterval = <span class="nb">setInterval</span>(() =&gt; {
-        mesh.morphTargetInfluences[<span class="nu">0</span>] =
-            <span class="nb">Math</span>.sin(<span class="nb">Date</span>.now() / <span class="nu">100</span>) * <span class="nu">0.5</span> + <span class="nu">0.5</span>;
-    }, <span class="nu">50</span>);
-};
-
-utterance.onend = () =&gt; {
-    <span class="nb">clearInterval</span>(morphInterval);
-    mesh.morphTargetInfluences[<span class="nu">0</span>] = <span class="nu">0</span>;   <span class="cm">// boca cerrada</span>
-};
-
-<span class="nb">speechSynthesis</span>.speak(utterance);</pre>
-  </div>
-
-</main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+// ==== Lógica del chatbot ====
+const KB = [
+  {k:['hola','buenos','buenas','saludos'], r:'¡Hola! Encantado de hablar contigo. ¿En qué puedo ayudarte hoy?'},
+  {k:['nombre','llamas','quien eres'], r:'Soy el asistente de jocarsa, un modelo Qwen 0.5B fine-tuneado con LoRA y servido desde Flask con interfaz de voz.'},
+  {k:['horario','horarios','abierto'], r:'Estamos disponibles de lunes a viernes de 9:00 a 18:00. Los fines de semana respondo automáticamente.'},
+  {k:['precio','coste','tarifa','presupuesto'], r:'Los precios dependen del proyecto. Para una consulta inicial, escríbeme un email a info@jocarsa.com y te paso un presupuesto en 24h.'},
+  {k:['contacto','email','correo','telefono'], r:'Puedes contactar en info@jocarsa.com o por WhatsApp al +34 600 000 000.'},
+  {k:['servicios','que haceis','ofertas'], r:'Ofrecemos: desarrollo web a medida, formación DAM, consultoría IA y automatizaciones con LLMs.'},
+  {k:['ia','inteligencia artificial','llm','gpt','qwen'], r:'Trabajamos con modelos open-source: Qwen, Llama, Mistral. Los entrenamos con tus datos vía LoRA y los servimos en tu propio servidor.'},
+  {k:['gracias','genial','perfecto'], r:'¡Un placer! ¿Quieres que te llame mañana?'}
+];
+function responder(p){
+  const t = p.toLowerCase();
+  for(const e of KB) if(e.k.some(x=>t.includes(x))) return e.r;
+  return 'Mmm, no estoy seguro de entender. ¿Puedes reformularlo? Sé responder sobre horarios, precios, contacto, servicios o IA.';
+}
+function add(role, txt){
+  const c = document.getElementById('chat');
+  const d = document.createElement('div');
+  d.className = 'msg '+(role==='user'?'usr':'ast');
+  d.innerHTML = `<div class="role">${role==='user'?'tú':'asistente'}</div>${txt}`;
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+function enviar(){
+  const p = document.getElementById('prompt').value.trim();
+  if(!p) return;
+  add('user', p);
+  document.getElementById('prompt').value = '';
+  setTimeout(()=>{
+    const r = responder(p);
+    add('ast', r);
+    speak(r);
+  }, 600);
+}
+</script>
+</body>
+</html>

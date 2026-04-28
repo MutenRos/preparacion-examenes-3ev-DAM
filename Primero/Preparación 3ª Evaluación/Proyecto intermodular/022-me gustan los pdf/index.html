@@ -1,132 +1,429 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🧰 Toolkit PDF</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--r:#dc2626;--bg:#0c0a0a;--bg2:#15110f;--card:#1f1816;--border:#2c211e;--mut:#7d6d68;--ok:#84cc16}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:#dccac4;min-height:100vh}
-
-header{padding:46px 24px 32px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#1a0e0a,transparent)}
-h1{font-size:2.4em;font-weight:800;color:#fff;letter-spacing:-.025em;margin-bottom:6px}
-h1 b{color:var(--r)}
-.sub{color:var(--mut);font-size:.95em;max-width:560px;margin:0 auto;line-height:1.55}
-
-main{max-width:980px;margin:32px auto;padding:0 20px 36px}
-
-/* big toolkit summary */
-.summary{background:linear-gradient(135deg,#241612,#1a100d);border:1px solid var(--border);border-radius:14px;padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;margin-bottom:28px}
-@media(max-width:600px){.summary{grid-template-columns:1fr;text-align:center}}
-.summary .ic{font-size:3.2em;line-height:1}
-.summary .text h2{font-size:1.3em;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
-.summary .text p{font-size:.88em;color:var(--mut);line-height:1.5}
-.summary .stats{display:flex;gap:18px;text-align:center}
-.summary .stat b{display:block;font-size:1.6em;color:var(--r);font-weight:800;font-family:'JetBrains Mono',monospace}
-.summary .stat span{font-size:.7em;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
-
-/* tools grid */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:28px}
-.tool{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 18px 16px;position:relative;transition:transform .25s,border-color .25s;overflow:hidden}
-.tool:hover{transform:translateY(-3px);border-color:var(--r)}
-.tool .num{position:absolute;top:14px;right:16px;font-family:'JetBrains Mono',monospace;font-size:.7em;color:#3a2e2a;font-weight:700;letter-spacing:.05em}
-.tool .ic{font-size:1.7em;display:block;margin-bottom:10px;line-height:1}
-.tool h3{font-size:1em;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
-.tool p{font-size:.8em;color:var(--mut);line-height:1.4}
-.tool .verb{display:inline-block;background:var(--r);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.66em;padding:2px 7px;border-radius:3px;margin-top:10px;font-weight:700;letter-spacing:.05em}
-
-/* duo info */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
-.icard h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--r);margin-bottom:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
-.icard ul{list-style:none}
-.icard li{font-size:.84em;color:#a89690;padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.5}
-.icard li:last-child{border:none}
-.icard li code{font-family:'JetBrains Mono',monospace;color:var(--r);background:rgba(220,38,38,.08);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-/* pipeline */
-.pipe{background:#0a0707;border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:24px}
-.pipe h3{font-size:.74em;letter-spacing:.12em;text-transform:uppercase;color:var(--r);margin-bottom:14px;font-weight:700;font-family:'JetBrains Mono',monospace}
-.pipe-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-.pipe-step{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.78em;text-align:center;min-width:120px;flex:1}
-.pipe-step b{color:#fff;display:block;font-weight:700;margin-bottom:1px}
-.pipe-step span{color:var(--mut);font-family:'JetBrains Mono',monospace;font-size:.85em}
-.pipe-arr{color:var(--r);font-weight:700;font-size:1.2em}
-
-footer{text-align:center;padding:22px;color:var(--border);font-size:.78em;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace}
-</style></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jocarsa-conversion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<header>
-  <h1>🧰 Toolkit <b>PDF</b></h1>
-  <p class="sub">Caja de herramientas web con 8 utilidades para manipular PDFs: combinar, extraer, comprimir, OCR, firmar y más. Frontend PHP, backend Python con pypdf y Pillow.</p>
+<div style="background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 system-ui,sans-serif;color:#78350f">🧪 <strong>Demo estática</strong> · Esta es la página real <code>009-ampliamos al maximo/index.html</code> · Las operaciones requieren backend PHP+Python (no funcionan en Pages, abren un diálogo simulado)</div>
+
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">
+            <div class="brand-mark">jc</div>
+            <div class="brand-text">
+                <h1>jocarsa-conversion</h1>
+                <p>Document format transformations</p>
+            </div>
+        </div>
+
+        <div class="search-panel">
+            <label for="operation-search" class="search-label">Search operation</label>
+            <input
+                type="search"
+                id="operation-search"
+                class="search-input"
+                placeholder="Search PDF, image, text, DOCX, JSON..."
+                autocomplete="off"
+            >
+        </div>
+    </div>
 </header>
 
-<main>
+<main class="page">
 
-  <div class="summary">
-    <div class="ic">📄</div>
-    <div class="text">
-      <h2>8 herramientas, una sola interfaz</h2>
-      <p>Cada acción tiene su propio script Python y su endpoint PHP. Todo desde el navegador, sin instalar nada.</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>8</b><span>herramientas</span></div>
-      <div class="stat"><b>2</b><span>lenguajes</span></div>
-    </div>
-  </div>
+    <section class="category-section" data-category="image">
+        <div class="category-header">
+            <div class="category-badge">IMAGE</div>
+            <h2>Image operations</h2>
+        </div>
 
-  <div class="tools">
-    <div class="tool"><span class="num">01</span><span class="ic">🔗</span><h3>Combinar</h3><p>Une varios PDF en uno</p><span class="verb">POST /merge</span></div>
-    <div class="tool"><span class="num">02</span><span class="ic">✂️</span><h3>Separar</h3><p>Divide por páginas o rangos</p><span class="verb">POST /split</span></div>
-    <div class="tool"><span class="num">03</span><span class="ic">🗜️</span><h3>Comprimir</h3><p>Reduce el peso del archivo</p><span class="verb">POST /compress</span></div>
-    <div class="tool"><span class="num">04</span><span class="ic">🖼️</span><h3>PDF → Imágenes</h3><p>Cada página a JPG/PNG</p><span class="verb">POST /to-image</span></div>
-    <div class="tool"><span class="num">05</span><span class="ic">📷</span><h3>Imágenes → PDF</h3><p>Junta JPGs en un PDF</p><span class="verb">POST /from-image</span></div>
-    <div class="tool"><span class="num">06</span><span class="ic">🔍</span><h3>OCR</h3><p>Texto desde escaneos</p><span class="verb">POST /ocr</span></div>
-    <div class="tool"><span class="num">07</span><span class="ic">🔒</span><h3>Proteger</h3><p>Cifra con contraseña</p><span class="verb">POST /encrypt</span></div>
-    <div class="tool"><span class="num">08</span><span class="ic">✍️</span><h3>Firmar</h3><p>Añade firma digital</p><span class="verb">POST /sign</span></div>
-  </div>
+        <div class="grid operations-grid">
+            <a class="card operation-card" href="#" onclick="mock(event,\'images_resize\')" data-title="Resize Images" data-tags="image resize jpg png webp bmp tiff dimensions scale">
+                <div class="icon">
+                    <span class="pill">IMG</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">IMG</span>
+                </div>
+                <div class="title">Resize Images</div>
+                <div class="subtitle">Resize one or many images</div>
+            </a>
 
-  <div class="pipe">
-    <h3>// arquitectura web → python</h3>
-    <div class="pipe-flow">
-      <div class="pipe-step"><b>Frontend</b><span>HTML form</span></div>
-      <span class="pipe-arr">→</span>
-      <div class="pipe-step"><b>PHP</b><span>upload + dispatch</span></div>
-      <span class="pipe-arr">→</span>
-      <div class="pipe-step"><b>Python</b><span>pypdf + Pillow</span></div>
-      <span class="pipe-arr">→</span>
-      <div class="pipe-step"><b>PHP</b><span>readfile() download</span></div>
-    </div>
-  </div>
+            <a class="card operation-card" href="#" onclick="mock(event,\'images_to_pdf\')" data-title="Images to PDF" data-tags="image pdf jpg png webp bmp tiff convert document">
+                <div class="icon">
+                    <span class="pill">IMG</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Images to PDF</div>
+                <div class="subtitle">Create a PDF from images</div>
+            </a>
 
-  <div class="duo">
-    <div class="icard">
-      <h3>// stack técnico</h3>
-      <ul>
-        <li>PHP — frontend, upload, exec()</li>
-        <li>Python 3 — toda la lógica PDF</li>
-        <li><code>pypdf</code> · merge, split, encrypt</li>
-        <li><code>Pillow</code> · imágenes</li>
-        <li><code>pytesseract</code> · OCR</li>
-        <li>Carpeta <code>tmp/</code> para staging</li>
-      </ul>
+            <a class="card operation-card" href="#" onclick="mock(event,\'jpg_to_png\')" data-title="JPG to PNG" data-tags="jpg jpeg png image convert">
+                <div class="icon">
+                    <span class="pill">JPG</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PNG</span>
+                </div>
+                <div class="title">JPG to PNG</div>
+                <div class="subtitle">Convert JPEG images to PNG</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'png_to_jpg\')" data-title="PNG to JPG" data-tags="png jpg jpeg image convert quality">
+                <div class="icon">
+                    <span class="pill">PNG</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">JPG</span>
+                </div>
+                <div class="title">PNG to JPG</div>
+                <div class="subtitle">Convert PNG images to JPEG</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'webp_to_png\')" data-title="WEBP to PNG" data-tags="webp png image convert">
+                <div class="icon">
+                    <span class="pill">WEBP</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PNG</span>
+                </div>
+                <div class="title">WEBP to PNG</div>
+                <div class="subtitle">Convert WEBP images to PNG</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="office">
+        <div class="category-header">
+            <div class="category-badge">OFFICE</div>
+            <h2>Office document operations</h2>
+        </div>
+
+        <div class="grid operations-grid">
+            <a class="card operation-card" href="#" onclick="mock(event,\'docx_to_pdf\')" data-title="DOCX to PDF" data-tags="docx pdf word office document convert">
+                <div class="icon">
+                    <span class="pill">DOCX</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">DOCX to PDF</div>
+                <div class="subtitle">Convert Word documents to PDF</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'docx_to_txt\')" data-title="DOCX to TXT" data-tags="docx txt word text office document extract">
+                <div class="icon">
+                    <span class="pill">DOCX</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">TXT</span>
+                </div>
+                <div class="title">DOCX to TXT</div>
+                <div class="subtitle">Extract plain text from DOCX</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'txt_to_docx\')" data-title="TXT to DOCX" data-tags="txt docx word text office document convert">
+                <div class="icon">
+                    <span class="pill">TXT</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">DOCX</span>
+                </div>
+                <div class="title">TXT to DOCX</div>
+                <div class="subtitle">Create DOCX from text files</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'xlsx_to_csv\')" data-title="XLSX to CSV" data-tags="xlsx csv excel spreadsheet office convert">
+                <div class="icon">
+                    <span class="pill">XLSX</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">CSV</span>
+                </div>
+                <div class="title">XLSX to CSV</div>
+                <div class="subtitle">Export spreadsheet sheets to CSV</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="pdf">
+        <div class="category-header">
+            <div class="category-badge">PDF</div>
+            <h2>PDF operations</h2>
+        </div>
+
+        <div class="grid operations-grid">
+            <a class="card operation-card" href="#" onclick="mock(event,\'extract_images_from_pdf\')" data-title="Extract Images from PDF" data-tags="pdf images extract jpg png">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">IMG</span>
+                </div>
+                <div class="title">Extract Images</div>
+                <div class="subtitle">Extract embedded images from PDF</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'extract_pages_pdf\')" data-title="Extract Pages" data-tags="pdf pages extract split select">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Extract Pages</div>
+                <div class="subtitle">Keep only selected pages</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'join_pdf\')" data-title="Join PDFs" data-tags="pdf merge join combine">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Join PDFs</div>
+                <div class="subtitle">Merge multiple PDF files</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'pdf_to_jpg\')" data-title="PDF to JPG" data-tags="pdf jpg jpeg image pages export">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">JPG</span>
+                </div>
+                <div class="title">PDF to JPG</div>
+                <div class="subtitle">Export PDF pages as JPG</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'pdf_to_png\')" data-title="PDF to PNG" data-tags="pdf png image pages export">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PNG</span>
+                </div>
+                <div class="title">PDF to PNG</div>
+                <div class="subtitle">Export PDF pages as PNG</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'pdf_to_text\')" data-title="PDF to TXT" data-tags="pdf txt text extract">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">TXT</span>
+                </div>
+                <div class="title">PDF to TXT</div>
+                <div class="subtitle">Extract text from PDF</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'remove_pages_pdf\')" data-title="Remove Pages" data-tags="pdf delete remove pages">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Remove Pages</div>
+                <div class="subtitle">Delete selected pages from PDF</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'reverse_pdf\')" data-title="Reverse PDF" data-tags="pdf reverse reorder pages">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Reverse PDF</div>
+                <div class="subtitle">Reverse page order</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'rotate_pdf\')" data-title="Rotate PDF" data-tags="pdf rotate orientation 90 180 270">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Rotate PDF</div>
+                <div class="subtitle">Rotate all pages</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'split_pdf\')" data-title="Split PDF" data-tags="pdf split pages ranges">
+                <div class="icon">
+                    <span class="pill">PDF</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">PDF</span>
+                </div>
+                <div class="title">Split PDF</div>
+                <div class="subtitle">Split into pages or ranges</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="text">
+        <div class="category-header">
+            <div class="category-badge">TEXT / DATA</div>
+            <h2>Text and structured data operations</h2>
+        </div>
+
+        <div class="grid operations-grid">
+            <a class="card operation-card" href="#" onclick="mock(event,\'csv_to_json\')" data-title="CSV to JSON" data-tags="csv json data convert table">
+                <div class="icon">
+                    <span class="pill">CSV</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">JSON</span>
+                </div>
+                <div class="title">CSV to JSON</div>
+                <div class="subtitle">Convert tabular CSV to JSON</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'html_to_md\')" data-title="HTML to MD" data-tags="html markdown md convert">
+                <div class="icon">
+                    <span class="pill">HTML</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">MD</span>
+                </div>
+                <div class="title">HTML to MD</div>
+                <div class="subtitle">Convert HTML to Markdown</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'html_to_txt\')" data-title="HTML to TXT" data-tags="html txt text convert plain text">
+                <div class="icon">
+                    <span class="pill">HTML</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">TXT</span>
+                </div>
+                <div class="title">HTML to TXT</div>
+                <div class="subtitle">Extract plain text from HTML</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'json_to_csv\')" data-title="JSON to CSV" data-tags="json csv data convert table">
+                <div class="icon">
+                    <span class="pill">JSON</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">CSV</span>
+                </div>
+                <div class="title">JSON to CSV</div>
+                <div class="subtitle">Convert JSON arrays to CSV</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'json_to_xml\')" data-title="JSON to XML" data-tags="json xml data convert structured">
+                <div class="icon">
+                    <span class="pill">JSON</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">XML</span>
+                </div>
+                <div class="title">JSON to XML</div>
+                <div class="subtitle">Convert JSON to XML</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'md_to_html\')" data-title="MD to HTML" data-tags="markdown md html convert">
+                <div class="icon">
+                    <span class="pill">MD</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">HTML</span>
+                </div>
+                <div class="title">MD to HTML</div>
+                <div class="subtitle">Convert Markdown to HTML</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'txt_to_html\')" data-title="TXT to HTML" data-tags="txt html text convert">
+                <div class="icon">
+                    <span class="pill">TXT</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">HTML</span>
+                </div>
+                <div class="title">TXT to HTML</div>
+                <div class="subtitle">Convert plain text to HTML</div>
+            </a>
+
+            <a class="card operation-card" href="#" onclick="mock(event,\'xml_to_json\')" data-title="XML to JSON" data-tags="xml json data convert structured">
+                <div class="icon">
+                    <span class="pill">XML</span>
+                    <span class="arrow">→</span>
+                    <span class="pill">JSON</span>
+                </div>
+                <div class="title">XML to JSON</div>
+                <div class="subtitle">Convert XML to JSON</div>
+            </a>
+        </div>
+    </section>
+
+    <div id="no-results" class="no-results" hidden>
+        No operations match your search.
     </div>
-    <div class="icard">
-      <h3>// dependencias Python</h3>
-      <ul>
-        <li><code>pip install pypdf</code></li>
-        <li><code>pip install Pillow</code></li>
-        <li><code>pip install pytesseract</code></li>
-        <li><code>apt install tesseract-ocr-spa</code></li>
-        <li>Por seguridad: validar MIME y tamaño</li>
-        <li>Limpiar <code>tmp/</code> tras cada job</li>
-      </ul>
-    </div>
-  </div>
 
 </main>
-<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
-</body></html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("operation-search");
+    const cards = Array.from(document.querySelectorAll(".operation-card"));
+    const sections = Array.from(document.querySelectorAll(".category-section"));
+    const noResults = document.getElementById("no-results");
+
+    function normalize(text) {
+        return (text || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filterOperations() {
+        const term = normalize(input.value);
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const haystack = normalize(
+                (card.dataset.title || "") + " " +
+                (card.dataset.tags || "") + " " +
+                (card.textContent || "")
+            );
+
+            const match = term === "" || haystack.includes(term);
+            card.style.display = match ? "" : "none";
+
+            if (match) {
+                visibleCount++;
+            }
+        });
+
+        sections.forEach(section => {
+            const visibleCards = section.querySelectorAll(".operation-card:not([style*='display: none'])");
+            section.style.display = visibleCards.length ? "" : "none";
+        });
+
+        noResults.hidden = visibleCount !== 0;
+    }
+
+    input.addEventListener("input", filterOperations);
+});
+</script>
+
+
+<script>
+function mock(ev, op){
+  ev.preventDefault();
+  const names = {
+    images_resize:'Resize Images', images_to_pdf:'Images to PDF', jpg_to_png:'JPG to PNG',
+    png_to_jpg:'PNG to JPG', webp_to_png:'WEBP to PNG', docx_to_pdf:'DOCX to PDF',
+    docx_to_txt:'DOCX to TXT', txt_to_docx:'TXT to DOCX', xlsx_to_csv:'XLSX to CSV',
+    extract_images_from_pdf:'Extract Images from PDF', extract_pages_pdf:'Extract Pages',
+    join_pdf:'Join PDFs', pdf_to_jpg:'PDF to JPG', pdf_to_png:'PDF to PNG',
+    pdf_to_text:'PDF to TXT', remove_pages_pdf:'Remove Pages', reverse_pdf:'Reverse PDF',
+    rotate_pdf:'Rotate PDF', split_pdf:'Split PDF', csv_to_json:'CSV to JSON',
+    html_to_md:'HTML to MD', html_to_txt:'HTML to TXT', json_to_csv:'JSON to CSV',
+    json_to_xml:'JSON to XML', md_to_html:'MD to HTML', txt_to_html:'TXT to HTML',
+    xml_to_json:'XML to JSON'
+  };
+  const name = names[op] || op;
+  let m = document.getElementById('mockmodal');
+  if(!m){
+    m = document.createElement('div');
+    m.id = 'mockmodal';
+    m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:999';
+    document.body.appendChild(m);
+  }
+  m.innerHTML = '<div style="background:#fff;padding:32px;border-radius:12px;max-width:440px;font-family:system-ui,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.3)">'+
+    '<h2 style="margin:0 0 10px;font-size:1.2rem">🛠️ '+name+'</h2>'+
+    '<p style="color:#475569;line-height:1.55;font-size:.92rem">Esta operación está implementada en <code>action.php</code> + scripts Python en la carpeta <code>operaciones/</code> del proyecto.</p>'+
+    '<p style="color:#475569;line-height:1.55;font-size:.92rem">En GitHub Pages no hay backend, así que el procesado real no se puede ejecutar aquí. Para verlo en funcionamiento clonar el repo y servirlo con PHP local.</p>'+
+    '<button onclick="document.getElementById(\'mockmodal\').remove()" style="background:#0ea5e9;color:#fff;border:0;padding:10px 22px;border-radius:6px;cursor:pointer;margin-top:8px;font-weight:600">Cerrar</button>'+
+    '</div>';
+  m.onclick = function(e){ if(e.target===m) m.remove(); };
+}
+</script>
+</body>
+</html>

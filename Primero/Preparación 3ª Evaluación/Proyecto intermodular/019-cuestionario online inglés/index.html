@@ -1,152 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🎓 Cuestionario online de inglés</title>
+<title>Test de nivel de inglés · DAM</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ox:#002147;--ox2:#003c7e;--paper:#fdf8ee;--ink:#1a1d2b;--gold:#d4a017;--red:#c0392b;--mut:#7a8298;--bg:#0c111e;--card:#152033;--border:#1f2c45}
-body{font-family:Inter,sans-serif;background:var(--bg);color:#ccd6e6;min-height:100vh}
-
-header{padding:42px 24px 30px;text-align:center;border-bottom:2px solid var(--ox2);background:linear-gradient(180deg,var(--ox)33,transparent)}
-.crest{font-size:2.4em;margin-bottom:8px}
-h1{font-family:Lora,Georgia,serif;font-size:2.3em;font-weight:700;color:#fff;letter-spacing:-.01em}
-h1 i{font-style:italic;color:var(--gold)}
-.sub{color:var(--mut);font-size:.95em;max-width:540px;margin:8px auto 0;line-height:1.55;font-family:Lora,serif;font-style:italic}
-
-main{max-width:760px;margin:32px auto;padding:0 20px 36px}
-
-/* badges */
-.cefr{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-.lvl{display:inline-flex;flex-direction:column;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;min-width:78px}
-.lvl b{font-family:Lora,serif;font-size:1.4em;color:#fff;font-weight:700}
-.lvl span{font-size:.68em;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
-.lvl.a1{border-color:#84cc16}
-.lvl.a2{border-color:#22c55e}
-.lvl.b1{border-color:#06b6d4}
-.lvl.b2{border-color:#3b82f6}
-.lvl.c1{border-color:#a855f7}
-.lvl.c2{border-color:var(--gold)}
-.lvl.a1 b{color:#a3e635} .lvl.a2 b{color:#4ade80}
-.lvl.b1 b{color:#22d3ee} .lvl.b2 b{color:#60a5fa}
-.lvl.c1 b{color:#c084fc} .lvl.c2 b{color:var(--gold)}
-
-/* exam paper */
-.paper{background:var(--paper);color:var(--ink);border-radius:4px;padding:36px 38px;box-shadow:0 24px 60px rgba(0,0,0,.5),inset 0 0 0 1px rgba(0,0,0,.04);font-family:Lora,Georgia,serif;position:relative}
-@media(max-width:540px){.paper{padding:28px 22px}}
-.paper::before{content:'';position:absolute;left:0;right:0;top:0;height:5px;background:var(--ox)}
-.paper-head{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:18px;font-size:.78em;font-family:Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#3a3f4d}
-.paper-head .right{font-style:italic;text-transform:none;letter-spacing:0}
-.paper h2{font-family:Lora,serif;font-size:1.1em;font-weight:700;color:var(--ox);margin:18px 0 10px}
-.paper h2::before{content:counter(qcount) '. ';counter-increment:qcount;color:var(--red);font-weight:700}
-.paper{counter-reset:qcount}
-.q-options{padding-left:22px;margin-bottom:6px}
-.q-options li{list-style:none;font-size:.95em;line-height:1.7;color:#2a2d3a;display:flex;align-items:center;gap:10px;padding:3px 0}
-.q-options li::before{content:'';display:inline-block;width:14px;height:14px;border:1.5px solid var(--ox);border-radius:50%;flex-shrink:0}
-.q-options li.correct::before{background:var(--ox);box-shadow:inset 0 0 0 3px var(--paper)}
-.q-options li.correct{font-weight:600;color:var(--ox)}
-.q-meta{font-family:Inter,sans-serif;font-size:.7em;letter-spacing:.1em;color:var(--red);text-transform:uppercase;font-weight:600;margin-bottom:3px}
-.divider{border:none;border-top:1px dashed #00000033;margin:18px 0}
-
-.score-stamp{display:inline-block;font-family:Inter,sans-serif;font-weight:700;color:var(--gold);border:2px solid var(--gold);padding:5px 12px;font-size:.82em;letter-spacing:.1em;text-transform:uppercase;transform:rotate(-3deg);margin-top:10px}
-
-/* tech */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
-@media(max-width:680px){.duo{grid-template-columns:1fr}}
-.icard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px 20px}
-.icard h3{font-family:Lora,serif;font-size:1em;color:var(--gold);margin-bottom:10px;font-weight:700}
-.icard ul{list-style:none}
-.icard li{font-size:.85em;color:#a8b3c8;padding:4px 0;border-bottom:1px dashed var(--border);font-family:Inter,sans-serif}
-.icard li:last-child{border:none}
-.icard li code{font-family:'Courier New',monospace;background:rgba(212,160,23,.08);color:var(--gold);padding:1px 5px;border-radius:3px;font-size:.92em}
-
-footer{text-align:center;padding:24px;color:var(--border);font-size:.78em;font-family:Lora,serif;font-style:italic;border-top:1px solid var(--border)}
-</style></head>
+body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#dbeafe 0%,#fce7f3 100%);min-height:100vh;color:#0f172a;line-height:1.5}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.wrap{max-width:780px;margin:24px auto;padding:0 22px}
+.card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08);overflow:hidden}
+.head{background:linear-gradient(135deg,#1e3a8a,#7c3aed);color:#fff;padding:28px 32px;text-align:center}
+.head h1{font-size:1.7rem;margin-bottom:6px}
+.head p{opacity:.9;font-size:.92em}
+.body{padding:30px 32px}
+.intro p{color:#475569;margin-bottom:14px}
+.fuente{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:6px;font-size:.82em;color:#1e3a8a;margin:14px 0;font-family:ui-monospace,monospace;word-break:break-all}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.88em;color:#475569;font-weight:600;margin-bottom:5px}
+.field input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:7px;font-size:.94em;font-family:inherit;outline:none}
+.field input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.btn{padding:11px 24px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.95em;width:100%;margin-top:8px}
+.btn:hover{filter:brightness(1.1)}
+.btn.sec{background:#f1f5f9;color:#0f172a}
+/* Test */
+.progress{height:7px;background:#e2e8f0;border-radius:7px;margin:0 0 22px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);transition:width .35s ease;border-radius:7px}
+.q-num{font-size:.82em;color:#64748b;margin-bottom:8px}
+.q-num b{color:#2563eb}
+.q-text{font-size:1.08em;color:#0f172a;margin-bottom:16px;font-weight:500;line-height:1.45}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-size:.94em;transition:all .15s ease;background:#fff}
+.opt:hover{border-color:#a5b4fc;background:#f5f3ff}
+.opt.sel{border-color:#2563eb;background:#eff6ff}
+.opt input{margin-right:6px}
+.nav-row{display:flex;gap:8px;margin-top:14px}
+.nav-row .btn{flex:1;width:auto}
+/* Resultado */
+.result{text-align:center;padding:18px 0}
+.score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.score-sub{color:#64748b;margin-top:6px;font-size:.9em}
+.lvl{display:inline-block;padding:10px 30px;border-radius:50px;font-weight:700;font-size:1.4em;margin:24px 0 10px;color:#fff}
+.lvl.A1{background:#10b981}.lvl.A2{background:#06b6d4}.lvl.B1{background:#3b82f6}.lvl.B2{background:#8b5cf6}.lvl.C1{background:#ec4899}.lvl.C2{background:#f59e0b}
+.cefr{display:flex;justify-content:space-between;gap:4px;margin-top:16px;padding:0 4px}
+.cefr-step{flex:1;text-align:center;padding:8px 4px;border-radius:6px;font-size:.78em;font-weight:600;color:#94a3b8;background:#f1f5f9}
+.cefr-step.act{color:#fff;transform:scale(1.05)}
+.cefr-step.act.A1{background:#10b981}.cefr-step.act.A2{background:#06b6d4}.cefr-step.act.B1{background:#3b82f6}.cefr-step.act.B2{background:#8b5cf6}.cefr-step.act.C1{background:#ec4899}.cefr-step.act.C2{background:#f59e0b}
+.detail{background:#f8fafc;border-radius:8px;padding:16px;margin-top:18px;text-align:left;font-size:.9em;color:#475569}
+.detail h3{font-size:1em;color:#0f172a;margin-bottom:8px}
+.detail-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2e8f0}
+.detail-row:last-child{border:0}
+.review{margin-top:14px;font-size:.85em;color:#64748b}
+.review .ok{color:#10b981}.review .ko{color:#dc2626}
+</style>
+</head>
 <body>
-<header>
-  <div class="crest">🎓</div>
-  <h1>English Proficiency <i>Assessment</i></h1>
-  <p class="sub">Cuestionario online con auto-corrección, niveles CEFR (A1→C2) y guardado opcional en Google Sheets como base de datos compartida.</p>
-</header>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Test CEFR · Las preguntas vienen de un Google Sheet CSV en producción · Mockup con 10 preguntas locales</div>
 
-<main>
+<div class="wrap"><div class="card" id="app"></div></div>
 
-  <div class="cefr">
-    <div class="lvl a1"><b>A1</b><span>Beginner</span></div>
-    <div class="lvl a2"><b>A2</b><span>Elementary</span></div>
-    <div class="lvl b1"><b>B1</b><span>Intermediate</span></div>
-    <div class="lvl b2"><b>B2</b><span>Upper-Int</span></div>
-    <div class="lvl c1"><b>C1</b><span>Advanced</span></div>
-    <div class="lvl c2"><b>C2</b><span>Mastery</span></div>
-  </div>
+<script>
+// 10 preguntas de muestra con dificultad creciente. Puntos 1-50 → A1..C1
+const PREGUNTAS = [
+  {q:"Choose the correct: 'I ___ from Spain.'", o:["am","is","are","be"], c:0, lvl:"A1"},
+  {q:"What's the past of 'go'?", o:["goed","went","gone","wented"], c:1, lvl:"A1"},
+  {q:"'She ___ tea every morning.' (drink)", o:["drinks","drink","drinking","drank"], c:0, lvl:"A2"},
+  {q:"Choose: 'There ___ many people at the party.'", o:["was","were","is","be"], c:1, lvl:"A2"},
+  {q:"'If I ___ rich, I would travel.' Type 2 conditional.", o:["am","were","be","will be"], c:1, lvl:"B1"},
+  {q:"What does 'to look forward to' mean?", o:["to remember","to anticipate with pleasure","to forget","to dislike"], c:1, lvl:"B1"},
+  {q:"Choose: 'By next year, she ___ here for a decade.'", o:["will live","will be living","will have lived","is living"], c:2, lvl:"B2"},
+  {q:"'Despite ___ tired, he kept working.' (be)", o:["being","be","to be","been"], c:0, lvl:"B2"},
+  {q:"Pick the synonym of 'meticulous':", o:["careless","sloppy","thorough","fast"], c:2, lvl:"C1"},
+  {q:"'Were it not for your help, we ___ failed.'", o:["had","would have","will","would"], c:1, lvl:"C1"}
+];
 
-  <div class="paper">
-    <div class="paper-head"><span>Examinee · ____________________</span><span class="right">Sample paper</span></div>
+// 5 puntos por acierto (max 50)
+function level(p){
+  if(p>=41) return 'C1';
+  if(p>=31) return 'B2';
+  if(p>=21) return 'B1';
+  if(p>=11) return 'A2';
+  if(p>=1) return 'A1';
+  return 'A1';
+}
+const LVL_DESC = {
+  A1:"Principiante. Comprende y usa expresiones cotidianas básicas.",
+  A2:"Elemental. Se comunica en situaciones sencillas y cotidianas.",
+  B1:"Intermedio. Maneja la mayoría de situaciones de viaje.",
+  B2:"Intermedio alto. Entiende ideas principales de textos complejos.",
+  C1:"Avanzado. Se expresa con fluidez y espontaneidad.",
+  C2:"Maestría. Comprende prácticamente todo lo leído u oído."
+};
 
-    <div class="q-meta">A2 · Grammar</div>
-    <h2>Choose the correct option:</h2>
-    <ul class="q-options">
-      <li>She <em>go</em> to school every day.</li>
-      <li class="correct">She <em>goes</em> to school every day.</li>
-      <li>She <em>going</em> to school every day.</li>
-    </ul>
+let datos = {nombre:'',email:''};
+let idx = 0;
+let answers = [];
 
-    <hr class="divider">
+function setHTML(html){ document.getElementById('app').innerHTML = html; }
 
-    <div class="q-meta">B1 · Reading</div>
-    <h2>Which preposition fits best?</h2>
-    <ul class="q-options">
-      <li>I'm interested <em>on</em> photography.</li>
-      <li>I'm interested <em>at</em> photography.</li>
-      <li class="correct">I'm interested <em>in</em> photography.</li>
-    </ul>
-
-    <hr class="divider">
-
-    <div class="q-meta">B2 · Vocabulary</div>
-    <h2>What does <em>"to take after"</em> mean?</h2>
-    <ul class="q-options">
-      <li>To follow someone</li>
-      <li class="correct">To resemble a family member</li>
-      <li>To remove something</li>
-    </ul>
-
-    <hr class="divider">
-
-    <div class="q-meta">C1 · Conditional</div>
-    <h2>Complete: "If I <em>______</em> earlier, I wouldn't have missed it."</h2>
-    <ul class="q-options">
-      <li>have left</li>
-      <li>left</li>
-      <li class="correct">had left</li>
-    </ul>
-
-    <div class="score-stamp">★ score: 4/4 — level B2+</div>
-  </div>
-
-  <div class="duo">
-    <div class="icard">
-      <h3>Stack técnico</h3>
-      <ul>
-        <li>PHP + <code>PDO SQLite</code> · resultados locales</li>
-        <li>Sesiones PHP para tracking del intento</li>
-        <li>Auto-corrección instantánea por pregunta</li>
-        <li>Cálculo de nivel CEFR final</li>
-      </ul>
+function viewIntro(){
+  setHTML(`<div class="head"><h1>🇬🇧 Test de nivel de inglés</h1><p>Cuestionario online · Resultado CEFR (A1 – C2)</p></div>
+  <div class="body">
+    <div class="intro">
+      <p>Completa tus datos y responde las 10 preguntas. Al final verás tu <strong>puntuación</strong> y tu <strong>nivel estimado</strong>.</p>
+      <div class="fuente">📊 En producción: preguntas cargadas de docs.google.com/.../pub?output=csv y respuestas guardadas en SQLite</div>
     </div>
-    <div class="icard">
-      <h3>Modos de almacenamiento</h3>
-      <ul>
-        <li><code>preguntas_local.csv</code> — banco fijo</li>
-        <li>Google Sheets como BBDD opcional</li>
-        <li><code>fopen</code> sobre URL pública del sheet</li>
-        <li>Resultados sincronizables con Sheets</li>
-      </ul>
-    </div>
-  </div>
+    <form onsubmit="event.preventDefault();start();">
+      <div class="field"><label>Nombre completo</label><input id="n" required></div>
+      <div class="field"><label>Email</label><input id="e" type="email" required></div>
+      <button class="btn" type="submit">Empezar el test →</button>
+    </form>
+  </div>`);
+}
 
-</main>
-<footer>Proyecto Intermodular DAM · 3ª Evaluación 2025-2026</footer>
-</body></html>
+function start(){
+  datos.nombre = document.getElementById('n').value;
+  datos.email = document.getElementById('e').value;
+  idx = 0; answers = [];
+  viewQ();
+}
+
+function viewQ(){
+  const p = PREGUNTAS[idx];
+  const total = PREGUNTAS.length;
+  const pct = ((idx)/total)*100;
+  setHTML(`<div class="head"><h1>📝 Test en curso</h1><p>${datos.nombre}</p></div>
+  <div class="body">
+    <div class="progress"><div class="progress-bar" style="width:${pct}%"></div></div>
+    <div class="q-num">Pregunta <b>${idx+1}</b> de ${total} · <span style="background:#e0e7ff;color:#3730a3;padding:1px 8px;border-radius:10px;font-size:.78em;font-weight:600">${p.lvl}</span></div>
+    <div class="q-text">${p.q}</div>
+    <div class="opts" id="opts">
+      ${p.o.map((o,i)=>`<label class="opt" data-i="${i}"><input type="radio" name="o" value="${i}"> ${o}</label>`).join('')}
+    </div>
+    <div class="nav-row">
+      ${idx>0?'<button class="btn sec" onclick="prev()">← Anterior</button>':''}
+      <button class="btn" id="next" onclick="next()" disabled>${idx===total-1?'Ver resultado →':'Siguiente →'}</button>
+    </div>
+  </div>`);
+  document.querySelectorAll('.opt').forEach(o=>{
+    o.onclick = ()=>{
+      document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      o.querySelector('input').checked = true;
+      document.getElementById('next').disabled = false;
+    };
+  });
+  // Restaurar previa
+  if(answers[idx]!=null){
+    const o = document.querySelector(`.opt[data-i="${answers[idx]}"]`);
+    if(o){ o.click(); }
+  }
+}
+
+function prev(){ idx--; viewQ(); }
+function next(){
+  const sel = document.querySelector('input[name=o]:checked');
+  answers[idx] = parseInt(sel.value);
+  if(idx === PREGUNTAS.length-1){ viewResult(); return; }
+  idx++; viewQ();
+}
+
+function viewResult(){
+  let aciertos = 0;
+  PREGUNTAS.forEach((p,i)=>{ if(answers[i]===p.c) aciertos++; });
+  const puntos = aciertos * 5;
+  const lvl = level(puntos);
+
+  const cefrSteps = ['A1','A2','B1','B2','C1','C2'].map(L=>
+    `<div class="cefr-step ${L===lvl?'act '+L:''}">${L}</div>`
+  ).join('');
+
+  const review = PREGUNTAS.map((p,i)=>{
+    const ok = answers[i]===p.c;
+    return `<div class="detail-row"><span>Q${i+1}: ${p.q.slice(0,60)}…</span><span class="${ok?'ok':'ko'}">${ok?'✓':'✗'}</span></div>`;
+  }).join('');
+
+  setHTML(`<div class="head"><h1>📊 Resultado del test</h1><p>${datos.nombre} · ${datos.email}</p></div>
+  <div class="body">
+    <div class="result">
+      <div class="score">${puntos}<span style="font-size:.5em;color:#94a3b8">/50</span></div>
+      <div class="score-sub">${aciertos} de ${PREGUNTAS.length} preguntas correctas</div>
+      <div class="lvl ${lvl}">${lvl}</div>
+      <p style="color:#475569;max-width:480px;margin:0 auto">${LVL_DESC[lvl]}</p>
+      <div class="cefr">${cefrSteps}</div>
+
+      <div class="detail">
+        <h3>Detalle de respuestas</h3>
+        ${review}
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:18px">
+        <button class="btn sec" onclick="viewIntro()">Empezar de nuevo</button>
+        <button class="btn" onclick="alert('Resultado guardado en SQLite (mockup)')">💾 Guardar resultado</button>
+      </div>
+    </div>
+  </div>`);
+}
+
+viewIntro();
+</script>
+</body>
+</html>
