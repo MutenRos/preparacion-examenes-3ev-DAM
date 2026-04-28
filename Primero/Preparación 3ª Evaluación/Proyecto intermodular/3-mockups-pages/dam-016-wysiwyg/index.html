@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>jocarsa WYSIWYG — editor de texto enriquecido</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--acc:#7c5cbf;--acc2:#a57fff;--bg:#0e0b14;--bg2:#15111e;--card:#1c1728;--border:#2d2440;--text:#d4c8f0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  header{padding:44px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+  h1{font-size:2.2em;font-weight:700;color:#fff;margin-bottom:6px}
+  h1 em{background:linear-gradient(135deg,var(--acc2),#e0aaff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+  .sub{color:#6a5880;font-size:.88em}
+  .meta-row{max-width:760px;margin:24px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .badge{background:rgba(124,92,191,.15);border:1px solid rgba(124,92,191,.3);color:var(--acc2);padding:4px 14px;border-radius:20px;font-size:.78em}
+
+  /* demo editor embebido */
+  .demo-wrap{max-width:760px;margin:32px auto 0;padding:0 20px}
+  .demo-label{font-size:.72em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(124,92,191,.6);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .demo-label::before{content:'▶';color:var(--acc2)}
+  .editor-chrome{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .editor-top{background:var(--card);border-bottom:1px solid var(--border);padding:10px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .editor-top .btn{background:rgba(165,127,255,.1);border:1px solid rgba(165,127,255,.2);color:var(--acc2);padding:4px 11px;border-radius:5px;font-size:.78em;cursor:pointer;font-family:inherit;transition:background .15s}
+  .editor-top .btn:hover{background:rgba(165,127,255,.2)}
+  .editor-top .sep{width:1px;height:18px;background:var(--border);margin:0 4px}
+  [contenteditable]{padding:20px 22px;min-height:160px;font-size:.9em;line-height:1.7;color:var(--text);outline:none;font-family:'Plus Jakarta Sans',sans-serif}
+  [contenteditable] h2{color:#e0aaff;margin-bottom:8px}
+  [contenteditable] p{color:#b0a0d0}
+  [contenteditable] b{color:#fff}
+  [contenteditable] em{color:var(--acc2)}
+  [contenteditable] u{text-decoration-color:var(--acc2)}
+  [contenteditable]:focus{background:rgba(124,92,191,.03)}
+
+  /* ficha técnica */
+  .tech-section{max-width:760px;margin:28px auto;padding:0 20px}
+  .tech-section h2{font-size:.82em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(124,92,191,.6);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .tech-section h2::before{content:'◆';color:var(--acc2);font-size:.8em}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .card h3{font-size:.82em;font-weight:600;color:var(--acc2);margin-bottom:10px}
+  .card li,.card p{font-size:.8em;color:#7a6898;line-height:1.6;padding-left:14px}
+  .card ul{padding-left:0;list-style:none}
+  .card li::before{content:'→ ';color:var(--acc);margin-left:0}
+  .files{margin:16px 0}
+  .file{display:flex;gap:10px;font-size:.78em;padding:5px 0;border-bottom:1px solid rgba(46,36,64,.5)}
+  .file:last-child{border:none}
+  .fname{color:var(--acc2);flex:1;font-family:monospace}
+  .fdesc{color:#5a4870}
+  footer{text-align:center;padding:22px;color:#2d2440;font-size:.78em;border-top:1px solid var(--border);margin-top:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>✏️ jocarsa <em>WYSIWYG</em></h1>
+  <p class="sub">Editor de texto enriquecido construido desde cero — sin librerías externas</p>
+  <div class="meta-row">
+    <span class="badge">contentEditable</span>
+    <span class="badge">execCommand</span>
+    <span class="badge">Vanilla JS</span>
+    <span class="badge">CSS Custom Properties</span>
+  </div>
+</header>
+
+<div class="demo-wrap">
+  <p class="demo-label">editor en vivo — pruébalo aquí</p>
+  <div class="editor-chrome">
+    <div class="editor-top">
+      <button class="btn" onclick="document.execCommand('bold')"><b>B</b></button>
+      <button class="btn" onclick="document.execCommand('italic')"><i>I</i></button>
+      <button class="btn" onclick="document.execCommand('underline')"><u>U</u></button>
+      <div class="sep"></div>
+      <button class="btn" onclick="document.execCommand('justifyLeft')">⬅</button>
+      <button class="btn" onclick="document.execCommand('justifyCenter')">⬛</button>
+      <button class="btn" onclick="document.execCommand('justifyRight')">➡</button>
+      <div class="sep"></div>
+      <button class="btn" onclick="document.execCommand('insertUnorderedList')">☰</button>
+      <button class="btn" onclick="document.execCommand('insertOrderedList')">①</button>
+      <div class="sep"></div>
+      <button class="btn" onclick="document.execCommand('undo')">↩</button>
+      <button class="btn" onclick="document.execCommand('redo')">↪</button>
+    </div>
+    <div contenteditable="true" id="editor">
+      <h2>¡Hola desde jocarsa WYSIWYG!</h2>
+      <p>Este es un editor de texto enriquecido construido <b>desde cero</b> con <em>JavaScript puro</em>. Selecciona texto y usa los botones para formatearlo.</p>
+      <p>Prueba a poner en <b>negrita</b>, en <u>cursiva</u>, cambiar alineación o añadir listas. Todo funciona con <code>document.execCommand()</code> y un <code>div[contentEditable]</code>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tech-section">
+  <h2>cómo funciona</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>El núcleo del editor</h3>
+      <ul>
+        <li>Un <code>div contenteditable="true"</code> como área de texto</li>
+        <li><code>document.execCommand()</code> para formato</li>
+        <li>Botones de toolbar con eventos <code>onclick</code></li>
+        <li>El CSS formatea el resultado en tiempo real</li>
+        <li>Se integra en un <code>&lt;form&gt;</code> con <code>&lt;textarea&gt;</code> oculto</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Archivos del proyecto</h3>
+      <div class="files">
+        <div class="file"><span class="fname">001-inicio.html</span><span class="fdesc">textarea desnudo</span></div>
+        <div class="file"><span class="fname">002-boton negrita.html</span><span class="fdesc">primer execCommand</span></div>
+        <div class="file"><span class="fname">003-evento.html</span><span class="fdesc">eventos del editor</span></div>
+        <div class="file"><span class="fname">004-switch.html</span><span class="fdesc">toggle negrita/cursiva</span></div>
+        <div class="file"><span class="fname">005-rango.html</span><span class="fdesc">Range API, selección</span></div>
+        <div class="file"><span class="fname">jocarsa-wysiwyg.js</span><span class="fdesc">clase editor final</span></div>
+        <div class="file"><span class="fname">jocarsa-wysiwyg.css</span><span class="fdesc">estilos toolbar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body>
+</html>

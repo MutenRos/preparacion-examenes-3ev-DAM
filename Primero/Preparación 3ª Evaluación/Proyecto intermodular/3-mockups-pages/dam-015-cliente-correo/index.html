@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cliente de Correo Electrónico — mockups progresivos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--acc:#5b8dee;--bg:#0c0f14;--bg2:#131820;--sidebar:#0f1319;--card:#161d28;--border:#1e2a3a;--text:#c8d8f0;--muted:#4a6080}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+  /* mock email chrome */
+  .app-chrome{max-width:900px;margin:28px auto 0;padding:0 16px;width:100%}
+  .toolbar{background:var(--sidebar);border-radius:10px 10px 0 0;border:1px solid var(--border);border-bottom:none;padding:10px 16px;display:flex;align-items:center;gap:10px}
+  .dots{display:flex;gap:6px}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .dot.r{background:#ff5f57} .dot.y{background:#febc2e} .dot.g{background:#28c840}
+  .toolbar-title{flex:1;text-align:center;font-size:.8em;color:var(--muted)}
+  .mock-inbox{background:var(--bg2);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;display:flex;height:240px}
+  .mock-sidebar{width:190px;border-right:1px solid var(--border);background:var(--sidebar);padding:12px 0;flex-shrink:0}
+  .mock-folder{padding:6px 16px;font-size:.78em;cursor:pointer;color:var(--muted);display:flex;align-items:center;gap:8px;transition:background .15s}
+  .mock-folder.active{background:rgba(91,141,238,.12);color:var(--acc);border-right:2px solid var(--acc)}
+  .mock-folder:hover:not(.active){background:#ffffff08}
+  .mock-badge{margin-left:auto;background:var(--acc);color:#fff;border-radius:10px;padding:1px 7px;font-size:.7em}
+  .mock-list{flex:1;overflow:hidden;border-right:1px solid var(--border)}
+  .mock-email{padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
+  .mock-email:hover{background:#ffffff06}
+  .mock-email.unread .from{font-weight:700;color:#ddeeff}
+  .from{font-size:.8em;color:var(--muted)}
+  .subject{font-size:.8em;color:var(--text);margin:1px 0}
+  .preview-snippet{font-size:.72em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mock-preview{flex:1;padding:16px;font-size:.78em;color:var(--muted);line-height:1.6;display:none}
+  @media(min-width:700px){.mock-preview{display:block}}
+  .mock-preview .header-preview{border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:10px}
+  .mock-preview .subject-preview{font-size:.95em;color:var(--text);font-weight:500;margin-bottom:4px}
+  .mock-preview .meta{font-size:.78em;color:var(--muted)}
+
+  /* iteraciones */
+  header{padding:36px 24px 28px;text-align:center}
+  h1{font-size:1.9em;font-weight:700;color:#fff;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:.88em}
+  .steps{max-width:860px;margin:28px auto;padding:0 16px;display:flex;flex-direction:column;gap:0}
+  .step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;border-radius:8px;padding:14px 12px}
+  .step:hover{background:var(--card)}
+  .step:last-child{border-bottom:none}
+  .step-num{font-size:.7em;font-weight:700;color:var(--acc);min-width:28px;padding-top:2px}
+  .step-content h3{font-size:.92em;font-weight:500;color:#c8d8f0;margin-bottom:4px}
+  .step-content p{font-size:.8em;color:var(--muted);line-height:1.5}
+  .step-tag{display:inline-block;font-size:.7em;background:rgba(91,141,238,.1);color:var(--acc);border:1px solid rgba(91,141,238,.2);border-radius:4px;padding:1px 6px;margin-top:6px;margin-right:4px}
+  footer{text-align:center;padding:20px;color:var(--border);font-size:.78em;margin-top:auto;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <h1>✉️ Cliente de Correo</h1>
+  <p class="sub">Mockups progresivos de una interfaz webmail — de layout básico a login IMAP</p>
+</header>
+
+<!-- Mock UI preview -->
+<div class="app-chrome">
+  <div class="toolbar">
+    <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+    <div class="toolbar-title">jocarsa mail — bandeja de entrada</div>
+  </div>
+  <div class="mock-inbox">
+    <div class="mock-sidebar">
+      <div class="mock-folder active">📥 Entrada <span class="mock-badge">3</span></div>
+      <div class="mock-folder">📤 Enviados</div>
+      <div class="mock-folder">📁 Borradores</div>
+      <div class="mock-folder">🗑️ Papelera</div>
+    </div>
+    <div class="mock-list">
+      <div class="mock-email unread"><div class="from">GitHub ✔</div><div class="subject">Security alert triggered</div><div class="preview-snippet">We noticed a new sign-in to your account...</div></div>
+      <div class="mock-email unread"><div class="from">jocarsa</div><div class="subject">Reunión teams esta tarde</div><div class="preview-snippet">Os recuerdo que hay clase a las 16:00...</div></div>
+      <div class="mock-email"><div class="from">Namecheap</div><div class="subject">Domain renewal upcoming</div><div class="preview-snippet">Your domain jocarsa.com is expiring in...</div></div>
+      <div class="mock-email"><div class="from">Darío G.</div><div class="subject">Re: entrega proyecto</div><div class="preview-snippet">Adjunto la versión corregida del...</div></div>
+    </div>
+    <div class="mock-preview">
+      <div class="header-preview">
+        <div class="subject-preview">Reunión teams esta tarde</div>
+        <div class="meta">De: jocarsa &lt;info@jocarsa.com&gt; · hoy 15:42</div>
+      </div>
+      Os recuerdo que hay clase práctica a las 16:00 en el aula de informática. Traed el proyecto de la 3ª evaluación con los últimos cambios.
+    </div>
+  </div>
+</div>
+
+<!-- iteraciones -->
+<div class="steps">
+  <a href="002-interfaz.html" class="step">
+    <div class="step-num">02</div>
+    <div class="step-content">
+      <h3>Interfaz base</h3>
+      <p>Estructura HTML inicial con tres columnas: sidebar de carpetas, lista de mensajes y panel de lectura.</p>
+      <span class="step-tag">Layout</span><span class="step-tag">CSS Grid</span>
+    </div>
+  </a>
+  <a href="003-elementos.html" class="step">
+    <div class="step-num">03</div>
+    <div class="step-content">
+      <h3>Componentes UI completos</h3>
+      <p>Cabeceras, barra de herramientas, lista de mensajes con estados leído/no leído, panel de lectura con cuerpo del mensaje.</p>
+      <span class="step-tag">UI Components</span><span class="step-tag">Flexbox</span>
+    </div>
+  </a>
+  <a href="004-estilizamos ia.html" class="step">
+    <div class="step-num">04</div>
+    <div class="step-content">
+      <h3>Rediseño asistido por IA</h3>
+      <p>Iteración visual con ayuda de IA: paleta oscura refinada, iconos, hover states y tipografía mejorada.</p>
+      <span class="step-tag">IA + CSS</span>
+    </div>
+  </a>
+  <a href="005-conversacion.html" class="step">
+    <div class="step-num">05</div>
+    <div class="step-content">
+      <h3>Vista de conversación (threading)</h3>
+      <p>Mensajes agrupados por asunto mostrando el hilo completo, estilo Gmail. Cada mensaje colapsable.</p>
+      <span class="step-tag">Threading</span><span class="step-tag">accordion</span>
+    </div>
+  </a>
+  <a href="006-inicio de sesion.html" class="step">
+    <div class="step-num">06</div>
+    <div class="step-content">
+      <h3>Pantalla de login</h3>
+      <p>Formulario con campos de servidor IMAP, puerto, usuario y contraseña. Validación HTML5.</p>
+      <span class="step-tag">Auth</span><span class="step-tag">IMAP</span>
+    </div>
+  </a>
+  <a href="007-login.html" class="step">
+    <div class="step-num">07</div>
+    <div class="step-content">
+      <h3>Login estilizado</h3>
+      <p>Rediseño del formulario de acceso con animaciones de entrada, validación en tiempo real con JavaScript y feedback visual.</p>
+      <span class="step-tag">JS validation</span><span class="step-tag">animaciones</span>
+    </div>
+  </a>
+</div>
+
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+</body>
+</html>
