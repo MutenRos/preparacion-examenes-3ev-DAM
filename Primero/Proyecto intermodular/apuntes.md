@@ -111,6 +111,12 @@
   - [API rotation](#api-rotation)
   - [scrapear web con IA](#scrapear-web-con-ia)
   - [modelos multimodales](#modelos-multimodales)
+  - [RAG](#rag)
+  - [NaN](#nan)
+  - [minipowerpoint](#minipowerpoint)
+  - [bullets](#bullets)
+  - [MCP ollama Blender](#mcp-ollama-blender)
+  - [creador de esquemas](#creador-de-esquemas)
 - [Carpeta sin título](#carpeta-sin-titulo)
 - [New Folder](#new-folder)
 
@@ -22244,6 +22250,42 @@ int main() {
 ## modelos multimodales
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/031-modelos%20multimodales)
+
+
+<a id="rag"></a>
+## RAG
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/032-RAG)
+
+
+<a id="nan"></a>
+## NaN
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/033-NaN)
+
+
+<a id="minipowerpoint"></a>
+## minipowerpoint
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/034-minipowerpoint)
+
+
+<a id="bullets"></a>
+## bullets
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/035-bullets)
+
+
+<a id="mcp-ollama-blender"></a>
+## MCP ollama Blender
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/036-MCP%20ollama%20Blender)
+
+
+<a id="creador-de-esquemas"></a>
+## creador de esquemas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/037-creador%20de%20esquemas)
 
 
 

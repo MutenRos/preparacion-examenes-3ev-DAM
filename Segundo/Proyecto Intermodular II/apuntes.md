@@ -56,6 +56,7 @@
 - [Proyectos tercer trimestre](#proyectos-tercer-trimestre)
   - [Clasificador documental inteligente](#clasificador-documental-inteligente)
   - [Cosas de practicas](#cosas-de-practicas)
+  - [RAG](#rag)
 - [Actividad libre de final de evaluación - La milla extra](#actividad-libre-de-final-de-evaluacion-la-milla-extra)
   - [La Milla Extra - Primera evaluación](#la-milla-extra-primera-evaluacion)
 - [Actividades final de unidad - Segundo trimestre](#actividades-final-de-unidad-segundo-trimestre)
@@ -28778,6 +28779,12 @@ echo json_encode([
 ## Cosas de practicas
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/010-Proyectos%20tercer%20trimestre/002-Cosas%20de%20practicas)
+
+
+<a id="rag"></a>
+## RAG
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Segundo/Proyecto%20Intermodular%20II/010-Proyectos%20tercer%20trimestre/003-RAG)
 
 
 

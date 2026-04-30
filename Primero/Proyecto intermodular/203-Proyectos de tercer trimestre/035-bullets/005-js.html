@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html,body{
+    margin:0;
+    padding:20px;
+    font-family:Ubuntu,sans-serif;
+    background:#f0f0f0;
+}
+
+ul,li{
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+
+ul{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+li{
+    background:black;
+    color:white;
+    padding:10px;
+    border-radius:5px;
+    outline:none;
+}
+</style>
+</head>
+<body>
+
+<ul id="lista">
+    <li contenteditable>Presentacion</li>
+</ul>
+
+<script>
+
+const lista = document.getElementById("lista");
+
+lista.addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+
+        e.preventDefault();
+
+        const nuevo = document.createElement("li");
+        nuevo.contentEditable = true;
+        nuevo.textContent = "";
+
+        const actual = document.activeElement;
+
+        if(actual && actual.tagName === "LI"){
+            actual.insertAdjacentElement("afterend",nuevo);
+        }else{
+            lista.appendChild(nuevo);
+        }
+
+        nuevo.focus();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

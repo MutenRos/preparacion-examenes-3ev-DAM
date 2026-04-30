@@ -1,6 +1,6 @@
 # Proyecto Intermodular II — Estado de ejercicios
 
-Generado: 2026-04-23 19:00
+Generado: 2026-04-30 18:00
 
 ---
 
@@ -84,6 +84,7 @@ _Sin subunidades_
 
 - 🔴 Clasificador documental inteligente
 - 🔴 Cosas de practicas
+- 🔴 RAG
 
 
 ## Actividad libre de final de evaluación - La milla extra
