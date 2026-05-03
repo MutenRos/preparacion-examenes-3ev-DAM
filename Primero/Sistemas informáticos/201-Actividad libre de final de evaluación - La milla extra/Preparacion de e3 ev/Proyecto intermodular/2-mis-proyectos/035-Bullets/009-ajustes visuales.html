@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+:root{
+    --spacing:12px;
+    --radius:48px;
+    --item-radius:44px;
+    --number-size:30px;
+    --padding-x:16px;
+    --padding-y:14px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    min-height:100%;
+    background:#f3f4f6;
+    font-family:Ubuntu,sans-serif;
+    color:#111;
+}
+
+body{
+
+}
+
+ul,li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+ul{
+    display:flex;
+    flex-direction:column;
+    gap:var(--spacing);
+
+    
+    margin:auto;
+
+    padding:var(--spacing);
+
+    border-radius:var(--radius);
+
+  
+
+ 
+
+    counter-reset:item;
+}
+
+li{
+    counter-increment:item;
+
+    position:relative;
+
+    min-height:58px;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        var(--padding-y)
+        var(--padding-x)
+        var(--padding-y)
+        calc(var(--padding-x) + var(--number-size) + 12px);
+
+    border-radius:var(--item-radius);
+
+    background:black;
+    color:white;
+
+    font-size:16px;
+    line-height:1.4;
+
+    outline:none;
+
+    animation:appear 0.22s ease-out;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s,
+        height 0.2s,
+        margin 0.2s,
+        padding 0.2s,
+        background 0.2s;
+}
+
+li:focus{
+    background:#111827;
+}
+
+li::before{
+
+    content:counter(item);
+
+    position:absolute;
+
+    left:var(--padding-x);
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:var(--number-size);
+    height:var(--number-size);
+
+    border-radius:999px;
+
+    background:white;
+    color:black;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+li.removing{
+    opacity:0;
+    transform:translateX(-20px) scale(0.96);
+
+    height:0;
+    min-height:0;
+
+    padding-top:0;
+    padding-bottom:0;
+
+    margin:0;
+
+    overflow:hidden;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:
+            translateY(-8px)
+            scale(0.98);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0px)
+            scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<input type="file" id="abrirArchivo" accept=".txt" hidden>
+
+<ul id="lista"></ul>
+
+<script>
+
+const lista = document.getElementById("lista");
+const abrirArchivo = document.getElementById("abrirArchivo");
+
+const STORAGE_KEY = "presentacion_items";
+
+cargarLocalStorage();
+
+lista.addEventListener("input", guardarLocalStorage);
+
+lista.addEventListener("keydown", function(e){
+
+    const actual = document.activeElement;
+
+    if(!actual || actual.tagName !== "LI") return;
+
+    // NUEVO ELEMENTO
+    if(e.key === "Enter"){
+
+        e.preventDefault();
+
+        const nuevo = crearLi("");
+
+        actual.insertAdjacentElement(
+            "afterend",
+            nuevo
+        );
+
+        nuevo.focus();
+
+        guardarLocalStorage();
+    }
+
+    // ELIMINAR VACÍO
+    if(e.key === "Backspace"){
+
+        const texto = actual.textContent.trim();
+
+        if(texto === ""){
+
+            e.preventDefault();
+
+            if(lista.children.length === 1) return;
+
+            const anterior = actual.previousElementSibling;
+            const siguiente = actual.nextElementSibling;
+
+            actual.classList.add("removing");
+
+            setTimeout(()=>{
+
+                actual.remove();
+
+                if(anterior){
+                    moverCursorFinal(anterior);
+                }else if(siguiente){
+                    moverCursorFinal(siguiente);
+                }
+
+                guardarLocalStorage();
+
+            },200);
+        }
+    }
+
+});
+
+// ATAJOS
+document.addEventListener("keydown", function(e){
+
+    if(!e.ctrlKey) return;
+
+    const tecla = e.key.toLowerCase();
+
+    // NUEVO
+    if(tecla === "n"){
+
+        e.preventDefault();
+
+        resetear();
+    }
+
+    // GUARDAR
+    if(tecla === "s"){
+
+        e.preventDefault();
+
+        guardarTxt();
+    }
+
+    // ABRIR
+    if(tecla === "o"){
+
+        e.preventDefault();
+
+        abrirArchivo.click();
+    }
+
+});
+
+// ABRIR TXT
+abrirArchivo.addEventListener("change", function(){
+
+    const archivo = abrirArchivo.files[0];
+
+    if(!archivo) return;
+
+    const lector = new FileReader();
+
+    lector.onload = function(){
+
+        cargarDesdeTexto(
+            lector.result
+        );
+
+        guardarLocalStorage();
+
+        abrirArchivo.value = "";
+    };
+
+    lector.readAsText(archivo);
+
+});
+
+// CREAR LI
+function crearLi(texto){
+
+    const li = document.createElement("li");
+
+    li.contentEditable = true;
+
+    li.textContent = texto;
+
+    return li;
+}
+
+// OBTENER ITEMS
+function obtenerItems(){
+
+    return [...lista.querySelectorAll("li")]
+        .map(li => li.textContent.trim());
+}
+
+// GUARDAR
+function guardarLocalStorage(){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(obtenerItems())
+    );
+}
+
+// CARGAR
+function cargarLocalStorage(){
+
+    const datos = localStorage.getItem(STORAGE_KEY);
+
+    if(datos){
+
+        try{
+
+            const items = JSON.parse(datos);
+
+            cargarItems(
+                items.length
+                ? items
+                : ["Presentacion"]
+            );
+
+        }catch(e){
+
+            cargarItems(["Presentacion"]);
+        }
+
+    }else{
+
+        cargarItems(["Presentacion"]);
+    }
+}
+
+// CARGAR ITEMS
+function cargarItems(items){
+
+    lista.innerHTML = "";
+
+    items.forEach(texto=>{
+
+        lista.appendChild(
+            crearLi(texto)
+        );
+
+    });
+
+    if(lista.children.length === 0){
+
+        lista.appendChild(
+            crearLi("Presentacion")
+        );
+    }
+}
+
+// RESET
+function resetear(){
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    cargarItems(["Presentacion"]);
+
+    lista.children[0].focus();
+
+    guardarLocalStorage();
+}
+
+// GUARDAR TXT
+function guardarTxt(){
+
+    const contenido =
+        obtenerItems().join("\n");
+
+    const blob = new Blob(
+        [contenido],
+        {
+            type:"text/plain;charset=utf-8"
+        }
+    );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const a =
+        document.createElement("a");
+
+    a.href = url;
+
+    a.download = "presentacion.txt";
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+// CARGAR DESDE TXT
+function cargarDesdeTexto(texto){
+
+    const items = texto
+        .split(/\r?\n/)
+        .map(linea => linea.trim())
+        .filter(linea => linea !== "");
+
+    cargarItems(
+        items.length
+        ? items
+        : ["Presentacion"]
+    );
+}
+
+// CURSOR AL FINAL
+function moverCursorFinal(elemento){
+
+    elemento.focus();
+
+    const rango =
+        document.createRange();
+
+    rango.selectNodeContents(elemento);
+
+    rango.collapse(false);
+
+    const seleccion =
+        window.getSelection();
+
+    seleccion.removeAllRanges();
+
+    seleccion.addRange(rango);
+}
+
+</script>
+
+</body>
+</html>

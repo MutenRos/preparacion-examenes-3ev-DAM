@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NaN · Mockup Pages</title>
+<style>
+:root{--a1:#f59e0b;--a2:#ef4444;--bg:#0b1020;--panel:#11182b;--line:#243049;--text:#e5eefb;--muted:#92a0bd}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(255,255,255,.08),transparent 30%),linear-gradient(135deg,#08101f,#111827 45%,#0f172a)}
+.banner{padding:10px 16px;background:linear-gradient(90deg,var(--a1),var(--a2));color:#07111f;font-weight:700;text-align:center;letter-spacing:.04em}
+.hero{max-width:1180px;margin:0 auto;padding:44px 22px 24px}.hero h1{margin:0;font-size:clamp(2rem,4vw,3.6rem);line-height:1.05}.hero p{max-width:760px;color:var(--muted);font-size:1rem;line-height:1.7}
+.kicker{display:inline-block;margin-bottom:14px;padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.05);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.grid{max-width:1180px;margin:0 auto;padding:0 22px 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:22px}.panel{background:rgba(17,24,43,.88);border:1px solid var(--line);border-radius:24px;padding:24px;backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:.8rem;color:var(--muted);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.08em}input,textarea,select{width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:#0a1325;color:var(--text);font:inherit}textarea{min-height:110px;resize:vertical}button{margin-top:18px;width:100%;border:0;border-radius:16px;padding:15px 18px;font:700 1rem Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,var(--a1),var(--a2));color:#06101b;cursor:pointer;box-shadow:0 16px 30px rgba(0,0,0,.25)}
+button:hover{filter:brightness(1.06)}.list{margin:16px 0 0;padding-left:18px;color:var(--muted);line-height:1.8}.cards{display:grid;gap:14px;margin-top:18px}.card{padding:18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.07)}
+.card strong{display:block;margin-bottom:8px;font-size:1rem}.result{margin-top:18px;padding:20px;border-radius:20px;background:linear-gradient(135deg,rgba(14,165,233,.12),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08)}.result h3{margin:0 0 8px;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:#c9d7ee}
+.footer{max-width:1180px;margin:0 auto;padding:0 22px 36px;color:#71809b;font-size:.88rem}.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.badge{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.11);color:#cfe1ff;background:rgba(255,255,255,.04)}
+</style>
+</head>
+<body>
+<div class="banner">Mockup para GitHub Pages · Capturas, video y demo visual</div>
+<section class="hero">
+  <div class="kicker">Proyecto DAM · Demo estatica</div>
+  <h1>NaN</h1>
+  <p>Centro formativo, relaciones y evolucion del proyecto. Resume la evolucion del proyecto del centro de formacion con modulos, usuarios, matriculas y mejoras del LMS.</p>
+  <div class="badge-row">
+    <span class="badge">Version mockup</span>
+    <span class="badge">Sin backend real</span>
+    <span class="badge">Lista para capturas</span>
+  </div>
+</section>
+<section class="grid">
+  <article class="panel">
+    <h2 style="margin-top:0">Escena de uso</h2>
+    <label>Nombre del escenario</label>
+    <input id="scenario" value="NaN · demo examen final">
+    <label>Entrada principal</label>
+    <textarea id="input">Describe aqui la accion que quieres demostrar en la grabacion: consulta, flujo, prompt o transformacion principal del proyecto.</textarea>
+    <label>Modo</label>
+    <select id="mode">
+      <option>Presentacion</option>
+      <option>Captura de pantalla</option>
+      <option>Grabacion guiada</option>
+    </select>
+    <button onclick="runDemo()">Simular funcionamiento</button>
+    <ul class="list">
+<li>Vision de entidades y relaciones</li>
+<li>Panel del proyecto y estados</li>
+<li>Accesos a alumnos y cursos</li>
+    </ul>
+  </article>
+  <article class="panel">
+    <h2 style="margin-top:0">Panel demo</h2>
+    <div class="cards">
+      <div class="card"><strong>Objetivo</strong><span>Resume la evolucion del proyecto del centro de formacion con modulos, usuarios, matriculas y mejoras del LMS.</span></div>
+      <div class="card"><strong>Flujo recomendado</strong><span>Abre la pagina, rellena la entrada, lanza la simulacion y captura la salida final.</span></div>
+      <div class="card"><strong>Valor para examen</strong><span>Muestra comprension funcional, acabado visual y una historia clara del proyecto.</span></div>
+    </div>
+    <div class="result" id="result">
+      <h3>Resultado</h3>
+      <div id="resultText">Todavia no se ha ejecutado la simulacion.</div>
+    </div>
+  </article>
+</section>
+<div class="footer">Proyecto intermodular · NaN · Mockup de apoyo para GitHub Pages</div>
+<script>
+function runDemo(){
+  const name=document.getElementById('scenario').value.trim()||'NaN';
+  const input=document.getElementById('input').value.trim()||'Sin entrada';
+  const mode=document.getElementById('mode').value;
+  document.getElementById('resultText').innerHTML='<strong>'+name+'</strong><br><br>'+
+    'Modo activo: '+mode+'<br><br>'+
+    'Entrada procesada:<br>'+input.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'<br><br>'+
+    'Salida simulada:<br>Resume la evolucion del proyecto del centro de formacion con modulos, usuarios, matriculas y mejoras del LMS.';
+}
+</script>
+</body>
+</html>
