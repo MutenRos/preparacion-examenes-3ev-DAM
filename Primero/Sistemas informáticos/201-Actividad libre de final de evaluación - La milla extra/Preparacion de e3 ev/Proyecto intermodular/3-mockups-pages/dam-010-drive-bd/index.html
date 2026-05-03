@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda deportiva · Drive como BD</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--fondo:#f5f7fa;--super:#fff;--borde:#d9e1e8;--texto:#1f2933;--mut:#52606d;--prim:#2d6cdf;--ph:#1f5ac7;--ok:#1f9d55;--peli:#d64545;--shadow:0 8px 24px rgba(15,23,42,.08);--r:12px;--w:1200px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.5}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{background:var(--super);border-bottom:1px solid var(--borde);box-shadow:0 2px 10px rgba(0,0,0,.03);position:sticky;top:0;z-index:20}
+.head{max-width:var(--w);margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:42px;height:42px;background:linear-gradient(135deg,#2d6cdf,#1f9d55);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.2em}
+header h1{font-size:1.2em;color:var(--texto)}
+header p{font-size:.78em;color:var(--mut)}
+.cart-btn{position:relative;background:var(--prim);color:#fff;border:0;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.92em}
+.cart-btn:hover{background:var(--ph)}
+.cart-count{position:absolute;top:-7px;right:-7px;background:var(--peli);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.7em;font-weight:700}
+.fuente-info{max-width:var(--w);margin:14px auto 0;padding:12px 20px;background:#e0f2fe;border-left:4px solid var(--prim);font-size:.85em;color:#0c4a6e;border-radius:6px}
+.fuente-info code{background:#bae6fd;padding:1px 6px;border-radius:3px;font-family:ui-monospace,monospace;font-size:.95em}
+main{max-width:var(--w);margin:18px auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--super);border:1px solid var(--borde);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(15,23,42,.12)}
+.thumb{aspect-ratio:1;width:100%;display:flex;align-items:center;justify-content:center;font-size:4em;background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.card.fb .thumb{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.card.zp .thumb{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.card.bs .thumb{background:linear-gradient(135deg,#fee2e2,#fecaca)}
+.card.rq .thumb{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.card.gl .thumb{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.body{padding:14px 16px}
+.body h3{font-size:1.02em;margin-bottom:4px}
+.body .desc{font-size:.83em;color:var(--mut);margin-bottom:10px;height:2.7em;overflow:hidden}
+.body .precio{font-size:1.3em;font-weight:700;color:var(--prim);margin-bottom:8px}
+.add{width:100%;background:var(--ok);color:#fff;border:0;padding:9px;border-radius:6px;cursor:pointer;font-weight:600}
+.add:hover{background:#15803d}
+/* Modal carrito */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}
+.modal.show{display:flex}
+.modal-card{background:#fff;border-radius:12px;max-width:520px;width:100%;max-height:85vh;overflow:auto;padding:26px}
+.modal-card h2{margin-bottom:14px}
+.cart-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--borde);font-size:.92em}
+.total{padding-top:14px;border-top:2px solid var(--prim);margin-top:8px;font-weight:700;font-size:1.1em;display:flex;justify-content:space-between}
+input[type=email]{width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:6px;margin:10px 0;font-size:.92em;font-family:inherit}
+.btnrow{display:flex;gap:8px;margin-top:14px}
+.btnrow button{flex:1;padding:10px;border:0;border-radius:6px;cursor:pointer;font-weight:600}
+.btnclose{background:#e2e8f0;color:#334155}
+.btnsend{background:var(--prim);color:#fff}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:10px 18px;border-radius:6px;font-size:.9em;display:none;box-shadow:0 8px 20px rgba(0,0,0,.2);z-index:100}
+.toast.show{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+footer{text-align:center;padding:20px;color:var(--mut);font-size:.82em}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Tienda real del proyecto · Los productos vienen de un Google Sheet publicado como CSV (mockup local con 6 artículos hardcoded)</div>
+
+<header>
+  <div class="head">
+    <div class="brand">
+      <div class="logo">JC</div>
+      <div>
+        <h1>Tienda deportiva jocarsa</h1>
+        <p>Productos cargados desde Google Sheets como BD</p>
+      </div>
+    </div>
+    <button class="cart-btn" onclick="abrirCarrito()">🛒 Carrito <span class="cart-count" id="cnt">0</span></button>
+  </div>
+</header>
+
+<div class="fuente-info" style="max-width:1160px;margin-top:14px">
+  📊 <strong>Fuente de datos:</strong> Google Sheets publicado como CSV →
+  <code>docs.google.com/spreadsheets/d/.../pub?output=csv</code> ·
+  Imágenes leídas de carpeta de Google Drive con <code>fopen + fgetcsv</code> en PHP.
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="modal" id="cartModal">
+  <div class="modal-card">
+    <h2>🛒 Tu carrito</h2>
+    <div id="cartLines"></div>
+    <div class="total">Total <span id="total">0,00 €</span></div>
+    <input type="email" id="email" placeholder="tu@correo.com (recibirás confirmación)">
+    <div class="btnrow">
+      <button class="btnclose" onclick="cerrarCarrito()">Seguir comprando</button>
+      <button class="btnsend" onclick="enviar()">Confirmar y enviar email</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</footer>
+
+<script>
+// Productos como vendrían del CSV (mock)
+const PRODUCTOS = [
+  {nombre:"Balón de fútbol", desc:"Reglamentario talla 5, cosido a mano", precio:24.90, emo:"⚽", cls:"fb"},
+  {nombre:"Zapatillas running", desc:"Suela amortiguada, ligeras y transpirables", precio:79.00, emo:"👟", cls:"zp"},
+  {nombre:"Bicicleta urbana", desc:"7 velocidades, cuadro aluminio, ideal ciudad", precio:349.00, emo:"🚲", cls:"bs"},
+  {nombre:"Raqueta de tenis", desc:"Grafito, peso 285g, encordado incluido", precio:65.50, emo:"🎾", cls:"rq"},
+  {nombre:"Guantes de boxeo", desc:"Piel sintética 12oz, cierre velcro", precio:32.00, emo:"🥊", cls:"gl"},
+  {nombre:"Mochila deportiva", desc:"40L impermeable, compartimentos para botas", precio:42.50, emo:"🎒", cls:"fb"}
+];
+const carrito = [];
+
+function pintar(){
+  const g = document.getElementById('grid');
+  g.innerHTML = '';
+  PRODUCTOS.forEach((p,i)=>{
+    const c = document.createElement('div');
+    c.className = 'card '+p.cls;
+    c.innerHTML = `<div class="thumb">${p.emo}</div><div class="body">
+      <h3>${p.nombre}</h3><p class="desc">${p.desc}</p>
+      <div class="precio">${p.precio.toFixed(2).replace('.',',')} €</div>
+      <button class="add" onclick="add(${i})">Añadir al carrito</button></div>`;
+    g.appendChild(c);
+  });
+}
+function add(i){
+  carrito.push(PRODUCTOS[i]);
+  document.getElementById('cnt').textContent = carrito.length;
+  toast(PRODUCTOS[i].nombre+" añadido");
+}
+function toast(t){
+  const x = document.getElementById('toast');
+  x.textContent = '✓ '+t;
+  x.classList.add('show');
+  setTimeout(()=>x.classList.remove('show'), 1700);
+}
+function abrirCarrito(){
+  const lines = document.getElementById('cartLines');
+  if(!carrito.length){
+    lines.innerHTML = '<p style="color:#64748b;text-align:center;padding:20px">El carrito está vacío</p>';
+  } else {
+    lines.innerHTML = carrito.map(p=>`<div class="cart-line"><span>${p.nombre}</span><span>${p.precio.toFixed(2).replace('.',',')} €</span></div>`).join('');
+  }
+  const total = carrito.reduce((a,b)=>a+b.precio,0);
+  document.getElementById('total').textContent = total.toFixed(2).replace('.',',')+' €';
+  document.getElementById('cartModal').classList.add('show');
+}
+function cerrarCarrito(){
+  document.getElementById('cartModal').classList.remove('show');
+}
+function enviar(){
+  const em = document.getElementById('email').value.trim();
+  if(!em || !em.includes('@')){ alert('Email no válido'); return; }
+  if(!carrito.length){ alert('Carrito vacío'); return; }
+  toast("Pedido enviado a "+em+" (simulado)");
+  carrito.length = 0;
+  document.getElementById('cnt').textContent = 0;
+  document.getElementById('email').value = '';
+  cerrarCarrito();
+}
+pintar();
+</script>
+</body>
+</html>

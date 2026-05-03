@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOE → Base de datos · DAM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#cbd5e1;min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{background:#1e293b;border-bottom:1px solid #334155;padding:18px 26px}
+header h1{color:#fff;font-size:1.2em;display:flex;align-items:center;gap:10px}
+header h1 small{color:#94a3b8;font-weight:400;font-size:.8em}
+.layout{max-width:1280px;margin:0 auto;padding:20px;display:grid;grid-template-columns:340px 1fr;gap:18px}
+
+.side{background:#1e293b;border-radius:10px;padding:18px;border:1px solid #334155;height:fit-content;position:sticky;top:18px}
+.side h2{color:#fff;font-size:.95em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #334155}
+.drop{border:2px dashed #475569;border-radius:8px;padding:24px 14px;text-align:center;color:#94a3b8;cursor:pointer;transition:all .2s}
+.drop:hover{border-color:#3b82f6;color:#cbd5e1;background:#0f172a}
+.drop .ic{font-size:2.4em;display:block;margin-bottom:8px}
+.pdfs{margin-top:12px}
+.pdf{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0f172a;border-radius:6px;font-size:.85em;margin-bottom:5px}
+.pdf .x{color:#94a3b8}
+.pdf b{color:#fff;font-weight:600;flex:1;font-size:.92em}
+.pdf small{color:#64748b;font-size:.78em}
+.btn{padding:10px 14px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;border:0;border-radius:7px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88em;width:100%;margin-top:10px}
+.btn:hover{filter:brightness(1.15)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sec{background:#0f172a;border:1px solid #334155;color:#cbd5e1}
+
+.main{min-width:0}
+.pipeline{display:flex;gap:8px;margin-bottom:18px;background:#1e293b;border-radius:10px;padding:16px;border:1px solid #334155}
+.step{flex:1;text-align:center;padding:12px 8px;border-radius:8px;background:#0f172a;border:1px solid #1e293b;font-size:.78em;color:#64748b;position:relative}
+.step.act{background:#1e3a8a;color:#dbeafe;border-color:#3b82f6}
+.step.done{background:#064e3b;color:#a7f3d0;border-color:#10b981}
+.step .ic{font-size:1.4em;display:block;margin-bottom:4px}
+.step b{display:block;font-size:.92em;color:#fff;margin-bottom:2px}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid #334155;margin-bottom:14px}
+.tabs a{padding:10px 16px;color:#94a3b8;text-decoration:none;cursor:pointer;font-size:.88em;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a:hover{color:#fff}
+.tabs a.act{color:#3b82f6;border-bottom-color:#3b82f6}
+
+.card{background:#1e293b;border-radius:10px;padding:18px 20px;border:1px solid #334155;margin-bottom:14px}
+.card h3{color:#fff;font-size:.98em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h3 .badge{margin-left:auto;background:#1e3a8a;color:#dbeafe;padding:2px 9px;border-radius:10px;font-size:.7em;font-weight:600}
+
+.modulos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.mod{background:#0f172a;padding:12px 14px;border-radius:8px;border-left:3px solid #3b82f6;cursor:pointer;transition:all .15s}
+.mod:hover{background:#1e3a8a}
+.mod .cod{font-family:ui-monospace,monospace;font-size:.74em;color:#7c3aed;font-weight:700}
+.mod .tit{color:#fff;font-weight:600;font-size:.92em;margin:4px 0}
+.mod small{color:#64748b;font-size:.78em;display:block}
+
+.viewer{background:#0f172a;border-radius:8px;padding:14px 16px;font-family:ui-monospace,monospace;font-size:.82em;color:#86efac;overflow:auto;max-height:520px;border:1px solid #1e293b;line-height:1.55;white-space:pre-wrap}
+.modal-detail{background:#0f172a;padding:16px 18px;border-radius:8px;border-left:3px solid #f59e0b;margin-bottom:12px}
+.modal-detail h4{color:#fcd34d;font-size:.95em;margin-bottom:8px}
+.modal-detail .ra{margin:8px 0 4px;color:#dbeafe;font-weight:600;font-size:.86em}
+.modal-detail .crit{padding:4px 0 4px 14px;color:#94a3b8;font-size:.84em}
+.log{background:#000;color:#86efac;padding:14px 16px;border-radius:8px;font-family:ui-monospace,monospace;font-size:.78em;max-height:240px;overflow:auto;line-height:1.6}
+.log .e{color:#fca5a5}
+.log .w{color:#fcd34d}
+.log .i{color:#67e8f9}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · BOE → SQLite · Pipeline mockup: PDFs cargados, extracción simulada con resultado real</div>
+<header><h1>📄 Documentos BOE → Base de datos <small>· extracción de módulos profesionales</small></h1></header>
+
+<div class="layout">
+
+<aside class="side">
+  <h2>📁 PDFs disponibles</h2>
+  <div class="drop" id="drop">
+    <span class="ic">📑</span>
+    Arrastra PDFs aquí<br><small>o haz click</small>
+  </div>
+  <div class="pdfs" id="pdfs"></div>
+  <button class="btn" id="run" onclick="run()">▶ Ejecutar pipeline</button>
+  <button class="btn sec" onclick="reset()">↺ Reset</button>
+</aside>
+
+<div class="main">
+
+  <div class="pipeline">
+    <div class="step" id="s1"><span class="ic">📑</span><b>1. PDF</b>PyPDF2.read</div>
+    <div class="step" id="s2"><span class="ic">📝</span><b>2. TXT</b>extract_text</div>
+    <div class="step" id="s3"><span class="ic">🔍</span><b>3. Parse</b>regex BOE</div>
+    <div class="step" id="s4"><span class="ic">🤖</span><b>4. Ollama</b>limpieza IA</div>
+    <div class="step" id="s5"><span class="ic">🗄️</span><b>5. BD</b>modules.json</div>
+  </div>
+
+  <div class="tabs">
+    <a class="act" onclick="tab('mod')" id="tab-mod">📚 Módulos extraídos</a>
+    <a onclick="tab('json')" id="tab-json">{ } JSON</a>
+    <a onclick="tab('log')" id="tab-log">📋 Log</a>
+  </div>
+
+  <div id="cont"></div>
+</div>
+</div>
+
+<script>
+const PDFS_INI = [
+  {name:'BOE-A-2010-15691-SI.pdf', size:'248 KB', tag:'SMR'},
+  {name:'BOE-A-2014-7064-DAM.pdf', size:'412 KB', tag:'DAM'},
+  {name:'BOE-A-2014-9286-DAW.pdf', size:'389 KB', tag:'DAW'}
+];
+let PDFS = [...PDFS_INI];
+
+const MODULOS = [
+  {cod:"0483",tit:"Sistemas informáticos",ects:6,duracion:"160 horas",ras:[
+    {n:1,t:"Evalúa la funcionalidad de sistemas informáticos.",crit:["Se han identificado los componentes de un sistema informático.","Se han analizado las funciones del sistema operativo.","Se han instalado los sistemas operativos."]},
+    {n:2,t:"Instala sistemas operativos.",crit:["Se ha realizado la partición del disco.","Se ha instalado el sistema operativo.","Se han creado las cuentas de usuario."]}
+  ]},
+  {cod:"0484",tit:"Bases de datos",ects:6,duracion:"165 horas",ras:[
+    {n:1,t:"Reconoce los elementos de las bases de datos.",crit:["Se han analizado los sistemas lógicos de almacenamiento.","Se han descrito los modelos lógicos.","Se han identificado las relaciones entre tablas."]}
+  ]},
+  {cod:"0485",tit:"Programación",ects:12,duracion:"265 horas",ras:[
+    {n:1,t:"Identifica los elementos de un lenguaje de programación.",crit:["Se han reconocido las características del lenguaje.","Se han identificado los elementos básicos.","Se han utilizado las estructuras de control."]}
+  ]},
+  {cod:"0487",tit:"Entornos de desarrollo",ects:3,duracion:"60 horas",ras:[]},
+  {cod:"0373",tit:"Lenguajes de marcas",ects:3,duracion:"75 horas",ras:[]},
+  {cod:"0488",tit:"Acceso a datos",ects:6,duracion:"105 horas",ras:[]},
+  {cod:"0489",tit:"Desarrollo de interfaces",ects:6,duracion:"125 horas",ras:[]},
+  {cod:"0490",tit:"Programación multimedia",ects:6,duracion:"105 horas",ras:[]}
+];
+
+const LOG = [];
+let curTab = 'mod';
+let pipelineDone = false;
+
+function renderPdfs(){
+  document.getElementById('pdfs').innerHTML = PDFS.map((p,i)=>`<div class="pdf"><span class="x">📄</span><b>${p.name}<br><small>${p.size} · ${p.tag}</small></b><span style="color:#64748b;cursor:pointer" onclick="rmPdf(${i})">×</span></div>`).join('');
+}
+function rmPdf(i){ PDFS.splice(i,1); renderPdfs(); }
+document.getElementById('drop').onclick = ()=>{
+  const i = PDFS.length+1;
+  PDFS.push({name:`extra-${i}.pdf`,size:`${100+i*50} KB`,tag:'NUEVO'});
+  renderPdfs();
+};
+
+async function run(){
+  if(PDFS.length===0){ alert('Añade algún PDF primero'); return; }
+  document.getElementById('run').disabled = true;
+  ['s1','s2','s3','s4','s5'].forEach(id=>document.getElementById(id).className='step');
+  LOG.length = 0;
+  log('▶ Iniciando pipeline con '+PDFS.length+' PDFs');
+
+  for(let i=1;i<=5;i++){
+    const s = document.getElementById('s'+i);
+    s.classList.add('act');
+    if(i===1){ for(const p of PDFS) log('  PDF→TXT OK · '+p.name,'i'); }
+    if(i===2) log('  '+PDFS.length+' archivos .txt creados en /txt');
+    if(i===3) log('  Detectados '+MODULOS.length+' módulos · '+MODULOS.reduce((a,m)=>a+m.ras.length,0)+' RA');
+    if(i===4) log('  Ollama: limpieza títulos y normalización (qwen2.5:7b)','w');
+    if(i===5) log('  ✓ Guardado out/modules.json ('+MODULOS.length+' módulos)','i');
+    await new Promise(r=>setTimeout(r,650));
+    s.classList.remove('act'); s.classList.add('done');
+    renderTab();
+  }
+
+  pipelineDone = true;
+  document.getElementById('run').disabled = false;
+  log('✓ Pipeline completado','i');
+  renderTab();
+}
+
+function reset(){
+  pipelineDone = false; LOG.length = 0;
+  ['s1','s2','s3','s4','s5'].forEach(id=>document.getElementById(id).className='step');
+  PDFS = [...PDFS_INI]; renderPdfs(); renderTab();
+}
+
+function log(msg, lvl=''){ LOG.push({msg,lvl}); }
+
+function tab(t){
+  curTab = t;
+  document.querySelectorAll('.tabs a').forEach(a=>a.classList.remove('act'));
+  document.getElementById('tab-'+t).classList.add('act');
+  renterTab=renderTab(); 
+}
+
+function renderTab(){
+  const c = document.getElementById('cont');
+  if(!pipelineDone){ c.innerHTML = `<div class="card"><h3>⏳ Pipeline pendiente</h3><p style="color:#94a3b8">Pulsa "Ejecutar pipeline" en la columna izquierda para procesar los PDFs y extraer los módulos profesionales.</p></div>`; return; }
+  if(curTab==='mod'){
+    c.innerHTML = `<div class="card"><h3>📚 Módulos extraídos del BOE <span class="badge">${MODULOS.length} módulos</span></h3>
+      <div class="modulos">${MODULOS.map((m,i)=>`<div class="mod" onclick="verMod(${i})">
+        <div class="cod">${m.cod}</div><div class="tit">${m.tit}</div><small>${m.ects} ECTS · ${m.duracion} · ${m.ras.length} RA</small>
+      </div>`).join('')}</div></div>
+      <div class="card" id="detail"><h3>👁 Detalle del módulo</h3>
+      <p style="color:#94a3b8">Haz click en un módulo para ver sus Resultados de Aprendizaje y criterios de evaluación.</p></div>`;
+  } else if(curTab==='json'){
+    c.innerHTML = `<div class="card"><h3>{ } out/modules.json <span class="badge">salida final</span></h3>
+      <div class="viewer">${escapeHtml(JSON.stringify(MODULOS,null,2))}</div></div>`;
+  } else if(curTab==='log'){
+    c.innerHTML = `<div class="card"><h3>📋 Log de ejecución</h3>
+      <div class="log">${LOG.map(l=>`<div class="${l.lvl}">${escapeHtml(l.msg)}</div>`).join('')}</div></div>`;
+  }
+}
+
+function verMod(i){
+  const m = MODULOS[i];
+  const d = document.getElementById('detail');
+  d.innerHTML = `<h3>👁 ${m.cod} · ${m.tit}</h3>
+    <div class="modal-detail">
+      <h4>📋 Información general</h4>
+      <p style="color:#cbd5e1;font-size:.88em">ECTS: <b style="color:#fcd34d">${m.ects}</b> · Duración: <b style="color:#fcd34d">${m.duracion}</b> · RA: <b style="color:#fcd34d">${m.ras.length}</b></p>
+    </div>
+    ${m.ras.length===0?`<p style="color:#64748b;text-align:center;padding:14px">Sin RA cargados (módulo de muestra simplificado)</p>`:m.ras.map(ra=>`
+      <div class="modal-detail">
+        <div class="ra">RA${ra.n} · ${ra.t}</div>
+        ${ra.crit.map((c,j)=>`<div class="crit">${String.fromCharCode(97+j)}) ${c}</div>`).join('')}
+      </div>`).join('')}
+  `;
+  window.scrollTo({top:document.getElementById('detail').offsetTop-20,behavior:'smooth'});
+}
+
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+renderPdfs(); renderTab();
+</script>
+</body>
+</html>

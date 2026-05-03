@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Image to Image</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:1000px;margin:40px auto;padding:20px}
+    textarea,input,button{width:100%;box-sizing:border-box;margin-top:10px;padding:10px}
+    .fila{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+    .panel{border:1px solid #ccc;padding:15px;border-radius:8px;background:#fafafa}
+    img{max-width:100%;display:block;margin-top:10px;border:1px solid #ccc;border-radius:6px}
+    .estado{margin-top:15px;font-weight:bold}
+    pre{background:#f4f4f4;padding:15px;white-space:pre-wrap;border-radius:6px;margin-top:15px}
+  </style>
+</head>
+<body>
+  <h1>Image to Image</h1>
+
+  <input id="url" value="http://localhost/api/">
+  <input id="user" value="jocarsa">
+  <input id="password" value="jocarsa">
+  <textarea id="question" rows="5">Convierte esta imagen en estilo Pixar, manteniendo la composición original.</textarea>
+  <input type="file" id="file" accept="image/*">
+  <button onclick="enviar()">Enviar</button>
+
+  <div class="estado" id="estado"></div>
+
+  <div class="fila">
+    <div class="panel">
+      <h2>Original</h2>
+      <img id="preview" alt="">
+    </div>
+    <div class="panel">
+      <h2>Resultado</h2>
+      <img id="resultado" alt="">
+    </div>
+  </div>
+
+  <pre id="debug"></pre>
+
+  <script>
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.getElementById('file').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        document.getElementById('preview').src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    async function enviar() {
+      const estado = document.getElementById('estado');
+      const resultado = document.getElementById('resultado');
+      const debug = document.getElementById('debug');
+      const file = document.getElementById('file').files[0];
+
+      estado.textContent = '';
+      debug.textContent = '';
+      resultado.removeAttribute('src');
+
+      if (!file) {
+        estado.textContent = 'Selecciona una imagen';
+        return;
+      }
+
+      estado.textContent = 'Procesando...';
+
+      try {
+        const imageBase64 = await fileToBase64(file);
+
+        const payload = {
+          user: document.getElementById('user').value,
+          password: document.getElementById('password').value,
+          action: 'image_to_image',
+          question: document.getElementById('question').value,
+          image_base64: imageBase64,
+          filename: file.name
+        };
+
+        const res = await fetch(document.getElementById('url').value, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        const contentType = res.headers.get('content-type') || '';
+
+        if (!res.ok) {
+          const txt = await res.text();
+          estado.textContent = 'Error HTTP ' + res.status;
+          debug.textContent = txt;
+          return;
+        }
+
+        if (
+          contentType.includes('image/png') ||
+          contentType.includes('image/jpeg') ||
+          contentType.includes('image/webp')
+        ) {
+          const blob = await res.blob();
+          resultado.src = URL.createObjectURL(blob);
+          estado.textContent = 'Imagen recibida correctamente';
+          return;
+        }
+
+        const txt = await res.text();
+        let json = null;
+
+        try {
+          json = JSON.parse(txt);
+        } catch (e) {
+          estado.textContent = 'Respuesta no JSON';
+          debug.textContent = txt;
+          return;
+        }
+
+        if (json.image_base64) {
+          resultado.src = 'data:image/png;base64,' + json.image_base64;
+          estado.textContent = 'Imagen recibida en base64';
+        } else if (json.image_url) {
+          resultado.src = json.image_url;
+          estado.textContent = 'Imagen recibida mediante URL';
+        } else {
+          estado.textContent = 'Respuesta JSON recibida, pero sin imagen reconocible';
+        }
+
+        debug.textContent = JSON.stringify(json, null, 2);
+
+      } catch (err) {
+        estado.textContent = 'Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

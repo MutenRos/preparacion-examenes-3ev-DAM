@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bandeja inteligente · DAM</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--border:#e6e8f0;--text:#0f172a;--muted:#64748b;--shadow:0 10px 30px rgba(15,23,42,.06);--brand:#4f46e5;--brand2:#f97316;--p10:#ffe4e6;--p8:#ffedd5;--p6:#fef9c3;--p4:#dcfce7;--p2:#e0f2fe;--p0:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.app{display:flex;min-height:calc(100vh - 32px)}
+.sidebar{width:320px;background:var(--panel);border-right:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:18px;flex-shrink:0}
+.brand{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
+.logo{width:44px;height:44px;border-radius:14px;background:radial-gradient(circle at 30% 30%,rgba(79,70,229,.4),transparent 55%),linear-gradient(135deg,#4f46e5,#f97316)}
+.brand-title{font-weight:700;font-size:1.05em}
+.brand-sub{color:var(--muted);font-size:.78em}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav-item{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;text-decoration:none;color:var(--text);font-size:.92em;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all .15s}
+.nav-item:hover{background:#f8fafc}
+.nav-item.act{background:#eef2ff;color:var(--brand);border-color:#c7d2fe}
+.badge-c{background:var(--brand);color:#fff;font-size:.72em;padding:2px 8px;border-radius:10px}
+.nav-item.act .badge-c{background:var(--brand)}
+.nav-item:not(.act) .badge-c{background:#e2e8f0;color:var(--muted)}
+.sidebar-footer{margin-top:auto;border-top:1px solid var(--border);padding-top:14px;font-size:.82em;color:var(--muted)}
+.row{display:flex;gap:6px;margin-top:8px}
+.btn{padding:7px 12px;background:var(--brand);color:#fff;border:0;border-radius:7px;font-size:.82em;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-ghost{background:#f1f5f9;color:var(--text);border:1px solid var(--border)}
+input.ninput{padding:7px 10px;border:1px solid var(--border);border-radius:7px;width:60px;font-family:inherit;font-size:.82em;outline:none}
+
+.main{flex:1;padding:24px 32px;min-width:0;overflow:auto}
+.topbar h1{font-size:1.6em;color:var(--text)}
+.topbar p{color:var(--muted);font-size:.92em;margin-top:4px}
+.list{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;display:block;transition:all .15s;cursor:pointer}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-1px);border-color:#c7d2fe}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.from{font-weight:700;font-size:.94em;color:var(--text)}
+.pill{padding:3px 10px;border-radius:50px;font-size:.74em;font-weight:700;color:#7c2d12}
+.pill.p10{background:var(--p10);color:#9f1239}
+.pill.p8{background:var(--p8);color:#9a3412}
+.pill.p7{background:var(--p8);color:#9a3412}
+.pill.p6{background:var(--p6);color:#854d0e}
+.pill.p5{background:var(--p6);color:#854d0e}
+.pill.p4{background:var(--p4);color:#166534}
+.pill.p2{background:var(--p2);color:#075985}
+.pill.p0{background:var(--p0);color:#475569}
+.pill.neutral{background:#f1f5f9;color:#64748b}
+.subject{font-size:1em;font-weight:600;margin:3px 0 4px}
+.meta{font-size:.78em;color:var(--muted);margin-bottom:8px}
+.summary{font-size:.88em;color:var(--muted);line-height:1.5}
+.empty{padding:60px;text-align:center;color:var(--muted)}
+.empty .ic{font-size:3em;display:block;margin-bottom:10px}
+
+/* Detail view */
+.back{display:inline-block;margin-bottom:14px;color:var(--brand);text-decoration:none;font-size:.88em;font-weight:600}
+.detail-card{background:var(--panel);border-radius:12px;padding:24px 28px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.dh{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px}
+.dh h2{font-size:1.25em}
+.dh .meta-row{margin-top:6px;color:var(--muted);font-size:.86em}
+.body-mail{white-space:pre-wrap;line-height:1.65;color:#334155;font-size:.94em;background:#fafbff;padding:18px;border-radius:8px;border-left:3px solid var(--brand)}
+.ai-box{background:linear-gradient(135deg,#eef2ff,#fff7ed);border-radius:10px;padding:16px 18px;margin-top:18px;border:1px solid #e0e7ff}
+.ai-box h3{font-size:.95em;color:var(--brand);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ai-box p{color:#334155;font-size:.92em;line-height:1.6}
+.tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.tag{padding:3px 10px;background:#fff;border:1px solid #c7d2fe;border-radius:50px;font-size:.74em;color:var(--brand);font-weight:600}
+.reply-box{margin-top:18px;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:16px 18px}
+.reply-box h3{color:#15803d;font-size:.95em;margin-bottom:8px}
+.reply-box textarea{width:100%;min-height:120px;padding:10px;border:1px solid #bbf7d0;border-radius:7px;font-family:inherit;font-size:.9em;resize:vertical;background:#fff;color:#0f172a}
+.reply-box .btn{margin-top:8px;background:#16a34a}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · IMAP + Ollama (clasificación + prioridad + resumen) · 8 emails de muestra</div>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo"></div>
+    <div><div class="brand-title">Bandeja</div><div class="brand-sub">Clasificación + prioridad</div></div>
+  </div>
+  <nav class="nav">
+    <a class="nav-item act" id="nav-B" onclick="setTab('B')"><span>📥 Importantes</span><span class="badge-c" id="cB">5</span></a>
+    <a class="nav-item" id="nav-A" onclick="setTab('A')"><span>📢 Publicidad / auto</span><span class="badge-c" id="cA">3</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    Mostrando últimos
+    <div class="row">
+      <input class="ninput" type="number" min="1" max="200" value="20">
+      <button class="btn">Aplicar</button>
+      <button class="btn btn-ghost" onclick="alert('Refrescando IMAP... (mockup)')">↻ Refrescar</button>
+    </div>
+    <div style="margin-top:10px;font-size:.74em">Ollama: <code style="background:#0f172a;color:#86efac;padding:1px 6px;border-radius:3px">qwen2.5:7b</code></div>
+  </div>
+</aside>
+
+<main class="main" id="main"></main>
+</div>
+
+<script>
+const EMAILS = [
+  {id:1, cat:'B', from:'rrhh@empresa.es', subject:'Renovación contratos abril', date:'2026-04-26 09:14', priority:9,
+   body:`Hola equipo,\n\nRecordatorio: el viernes 30 vence el plazo para confirmar la renovación de los contratos en prácticas. Necesitamos vuestra firma antes del cierre de la jornada.\n\nGracias por adelantado,\nDpto. RRHH`,
+   summary:'RRHH solicita firmar renovación contratos prácticas antes del viernes 30 de abril.',
+   tags:['Urgente','Acción requerida','Contratos'],
+   reply:'Hola, recibido. Procederé a firmar el documento antes del viernes. Si necesitas algún dato adicional, avísame. Saludos.'},
+  {id:2, cat:'B', from:'cliente@acme.com', subject:'Incidencia urgente — sistema caído', date:'2026-04-26 11:42', priority:10,
+   body:`Buenos días,\n\nEl sistema de pedidos lleva caído desde las 11:00. Tenemos a 14 operarios sin poder trabajar. Por favor, atender INMEDIATAMENTE.\n\nGracias.\nJoaquín — ACME`,
+   summary:'Cliente ACME reporta caída total del sistema de pedidos desde las 11:00 — 14 operarios bloqueados.',
+   tags:['Crítico','Cliente','Producción'],
+   reply:'Hola Joaquín,\n\nRecibido. Activamos el protocolo de incidencia crítica. Ya tenéis a un técnico revisando el servicio. Te confirmaré status en menos de 15 minutos.\n\nUn saludo.'},
+  {id:3, cat:'B', from:'jefe@empresa.es', subject:'Reunión proyecto intermodular - mañana 9:00', date:'2026-04-25 18:02', priority:7,
+   body:`Hola,\n\nMañana a primera hora tenemos la reunión de seguimiento del proyecto intermodular. Necesito el avance del módulo de comunicaciones antes de las 9.\n\nGracias.`,
+   summary:'Jefe convoca reunión de seguimiento del intermodular mañana 9:00 — necesita avance previo.',
+   tags:['Reunión','Plazo'],
+   reply:'Perfecto, te envío esta tarde el documento con el avance. Hasta mañana.'},
+  {id:4, cat:'B', from:'soporte@hosting.es', subject:'Renovación dominio mutenros.com', date:'2026-04-25 12:30', priority:5,
+   body:`Estimado cliente,\n\nLe informamos de que su dominio mutenros.com vence el 15/05/2026. Puede renovarlo desde el panel.\n\nUn saludo.`,
+   summary:'El dominio mutenros.com vence el 15 de mayo — renovación pendiente.',
+   tags:['Hosting','Plazo'],
+   reply:'Recibido, procedo a renovar desde el panel. Gracias.'},
+  {id:5, cat:'B', from:'aspirante@gmail.com', subject:'Solicitud de información ciclo DAM', date:'2026-04-24 16:15', priority:4,
+   body:`Buenas tardes,\n\nMe gustaría más información sobre el plan de estudios del ciclo DAM y los plazos de matrícula. Gracias.`,
+   summary:'Solicitud de información sobre plan de estudios y plazos del ciclo DAM.',
+   tags:['Información','Aspirante'],
+   reply:'Hola,\n\nGracias por su interés. Le adjunto el plan de estudios y los plazos de matrícula. Quedo a su disposición.\n\nSaludos.'},
+  {id:6, cat:'A', from:'newsletter@github.com', subject:'GitHub Actions weekly digest', date:'2026-04-26 06:00', priority:0,
+   body:`Your weekly digest of GitHub Actions news...`,
+   summary:'Newsletter semanal de GitHub Actions con novedades del producto.',
+   tags:['Newsletter','GitHub'], reply:''},
+  {id:7, cat:'A', from:'no-reply@amazon.es', subject:'Tu pedido ha sido enviado', date:'2026-04-25 14:22', priority:0,
+   body:`Tu pedido será entregado mañana entre las 14:00 y las 18:00.`,
+   summary:'Notificación automática: pedido Amazon en reparto para mañana 14:00-18:00.',
+   tags:['Notificación','E-commerce'], reply:''},
+  {id:8, cat:'A', from:'ofertas@elcorteingles.es', subject:'¡-50% en electrónica este finde!', date:'2026-04-24 10:00', priority:0,
+   body:`Promoción especial este fin de semana: descuentos hasta el 50% en electrónica.`,
+   summary:'Promoción comercial: hasta -50% en electrónica este fin de semana.',
+   tags:['Promo','Comercial'], reply:''}
+];
+
+let tab = 'B', viewId = null;
+
+function setTab(t){ tab = t; viewId = null; render(); }
+function open(id){ viewId = id; render(); }
+function back(){ viewId = null; render(); }
+
+function pillCls(p){ if(p>=10) return 'p10'; if(p>=8) return 'p8'; if(p>=6) return 'p6'; if(p>=4) return 'p4'; if(p>=2) return 'p2'; return 'p0'; }
+
+function render(){
+  document.getElementById('cB').textContent = EMAILS.filter(e=>e.cat==='B').length;
+  document.getElementById('cA').textContent = EMAILS.filter(e=>e.cat==='A').length;
+  document.getElementById('nav-B').classList.toggle('act', tab==='B');
+  document.getElementById('nav-A').classList.toggle('act', tab==='A');
+
+  const m = document.getElementById('main');
+  if(viewId){
+    const e = EMAILS.find(x=>x.id===viewId);
+    m.innerHTML = `<a class="back" onclick="back()">← Volver</a>
+    <div class="detail-card">
+      <div class="dh">
+        <div><h2>${e.subject}</h2><div class="meta-row">De: <strong>${e.from}</strong> · ${e.date}</div></div>
+        ${e.cat==='B'?`<div class="pill ${pillCls(e.priority)}">Prioridad ${e.priority}/10</div>`:`<div class="pill neutral">Auto</div>`}
+      </div>
+      <div class="body-mail">${e.body}</div>
+
+      <div class="ai-box">
+        <h3>🤖 Resumen IA <span style="font-size:.72em;color:var(--muted);font-weight:400">(Ollama qwen2.5:7b)</span></h3>
+        <p>${e.summary}</p>
+        <div class="tags">${e.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+
+      ${e.cat==='B'?`<div class="reply-box">
+        <h3>✉️ Respuesta automática sugerida</h3>
+        <textarea>${e.reply}</textarea>
+        <button class="btn" onclick="alert('Respuesta enviada (mockup SMTP)')">Enviar respuesta</button>
+      </div>`:''}
+    </div>`;
+    return;
+  }
+
+  const items = EMAILS.filter(e=>e.cat===tab).sort((a,b)=>b.priority-a.priority);
+  m.innerHTML = `<header class="topbar">
+    <h1>${tab==='B'?'📥 Importantes':'📢 Publicidad / Automáticos'}</h1>
+    <p>${tab==='B'?'Ordenados por prioridad (10 → 0). Clasificación automática por IA.':'Correos informativos, notificaciones y promociones.'}</p>
+  </header>
+  <section class="list">
+    ${items.length===0?`<div class="empty"><span class="ic">📭</span>No hay correos en esta categoría.</div>`:''}
+    ${items.map(e=>`<a class="card" onclick="open(${e.id})">
+      <div class="card-head">
+        <div class="from">${e.from}</div>
+        ${tab==='B'?`<div class="pill ${pillCls(e.priority)}">Prioridad ${e.priority}/10</div>`:`<div class="pill neutral">Auto</div>`}
+      </div>
+      <div class="subject">${e.subject}</div>
+      <div class="meta">📅 ${e.date}</div>
+      <div class="summary">🤖 ${e.summary}</div>
+    </a>`).join('')}
+  </section>`;
+}
+
+render();
+</script>
+</body>
+</html>

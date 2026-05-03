@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generar imagen con Python</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:20px}
+    textarea,input,button{width:100%;box-sizing:border-box;margin-top:10px;padding:10px}
+    img{max-width:100%;display:block;margin-top:20px;border:1px solid #ccc}
+    .estado{margin-top:15px;font-weight:bold}
+  </style>
+</head>
+<body>
+  <h1>Enviar texto para generar imagen</h1>
+
+  <input id="url" value="https://covalently-untasked-daphne.ngrok-free.dev/api/">
+  <input id="user" value="jocarsa">
+  <input id="password" value="jocarsa">
+  <textarea id="question" rows="6">un gato astronauta, estilo cinematográfico, iluminación dramática, ultra detallado</textarea>
+  <button onclick="generar()">Generar imagen</button>
+
+  <div class="estado" id="estado"></div>
+  <img id="resultado" alt="">
+
+  <script>
+async function generar() {
+  const estado = document.getElementById('estado');
+  const resultado = document.getElementById('resultado');
+
+  estado.textContent = 'Generando imagen...';
+  resultado.removeAttribute('src');
+
+  const payload = {
+    user: document.getElementById('user').value,
+    password: document.getElementById('password').value,
+    action: 'image',
+    question: document.getElementById('question').value
+  };
+
+  try {
+    const res = await fetch(document.getElementById('url').value, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+
+    const contentType = res.headers.get('content-type') || '';
+
+    if (!res.ok) {
+      const txt = await res.text();
+      estado.textContent = 'Error HTTP ' + res.status + ': ' + txt;
+      return;
+    }
+
+    if (contentType.includes('image/png')) {
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      resultado.src = url;
+      estado.textContent = 'Imagen generada correctamente';
+      return;
+    }
+
+    const txt = await res.text();
+    estado.textContent = 'Respuesta no PNG: ' + txt;
+  } catch (err) {
+    estado.textContent = 'Error: ' + err.message;
+  }
+}
+</script>
+</body>
+</html>

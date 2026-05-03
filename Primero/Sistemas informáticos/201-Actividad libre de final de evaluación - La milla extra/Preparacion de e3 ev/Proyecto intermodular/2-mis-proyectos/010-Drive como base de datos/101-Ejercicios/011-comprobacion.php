@@ -1,0 +1,3 @@
+<?php
+echo $MI_SERVIDORSMTP_CORREO_JOCARSA;
+?>

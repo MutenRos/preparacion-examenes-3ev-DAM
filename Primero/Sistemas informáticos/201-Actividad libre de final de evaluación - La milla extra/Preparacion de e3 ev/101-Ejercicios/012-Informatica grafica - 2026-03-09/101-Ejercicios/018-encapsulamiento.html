@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gráficas reutilizables</title>
+		<style>
+			body{
+				margin:0;
+				padding:20px;
+				font-family:Arial, sans-serif;
+				background:white;
+			}
+			.grafica{
+				width:1200px;
+				margin:20px auto;
+				padding:20px;
+				border:1px solid #ccc;
+				background:white;
+			}
+			.grafica canvas{
+				display:block;
+				width:100%;
+				height:auto;
+				background:white;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="grafica" data-datos='[
+			{"nombre":"Producto A","valor":30},
+			{"nombre":"Producto B","valor":50},
+			{"nombre":"Producto C","valor":60},
+			{"nombre":"Producto D","valor":800},
+			{"nombre":"Producto E","valor":40},
+			{"nombre":"Producto F","valor":30},
+			{"nombre":"Producto G","valor":20}
+		]'></div>
+
+		<div class="grafica" data-datos='[
+			{"nombre":"Rojo","valor":120},
+			{"nombre":"Azul","valor":90},
+			{"nombre":"Verde","valor":60},
+			{"nombre":"Amarillo","valor":40}
+		]'></div>
+
+		<script>
+			class GraficaCircular {
+				constructor(contenedor, datos){
+					this.contenedor = contenedor
+					this.datos = datos
+
+					this.lienzo = document.createElement("canvas")
+					this.lienzo.width = 1200
+					this.lienzo.height = 650
+					this.contenedor.innerHTML = ""
+					this.contenedor.appendChild(this.lienzo)
+
+					this.contexto = this.lienzo.getContext("2d")
+					this.centroX = this.lienzo.width / 2
+					this.centroY = this.lienzo.height / 2
+					this.radio = 180
+				}
+
+				dibujar(){
+					let contexto = this.contexto
+					let datos = this.datos
+					let lienzo = this.lienzo
+					let centroX = this.centroX
+					let centroY = this.centroY
+					let radio = this.radio
+
+					let total = 0
+					for(let i = 0; i < datos.length; i++){
+						total += Number(datos[i].valor)
+					}
+
+					let anguloInicio = 0
+					let etiquetasDerecha = []
+					let etiquetasIzquierda = []
+
+					for(let i = 0; i < datos.length; i++){
+						let proporcion = datos[i].valor / total
+						let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+						let color = `hsl(${i * 50},80%,50%)`
+
+						// sector
+						contexto.fillStyle = color
+						contexto.beginPath()
+						contexto.moveTo(centroX, centroY)
+						contexto.arc(centroX, centroY, radio, anguloInicio, anguloFinal)
+						contexto.closePath()
+						contexto.fill()
+
+						// cálculo de etiqueta
+						let anguloMedio = (anguloInicio + anguloFinal) / 2
+						let xBorde = centroX + Math.cos(anguloMedio) * radio
+						let yBorde = centroY + Math.sin(anguloMedio) * radio
+
+						let xFuera = centroX + Math.cos(anguloMedio) * (radio + 30)
+						let yFuera = centroY + Math.sin(anguloMedio) * (radio + 30)
+
+						let porcentaje = ((datos[i].valor / total) * 100).toFixed(2) + "%"
+						let texto = datos[i].nombre + " - " + datos[i].valor + " (" + porcentaje + ")"
+
+						let etiqueta = {
+							nombre: datos[i].nombre,
+							valor: datos[i].valor,
+							porcentaje: porcentaje,
+							texto: texto,
+							color: color,
+							xBorde: xBorde,
+							yBorde: yBorde,
+							xFuera: xFuera,
+							yFuera: yFuera,
+							lado: xFuera >= centroX ? "derecha" : "izquierda"
+						}
+
+						if(etiqueta.lado === "derecha"){
+							etiquetasDerecha.push(etiqueta)
+						}else{
+							etiquetasIzquierda.push(etiqueta)
+						}
+
+						anguloInicio = anguloFinal
+					}
+
+					this.repartirEtiquetas(etiquetasDerecha, "derecha")
+					this.repartirEtiquetas(etiquetasIzquierda, "izquierda")
+				}
+
+				repartirEtiquetas(lista, lado){
+					let contexto = this.contexto
+					let lienzo = this.lienzo
+					let centroX = this.centroX
+					let radio = this.radio
+
+					lista.sort((a,b) => a.yFuera - b.yFuera)
+
+					let separacionMinima = 24
+					let margenSuperior = 40
+					let margenInferior = lienzo.height - 40
+
+					if(lista.length > 0){
+						if(lista[0].yFuera < margenSuperior){
+							lista[0].yFuera = margenSuperior
+						}
+
+						for(let i = 1; i < lista.length; i++){
+							if(lista[i].yFuera < lista[i - 1].yFuera + separacionMinima){
+								lista[i].yFuera = lista[i - 1].yFuera + separacionMinima
+							}
+						}
+
+						if(lista[lista.length - 1].yFuera > margenInferior){
+							lista[lista.length - 1].yFuera = margenInferior
+
+							for(let i = lista.length - 2; i >= 0; i--){
+								if(lista[i].yFuera > lista[i + 1].yFuera - separacionMinima){
+									lista[i].yFuera = lista[i + 1].yFuera - separacionMinima
+								}
+							}
+						}
+					}
+
+					contexto.font = "14px Arial"
+					contexto.textBaseline = "middle"
+
+					for(let i = 0; i < lista.length; i++){
+						let e = lista[i]
+						let anchoTexto = contexto.measureText(e.texto).width
+						let tamCuadrado = 14
+						let separacionCuadradoTexto = 8
+
+						let xLineaFinal
+						let xCuadrado
+						let xTexto
+
+						if(lado === "derecha"){
+							xCuadrado = centroX + radio + 140
+							xTexto = xCuadrado + tamCuadrado + separacionCuadradoTexto
+							xLineaFinal = xCuadrado - 10
+						}else{
+							xTexto = centroX - radio - 140 - anchoTexto - tamCuadrado - separacionCuadradoTexto
+							xCuadrado = xTexto + anchoTexto + separacionCuadradoTexto
+							xLineaFinal = xCuadrado + tamCuadrado + 10
+						}
+
+						// línea guía
+						contexto.strokeStyle = e.color
+						contexto.lineWidth = 1.5
+						contexto.beginPath()
+						contexto.moveTo(e.xBorde, e.yBorde)
+						contexto.lineTo(e.xFuera, e.yFuera)
+						contexto.lineTo(xLineaFinal, e.yFuera)
+						contexto.stroke()
+
+						// cuadrado
+						contexto.fillStyle = e.color
+						contexto.fillRect(xCuadrado, e.yFuera - tamCuadrado / 2, tamCuadrado, tamCuadrado)
+
+						// texto
+						contexto.fillStyle = "black"
+						contexto.textAlign = "left"
+						contexto.fillText(e.texto, xTexto, e.yFuera)
+					}
+				}
+			}
+
+			function iniciarGraficas(){
+				let graficas = document.querySelectorAll(".grafica")
+
+				graficas.forEach(function(div){
+					let textoJSON = div.getAttribute("data-datos")
+
+					if(!textoJSON){ return }
+
+					try{
+						let datos = JSON.parse(textoJSON)
+						let grafica = new GraficaCircular(div, datos)
+						grafica.dibujar()
+					}catch(error){
+						div.innerHTML = "<p style='color:red;'>JSON no válido en data-datos</p>"
+						console.error(error)
+					}
+				})
+			}
+
+			document.addEventListener("DOMContentLoaded", iniciarGraficas)
+		</script>
+	</body>
+</html>

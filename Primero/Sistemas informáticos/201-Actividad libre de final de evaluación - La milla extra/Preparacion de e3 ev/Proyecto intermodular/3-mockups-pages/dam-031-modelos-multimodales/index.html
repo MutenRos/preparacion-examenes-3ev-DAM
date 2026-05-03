@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modelos multimodales · Ollama</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;margin:0;background:#0a0e27;color:#e2e8f0;min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{padding:34px 20px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(99,102,241,.25),transparent 70%)}
+header h1{font-size:2rem;margin:0 0 6px;background:linear-gradient(90deg,#818cf8,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:#94a3b8;margin:0}
+.tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 16px;margin:18px 0}
+.tabs button{background:#1e293b;color:#cbd5e1;border:1px solid #334155;padding:10px 22px;border-radius:8px;cursor:pointer;font-size:.92rem;font-weight:500}
+.tabs button.active{background:#6366f1;border-color:#818cf8;color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 50px}
+.panel{background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:22px}
+.panel.hidden{display:none}
+label{display:block;font-size:.8rem;color:#94a3b8;margin:12px 0 4px;font-weight:500}
+input,textarea,select{width:100%;background:#1e293b;border:1px solid #334155;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.9rem;font-family:inherit}
+textarea{resize:vertical;min-height:80px}
+input[type=file]{padding:8px}
+button.go{background:#6366f1;color:#fff;border:0;padding:11px 24px;border-radius:6px;cursor:pointer;margin-top:14px;font-weight:600;font-size:.95rem}
+button.go:hover{background:#4f46e5}
+pre{background:#020617;color:#a5f3fc;padding:14px;border-radius:6px;white-space:pre-wrap;font-size:.85rem;margin-top:14px;max-height:340px;overflow:auto;border:1px solid #1e293b}
+img.preview{max-width:100%;max-height:280px;display:block;margin:10px 0;border-radius:6px;border:1px solid #334155}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;margin-top:18px;font-size:.82rem}
+.files div{padding:8px 10px;background:#1e293b;border-left:3px solid #818cf8;border-radius:4px}
+.files code{color:#c4b5fd}
+footer{text-align:center;padding:18px;color:#475569;font-size:.78rem}
+.note{background:rgba(99,102,241,.1);border-left:3px solid #818cf8;padding:10px 14px;font-size:.85rem;margin:14px 0;color:#c7d2fe}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Páginas reales <code>008-texto.html</code>, <code>009-vision.html</code> y <code>010-imagen.html</code> del proyecto · Las llamadas a Ollama remoto fallarán en Pages (CORS / API caída) y se muestra una respuesta simulada</div>
+
+<header>
+  <h1>🧠 Modelos multimodales con Ollama</h1>
+  <p>Proyecto 031 · Texto · Visión · Generación de imágenes (Stable Diffusion)</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="texto">📝 Texto</button>
+  <button class="tab-btn" data-tab="vision">👁️ Visión</button>
+  <button class="tab-btn" data-tab="imagen">🎨 Imagen</button>
+  <button class="tab-btn" data-tab="info">ℹ️ Info</button>
+</div>
+
+<div class="wrap">
+
+  <div class="panel" id="p-texto">
+    <h2 style="margin-top:0;font-size:1.05rem">Enviar texto al modelo</h2>
+    <label>URL de la API (Ollama remoto)</label>
+    <input id="t-url" value="https://covalently-untasked-daphne.ngrok-free.dev/api/">
+    <label>Usuario</label><input id="t-user" value="jocarsa">
+    <label>Modelo</label><input id="t-model" value="qwen3.5:latest">
+    <label>System (opcional)</label><textarea id="t-system" placeholder="Eres un asistente útil…"></textarea>
+    <label>Pregunta</label><textarea id="t-q" placeholder="¿Qué es el aprendizaje profundo?">¿Qué es el aprendizaje profundo?</textarea>
+    <button class="go" onclick="enviarTexto()">Enviar</button>
+    <pre id="t-out">Esperando entrada…</pre>
+  </div>
+
+  <div class="panel hidden" id="p-vision">
+    <h2 style="margin-top:0;font-size:1.05rem">Enviar imagen al modelo de visión</h2>
+    <label>Modelo</label><input id="v-model" value="qwen3.5:latest">
+    <label>Pregunta</label><textarea id="v-q">¿Qué ves en esta imagen? Responde en español.</textarea>
+    <label>Imagen</label><input type="file" id="v-file" accept="image/*">
+    <img id="v-preview" class="preview" src="foto.jpg" alt="vista previa">
+    <button class="go" onclick="enviarVision()">Enviar imagen</button>
+    <pre id="v-out">Esperando entrada…</pre>
+  </div>
+
+  <div class="panel hidden" id="p-imagen">
+    <h2 style="margin-top:0;font-size:1.05rem">Generar imagen (Stable Diffusion)</h2>
+    <div class="note">Este apartado usa el WebUI de <strong>AUTOMATIC1111/stable-diffusion-webui</strong> instalado localmente. En GitHub Pages no hay backend, así que se muestra un placeholder.</div>
+    <label>Prompt</label><textarea id="i-q" placeholder="A futuristic city at sunset, cinematic">A futuristic city at sunset, cinematic, ultra-detailed</textarea>
+    <label>Modelo</label>
+    <select id="i-model"><option>sd-v1-5</option><option>sdxl-base</option><option>realistic-vision</option></select>
+    <button class="go" onclick="generarImagen()">Generar</button>
+    <div id="i-out" style="margin-top:14px"></div>
+  </div>
+
+  <div class="panel hidden" id="p-info">
+    <h2 style="margin-top:0;font-size:1.05rem">Sobre este proyecto</h2>
+    <p style="color:#cbd5e1;line-height:1.6">Trabajo con modelos multimodales: texto, visión por webcam y generación de imágenes con Stable Diffusion. Combina <strong>Ollama</strong>, <strong>OpenCV + tkinter</strong> (cliente de webcam local) y el WebUI de AUTOMATIC1111.</p>
+    <h3 style="font-size:.95rem;color:#a5b4fc">Archivos del proyecto</h3>
+    <div class="files">
+      <div><code>001-qwen multimodal.py</code> — texto + imagen con qwen2.5-vl</div>
+      <div><code>002-ollama vision con webcam.py</code> — captura webcam y envía a Ollama</div>
+      <div><code>003-stable diffusion.md</code> — instrucciones de instalación de A1111</div>
+      <div><code>004-opencv y tkinter.py</code> — UI local con preview de cámara</div>
+      <div><code>005-mejoras.py</code> · <code>006-remoto.py</code> · <code>007-mejoras UI.py</code></div>
+      <div><code>008-texto.html</code> · <code>009-vision.html</code> · <code>010-imagen.html</code></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</footer>
+
+<script>
+// tabs
+document.querySelectorAll('.tab-btn').forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.add('hidden'));
+    document.getElementById('p-'+b.dataset.tab).classList.remove('hidden');
+  };
+});
+
+function fakeIA(pregunta, modo){
+  if(modo === 'vision') return "[respuesta simulada · API no disponible]\n\nEn la imagen veo un primer plano fotográfico con buena iluminación y textura nítida. Los colores predominantes son cálidos. (En producción real respondería el modelo qwen3.5 con visión.)";
+  if(modo === 'texto'){
+    return "[respuesta simulada · API no disponible]\n\nPregunta recibida: \""+pregunta+"\"\n\nEl aprendizaje profundo es una rama del aprendizaje automático que utiliza redes neuronales con muchas capas para aprender representaciones jerárquicas de datos. Es la base de modelos como GPT, Claude o los modelos Ollama que usas en este proyecto.";
+  }
+  return "";
+}
+
+async function enviarTexto(){
+  const out = document.getElementById('t-out');
+  out.textContent = 'Cargando…';
+  const url = document.getElementById('t-url').value;
+  const q   = document.getElementById('t-q').value;
+  try{
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({user:'jocarsa', password:'jocarsa', action:'generate',
+        model: document.getElementById('t-model').value,
+        system: document.getElementById('t-system').value,
+        question: q})
+    });
+    const txt = await res.text();
+    try{ out.textContent = JSON.stringify(JSON.parse(txt), null, 2); }
+    catch(e){ out.textContent = txt; }
+  }catch(err){
+    out.textContent = fakeIA(q, 'texto');
+  }
+}
+
+document.getElementById('v-file').addEventListener('change', function(){
+  const f = this.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>{ document.getElementById('v-preview').src = r.result; };
+  r.readAsDataURL(f);
+});
+
+async function enviarVision(){
+  const out = document.getElementById('v-out');
+  out.textContent = 'Cargando…';
+  setTimeout(()=>{ out.textContent = fakeIA('', 'vision'); }, 1200);
+}
+
+async function generarImagen(){
+  const out = document.getElementById('i-out');
+  const prompt = document.getElementById('i-q').value;
+  out.innerHTML = '<p style="color:#94a3b8">Generando…</p>';
+  setTimeout(function(){
+    out.innerHTML = '<div style="background:linear-gradient(135deg,#6366f1,#a855f7,#ec4899);height:300px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:20px">'+
+      '<div><div style="font-size:2.5rem">🎨</div><p style="margin:8px 0;font-weight:600">Imagen generada (placeholder)</p>'+
+      '<p style="opacity:.85;font-size:.85rem;max-width:400px">Prompt: <em>'+prompt.replace(/</g,'&lt;')+'</em></p>'+
+      '<p style="opacity:.7;font-size:.75rem;margin-top:8px">En producción aquí aparece la imagen real generada por Stable Diffusion (AUTOMATIC1111).</p></div></div>';
+  }, 1500);
+}
+</script>
+</body>
+</html>

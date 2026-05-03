@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multiformularios condicionales · DAM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#0f172a;min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{background:#0f172a;color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:1.15em;display:flex;align-items:center;gap:10px}
+header .who{font-size:.82em;color:#94a3b8}
+header .who strong{color:#fff}
+header button{background:#1e293b;color:#cbd5e1;border:0;padding:6px 12px;border-radius:5px;font-size:.82em;cursor:pointer;font-family:inherit;margin-left:10px}
+header button:hover{background:#334155}
+.layout{max-width:1200px;margin:18px auto;padding:0 22px}
+
+/* === LOGIN VIEW === */
+.login{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:30px 22px}
+.login-box{background:#fff;border-radius:14px;padding:36px 38px;max-width:420px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.login-box h2{margin-bottom:6px;color:#0f172a}
+.login-box p{color:#64748b;font-size:.92em;margin-bottom:22px}
+.login-box label{display:block;font-size:.82em;color:#475569;margin:12px 0 5px;font-weight:600}
+.login-box input{width:100%;padding:11px 14px;border:1px solid #cbd5e1;border-radius:7px;font-size:.94em;font-family:inherit;outline:none}
+.login-box input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.login-box button{margin-top:18px;width:100%;padding:11px;background:#2563eb;color:#fff;border:0;border-radius:7px;font-weight:700;cursor:pointer;font-family:inherit}
+.login-box button:hover{background:#1d4ed8}
+.login-box .hint{margin-top:14px;background:#eff6ff;border:1px dashed #93c5fd;padding:10px 14px;border-radius:6px;font-size:.82em;color:#1e3a8a}
+.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px;border-radius:6px;font-size:.85em;margin-top:12px;display:none}
+.err.show{display:block}
+
+/* === ADMIN VIEW === */
+.tabs{display:flex;gap:4px;border-bottom:2px solid #e2e8f0;margin-bottom:18px}
+.tabs a{padding:10px 18px;color:#64748b;text-decoration:none;cursor:pointer;font-size:.92em;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-2px}
+.tabs a:hover{color:#0f172a}
+.tabs a.act{color:#2563eb;border-bottom-color:#2563eb}
+.card{background:#fff;border-radius:10px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:16px}
+.card h3{font-size:1.05em;margin-bottom:14px;color:#0f172a}
+table{width:100%;border-collapse:collapse;font-size:.92em}
+th{background:#f8fafc;text-align:left;padding:10px;color:#475569;font-size:.82em;border-bottom:2px solid #e2e8f0}
+td{padding:10px;border-bottom:1px solid #f1f5f9}
+.btn{padding:6px 12px;border-radius:5px;border:0;cursor:pointer;font-size:.82em;font-weight:600;font-family:inherit}
+.btn-prim{background:#2563eb;color:#fff}
+.btn-edit{background:#0891b2;color:#fff}
+.btn-link{background:#10b981;color:#fff}
+.btn-del{background:#dc2626;color:#fff;padding:5px 9px}
+.input{width:100%;padding:9px 12px;border:1px solid #cbd5e1;border-radius:6px;font-size:.92em;font-family:inherit;outline:none}
+.input:focus{border-color:#2563eb}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+code.url{background:#0f172a;color:#86efac;padding:3px 9px;border-radius:4px;font-family:ui-monospace,monospace;font-size:.82em}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.78em;font-weight:600;background:#dcfce7;color:#166534}
+.badge.priv{background:#fef3c7;color:#854d0e}
+
+/* === PUBLIC FORM VIEW === */
+.public{max-width:680px;margin:30px auto;padding:0 22px}
+.public-card{background:#fff;border-radius:14px;padding:30px 34px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.public-card h2{color:#0f172a;margin-bottom:6px}
+.public-card .desc{color:#64748b;margin-bottom:20px;font-size:.92em}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.88em;font-weight:600;color:#374151;margin-bottom:6px}
+.req{color:#dc2626;margin-left:3px}
+.field input,.field select,.field textarea{width:100%;padding:9px 12px;border:1px solid #cbd5e1;border-radius:6px;font-size:.92em;font-family:inherit;outline:none}
+.field textarea{min-height:60px}
+.opt{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.92em;cursor:pointer}
+.nested{margin-left:24px;padding:12px 14px;border-left:3px solid #c7d2fe;background:#f5f3ff;border-radius:0 8px 8px 0;display:none;margin-top:8px}
+.nested.show{display:block}
+.success{background:#dcfce7;border:1px solid #86efac;color:#14532d;padding:18px;border-radius:8px;text-align:center;display:none}
+.success.show{display:block}
+
+footer{text-align:center;padding:18px;color:#64748b;font-size:.82em}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Multiusuario PHP+SQLite · Login: <code>admin</code> / <code>admin123</code> · Cada usuario tiene sus formularios y respuestas</div>
+
+<div id="app"></div>
+
+<footer>Proyecto Intermodular DAM · 025 · Multiformularios condicionales</footer>
+
+<script>
+// ====== Estado ======
+let user = null; // {usuario, rol}
+let view = 'login';
+let formViewId = null;
+let curTab = 'forms';
+
+// Datos mock multiusuario
+const USUARIOS = [
+  {usuario:'admin', pass:'admin123', rol:'admin'},
+  {usuario:'demo', pass:'demo', rol:'usuario'}
+];
+const FORMS = [
+  {id:1, owner:'admin', titulo:'Inscripción ciclos DAM', desc:'Datos del aspirante', sintaxis:`[text][required] Nombre completo
+[email][required] Correo electrónico
+[radio][required] ¿Qué ciclo te interesa?
+\t[case] DAM
+\t\t[textarea] ¿Por qué DAM?
+\t[case] DAW
+\t\t[textarea] ¿Por qué DAW?`, slug:'inscripcion-dam'},
+  {id:2, owner:'admin', titulo:'Encuesta satisfacción', desc:'Tu opinión cuenta', sintaxis:`[text] Nombre (opcional)
+[radio][required] ¿Recomendarías el centro?
+\t[case] Sí
+\t\t[textarea] ¿Qué destacarías?
+\t[case] No
+\t\t[textarea] ¿Qué mejorarías?`, slug:'encuesta-satisfaccion'},
+  {id:3, owner:'demo', titulo:'Reserva de cita', desc:'Pide tu cita online', sintaxis:`[text][required] Nombre
+[email][required] Email
+[date][required] Fecha preferida`, slug:'reserva-cita'}
+];
+const RESPUESTAS = [
+  {id:1, formId:1, datos:'María López · DAM · "Me apasiona la programación"', fecha:'2026-04-26'},
+  {id:2, formId:1, datos:'Juan Sanz · DAW · "Quiero hacer webs"', fecha:'2026-04-27'},
+  {id:3, formId:2, datos:'(anónimo) · Sí · "Buen profesorado"', fecha:'2026-04-25'}
+];
+
+// ====== ROUTING ======
+function render(){
+  const a = document.getElementById('app');
+  if(view === 'login'){ a.innerHTML = renderLogin(); return; }
+  if(view === 'public'){ a.innerHTML = renderPublic(); attachFormHandler(); return; }
+  // admin
+  a.innerHTML = renderHeader() + '<div class="layout">' + renderTabs() + renderTab() + '</div>';
+}
+
+function renderHeader(){
+  return `<header>
+    <h1>📋 Multiformularios <span style="color:#94a3b8;font-weight:400">/ admin</span></h1>
+    <div class="who">${user.rol==='admin'?'👑 ':''}<strong>${user.usuario}</strong> <button onclick="logout()">Salir</button></div>
+  </header>`;
+}
+
+function renderTabs(){
+  const t = (k,n)=>`<a class="${curTab===k?'act':''}" onclick="curTab='${k}';render()">${n}</a>`;
+  return `<div class="tabs">${t('forms','📝 Mis formularios')}${t('resp','📨 Respuestas')}${user.rol==='admin'?t('users','👥 Usuarios'):''}</div>`;
+}
+
+function renderTab(){
+  if(curTab==='forms') return renderFormsTab();
+  if(curTab==='resp') return renderRespTab();
+  if(curTab==='users') return renderUsersTab();
+}
+
+function renderFormsTab(){
+  const mine = FORMS.filter(f=>user.rol==='admin' || f.owner===user.usuario);
+  return `<div class="card">
+    <h3>📝 Tus formularios <button class="btn btn-prim" style="float:right" onclick="alert('Crear nuevo (mockup)')">+ Nuevo</button></h3>
+    <table><thead><tr><th>Título</th><th>Slug público</th><th>Propietario</th><th>Acciones</th></tr></thead>
+    <tbody>${mine.map(f=>`<tr>
+      <td><strong>${f.titulo}</strong><br><small style="color:#64748b">${f.desc}</small></td>
+      <td><code class="url">/?form=${f.slug}</code></td>
+      <td>${f.owner==='admin'?'👑 ':''}${f.owner}</td>
+      <td><div class="row"><button class="btn btn-edit" onclick="alert('Editar (mockup)')">Editar</button>
+      <button class="btn btn-link" onclick="abrirPub('${f.slug}')">Ver público</button>
+      <button class="btn btn-del" onclick="alert('Borrar (mockup)')">×</button></div></td>
+    </tr>`).join('')}</tbody></table>
+  </div>`;
+}
+
+function renderRespTab(){
+  const mineForms = FORMS.filter(f=>user.rol==='admin' || f.owner===user.usuario);
+  const mineIds = mineForms.map(f=>f.id);
+  const resp = RESPUESTAS.filter(r=>mineIds.includes(r.formId));
+  return `<div class="card">
+    <h3>📨 Respuestas recibidas (${resp.length})</h3>
+    <table><thead><tr><th>Formulario</th><th>Datos</th><th>Fecha</th></tr></thead>
+    <tbody>${resp.map(r=>{const f=FORMS.find(x=>x.id===r.formId);return `<tr>
+      <td><strong>${f?f.titulo:'?'}</strong></td>
+      <td style="font-family:ui-monospace,monospace;font-size:.85em">${r.datos}</td>
+      <td>${r.fecha}</td>
+    </tr>`}).join('')}</tbody></table>
+    ${resp.length===0?'<p style="color:#64748b;text-align:center;padding:20px">Sin respuestas todavía</p>':''}
+  </div>`;
+}
+
+function renderUsersTab(){
+  return `<div class="card">
+    <h3>👥 Usuarios del sistema <button class="btn btn-prim" style="float:right" onclick="alert('Crear usuario (mockup)')">+ Nuevo</button></h3>
+    <table><thead><tr><th>Usuario</th><th>Rol</th><th>Formularios</th><th></th></tr></thead>
+    <tbody>${USUARIOS.map(u=>`<tr>
+      <td><strong>${u.usuario}</strong></td>
+      <td><span class="badge ${u.rol==='admin'?'priv':''}">${u.rol}</span></td>
+      <td>${FORMS.filter(f=>f.owner===u.usuario).length}</td>
+      <td><button class="btn btn-edit" onclick="alert('Editar (mockup)')">Editar</button></td>
+    </tr>`).join('')}</tbody></table>
+  </div>`;
+}
+
+function renderLogin(){
+  return `<div class="login"><div class="login-box">
+    <h2>🔐 Acceso al panel</h2>
+    <p>Multiusuario · PHP + SQLite</p>
+    <form onsubmit="event.preventDefault();doLogin();">
+      <label>Usuario</label>
+      <input id="u" autofocus>
+      <label>Contraseña</label>
+      <input id="p" type="password">
+      <button type="submit">Entrar</button>
+      <div class="err" id="err">Usuario o contraseña incorrectos</div>
+    </form>
+    <div class="hint">💡 Prueba con <code>admin</code> / <code>admin123</code> o <code>demo</code> / <code>demo</code></div>
+  </div></div>`;
+}
+
+function renderPublic(){
+  const f = FORMS.find(x=>x.slug===formViewId);
+  if(!f) return `<div class="public"><div class="public-card"><h2>404</h2><p>Formulario no encontrado.</p><a href="#" onclick="view='login';render();return false;">← Volver</a></div></div>`;
+  return `<div class="public"><div class="public-card">
+    <a href="#" onclick="view=user?'admin':'login';render();return false;" style="font-size:.85em;color:#64748b;text-decoration:none">← Volver al panel</a>
+    <h2 style="margin-top:14px">${f.titulo}</h2>
+    <p class="desc">${f.desc}</p>
+    <form id="pubForm" onsubmit="event.preventDefault();sendPub();"></form>
+    <div class="success" id="succ">✓ ¡Gracias! Tu respuesta se ha guardado correctamente.</div>
+  </div></div>`;
+}
+
+// ===== Form parser/renderer (reutilizado del 024) =====
+function parse(text){
+  const lines = text.split('\n');
+  const root = {children:[], depth:-1};
+  const stack = [root];
+  for(let raw of lines){
+    if(!raw.trim()) continue;
+    const m = raw.match(/^([\t ]*)/);
+    let pre = m[1], depth = 0;
+    for(const ch of pre){ if(ch==='\t') depth++; else if(ch===' ') depth+=0.25; }
+    depth = Math.floor(depth);
+    const line = raw.trim();
+    const tokens = []; let rest = line;
+    while(rest.startsWith('[')){ const j=rest.indexOf(']'); if(j<0)break; tokens.push(rest.slice(1,j)); rest=rest.slice(j+1).trim(); }
+    const node = {tokens, label:rest.trim(), depth, children:[]};
+    while(stack.length>1 && stack[stack.length-1].depth >= depth) stack.pop();
+    stack[stack.length-1].children.push(node);
+    stack.push(node);
+  }
+  return root.children;
+}
+let cnt = 0; const uid = ()=>'q'+(++cnt);
+function rNode(n, p){
+  const t = n.tokens[0]||''; if(t==='case') return;
+  const req = n.tokens.includes('required');
+  const w = document.createElement('div'); w.className='field';
+  const lab = document.createElement('label'); lab.innerHTML = (n.label||'')+(req?'<span class="req">*</span>':'');
+  if(['radio','checkbox','select'].includes(t)) w.appendChild(lab);
+  if(['text','email','number','date'].includes(t)){ w.appendChild(lab); const i=document.createElement('input'); i.type=t; if(req)i.required=true; w.appendChild(i); }
+  else if(t==='textarea'){ w.appendChild(lab); const ta=document.createElement('textarea'); if(req)ta.required=true; w.appendChild(ta); }
+  else if(t==='radio'){ const g=uid(); n.children.filter(c=>c.tokens[0]==='case').forEach(c=>{
+    const cid=uid(); const lb=document.createElement('label'); lb.className='opt';
+    const r=document.createElement('input'); r.type='radio'; r.name=g; r.value=c.label;
+    r.onchange=()=>{ w.querySelectorAll(':scope > .nested').forEach(x=>x.classList.remove('show')); const m=w.querySelector(`[data-cid="${cid}"]`); if(m)m.classList.add('show'); };
+    lb.appendChild(r); lb.appendChild(document.createTextNode(' '+c.label)); w.appendChild(lb);
+    if(c.children.length){ const n2=document.createElement('div'); n2.className='nested'; n2.dataset.cid=cid; c.children.forEach(cc=>rNode(cc,n2)); w.appendChild(n2); }
+  });}
+  else if(t==='select'){ const s=document.createElement('select'); s.innerHTML='<option value="">— Elige —</option>';
+    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=c.label;s.appendChild(o);});
+    w.appendChild(s); const nw=document.createElement('div');
+    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{ if(c.children.length){const n2=document.createElement('div');n2.className='nested';n2.dataset.cidx=i;c.children.forEach(cc=>rNode(cc,n2));nw.appendChild(n2);} });
+    w.appendChild(nw); s.onchange=()=>{ nw.querySelectorAll('.nested').forEach(x=>x.classList.remove('show')); const m=nw.querySelector(`[data-cidx="${s.value}"]`); if(m)m.classList.add('show'); };
+  }
+  p.appendChild(w);
+}
+
+function attachFormHandler(){
+  const f = FORMS.find(x=>x.slug===formViewId); if(!f) return;
+  cnt = 0;
+  const form = document.getElementById('pubForm'); if(!form) return;
+  parse(f.sintaxis).forEach(n=>rNode(n, form));
+  const btn=document.createElement('button'); btn.type='submit'; btn.textContent='Enviar respuesta';
+  btn.style.cssText='margin-top:10px;padding:11px 26px;background:#2563eb;color:#fff;border:0;border-radius:7px;font-weight:700;cursor:pointer;font-family:inherit';
+  form.appendChild(btn);
+}
+function sendPub(){
+  document.getElementById('pubForm').style.display='none';
+  document.getElementById('succ').classList.add('show');
+}
+
+// ====== Acciones ======
+function doLogin(){
+  const u = document.getElementById('u').value.trim();
+  const p = document.getElementById('p').value;
+  const f = USUARIOS.find(x=>x.usuario===u && x.pass===p);
+  if(!f){ document.getElementById('err').classList.add('show'); return; }
+  user = f; view = 'admin'; render();
+}
+function logout(){ user = null; view = 'login'; render(); }
+function abrirPub(slug){ formViewId = slug; view = 'public'; render(); }
+
+render();
+
+// Detect ?form= in hash for public access without login
+if(location.hash.startsWith('#form=')){
+  formViewId = location.hash.slice(6);
+  view = 'public'; render();
+}
+</script>
+</body>
+</html>

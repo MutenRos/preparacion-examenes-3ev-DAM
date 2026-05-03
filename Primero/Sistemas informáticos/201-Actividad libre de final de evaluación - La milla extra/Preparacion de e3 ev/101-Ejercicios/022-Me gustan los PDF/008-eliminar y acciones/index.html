@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jocarsa-conversion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">jc</div>
+      <div class="brand-text">
+        <h1>jocarsa-conversion</h1>
+        <p>Operaciones de conversión de documentos e imágenes</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div class="section-kicker">Conversión</div>
+      <h2>Selecciona una operación</h2>
+      <p>
+        Elige la transformación que deseas realizar. Cada operación utiliza una interfaz
+        común para mantener una experiencia limpia, consistente y reutilizable.
+      </p>
+    </section>
+
+    <section class="operations-grid">
+
+      <a href="action.php?op=split_pdf" class="operation-card">
+        <div class="operation-icon conversion-icon">
+          <span class="pill pill-origin">PDF</span>
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="pill pill-destination">PDF</span>
+        </div>
+        <div class="operation-meta">
+          <h3>Separar PDF</h3>
+          <p>Divide un PDF en páginas individuales comprimidas en ZIP.</p>
+        </div>
+      </a>
+
+      <a href="action.php?op=join_pdf" class="operation-card">
+        <div class="operation-icon conversion-icon">
+          <div class="pill-group">
+            <span class="pill pill-origin">PDF</span>
+            <span class="pill pill-origin">PDF</span>
+          </div>
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="pill pill-destination">PDF</span>
+        </div>
+        <div class="operation-meta">
+          <h3>Unir PDF</h3>
+          <p>Combina varios archivos PDF en un único documento final.</p>
+        </div>
+      </a>
+
+      <a href="action.php?op=pdf_to_jpg" class="operation-card">
+        <div class="operation-icon conversion-icon">
+          <span class="pill pill-origin">PDF</span>
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="pill pill-destination">JPG</span>
+        </div>
+        <div class="operation-meta">
+          <h3>PDF a JPG</h3>
+          <p>Convierte cada página del PDF en imágenes JPG descargables en ZIP.</p>
+        </div>
+      </a>
+
+      <a href="action.php?op=pdf_to_png" class="operation-card">
+        <div class="operation-icon conversion-icon">
+          <span class="pill pill-origin">PDF</span>
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="pill pill-destination">PNG</span>
+        </div>
+        <div class="operation-meta">
+          <h3>PDF a PNG</h3>
+          <p>Convierte cada página del PDF en imágenes PNG descargables en ZIP.</p>
+        </div>
+      </a>
+
+      <a href="action.php?op=images_to_pdf" class="operation-card">
+        <div class="operation-icon conversion-icon">
+          <div class="pill-group">
+            <span class="pill pill-origin">JPG</span>
+            <span class="pill pill-origin">PNG</span>
+          </div>
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="pill pill-destination">PDF</span>
+        </div>
+        <div class="operation-meta">
+          <h3>Imágenes a PDF</h3>
+          <p>Genera un único PDF a partir de una o varias imágenes.</p>
+        </div>
+      </a>
+
+    </section>
+  </main>
+</body>
+</html>

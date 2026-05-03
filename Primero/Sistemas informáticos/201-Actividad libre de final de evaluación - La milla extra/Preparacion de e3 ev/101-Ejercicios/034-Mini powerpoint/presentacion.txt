@@ -1,0 +1,5 @@
+frontpage
+	Título principal de la presentación
+	Subtítulo breve de la presentación
+	Autor o empresa
+

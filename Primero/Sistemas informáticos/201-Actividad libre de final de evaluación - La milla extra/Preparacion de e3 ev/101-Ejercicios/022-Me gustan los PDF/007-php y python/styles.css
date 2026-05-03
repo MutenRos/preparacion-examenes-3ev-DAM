@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f4f6f8;
+  --surface: #ffffff;
+  --surface-hover: #f9fbfc;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #d9e2ec;
+  --primary: #2563eb;
+  --primary-soft: #dbeafe;
+  --success-bg: #ecfdf3;
+  --success-border: #a7f3d0;
+  --success-text: #065f46;
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
+  --error-text: #991b1b;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --radius: 14px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: lowercase;
+  font-size: 1.1rem;
+}
+
+.brand-text h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.brand-text p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.intro {
+  margin-bottom: 24px;
+}
+
+.intro h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.intro p {
+  color: var(--muted);
+}
+
+.operations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.operation-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.operation-card:hover {
+  transform: translateY(-4px);
+  background: var(--surface-hover);
+  border-color: var(--primary);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+}
+
+.operation-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.operation-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.form-panel,
+.result-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  max-width: 680px;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.form-group input[type="file"] {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 0.95rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.button-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button-secondary:hover {
+  background: var(--surface-hover);
+}
+
+.result-box {
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  border: 1px solid transparent;
+}
+
+.result-success {
+  background: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-text);
+}
+
+.result-error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 18px 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .brand {
+    align-items: flex-start;
+  }
+
+  .brand-text h1 {
+    font-size: 1.25rem;
+  }
+
+  .form-panel,
+  .result-panel {
+    padding: 18px;
+  }
+}

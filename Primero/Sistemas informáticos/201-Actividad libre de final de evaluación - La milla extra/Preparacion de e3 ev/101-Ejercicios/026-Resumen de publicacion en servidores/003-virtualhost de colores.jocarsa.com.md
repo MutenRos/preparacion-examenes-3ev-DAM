@@ -1,0 +1,20 @@
+<VirtualHost *:443>
+    ServerAdmin admin@jocarsa.com
+    ServerName colores.jocarsa.com
+    ServerAlias www.colores.jocarsa.com
+
+    DocumentRoot /var/www/html/colores
+
+    SSLEngine on
+    SSLCertificateFile /etc/apache2/ssl/jocarsa_combined.cer
+    SSLCertificateKeyFile /etc/apache2/ssl/jocarsa.key
+
+    <Directory /var/www/html/colores>
+        Options  FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/colores-error.log
+    CustomLog ${APACHE_LOG_DIR}/colores-access.log combined
+</VirtualHost>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+#contenedor{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    overflow-x:scroll;
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+}
+
+article{
+    min-width:100vw;
+    height:100vh;
+
+    box-sizing:border-box;
+    padding:50px;
+
+    flex-shrink:0;
+}
+
+article:nth-child(1){ background:#f5f5f5; }
+article:nth-child(2){ background:#dde8ff; }
+article:nth-child(3){ background:#ffe9d8; }
+article:nth-child(4){ background:#e5ffd8; }
+
+footer{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    background:white;
+    padding:10px;
+    border-radius:12px;
+
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+
+    z-index:1000;
+}
+
+button{
+    padding:10px 16px;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenedor">
+
+    <article>
+        <h1>Diapositiva 1</h1>
+        <p>Contenido de la diapositiva 1</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 2</h1>
+        <p>Contenido de la diapositiva 2</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 3</h1>
+        <p>Contenido de la diapositiva 3</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 4</h1>
+        <p>Contenido de la diapositiva 4</p>
+    </article>
+
+</div>
+
+<footer>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+</footer>
+
+<script>
+
+let botones = document.querySelectorAll("button")
+let contenedor = document.querySelector("#contenedor")
+
+botones.forEach(function(boton){
+
+    boton.onclick = function(){
+
+        let numero = parseInt(this.textContent)
+
+        contenedor.scrollTo({
+            left:(numero-1) * window.innerWidth,
+            behavior:"smooth"
+        })
+
+    }
+
+})
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html,body{
+    margin:0;
+    padding:20px;
+    font-family:Ubuntu,sans-serif;
+    background:#f0f0f0;
+}
+
+ul,li{
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+
+ul{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    counter-reset:item;
+}
+
+li{
+    counter-increment:item;
+    background:black;
+    color:white;
+    padding:10px 10px 10px 48px;
+    border-radius:8px;
+    outline:none;
+    position:relative;
+    min-height:22px;
+    animation:appear 0.25s ease-out;
+}
+
+li::before{
+    content:counter(item);
+    position:absolute;
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:white;
+    color:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:bold;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(-10px) scale(0.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+</style>
+</head>
+<body>
+
+<ul id="lista">
+    <li contenteditable>Presentacion</li>
+</ul>
+
+<script>
+const lista = document.getElementById("lista");
+
+lista.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter"){
+        e.preventDefault();
+
+        const nuevo = document.createElement("li");
+        nuevo.contentEditable = true;
+        nuevo.textContent = "";
+
+        const actual = document.activeElement;
+
+        if(actual && actual.tagName === "LI"){
+            actual.insertAdjacentElement("afterend", nuevo);
+        }else{
+            lista.appendChild(nuevo);
+        }
+
+        nuevo.focus();
+    }
+
+});
+</script>
+
+</body>
+</html>
