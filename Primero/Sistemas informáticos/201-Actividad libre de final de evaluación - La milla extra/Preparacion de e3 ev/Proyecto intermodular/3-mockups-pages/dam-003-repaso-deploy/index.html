@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repaso del despliegue · DAM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:#1f2937;background:#fafaf9}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 system-ui,sans-serif;color:#78350f}
+header{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);color:#fff;padding:60px 24px;text-align:center}
+header h1{font-size:2.4rem;margin-bottom:10px;letter-spacing:-.5px}
+header p{font-size:1.05rem;opacity:.85;font-style:italic;max-width:640px;margin:auto}
+main{max-width:780px;margin:auto;padding:40px 24px}
+section{background:#fff;border-radius:12px;padding:30px 32px;margin-bottom:22px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+section h2{color:#1e3a8a;font-size:1.5rem;margin-bottom:14px;border-bottom:2px solid #fbbf24;padding-bottom:8px}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0}
+.col{padding:18px;border-radius:8px;border-left:4px solid}
+.dev{background:#eff6ff;border-color:#2563eb}
+.prod{background:#fef2f2;border-color:#dc2626}
+.col h3{font-family:system-ui,sans-serif;font-size:1rem;color:#0f172a;margin-bottom:10px}
+.col ul{padding-left:18px;font-size:.92em;font-family:system-ui,sans-serif}
+.col li{margin:5px 0;color:#475569}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.opt{padding:18px;background:#f8fafc;border-radius:8px;border:2px solid #e2e8f0}
+.opt.rec{border-color:#059669;background:#f0fdf4}
+.opt h3{display:flex;align-items:center;gap:8px;font-family:system-ui,sans-serif;font-size:1.05em}
+.tag{font-size:.7em;padding:2px 7px;border-radius:10px;background:#10b981;color:#fff;font-weight:700}
+.opt p{font-size:.9em;font-family:system-ui,sans-serif;color:#475569;margin-top:8px}
+.flow{display:flex;align-items:center;gap:14px;margin:18px 0;flex-wrap:wrap;justify-content:center;font-family:system-ui,sans-serif}
+.box{padding:14px 22px;border-radius:8px;background:#1e293b;color:#fff;font-weight:600;font-size:.92em}
+.box.dev2{background:#2563eb}.box.git{background:#0f172a}.box.srv{background:#dc2626}
+.arrow{color:#94a3b8;font-size:1.4em}
+.path{background:#0f172a;color:#86efac;padding:4px 10px;border-radius:5px;font-family:ui-monospace,monospace;font-size:.88em}
+.callout{background:#fffbeb;border:1px solid #fbbf24;border-radius:8px;padding:18px;margin-top:18px;font-family:system-ui,sans-serif;font-size:.95em}
+.callout strong{color:#854d0e}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.85em;font-family:system-ui,sans-serif}
+@media(max-width:640px){.dual,.compare{grid-template-columns:1fr}header h1{font-size:1.7rem}}
+</style>
+</head>
+<body>
+<div class="mock-banner">📚 Repaso teórico del despliegue · proyecto 003 (apuntes en .md → vista HTML)</div>
+
+<header>
+  <h1>Repaso del despliegue</h1>
+  <p>De nuestro equipo de desarrollo al servidor remoto: dos mundos que conviven a diario.</p>
+</header>
+
+<main>
+  <section>
+    <h2>🖥️ Dos entornos, dos realidades</h2>
+    <p>Nosotros desarrollamos en nuestro <strong>equipo local</strong>, pero la aplicación tiene que estar alojada en un <strong>servidor remoto</strong>. Son dos mundos muy distintos:</p>
+    <div class="dual">
+      <div class="col dev">
+        <h3>💻 Equipo de desarrollo</h3>
+        <ul>
+          <li>Local</li>
+          <li>OS con ventanas</li>
+          <li>Muy potente</li>
+          <li>Muy cómodo</li>
+          <li>Está en nuestra casa</li>
+        </ul>
+      </div>
+      <div class="col prod">
+        <h3>🖥️ Servidor de producción</h3>
+        <ul>
+          <li>Remoto</li>
+          <li>OS de consola (Ubuntu Server)</li>
+          <li>Poco potente</li>
+          <li>No cómodo de usar</li>
+          <li>No está en nuestra casa</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🚀 Dos formas de hacer deploy</h2>
+    <div class="compare">
+      <div class="opt">
+        <h3>📁 FTP (Filezilla)</h3>
+        <p>Conectar y transferir archivos. Fácil, directo, sin versionado. Para <em>proyectitos</em>.</p>
+      </div>
+      <div class="opt rec">
+        <h3>🔧 Git/GitHub <span class="tag">recomendado</span></h3>
+        <p>Más complejo pero mejor. Yo hago <code>push</code> a GitHub, el servidor hace <code>pull</code>. Ideal para proyectos grandes con versionado.</p>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="box dev2">💻 Dev local</div>
+      <span class="arrow">git push →</span>
+      <div class="box git">🐙 GitHub</div>
+      <span class="arrow">git pull →</span>
+      <div class="box srv">🖥️ Servidor</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 Lo que necesitamos</h2>
+    <ul style="font-family:system-ui,sans-serif;padding-left:22px">
+      <li>Un servidor contratado (puede ser una máquina virtual)</li>
+      <li>Un <strong>dominio</strong></li>
+      <li>Un <strong>certificado SSL</strong></li>
+    </ul>
+    <div class="callout">
+      <strong>📌 Recordatorio Apache:</strong> la carpeta de publicación es
+      <span class="path">/var/www/html/XXXXX</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎯 Tarea a realizar (meta-proyecto)</h2>
+    <p>Junto al hecho de que tenéis que hacer un proyecto por cada proyecto que yo haga en clase (como siempre), uno de los proyectos inevitablemente —es un <strong>meta-proyecto</strong>— es la web de vuestra empresa.</p>
+    <div class="callout">
+      💡 <strong>Idea:</strong> usad esa misma web para enlazar los 23 mockups del Pages que ya tenéis publicados. Demostración + portfolio en un solo dominio.
+    </div>
+  </section>
+</main>
+
+<footer>Proyecto Intermodular DAM · 003 · Apuntes de repaso</footer>
+</body>
+</html>

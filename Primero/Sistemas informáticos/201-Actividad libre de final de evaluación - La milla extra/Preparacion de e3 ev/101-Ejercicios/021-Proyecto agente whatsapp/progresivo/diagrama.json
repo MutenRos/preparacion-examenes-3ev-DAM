@@ -1,0 +1,107 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "344.862px",
+      "top": "265.256px",
+      "width": "",
+      "height": "",
+      "texto": "chat"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "513.429px",
+      "top": "264.541px",
+      "width": "",
+      "height": "",
+      "texto": "whatsapp"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "432.017px",
+      "top": "350.978px",
+      "width": "",
+      "height": "",
+      "texto": "Backend"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "pill",
+      "left": "229.75px",
+      "top": "352.488px",
+      "width": "",
+      "height": "",
+      "texto": "Base de datos"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "669.304px",
+      "top": "349.895px",
+      "width": "",
+      "height": "",
+      "texto": "Servidor IA"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    }
+  ]
+}

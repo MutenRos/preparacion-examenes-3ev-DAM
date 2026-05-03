@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="topbar">
+    <div class="row-between">
+      <div>
+        <h1>Detalle</h1>
+        <p class="muted">Vista del correo y clasificación.</p>
+      </div>
+      <a class="btn btn-ghost" href="/?tab={{tab}}&n={{n}}">Volver</a>
+    </div>
+  </header>
+
+  <section class="detail">
+    <div class="detail-head">
+      <div class="detail-subject">{{ item.subject or "(Sin asunto)" }}</div>
+
+      {% if item.label == 'persona_con_motivacion' %}
+        <div class="pill p{{ item.priority if item.priority is not none else 0 }}">
+          Prioridad {{ item.priority }}/10
+        </div>
+      {% else %}
+        <div class="pill neutral">Auto</div>
+      {% endif %}
+    </div>
+
+    <div class="detail-grid">
+      <div class="kv">
+        <div class="k">De</div>
+        <div class="v">{{ item.from }}</div>
+      </div>
+      <div class="kv">
+        <div class="k">Fecha</div>
+        <div class="v">{{ item.date }}</div>
+      </div>
+      <div class="kv span2">
+        <div class="k">Resumen</div>
+        <div class="v">{{ item.summary }}</div>
+      </div>
+
+      {% if item.label == 'persona_con_motivacion' %}
+      <div class="kv span2">
+        <div class="k">Motivo prioridad</div>
+        <div class="v">{{ item.priority_reason }}</div>
+      </div>
+      {% endif %}
+
+      <div class="kv span2">
+        <div class="k">Motivo clasificación</div>
+        <div class="v">{{ item.reason }}</div>
+      </div>
+    </div>
+
+    <div class="bodybox">
+      <div class="bodytitle">Cuerpo (texto)</div>
+      <pre class="bodytext">{{ item.body }}</pre>
+    </div>
+  </section>
+{% endblock %}

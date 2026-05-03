@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<style>
+			body,html{width:100%;height:100%;margin:0px;padding:0px;}
+			body{display:flex;justify-content:center;align-items:center;font-family:monospace;}
+			main{width:300px;height:500px;border:1px solid lightgrey;padding:20px;display:flex;flex-direction:column;justify-content:space-between;}
+			input{border:1px solid lightgrey;padding:10px;outline:none;color:grey;}
+			section{display:flex;flex-direction:column;gap:10px;}
+			article{background:lightgrey;padding:10px;border-radius:5px;width:80%;}
+			.p{background:rgb(200,255,200);border-radius:0px 5px 5px 5px;align-self:flex-start;}
+			.r{background:rgb(200,255,255);border-radius:5px 0px 5px 5px;align-self:flex-end;}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<article class="p">Pregunta</article>
+				<article class="r">Respuesta</article>
+				<article class="p">Pregunta</article>
+				<article class="r">Respuesta</article>
+			</section>
+			<input type="text">
+		</main>
+	</body>
+</html>

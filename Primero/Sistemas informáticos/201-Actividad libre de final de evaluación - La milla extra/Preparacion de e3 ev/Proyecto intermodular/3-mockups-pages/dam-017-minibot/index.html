@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minibot — Web Crawler</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--am:#ffb300;--da:#e65c00;--bg:#0a0800;--bg2:#120e00;--card:#1a1400;--border:#2e2200;--text:#ffe08a}
+  body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  header{padding:48px 24px 36px;position:relative;overflow:hidden}
+  header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,179,0,.06),transparent 70%)}
+  .hinner{max-width:860px;margin:0 auto;position:relative;display:flex;align-items:flex-start;gap:32px}
+  @media(max-width:600px){.hinner{flex-direction:column;gap:16px}}
+  .spider-icon{font-size:3.5em;flex-shrink:0;filter:drop-shadow(0 0 12px #ffb30088)}
+  .htitle h1{font-size:2em;font-weight:600;color:#fff;letter-spacing:-.01em;margin-bottom:6px}
+  .htitle h1 em{color:var(--am);font-style:normal}
+  .htitle p{color:#8a7030;font-size:.88em;line-height:1.5;max-width:460px}
+  .badge{display:inline-block;background:rgba(255,179,0,.08);border:1px solid rgba(255,179,0,.2);color:var(--am);padding:3px 10px;border-radius:4px;font-size:.74em;font-family:'IBM Plex Mono',monospace;margin:6px 4px 0 0}
+
+  main{max-width:860px;margin:0 auto;padding:0 20px 48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:700px){main{grid-template-columns:1fr}}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .card-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 16px;font-size:.74em;font-family:'IBM Plex Mono',monospace;color:var(--am);letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+  .card-head::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--am)}
+  .card-body{padding:16px 18px}
+  .card-body p,.card-body li{font-size:.82em;color:#78600a;line-height:1.65}
+  .card-body ul{padding-left:16px}
+  .card-body li{margin-bottom:3px}
+  .card-body strong{color:var(--text)}
+  pre{font-family:'IBM Plex Mono',monospace;font-size:.78em;color:#c8a030;line-height:1.5;overflow-x:auto}
+  .kw{color:var(--am)} .str{color:#ffcc44} .cm{color:#4a3800} .fn{color:#ffd060} .nb{color:#ff9955}
+
+  /* log terminal */
+  .log-wrap{grid-column:1/-1}
+  .log-term{background:#050400;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .log-head{background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 14px;font-size:.72em;font-family:'IBM Plex Mono',monospace;color:#4a3800;display:flex;align-items:center;gap:8px}
+  .log-head .running{color:#28c840;font-weight:600}
+  .log-body{padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-size:.76em;color:#8a7030;height:160px;overflow-y:auto}
+  .log-line{margin-bottom:3px;white-space:pre}
+  .log-line.ok{color:#88a030}
+  .log-line.url{color:var(--am)}
+  .log-line.err{color:#e65c00}
+  .log-line.info{color:#4a3800}
+  .cur{animation:blink .9s step-end infinite;color:var(--am)}
+  @keyframes blink{50%{opacity:0}}
+
+  footer{text-align:center;padding:22px;color:#1a1400;font-size:.78em;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace}
+</style>
+</head>
+<body>
+<header>
+  <div class="hinner">
+    <div class="spider-icon">🕷️</div>
+    <div class="htitle">
+      <h1><em>minibot</em> — web crawler</h1>
+      <p>Spider Python que rastrea <strong>josevicentecarratala.com</strong> con BFS, normaliza URLs, almacena resultados en SQLite y extrae emails del contenido.</p>
+      <span class="badge">requests</span>
+      <span class="badge">beautifulsoup4</span>
+      <span class="badge">collections.deque</span>
+      <span class="badge">sqlite3</span>
+      <span class="badge">urllib.parse</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <div class="card-head">normalize_url</div>
+    <div class="card-body">
+<pre><span class="kw">def</span> <span class="fn">normalize_url</span>(url: <span class="nb">str</span>) -> <span class="nb">str</span>:
+    p = urlparse(url)
+    <span class="kw">return</span> urlunparse(p._replace(
+        scheme = p.scheme.<span class="fn">lower</span>(),
+        netloc = p.netloc.<span class="fn">lower</span>(),
+        fragment = <span class="str">""</span>,    <span class="cm"># sin #anchors</span>
+        path = p.path.<span class="fn">rstrip</span>(<span class="str">"/"</span>) <span class="kw">or</span> <span class="str">"/"</span>
+    ))</pre>
+      <p style="margin-top:10px">Evita visitar la misma página dos veces con distinto formato de URL (mayúsculas, slash final, fragmento).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">SQLite — esquema</div>
+    <div class="card-body">
+<pre><span class="cm">-- crawler.sqlite</span>
+<span class="kw">CREATE TABLE</span> pages (
+  id    <span class="nb">INTEGER</span> PRIMARY KEY,
+  url   <span class="nb">TEXT</span> UNIQUE,
+  title <span class="nb">TEXT</span>
+);
+
+<span class="cm">-- evita duplicados automáticamente</span>
+<span class="kw">INSERT OR IGNORE INTO</span> pages
+  (url, title) <span class="kw">VALUES</span> (?, ?);</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">BFS loop central</div>
+    <div class="card-body">
+<pre>queue = deque([START_URL])
+visited = set()
+
+<span class="kw">while</span> queue:
+    url = queue.popleft()
+    <span class="kw">if</span> url <span class="kw">in</span> visited: <span class="kw">continue</span>
+    visited.add(url)
+
+    r = requests.get(url, timeout=<span class="nb">15</span>)
+    soup = BeautifulSoup(r.text, <span class="str">'html.parser'</span>)
+    title = soup.title.string
+    save_to_db(url, title)
+
+    <span class="kw">for</span> a <span class="kw">in</span> soup.find_all(<span class="str">'a'</span>, href=<span class="nb">True</span>):
+        abs_url = urljoin(url, a[<span class="str">'href'</span>])
+        <span class="kw">if</span> same_domain(abs_url):
+            queue.append(normalize_url(abs_url))
+
+    time.sleep(DELAY_SECONDS)  <span class="cm"># 1 seg cortesía</span></pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">archivos del proyecto</div>
+    <div class="card-body">
+      <ul>
+        <li><strong>001-libreria requests.py</strong> — GET básico</li>
+        <li><strong>002-entro en mi web.py</strong> — primera petición a josevicentecarratala.com</li>
+        <li><strong>003-lista de enlaces.py</strong> — BeautifulSoup → links</li>
+        <li><strong>004-sencillo bot.py</strong> — BFS + SQLite completo</li>
+        <li><strong>005-correos electronicos.py</strong> — regex emails en el contenido</li>
+        <li><strong>crawler.sqlite</strong> — base de datos de resultados</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="log-wrap">
+    <div class="log-term">
+      <div class="log-head"><span class="running">● RUNNING</span> python "004-sencillo bot.py"</div>
+      <div class="log-body" id="log"></div>
+    </div>
+  </div>
+</main>
+
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+
+<script>
+const LOG = document.getElementById('log');
+const lines = [
+  {t:0,   cls:'info', txt:'[minibot] START_URL = https://josevicentecarratala.com'},
+  {t:600, cls:'info', txt:'[minibot] DB: crawler.sqlite'},
+  {t:900, cls:'url',  txt:'[GET] https://josevicentecarratala.com/'},
+  {t:1400,cls:'ok',   txt:'[OK]  200 · "José Vicente Carratala"'},
+  {t:1600,cls:'info', txt:'[NEW] 12 links encontrados'},
+  {t:2200,cls:'url',  txt:'[GET] https://josevicentecarratala.com/blog/'},
+  {t:2700,cls:'ok',   txt:'[OK]  200 · "Blog - José Vicente Carratala"'},
+  {t:2900,cls:'info', txt:'[NEW] 8 links encontrados'},
+  {t:3500,cls:'url',  txt:'[GET] https://josevicentecarratala.com/contacto/'},
+  {t:4000,cls:'ok',   txt:'[OK]  200 · "Contacto"'},
+  {t:4200,cls:'info', txt:'[EMAIL] info@jocarsa.com (regex match)'},
+  {t:4600,cls:'url',  txt:'[GET] https://josevicentecarratala.com/proyectos/'},
+  {t:5100,cls:'ok',   txt:'[OK]  200 · "Proyectos"'},
+  {t:5300,cls:'info', txt:'[NEW] 5 links encontrados'},
+  {t:6000,cls:'info', txt:'[minibot] páginas guardadas: 4'},
+  {t:6200,cls:'ok',   txt:'[DONE] crawl completado. Delay: 1s/req'},
+];
+let cur = document.createElement('div');
+cur.className = 'log-line'; cur.innerHTML = '<span class="cur">█</span>';
+LOG.appendChild(cur);
+
+lines.forEach(({t, cls, txt}) => {
+  setTimeout(() => {
+    const d = document.createElement('div');
+    d.className = 'log-line ' + cls;
+    d.textContent = txt;
+    LOG.insertBefore(d, cur);
+    LOG.scrollTop = LOG.scrollHeight;
+  }, t);
+});
+setTimeout(() => cur.style.display = 'none', 7000);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatbot</title>
+    <style>
+      *{box-sizing:border-box;}
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f5f6f8;color:#111;}
+      main{max-width:720px;margin:0 auto;min-height:100vh;padding:16px;display:flex;flex-direction:column;gap:12px;}
+      section{flex:1;background:#fff;border:1px solid #e6e6e6;border-radius:10px;padding:12px;overflow:auto;}
+      form{display:flex;gap:8px;}
+      input[type="text"]{flex:1;padding:10px 12px;border:1px solid #d9d9d9;border-radius:10px;font-size:16px;outline:none;}
+      input[type="text"]:focus{border-color:#b5b5b5;}
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>Aqui irá la respuesta</section>
+      <form action="?" method="GET">
+        <input type="text" name="mensaje" placeholder="Escribe tu mensaje...">
+      </form>
+    </main>
+  </body>
+</html>

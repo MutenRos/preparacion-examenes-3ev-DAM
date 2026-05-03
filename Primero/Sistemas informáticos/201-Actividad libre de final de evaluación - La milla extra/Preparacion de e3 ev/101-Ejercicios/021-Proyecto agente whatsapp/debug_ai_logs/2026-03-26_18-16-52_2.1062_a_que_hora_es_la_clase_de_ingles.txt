@@ -1,0 +1,185 @@
+========================================
+DEBUG IA REMOTA
+========================================
+Fecha: 2026-03-26 18:16:52
+Accion: chat
+Telefono: 620891718
+Usuario encontrado: SI
+Fuente respuesta final: sqlite_directa + debug_remoto
+URL remota: https://covalently-untasked-daphne.ngrok-free.dev/chat/?q=Eres+un+asistente+de+atenci%C3%B3n+al+alumno.%0AResponde+en+espa%C3%B1ol%2C+de+forma+clara+y+breve.%0ASi+la+base+local+contiene+informaci%C3%B3n+%C3%BAtil%2C+dale+prioridad.%0ANo+inventes+datos+que+no+aparezcan+ni+en+la+base+local+ni+en+la+pregunta.%0A%0ADatos+del+usuario+identificados+por+tel%C3%A9fono%3A%0A-+Nombre%3A+Jose+Vicente+Carratala+Sanchis%0A-+Email%3A+info%40josevicentecarratala.com%0A-+Tel%C3%A9fono%3A+620891718%0A-+Curso+matriculado%3A+DAM1+-+Online%0A%0ABase+local+de+preguntas+y+respuestas%3A%0A%5B1%5D+Pregunta%3A+a+que+hora+es+la+clase+de+ingl%C3%A9s%3F%0A%5B1%5D+Respuesta%3A+Miercoles+de+18+a+19%0A%0A%5B2%5D+Pregunta%3A+Que+es+TAME%3F%0A%5B2%5D+Respuesta%3A+TAME%2C+Centro+de+Formaci%C3%B3n+fue+fundado+en+1.981%2C+es+un+centro+privado+que+se+dedica+desde+su+inicio+a+la+ense%C3%B1anza+de+materias+t%C3%A9cnico-profesionales%2C+comerciales%2C+idiomas+e+inform%C3%A1tica.%0D%0ADesde+el+inicio+de+la+actividad%2C+una+de+nuestras+inquietudes+ha+sido+la+calidad+de+nuestra+ense%C3%B1anza%3B+por+lo+que+existe+una+continua+renovaci%C3%B3n+pedag%C3%B3gica+e+incorporaci%C3%B3n+de+las+tecnolog%C3%ADas+necesarias+para+la+consecuci%C3%B3n+de+nuestro+objetivo.%0D%0A%0D%0ANuestra+continua+apuesta+por+la+Calidad+y+nuestro+af%C3%A1n+de+satisfacer+las+necesidades+y+expectativas+de+nuestros+alumnos+y+clientes+con+los+servicios+formativos+suministrados+por+el+Centro%2C+y+la+clara+orientaci%C3%B3n+de+nuestra+gesti%C3%B3n+hacia+la+mejora+continua%2C+as%C3%AD+como+el+cumplimiento+de+los+requisitos+legales+y+reglamentarios+se+han+visto+reflejados+en+la+obtenci%C3%B3n+de+la+Certificaci%C3%B3n+de+m%C3%A1ximo+prestigio+UNE-EN+ISO+9001%3A+2015+acreditada+por+IVAC+en+todas+las+%C3%A1reas+de+nuestra+formaci%C3%B3n+desde+el+a%C3%B1o+2001%2C+as%C3%AD+como+la+Certificaci%C3%B3n+de+la+UNE-EN+ISO+27001+acreditada+por+IVAC.%0D%0A%0D%0AMisi%C3%B3n%3A%0D%0ADise%C3%B1o+y+prestaci%C3%B3n+de+servicios+de+formaci%C3%B3n+de+car%C3%A1cter+privado+%28reglada+y+no+reglada%29+as%C3%AD+como+subvencionado+%28formaci%C3%B3n+continua+y+ocupacional%29+y+la+propia+subcontrataci%C3%B3n+por+otras+entidades%2C+atendiendo+de+forma+particularizada+las+necesidades+de+cada+uno+de+nuestros+clientes%2C+con+criterios+de+rentabilidad+econ%C3%B3mica+y+social.%0D%0A%0D%0AVisi%C3%B3n%3A%0D%0AConvertirnos+en+el+Centro+de+Formaci%C3%B3n+de+referencia+en+nuestras+%C3%A1reas+formativas+y+lograr+el+reconocimiento+de+los+clientes%2C+competidores+y+resto+de+la+sociedad+como+prestadores+de+servicios+de+formaci%C3%B3n+altamente+eficaces+y+garantizando%2C+adem%C3%A1s%2C+la+plena+satisfacci%C3%B3n+de+los+clientes.%0D%0A%0D%0AValores%3A%0D%0ALa+satisfacci%C3%B3n+de+los+clientes+y+colaboradores+es+nuestra+meta%0D%0ANuestra+competitividad+es+la+mejora+continua%0D%0ALa+confianza+es+nuestra+garant%C3%ADa%0D%0ALa+personalizaci%C3%B3n+es+nuestro+%C3%A9xito%0D%0ALa+confidencialidad+es+nuestra+salud%0D%0AEl+clima+laboral+nuestro+motor+%28motivaci%C3%B3n+y+actitud+positiva+incondicional%29%0D%0AEsp%C3%ADritu+de+cooperaci%C3%B3n+a+trav%C3%A9s+del+trabajo+en+equipo+y+desarrollo+de+alianzas+externas%0A%0APregunta+del+usuario%3A%0Aa+que+hora+es+la+clase+de+ingl%C3%A9s%3F
+HTTP code: 200
+Error cURL: 
+Resumen conversación: que es TAME? | a que hora es la clase de inglés? | a que hora es la clase de inglés?
+IFTTT activado: SI
+IFTTT mensaje frontend: Correo ya enviado anteriormente a info@josevicentecarratala.com.
+
+----------------------------------------
+PREGUNTA ORIGINAL
+----------------------------------------
+a que hora es la clase de inglés?
+
+----------------------------------------
+MEJORES COINCIDENCIAS LOCALES
+----------------------------------------
+Coincidencia #1
+ID: 2
+Score: 1746
+Pregunta BD: a que hora es la clase de inglés?
+Respuesta BD:
+Miercoles de 18 a 19
+
+Coincidencia #2
+ID: 1
+Score: 65.860465116279
+Pregunta BD: Que es TAME?
+Respuesta BD:
+TAME, Centro de Formación fue fundado en 1.981, es un centro privado que se dedica desde su inicio a la enseñanza de materias técnico-profesionales, comerciales, idiomas e informática.
+Desde el inicio de la actividad, una de nuestras inquietudes ha sido la calidad de nuestra enseñanza; por lo que existe una continua renovación pedagógica e incorporación de las tecnologías necesarias para la consecución de nuestro objetivo.
+
+Nuestra continua apuesta por la Calidad y nuestro afán de satisfacer las necesidades y expectativas de nuestros alumnos y clientes con los servicios formativos suministrados por el Centro, y la clara orientación de nuestra gestión hacia la mejora continua, así como el cumplimiento de los requisitos legales y reglamentarios se han visto reflejados en la obtención de la Certificación de máximo prestigio UNE-EN ISO 9001: 2015 acreditada por IVAC en todas las áreas de nuestra formación desde el año 2001, así como la Certificación de la UNE-EN ISO 27001 acreditada por IVAC.
+
+Misión:
+Diseño y prestación de servicios de formación de carácter privado (reglada y no reglada) así como subvencionado (formación continua y ocupacional) y la propia subcontratación por otras entidades, atendiendo de forma particularizada las necesidades de cada uno de nuestros clientes, con criterios de rentabilidad económica y social.
+
+Visión:
+Convertirnos en el Centro de Formación de referencia en nuestras áreas formativas y lograr el reconocimiento de los clientes, competidores y resto de la sociedad como prestadores de servicios de formación altamente eficaces y garantizando, además, la plena satisfacción de los clientes.
+
+Valores:
+La satisfacción de los clientes y colaboradores es nuestra meta
+Nuestra competitividad es la mejora continua
+La confianza es nuestra garantía
+La personalización es nuestro éxito
+La confidencialidad es nuestra salud
+El clima laboral nuestro motor (motivación y actitud positiva incondicional)
+Espíritu de cooperación a través del trabajo en equipo y desarrollo de alianzas externas
+
+----------------------------------------
+PROMPT ENVIADO A LA IA REMOTA
+----------------------------------------
+Eres un asistente de atención al alumno.
+Responde en español, de forma clara y breve.
+Si la base local contiene información útil, dale prioridad.
+No inventes datos que no aparezcan ni en la base local ni en la pregunta.
+
+Datos del usuario identificados por teléfono:
+- Nombre: Jose Vicente Carratala Sanchis
+- Email: info@josevicentecarratala.com
+- Teléfono: 620891718
+- Curso matriculado: DAM1 - Online
+
+Base local de preguntas y respuestas:
+[1] Pregunta: a que hora es la clase de inglés?
+[1] Respuesta: Miercoles de 18 a 19
+
+[2] Pregunta: Que es TAME?
+[2] Respuesta: TAME, Centro de Formación fue fundado en 1.981, es un centro privado que se dedica desde su inicio a la enseñanza de materias técnico-profesionales, comerciales, idiomas e informática.
+Desde el inicio de la actividad, una de nuestras inquietudes ha sido la calidad de nuestra enseñanza; por lo que existe una continua renovación pedagógica e incorporación de las tecnologías necesarias para la consecución de nuestro objetivo.
+
+Nuestra continua apuesta por la Calidad y nuestro afán de satisfacer las necesidades y expectativas de nuestros alumnos y clientes con los servicios formativos suministrados por el Centro, y la clara orientación de nuestra gestión hacia la mejora continua, así como el cumplimiento de los requisitos legales y reglamentarios se han visto reflejados en la obtención de la Certificación de máximo prestigio UNE-EN ISO 9001: 2015 acreditada por IVAC en todas las áreas de nuestra formación desde el año 2001, así como la Certificación de la UNE-EN ISO 27001 acreditada por IVAC.
+
+Misión:
+Diseño y prestación de servicios de formación de carácter privado (reglada y no reglada) así como subvencionado (formación continua y ocupacional) y la propia subcontratación por otras entidades, atendiendo de forma particularizada las necesidades de cada uno de nuestros clientes, con criterios de rentabilidad económica y social.
+
+Visión:
+Convertirnos en el Centro de Formación de referencia en nuestras áreas formativas y lograr el reconocimiento de los clientes, competidores y resto de la sociedad como prestadores de servicios de formación altamente eficaces y garantizando, además, la plena satisfacción de los clientes.
+
+Valores:
+La satisfacción de los clientes y colaboradores es nuestra meta
+Nuestra competitividad es la mejora continua
+La confianza es nuestra garantía
+La personalización es nuestro éxito
+La confidencialidad es nuestra salud
+El clima laboral nuestro motor (motivación y actitud positiva incondicional)
+Espíritu de cooperación a través del trabajo en equipo y desarrollo de alianzas externas
+
+Pregunta del usuario:
+a que hora es la clase de inglés?
+
+----------------------------------------
+RESPUESTA REMOTA
+----------------------------------------
+La clase de inglés es de miércoles de 18 a 19 horas.
+
+----------------------------------------
+RESPUESTA FINAL DEVUELTA AL FRONT
+----------------------------------------
+Miercoles de 18 a 19
+
+Correo ya enviado anteriormente a info@josevicentecarratala.com.
+
+----------------------------------------
+DETALLE IFTTT
+----------------------------------------
+resumen: que es TAME? | a que hora es la clase de inglés? | a que hora es la clase de inglés?
+MEJORES_IFTTT:
+  #1 [0]: {"id":1,"resumen_if":"El usuario reporta que va a faltar a clase","destinatario_email":"info@josevicentecarratala.com","asunto":"Falta de alumno a clase","creado_en":"2026-03-26 17:41:19","score":81.94594594594594,"fuente_match":"ultimo_mensaje_usuario"}
+
+TEXTOS_COMPARACION:
+  #1 [ultimo_mensaje_usuario]: a que hora es la clase de inglés?
+  #2 [texto_conversacion]: que es TAME= Parece que hay un error en la pregunta. Tal vez quería preguntar "TAM" en lugar de "TAME". TAM significa "Tamaño Mínimo de Aceptación" y se utiliza en el contexto de la calidad de servicio para determinar el mínimo de capacidad que debe tener un servicio para ser considerado aceptable por los usuarios. En el contexto de la educación, podría referirse a la cantidad mínima de tiempo que un estudiante como Jose Vicente Carratala Sanchis podría dedicar a un curso como DAM1 - Online para considerarlo satisfactorio. Sin embargo, sin datos específicos de la base local, no puedo proporcionar un valor preciso. que es TAME? TAME, Centro de Formación fue fundado en 1.981, es un centro privado que se dedica desde su inicio a la enseñanza de materias técnico-profesionales, comerciales, idiomas e informática.
+Desde el inicio de la actividad, una de nuestras inquietudes ha sido la calidad de nuestra enseñanza; por lo que existe una continua renovación pedagógica e incorporación de las tecnologías necesarias para la consecución de nuestro objetivo.
+
+Nuestra continua apuesta por la Calidad y nuestro afán de satisfacer las necesidades y expectativas de nuestros alumnos y clientes con los servicios formativos suministrados por el Centro, y la clara orientación de nuestra gestión hacia la mejora continua, así como el cumplimiento de los requisitos legales y reglamentarios se han visto reflejados en la obtención de la Certificación de máximo prestigio UNE-EN ISO 9001: 2015 acreditada por IVAC en todas las áreas de nuestra formación desde el año 2001, así como la Certificación de la UNE-EN ISO 27001 acreditada por IVAC.
+
+Misión:
+Diseño y prestación de servicios de formación de carácter privado (reglada y no reglada) así como subvencionado (formación continua y ocupacional) y la propia subcontratación por otras entidades, atendiendo de forma particularizada las necesidades de cada uno de nuestros clientes, con criterios de rentabilidad económica y social.
+
+Visión:
+Convertirnos en el Centro de Formación de referencia en nuestras áreas formativas y lograr el reconocimiento de los clientes, competidores y resto de la sociedad como prestadores de servicios de formación altamente eficaces y garantizando, además, la plena satisfacción de los clientes.
+
+Valores:
+La satisfacción de los clientes y colaboradores es nuestra meta
+Nuestra competitividad es la mejora continua
+La confianza es nuestra garantía
+La personalización es nuestro éxito
+La confidencialidad es nuestra salud
+El clima laboral nuestro motor (motivación y actitud positiva incondicional)
+Espíritu de cooperación a través del trabajo en equipo y desarrollo de alianzas externas que es TAME? TAME, Centro de Formación fue fundado en 1.981, es un centro privado que se dedica desde su inicio a la enseñanza de materias técnico-profesionales, comerciales, idiomas e informática.
+Desde el inicio de la actividad, una de nuestras inquietudes ha sido la calidad de nuestra enseñanza; por lo que existe una continua renovación pedagógica e incorporación de las tecnologías necesarias para la consecución de nuestro objetivo.
+
+Nuestra continua apuesta por la Calidad y nuestro afán de satisfacer las necesidades y expectativas de nuestros alumnos y clientes con los servicios formativos suministrados por el Centro, y la clara orientación de nuestra gestión hacia la mejora continua, así como el cumplimiento de los requisitos legales y reglamentarios se han visto reflejados en la obtención de la Certificación de máximo prestigio UNE-EN ISO 9001: 2015 acreditada por IVAC en todas las áreas de nuestra formación desde el año 2001, así como la Certificación de la UNE-EN ISO 27001 acreditada por IVAC.
+
+Misión:
+Diseño y prestación de servicios de formación de carácter privado (reglada y no reglada) así como subvencionado (formación continua y ocupacional) y la propia subcontratación por otras entidades, atendiendo de forma particularizada las necesidades de cada uno de nuestros clientes, con criterios de rentabilidad económica y social.
+
+Visión:
+Convertirnos en el Centro de Formación de referencia en nuestras áreas formativas y lograr el reconocimiento de los clientes, competidores y resto de la sociedad como prestadores de servicios de formación altamente eficaces y garantizando, además, la plena satisfacción de los clientes.
+
+Valores:
+La satisfacción de los clientes y colaboradores es nuestra meta
+Nuestra competitividad es la mejora continua
+La confianza es nuestra garantía
+La personalización es nuestro éxito
+La confidencialidad es nuestra salud
+El clima laboral nuestro motor (motivación y actitud positiva incondicional)
+Espíritu de cooperación a través del trabajo en equipo y desarrollo de alianzas externas a que hora es la clase de inglés? Lo siento, pero no tengo información específica sobre la hora de la clase de inglés en el Centro de Formación TAME. Por favor, póngase en contacto con el centro directamente para obtener detalles sobre el horario de clases.
+
+
+Pregunta más difícil:
+
+Eres un chatbot especializado en educación tecnológica.
+Responde siempre en español.
+Responde de forma clara, concisa y amigable.
+No inventes datos.
+Responde siempre en un solo parrafo.
+
+Mensaje del usuario:
+Eres un asistente de atención al alumno.
+Responde en español, de forma clara y breve.
+Si la base local contiene información útil, dale prioridad.
+No inventes datos que no aparezcan ni en la base local ni en la pregunta.
+
+Datos del usuario identificados por teléfono:
+- Nombre: Ana Maria Lopez
+- Email: ana.lopez@edu-tech.com
+- Teléfono: 3105559876
+- Curso matriculado: DAM2 - Online
+
+Base local de preguntas y respuestas:
+[1] Pregunta: ¿Qu a que hora es la clase de inglés? Miercoles de 18 a 19
+
+estado: duplicado_no_reenviado
+resumen_prompt: 
+resumen_respuesta_remota: 
+resumen_http_code: 0
+resumen_curl_error: 

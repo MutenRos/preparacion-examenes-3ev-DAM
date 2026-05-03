@@ -1,0 +1,25 @@
+# Entornos virtuales Python
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Archivos grandes / binarios
+*.blend
+*.blend1
+*.zip
+*.db
+*.sqlite3
+*.bin
+lora-gpu/
+checkpoint-*/
+entrenamiento/
+
+# Node
+node_modules/
+
+# Temporales
+tmp/
+temp/
+*.tmp

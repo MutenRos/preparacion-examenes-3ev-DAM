@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gráfico circular con etiquetas alineadas</title>
+		<style>
+			body{
+				margin:0;
+				padding:20px;
+				font-family:Arial, sans-serif;
+				background:white;
+			}
+			canvas{
+				border:1px solid grey;
+				display:block;
+				margin:auto;
+				background:white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas></canvas>
+
+		<script>
+			let datos = [
+				{"nombre":"Producto A","valor":30},
+				{"nombre":"Producto B","valor":50},
+				{"nombre":"Producto C","valor":60},
+				{"nombre":"Producto D","valor":800},
+				{"nombre":"Producto E","valor":40},
+				{"nombre":"Producto F","valor":30},
+				{"nombre":"Producto G","valor":20}
+			]
+
+			let lienzo = document.querySelector("canvas")
+			lienzo.width = 1200
+			lienzo.height = 650
+
+			let contexto = lienzo.getContext("2d")
+
+			let centroX = lienzo.width / 2
+			let centroY = lienzo.height / 2
+			let radio = 180
+
+			let total = 0
+			for(let i = 0; i < datos.length; i++){
+				total += datos[i].valor
+			}
+
+			let anguloInicio = 0
+			let etiquetasDerecha = []
+			let etiquetasIzquierda = []
+
+			for(let i = 0; i < datos.length; i++){
+				let proporcion = datos[i].valor / total
+				let anguloFinal = anguloInicio + proporcion * Math.PI * 2
+				let color = `hsl(${i * 50},80%,50%)`
+
+				// sector
+				contexto.fillStyle = color
+				contexto.beginPath()
+				contexto.moveTo(centroX, centroY)
+				contexto.arc(centroX, centroY, radio, anguloInicio, anguloFinal)
+				contexto.closePath()
+				contexto.fill()
+
+				// cálculo de etiqueta
+				let anguloMedio = (anguloInicio + anguloFinal) / 2
+				let xBorde = centroX + Math.cos(anguloMedio) * radio
+				let yBorde = centroY + Math.sin(anguloMedio) * radio
+
+				let xFuera = centroX + Math.cos(anguloMedio) * (radio + 30)
+				let yFuera = centroY + Math.sin(anguloMedio) * (radio + 30)
+
+				let porcentaje = ((datos[i].valor / total) * 100).toFixed(2) + "%"
+				let texto = datos[i].nombre + " - " + datos[i].valor + " (" + porcentaje + ")"
+
+				let etiqueta = {
+					nombre: datos[i].nombre,
+					valor: datos[i].valor,
+					porcentaje: porcentaje,
+					texto: texto,
+					color: color,
+					xBorde: xBorde,
+					yBorde: yBorde,
+					xFuera: xFuera,
+					yFuera: yFuera,
+					lado: xFuera >= centroX ? "derecha" : "izquierda"
+				}
+
+				if(etiqueta.lado === "derecha"){
+					etiquetasDerecha.push(etiqueta)
+				}else{
+					etiquetasIzquierda.push(etiqueta)
+				}
+
+				anguloInicio = anguloFinal
+			}
+
+			function repartirEtiquetas(lista, lado){
+				lista.sort((a,b) => a.yFuera - b.yFuera)
+
+				let separacionMinima = 24
+				let margenSuperior = 40
+				let margenInferior = lienzo.height - 40
+
+				if(lista.length > 0){
+					if(lista[0].yFuera < margenSuperior){
+						lista[0].yFuera = margenSuperior
+					}
+
+					for(let i = 1; i < lista.length; i++){
+						if(lista[i].yFuera < lista[i - 1].yFuera + separacionMinima){
+							lista[i].yFuera = lista[i - 1].yFuera + separacionMinima
+						}
+					}
+
+					if(lista[lista.length - 1].yFuera > margenInferior){
+						lista[lista.length - 1].yFuera = margenInferior
+
+						for(let i = lista.length - 2; i >= 0; i--){
+							if(lista[i].yFuera > lista[i + 1].yFuera - separacionMinima){
+								lista[i].yFuera = lista[i + 1].yFuera - separacionMinima
+							}
+						}
+					}
+				}
+
+				contexto.font = "14px Arial"
+				contexto.textBaseline = "middle"
+
+				for(let i = 0; i < lista.length; i++){
+					let e = lista[i]
+					let anchoTexto = contexto.measureText(e.texto).width
+					let tamCuadrado = 14
+					let separacionCuadradoTexto = 8
+
+					let xLineaFinal
+					let xCuadrado
+					let xTexto
+
+					if(lado === "derecha"){
+						xCuadrado = centroX + radio + 140
+						xTexto = xCuadrado + tamCuadrado + separacionCuadradoTexto
+						xLineaFinal = xCuadrado - 10
+					}else{
+						xTexto = centroX - radio - 140 - anchoTexto - tamCuadrado - separacionCuadradoTexto
+						xCuadrado = xTexto + anchoTexto + separacionCuadradoTexto
+						xLineaFinal = xCuadrado + tamCuadrado + 10
+					}
+
+					// línea guía
+					contexto.strokeStyle = e.color
+					contexto.lineWidth = 1.5
+					contexto.beginPath()
+					contexto.moveTo(e.xBorde, e.yBorde)
+					contexto.lineTo(e.xFuera, e.yFuera)
+					contexto.lineTo(xLineaFinal, e.yFuera)
+					contexto.stroke()
+
+					// cuadrado
+					contexto.fillStyle = e.color
+					contexto.fillRect(xCuadrado, e.yFuera - tamCuadrado / 2, tamCuadrado, tamCuadrado)
+
+					// texto
+					contexto.fillStyle = "black"
+					contexto.textAlign = "left"
+					contexto.fillText(e.texto, xTexto, e.yFuera)
+				}
+			}
+
+			repartirEtiquetas(etiquetasDerecha, "derecha")
+			repartirEtiquetas(etiquetasIzquierda, "izquierda")
+		</script>
+	</body>
+</html>

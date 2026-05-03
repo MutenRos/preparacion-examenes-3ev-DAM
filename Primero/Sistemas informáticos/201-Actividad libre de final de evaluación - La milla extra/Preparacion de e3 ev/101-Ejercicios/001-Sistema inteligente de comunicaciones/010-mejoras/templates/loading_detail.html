@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="topbar">
+    <div class="row-between">
+      <div>
+        <h1 id="title">Cargando detalle…</h1>
+        <p class="muted">Preparando información del correo.</p>
+      </div>
+      <div class="inline">
+        <div class="spinner" aria-hidden="true"></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="detailHost">
+    <div class="skeleton-detail"></div>
+  </section>
+
+<script>
+(function(){
+  const emailId = "{{email_id}}";
+  const n = "{{n}}";
+
+  function pillClass(priority){
+    if(priority === null || priority === undefined) return "pill p0";
+    const p = Math.max(0, Math.min(10, parseInt(priority, 10)));
+    return "pill p" + p;
+  }
+
+  function setNav(counts, tab){
+    document.getElementById("countA").textContent = counts.A;
+    document.getElementById("countB").textContent = counts.B;
+    document.getElementById("navA").classList.toggle("active", tab==="A");
+    document.getElementById("navB").classList.toggle("active", tab==="B");
+    document.getElementById("navA").href = `/?tab=A&n=${encodeURIComponent(n)}`;
+    document.getElementById("navB").href = `/?tab=B&n=${encodeURIComponent(n)}`;
+  }
+
+  function esc(s){
+    return (s||"").replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+
+  fetch(`/email_data/${encodeURIComponent(emailId)}?n=${encodeURIComponent(n)}`)
+    .then(r => r.json())
+    .then(data => {
+      const item = data.item;
+      setNav(data.counts, data.tab);
+
+      document.getElementById("title").textContent = "Detalle";
+
+      const host = document.getElementById("detailHost");
+      host.innerHTML = `
+        <section class="detail">
+          <div class="detail-head">
+            <div class="detail-subject">${esc(item.subject || "(Sin asunto)")}</div>
+            ${
+              item.label === "persona_con_motivacion"
+              ? `<div class="${pillClass(item.priority)}">Prioridad ${esc(String(item.priority))}/10</div>`
+              : `<div class="pill neutral">Auto</div>`
+            }
+          </div>
+
+          <div class="detail-grid">
+            <div class="kv">
+              <div class="k">De</div>
+              <div class="v">${esc(item.from)}</div>
+            </div>
+            <div class="kv">
+              <div class="k">Fecha</div>
+              <div class="v">${esc(item.date)}</div>
+            </div>
+            <div class="kv span2">
+              <div class="k">Resumen</div>
+              <div class="v">${esc(item.summary)}</div>
+            </div>
+
+            ${
+              item.label === "persona_con_motivacion"
+              ? `<div class="kv span2">
+                   <div class="k">Motivo prioridad</div>
+                   <div class="v">${esc(item.priority_reason || "")}</div>
+                 </div>`
+              : ``
+            }
+
+            <div class="kv span2">
+              <div class="k">Motivo clasificación</div>
+              <div class="v">${esc(item.reason || "")}</div>
+            </div>
+          </div>
+
+          <div class="bodybox">
+            <div class="bodytitle">Cuerpo (texto)</div>
+            <pre class="bodytext">${esc(item.body || "")}</pre>
+          </div>
+
+          <!-- (2) Responder + generar borrador con Ollama -->
+          <div class="replybox">
+            <div class="replytitle">Responder (borrador, no se envía)</div>
+
+            <textarea id="replyUser" class="textarea" placeholder="Escribe indicaciones o tu respuesta manual (opcional)…"></textarea>
+
+            <div class="row reply-actions">
+              <button class="btn" id="btnGenerate">
+                <span class="btn-icon spinner small hidden" id="spinGen"></span>
+                Generar respuesta con Ollama
+              </button>
+              <button class="btn btn-ghost" id="btnClear">Limpiar</button>
+              <a class="btn btn-ghost" href="/?tab=${esc(data.tab)}&n=${esc(String(data.n))}">Volver</a>
+            </div>
+
+            <div class="draftbox hidden" id="draftBox">
+              <div class="drafttitle">Borrador generado</div>
+              <pre class="drafttext" id="draftText"></pre>
+            </div>
+          </div>
+        </section>
+      `;
+
+      const btnGen = document.getElementById("btnGenerate");
+      const btnClear = document.getElementById("btnClear");
+      const spin = document.getElementById("spinGen");
+      const draftBox = document.getElementById("draftBox");
+      const draftText = document.getElementById("draftText");
+      const replyUser = document.getElementById("replyUser");
+
+      btnClear.addEventListener("click", () => {
+        replyUser.value = "";
+        draftText.textContent = "";
+        draftBox.classList.add("hidden");
+      });
+
+      btnGen.addEventListener("click", () => {
+        spin.classList.remove("hidden");
+        btnGen.disabled = true;
+
+        fetch("/draft_reply", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify({ id: item.id, user_text: replyUser.value, n: data.n })
+        })
+        .then(r => r.json())
+        .then(out => {
+          draftText.textContent = out.draft || "(Sin salida)";
+          draftBox.classList.remove("hidden");
+        })
+        .catch(err => {
+          draftText.textContent = "Error generando borrador. Revisa Ollama/endpoint.";
+          draftBox.classList.remove("hidden");
+          console.error(err);
+        })
+        .finally(() => {
+          spin.classList.add("hidden");
+          btnGen.disabled = false;
+        });
+      });
+
+    })
+    .catch(err => {
+      document.getElementById("title").textContent = "Error";
+      const host = document.getElementById("detailHost");
+      host.innerHTML = `<div class="empty">No se pudo cargar el detalle. Vuelve atrás y refresca.</div>`;
+      console.error(err);
+    });
+})();
+</script>
+{% endblock %}

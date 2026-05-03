@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informática Gráfica — Canvas API</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--acc:#e945db;--gold:#d4b00f;--bg:#0e0e12;--card:#16161f;--border:#2a2a3a}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#ddd;min-height:100vh}
+  header{padding:52px 24px 36px;text-align:center}
+  h1{font-size:2.4em;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:6px}
+  h1 em{color:var(--acc);font-style:normal}
+  .sub{color:#666;font-size:.95em}
+  .live-banner{max-width:960px;margin:0 auto 0;padding:0 20px 32px;display:flex;align-items:center;gap:8px;font-size:.8em;color:#555}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 1.5s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+  .grid{max-width:960px;margin:0 auto;padding:0 20px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--acc);transform:translateY(-3px)}
+  .preview{background:#0a0a0f;display:block;width:100%;aspect-ratio:4/3}
+  .info{padding:12px 14px}
+  .info h3{font-size:.85em;font-weight:500;color:#ccc;margin-bottom:4px}
+  .info .num{font-size:.72em;color:var(--acc);font-weight:700;letter-spacing:.06em}
+  .info p{font-size:.78em;color:#555;margin-top:4px;line-height:1.4}
+  footer{text-align:center;padding:20px;color:#333;font-size:.8em;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🖼️ Informática <em>Gráfica</em></h1>
+  <p class="sub">Canvas API — gráficos 2D desde cero con HTML5 y JavaScript</p>
+</header>
+<div class="live-banner"><span class="dot"></span>demos en vivo — cada card enlaza al ejercicio real</div>
+<div class="grid">
+
+  <a href="101-Ejercicios/001-lienzo.html" class="card">
+    <canvas class="preview" id="c1"></canvas>
+    <div class="info"><span class="num">01</span><h3>El lienzo</h3><p>Configurar canvas y contexto 2D</p></div>
+  </a>
+  <a href="101-Ejercicios/004-dibujo un rectangulo.html" class="card">
+    <canvas class="preview" id="c2"></canvas>
+    <div class="info"><span class="num">04</span><h3>Rectángulos</h3><p>fillRect, strokeRect, clearRect</p></div>
+  </a>
+  <a href="101-Ejercicios/005-muchos rectangulos.html" class="card">
+    <canvas class="preview" id="c3"></canvas>
+    <div class="info"><span class="num">05</span><h3>Muchos rectángulos</h3><p>Bucles + colores aleatorios</p></div>
+  </a>
+  <a href="101-Ejercicios/008-circulo relleno.html" class="card">
+    <canvas class="preview" id="c4"></canvas>
+    <div class="info"><span class="num">08</span><h3>Círculos</h3><p>arc(), rellenos y bordes</p></div>
+  </a>
+  <a href="101-Ejercicios/010-muchas lineas.html" class="card">
+    <canvas class="preview" id="c5"></canvas>
+    <div class="info"><span class="num">10</span><h3>Muchas líneas</h3><p>moveTo / lineTo</p></div>
+  </a>
+  <a href="101-Ejercicios/014-porcion pintada.html" class="card">
+    <canvas class="preview" id="c6"></canvas>
+    <div class="info"><span class="num">14</span><h3>Porciones</h3><p>Gráfico de sectores circulares</p></div>
+  </a>
+  <a href="101-Ejercicios/017-datos con texto.html" class="card">
+    <canvas class="preview" id="c7"></canvas>
+    <div class="info"><span class="num">17</span><h3>Datos con texto</h3><p>Etiquetas sobre el canvas</p></div>
+  </a>
+  <a href="101-Ejercicios/019-panel de control.html" class="card">
+    <canvas class="preview" id="c8"></canvas>
+    <div class="info"><span class="num">19</span><h3>Panel de control</h3><p>Dashboard animado</p></div>
+  </a>
+
+</div>
+<footer>Proyecto Intermodular DAM &nbsp;·&nbsp; Preparación 3ª Evaluación 2025-2026</footer>
+
+<script>
+// Mini-demos en vivo para cada card
+function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function hsl(h,s,l){return `hsl(${h},${s}%,${l}%)`}
+
+const CARDS = [
+  // c1 — lienzo simple
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    ctx.strokeStyle='#e945db'; ctx.lineWidth=2;
+    ctx.strokeRect(20,20,c.width-40,c.height-40);
+    ctx.fillStyle='#e945db44'; ctx.fillRect(20,20,c.width-40,c.height-40);
+    ctx.fillStyle='#e945db'; ctx.font='bold 13px monospace';
+    ctx.textAlign='center'; ctx.fillText('canvas 2D',c.width/2,c.height/2+5);
+  },
+  // c2 — rectángulo
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    ctx.fillStyle='#1a0a2e'; ctx.fillRect(30,25,100,55);
+    ctx.strokeStyle='#e945db'; ctx.lineWidth=2; ctx.strokeRect(30,25,100,55);
+    ctx.fillStyle='#d4b00f33'; ctx.fillRect(70,55,80,40);
+    ctx.strokeStyle='#d4b00f'; ctx.lineWidth=1.5; ctx.strokeRect(70,55,80,40);
+  },
+  // c3 — muchos rectángulos
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    for(let i=0;i<18;i++){
+      ctx.fillStyle=hsl(rnd(240,320),70,rnd(40,65));
+      ctx.fillRect(rnd(5,c.width-50),rnd(5,c.height-35),rnd(20,50),rnd(15,35));
+    }
+  },
+  // c4 — círculos
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    [[c.width*.35,c.height*.45,40,'#e945db'],[c.width*.65,c.height*.5,28,'#d4b00f'],[c.width*.5,c.height*.3,18,'#7af']].forEach(([x,y,r,col])=>{
+      ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fillStyle=col+'44'; ctx.fill();
+      ctx.strokeStyle=col; ctx.lineWidth=2; ctx.stroke();
+    });
+  },
+  // c5 — líneas
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    for(let i=0;i<12;i++){
+      ctx.beginPath(); ctx.moveTo(rnd(0,c.width),rnd(0,c.height));
+      ctx.lineTo(rnd(0,c.width),rnd(0,c.height));
+      ctx.strokeStyle=`hsla(${rnd(270,320)},80%,60%,.6)`; ctx.lineWidth=rnd(1,3); ctx.stroke();
+    }
+  },
+  // c6 — pie chart
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    const cx=c.width/2,cy=c.height/2,r=Math.min(cx,cy)-14;
+    const data=[35,25,20,12,8], colors=['#e945db','#d4b00f','#7af','#f90','#5f5'];
+    let start=0;
+    data.forEach((v,i)=>{
+      const end=start+(v/100)*Math.PI*2;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,end);
+      ctx.fillStyle=colors[i]; ctx.fill();
+      start=end;
+    });
+  },
+  // c7 — bar chart con texto
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    const vals=[65,45,80,30,55,70];
+    const bw=c.width/vals.length;
+    vals.forEach((v,i)=>{
+      const h=(v/100)*(c.height-28);
+      ctx.fillStyle=`hsl(${280+i*15},70%,55%)`;
+      ctx.fillRect(i*bw+4,c.height-h-14,bw-8,h);
+      ctx.fillStyle='#aaa'; ctx.font='9px sans-serif'; ctx.textAlign='center';
+      ctx.fillText(v+'%',i*bw+bw/2,c.height-4);
+    });
+  },
+  // c8 — panel/gauge
+  (c,ctx)=>{
+    ctx.fillStyle='#0a0a0f'; ctx.fillRect(0,0,c.width,c.height);
+    const cx=c.width/2,cy=c.height*.6,r=c.height*.38;
+    // arc background
+    ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,2*Math.PI);
+    ctx.strokeStyle='#222'; ctx.lineWidth=12; ctx.stroke();
+    // value arc
+    const pct=.72;
+    ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,Math.PI+pct*Math.PI);
+    ctx.strokeStyle='#e945db'; ctx.lineWidth=12; ctx.stroke();
+    ctx.fillStyle='#e945db'; ctx.font='bold 18px monospace'; ctx.textAlign='center';
+    ctx.fillText('72%',cx,cy+6);
+    ctx.fillStyle='#555'; ctx.font='9px sans-serif'; ctx.fillText('dashboard',cx,cy+20);
+  },
+];
+
+document.querySelectorAll('canvas.preview').forEach((c,i)=>{
+  const rect=c.getBoundingClientRect();
+  c.width=rect.width||200; c.height=rect.height||150;
+  if(CARDS[i]) CARDS[i](c,c.getContext('2d'));
+});
+</script>
+</body>
+</html>

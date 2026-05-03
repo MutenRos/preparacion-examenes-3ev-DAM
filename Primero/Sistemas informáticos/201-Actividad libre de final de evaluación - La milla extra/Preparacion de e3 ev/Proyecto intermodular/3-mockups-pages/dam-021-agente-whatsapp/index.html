@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agente WhatsApp · Instituto TAME</title>
+<style>
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0}
+body{
+  display:flex;justify-content:center;align-items:center;
+  font-family:monospace;
+  background:url(blancotrans.png),url(blancotrans.png),url(fondo.jpg);
+  background-size:cover;background-position:center;
+  overflow:hidden;
+}
+.mock-banner{
+  position:fixed;top:0;left:0;right:0;
+  background:#fef3c7;border-bottom:1px solid #f59e0b;
+  padding:6px 14px;text-align:center;font:500 .8rem/1.4 system-ui,sans-serif;color:#78350f;z-index:99
+}
+main{
+  width:340px;height:72px;
+  border:1px solid rgba(255,255,255,0.18);
+  padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;
+  overflow:hidden;background:rgba(0,0,0,0.45);
+  transition:height 0.45s ease,box-shadow 0.3s ease,background 0.3s ease;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.35);
+}
+main.abierto{
+  height:540px;justify-content:space-between;
+  background:rgba(0,0,0,0.52);box-shadow:0 18px 40px rgba(0,0,0,0.45);
+}
+section{
+  display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;
+  overflow-y:auto;overflow-x:hidden;padding-right:6px;
+  opacity:0;transform:translateY(8px);
+  transition:opacity 0.3s ease,transform 0.3s ease;
+  pointer-events:none;scroll-behavior:smooth;
+}
+main.abierto section{opacity:1;transform:translateY(0);pointer-events:auto}
+section::-webkit-scrollbar{width:8px}
+section::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.20);border-radius:10px}
+input{
+  width:100%;border:1px solid rgba(255,255,255,0.14);
+  padding:12px 14px;outline:none;color:white;font-family:monospace;
+  background:rgba(255,255,255,0.08);border-radius:10px;
+  flex-shrink:0;
+}
+input::placeholder{color:rgba(255,255,255,0.55)}
+article{
+  padding:10px 12px;border-radius:12px;max-width:82%;width:fit-content;
+  word-break:break-word;line-height:1.45;
+  box-shadow:0 4px 10px rgba(0,0,0,0.12);
+  animation:aparecer 0.25s ease;
+}
+.p{background:rgb(200,255,200);border-radius:6px 12px 12px 12px;align-self:flex-start;color:#1f2a1f}
+.r{background:rgb(200,255,255);border-radius:12px 6px 12px 12px;align-self:flex-end;color:#1b2a2a}
+@keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.typing{align-self:flex-end;background:rgb(200,255,255);padding:8px 14px;border-radius:12px 6px 12px 12px;display:inline-flex;gap:3px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#1b2a2a;animation:t 1.2s ease-in-out infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes t{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo estática</strong> · Chatbot real del Instituto TAME (matriculación) · Las respuestas son simuladas (Pages no ejecuta PHP/SQLite/IA)</div>
+
+<main>
+  <section></section>
+  <input type="text" placeholder="Introduce tu teléfono">
+</main>
+
+<script>
+  const entrada = document.querySelector("input");
+  const seccion = document.querySelector("section");
+  const main = document.querySelector("main");
+
+  let estado = "telefono";
+  const datos = {};
+
+  function insertar(texto, clase){
+    const a = document.createElement("article");
+    a.classList.add(clase);
+    a.textContent = texto;
+    seccion.appendChild(a);
+    seccion.scrollTop = seccion.scrollHeight;
+  }
+  function bot(texto, delay){
+    delay = delay || 600;
+    const t = document.createElement("div");
+    t.className = "typing";
+    t.innerHTML = "<i></i><i></i><i></i>";
+    seccion.appendChild(t);
+    seccion.scrollTop = seccion.scrollHeight;
+    setTimeout(function(){ t.remove(); insertar(texto, "r"); }, delay);
+  }
+  function respuestaIA(pregunta){
+    const p = pregunta.toLowerCase();
+    if(p.includes("precio") || p.includes("cuesta") || p.includes("coste"))
+      return "El precio depende de la modalidad. DAM presencial 350€/mes, online 280€/mes. ¿Quieres info detallada al correo?";
+    if(p.includes("horario") || p.includes("hora"))
+      return "Mañana 9:00–14:00 o tarde 16:00–21:00. En "+(datos.curso||"DAM")+" ambas están disponibles.";
+    if(p.includes("inicio") || p.includes("empieza") || p.includes("cuando") || p.includes("cuándo"))
+      return "El próximo grupo de "+(datos.curso||"DAM")+" empieza el 15 de septiembre. Matrícula abierta hasta el 30 de agosto.";
+    if(p.includes("documenta") || p.includes("papeles") || p.includes("requisit"))
+      return "Necesitas DNI, título de Bachillerato o equivalente, y formulario rellenado. ¿Te lo mando a "+(datos.email||"tu correo")+"?";
+    if(p.includes("gracias") || p.includes("ok") || p.includes("vale"))
+      return "Un placer, "+(datos.nombre||"")+". Si necesitas algo más, escríbeme. ¡Buen día!";
+    if(p.includes("hola") || p.includes("buenas"))
+      return "Hola "+(datos.nombre||"")+", soy el asistente del Instituto TAME. ¿En qué puedo ayudarte?";
+    return "En la versión real esto lo respondería el modelo IA vía Ollama. Como demo te apuntaremos un seguimiento a "+(datos.email||"tu correo")+".";
+  }
+
+  entrada.onkeypress = function(t){
+    if(t.charCode !== 13) return;
+    const v = this.value.trim();
+    if(!v) return;
+    this.value = "";
+
+    if(estado === "telefono"){
+      datos.telefono = v;
+      main.classList.add("abierto");
+      insertar("Mi teléfono es: "+v, "p");
+      bot("Hola 👋. Soy el agente de matriculación del Instituto TAME. No tengo tu teléfono registrado. ¿Cómo te llamas?", 700);
+      estado = "nombre"; entrada.placeholder = "Tu nombre"; return;
+    }
+    if(estado === "nombre"){
+      datos.nombre = v; insertar(v, "p");
+      bot("Encantado, "+v+". ¿Y tus apellidos?", 600);
+      estado = "apellidos"; entrada.placeholder = "Tus apellidos"; return;
+    }
+    if(estado === "apellidos"){
+      datos.apellidos = v; insertar(v, "p");
+      bot("Perfecto. ¿Tu email de contacto?", 600);
+      estado = "email"; entrada.placeholder = "tu@correo.com"; return;
+    }
+    if(estado === "email"){
+      datos.email = v; insertar(v, "p");
+      bot("Genial. ¿En qué curso estás interesado? (DAM, DAW, ASIR, SMR…)", 700);
+      estado = "curso"; entrada.placeholder = "Curso de interés"; return;
+    }
+    if(estado === "curso"){
+      datos.curso = v; insertar(v, "p");
+      bot("✅ He guardado tus datos: "+datos.nombre+" "+datos.apellidos+" · "+datos.email+" · "+v+". Te he enviado un correo de bienvenida (simulado). Ahora puedes preguntarme lo que quieras.", 1000);
+      estado = "conversacion"; entrada.placeholder = "Pregúntame lo que quieras"; return;
+    }
+    if(estado === "conversacion"){
+      insertar(v, "p");
+      bot(respuestaIA(v), 900);
+    }
+  };
+</script>
+</body>
+</html>

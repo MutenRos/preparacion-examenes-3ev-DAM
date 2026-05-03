@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador web con IA · Portafolios Serena</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;font-family:Arial,sans-serif;overflow:hidden;background:#0f172a}
+body{position:relative}
+.mock-banner{position:fixed;top:0;left:0;right:0;background:#fef3c7;border-bottom:1px solid #f59e0b;padding:6px 14px;text-align:center;font:500 .8rem/1.4 system-ui,sans-serif;color:#78350f;z-index:2000}
+#fondo{position:absolute;inset:0;background:#0f172a}
+#preview{width:100%;height:100%;border:0;display:block;background:white}
+#panel{position:fixed;top:50px;left:30px;width:420px;max-width:calc(100vw - 40px);background:rgba(255,255,255,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.20);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.35);z-index:1000;overflow:hidden}
+#barra{padding:12px 16px;cursor:move;background:rgba(255,255,255,0.10);border-bottom:1px solid rgba(255,255,255,0.12);color:white;font-weight:bold;user-select:none;display:flex;justify-content:space-between;align-items:center}
+#barra small{font-weight:400;opacity:.8;font-size:.75rem}
+#contenidoPanel{padding:16px}
+#contenidoPanel p{margin:0 0 10px;color:white;font-size:.92rem}
+#peticion{width:100%;min-height:110px;resize:vertical;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.18);color:white;outline:none;font-size:14px;font-family:inherit}
+#peticion::placeholder{color:rgba(255,255,255,0.75)}
+#estado{margin-top:10px;font-size:12px;color:rgba(255,255,255,0.95);min-height:18px}
+.examples{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.examples button{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);color:white;padding:6px 10px;border-radius:14px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.examples button:hover{background:rgba(255,255,255,0.25)}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Esta es la página real <code>006-formulario desplazable.php</code> · Las webs se "generan" por plantillas locales (Pages no llama a Ollama)</div>
+
+<div id="fondo">
+  <iframe id="preview"></iframe>
+</div>
+
+<div id="panel">
+  <div id="barra">Generador web <small>arrástrame</small></div>
+  <div id="contenidoPanel">
+    <form onsubmit="return false;">
+      <p>Describe la web que quieres y la IA la generará al instante</p>
+      <textarea id="peticion" placeholder="Ej: una landing de cafetería con menú y reservas"></textarea>
+      <div id="estado">Escribe algo o usa los ejemplos…</div>
+      <div class="examples">
+        <button type="button" data-ex="cafe">Cafetería</button>
+        <button type="button" data-ex="estudio">Estudio fotográfico</button>
+        <button type="button" data-ex="tienda">Tienda online</button>
+        <button type="button" data-ex="curriculum">CV personal</button>
+        <button type="button" data-ex="evento">Evento/Boda</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const preview  = document.getElementById("preview");
+const peticion = document.getElementById("peticion");
+const estado   = document.getElementById("estado");
+const panel    = document.getElementById("panel");
+const barra    = document.getElementById("barra");
+
+// Plantillas pregeneradas que simulan lo que devolvería el modelo Ollama qwen2.5-coder
+const PLANTILLAS = {
+  cafe: `<!doctype html><html><head><meta charset="utf-8"><title>Café Aurora</title><style>body{margin:0;font-family:Georgia,serif;background:#3e2723;color:#fff5e1}header{padding:60px 20px;text-align:center;background:linear-gradient(135deg,#5d4037,#3e2723)}h1{font-size:3.2em;margin:0;letter-spacing:.06em}.menu{max-width:780px;margin:40px auto;padding:30px;background:#4e342e;border-radius:14px}.item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px dashed #8d6e63}.item span:last-child{color:#ffcc80;font-weight:bold}footer{text-align:center;padding:30px;background:#1c0e0c;font-size:.9em}</style></head><body><header><h1>☕ Café Aurora</h1><p>El sabor que despierta tus mañanas</p></header><div class="menu"><h2>Menú</h2><div class="item"><span>Espresso</span><span>2,20€</span></div><div class="item"><span>Capuccino</span><span>2,80€</span></div><div class="item"><span>Tarta de zanahoria</span><span>4,50€</span></div><div class="item"><span>Tostada con aguacate</span><span>5,90€</span></div></div><footer>Reservas · 96 123 45 67</footer></body></html>`,
+  estudio: `<!doctype html><html><head><meta charset="utf-8"><title>Estudio Lumen</title><style>body{margin:0;font-family:'Helvetica Neue',sans-serif;background:#000;color:#fff}.hero{height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 30%,#1a1a1a,#000)}.hero div{text-align:center}h1{font-size:5em;margin:0;font-weight:200;letter-spacing:.1em}p{color:#888;letter-spacing:.3em;text-transform:uppercase;font-size:.9em}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:20px}.gallery div{aspect-ratio:1;background:linear-gradient(135deg,#444,#222)}.gallery div:nth-child(2){background:linear-gradient(135deg,#666,#333)}.gallery div:nth-child(3){background:linear-gradient(135deg,#888,#555)}</style></head><body><div class="hero"><div><h1>LUMEN</h1><p>· estudio fotográfico ·</p></div></div><div class="gallery"><div></div><div></div><div></div><div></div><div></div><div></div></div></body></html>`,
+  tienda: `<!doctype html><html><head><meta charset="utf-8"><title>BlueShop</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#f0f4f8;color:#1e293b}header{background:#0ea5e9;color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}h1{margin:0;font-size:1.4em}.cart{background:#0284c7;padding:8px 14px;border-radius:6px}.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:30px}.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.thumb{aspect-ratio:1;background:linear-gradient(135deg,#bae6fd,#0ea5e9);border-radius:8px;margin-bottom:12px}.price{font-size:1.3em;font-weight:bold;color:#0ea5e9}button{background:#0ea5e9;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;width:100%;margin-top:8px}</style></head><body><header><h1>🛒 BlueShop</h1><div class="cart">Carrito (0)</div></header><div class="products"><div class="card"><div class="thumb"></div><h3>Camiseta azul</h3><p class="price">19,90€</p><button>Añadir</button></div><div class="card"><div class="thumb"></div><h3>Sudadera</h3><p class="price">39,90€</p><button>Añadir</button></div><div class="card"><div class="thumb"></div><h3>Gorra</h3><p class="price">14,50€</p><button>Añadir</button></div><div class="card"><div class="thumb"></div><h3>Mochila</h3><p class="price">49,00€</p><button>Añadir</button></div></div></body></html>`,
+  curriculum: `<!doctype html><html><head><meta charset="utf-8"><title>Ana García · CV</title><style>body{margin:0;font-family:Inter,sans-serif;background:#fafaf9;color:#1c1917;display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{background:#1c1917;color:#fff;padding:40px 28px}.avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#dc2626);margin-bottom:20px}h2{margin:0 0 4px;font-size:1.4em}aside p{color:#a8a29e;font-size:.9em}main{padding:40px}h3{color:#dc2626;border-bottom:2px solid #dc2626;padding-bottom:6px;margin-top:0}.exp{margin-bottom:18px}.exp time{color:#78716c;font-size:.85em}h4{margin:4px 0}</style></head><body><aside><div class="avatar"></div><h2>Ana García</h2><p>Desarrolladora Full-Stack</p><p>📍 Valencia</p><p>✉ ana@email.com</p><p>📞 666 123 456</p></aside><main><h3>Experiencia</h3><div class="exp"><time>2023 — actual</time><h4>Senior Dev · TechCorp</h4><p>Desarrollo de plataforma SaaS con React y Node.</p></div><div class="exp"><time>2020 — 2023</time><h4>Full-Stack · StartupX</h4><p>Arquitectura cloud, microservicios.</p></div><h3>Habilidades</h3><p>JavaScript · TypeScript · React · Node · PostgreSQL · Docker · AWS</p></main></body></html>`,
+  evento: `<!doctype html><html><head><meta charset="utf-8"><title>Marta &amp; Luis · Boda</title><style>body{margin:0;font-family:Cormorant,Georgia,serif;background:#fdf2f8;color:#831843}.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#fdf2f8,#fce7f3)}h1{font-size:6em;margin:0;font-weight:300;font-style:italic}.amp{font-size:4em;color:#ec4899}.date{font-size:1.4em;margin-top:30px;letter-spacing:.3em}.info{max-width:680px;margin:60px auto;padding:0 20px;text-align:center;line-height:1.8}.btn{display:inline-block;background:#ec4899;color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;margin-top:20px}</style></head><body><div class="hero"><h1>Marta</h1><span class="amp">&amp;</span><h1>Luis</h1><p class="date">15 · JUNIO · 2026</p></div><div class="info"><h2>Nos casamos</h2><p>Tras 8 años juntos hemos decidido dar el sí quiero. Nos encantaría que nos acompañaras en este día tan especial.</p><a class="btn" href="#">Confirmar asistencia</a></div></body></html>`
+};
+
+// Mock IA: detecta keywords y devuelve plantilla
+function generarHTMLMock(texto){
+  const t = texto.toLowerCase();
+  if(!texto.trim()) return `<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;font-family:Arial,sans-serif;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px;text-align:center}h1{font-weight:300;font-size:2em;background:linear-gradient(135deg,#a78bfa,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}</style></head><body><div><h1>✨ Vista previa en directo</h1><p style="color:#94a3b8">Escribe en el panel y la IA generará tu web aquí</p></div></body></html>`;
+  if(t.includes('café') || t.includes('cafe') || t.includes('cafeter')) return PLANTILLAS.cafe;
+  if(t.includes('foto') || t.includes('estudio') || t.includes('imagen')) return PLANTILLAS.estudio;
+  if(t.includes('tienda') || t.includes('shop') || t.includes('vender') || t.includes('producto')) return PLANTILLAS.tienda;
+  if(t.includes('cv') || t.includes('curriculum') || t.includes('currículum') || t.includes('personal')) return PLANTILLAS.curriculum;
+  if(t.includes('boda') || t.includes('evento') || t.includes('invita')) return PLANTILLAS.evento;
+  // Genérica
+  return `<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;font-family:system-ui,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}.card{max-width:560px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:50px 40px;border-radius:18px;text-align:center}h1{font-size:2.4em;margin:0 0 14px}p{line-height:1.6;opacity:.95}</style></head><body><div class="card"><h1>${texto.slice(0,60).replace(/</g,'&lt;')}</h1><p>Web generada a partir de tu petición. En el proyecto real, el modelo Ollama <code style="background:rgba(0,0,0,.3);padding:2px 6px;border-radius:4px">qwen2.5-coder:7b</code> generaría el HTML completo según tu descripción.</p></div></body></html>`;
+}
+
+function actualizarPreview(html){
+  const doc = preview.contentDocument || preview.contentWindow.document;
+  doc.open(); doc.write(html); doc.close();
+}
+actualizarPreview(generarHTMLMock(""));
+
+let temporizador = null;
+function pedir(){
+  estado.textContent = peticion.value.trim() ? "Generando…" : "";
+  setTimeout(function(){
+    actualizarPreview(generarHTMLMock(peticion.value));
+    estado.textContent = peticion.value.trim() ? "✓ Generado por IA (mock)" : "";
+  }, 350);
+}
+peticion.addEventListener("input", function(){
+  clearTimeout(temporizador);
+  temporizador = setTimeout(pedir, 500);
+});
+
+document.querySelectorAll('.examples button').forEach(function(b){
+  b.onclick = function(){
+    const map = {cafe:'una cafetería con menú y horarios',estudio:'un estudio fotográfico minimalista en blanco y negro',tienda:'una tienda online de ropa con productos',curriculum:'un currículum personal moderno',evento:'una invitación de boda elegante en rosa'};
+    peticion.value = map[b.dataset.ex];
+    pedir();
+  };
+});
+
+// drag panel
+let arrastrando = false, offsetX = 0, offsetY = 0;
+barra.addEventListener("mousedown", function(e){
+  arrastrando = true;
+  offsetX = e.clientX - panel.offsetLeft;
+  offsetY = e.clientY - panel.offsetTop;
+});
+document.addEventListener("mousemove", function(e){
+  if(!arrastrando) return;
+  let x = e.clientX - offsetX, y = e.clientY - offsetY;
+  const maxX = window.innerWidth - panel.offsetWidth;
+  const maxY = window.innerHeight - panel.offsetHeight;
+  if(x<0)x=0; if(y<30)y=30; if(x>maxX)x=maxX; if(y>maxY)y=maxY;
+  panel.style.left = x+"px"; panel.style.top = y+"px";
+});
+document.addEventListener("mouseup", function(){ arrastrando = false; });
+</script>
+</body>
+</html>

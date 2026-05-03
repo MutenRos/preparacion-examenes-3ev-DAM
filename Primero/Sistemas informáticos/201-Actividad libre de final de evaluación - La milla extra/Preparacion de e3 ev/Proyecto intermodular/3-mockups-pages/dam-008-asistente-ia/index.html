@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asistente IA · jocarsa (mockup)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f5f6f8;color:#111}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.layout{max-width:1100px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1.1fr 1.4fr;gap:16px;min-height:calc(100vh - 36px)}
+@media(max-width:780px){.layout{grid-template-columns:1fr}}
+.avatar-panel{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#ec4899 100%);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;min-height:380px}
+.avatar-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent 50%);pointer-events:none}
+.avatar{width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:6em;position:relative;margin-bottom:18px;transition:transform .15s ease;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.avatar.talk{animation:talk .35s ease infinite alternate}
+@keyframes talk{from{transform:scale(1)}to{transform:scale(1.04)}}
+.avatar-name{font-size:1.4em;font-weight:700;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.avatar-sub{font-size:.85em;opacity:.85;margin-top:4px;text-align:center}
+.controls{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.ctrl{background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);color:#fff;padding:9px 16px;border-radius:8px;font-size:.85em;cursor:pointer;font-family:inherit;font-weight:600;display:flex;align-items:center;gap:6px}
+.ctrl:hover{background:rgba(255,255,255,.3)}
+.ctrl.rec.on{background:#dc2626;border-color:#fca5a5;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
+.voice-sel{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:9px 12px;border-radius:8px;font-size:.85em;font-family:inherit}
+.voice-sel option{background:#4f46e5}
+.chat-panel{background:#fff;border-radius:14px;border:1px solid #e6e6e6;display:flex;flex-direction:column;overflow:hidden}
+.chat-head{padding:14px 18px;border-bottom:1px solid #e6e6e6;display:flex;justify-content:space-between;align-items:center;background:#fafafa}
+.chat-head h2{font-size:1.05em;color:#333}
+.status{display:flex;align-items:center;gap:6px;font-size:.78em;color:#666}
+.dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:bp 2s infinite}
+@keyframes bp{50%{opacity:.3}}
+.chat{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:340px;max-height:60vh}
+.msg{padding:10px 14px;border-radius:14px;max-width:85%;line-height:1.5;font-size:.94em;animation:in .2s ease}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.msg.usr{background:#eef2ff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.ast{background:#f3f4f6;align-self:flex-start;border-bottom-left-radius:4px}
+.msg .role{font-size:.7em;color:#6b7280;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:4px}
+.composer{padding:14px;border-top:1px solid #e6e6e6;background:#fafafa}
+.composer form{display:flex;gap:8px}
+.composer input{flex:1;padding:11px 14px;border:1px solid #d9d9d9;border-radius:10px;font-size:.95em;outline:none;font-family:inherit}
+.composer input:focus{border-color:#6366f1}
+.send{padding:11px 20px;background:#6366f1;color:#fff;border:0;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit}
+.send:hover{background:#4f46e5}
+.feature-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tag{background:#fff;border:1px solid #e6e6e6;padding:4px 10px;border-radius:999px;font-size:.75em;color:#666}
+.tag.on{background:#10b981;color:#fff;border-color:#10b981}
+.kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px;font-size:.78em;width:100%}
+.kpi{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:8px 10px;border-radius:6px;color:rgba(255,255,255,.9)}
+.kpi b{display:block;font-size:1.1em;color:#fff}
+</style>
+</head>
+<body>
+<div class="mock-banner">🧪 <strong>Demo</strong> · Asistente IA con avatar 3D + síntesis de voz · El reconocimiento usa Web Speech API real (si tu navegador la soporta)</div>
+
+<div class="layout">
+  <div class="avatar-panel">
+    <div class="avatar" id="avatar">🤖</div>
+    <div class="avatar-name">Jocarsa Assistant</div>
+    <div class="avatar-sub">Modelo Qwen + LoRA · TTS local</div>
+    <div class="controls">
+      <button class="ctrl rec" id="recBtn" onclick="toggleRec()">🎤 <span id="recLbl">Hablar</span></button>
+      <select class="voice-sel" id="voiceSel" title="Selector de voces"></select>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><small>Modelo</small><b>Qwen-0.5B</b></div>
+      <div class="kpi"><small>Latencia</small><b>~600ms</b></div>
+    </div>
+  </div>
+
+  <div class="chat-panel">
+    <div class="chat-head">
+      <div>
+        <h2>💬 Chat con voz</h2>
+        <div class="feature-tags">
+          <span class="tag on" id="tag-tts">🔊 TTS</span>
+          <span class="tag" id="tag-rec">🎤 STT</span>
+          <span class="tag on">👤 Avatar</span>
+          <span class="tag on">🧠 LoRA</span>
+        </div>
+      </div>
+      <div class="status"><span class="dot"></span> En línea</div>
+    </div>
+
+    <div class="chat" id="chat">
+      <div class="msg ast"><div class="role">asistente</div>¡Hola! Soy tu asistente IA. Puedes escribirme o hablar con el botón del micrófono. Activa el altavoz para que te responda en voz.</div>
+    </div>
+
+    <div class="composer">
+      <form onsubmit="event.preventDefault();enviar();">
+        <input id="prompt" type="text" placeholder="Escribe tu mensaje..." autocomplete="off">
+        <button class="send" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==== Síntesis de voz (TTS real con Web Speech) ====
+const synth = window.speechSynthesis;
+let voices = [];
+function loadVoices(){
+  voices = synth.getVoices().filter(v=>v.lang.startsWith('es') || v.lang.startsWith('en'));
+  const sel = document.getElementById('voiceSel');
+  sel.innerHTML = voices.length
+    ? voices.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join('')
+    : '<option>(sin voces)</option>';
+  // Preferir voz española femenina
+  const fem = voices.findIndex(v=>v.lang.startsWith('es') && /fem|mujer|women|maria|sara|elena|monica/i.test(v.name));
+  if(fem>=0) sel.value = fem;
+}
+loadVoices();
+synth.onvoiceschanged = loadVoices;
+
+function speak(t){
+  if(!synth) return;
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(t);
+  const i = parseInt(document.getElementById('voiceSel').value);
+  if(voices[i]) u.voice = voices[i];
+  u.lang = u.voice ? u.voice.lang : 'es-ES';
+  u.rate = 1.05;
+  const av = document.getElementById('avatar');
+  u.onstart = ()=>av.classList.add('talk');
+  u.onend = ()=>av.classList.remove('talk');
+  synth.speak(u);
+}
+
+// ==== Reconocimiento de voz ====
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, recOn = false;
+if(SR){
+  rec = new SR();
+  rec.lang = 'es-ES';
+  rec.continuous = false;
+  rec.interimResults = false;
+  rec.onresult = e => {
+    const txt = e.results[0][0].transcript;
+    document.getElementById('prompt').value = txt;
+    enviar();
+  };
+  rec.onend = ()=>{ recOn = false; document.getElementById('recBtn').classList.remove('on'); document.getElementById('recLbl').textContent='Hablar'; };
+  document.getElementById('tag-rec').classList.add('on');
+}
+function toggleRec(){
+  if(!rec){ alert('Tu navegador no soporta Web Speech API. Prueba con Chrome.'); return; }
+  if(recOn){ rec.stop(); return; }
+  recOn = true;
+  document.getElementById('recBtn').classList.add('on');
+  document.getElementById('recLbl').textContent='Escuchando…';
+  rec.start();
+}
+
+// ==== Lógica del chatbot ====
+const KB = [
+  {k:['hola','buenos','buenas','saludos'], r:'¡Hola! Encantado de hablar contigo. ¿En qué puedo ayudarte hoy?'},
+  {k:['nombre','llamas','quien eres'], r:'Soy el asistente de jocarsa, un modelo Qwen 0.5B fine-tuneado con LoRA y servido desde Flask con interfaz de voz.'},
+  {k:['horario','horarios','abierto'], r:'Estamos disponibles de lunes a viernes de 9:00 a 18:00. Los fines de semana respondo automáticamente.'},
+  {k:['precio','coste','tarifa','presupuesto'], r:'Los precios dependen del proyecto. Para una consulta inicial, escríbeme un email a info@jocarsa.com y te paso un presupuesto en 24h.'},
+  {k:['contacto','email','correo','telefono'], r:'Puedes contactar en info@jocarsa.com o por WhatsApp al +34 600 000 000.'},
+  {k:['servicios','que haceis','ofertas'], r:'Ofrecemos: desarrollo web a medida, formación DAM, consultoría IA y automatizaciones con LLMs.'},
+  {k:['ia','inteligencia artificial','llm','gpt','qwen'], r:'Trabajamos con modelos open-source: Qwen, Llama, Mistral. Los entrenamos con tus datos vía LoRA y los servimos en tu propio servidor.'},
+  {k:['gracias','genial','perfecto'], r:'¡Un placer! ¿Quieres que te llame mañana?'}
+];
+function responder(p){
+  const t = p.toLowerCase();
+  for(const e of KB) if(e.k.some(x=>t.includes(x))) return e.r;
+  return 'Mmm, no estoy seguro de entender. ¿Puedes reformularlo? Sé responder sobre horarios, precios, contacto, servicios o IA.';
+}
+function add(role, txt){
+  const c = document.getElementById('chat');
+  const d = document.createElement('div');
+  d.className = 'msg '+(role==='user'?'usr':'ast');
+  d.innerHTML = `<div class="role">${role==='user'?'tú':'asistente'}</div>${txt}`;
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+function enviar(){
+  const p = document.getElementById('prompt').value.trim();
+  if(!p) return;
+  add('user', p);
+  document.getElementById('prompt').value = '';
+  setTimeout(()=>{
+    const r = responder(p);
+    add('ast', r);
+    speak(r);
+  }, 600);
+}
+</script>
+</body>
+</html>

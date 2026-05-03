@@ -1,0 +1,11 @@
+{
+    "source": "manual mysql.txt",
+    "collection": "documentos",
+    "embedding_model": "nomic-embed-text:v1.5",
+    "chunk_words": 350,
+    "chunk_overlap": 70,
+    "max_embed_chars": 2500,
+    "chunks_generados": 2344,
+    "chunks_insertados": 2344,
+    "chunks_saltados": 0
+}

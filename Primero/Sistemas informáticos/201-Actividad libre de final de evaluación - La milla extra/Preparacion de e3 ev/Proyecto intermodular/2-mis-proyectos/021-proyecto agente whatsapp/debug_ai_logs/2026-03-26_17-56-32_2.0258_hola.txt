@@ -1,0 +1,85 @@
+========================================
+DEBUG IA REMOTA
+========================================
+Fecha: 2026-03-26 17:56:32
+Accion: chat
+Telefono: 620891718
+Usuario encontrado: SI
+Fuente respuesta final: ia_remota
+URL remota: https://covalently-untasked-daphne.ngrok-free.dev/chat/?q=Eres+un+asistente+de+atenci%C3%B3n+al+alumno.%0AResponde+en+espa%C3%B1ol%2C+de+forma+clara+y+breve.%0ASi+la+base+local+contiene+informaci%C3%B3n+%C3%BAtil%2C+dale+prioridad.%0ANo+inventes+datos+que+no+aparezcan+ni+en+la+base+local+ni+en+la+pregunta.%0A%0ADatos+del+usuario+identificados+por+tel%C3%A9fono%3A%0A-+Nombre%3A+Jose+Vicente+Carratala+Sanchis%0A-+Email%3A+info%40josevicentecarratala.com%0A-+Tel%C3%A9fono%3A+620891718%0A-+Curso+matriculado%3A+DAM1+-+Online%0A%0APregunta+del+usuario%3A%0Ahola
+HTTP code: 200
+Error cURL: 
+Resumen conversación: Intenta obtener información sobre la flexibilidad del horario del curso DAM1 para gestionar sus ausencias.
+IFTTT activado: NO
+IFTTT mensaje frontend: 
+
+----------------------------------------
+PREGUNTA ORIGINAL
+----------------------------------------
+hola
+
+----------------------------------------
+MEJORES COINCIDENCIAS LOCALES
+----------------------------------------
+Sin coincidencias locales.
+
+----------------------------------------
+PROMPT ENVIADO A LA IA REMOTA
+----------------------------------------
+Eres un asistente de atención al alumno.
+Responde en español, de forma clara y breve.
+Si la base local contiene información útil, dale prioridad.
+No inventes datos que no aparezcan ni en la base local ni en la pregunta.
+
+Datos del usuario identificados por teléfono:
+- Nombre: Jose Vicente Carratala Sanchis
+- Email: info@josevicentecarratala.com
+- Teléfono: 620891718
+- Curso matriculado: DAM1 - Online
+
+Pregunta del usuario:
+hola
+
+----------------------------------------
+RESPUESTA REMOTA
+----------------------------------------
+Hola, bienvencido, Jose Vicente Carratala Sanchis. ¿En qué puedo asistirle hoy?
+
+----------------------------------------
+RESPUESTA FINAL DEVUELTA AL FRONT
+----------------------------------------
+Hola, bienvencido, Jose Vicente Carratala Sanchis. ¿En qué puedo asistirle hoy?
+
+----------------------------------------
+DETALLE IFTTT
+----------------------------------------
+resumen: Intenta obtener información sobre la flexibilidad del horario del curso DAM1 para gestionar sus ausencias.
+MEJORES_IFTTT:
+  #1 [0]: {"id":1,"resumen_if":"El usuario reporta que va a faltar a clase","destinatario_email":"info@josevicentecarratala.com","asunto":"Falta de alumno a clase","creado_en":"2026-03-26 17:41:19","score":66.50195058517555,"fuente_match":"texto_conversacion"}
+TEXTOS_COMPARACION:
+  #1 [resumen_ai]: Intenta obtener información sobre la flexibilidad del horario del curso DAM1 para gestionar sus ausencias.
+  #2 [ultimo_mensaje_usuario]: hola
+  #3 [texto_conversacion]: hola ¡Hola! ¿En qué puedo ayudarte hoy? quiero informacion sobre un curso En nuestra base de datos, encontramos que el curso de Ciencias Naturales ofrece una excelente visión general de la biología y la ecología. ¿Te interesa buscar más información sobre este curso? no, ahora soy un alumno y voy a faltar a clase Entiendo que no puedes asistir en esta ocasión. Recuerda que la comunicación con tus compañeros y profesores siempre es importante. ¡Hasta la próxima sesión! hola Hola, bienvenido a nuestro servicio de atención al alumno. Si necesitas asistencia académica o tienes preguntas relacionadas con tu curso DAM1, por favor, avísenme para que pueda ayudarte. hola Hola, bienvencido, Jose Vicente Carratala Sanchis. ¿En qué puedo asistirle hoy?
+estado: score_bajo
+score_mejor: 66.501950585176
+resumen_prompt: Resume esta conversación de atención al alumno en una sola frase útil para automatizaciones.
+Debe incluir únicamente la intención real o necesidad detectada.
+No añadas saludo ni explicaciones.
+Redacta en español.
+
+Teléfono: 620891718
+
+Conversación:
+Usuario: hola
+Asistente: ¡Hola! ¿En qué puedo ayudarte hoy?
+Usuario: quiero informacion sobre un curso
+Asistente: En nuestra base de datos, encontramos que el curso de Ciencias Naturales ofrece una excelente visión general de la biología y la ecología. ¿Te interesa buscar más información sobre este curso?
+Usuario: no, ahora soy un alumno y voy a faltar a clase
+Asistente: Entiendo que no puedes asistir en esta ocasión. Recuerda que la comunicación con tus compañeros y profesores siempre es importante. ¡Hasta la próxima sesión!
+Usuario: hola
+Asistente: Hola, bienvenido a nuestro servicio de atención al alumno. Si necesitas asistencia académica o tienes preguntas relacionadas con tu curso DAM1, por favor, avísenme para que pueda ayudarte.
+Usuario: hola
+Asistente: Hola, bienvencido, Jose Vicente Carratala Sanchis. ¿En qué puedo asistirle hoy?
+resumen_respuesta_remota: Intenta obtener información sobre la flexibilidad del horario del curso DAM1 para gestionar sus ausencias.
+resumen_http_code: 200
+resumen_curl_error: 

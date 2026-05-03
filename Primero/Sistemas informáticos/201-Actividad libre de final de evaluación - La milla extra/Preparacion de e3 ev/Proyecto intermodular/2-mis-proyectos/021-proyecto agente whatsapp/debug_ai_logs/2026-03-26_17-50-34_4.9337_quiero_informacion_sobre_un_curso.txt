@@ -1,0 +1,67 @@
+========================================
+DEBUG IA REMOTA
+========================================
+Fecha: 2026-03-26 17:50:34
+Accion: chat
+Telefono: 620891718
+Usuario encontrado: NO
+Fuente respuesta final: ia_remota
+URL remota: https://covalently-untasked-daphne.ngrok-free.dev/chat/?q=Eres+un+asistente+de+atenci%C3%B3n+al+alumno.%0AResponde+en+espa%C3%B1ol%2C+de+forma+clara+y+breve.%0ASi+la+base+local+contiene+informaci%C3%B3n+%C3%BAtil%2C+dale+prioridad.%0ANo+inventes+datos+que+no+aparezcan+ni+en+la+base+local+ni+en+la+pregunta.%0A%0APregunta+del+usuario%3A%0Aquiero+informacion+sobre+un+curso
+HTTP code: 200
+Error cURL: 
+Resumen conversación: Intenta obtener información sobre el curso de Ciencias Naturales.
+IFTTT activado: NO
+IFTTT mensaje frontend: 
+
+----------------------------------------
+PREGUNTA ORIGINAL
+----------------------------------------
+quiero informacion sobre un curso
+
+----------------------------------------
+MEJORES COINCIDENCIAS LOCALES
+----------------------------------------
+Sin coincidencias locales.
+
+----------------------------------------
+PROMPT ENVIADO A LA IA REMOTA
+----------------------------------------
+Eres un asistente de atención al alumno.
+Responde en español, de forma clara y breve.
+Si la base local contiene información útil, dale prioridad.
+No inventes datos que no aparezcan ni en la base local ni en la pregunta.
+
+Pregunta del usuario:
+quiero informacion sobre un curso
+
+----------------------------------------
+RESPUESTA REMOTA
+----------------------------------------
+En nuestra base de datos, encontramos que el curso de Ciencias Naturales ofrece una excelente visión general de la biología y la ecología. ¿Te interesa buscar más información sobre este curso?
+
+----------------------------------------
+RESPUESTA FINAL DEVUELTA AL FRONT
+----------------------------------------
+En nuestra base de datos, encontramos que el curso de Ciencias Naturales ofrece una excelente visión general de la biología y la ecología. ¿Te interesa buscar más información sobre este curso?
+
+----------------------------------------
+DETALLE IFTTT
+----------------------------------------
+resumen: Intenta obtener información sobre el curso de Ciencias Naturales.
+MEJORES_IFTTT:
+  #1: {"id":1,"resumen_if":"El usuario reporta que va a faltar a clase","destinatario_email":"info@josevicentecarratala.com","asunto":"Falta de alumno a clase","creado_en":"2026-03-26 17:41:19","score":38.41509433962264}
+resumen_prompt: Resume esta conversación de atención al alumno en una sola frase útil para automatizaciones.
+Debe incluir únicamente la intención real o necesidad detectada.
+No añadas saludo ni explicaciones.
+Redacta en español.
+
+Teléfono: 620891718
+
+Conversación:
+Usuario: hola
+Asistente: ¡Hola! ¿En qué puedo ayudarte hoy?
+Usuario: quiero informacion sobre un curso
+Asistente: En nuestra base de datos, encontramos que el curso de Ciencias Naturales ofrece una excelente visión general de la biología y la ecología. ¿Te interesa buscar más información sobre este curso?
+resumen_respuesta_remota: Intenta obtener información sobre el curso de Ciencias Naturales.
+resumen_http_code: 200
+resumen_curl_error: 

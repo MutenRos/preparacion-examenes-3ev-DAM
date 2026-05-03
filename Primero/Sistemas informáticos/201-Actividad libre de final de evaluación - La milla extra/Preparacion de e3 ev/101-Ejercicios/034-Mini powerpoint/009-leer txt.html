@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Presentación TXT</title>
+
+<style>
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    box-sizing:border-box;
+    z-index:5000;
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+}
+
+.brand-text h3{
+    margin:0;
+    font-size:18px;
+}
+
+.brand-text p{
+    margin:2px 0 0 0;
+    font-size:13px;
+    color:#64748b;
+}
+
+#contenedor{
+    position:absolute;
+    inset:0;
+    display:flex;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+}
+
+article{
+    min-width:100vw;
+    height:100vh;
+    box-sizing:border-box;
+    padding:120px 80px 100px 80px;
+    flex-shrink:0;
+    scroll-snap-align:start;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.kicker{
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:13px;
+    color:#64748b;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:64px;
+    margin:0 0 24px 0;
+    line-height:1.05;
+}
+
+h2{
+    font-size:46px;
+    margin:0 0 28px 0;
+}
+
+p{
+    font-size:22px;
+    line-height:1.55;
+    max-width:850px;
+}
+
+.frontpage{
+    background:linear-gradient(135deg,#ffffff,#dbeafe);
+}
+
+.frontpage .subtitle{
+    font-size:28px;
+    color:#334155;
+}
+
+.bullets{
+    background:white;
+}
+
+.bullets ul{
+    list-style:none;
+    padding:0;
+    max-width:900px;
+}
+
+.bullets li{
+    font-size:24px;
+    background:#f8fafc;
+    margin-bottom:16px;
+    padding:20px 24px;
+    border-radius:22px;
+    box-shadow:0 10px 25px rgba(15,23,42,0.05);
+}
+
+.text{
+    background:#f8fafc;
+}
+
+.text .box{
+    background:white;
+    padding:42px;
+    border-radius:32px;
+    box-shadow:0 25px 60px rgba(15,23,42,0.08);
+}
+
+.quote{
+    background:linear-gradient(135deg,#020617,#1e293b);
+    color:white;
+}
+
+.quote blockquote{
+    font-size:54px;
+    line-height:1.2;
+    max-width:1000px;
+    margin:0;
+}
+
+.quote cite{
+    margin-top:32px;
+    color:#cbd5e1;
+    font-size:20px;
+}
+
+.media{
+    background:#eef2ff;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.media img,
+.fake-image{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    border-radius:36px;
+    background:linear-gradient(135deg,#dbeafe,#ffffff);
+    box-shadow:0 30px 70px rgba(30,64,175,0.18);
+}
+
+.closing{
+    background:linear-gradient(135deg,#020617,#1e293b);
+    color:white;
+    text-align:center;
+    align-items:center;
+}
+
+footer{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(16px);
+    padding:12px 16px;
+    border-radius:999px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    z-index:3000;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border:0;
+    border-radius:999px;
+    background:#94a3b8;
+    cursor:pointer;
+    padding:0;
+    transition:width .35s ease, background .35s ease, transform .35s ease;
+}
+
+.dot:hover{
+    transform:scale(1.25);
+}
+
+.dot.activo{
+    width:38px;
+    background:#2563eb;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-text">
+            <h3>Jocarsa Presentation</h3>
+            <p>TXT Presentation Framework</p>
+        </div>
+    </div>
+</header>
+
+<div id="contenedor"></div>
+<footer id="puntos"></footer>
+
+<script>
+let contenedor = document.querySelector("#contenedor")
+let puntos = document.querySelector("#puntos")
+let actual = 0
+let diapositivas = []
+let dots = []
+
+fetch("presentacion.txt")
+    .then(function(respuesta){
+        return respuesta.text()
+    })
+    .then(function(texto){
+        let slides = parsearPresentacion(texto)
+        renderizarPresentacion(slides)
+    })
+
+function parsearPresentacion(texto){
+
+    let lineas = texto.replace(/\r/g,"").split("\n")
+    let slides = []
+    let slideActual = null
+
+    lineas.forEach(function(linea){
+
+        if(linea.trim() === ""){
+            return
+        }
+
+        if(!linea.startsWith("\t")){
+            slideActual = {
+                tipo:linea.trim(),
+                contenido:[]
+            }
+
+            slides.push(slideActual)
+        }else{
+            if(slideActual){
+                slideActual.contenido.push(linea.trim())
+            }
+        }
+
+    })
+
+    return slides
+
+}
+
+function renderizarPresentacion(slides){
+
+    contenedor.innerHTML = ""
+    puntos.innerHTML = ""
+
+    slides.forEach(function(slide, indice){
+
+        let article = document.createElement("article")
+        article.className = slide.tipo
+
+        let contenido = slide.contenido
+        let titulo = contenido[0] || ""
+        let resto = contenido.slice(1)
+
+        if(slide.tipo === "frontpage"){
+            article.innerHTML = `
+                <div class="kicker">Presentación</div>
+                <h1>${titulo}</h1>
+                <p class="subtitle">${resto.join("<br>")}</p>
+            `
+        }
+
+        else if(slide.tipo === "bullets"){
+            article.innerHTML = `
+                <div class="kicker">Puntos clave</div>
+                <h2>${titulo}</h2>
+                <ul>
+                    ${resto.map(function(item){
+                        return `<li>${item}</li>`
+                    }).join("")}
+                </ul>
+            `
+        }
+
+        else if(slide.tipo === "text"){
+            article.innerHTML = `
+                <div class="box">
+                    <div class="kicker">Texto</div>
+                    <h2>${titulo}</h2>
+                    ${resto.map(function(parrafo){
+                        return `<p>${parrafo}</p>`
+                    }).join("")}
+                </div>
+            `
+        }
+
+        else if(slide.tipo === "quote"){
+            article.innerHTML = `
+                <blockquote>“${titulo}”</blockquote>
+                <cite>${resto[0] || ""}</cite>
+            `
+        }
+
+        else if(slide.tipo === "media"){
+            let texto = resto[0] || ""
+            let imagen = resto[1] || ""
+
+            article.innerHTML = `
+                <div>
+                    <div class="kicker">Media</div>
+                    <h2>${titulo}</h2>
+                    <p>${texto}</p>
+                </div>
+                ${
+                    imagen
+                    ? `<img src="${imagen}" alt="">`
+                    : `<div class="fake-image"></div>`
+                }
+            `
+        }
+
+        else if(slide.tipo === "closing"){
+            article.innerHTML = `
+                <h1>${titulo}</h1>
+                <p>${resto.join("<br>")}</p>
+            `
+        }
+
+        else{
+            article.className = "text"
+            article.innerHTML = `
+                <div class="box">
+                    <h2>${titulo}</h2>
+                    ${resto.map(function(parrafo){
+                        return `<p>${parrafo}</p>`
+                    }).join("")}
+                </div>
+            `
+        }
+
+        contenedor.appendChild(article)
+
+        let punto = document.createElement("button")
+        punto.className = "dot"
+
+        punto.onclick = function(){
+            irA(indice)
+        }
+
+        puntos.appendChild(punto)
+
+    })
+
+    diapositivas = document.querySelectorAll("article")
+    dots = document.querySelectorAll(".dot")
+
+    actualizarPuntos()
+
+}
+
+function irA(indice){
+
+    indice = Math.max(0, Math.min(indice, diapositivas.length - 1))
+    actual = indice
+
+    contenedor.scrollTo({
+        left:actual * window.innerWidth,
+        behavior:"smooth"
+    })
+
+    actualizarPuntos()
+
+}
+
+function actualizarPuntos(){
+
+    dots.forEach(function(dot, indice){
+        dot.classList.toggle("activo", indice === actual)
+    })
+
+}
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "ArrowRight"){
+        irA(actual + 1)
+    }
+
+    if(event.key === "ArrowLeft"){
+        irA(actual - 1)
+    }
+
+})
+
+contenedor.addEventListener("scroll", function(){
+
+    actual = Math.round(contenedor.scrollLeft / window.innerWidth)
+    actualizarPuntos()
+
+})
+
+window.addEventListener("resize", function(){
+    irA(actual)
+})
+</script>
+
+</body>
+</html>
