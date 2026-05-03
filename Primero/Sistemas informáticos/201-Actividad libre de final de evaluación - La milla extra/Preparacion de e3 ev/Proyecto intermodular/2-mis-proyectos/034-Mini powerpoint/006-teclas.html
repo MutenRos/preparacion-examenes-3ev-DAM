@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+#contenedor{
+    position:absolute;
+    inset:0;
+    display:flex;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+}
+
+article{
+    min-width:100vw;
+    height:100vh;
+    box-sizing:border-box;
+    padding:50px;
+    flex-shrink:0;
+    scroll-snap-align:start;
+}
+
+article:nth-child(1){ background:#f5f5f5; }
+article:nth-child(2){ background:#dde8ff; }
+article:nth-child(3){ background:#ffe9d8; }
+article:nth-child(4){ background:#e5ffd8; }
+
+footer{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    background:white;
+    padding:12px 16px;
+    border-radius:999px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    z-index:1000;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border:0;
+    border-radius:999px;
+    background:#999;
+    cursor:pointer;
+    padding:0;
+    transition:
+        width 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.dot:hover{
+    transform:scale(1.2);
+}
+
+.dot.activo{
+    width:34px;
+    background:#222;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="contenedor">
+
+    <article>
+        <h1>Diapositiva 1</h1>
+        <p>Contenido de la diapositiva 1</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 2</h1>
+        <p>Contenido de la diapositiva 2</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 3</h1>
+        <p>Contenido de la diapositiva 3</p>
+    </article>
+
+    <article>
+        <h1>Diapositiva 4</h1>
+        <p>Contenido de la diapositiva 4</p>
+    </article>
+
+</div>
+
+<footer id="puntos"></footer>
+
+<script>
+
+let contenedor = document.querySelector("#contenedor")
+let diapositivas = document.querySelectorAll("article")
+let puntos = document.querySelector("#puntos")
+
+let actual = 0
+
+diapositivas.forEach(function(_, indice){
+
+    let punto = document.createElement("button")
+    punto.className = "dot"
+
+    punto.onclick = function(){
+        irA(indice)
+    }
+
+    puntos.appendChild(punto)
+
+})
+
+let dots = document.querySelectorAll(".dot")
+
+function irA(indice){
+
+    if(indice < 0){
+        indice = 0
+    }
+
+    if(indice >= diapositivas.length){
+        indice = diapositivas.length - 1
+    }
+
+    actual = indice
+
+    contenedor.scrollTo({
+        left:actual * window.innerWidth,
+        behavior:"smooth"
+    })
+
+    actualizarPuntos()
+
+}
+
+function actualizarPuntos(){
+
+    dots.forEach(function(dot, indice){
+
+        if(indice == actual){
+            dot.classList.add("activo")
+        }else{
+            dot.classList.remove("activo")
+        }
+
+    })
+
+}
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key == "ArrowRight"){
+        irA(actual + 1)
+    }
+
+    if(event.key == "ArrowLeft"){
+        irA(actual - 1)
+    }
+
+})
+
+contenedor.addEventListener("scroll", function(){
+
+    actual = Math.round(contenedor.scrollLeft / window.innerWidth)
+
+    actualizarPuntos()
+
+})
+
+window.addEventListener("resize", function(){
+    irA(actual)
+})
+
+actualizarPuntos()
+
+</script>
+
+</body>
+</html>

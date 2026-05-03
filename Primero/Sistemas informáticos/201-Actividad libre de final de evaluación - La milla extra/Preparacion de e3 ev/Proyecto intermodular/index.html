@@ -1,223 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyecto Intermodular — 3ª Evaluación DAM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proyecto intermodular - Preparacion e3 ev</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#13136e,#1a1a2e);color:#e0e0e0;min-height:100vh}
-  header{background:#371657;padding:50px 20px;text-align:center;border-bottom:2px solid #e945db}
-  h1{color:#e945db;font-size:2.8em;margin-bottom:10px}
-  .subtitle{color:#d4b00f;font-size:1.2em;margin-bottom:6px}
-  .desc{color:#aaa;font-size:.95em}
-  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:30px 20px 10px}
-  .filter-btn{background:rgba(233,69,219,.1);border:1px solid rgba(233,69,219,.4);color:#e945db;padding:6px 18px;border-radius:20px;cursor:pointer;font-size:.9em;transition:all .2s}
-  .filter-btn:hover,.filter-btn.active{background:#e945db;color:#1a1a2e}
-  .grid{max-width:1200px;margin:20px auto 50px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-  .card{background:#371657;border-radius:12px;padding:22px;border:2px solid rgba(233,69,219,.25);transition:all .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px}
-  .card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(233,69,219,.45);border-color:#e945db}
-  .card-num{color:#d4b00f;font-size:.8em;font-weight:bold}
-  .card h3{color:#e945db;font-size:1em}
-  .card p{color:#bbb;font-size:.85em;line-height:1.5;flex:1}
-  .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
-  .tag{background:rgba(233,69,219,.15);color:#e945db;padding:2px 9px;border-radius:8px;font-size:.75em}
-  .tag.php{background:rgba(100,149,237,.15);color:#6495ed}
-  .tag.python{background:rgba(53,170,88,.15);color:#35aa58}
-  .tag.html{background:rgba(212,176,15,.15);color:#d4b00f}
-  .tag.ai{background:rgba(233,69,219,.2);color:#e945db}
-  .tag.doc{background:rgba(150,150,150,.15);color:#999}
-  footer{text-align:center;padding:30px;color:#555;border-top:1px solid rgba(233,69,219,.15)}
+:root{--bg:#09111d;--panel:#111c2d;--line:#25344e;--text:#e9eef8;--muted:#92a0b8;--a1:#8b5cf6;--a2:#06b6d4}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,rgba(139,92,246,.12),transparent 30%),linear-gradient(135deg,#07111c,#111827 45%,#0f172a);color:var(--text)}
+.hero{max-width:1180px;margin:0 auto;padding:44px 22px 24px}.hero h1{margin:0 0 12px;font-size:clamp(2rem,4vw,3.5rem)}.hero p{max-width:820px;margin:0;color:var(--muted);line-height:1.7}
+.badge{display:inline-block;margin-bottom:14px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.grid{max-width:1180px;margin:0 auto;padding:0 22px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.panel{padding:22px;border-radius:22px;background:rgba(17,28,45,.9);border:1px solid var(--line);box-shadow:0 16px 38px rgba(0,0,0,.28)}
+.panel h2{margin:0 0 10px;font-size:1.1rem}.panel p{margin:0;color:var(--muted);line-height:1.65}.panel a{display:inline-block;margin-top:16px;padding:12px 16px;border-radius:14px;text-decoration:none;color:#05101a;font-weight:700;background:linear-gradient(135deg,var(--a1),var(--a2))}
+.list{max-width:1180px;margin:0 auto;padding:0 22px 44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.item{display:block;padding:16px 18px;border-radius:18px;text-decoration:none;color:inherit;background:linear-gradient(180deg,rgba(17,28,45,.94),rgba(17,28,45,.88));border:1px solid var(--line)}.item:hover{border-color:#4cc9ff}.item strong{display:block;font-size:.85rem;color:#9fe4b4;letter-spacing:.08em;text-transform:uppercase}.item span{display:block;margin-top:8px;line-height:1.45}.footer{max-width:1180px;margin:0 auto;padding:0 22px 36px;color:#708099;font-size:.88rem}
 </style>
 </head>
 <body>
-<header>
-  <h1>🚀 Proyecto Intermodular</h1>
-  <p class="subtitle">DAM — 3ª Evaluación 2025-2026</p>
-  <p class="desc">30 proyectos de demostración: web, IA, 3D, bases de datos y automatización</p>
-</header>
-
-<div class="filters">
-  <button class="filter-btn active" onclick="filter('all')">Todos (30)</button>
-  <button class="filter-btn" onclick="filter('html')">HTML/JS</button>
-  <button class="filter-btn" onclick="filter('php')">PHP</button>
-  <button class="filter-btn" onclick="filter('python')">Python</button>
-  <button class="filter-btn" onclick="filter('ai')">IA</button>
-  <button class="filter-btn" onclick="filter('doc')">Docs</button>
-</div>
-
-<div class="grid" id="grid">
-
-  <a href="001-Sistema inteligente de comunicaciones/index.html" class="card" data-tags="python ai">
-    <div class="card-num">001</div><h3>Sistema Inteligente de Comunicaciones</h3>
-    <p>Flask + IMAP + Ollama. Gestión de correos con clasificación automática IA.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">Flask</span></div>
-  </a>
-
-  <a href="002-Nueva web jocarsa/index.html" class="card" data-tags="php html">
-    <div class="card-num">002</div><h3>Nueva Web jocarsa</h3>
-    <p>Rediseño web personal PHP puro con portfolio, blog y contacto.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag html">HTML</span></div>
-  </a>
-
-  <a href="003-Repaso deploy/index.html" class="card" data-tags="doc">
-    <div class="card-num">003</div><h3>Repaso de Deploy</h3>
-    <p>Guía de despliegue: VPS, Apache, Nginx, Docker, SSL y CI/CD.</p>
-    <div class="tags"><span class="tag doc">Docs</span><span class="tag">Apache</span><span class="tag">Docker</span></div>
-  </a>
-
-  <a href="004-entrenamiento IA/index.html" class="card" data-tags="python ai">
-    <div class="card-num">004</div><h3>Entrenamiento de IA</h3>
-    <p>Fine-tuning LLM con LoRA/QLoRA, HuggingFace y exportación GGUF para Ollama.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">LoRA</span></div>
-  </a>
-
-  <a href="005-RGPD y similares/index.html" class="card" data-tags="php">
-    <div class="card-num">005</div><h3>RGPD y Similares</h3>
-    <p>Consentimiento de cookies, política de privacidad y registro RGPD en PHP+MySQL.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag">MySQL</span></div>
-  </a>
-
-  <a href="006-Añado enlaces sociales a la web/index.html" class="card" data-tags="php html">
-    <div class="card-num">006</div><h3>Enlaces Sociales</h3>
-    <p>Integración de redes sociales con iconos SVG y metadatos Open Graph.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag html">HTML</span><span class="tag">Open Graph</span></div>
-  </a>
-
-  <a href="007-documentos a bases de datos/index.html" class="card" data-tags="python">
-    <div class="card-num">007</div><h3>Documentos a Bases de Datos</h3>
-    <p>Pipeline Python: extrae texto de PDFs con PyMuPDF y los inserta en SQLite/MySQL.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag">PyMuPDF</span><span class="tag">SQLite</span></div>
-  </a>
-
-  <a href="008-asistente de IA/index.html" class="card" data-tags="ai">
-    <div class="card-num">008</div><h3>Asistente de IA en Blender</h3>
-    <p>Avatar 3D animado en Blender integrado con LLM Ollama para conversación.</p>
-    <div class="tags"><span class="tag ai">IA</span><span class="tag">Blender</span><span class="tag">Three.js</span></div>
-  </a>
-
-  <a href="009-Portafolios Serena/index.html" class="card" data-tags="php ai">
-    <div class="card-num">009</div><h3>Portafolios Serena</h3>
-    <p>Portfolio PHP dinámico con JSON, modo oscuro y chatbot IA sobre el CV.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag ai">IA</span><span class="tag">Portfolio</span></div>
-  </a>
-
-  <a href="010-Drive como base de datos/index.html" class="card" data-tags="php">
-    <div class="card-num">010</div><h3>Drive como Base de Datos</h3>
-    <p>CRUD PHP sobre CSVs en Google Drive via API OAuth2. Sin MySQL.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag">Google Drive</span><span class="tag">CSV</span></div>
-  </a>
-
-  <a href="011-Consumo energetico/index.html" class="card" data-tags="python">
-    <div class="card-num">011</div><h3>Consumo Energético</h3>
-    <p>Benchmark Python+C para medir consumo de CPU/GPU con Intel RAPL.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag">C</span><span class="tag">RAPL</span></div>
-  </a>
-
-  <a href="012-Informatica grafica/index.html" class="card" data-tags="html">
-    <div class="card-num">012</div><h3>Informática Gráfica</h3>
-    <p>Galería de demos Canvas API: triángulos, círculos, líneas, datos y gráficos.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">Canvas API</span><span class="tag">JS</span></div>
-  </a>
-
-  <a href="013-Motivando a Darío/index.html" class="card" data-tags="html">
-    <div class="card-num">013</div><h3>Motivando a Darío</h3>
-    <p>Herramientas de dibujo interactivo Canvas: óleo, CAD, longitud de trazo.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">Canvas</span><span class="tag">Drawing</span></div>
-  </a>
-
-  <a href="014-Fundamentos de Blender/index.html" class="card" data-tags="html ai">
-    <div class="card-num">014</div><h3>Fundamentos de Blender</h3>
-    <p>Modelos 3D (.glb) de Blender visualizados en el navegador con Three.js.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">Blender</span><span class="tag">Three.js</span></div>
-  </a>
-
-  <a href="015-cliente de correo electronico/index.html" class="card" data-tags="html php">
-    <div class="card-num">015</div><h3>Cliente de Correo Electrónico</h3>
-    <p>Mockups HTML progresivos de un cliente email web con IMAP y WYSIWYG editor.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag php">PHP</span><span class="tag">IMAP</span></div>
-  </a>
-
-  <a href="016-wysiwyg/index.html" class="card" data-tags="html">
-    <div class="card-num">016</div><h3>Editor WYSIWYG</h3>
-    <p>Editor de texto enriquecido construido desde cero con JS puro y contentEditable.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">JS</span><span class="tag">WYSIWYG</span></div>
-  </a>
-
-  <a href="017-minibot/index.html" class="card" data-tags="python ai">
-    <div class="card-num">017</div><h3>Minibot Web Crawler</h3>
-    <p>Spider Python recursivo con BeautifulSoup + resumen automático con Ollama.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">Scraping</span></div>
-  </a>
-
-  <a href="018-estadisticas apache/index.html" class="card" data-tags="python">
-    <div class="card-num">018</div><h3>Estadísticas Apache</h3>
-    <p>Análisis de logs Apache con Python y visualización de métricas con matplotlib.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag">Apache</span><span class="tag">Logs</span></div>
-  </a>
-
-  <a href="019-cuestionario online inglés/index.html" class="card" data-tags="php">
-    <div class="card-num">019</div><h3>Cuestionario Online de Inglés</h3>
-    <p>Tests de inglés PHP+SQLite: tipo test, rellenar huecos, V/F con panel admin.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag">SQLite</span></div>
-  </a>
-
-  <a href="020-correos de cumpleaños/index.html" class="card" data-tags="python">
-    <div class="card-num">020</div><h3>Correos de Cumpleaños</h3>
-    <p>Email automático de felicitación con Python, SMTP y cron. Lee agenda CSV.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag">SMTP</span><span class="tag">Automación</span></div>
-  </a>
-
-  <a href="021-proyecto agente whatsapp/index.html" class="card" data-tags="html ai">
-    <div class="card-num">021</div><h3>Agente WhatsApp</h3>
-    <p>Chat web progresivo estilo WhatsApp con IA integrada. Frontend HTML + backend PHP.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag ai">IA</span><span class="tag php">PHP</span></div>
-  </a>
-
-  <a href="022-me gustan los pdf/index.html" class="card" data-tags="python ai">
-    <div class="card-num">022</div><h3>Me gustan los PDF</h3>
-    <p>Suite Python: fusión, división, extracción, generación y análisis IA de PDFs.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">PDF</span></div>
-  </a>
-
-  <a href="023-varias IA en un mismo proyecto/index.html" class="card" data-tags="python ai">
-    <div class="card-num">023</div><h3>Varias IA en un Proyecto</h3>
-    <p>Flask orquesta LLM, visión, generación de imágenes y TTS en una interfaz.</p>
-    <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">Multimodal</span></div>
-  </a>
-
-  <a href="024-formularios condicionales/index.html" class="card" data-tags="html">
-    <div class="card-num">024</div><h3>Formularios Condicionales</h3>
-    <p>Preguntas adaptativas en HTML/JS que cambian según las respuestas del usuario.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">JS</span></div>
-  </a>
-
-  <a href="025-multiformularios condicionales/index.html" class="card" data-tags="php">
-    <div class="card-num">025</div><h3>Multiformularios Condicionales</h3>
-    <p>Sistema PHP multi-paso con lógica condicional compleja y panel de administración.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag">MySQL</span></div>
-  </a>
-
-  <a href="026-Resumen de publicación en servidores/index.html" class="card" data-tags="doc">
-    <div class="card-num">026</div><h3>Publicación en Servidores</h3>
-    <p>Guía completa: Apache, Nginx, SSL, DNS, dominios y buenas prácticas.</p>
-    <div class="tags"><span class="tag doc">Docs</span><span class="tag">Apache</span><span class="tag">SSL</span></div>
-  </a>
-
-  <a href="027-Panel de control de ventas/index.html" class="card" data-tags="php">
-    <div class="card-num">027</div><h3>Panel de Control de Ventas</h3>
-    <p>ERP simplificado PHP+MySQL con Chart.js: productos, pedidos, facturas y KPIs.</p>
-    <div class="tags"><span class="tag php">PHP</span><span class="tag">MySQL</span><span class="tag">Chart.js</span></div>
-  </a>
-
-  <a href="028-geolocalizacion/index.html" class="card" data-tags="html">
-    <div class="card-num">028</div><h3>Geolocalización Web</h3>
-    <p>Geolocation API + Leaflet.js para posición en tiempo real sobre OpenStreetMap.</p>
-    <div class="tags"><span class="tag html">HTML</span><span class="tag">Leaflet.js</span><span class="tag">GPS</span></div>
-  </a>
-
-  <a href="030-scrapear web con IA/index.html" class="card" data-tags="python ai">
-    <div class="card-num">030</div><h3>Scrapear Web con IA</h3>
+<section class="hero">
+  <div class="badge">Proyecto intermodular</div>
+  <h1>Preparacion de 3a evaluacion</h1>
+  <p>Este espacio concentra las tres variantes de trabajo: originales del profesor, nuestra version ampliada y los mockups estaticos para GitHub Pages. El bloque de mockups queda listo para publicacion porque cada proyecto tiene su propio <code>index.html</code> y un indice general con los 37 enlaces.</p>
+</section>
+<section class="grid">
+  <article class="panel">
+    <h2>1-originales-jocarsa</h2>
+    <p>Referencia para clonar los repositorios originales del profesor y compararlos con nuestro trabajo.</p>
+    <a href="1-originales-jocarsa/">Abrir carpeta</a>
+  </article>
+  <article class="panel">
+    <h2>2-mis-proyectos</h2>
+    <p>Version ampliada, mejorada y completada de los 37 proyectos con codigo real y materiales de examen.</p>
+    <a href="2-mis-proyectos/">Abrir carpeta</a>
+  </article>
+  <article class="panel">
+    <h2>3-mockups-pages</h2>
+    <p>Coleccion publica lista para GitHub Pages, capturas y grabaciones. Cada proyecto abre una pagina independiente.</p>
+    <a href="3-mockups-pages/">Abrir indice de mockups</a>
+  </article>
+</section>
+<section class="list">
+  <a class="item" href="3-mockups-pages/dam-001-sistema-comunicaciones/"><strong>001</strong><span>Sistema inteligente de comunicaciones</span></a>
+  <a class="item" href="3-mockups-pages/dam-002-nueva-web-jocarsa/"><strong>002</strong><span>Nueva web jocarsa</span></a>
+  <a class="item" href="3-mockups-pages/dam-003-repaso-deploy/"><strong>003</strong><span>Repaso deploy</span></a>
+  <a class="item" href="3-mockups-pages/dam-004-entrenamiento-ia/"><strong>004</strong><span>Entrenamiento IA</span></a>
+  <a class="item" href="3-mockups-pages/dam-005-rgpd/"><strong>005</strong><span>RGPD y similares</span></a>
+  <a class="item" href="3-mockups-pages/dam-006-enlaces-sociales/"><strong>006</strong><span>Anado enlaces sociales a la web</span></a>
+  <a class="item" href="3-mockups-pages/dam-007-documentos-bd/"><strong>007</strong><span>Documentos a bases de datos</span></a>
+  <a class="item" href="3-mockups-pages/dam-008-asistente-ia/"><strong>008</strong><span>Asistente de IA</span></a>
+  <a class="item" href="3-mockups-pages/dam-009-portafolios-serena/"><strong>009</strong><span>Portafolios Serena</span></a>
+  <a class="item" href="3-mockups-pages/dam-010-drive-bd/"><strong>010</strong><span>Drive como base de datos</span></a>
+  <a class="item" href="3-mockups-pages/dam-011-consumo-energetico/"><strong>011</strong><span>Consumo energetico</span></a>
+  <a class="item" href="3-mockups-pages/dam-012-informatica-grafica/"><strong>012</strong><span>Informatica grafica</span></a>
+  <a class="item" href="3-mockups-pages/dam-013-motivando-dario/"><strong>013</strong><span>Motivando a Dario</span></a>
+  <a class="item" href="3-mockups-pages/dam-014-fundamentos-blender/"><strong>014</strong><span>Fundamentos de Blender</span></a>
+  <a class="item" href="3-mockups-pages/dam-015-cliente-correo/"><strong>015</strong><span>Cliente de correo electronico</span></a>
+  <a class="item" href="3-mockups-pages/dam-016-wysiwyg/"><strong>016</strong><span>WYSIWYG</span></a>
+  <a class="item" href="3-mockups-pages/dam-017-minibot/"><strong>017</strong><span>Minibot</span></a>
+  <a class="item" href="3-mockups-pages/dam-018-estadisticas-apache/"><strong>018</strong><span>Estadisticas apache</span></a>
+  <a class="item" href="3-mockups-pages/dam-019-cuestionario-ingles/"><strong>019</strong><span>Cuestionario online ingles</span></a>
+  <a class="item" href="3-mockups-pages/dam-020-correos-cumpleanos/"><strong>020</strong><span>Correos de cumpleanos</span></a>
+  <a class="item" href="3-mockups-pages/dam-021-agente-whatsapp/"><strong>021</strong><span>Proyecto agente whatsapp</span></a>
+  <a class="item" href="3-mockups-pages/dam-022-me-gustan-pdf/"><strong>022</strong><span>Me gustan los pdf</span></a>
+  <a class="item" href="3-mockups-pages/dam-023-varias-ia/"><strong>023</strong><span>Varias IA en un mismo proyecto</span></a>
+  <a class="item" href="3-mockups-pages/dam-024-formularios-condicionales/"><strong>024</strong><span>Formularios condicionales</span></a>
+  <a class="item" href="3-mockups-pages/dam-025-multiformularios/"><strong>025</strong><span>Multiformularios condicionales</span></a>
+  <a class="item" href="3-mockups-pages/dam-026-resumen-publicacion/"><strong>026</strong><span>Resumen de publicacion en servidores</span></a>
+  <a class="item" href="3-mockups-pages/dam-027-panel-ventas/"><strong>027</strong><span>Panel de control de ventas</span></a>
+  <a class="item" href="3-mockups-pages/dam-028-geolocalizacion/"><strong>028</strong><span>Geolocalizacion</span></a>
+  <a class="item" href="3-mockups-pages/dam-029-api-rotation/"><strong>029</strong><span>API rotation</span></a>
+  <a class="item" href="3-mockups-pages/dam-030-scrapear-web-ia/"><strong>030</strong><span>Scrapear web con IA</span></a>
+  <a class="item" href="3-mockups-pages/dam-031-modelos-multimodales/"><strong>031</strong><span>Modelos multimodales</span></a>
+  <a class="item" href="3-mockups-pages/dam-032-rag/"><strong>032</strong><span>RAG</span></a>
+  <a class="item" href="3-mockups-pages/dam-033-nan/"><strong>033</strong><span>NaN</span></a>
+  <a class="item" href="3-mockups-pages/dam-034-mini-powerpoint/"><strong>034</strong><span>Mini powerpoint</span></a>
+  <a class="item" href="3-mockups-pages/dam-035-bullets/"><strong>035</strong><span>Bullets</span></a>
+  <a class="item" href="3-mockups-pages/dam-036-mcp-ollama-blender/"><strong>036</strong><span>MCP ollama Blender</span></a>
+  <a class="item" href="3-mockups-pages/dam-037-creador-esquemas/"><strong>037</strong><span>Creador de esquemas</span></a>
+</section>
+<div class="footer">Landing corregido para GitHub Pages con 37 mockups navegables.</div>
+</body>
+</html>
     <p>Crawler Python que extrae contenido web y lo resume con LLM local (Ollama).</p>
     <div class="tags"><span class="tag python">Python</span><span class="tag ai">IA</span><span class="tag">Scraping</span></div>
   </a>
