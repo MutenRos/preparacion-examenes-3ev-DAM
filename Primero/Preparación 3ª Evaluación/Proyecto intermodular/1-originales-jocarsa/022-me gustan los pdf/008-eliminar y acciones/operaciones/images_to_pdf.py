@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+import json
+import os
+import sys
+
+try:
+    from PIL import Image
+except Exception as e:
+    print(json.dumps({"ok": False, "error": f"No se pudo importar Pillow: {e}"}))
+    sys.exit(1)
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(json.dumps({"ok": False, "error": "Uso: images_to_pdf.py manifest.json"}))
+        return
+
+    manifest_path = sys.argv[1]
+
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+    except Exception as e:
+        print(json.dumps({"ok": False, "error": f"No se pudo leer el manifiesto: {e}"}))
+        return
+
+    files = manifest.get("files", [])
+    output_dir = manifest.get("output_dir", "")
+
+    if len(files) < 1:
+        print(json.dumps({"ok": False, "error": "No hay imágenes para convertir"}))
+        return
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    try:
+        images = []
+        for path in files:
+            img = Image.open(path).convert("RGB")
+            images.append(img)
+
+        if not images:
+            print(json.dumps({"ok": False, "error": "No se pudieron abrir imágenes"}))
+            return
+
+        result_path = os.path.join(output_dir, "imagenes_a_pdf.pdf")
+        first = images[0]
+        rest = images[1:]
+
+        first.save(result_path, save_all=True, append_images=rest)
+
+        print(json.dumps({
+            "ok": True,
+            "result": result_path,
+            "result_type": "file"
+        }))
+    except Exception as e:
+        print(json.dumps({"ok": False, "error": str(e)}))
+
+
+if __name__ == "__main__":
+    main()

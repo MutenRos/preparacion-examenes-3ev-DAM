@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocation + OSM</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    #map {
+      height: 400px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="getLocation()">Get location</button>
+<p id="output"></p>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+let map;
+
+function getLocation() {
+  const output = document.getElementById("output");
+
+  if (!navigator.geolocation) {
+    output.textContent = "Geolocation is not supported by this browser.";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Mostrar coordenadas
+      output.textContent = "Latitude: " + lat + ", Longitude: " + lon;
+
+      // Crear mapa si no existe
+      if (!map) {
+        map = L.map('map').setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+      } else {
+        map.setView([lat, lon], 13);
+      }
+
+      // Añadir marcador
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup("Estás aquí")
+        .openPopup();
+    },
+    function(error) {
+      output.textContent = "Error: " + error.message;
+    }
+  );
+}
+</script>
+
+</body>
+</html>

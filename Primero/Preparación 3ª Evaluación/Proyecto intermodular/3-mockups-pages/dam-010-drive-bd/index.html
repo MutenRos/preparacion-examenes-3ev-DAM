@@ -1,163 +1,108 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tienda deportiva · Drive como BD</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drive como Base de Datos · DAM</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--fondo:#f5f7fa;--super:#fff;--borde:#d9e1e8;--texto:#1f2933;--mut:#52606d;--prim:#2d6cdf;--ph:#1f5ac7;--ok:#1f9d55;--peli:#d64545;--shadow:0 8px 24px rgba(15,23,42,.08);--r:12px;--w:1200px}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.5}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-header{background:var(--super);border-bottom:1px solid var(--borde);box-shadow:0 2px 10px rgba(0,0,0,.03);position:sticky;top:0;z-index:20}
-.head{max-width:var(--w);margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .logo{width:42px;height:42px;background:linear-gradient(135deg,#2d6cdf,#1f9d55);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.2em}
-header h1{font-size:1.2em;color:var(--texto)}
-header p{font-size:.78em;color:var(--mut)}
-.cart-btn{position:relative;background:var(--prim);color:#fff;border:0;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.92em}
-.cart-btn:hover{background:var(--ph)}
-.cart-count{position:absolute;top:-7px;right:-7px;background:var(--peli);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.7em;font-weight:700}
-.fuente-info{max-width:var(--w);margin:14px auto 0;padding:12px 20px;background:#e0f2fe;border-left:4px solid var(--prim);font-size:.85em;color:#0c4a6e;border-radius:6px}
-.fuente-info code{background:#bae6fd;padding:1px 6px;border-radius:3px;font-family:ui-monospace,monospace;font-size:.95em}
-main{max-width:var(--w);margin:18px auto;padding:0 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
-.card{background:var(--super);border:1px solid var(--borde);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
-.card:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(15,23,42,.12)}
-.thumb{aspect-ratio:1;width:100%;display:flex;align-items:center;justify-content:center;font-size:4em;background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
-.card.fb .thumb{background:linear-gradient(135deg,#fef3c7,#fde68a)}
-.card.zp .thumb{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
-.card.bs .thumb{background:linear-gradient(135deg,#fee2e2,#fecaca)}
-.card.rq .thumb{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
-.card.gl .thumb{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
-.body{padding:14px 16px}
-.body h3{font-size:1.02em;margin-bottom:4px}
-.body .desc{font-size:.83em;color:var(--mut);margin-bottom:10px;height:2.7em;overflow:hidden}
-.body .precio{font-size:1.3em;font-weight:700;color:var(--prim);margin-bottom:8px}
-.add{width:100%;background:var(--ok);color:#fff;border:0;padding:9px;border-radius:6px;cursor:pointer;font-weight:600}
-.add:hover{background:#15803d}
-/* Modal carrito */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}
-.modal.show{display:flex}
-.modal-card{background:#fff;border-radius:12px;max-width:520px;width:100%;max-height:85vh;overflow:auto;padding:26px}
-.modal-card h2{margin-bottom:14px}
-.cart-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--borde);font-size:.92em}
-.total{padding-top:14px;border-top:2px solid var(--prim);margin-top:8px;font-weight:700;font-size:1.1em;display:flex;justify-content:space-between}
-input[type=email]{width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:6px;margin:10px 0;font-size:.92em;font-family:inherit}
-.btnrow{display:flex;gap:8px;margin-top:14px}
-.btnrow button{flex:1;padding:10px;border:0;border-radius:6px;cursor:pointer;font-weight:600}
-.btnclose{background:#e2e8f0;color:#334155}
-.btnsend{background:var(--prim);color:#fff}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:10px 18px;border-radius:6px;font-size:.9em;display:none;box-shadow:0 8px 20px rgba(0,0,0,.2);z-index:100}
-.toast.show{display:block;animation:in .25s ease}
-@keyframes in{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
-footer{text-align:center;padding:20px;color:var(--mut);font-size:.82em}
-</style>
-</head>
-<body>
-<div class="mock-banner">🧪 <strong>Demo</strong> · Tienda real del proyecto · Los productos vienen de un Google Sheet publicado como CSV (mockup local con 6 artículos hardcoded)</div>
-
+:root{--bg:#f8fafc;--panel:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--brand:#0f9d58;--accent:#4285f4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+header{background:var(--panel);border-bottom:1px solid var(--border);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand .g{width:32px;height:32px;display:grid;place-items:center}
+.brand .g svg{width:100%;height:100%}
+.brand b{color:var(--text)}
+.brand .sub{font-size:.78em;color:var(--muted);font-weight:400}
+.sync{display:flex;align-items:center;gap:8px;background:#dcfce7;border:1px solid #86efac;padding:6px 14px;border-radius:50px;font-size:.84em;color:#14532d}
+.sync .d{width:8px;height:8px;border-radius:50%;background:var(--brand);animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.user{display:flex;align-items:center;gap:8px;font-size:.88em}
+.user .av{width:30px;height:30px;border-radius:50%;background:#fbbf24;color:#78350f;display:grid;place-items:center;font-weight:700}
+.main{padding:26px;max-width:1300px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px}
+.top h1{font-size:1.4em}
+.top .info{color:var(--muted);font-size:.88em;margin-top:3px}
+.actions{display:flex;gap:8px}
+.btn{padding:8px 14px;background:#fff;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.86em;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{background:#f1f5f9}
+.btn.p{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.tabs button{background:transparent;border:none;padding:10px 16px;font-family:inherit;font-size:.88em;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.act{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.toolbar{background:var(--panel);border:1px solid var(--border);border-radius:8px 8px 0 0;padding:12px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:0}
+.toolbar input{flex:1;min-width:180px;border:1px solid var(--border);padding:7px 12px;border-radius:5px;font-family:inherit;font-size:.86em}
+.toolbar select{border:1px solid var(--border);padding:7px 10px;border-radius:5px;font-family:inherit;font-size:.86em;background:#fff}
+.sheet{background:var(--panel);border:1px solid var(--border);border-radius:0 0 8px 8px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:.88em}
+th{position:sticky;top:0;background:#f1f5f9;text-align:left;font-weight:600;color:var(--text);padding:10px 12px;border-bottom:2px solid var(--border);font-size:.82em;text-transform:uppercase;letter-spacing:.5px}
+td{padding:10px 12px;border-bottom:1px solid var(--border)}
+tr:hover{background:#fafafa}
+td.id{color:var(--muted);font-family:ui-monospace,monospace;font-size:.82em}
+.pill{display:inline-block;padding:2px 8px;border-radius:50px;font-size:.72em;font-weight:700}
+.pill.ok{background:#dcfce7;color:#14532d}
+.pill.warn{background:#fef3c7;color:#78350f}
+.pill.new{background:#dbeafe;color:#1e3a8a}
+.checkbox{width:16px;height:16px;cursor:pointer}
+.bar-info{padding:10px 16px;background:#f0f9ff;border-top:1px solid var(--border);font-size:.82em;color:var(--muted);display:flex;justify-content:space-between;border-radius:0 0 8px 8px}
+.bar-info b{color:var(--text)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.kpi .l{color:var(--muted);font-size:.78em;text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:1.6em;font-weight:700;margin-top:4px}
+.kpi .d{font-size:.78em;color:var(--brand);margin-top:2px}
+</style></head><body>
+<div class="mock-banner">📊 <strong>Demo</strong> · Google Sheets como base de datos · gspread + service account · datos simulados</div>
 <header>
-  <div class="head">
-    <div class="brand">
-      <div class="logo">JC</div>
-      <div>
-        <h1>Tienda deportiva jocarsa</h1>
-        <p>Productos cargados desde Google Sheets como BD</p>
-      </div>
-    </div>
-    <button class="cart-btn" onclick="abrirCarrito()">🛒 Carrito <span class="cart-count" id="cnt">0</span></button>
+  <div class="brand">
+    <div class="g"><svg viewBox="0 0 87 76"><path fill="#0066da" d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z"/><path fill="#00ac47" d="M43.65 25 29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0-1.2 4.5h27.5z"/><path fill="#ea4335" d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z"/><path fill="#00832d" d="M43.65 25 57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"/><path fill="#2684fc" d="M59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"/><path fill="#ffba00" d="M73.4 26.5 60.7 4.5c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z"/></svg></div>
+    <div><b>Inventario_2025</b><div class="sub">Drive como BD · jocarsa@gmail.com</div></div>
   </div>
+  <div class="sync"><span class="d"></span> Sincronizado · hace 12 s</div>
+  <div class="user"><div class="av">J</div>Jocarsa</div>
 </header>
-
-<div class="fuente-info" style="max-width:1160px;margin-top:14px">
-  📊 <strong>Fuente de datos:</strong> Google Sheets publicado como CSV →
-  <code>docs.google.com/spreadsheets/d/.../pub?output=csv</code> ·
-  Imágenes leídas de carpeta de Google Drive con <code>fopen + fgetcsv</code> en PHP.
-</div>
-
-<main>
-  <div class="grid" id="grid"></div>
-</main>
-
-<div class="modal" id="cartModal">
-  <div class="modal-card">
-    <h2>🛒 Tu carrito</h2>
-    <div id="cartLines"></div>
-    <div class="total">Total <span id="total">0,00 €</span></div>
-    <input type="email" id="email" placeholder="tu@correo.com (recibirás confirmación)">
-    <div class="btnrow">
-      <button class="btnclose" onclick="cerrarCarrito()">Seguir comprando</button>
-      <button class="btnsend" onclick="enviar()">Confirmar y enviar email</button>
+<div class="main">
+  <div class="top">
+    <div><h1>Productos · Hoja "stock"</h1><div class="info">1.2M Bytes · 142 filas · 8 columnas · ID: 1AbC...xyZ9</div></div>
+    <div class="actions">
+      <button class="btn">⟳ Refrescar</button>
+      <button class="btn">⬇ Exportar CSV</button>
+      <button class="btn p">+ Nueva fila</button>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="kpi"><div class="l">Filas</div><div class="v">142</div><div class="d">▲ 6 esta semana</div></div>
+    <div class="kpi"><div class="l">Valor total</div><div class="v">28 412 €</div><div class="d">▲ 1.2K €</div></div>
+    <div class="kpi"><div class="l">Stock bajo</div><div class="v">7</div><div class="d" style="color:#dc2626">⚠ revisar</div></div>
+    <div class="kpi"><div class="l">Última sync</div><div class="v">12 s</div><div class="d">cada 30 s</div></div>
+  </div>
+  <div class="tabs">
+    <button class="act">Hoja: stock</button>
+    <button>Hoja: proveedores</button>
+    <button>Hoja: movimientos</button>
+    <button>+ añadir hoja</button>
+  </div>
+  <div class="toolbar">
+    <input placeholder="🔍 Buscar producto, SKU...">
+    <select><option>Todas las categorías</option><option>Electrónica</option><option>Hogar</option></select>
+    <select><option>Estado: todos</option><option>Disponible</option><option>Stock bajo</option></select>
+  </div>
+  <div class="sheet">
+    <table>
+      <thead><tr><th><input type="checkbox" class="checkbox"></th><th>SKU</th><th>Nombre</th><th>Categoría</th><th>Stock</th><th>Precio</th><th>Estado</th><th>Actualizado</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-001</td><td>Teclado mecánico</td><td>Electrónica</td><td>23</td><td>78,90 €</td><td><span class="pill ok">Disponible</span></td><td>hace 5 min</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-002</td><td>Monitor 27"</td><td>Electrónica</td><td>4</td><td>329,00 €</td><td><span class="pill warn">Stock bajo</span></td><td>hace 12 min</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-003</td><td>Auriculares BT</td><td>Electrónica</td><td>17</td><td>54,50 €</td><td><span class="pill ok">Disponible</span></td><td>hace 22 min</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-004</td><td>Lámpara escritorio</td><td>Hogar</td><td>31</td><td>34,90 €</td><td><span class="pill ok">Disponible</span></td><td>hace 1 h</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-005</td><td>Silla ergonómica</td><td>Hogar</td><td>2</td><td>189,00 €</td><td><span class="pill warn">Stock bajo</span></td><td>hace 1 h</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-006</td><td>Cable HDMI 2m</td><td>Electrónica</td><td>120</td><td>9,99 €</td><td><span class="pill ok">Disponible</span></td><td>hace 2 h</td></tr>
+        <tr style="background:#dbeafe44"><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-007</td><td>Webcam 1080p</td><td>Electrónica</td><td>15</td><td>49,00 €</td><td><span class="pill new">Nueva</span></td><td>hace 12 s</td></tr>
+        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-008</td><td>Alfombrilla XL</td><td>Hogar</td><td>42</td><td>14,50 €</td><td><span class="pill ok">Disponible</span></td><td>hace 3 h</td></tr>
+      </tbody>
+    </table>
+    <div class="bar-info">
+      <span><b>8</b> de 142 filas · <b>0</b> seleccionadas</span>
+      <span>📡 Lectura: <b>gspread</b> · Autenticación: <b>service account</b></span>
     </div>
   </div>
 </div>
-
-<div class="toast" id="toast"></div>
-
-<footer>Proyecto Intermodular DAM · Preparación 3ª Evaluación 2025-2026</footer>
-
-<script>
-// Productos como vendrían del CSV (mock)
-const PRODUCTOS = [
-  {nombre:"Balón de fútbol", desc:"Reglamentario talla 5, cosido a mano", precio:24.90, emo:"⚽", cls:"fb"},
-  {nombre:"Zapatillas running", desc:"Suela amortiguada, ligeras y transpirables", precio:79.00, emo:"👟", cls:"zp"},
-  {nombre:"Bicicleta urbana", desc:"7 velocidades, cuadro aluminio, ideal ciudad", precio:349.00, emo:"🚲", cls:"bs"},
-  {nombre:"Raqueta de tenis", desc:"Grafito, peso 285g, encordado incluido", precio:65.50, emo:"🎾", cls:"rq"},
-  {nombre:"Guantes de boxeo", desc:"Piel sintética 12oz, cierre velcro", precio:32.00, emo:"🥊", cls:"gl"},
-  {nombre:"Mochila deportiva", desc:"40L impermeable, compartimentos para botas", precio:42.50, emo:"🎒", cls:"fb"}
-];
-const carrito = [];
-
-function pintar(){
-  const g = document.getElementById('grid');
-  g.innerHTML = '';
-  PRODUCTOS.forEach((p,i)=>{
-    const c = document.createElement('div');
-    c.className = 'card '+p.cls;
-    c.innerHTML = `<div class="thumb">${p.emo}</div><div class="body">
-      <h3>${p.nombre}</h3><p class="desc">${p.desc}</p>
-      <div class="precio">${p.precio.toFixed(2).replace('.',',')} €</div>
-      <button class="add" onclick="add(${i})">Añadir al carrito</button></div>`;
-    g.appendChild(c);
-  });
-}
-function add(i){
-  carrito.push(PRODUCTOS[i]);
-  document.getElementById('cnt').textContent = carrito.length;
-  toast(PRODUCTOS[i].nombre+" añadido");
-}
-function toast(t){
-  const x = document.getElementById('toast');
-  x.textContent = '✓ '+t;
-  x.classList.add('show');
-  setTimeout(()=>x.classList.remove('show'), 1700);
-}
-function abrirCarrito(){
-  const lines = document.getElementById('cartLines');
-  if(!carrito.length){
-    lines.innerHTML = '<p style="color:#64748b;text-align:center;padding:20px">El carrito está vacío</p>';
-  } else {
-    lines.innerHTML = carrito.map(p=>`<div class="cart-line"><span>${p.nombre}</span><span>${p.precio.toFixed(2).replace('.',',')} €</span></div>`).join('');
-  }
-  const total = carrito.reduce((a,b)=>a+b.precio,0);
-  document.getElementById('total').textContent = total.toFixed(2).replace('.',',')+' €';
-  document.getElementById('cartModal').classList.add('show');
-}
-function cerrarCarrito(){
-  document.getElementById('cartModal').classList.remove('show');
-}
-function enviar(){
-  const em = document.getElementById('email').value.trim();
-  if(!em || !em.includes('@')){ alert('Email no válido'); return; }
-  if(!carrito.length){ alert('Carrito vacío'); return; }
-  toast("Pedido enviado a "+em+" (simulado)");
-  carrito.length = 0;
-  document.getElementById('cnt').textContent = 0;
-  document.getElementById('email').value = '';
-  cerrarCarrito();
-}
-pintar();
-</script>
-</body>
-</html>
+</body></html>

@@ -1,6 +1,6 @@
 # 3 · Mockups de GitHub Pages
 
-Páginas estáticas de demostración (HTML+CSS+JS, sin backend) de los 23 proyectos del intermodular.  
+Páginas estáticas de demostración (HTML+CSS+JS, sin backend) de los 37 proyectos del intermodular.  
 **Sólo para sacar capturas / mostrar el aspecto final.** El comportamiento es simulado.
 
 Cada subcarpeta `dam-NNN-slug/` está clonada (en parte) de su repo público en <https://github.com/MutenRos/> y se sirve también desde GitHub Pages:
@@ -8,6 +8,12 @@ Cada subcarpeta `dam-NNN-slug/` está clonada (en parte) de su repo público en 
 ```
 https://mutenros.github.io/dam-NNN-slug/
 ```
+
+## Estado
+
+- Mockups presentes para `001` a `037`.
+- Convención de nombres: `dam-NNN-slug`.
+- Puede haber diferencias de nombre respecto a `2-mis-proyectos`, pero el número `NNN` coincide para todos.
 
 | #   | Carpeta local                      | URL Pages                                                            |
 | --- | ---------------------------------- | -------------------------------------------------------------------- |
@@ -32,7 +38,12 @@ https://mutenros.github.io/dam-NNN-slug/
 | 026 | dam-026-resumen-publicacion        | https://mutenros.github.io/dam-026-resumen-publicacion/              |
 | 027 | dam-027-panel-ventas               | https://mutenros.github.io/dam-027-panel-ventas/                     |
 | 028 | dam-028-geolocalizacion            | https://mutenros.github.io/dam-028-geolocalizacion/                  |
+| 029 | dam-029-api-rotation               | https://mutenros.github.io/dam-029-api-rotation/                     |
 | 030 | dam-030-scrapear-web-ia            | https://mutenros.github.io/dam-030-scrapear-web-ia/                  |
 | 031 | dam-031-modelos-multimodales       | https://mutenros.github.io/dam-031-modelos-multimodales/             |
-
-> Los proyectos 011, 012, 013, 014, 015, 016, 017 ya tenían su mockup propio anterior y no se han retocado en esta revisión.
+| 032 | dam-032-rag                        | https://mutenros.github.io/dam-032-rag/                              |
+| 033 | dam-033-nan                        | https://mutenros.github.io/dam-033-nan/                              |
+| 034 | dam-034-mini-powerpoint            | https://mutenros.github.io/dam-034-mini-powerpoint/                  |
+| 035 | dam-035-bullets                    | https://mutenros.github.io/dam-035-bullets/                          |
+| 036 | dam-036-mcp-ollama-blender         | https://mutenros.github.io/dam-036-mcp-ollama-blender/               |
+| 037 | dam-037-creador-esquemas           | https://mutenros.github.io/dam-037-creador-esquemas/                 |

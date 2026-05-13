@@ -2,6 +2,11 @@
 
 Carpeta de preparación para los exámenes de la **tercera evaluación**.
 
+## Estado rápido (13-05-2026)
+
+- Proyecto intermodular ordenado y resincado en 3 capas: originales, versión mejorada y mockups.
+- Cobertura validada por número de proyecto: `001` a `037` en las tres capas.
+
 ## Asignaturas
 
 - [Bases de Datos](./Bases%20de%20datos/)

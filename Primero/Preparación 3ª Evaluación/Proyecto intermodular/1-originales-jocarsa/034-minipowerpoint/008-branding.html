@@ -1,0 +1,557 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Ubuntu,Arial,sans-serif;
+    background:#f3f4f6;
+}
+
+/* ===================================================== */
+/* GLOBAL BRANDING */
+/* ===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 30px;
+    box-sizing:border-box;
+
+    z-index:5000;
+
+    background:rgba(255,255,255,0.72);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.05);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+
+    background:
+        radial-gradient(circle at 30% 30%,#60a5fa,transparent 45%),
+        radial-gradient(circle at 70% 70%,#818cf8,transparent 45%),
+        linear-gradient(135deg,#2563eb,#4f46e5);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.3);
+
+    animation:floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-4px); }
+    100%{ transform:translateY(0px); }
+}
+
+.brand-text h3{
+    margin:0;
+    font-size:18px;
+    color:#0f172a;
+}
+
+.brand-text p{
+    margin:2px 0 0 0;
+    font-size:13px;
+    color:#64748b;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.badge{
+    padding:8px 14px;
+    border-radius:999px;
+
+    background:white;
+
+    font-size:13px;
+    color:#334155;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===================================================== */
+/* SLIDES */
+/* ===================================================== */
+
+#contenedor{
+    position:absolute;
+    inset:0;
+    display:flex;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+}
+
+article{
+    min-width:100vw;
+    height:100vh;
+
+    box-sizing:border-box;
+
+    padding:
+        120px
+        80px
+        100px
+        80px;
+
+    flex-shrink:0;
+    scroll-snap-align:start;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    position:relative;
+}
+
+.kicker{
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:13px;
+    color:#64748b;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:64px;
+    margin:0 0 24px 0;
+    line-height:1.05;
+}
+
+h2{
+    font-size:46px;
+    margin:0 0 28px 0;
+}
+
+p{
+    font-size:22px;
+    line-height:1.55;
+    max-width:850px;
+}
+
+/* ===================================================== */
+/* TEMPLATES */
+/* ===================================================== */
+
+.frontpage{
+    background:
+        radial-gradient(circle at top right,#bfdbfe,transparent 30%),
+        linear-gradient(135deg,#ffffff,#e0f2fe);
+}
+
+.frontpage h1{
+    max-width:900px;
+}
+
+.subtitle{
+    font-size:28px;
+    color:#334155;
+}
+
+.bullets{
+    background:white;
+}
+
+.bullets ul{
+    list-style:none;
+    padding:0;
+    max-width:900px;
+}
+
+.bullets li{
+    font-size:24px;
+
+    background:#f8fafc;
+
+    margin-bottom:16px;
+
+    padding:20px 24px;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 10px 25px rgba(15,23,42,0.05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.bullets li:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 16px 35px rgba(15,23,42,0.1);
+}
+
+.text{
+    background:#f8fafc;
+}
+
+.text .box{
+    background:white;
+
+    padding:42px;
+
+    border-radius:32px;
+
+    box-shadow:
+        0 25px 60px rgba(15,23,42,0.08);
+}
+
+.quote{
+    background:
+        linear-gradient(135deg,#020617,#1e293b);
+
+    color:white;
+}
+
+.quote blockquote{
+    font-size:54px;
+    line-height:1.2;
+    max-width:1000px;
+    margin:0;
+}
+
+.quote cite{
+    margin-top:32px;
+    color:#cbd5e1;
+    font-size:20px;
+}
+
+.media{
+    background:#eef2ff;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.fake-image{
+    height:460px;
+
+    border-radius:36px;
+
+    background:
+        radial-gradient(circle at 30% 30%,#93c5fd,transparent 35%),
+        radial-gradient(circle at 70% 60%,#818cf8,transparent 35%),
+        linear-gradient(135deg,#dbeafe,#ffffff);
+
+    box-shadow:
+        0 30px 70px rgba(30,64,175,0.18);
+}
+
+.closing{
+    background:
+        linear-gradient(135deg,#020617,#1e293b);
+
+    color:white;
+
+    text-align:center;
+    align-items:center;
+}
+
+.closing h1{
+    font-size:76px;
+}
+
+.closing p{
+    color:#cbd5e1;
+}
+
+/* ===================================================== */
+/* DOTS */
+/* ===================================================== */
+
+footer{
+    position:fixed;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:10px;
+
+    background:rgba(255,255,255,0.82);
+
+    backdrop-filter:blur(16px);
+
+    padding:12px 16px;
+
+    border-radius:999px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.12);
+
+    z-index:3000;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+
+    border:0;
+    border-radius:999px;
+
+    background:#94a3b8;
+
+    cursor:pointer;
+    padding:0;
+
+    transition:
+        width .35s ease,
+        background .35s ease,
+        transform .35s ease;
+}
+
+.dot:hover{
+    transform:scale(1.25);
+}
+
+.dot.activo{
+    width:38px;
+    background:#2563eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <div class="logo"></div>
+
+        <div class="brand-text">
+            <h3>jocarsa | presentacion</h3>
+            <p>Interactive Presentation Framework</p>
+        </div>
+
+    </div>
+
+    <div class="header-right">
+        <div class="badge">2026 Edition</div>
+        <div class="badge">Live Presentation</div>
+    </div>
+
+</header>
+
+<div id="contenedor">
+
+    <article class="frontpage">
+        <div class="kicker">Presentation</div>
+
+        <h1>
+            Modern branded presentations with HTML, CSS and JavaScript
+        </h1>
+
+        <p class="subtitle">
+            Elegant slide framework with smooth navigation and reusable templates.
+        </p>
+    </article>
+
+    <article class="bullets">
+
+        <div class="kicker">Features</div>
+
+        <h2>Main capabilities</h2>
+
+        <ul>
+            <li>Horizontal smooth scrolling presentation.</li>
+            <li>Keyboard navigation with arrow keys.</li>
+            <li>Reusable visual templates.</li>
+            <li>Persistent global branding layer.</li>
+        </ul>
+
+    </article>
+
+    <article class="text">
+
+        <div class="box">
+
+            <div class="kicker">Content</div>
+
+            <h2>Rich text slide</h2>
+
+            <p>
+                This template is useful for longer explanations,
+                contextual information and detailed concepts.
+                The layout remains clean and highly readable.
+            </p>
+
+        </div>
+
+    </article>
+
+    <article class="quote">
+
+        <blockquote>
+            “Design is not decoration.
+            Design is communication.”
+        </blockquote>
+
+        <cite>Presentation framework quote slide</cite>
+
+    </article>
+
+    <article class="media">
+
+        <div>
+
+            <div class="kicker">Media</div>
+
+            <h2>Visual content support</h2>
+
+            <p>
+                Combine explanatory text with images,
+                diagrams, screenshots or videos.
+            </p>
+
+        </div>
+
+        <div class="fake-image"></div>
+
+    </article>
+
+    <article class="closing">
+
+        <h1>Thank You</h1>
+
+        <p>
+            Questions, contact information or final message.
+        </p>
+
+    </article>
+
+</div>
+
+<footer id="puntos"></footer>
+
+<script>
+
+let contenedor = document.querySelector("#contenedor")
+let diapositivas = document.querySelectorAll("article")
+let puntos = document.querySelector("#puntos")
+
+let actual = 0
+
+diapositivas.forEach(function(_, indice){
+
+    let punto = document.createElement("button")
+
+    punto.className = "dot"
+
+    punto.onclick = function(){
+        irA(indice)
+    }
+
+    puntos.appendChild(punto)
+
+})
+
+let dots = document.querySelectorAll(".dot")
+
+function irA(indice){
+
+    indice = Math.max(
+        0,
+        Math.min(indice, diapositivas.length - 1)
+    )
+
+    actual = indice
+
+    contenedor.scrollTo({
+        left:actual * window.innerWidth,
+        behavior:"smooth"
+    })
+
+    actualizarPuntos()
+
+}
+
+function actualizarPuntos(){
+
+    dots.forEach(function(dot, indice){
+
+        dot.classList.toggle(
+            "activo",
+            indice === actual
+        )
+
+    })
+
+}
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "ArrowRight"){
+        irA(actual + 1)
+    }
+
+    if(event.key === "ArrowLeft"){
+        irA(actual - 1)
+    }
+
+})
+
+contenedor.addEventListener("scroll", function(){
+
+    actual = Math.round(
+        contenedor.scrollLeft / window.innerWidth
+    )
+
+    actualizarPuntos()
+
+})
+
+window.addEventListener("resize", function(){
+    irA(actual)
+})
+
+actualizarPuntos()
+
+</script>
+
+</body>
+</html>

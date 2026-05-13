@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+import html
+
+
+def ensure_dir(path: Path):
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def collect_txt(inputs):
+    files = []
+    for item in inputs:
+        p = Path(item)
+        if p.is_file() and p.suffix.lower() == ".txt":
+            files.append(p.resolve())
+        elif p.is_dir():
+            for child in sorted(p.iterdir()):
+                if child.is_file() and child.suffix.lower() == ".txt":
+                    files.append(child.resolve())
+    return files
+
+
+def txt_to_html(input_path: Path, output_path: Path):
+    with open(input_path, "r", encoding="utf-8", errors="ignore") as f:
+        lines = f.readlines()
+
+    body = ""
+    for line in lines:
+        safe = html.escape(line.rstrip())
+        body += f"<p>{safe}</p>\n"
+
+    full_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{input_path.stem}</title>
+<style>
+body {{
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}}
+p {{
+    margin: 0 0 10px 0;
+}}
+</style>
+</head>
+<body>
+{body}
+</body>
+</html>
+"""
+
+    with open(output_path, "w", encoding="utf-8") as out:
+        out.write(full_html)
+
+
+def main():
+    """
+    Usage:
+        python3 txt_to_html.py <output_dir> <file_or_folder> [more...]
+    """
+
+    if len(sys.argv) < 3:
+        print("Usage:")
+        print("  python3 txt_to_html.py <output_dir> <file_or_folder> [more...]")
+        sys.exit(1)
+
+    output_dir = Path(sys.argv[1]).resolve()
+    inputs = sys.argv[2:]
+
+    ensure_dir(output_dir)
+
+    files = collect_txt(inputs)
+
+    if not files:
+        print("ERROR: No TXT files found.")
+        sys.exit(1)
+
+    processed = 0
+    errors = []
+
+    for idx, f in enumerate(files, start=1):
+        try:
+            out_file = output_dir / f"{idx:03d}_{f.stem}.html"
+            txt_to_html(f, out_file)
+            processed += 1
+        except Exception as e:
+            errors.append(f"{f}: {e}")
+
+    report = output_dir / "report.txt"
+    with open(report, "w", encoding="utf-8") as r:
+        r.write("TXT TO HTML REPORT\n")
+        r.write("==================\n\n")
+        r.write(f"Processed: {processed}\n")
+        r.write(f"Errors: {len(errors)}\n\n")
+
+        if errors:
+            r.write("ERRORS\n------\n")
+            for e in errors:
+                r.write(e + "\n")
+
+    if processed == 0:
+        print("ERROR: No files converted.")
+        print(f"REPORT: {report}")
+        sys.exit(1)
+
+    print("OK")
+    print(f"Processed: {processed}")
+    print(f"Errors: {len(errors)}")
+    print(f"OUTPUT_DIR: {output_dir}")
+    print(f"REPORT: {report}")
+
+
+if __name__ == "__main__":
+    main()

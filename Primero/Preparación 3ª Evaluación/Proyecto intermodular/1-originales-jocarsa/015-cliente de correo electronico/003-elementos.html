@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<title></title>
+		<style>
+			html,body{padding:0px;margin:0px;width:100%;height:100%;}
+			body{display:flex;}
+			body>div{border-right:1px solid lightgrey;padding:20px;}
+			#bandejas{flex:1;background:rgb(220,220,220);
+			display:flex;flex-direction:column;gap:20px;}
+			#bandejas a{color:inherit;text-decoration:none;background:white;padding:10px;
+			display:block;}
+			#mensajes{flex:2;background:rgb(240,240,240);display:flex;flex-direction:column;gap:20px;}
+			#mensajes article{background:white;padding:10px;}
+			#conversacion{flex:3;}
+		</style>
+	</head>
+	<body>
+		<div id="bandejas">
+			<a href="">Recibidos</a>
+			<a href="">Enviados</a>
+			<a href="">Papelera</a>
+			<a href="">No deseado</a>
+		</div>
+		<div id="mensajes">
+			<article><h3>Titulo del mensaje</h3><time>2026-03-12</time><p>Descripcion del mensaje</p></article>
+			<article><h3>Titulo del mensaje</h3><time>2026-03-12</time><p>Descripcion del mensaje</p></article>
+			<article><h3>Titulo del mensaje</h3><time>2026-03-12</time><p>Descripcion del mensaje</p></article>
+			<article><h3>Titulo del mensaje</h3><time>2026-03-12</time><p>Descripcion del mensaje</p></article>
+		</div>
+		<div id="conversacion"></div>
+	</body>
+</html>

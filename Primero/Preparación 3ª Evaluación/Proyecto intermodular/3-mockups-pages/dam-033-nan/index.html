@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LMS Centro de Formación · DAM</title>
+<style>
+:root{--bg:#f7f8fb;--panel:#fff;--border:#e5e7eb;--text:#0f172a;--muted:#64748b;--brand:#6366f1;--ok:#10b981;--warn:#f59e0b;--err:#ef4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 32px)}
+.sb{background:var(--panel);border-right:1px solid var(--border);padding:20px 14px}
+.brand{font-weight:800;color:var(--brand);font-size:1.05em;margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.brand .logo{width:28px;height:28px;background:var(--brand);color:#fff;border-radius:6px;display:grid;place-items:center;font-size:.85em}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{padding:9px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:.9em;cursor:pointer}
+.nav a.act{background:#eef2ff;color:var(--brand);font-weight:600}
+.user{margin-top:auto;padding:12px;background:#f1f5f9;border-radius:8px;font-size:.85em;display:flex;align-items:center;gap:10px;margin-top:24px}
+.user .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;display:grid;place-items:center;font-weight:700}
+.main{padding:26px 32px;overflow:auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+.top h1{font-size:1.5em}
+.btn{padding:8px 14px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--text);font-family:inherit;font-size:.88em;cursor:pointer}
+.btn.p{background:var(--brand);color:#fff;border-color:var(--brand)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.k{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+.k .l{color:var(--muted);font-size:.78em;text-transform:uppercase}
+.k .v{font-size:1.7em;font-weight:700;margin-top:4px}
+.k .d{font-size:.78em;color:var(--ok);margin-top:3px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:18px}
+.card h3{font-size:.9em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.card h3 a{color:var(--brand);text-decoration:none;font-size:.95em;text-transform:none}
+table{width:100%;border-collapse:collapse;font-size:.88em}
+th{text-align:left;color:var(--muted);font-weight:600;padding:10px 8px;border-bottom:1px solid var(--border);font-size:.75em;text-transform:uppercase}
+td{padding:10px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;padding:2px 9px;border-radius:50px;font-size:.72em;font-weight:700}
+.pill.ok{background:#d1fae5;color:#065f46}
+.pill.warn{background:#fef3c7;color:#92400e}
+.pill.err{background:#fee2e2;color:#991b1b}
+.prg{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;width:120px;display:inline-block;vertical-align:middle;margin-right:8px}
+.prg>i{display:block;height:100%;background:var(--brand)}
+.grid2{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+.av-s{width:28px;height:28px;border-radius:50%;background:#cbd5e1;color:#fff;display:inline-grid;place-items:center;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+@media(max-width:900px){.app{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}}
+</style></head><body>
+<div class="mock-banner">🎓 <strong>Demo</strong> · LMS centro de formación · PHP + SQLite · datos simulados</div>
+<div class="app">
+<aside class="sb">
+  <div class="brand"><div class="logo">L</div> Aula DAM</div>
+  <nav class="nav">
+    <a class="act">📊 Dashboard</a>
+    <a>👨‍🎓 Alumnos</a>
+    <a>👨‍🏫 Profesores</a>
+    <a>📚 Cursos</a>
+    <a>🗂️ Módulos</a>
+    <a>📝 Matrículas</a>
+    <a>📈 Calificaciones</a>
+    <a>⚙️ Ajustes</a>
+  </nav>
+  <div class="user"><div class="av">JC</div><div><div style="font-weight:600">Jocarsa</div><div style="color:var(--muted);font-size:.85em">Administrador</div></div></div>
+</aside>
+<section class="main">
+  <div class="top">
+    <div><h1>Panel del centro</h1><p style="color:var(--muted);font-size:.9em;margin-top:4px">Curso 2025/2026 · 2ª evaluación</p></div>
+    <div><button class="btn">Exportar</button> <button class="btn p">+ Nueva matrícula</button></div>
+  </div>
+  <div class="kpi">
+    <div class="k"><div class="l">Alumnos activos</div><div class="v">142</div><div class="d">▲ 12 nuevos</div></div>
+    <div class="k"><div class="l">Profesores</div><div class="v">18</div><div class="d">3 especialidades</div></div>
+    <div class="k"><div class="l">Cursos activos</div><div class="v">7</div><div class="d">DAM · DAW · ASIR</div></div>
+    <div class="k"><div class="l">Tasa aprobado</div><div class="v">82%</div><div class="d">▲ 4% vs trim. anterior</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Últimos alumnos matriculados <a>Ver todos →</a></h3>
+      <table><thead><tr><th>Alumno</th><th>Curso</th><th>Progreso</th><th>Estado</th></tr></thead><tbody>
+        <tr><td><span class="av-s" style="background:#6366f1">JR</span>Juan Ruiz</td><td>DAM 1º</td><td><span class="prg"><i style="width:78%"></i></span>78%</td><td><span class="pill ok">Al día</span></td></tr>
+        <tr><td><span class="av-s" style="background:#ec4899">MS</span>María Solís</td><td>DAM 1º</td><td><span class="prg"><i style="width:62%"></i></span>62%</td><td><span class="pill ok">Al día</span></td></tr>
+        <tr><td><span class="av-s" style="background:#f59e0b">PG</span>Pablo Gil</td><td>DAW 2º</td><td><span class="prg"><i style="width:34%"></i></span>34%</td><td><span class="pill warn">Atrasado</span></td></tr>
+        <tr><td><span class="av-s" style="background:#10b981">LM</span>Lucía Mora</td><td>ASIR 1º</td><td><span class="prg"><i style="width:91%"></i></span>91%</td><td><span class="pill ok">Excelente</span></td></tr>
+        <tr><td><span class="av-s" style="background:#ef4444">DV</span>Diego Vega</td><td>DAM 1º</td><td><span class="prg"><i style="width:12%"></i></span>12%</td><td><span class="pill err">Baja</span></td></tr>
+      </tbody></table>
+    </div>
+    <div class="card">
+      <h3>Cursos</h3>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div><strong>DAM 1º</strong><div style="color:var(--muted);font-size:.85em">42 alumnos · 6 módulos · Tutor: J. Sastre</div></div>
+        <div><strong>DAM 2º</strong><div style="color:var(--muted);font-size:.85em">28 alumnos · 5 módulos · Tutor: J. Sastre</div></div>
+        <div><strong>DAW 1º</strong><div style="color:var(--muted);font-size:.85em">31 alumnos · 6 módulos · Tutora: A. Pino</div></div>
+        <div><strong>DAW 2º</strong><div style="color:var(--muted);font-size:.85em">25 alumnos · 5 módulos · Tutora: A. Pino</div></div>
+        <div><strong>ASIR 1º</strong><div style="color:var(--muted);font-size:.85em">16 alumnos · 7 módulos · Tutor: R. Pérez</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Módulos activos y calificaciones</h3>
+    <table><thead><tr><th>Módulo</th><th>Curso</th><th>Profesor</th><th>Alumnos</th><th>Media</th><th>% Aprobado</th></tr></thead><tbody>
+      <tr><td>Programación</td><td>DAM 1º</td><td>J. Sastre</td><td>42</td><td>7.4</td><td><span class="prg"><i style="width:84%"></i></span>84%</td></tr>
+      <tr><td>Bases de datos</td><td>DAM 1º</td><td>M. López</td><td>42</td><td>6.8</td><td><span class="prg"><i style="width:71%"></i></span>71%</td></tr>
+      <tr><td>Lenguajes de marcas</td><td>DAM 1º</td><td>J. Sastre</td><td>42</td><td>7.9</td><td><span class="prg"><i style="width:88%"></i></span>88%</td></tr>
+      <tr><td>Entornos de desarrollo</td><td>DAM 1º</td><td>J. Sastre</td><td>42</td><td>8.1</td><td><span class="prg"><i style="width:92%"></i></span>92%</td></tr>
+      <tr><td>Sistemas informáticos</td><td>DAM 1º</td><td>R. Pérez</td><td>42</td><td>6.2</td><td><span class="prg"><i style="width:62%"></i></span>62%</td></tr>
+    </tbody></table>
+  </div>
+</section></div>
+</body></html>

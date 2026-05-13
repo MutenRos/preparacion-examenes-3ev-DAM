@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email UI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <div class="brand-title">Bandeja</div>
+          <div class="brand-sub">Clasificación + prioridad</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item {{ 'active' if tab=='B' else '' }}" href="/?tab=B&n={{n}}">
+          <span>Importantes</span>
+          <span class="badge">{{ counts['B'] }}</span>
+        </a>
+        <a class="nav-item {{ 'active' if tab=='A' else '' }}" href="/?tab=A&n={{n}}">
+          <span>Publicidad / auto</span>
+          <span class="badge">{{ counts['A'] }}</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="small muted">Mostrando últimos</div>
+        <div class="row">
+          <form class="nform" action="/" method="get">
+            <input type="hidden" name="tab" value="{{tab}}">
+            <input class="ninput" type="number" min="1" max="200" name="n" value="{{n}}">
+            <button class="btn" type="submit">Aplicar</button>
+          </form>
+          <a class="btn btn-ghost" href="/refresh?n={{n}}">Refrescar</a>
+        </div>
+        <div class="small muted">Ollama: {{ (config.OLLAMA_MODEL if config and config.OLLAMA_MODEL else '') }}</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>

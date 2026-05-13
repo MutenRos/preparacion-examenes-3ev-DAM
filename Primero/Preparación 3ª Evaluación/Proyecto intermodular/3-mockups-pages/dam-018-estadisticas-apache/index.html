@@ -1,94 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🚧 Estadísticas Apache · Pendiente</title>
+<title>Estadísticas Apache · DAM</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+:root{--bg:#0b1220;--panel:#111a2e;--border:#1f2a44;--text:#e2e8f0;--muted:#94a3b8;--brand:#22d3ee;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--y:#facc15;--y2:#fde047;--bg:#0a0d18;--bg2:#0f1424;--blueprint:#1d2c5e;--line:#2a3a72;--mut:#6677a8;--ok:#22c55e}
-body{font-family:'IBM Plex Mono',monospace;background:var(--bg);color:#a8b8e0;min-height:100vh;
-  background-image:
-    linear-gradient(rgba(45,75,160,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(45,75,160,.08) 1px,transparent 1px);
-  background-size:30px 30px}
-
-.tape{background:repeating-linear-gradient(135deg,var(--y) 0,var(--y) 30px,#000 30px,#000 60px);height:28px;display:flex;align-items:center;font-family:Anton;font-size:.95em;letter-spacing:.2em;color:#000;overflow:hidden}
-.tape > div{flex:1;text-align:center;background:var(--y);padding:0 12px;display:inline-block}
-
-main{max-width:760px;margin:0 auto;padding:48px 22px}
-
-.banner{background:var(--bg2);border:2px solid var(--y);border-radius:0;padding:36px 32px;text-align:center;position:relative;box-shadow:0 0 40px rgba(250,204,21,.12)}
-.banner .num{font-family:Anton;font-size:6em;color:var(--y);line-height:1;letter-spacing:-.04em;margin-bottom:8px}
-.banner h1{font-family:Anton;font-size:2.4em;color:#fff;letter-spacing:.05em;line-height:1.05;margin-bottom:12px}
-.banner h1 b{color:var(--y)}
-.banner .sub{color:var(--mut);font-size:.92em;line-height:1.6;max-width:480px;margin:0 auto}
-.cone{position:absolute;font-size:2.2em;animation:wobble 2s ease-in-out infinite}
-.cone.l{top:-20px;left:18px;transform-origin:bottom center}
-.cone.r{top:-20px;right:18px;transform-origin:bottom center}
-@keyframes wobble{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
-
-.status-card{margin-top:32px;background:var(--bg2);border:1px solid var(--line);padding:22px 26px}
-.status-card h3{font-family:Anton;font-size:1em;letter-spacing:.15em;color:var(--y);margin-bottom:14px}
-.status-card .item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.86em}
-.status-card .item:last-child{border:none}
-.status-card .label{color:#dde6ff}
-.status-card .val{font-weight:700;letter-spacing:.05em;font-size:.85em;padding:2px 9px;border-radius:0}
-.status-card .val.todo{background:var(--y);color:#000}
-.status-card .val.done{background:var(--ok);color:#000}
-.status-card .val.empty{background:#374151;color:#fff}
-
-.specs{margin-top:24px;background:var(--bg2);border:1px solid var(--line);padding:22px 26px;border-radius:0}
-.specs h3{font-family:Anton;font-size:1em;letter-spacing:.15em;color:var(--y2);margin-bottom:14px}
-.specs ul{list-style:none}
-.specs li{font-size:.85em;color:#a8b8e0;padding:5px 0 5px 20px;position:relative;line-height:1.55;border-bottom:1px dotted var(--line)}
-.specs li::before{content:'▸';position:absolute;left:0;top:5px;color:var(--y)}
-.specs li:last-child{border:none}
-.specs li b{color:#fff}
-
-.note{margin-top:24px;background:rgba(250,204,21,.06);border-left:4px solid var(--y);padding:14px 22px;font-size:.86em;color:#cdd8ee;line-height:1.6}
-.note b{color:var(--y2);font-weight:700}
-
-footer{text-align:center;padding:40px 22px 24px;color:var(--mut);font-size:.78em;letter-spacing:.05em}
-</style></head>
-
-<div class="tape"><div>⚠ EN OBRAS · WORK IN PROGRESS · ⚠ EN OBRAS · WORK IN PROGRESS · ⚠</div></div>
-
+body{font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 32px)}
+.sidebar{background:var(--panel);border-right:1px solid var(--border);padding:20px 16px}
+.brand{font-weight:800;font-size:1.1em;color:var(--brand);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.brand span{display:inline-block;width:12px;height:12px;background:var(--brand);border-radius:2px}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav a{padding:9px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:.9em;cursor:pointer}
+.nav a.act{background:#1e293b;color:var(--text)}
+.nav a:hover:not(.act){background:#172033;color:var(--text)}
+.main{padding:24px 32px;overflow:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:10px}
+.topbar h1{font-size:1.5em}
+.topbar .filters{display:flex;gap:8px}
+.topbar select{background:var(--panel);color:var(--text);border:1px solid var(--border);padding:7px 12px;border-radius:6px;font-family:inherit;font-size:.85em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:24px}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px}
+.kpi .lbl{color:var(--muted);font-size:.78em;text-transform:uppercase;letter-spacing:.5px}
+.kpi .val{font-size:1.8em;font-weight:700;margin-top:6px}
+.kpi .delta{font-size:.78em;margin-top:4px}
+.kpi .delta.up{color:var(--ok)}
+.kpi .delta.down{color:var(--err)}
+.charts{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:24px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.card h3{font-size:.95em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.chart{height:220px;display:flex;align-items:flex-end;gap:4px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.bar{flex:1;background:linear-gradient(180deg,var(--brand),#0ea5e9);border-radius:3px 3px 0 0;position:relative}
+.bar:hover::after{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:2px 6px;border-radius:3px;font-size:.7em;white-space:nowrap}
+.donut{display:flex;align-items:center;gap:16px}
+.donut svg{width:140px;height:140px;flex-shrink:0}
+.donut-legend{display:flex;flex-direction:column;gap:6px;font-size:.85em}
+.donut-legend .it{display:flex;align-items:center;gap:8px}
+.donut-legend .sw{width:10px;height:10px;border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:.88em}
+th{text-align:left;color:var(--muted);font-weight:600;padding:10px 8px;border-bottom:1px solid var(--border);font-size:.78em;text-transform:uppercase;letter-spacing:.5px}
+td{padding:9px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:0}
+.code{font-family:ui-monospace,monospace;color:var(--brand);font-size:.88em}
+.pill{display:inline-block;padding:2px 8px;border-radius:50px;font-size:.72em;font-weight:700}
+.pill.ok{background:rgba(34,197,94,.18);color:var(--ok)}
+.pill.warn{background:rgba(245,158,11,.18);color:var(--warn)}
+.pill.err{background:rgba(239,68,68,.18);color:var(--err)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.log{font-family:ui-monospace,monospace;font-size:.78em;color:var(--muted);max-height:240px;overflow:auto;line-height:1.55}
+.log .ip{color:#a78bfa}
+.log .st200{color:var(--ok)}
+.log .st404{color:var(--warn)}
+.log .st500{color:var(--err)}
+@media (max-width:900px){.app{grid-template-columns:1fr}.charts,.row2{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
-<main>
-  <div class="banner">
-    <div class="cone l">🚧</div><div class="cone r">🚧</div>
-    <div class="num">018</div>
-    <h1>Estadísticas <b>Apache</b></h1>
-    <p class="sub">Este proyecto figura en el listado pero <strong style="color:var(--y2)">aún no tiene código</strong>. Es un placeholder reservado para parsear los logs <code style="color:var(--y);background:rgba(250,204,21,.08);padding:1px 6px">access.log</code> de Apache y mostrar dashboards de tráfico web.</p>
+<div class="mock-banner">📊 <strong>Demo</strong> · Parser Apache access.log → Flask + MySQL · datos simulados</div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><span></span> Apache Stats</div>
+  <nav class="nav">
+    <a class="act">📈 Dashboard</a>
+    <a>🌐 Tráfico</a>
+    <a>⚠️ Errores</a>
+    <a>🤖 User-Agents</a>
+    <a>🗺️ Geolocalización</a>
+    <a>📂 Logs en bruto</a>
+    <a>⚙️ Configuración</a>
+  </nav>
+</aside>
+<section class="main">
+  <div class="topbar">
+    <div>
+      <h1>Dashboard de estadísticas</h1>
+      <p style="color:var(--muted);font-size:.88em;margin-top:4px">vhost: <span class="code">jocarsa.com</span> · access.log · error.log</p>
+    </div>
+    <div class="filters">
+      <select><option>Últimas 24h</option><option>7 días</option><option>30 días</option></select>
+      <select><option>Todos los métodos</option><option>GET</option><option>POST</option></select>
+    </div>
   </div>
-
-  <div class="status-card">
-    <h3>📋 estado actual</h3>
-    <div class="item"><span class="label">README.md</span><span class="val done">✓ ESCRITO</span></div>
-    <div class="item"><span class="label">Código fuente</span><span class="val todo">PENDIENTE</span></div>
-    <div class="item"><span class="label">Parser de logs</span><span class="val todo">PENDIENTE</span></div>
-    <div class="item"><span class="label">Frontend dashboard</span><span class="val todo">PENDIENTE</span></div>
-    <div class="item"><span class="label">index.html (este)</span><span class="val done">✓ PUBLICADO</span></div>
-    <div class="item"><span class="label">Repositorio GitHub</span><span class="val done">✓ CREADO</span></div>
-    <div class="item"><span class="label">GitHub Pages</span><span class="val done">✓ ACTIVO</span></div>
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Requests</div><div class="val">128.4K</div><div class="delta up">▲ 12.3% vs ayer</div></div>
+    <div class="kpi"><div class="lbl">Visitantes únicos</div><div class="val">4 218</div><div class="delta up">▲ 5.8%</div></div>
+    <div class="kpi"><div class="lbl">Bandwidth</div><div class="val">3.7 GB</div><div class="delta down">▼ 2.1%</div></div>
+    <div class="kpi"><div class="lbl">Tasa de error</div><div class="val">1.4%</div><div class="delta" style="color:var(--err)">▲ 0.3%</div></div>
   </div>
-
-  <div class="specs">
-    <h3>🔧 alcance previsto</h3>
-    <ul>
-      <li><b>Entrada:</b> ficheros <code style="color:var(--y)">access.log</code> en formato Combined Log Format</li>
-      <li><b>Parser:</b> regex sobre cada línea (IP, fecha, ruta, status, user-agent)</li>
-      <li><b>Almacén:</b> SQLite local con índices por fecha y por endpoint</li>
-      <li><b>Dashboard:</b> top URLs, status codes, mapa por IP, picos horarios</li>
-      <li><b>Stack tentativo:</b> Python + Flask + Chart.js</li>
-    </ul>
+  <div class="charts">
+    <div class="card">
+      <h3>Requests por hora</h3>
+      <div class="chart" id="bars"></div>
+    </div>
+    <div class="card">
+      <h3>Códigos de estado</h3>
+      <div class="donut">
+        <svg viewBox="0 0 36 36">
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#1f2a44" stroke-width="3.5"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#22c55e" stroke-width="3.5" stroke-dasharray="78 100" transform="rotate(-90 18 18)"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#f59e0b" stroke-width="3.5" stroke-dasharray="14 100" stroke-dashoffset="-78" transform="rotate(-90 18 18)"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="8 100" stroke-dashoffset="-92" transform="rotate(-90 18 18)"/>
+        </svg>
+        <div class="donut-legend">
+          <div class="it"><span class="sw" style="background:#22c55e"></span>2xx · 78%</div>
+          <div class="it"><span class="sw" style="background:#f59e0b"></span>3xx · 14%</div>
+          <div class="it"><span class="sw" style="background:#ef4444"></span>4xx/5xx · 8%</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="note">
-    <b>NOTA:</b> El repositorio existe únicamente para mantener la numeración correlativa del proyecto intermodular. Cuando haya código se sustituirá esta página por la landing real.
+  <div class="row2">
+    <div class="card">
+      <h3>Top rutas</h3>
+      <table><thead><tr><th>Ruta</th><th>Hits</th><th>%</th></tr></thead><tbody>
+        <tr><td class="code">/index.php</td><td>42 318</td><td>33%</td></tr>
+        <tr><td class="code">/blog/:slug</td><td>28 105</td><td>22%</td></tr>
+        <tr><td class="code">/api/posts</td><td>15 220</td><td>12%</td></tr>
+        <tr><td class="code">/static/main.css</td><td>9 880</td><td>8%</td></tr>
+        <tr><td class="code">/login.php</td><td>6 411</td><td>5%</td></tr>
+        <tr><td class="code">/admin</td><td>3 102</td><td>2%</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card">
+      <h3>Top User-Agents</h3>
+      <table><thead><tr><th>Agent</th><th>Hits</th><th>Tipo</th></tr></thead><tbody>
+        <tr><td>Chrome 124 / Win</td><td>52 110</td><td><span class="pill ok">Humano</span></td></tr>
+        <tr><td>Safari 17 / iOS</td><td>21 887</td><td><span class="pill ok">Humano</span></td></tr>
+        <tr><td>Googlebot/2.1</td><td>8 901</td><td><span class="pill warn">Bot</span></td></tr>
+        <tr><td>curl/8.4.0</td><td>2 318</td><td><span class="pill warn">CLI</span></td></tr>
+        <tr><td>python-requests/2.31</td><td>1 044</td><td><span class="pill err">Sospechoso</span></td></tr>
+      </tbody></table>
+    </div>
   </div>
-</main>
-<footer>Proyecto Intermodular DAM · 3ª Evaluación 2025-2026 · slot reservado</footer>
+  <div class="card">
+    <h3>access.log en vivo</h3>
+    <div class="log" id="log"></div>
+  </div>
+</section>
+</div>
+<script>
+const bars=document.getElementById('bars');
+[40,30,22,18,15,20,32,55,72,80,68,75,82,88,85,78,72,65,58,52,60,55,48,42].forEach(h=>{const b=document.createElement('div');b.className='bar';b.style.height=h+'%';b.dataset.v=h+'%';bars.appendChild(b)});
+const log=document.getElementById('log');
+const ips=['81.34.12.45','51.158.22.9','94.74.30.110','193.144.51.7','157.55.39.84','13.66.139.93'];
+const paths=['/index.php','/blog/php-7','/api/posts','/static/main.css','/login.php','/admin','/wp-admin','/robots.txt'];
+const codes=[[200,'st200'],[200,'st200'],[200,'st200'],[200,'st200'],[304,'st200'],[404,'st404'],[404,'st404'],[500,'st500']];
+const ua=['Mozilla/5.0 Chrome/124','Mozilla/5.0 Safari/17','Googlebot/2.1','curl/8.4.0','python-requests/2.31'];
+function tick(){
+  const ip=ips[Math.floor(Math.random()*ips.length)];
+  const p=paths[Math.floor(Math.random()*paths.length)];
+  const [c,cls]=codes[Math.floor(Math.random()*codes.length)];
+  const u=ua[Math.floor(Math.random()*ua.length)];
+  const sz=Math.floor(200+Math.random()*8000);
+  const t=new Date().toISOString().replace('T',' ').substring(0,19);
+  log.insertAdjacentHTML('afterbegin',`<span class="ip">${ip}</span> - - [${t}] "GET ${p} HTTP/1.1" <span class="${cls}">${c}</span> ${sz} "${u}"<br>`);
+  while(log.childElementCount>200) log.removeChild(log.lastChild);
+}
+for(let i=0;i<25;i++) tick();
+setInterval(tick,1400);
+</script>
 </body></html>
