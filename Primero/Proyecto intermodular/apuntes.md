@@ -66,6 +66,53 @@
   - [Proyecto ollama curriculums](#proyecto-ollama-curriculums)
 - [Actividad libre de final de evaluación - La milla extra](#actividad-libre-de-final-de-evaluacion-la-milla-extra)
   - [La Milla Extra - Primera evaluación](#la-milla-extra-primera-evaluacion)
+  - [La Milla Extra - Segunda evaluación](#la-milla-extra-segunda-evaluacion)
+- [Actividades de final de unidad segundo trimestre](#actividades-de-final-de-unidad-segundo-trimestre)
+  - [Proyecto Piero (imágenes en internet)](#proyecto-piero-imagenes-en-internet)
+  - [Web jocarsa](#web-jocarsa)
+  - [Ollama curriculums](#ollama-curriculums)
+  - [Web con panel de control](#web-con-panel-de-control-1)
+  - [Web con panel de control (Copiar 3)](#web-con-panel-de-control-copiar-3)
+  - [Mejora del posicionamiento de una web (SEO)](#mejora-del-posicionamiento-de-una-web-seo)
+  - [Web de la cantante Carolina Vega (inserción de audio)](#web-de-la-cantante-carolina-vega-insercion-de-audio)
+- [Proyectos de tercer trimestre](#proyectos-de-tercer-trimestre)
+  - [Sistema inteligente de comunicaciones](#sistema-inteligente-de-comunicaciones)
+  - [Nueva web jocarsa](#nueva-web-jocarsa)
+  - [Repaso deploy](#repaso-deploy)
+  - [entrenamiento IA](#entrenamiento-ia)
+  - [RGPD y similares](#rgpd-y-similares)
+  - [Añado enlaces sociales a la web](#anado-enlaces-sociales-a-la-web)
+  - [documentos a bases de datos](#documentos-a-bases-de-datos)
+  - [asistente de IA](#asistente-de-ia)
+  - [Portafolios Serena](#portafolios-serena)
+  - [Drive como base de datos](#drive-como-base-de-datos)
+  - [Consumo energetico](#consumo-energetico)
+  - [Informatica grafica](#informatica-grafica)
+  - [Motivando a Darío](#motivando-a-dario)
+  - [Fundamentos de Blender](#fundamentos-de-blender)
+  - [cliente de correo electronico](#cliente-de-correo-electronico)
+  - [wysiwyg](#wysiwyg)
+  - [minibot](#minibot)
+  - [estadisticas apache](#estadisticas-apache)
+  - [cuestionario online inglés](#cuestionario-online-ingles)
+  - [correos de cumpleaños](#correos-de-cumpleanos)
+  - [proyecto agente whatsapp](#proyecto-agente-whatsapp)
+  - [me gustan los pdf](#me-gustan-los-pdf)
+  - [varias IA en un mismo proyecto](#varias-ia-en-un-mismo-proyecto)
+  - [formularios condicionales](#formularios-condicionales)
+  - [multiformularios condicionales](#multiformularios-condicionales)
+  - [Resumen de publicación en servidores](#resumen-de-publicacion-en-servidores)
+  - [Panel de control de ventas](#panel-de-control-de-ventas)
+  - [geolocalizacion](#geolocalizacion)
+  - [API rotation](#api-rotation)
+  - [scrapear web con IA](#scrapear-web-con-ia)
+  - [modelos multimodales](#modelos-multimodales)
+  - [RAG](#rag)
+  - [NaN](#nan)
+  - [minipowerpoint](#minipowerpoint)
+  - [bullets](#bullets)
+  - [MCP ollama Blender](#mcp-ollama-blender)
+  - [creador de esquemas](#creador-de-esquemas)
 - [Carpeta sin título](#carpeta-sin-titulo)
 
 ---
@@ -6692,6 +6739,42 @@ if __name__ == "__main__":
 ```markdown
 
 ```
+
+<a id="rag"></a>
+## RAG
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/032-RAG)
+
+
+<a id="nan"></a>
+## NaN
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/033-NaN)
+
+
+<a id="minipowerpoint"></a>
+## minipowerpoint
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/034-minipowerpoint)
+
+
+<a id="bullets"></a>
+## bullets
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/035-bullets)
+
+
+<a id="mcp-ollama-blender"></a>
+## MCP ollama Blender
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/036-MCP%20ollama%20Blender)
+
+
+<a id="creador-de-esquemas"></a>
+## creador de esquemas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/dam2526/tree/main/Primero/Proyecto%20intermodular/203-Proyectos%20de%20tercer%20trimestre/037-creador%20de%20esquemas)
+
 
 
 <a id="carpeta-sin-titulo"></a>

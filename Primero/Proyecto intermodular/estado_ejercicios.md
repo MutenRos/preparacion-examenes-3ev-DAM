@@ -1,6 +1,6 @@
 # Proyecto intermodular — Estado de ejercicios
 
-Generado: 2026-04-23 19:00
+Generado: 2026-04-30 18:00
 
 ---
 
@@ -139,6 +139,12 @@ Generado: 2026-04-23 19:00
 - 🔴 API rotation
 - 🔴 scrapear web con IA
 - 🔴 modelos multimodales
+- 🔴 RAG
+- 🔴 NaN
+- 🔴 minipowerpoint
+- 🔴 bullets
+- 🔴 MCP ollama Blender
+- 🔴 creador de esquemas
 
 
 ## Carpeta sin título
