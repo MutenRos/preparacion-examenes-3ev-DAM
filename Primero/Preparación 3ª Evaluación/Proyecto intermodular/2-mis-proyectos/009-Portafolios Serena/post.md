@@ -9,27 +9,27 @@
 
 ## 📢 Post
 
-**🎨 Portafolio web para mostrar mis trabajos del ciclo.**
+**🛠️ Mi generador de proyectos web con IA local (con login y panel propio).**
 
 ### 🧭 Introducción y contextualización *(25%)*
 
-Proyecto **Portafolios Serena**: estructura para un portafolio personal de DAM con galería de trabajos categorizados (UI, código, 3D, ilustración).
+El proyecto **Portafolios Serena** acabó siendo una pequeña aplicación PHP+SQLite donde un usuario registrado puede pedirle a una IA local (Ollama) que le genere proyectos web a medida y guardarlos en su panel personal.
 
 ### 🛠️ Desarrollo detallado y preciso *(25%)*
 
-HTML semántico, CSS con tipografía serif para destacar el carácter de portafolio, filtros por categoría con JavaScript, tarjetas con thumbnail SVG y descripción. Estático en GitHub Pages.
+Stack: **PHP** para servidor, **SQLite** para usuarios y proyectos, `auth.php`/`login.php`/`signup.php` para sesiones, `dashboard.php` con CRUD de proyectos (`projects` con `title`, `description`, `last_prompt`, `last_code`) y `run_project.php` que llama a **Ollama** (`qwen2.5-coder:7b`) vía `curl` al endpoint `/api/generate`. Antes del proyecto final hay 6 ejercicios incrementales: llamada en local con `ollama run`, llamada desde PHP con `curl`, afinado del prompt, selección por usuario, mejora visual y formulario desplazable.
 
 ### 🚀 Aplicación práctica *(25%)*
 
-Se carga en <200 ms, funciona sin JS (los filtros son enhancement), responsive de móvil a 4K. Listo para añadir tus proyectos como nuevas tarjetas.
+Probado en local: registro de usuario → login → desde el dashboard escribo "Hazme una web sencilla en verde corporativo, solo código" → Ollama responde el HTML/CSS y se guarda asociado al usuario. Cada alumno puede tener su propio portafolio de proyectos generados.
 
 ### 🎯 Conclusión *(25%)*
 
-Un portafolio bien presentado vale más que cien líneas de CV. Hay que mostrar lo que sabes hacer.
+Lo importante no fue el portafolio en sí, sino aprender a integrar autenticación, persistencia y llamadas a una IA local en una misma app PHP. Es la base para cualquier SaaS pequeño con IA.
 
 ---
 
-#Portfolio #WebDesign #HTML #CSS #GitHubPages #DAM
+#PHP #SQLite #Ollama #IA #Auth #DAM
 
 ---
 

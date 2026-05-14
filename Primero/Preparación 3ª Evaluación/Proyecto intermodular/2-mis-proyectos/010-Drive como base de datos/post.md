@@ -9,27 +9,27 @@
 
 ## 📢 Post
 
-**📊 Usar Google Sheets como base de datos: ¿buena idea?**
+**📊 Usar un Google Sheet publicado como CSV como base de datos de una tienda.**
 
 ### 🧭 Introducción y contextualización *(25%)*
 
-Proyecto **Drive como BD**: leo y escribo en Google Sheets desde Python usando `gspread` y una cuenta de servicio, tratando la hoja como una tabla SQL.
+El proyecto **Drive como base de datos** consiste en tratar una hoja de Google Sheets publicada en la web como si fuera una BD: PHP la descarga como CSV y construye con ella una tienda online.
 
 ### 🛠️ Desarrollo detallado y preciso *(25%)*
 
-Componentes: cuenta de servicio en Google Cloud, librería `gspread`, mapeo fila↔registro, índice por SKU como clave primaria, sincronización cada 30 s. Hoja "stock" con 142 productos y 8 columnas.
+Pipeline incremental (13 ejercicios): leer CSV con `fopen`+`fgetcsv`, convertirlo a array indexado, luego a array nombrado con `array_combine` y cabeceras, formatear como tienda online, aplicar CSS, añadir lógica JS para el carrito, repaso de envío de correo electrónico desde PHP, uso de variables de entorno con `.env`, lectura de imágenes desde carpeta y, finalmente, tienda completa con imágenes. La URL de origen es `docs.google.com/spreadsheets/.../pub?output=csv` (Google Sheet publicado).
 
 ### 🚀 Aplicación práctica *(25%)*
 
-Útil para pymes que ya viven en Excel/Sheets: el cliente sigue editando su hoja y la aplicación lee/escribe en paralelo. Ideal para inventarios pequeños o CRMs ligeros.
+El cliente edita su catálogo directamente en Google Sheets (productos, precios, stock) y la tienda PHP refleja los cambios en tiempo real. Ideal para pymes que ya viven en Sheets y no quieren panel de admin propio.
 
 ### 🎯 Conclusión *(25%)*
 
-No reemplaza MySQL para producción seria, pero como BD para clientes no-técnicos es una solución elegante y barata.
+Aprendí que para muchos catálogos pequeños no hace falta MySQL ni gspread con OAuth: un Sheet público + `fgetcsv` resuelve el caso con cero infraestructura. Y enlaza directamente con los módulos de bases de datos y de tratamiento de datos.
 
 ---
 
-#GoogleSheets #Python #gspread #Database #DAM
+#PHP #GoogleSheets #CSV #Ecommerce #DAM
 
 ---
 
