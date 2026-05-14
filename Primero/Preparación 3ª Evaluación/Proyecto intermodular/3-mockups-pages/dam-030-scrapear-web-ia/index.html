@@ -41,6 +41,10 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  textarea{font-size:12px !important;resize:vertical;font-family:ui-monospace,monospace}
+  .process-btn{padding:8px 16px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600;transition:.2s;margin-top:10px}
+  .process-btn:hover{transform:scale(1.05)}
+  .result-box{background:#f0f0f0;border-left:3px solid var(--primary);padding:10px;border-radius:4px;font-family:ui-monospace,monospace;font-size:12px;margin-top:10px;min-height:60px}
 </style>
 </head>
 <body>
@@ -55,27 +59,21 @@
   
     <div class="row">
       <div class="card"><h3>1 · HTML crudo</h3>
-        <pre>&lt;h1&gt;iPhone 15 Pro&lt;/h1&gt;
+        <textarea id="htmlInput" rows="6">&lt;h1&gt;iPhone 15 Pro&lt;/h1&gt;
 &lt;span&gt;1.299 €&lt;/span&gt;
 &lt;p&gt;Cámara de 48 Mpx,
-chip A17 Pro&lt;/p&gt;</pre>
+chip A17 Pro&lt;/p&gt;</textarea>
       </div>
-      <div class="card"><h3>2 · Prompt + schema</h3>
-        <pre>schema = {
-  "producto": str,
-  "precio_eur": float,
-  "specs": list[str]
-}</pre>
+      <div class="card"><h3>2 · Esquema JSON</h3>
+        <textarea id="schemaInput" rows="6">{
+  "producto": "str",
+  "precio_eur": "float",
+  "specs": "list[str]"
+}</textarea>
       </div>
-      <div class="card"><h3>3 · JSON estructurado</h3>
-        <pre>{
-  "producto":"iPhone 15 Pro",
-  "precio_eur":1299.0,
-  "specs":[
-    "Cámara 48 Mpx",
-    "Chip A17 Pro"
-  ]
-}</pre>
+      <div class="card"><h3>3 · Resultado 🤖</h3>
+        <div id="result" class="result-box">{"producto":"iPhone 15 Pro","precio_eur":1299.0,"specs":["Cámara 48 Mpx","Chip A17 Pro"]}</div>
+        <button class="process-btn" onclick="processHTML()">🔄 Procesar HTML</button>
       </div>
     </div>
     <p style="color:var(--muted);font-size:13px;margin-top:10px">Sin escribir selectores CSS: el LLM entiende el contenido y lo encaja en pydantic.</p>
@@ -83,5 +81,31 @@ chip A17 Pro&lt;/p&gt;</pre>
     
 </main>
 <footer class="foot">Stack: <b>Python · requests · readability · Ollama · pydantic</b> · slug <code>dam-030-scrapear-web-ia</code></footer>
+<script>
+function processHTML() {
+  const html = document.getElementById('htmlInput').value;
+  const schema = document.getElementById('schemaInput').value;
+  const resultEl = document.getElementById('result');
+  
+  // Simular procesamiento con delay
+  resultEl.textContent = '⏳ Procesando...';
+  
+  setTimeout(() => {
+    // Simple mock: extraer datos del HTML
+    const hTitle = html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1] || 'Producto';
+    const priceMatch = html.match(/(\d+\.?\d*)\s*€/);
+    const price = priceMatch ? parseFloat(priceMatch[1]) : 0;
+    const specs = html.match(/<p[^>]*>([^<]+)<\/p>/)?.[1]?.split(',').map(s => s.trim()) || [];
+    
+    const result = {
+      producto: hTitle,
+      precio_eur: price,
+      specs: specs
+    };
+    
+    resultEl.textContent = JSON.stringify(result, null, 2);
+  }, 600);
+}
+</script>
 </body>
 </html>

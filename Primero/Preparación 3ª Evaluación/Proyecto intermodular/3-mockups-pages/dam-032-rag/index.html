@@ -41,6 +41,14 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  .search-box{display:flex;gap:8px;margin-bottom:14px}
+  .search-box input{flex:1;padding:10px;border:1px solid var(--line);border-radius:6px;font-size:14px}
+  .search-box button{padding:10px 20px;background:var(--primary);color:#fff;border:0;border-radius:6px;cursor:pointer;font-weight:600;transition:.2s}
+  .search-box button:hover{background:var(--accent)}
+  .answer-box{border-left:4px solid var(--primary);padding:14px;margin:12px 0;background:var(--card);border-radius:6px}
+  .result-item{display:none}
+  .result-item.visible{display:block}
+  .loading{color:var(--muted);font-size:13px;font-style:italic}
 </style>
 </head>
 <body>
@@ -54,24 +62,87 @@
   <p class="sub">ChromaDB + embeddings + LLM con citas verificables</p>
   
     <div class="card">
-      <input value="¿qué es una restricción FOREIGN KEY?" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:4px;font-size:14px">
-      <button style="margin-top:8px;background:#0288d1;color:#fff;border:0;padding:6px 14px;border-radius:4px">Buscar</button>
-    </div>
-    <div class="card" style="margin-top:12px;border-left:4px solid #0288d1">
-      <h3>🤖 Respuesta</h3>
-      <p style="font-size:14px">Una <b>FOREIGN KEY</b> es una restricción de integridad referencial que obliga a que el valor de una columna exista como clave primaria en otra tabla [1][2].</p>
-      <div style="background:#e3f2fd;padding:8px;border-radius:4px;font-size:12px;color:var(--muted)">
-        ⏱ 1.4s · embeddings: 0.3s · LLM: 1.1s · 0 alucinaciones
+      <div class="search-box">
+        <input id="queryInput" placeholder="¿qué es una restricción FOREIGN KEY?" value="¿qué es una restricción FOREIGN KEY?">
+        <button onclick="performSearch()">Buscar</button>
       </div>
     </div>
-    <h3 style="margin-top:14px;color:var(--primary)">Fuentes</h3>
-    <div class="row">
-      <div class="card" style="background:#e1f5fe"><h3>[1] sql-bd.md</h3><p style="font-size:12px">"La cláusula FOREIGN KEY referencia la PK de otra tabla…"</p></div>
-      <div class="card" style="background:#e1f5fe"><h3>[2] integridad.md</h3><p style="font-size:12px">"…garantiza que no exista una huérfana en la tabla hija."</p></div>
+    
+    <div id="answerSection" style="display:none">
+      <div class="answer-box">
+        <h3>🤖 Respuesta</h3>
+        <p id="answerText" style="font-size:14px"></p>
+        <div id="statsBox" style="background:#e3f2fd;padding:8px;border-radius:4px;font-size:12px;color:var(--muted)">
+        </div>
+      </div>
+      
+      <h3 style="margin-top:14px;color:var(--primary)">Fuentes</h3>
+      <div class="row" id="sourcesContainer"></div>
     </div>
     <ul class="files"><li>001-ollama perro.md</li><li>009-guardo en chromadb.py</li><li>012-RAG e IA.py</li><li>chroma_db/</li></ul>
     
 </main>
 <footer class="foot">Stack: <b>ChromaDB · nomic-embed-text · Ollama qwen2.5 · Flask</b> · slug <code>dam-032-rag</code></footer>
+<script>
+const mockAnswers = {
+  "foreign key": {
+    answer: "Una <b>FOREIGN KEY</b> es una restricción de integridad referencial que obliga a que el valor de una columna exista como clave primaria en otra tabla.",
+    sources: [
+      { id: "[1]", file: "sql-bd.md", snippet: "La cláusula FOREIGN KEY referencia la PK de otra tabla…" },
+      { id: "[2]", file: "integridad.md", snippet: "…garantiza que no exista una huérfana en la tabla hija." }
+    ],
+    time: "1.4s", embedTime: "0.3s", llmTime: "1.1s"
+  },
+  "indice": {
+    answer: "Un <b>ÍNDICE</b> es una estructura de datos que acelera las búsquedas en columnas específicas, creando una copia ordenada de los datos.",
+    sources: [
+      { id: "[1]", file: "optimizacion.md", snippet: "Los índices B-tree son los más comunes en bases de datos…" },
+      { id: "[2]", file: "performance.md", snippet: "Un índice bien diseñado puede mejorar 100x la velocidad de queries." }
+    ],
+    time: "0.8s", embedTime: "0.2s", llmTime: "0.6s"
+  },
+  "default": {
+    answer: "La base de conocimiento contiene información sobre <b>estructuras de datos</b>, <b>SQL avanzado</b>, <b>optimización</b> y <b>mejores prácticas</b>.",
+    sources: [
+      { id: "[1]", file: "indice.md", snippet: "Los índices mejoran significativamente el rendimiento de consultas…" },
+      { id: "[2]", file: "schema.md", snippet: "Un buen diseño de esquema es la base del rendimiento." }
+    ],
+    time: "1.1s", embedTime: "0.3s", llmTime: "0.8s"
+  }
+};
+
+function performSearch() {
+  const query = document.getElementById('queryInput').value.toLowerCase();
+  const answerSection = document.getElementById('answerSection');
+  
+  // Simular búsqueda
+  answerSection.style.display = 'block';
+  document.getElementById('answerText').innerHTML = '⏳ Buscando en 427 fragmentos...';
+  
+  setTimeout(() => {
+    let result = mockAnswers.default;
+    
+    if (query.includes('foreign') || query.includes('llave')) {
+      result = mockAnswers['foreign key'];
+    } else if (query.includes('indice') || query.includes('búsqueda')) {
+      result = mockAnswers['indice'];
+    }
+    
+    document.getElementById('answerText').innerHTML = result.answer;
+    document.getElementById('statsBox').innerHTML = 
+      `⏱ ${result.time} · embeddings: ${result.embedTime} · LLM: ${result.llmTime} · 0 alucinaciones`;
+    
+    const sourcesHTML = result.sources.map(s => 
+      `<div class="card" style="background:#e1f5fe"><h3>${s.id} ${s.file}</h3><p style="font-size:12px">"${s.snippet}"</p></div>`
+    ).join('');
+    
+    document.getElementById('sourcesContainer').innerHTML = sourcesHTML;
+  }, 800);
+}
+
+document.getElementById('queryInput').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') performSearch();
+});
+</script>
 </body>
 </html>

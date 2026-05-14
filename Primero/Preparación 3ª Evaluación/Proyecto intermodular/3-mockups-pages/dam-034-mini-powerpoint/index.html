@@ -41,6 +41,17 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  .slide-container{position:relative;margin:20px 0}
+  .slide{display:none}
+  .slide.active{display:flex}
+  .slide{background:#000;color:#fff;min-height:280px;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-radius:10px}
+  .slide-nav{display:flex;justify-content:center;gap:10px;margin-top:14px}
+  .slide-nav button{padding:8px 16px;background:var(--accent);color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;transition:.2s}
+  .slide-nav button:hover{transform:scale(1.05)}
+  .slide-nav button:disabled{opacity:.3;cursor:not-allowed}
+  .slide-counter{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+  .dot{width:8px;height:8px;border-radius:50%;background:#ddd;cursor:pointer;transition:.2s}
+  .dot.active{background:var(--accent);transform:scale(1.2)}
 </style>
 </head>
 <body>
@@ -53,24 +64,98 @@
   <h1>🎞️ Slide deck en HTML</h1>
   <p class="sub">Cada slide es un <article>, navegación scroll-snap + teclado</p>
   
-    <div class="row">
-      <div class="card" style="background:#000;color:#fff;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-        <div style="font-size:34px;font-weight:900">Bienvenidos</div>
-        <div style="opacity:.7;margin-top:6px">a la presentación interactiva</div>
-        <div style="margin-top:14px;background:#ffd60a;color:#000;padding:2px 10px;border-radius:99px;font-size:11px">slide 1/10</div>
-      </div>
-      <div class="card" style="background:#fff;border:2px dashed #000;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-        <div style="font-size:30px;font-weight:900">¿Cómo navegar?</div>
-        <ul style="text-align:left;margin-top:8px">
-          <li>⌨️ <b>↑/↓</b> entre slides</li>
-          <li>🖱️ Scroll con rueda</li>
-          <li>💾 Estado en localStorage</li>
-        </ul>
-      </div>
+  <div class="slide-container">
+    <div class="slide active">
+      <div style="font-size:48px;font-weight:900;margin-bottom:14px">Bienvenidos</div>
+      <div style="opacity:.8;font-size:18px">a la presentación interactiva</div>
+      <div style="margin-top:20px;background:#ffd60a;color:#000;padding:4px 14px;border-radius:99px;font-size:12px">↓ Navega con botones o ⌨️ flechas</div>
     </div>
+    
+    <div class="slide">
+      <div style="font-size:36px;font-weight:900;margin-bottom:14px">¿Cómo funciona?</div>
+      <ul style="text-align:left;line-height:1.8;font-size:16px">
+        <li>📌 Cada slide es una <code>article</code></li>
+        <li>🎯 Navegación con <b>botones</b> o <b>⬆️⬇️ teclas</b></li>
+        <li>💾 Posición guardada en <b>localStorage</b></li>
+        <li>🎨 Scroll-snap en viewport</li>
+      </ul>
+    </div>
+    
+    <div class="slide">
+      <div style="font-size:36px;font-weight:900;margin-bottom:14px">Características</div>
+      <ul style="text-align:left;line-height:1.8;font-size:16px">
+        <li>✅ HTML semántico con <b>&lt;article&gt;</b></li>
+        <li>✅ CSS animaciones smooth</li>
+        <li>✅ JS para navegación fluida</li>
+        <li>✅ Accesible y responsive</li>
+      </ul>
+    </div>
+    
+    <div class="slide">
+      <div style="font-size:36px;font-weight:900;margin-bottom:14px">API JavaScript</div>
+      <pre style="background:rgba(255,255,255,.1);margin:0;font-size:13px">goToSlide(n)
+nextSlide()
+prevSlide()
+getCurrentSlide()
+getTotalSlides()</pre>
+    </div>
+    
+    <div class="slide">
+      <div style="font-size:42px;font-weight:900">Fin</div>
+      <div style="opacity:.7;margin-top:10px;font-size:16px">¡Gracias por mirar! 🚀</div>
+    </div>
+  </div>
+  
+  <div class="slide-nav">
+    <button id="prevBtn" onclick="prevSlide()">← Anterior</button>
+    <button id="nextBtn" onclick="nextSlide()">Siguiente →</button>
+  </div>
+  
+  <div class="slide-counter" id="dotsContainer"></div>
     <ul class="files"><li>001-inicio.html</li><li>002-estilo.html</li><li>009-ajustes visuales.html</li><li>presentacion.txt</li></ul>
     
 </main>
 <footer class="foot">Stack: <b>HTML · CSS scroll-snap · JS · localStorage</b> · slug <code>dam-034-mini-powerpoint</code></footer>
+<script>
+let currentSlide = parseInt(localStorage.getItem('slideIndex')) || 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, totalSlides - 1));
+  localStorage.setItem('slideIndex', currentSlide);
+  
+  slides.forEach(s => s.classList.remove('active'));
+  slides[currentSlide].classList.add('active');
+  
+  document.getElementById('prevBtn').disabled = currentSlide === 0;
+  document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+  
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+function goToSlide(n) { showSlide(n); }
+
+// Navegación por teclado
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') prevSlide();
+});
+
+// Generar dots
+const dotsContainer = document.getElementById('dotsContainer');
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'dot';
+  dot.onclick = () => showSlide(i);
+  dotsContainer.appendChild(dot);
+}
+
+showSlide(currentSlide);
+</script>
 </body>
 </html>

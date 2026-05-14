@@ -41,6 +41,11 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  .kpi .k{transition:transform .3s,color .3s}
+  .filter-chip{padding:6px 12px;border:1px solid var(--line);background:var(--card);border-radius:6px;cursor:pointer;font-size:12px;transition:.2s;margin-right:6px;margin-bottom:6px}
+  .filter-chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .filter-chip:hover{border-color:var(--accent)}
+  table tr.hidden{display:none}
 </style>
 </head>
 <body>
@@ -61,12 +66,18 @@
     </div>
     <div class="row" style="margin-top:14px">
       <div class="card"><h3>📊 Matrículas por curso</h3>
-        <table>
+        <div style="margin-bottom:10px;display:flex;flex-wrap:wrap">
+          <span class="filter-chip active" data-module="all">📌 Todos</span>
+          <span class="filter-chip" data-module="Bases de datos">🗄️ Bases de datos</span>
+          <span class="filter-chip" data-module="Programación">💻 Programación</span>
+          <span class="filter-chip" data-module="Sist. informáticos">⚙️ Sist. informáticos</span>
+        </div>
+        <table id="matriculesTable">
           <tr><th>módulo</th><th>matriculados</th></tr>
-          <tr><td>Bases de datos</td><td>47</td></tr>
-          <tr><td>Programación</td><td>52</td></tr>
-          <tr><td>Sist. informáticos</td><td>38</td></tr>
-          <tr><td>Entornos de desarrollo</td><td>41</td></tr>
+          <tr data-module="Bases de datos"><td>Bases de datos</td><td>47</td></tr>
+          <tr data-module="Programación"><td>Programación</td><td>52</td></tr>
+          <tr data-module="Sist. informáticos"><td>Sist. informáticos</td><td>38</td></tr>
+          <tr data-module="Entornos de desarrollo"><td>Entornos de desarrollo</td><td>41</td></tr>
         </table>
       </div>
       <div class="card"><h3>🧱 Esquema</h3>
@@ -80,5 +91,45 @@ calificaciones(id_mat, nota, fecha)</pre>
     
 </main>
 <footer class="foot">Stack: <b>PHP · SQLite · SQL 3NF</b> · slug <code>dam-033-nan</code></footer>
+<script>
+// Animación de contadores
+function animateCounter(element, target) {
+  const step = target / 30;
+  let current = 0;
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(interval);
+    }
+    element.textContent = Math.floor(current);
+  }, 20);
+}
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.kpi .k b').forEach(el => {
+    const value = parseInt(el.textContent);
+    animateCounter(el, value);
+  });
+});
+
+// Filtrado de módulos
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    const module = this.dataset.module;
+    
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    
+    document.querySelectorAll('#matriculesTable tr[data-module]').forEach(row => {
+      if (module === 'all' || row.dataset.module === module) {
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

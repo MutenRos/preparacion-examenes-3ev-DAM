@@ -41,6 +41,11 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  .filter-btn{padding:6px 12px;border:1px solid var(--line);background:var(--card);border-radius:6px;cursor:pointer;font-size:13px;transition:all .2s;margin-right:8px}
+  .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .filter-btn:hover{border-color:var(--accent)}
+  .card.hidden{display:none}
+  .kpi .k{transition:transform .3s,color .3s}
 </style>
 </head>
 <body>
@@ -60,14 +65,20 @@
       <div class="k"><b>46</b><span>🗑️ Spam</span></div>
     </div>
     <h3 style="margin-top:18px;color:var(--primary)">Bandeja clasificada</h3>
-    <div class="grid">
-      <div class="card" style="border-left:4px solid #d83b3b"><span class="pill" style="background:#d83b3b">URGENTE</span> <b>cliente@bigcorp.com</b> — Servidor caído en producción
+    <div style="margin-bottom:14px">
+      <button class="filter-btn active" data-filter="all">📊 Todos</button>
+      <button class="filter-btn" data-filter="urgente">🔴 Urgentes</button>
+      <button class="filter-btn" data-filter="normal">🟢 Normales</button>
+      <button class="filter-btn" data-filter="spam">🗑️ Spam</button>
+    </div>
+    <div class="grid" id="email-grid">
+      <div class="card" data-category="urgente" style="border-left:4px solid #d83b3b"><span class="pill" style="background:#d83b3b">URGENTE</span> <b>cliente@bigcorp.com</b> — Servidor caído en producción
         <div style="color:var(--muted);font-size:12px;margin-top:4px">🤖 Resumen: cliente reporta caída total desde las 8:14. Pide call de emergencia. Sugerida respuesta: confirmar incidencia y dar ETA.</div>
       </div>
-      <div class="card" style="border-left:4px solid #2a9d4a"><span class="pill" style="background:#2a9d4a">NORMAL</span> <b>rrhh@empresa.es</b> — Nóminas de octubre disponibles
+      <div class="card" data-category="normal" style="border-left:4px solid #2a9d4a"><span class="pill" style="background:#2a9d4a">NORMAL</span> <b>rrhh@empresa.es</b> — Nóminas de octubre disponibles
         <div style="color:var(--muted);font-size:12px;margin-top:4px">🤖 Resumen: notificación informativa; revisar antes del día 5. No requiere respuesta.</div>
       </div>
-      <div class="card" style="border-left:4px solid #888"><span class="pill" style="background:#888">SPAM</span> <b>promo@xn--ofertas.tk</b> — ¡GANA un iPhone gratis!
+      <div class="card" data-category="spam" style="border-left:4px solid #888"><span class="pill" style="background:#888">SPAM</span> <b>promo@xn--ofertas.tk</b> — ¡GANA un iPhone gratis!
         <div style="color:var(--muted);font-size:12px;margin-top:4px">🤖 Confianza spam: 98% · archivado automáticamente.</div>
       </div>
     </div>
@@ -81,5 +92,44 @@ respuesta = ollama.chat(model="qwen2.5", messages=[
     
 </main>
 <footer class="foot">Stack: <b>Python · Flask · Ollama · IMAP · dotenv</b> · slug <code>dam-001-sistema-comunicaciones</code></footer>
+<script>
+// Filtrado de correos
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    document.querySelectorAll('#email-grid .card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Animación de contadores KPI
+function animateCounter(element, target) {
+  const step = target / 30;
+  let current = 0;
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(interval);
+    }
+    element.textContent = Math.floor(current);
+  }, 20);
+}
+
+// Animar KPIs al cargar
+window.addEventListener('load', () => {
+  document.querySelectorAll('.kpi .k b').forEach(el => {
+    const value = parseInt(el.textContent);
+    animateCounter(el, value);
+  });
+});
+</script>
 </body>
 </html>

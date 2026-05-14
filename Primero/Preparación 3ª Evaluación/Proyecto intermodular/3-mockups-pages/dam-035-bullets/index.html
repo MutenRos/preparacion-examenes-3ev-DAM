@@ -41,6 +41,9 @@
   ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
   ul.files li{padding:3px 0;color:var(--muted)}
   ul.files li::before{content:"📄 ";margin-right:4px}
+  textarea{font-size:13px !important;resize:vertical}
+  .list-type-btn{padding:4px 8px;font-size:11px;background:var(--bg);border:1px solid var(--line);border-radius:4px;cursor:pointer;transition:.2s}
+  .list-type-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -55,7 +58,7 @@
   
     <div class="row">
       <div class="card"><h3>📥 Entrada (libre)</h3>
-        <textarea style="width:100%;padding:8px;border:1px solid var(--line);border-radius:4px;font-family:ui-monospace,monospace" rows="9">comprar pan
+        <textarea id="inputText" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:4px;font-family:ui-monospace,monospace" rows="9">comprar pan
 comprar leche
    tareas casa
       barrer
@@ -64,18 +67,20 @@ comprar leche
 llamar madre</textarea>
       </div>
       <div class="card"><h3>📤 Salida bullets</h3>
-        <ul style="font-size:14px;line-height:1.8">
-          <li>comprar pan</li>
-          <li>comprar leche</li>
-          <li>tareas casa
-            <ul><li>barrer</li><li>fregar</li><li>pasear perro</li></ul>
-          </li>
-          <li>llamar madre</li>
-        </ul>
-        <div style="margin-top:10px;display:flex;gap:6px">
-          <span class="pill">disco</span>
-          <span class="pill" style="background:#66bb6a">guion</span>
-          <span class="pill" style="background:#888">numerado</span>
+        <div id="outputList" style="font-size:14px;line-height:1.8;margin-bottom:10px">
+          <ul>
+            <li>comprar pan</li>
+            <li>comprar leche</li>
+            <li>tareas casa
+              <ul><li>barrer</li><li>fregar</li><li>pasear perro</li></ul>
+            </li>
+            <li>llamar madre</li>
+          </ul>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="list-type-btn active" data-type="ul">• disco</button>
+          <button class="list-type-btn" data-type="dash">– guion</button>
+          <button class="list-type-btn" data-type="ol">1. numerado</button>
         </div>
       </div>
     </div>
@@ -83,5 +88,69 @@ llamar madre</textarea>
     
 </main>
 <footer class="foot">Stack: <b>HTML · JavaScript</b> · slug <code>dam-035-bullets</code></footer>
+<script>
+let listType = 'ul';
+
+function parseText(text) {
+  const lines = text.split('\n');
+  const root = { children: [], level: -1 };
+  const stack = [root];
+  
+  lines.forEach(line => {
+    const trimmed = line.trimLeft();
+    const level = (line.length - trimmed.length) / 3; // 3 espacios por nivel
+    
+    if (!trimmed) return;
+    
+    const node = { text: trimmed, children: [], level };
+    
+    while (stack.length > 0 && stack[stack.length - 1].level >= level) {
+      stack.pop();
+    }
+    
+    stack[stack.length - 1].children.push(node);
+    stack.push(node);
+  });
+  
+  return root.children;
+}
+
+function renderList(items, tag = 'ul') {
+  if (!items.length) return '';
+  
+  let html = `<${tag}>`;
+  items.forEach(item => {
+    html += `<li>${item.text}`;
+    if (item.children.length) {
+      html += renderList(item.children, tag);
+    }
+    html += `</li>`;
+  });
+  html += `</${tag}>`;
+  
+  return html;
+}
+
+function updateOutput() {
+  const input = document.getElementById('inputText').value;
+  const items = parseText(input);
+  const tag = listType === 'ol' ? 'ol' : 'ul';
+  const html = renderList(items, tag);
+  document.getElementById('outputList').innerHTML = html;
+}
+
+document.getElementById('inputText').addEventListener('input', updateOutput);
+
+document.querySelectorAll('.list-type-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.list-type-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    listType = this.dataset.type;
+    updateOutput();
+  });
+});
+
+updateOutput();
+</script>
 </body>
 </html>
