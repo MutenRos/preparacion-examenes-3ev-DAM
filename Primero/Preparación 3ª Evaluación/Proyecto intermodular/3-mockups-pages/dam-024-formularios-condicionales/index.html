@@ -2,281 +2,80 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Formularios condicionales · DAM</title>
+<title>Formularios condicionales · mockup</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.5}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-header{background:linear-gradient(135deg,#0891b2,#7c3aed);color:#fff;padding:32px 22px;text-align:center}
-header h1{font-size:1.95rem;margin-bottom:6px}
-header p{opacity:.9;font-size:.94em}
-.layout{max-width:1200px;margin:18px auto;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;height:calc(100vh - 200px);min-height:520px}
-@media(max-width:900px){.layout{grid-template-columns:1fr;height:auto}}
-.panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.04)}
-.panel .head{padding:14px 18px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;background:#f8fafc}
-.panel .head h2{font-size:1em;color:#0f172a}
-.panel .head .pill{font-size:.72em;background:#0891b2;color:#fff;padding:3px 10px;border-radius:999px;font-family:ui-monospace,monospace}
-.panel .head .pill.r{background:#7c3aed}
-textarea.src{flex:1;width:100%;padding:16px 18px;font-family:ui-monospace,monospace;font-size:.85em;border:0;outline:none;resize:none;line-height:1.6;tab-size:4;color:#0f172a;background:#fafafa}
-.preview{flex:1;padding:18px 22px;overflow-y:auto;background:#fff}
-.examples{padding:10px 18px;border-top:1px solid #e2e8f0;background:#f8fafc;display:flex;gap:6px;flex-wrap:wrap}
-.examples small{color:#64748b;font-size:.75em;width:100%;margin-bottom:4px}
-.ex{background:#fff;border:1px solid #cbd5e1;color:#475569;padding:5px 11px;border-radius:5px;font-size:.78em;cursor:pointer;font-family:inherit}
-.ex:hover{border-color:#0891b2;color:#0891b2}
-/* Preview formulario */
-.field{margin-bottom:14px}
-.field label{display:block;font-size:.88em;font-weight:600;color:#374151;margin-bottom:6px}
-.req{color:#dc2626;margin-left:3px}
-.field input[type=text],.field input[type=email],.field input[type=number],.field input[type=date],.field select,.field textarea{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:6px;font-size:.92em;font-family:inherit;background:#fff;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:#0891b2;box-shadow:0 0 0 3px rgba(8,145,178,.15)}
-.field textarea{min-height:60px;resize:vertical}
-.opt{display:flex;align-items:center;gap:8px;padding:6px 0;cursor:pointer;font-size:.92em}
-.opt input{cursor:pointer}
-.nested{margin-left:24px;margin-top:8px;padding:12px 14px;border-left:3px solid #c7d2fe;background:#f5f3ff;border-radius:0 8px 8px 0;display:none}
-.nested.show{display:block;animation:in .25s ease}
-@keyframes in{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:translateX(0)}}
-.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px 14px;border-radius:6px;font-size:.88em;margin-bottom:14px}
-footer{text-align:center;padding:14px;color:#64748b;font-size:.82em}
+  :root {
+    --bg:#f1faee; --fg:#1d2330; --muted:#6a7388;
+    --primary:#1d3557; --accent:#e63946; --card:#fff;
+    --line:#e3e7ee;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+  .mock-banner{background:#111;color:#ffe066;padding:6px 14px;font-size:12px;text-align:center}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary);color:#fff;border-bottom:3px solid var(--accent)}
+  .top .brand{font-weight:800;letter-spacing:.3px}
+  .top nav a{color:#fff;text-decoration:none;margin-left:18px;opacity:.85;font-size:14px}
+  .top nav a:hover{opacity:1}
+  main{max-width:1100px;margin:0 auto;padding:26px 22px 60px}
+  h1{margin:6px 0 4px;font-size:30px}
+  .sub{color:var(--muted);margin:0 0 22px}
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .card h3{margin:0 0 6px;font-size:15px;color:var(--primary)}
+  .pill{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;font-size:11px;margin-right:4px}
+  pre{background:#0d1117;color:#c9d1d9;padding:12px;border-radius:8px;overflow:auto;font-size:12px;margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+  th{background:var(--bg);color:var(--muted);font-weight:600}
+  .foot{margin-top:30px;padding:14px 22px;background:#111;color:#aaa;font-size:12px;text-align:center}
+  .foot b{color:var(--accent)}
+  .kpi{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi .k{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);padding:10px;border-radius:10px}
+  .kpi .k b{display:block;color:var(--primary);font-size:22px}
+  .kpi .k span{color:var(--muted);font-size:11px}
+  .row{display:flex;gap:12px}
+  .row>*{flex:1}
+  .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:4px;color:var(--muted)}
+  ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
+  ul.files li{padding:3px 0;color:var(--muted)}
+  ul.files li::before{content:"📄 ";margin-right:4px}
 </style>
 </head>
 <body>
-<div class="mock-banner">🧪 <strong>Demo</strong> · Sintaxis propia <code>[type][required]</code> con bloques <code>[case]</code> anidados · Parser y preview en JS</div>
-
-<header>
-  <h1>📋 Formularios condicionales</h1>
-  <p>Edita la sintaxis a la izquierda, ve el formulario en directo a la derecha</p>
+<div class="mock-banner">⚠️ Mockup ilustrativo · proyecto: <b>Formularios condicionales</b></div>
+<header class="top">
+  <div class="brand">🧩 DSL de formularios</div>
+  <nav><a href="#">Inicio</a><a href="#">Demo</a><a href="#">Código</a><a href="../index.html">← Volver</a></nav>
 </header>
-
-<div class="layout">
-  <div class="panel">
-    <div class="head">
-      <h2>📝 Sintaxis</h2>
-      <span class="pill">DSL custom</span>
+<main>
+  <h1>🧩 DSL de formularios</h1>
+  <p class="sub">Sintaxis propia [type][required][case] que se compila a HTML</p>
+  
+    <div class="row">
+      <div class="card"><h3>📝 DSL fuente</h3>
+        <pre>nombre: [text][req]
+edad: [num][req][min=0]
+es_socio: [bool]
+  if es_socio==true:
+    fecha_alta: [date][req]
+    descuento: [select=10,20,30]
+comentarios: [textarea]</pre>
+      </div>
+      <div class="card"><h3>👀 Preview formulario</h3>
+        <label style="display:block;font-size:12px;margin-top:6px">Nombre*<input style="width:100%;padding:5px;border:1px solid var(--line);border-radius:4px"></label>
+        <label style="display:block;font-size:12px;margin-top:6px">Edad*<input type="number" style="width:100%;padding:5px;border:1px solid var(--line);border-radius:4px"></label>
+        <label style="display:block;font-size:12px;margin-top:6px"><input type="checkbox" checked> ¿Es socio?</label>
+        <div style="background:#fff;border-left:3px solid #e63946;padding:6px 10px;margin-top:6px">
+          <label style="display:block;font-size:12px">Fecha de alta*<input type="date" style="width:100%;padding:5px;border:1px solid var(--line);border-radius:4px"></label>
+          <label style="display:block;font-size:12px;margin-top:6px">Descuento<select style="width:100%;padding:5px;border:1px solid var(--line);border-radius:4px"><option>10%</option><option>20%</option><option>30%</option></select></label>
+        </div>
+      </div>
     </div>
-    <textarea class="src" id="src" spellcheck="false"></textarea>
-    <div class="examples">
-      <small>Ejemplos:</small>
-      <button class="ex" onclick="loadEx('basico')">Básico</button>
-      <button class="ex" onclick="loadEx('eleccion')">Pregunta elección</button>
-      <button class="ex" onclick="loadEx('completo')">Anidado completo</button>
-      <button class="ex" onclick="loadEx('encuesta')">Encuesta</button>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="head">
-      <h2>👁️ Vista previa</h2>
-      <span class="pill r">live</span>
-    </div>
-    <div class="preview" id="preview"></div>
-  </div>
-</div>
-
-<footer>Proyecto Intermodular DAM · 024 · Formularios condicionales · Parser propio</footer>
-
-<script>
-const EJ = {
-  basico: `[text][required] Indica tu nombre
-[number] Indica tu edad
-[email][required] Indica tu correo
-[date] Indica tu fecha de nacimiento`,
-  eleccion: `[text][required] Nombre completo
-[radio][required] ¿Tienes carné de conducir?
-\t[case] Sí
-\t\t[number] Años con el carné
-\t[case] No
-\t\t[text] ¿Te gustaría sacártelo?`,
-  completo: `[text][required] Indica tu nombre
-[number] Indica tu edad
-[email][required] Indica tu correo
-[date] Indica tu fecha de nacimiento
-
-[radio][required] Selecciona tu ciclo
-\t[case] DAM
-\t\t[text] Has elegido DAM
-\t\t[select] Elige especialidad
-\t\t\t[case] Desarrollo web
-\t\t\t\t[textarea] Explica por qué te gusta desarrollo web
-\t\t\t[case] Desarrollo multiplataforma
-\t\t\t\t[text] Has elegido desarrollo multiplataforma
-\t[case] SMR
-\t\t[text] Has elegido SMR
-\t\t[checkbox] Marca tus intereses
-\t\t\t[case] Redes
-\t\t\t\t[text] Te interesan las redes
-\t\t\t[case] Sistemas
-\t\t\t\t[text] Te interesan los sistemas`,
-  encuesta: `[text][required] Nombre
-[radio][required] ¿Cómo nos has conocido?
-\t[case] Internet
-\t\t[select] ¿Por qué buscador?
-\t\t\t[case] Google
-\t\t\t[case] Bing
-\t\t\t[case] DuckDuckGo
-\t[case] Por un amigo
-\t\t[text] ¿Cómo se llama?
-\t[case] Otro
-\t\t[textarea] Cuéntanos`
-};
-
-function loadEx(k){ document.getElementById('src').value = EJ[k]; render(); }
-
-// ====== PARSER ======
-// Línea: [tipo][required?] etiqueta. Indentación con tabs/4-espacios.
-function parse(text){
-  const lines = text.split('\n');
-  const root = {children:[], depth:-1};
-  const stack = [root];
-  for(let raw of lines){
-    if(!raw.trim()) continue;
-    // detectar profundidad: tabs o múltiplos de 4 espacios al inicio
-    const m = raw.match(/^([\t ]*)/);
-    let pre = m[1];
-    let depth = 0;
-    for(const ch of pre){ if(ch==='\t') depth++; else if(ch===' ') depth+=0.25; }
-    depth = Math.floor(depth);
-
-    const line = raw.trim();
-    const tokens = [];
-    let rest = line;
-    while(rest.startsWith('[')){
-      const j = rest.indexOf(']');
-      if(j<0) break;
-      tokens.push(rest.slice(1,j));
-      rest = rest.slice(j+1).trim();
-    }
-    const label = rest.trim();
-    const node = {tokens, label, depth, children:[]};
-    while(stack.length>1 && stack[stack.length-1].depth >= depth) stack.pop();
-    stack[stack.length-1].children.push(node);
-    stack.push(node);
-  }
-  return root.children;
-}
-
-// ====== RENDER ======
-let counter = 0;
-function uniq(){ return 'f'+(++counter); }
-
-function renderNode(n, parent){
-  const t = n.tokens[0]||'';
-  const required = n.tokens.includes('required');
-  const id = uniq();
-
-  if(t==='case'){
-    // se renderiza desde el padre (radio/select/checkbox) — nada aquí
-    return;
-  }
-
-  const wrap = document.createElement('div');
-  wrap.className = 'field';
-  const lab = document.createElement('label');
-  lab.innerHTML = (n.label||'(sin etiqueta)') + (required?'<span class="req">*</span>':'');
-  if(['radio','checkbox','select'].includes(t)) wrap.appendChild(lab);
-
-  if(t==='text' || t==='email' || t==='number' || t==='date'){
-    wrap.appendChild(lab);
-    const inp = document.createElement('input');
-    inp.type = t; inp.id = id; if(required) inp.required = true;
-    wrap.appendChild(inp);
-  } else if(t==='textarea'){
-    wrap.appendChild(lab);
-    const ta = document.createElement('textarea');
-    ta.id = id; if(required) ta.required = true;
-    wrap.appendChild(ta);
-  } else if(t==='radio'){
-    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{
-      const cid = uniq();
-      const lbl = document.createElement('label'); lbl.className='opt';
-      const r = document.createElement('input');
-      r.type='radio'; r.name=id; r.value=c.label; r.id=cid;
-      r.onchange = ()=>{
-        // ocultar todos los nested hermanos, mostrar el suyo
-        wrap.querySelectorAll(':scope > .nested').forEach(x=>x.classList.remove('show'));
-        const my = wrap.querySelector(`[data-cid="${cid}"]`);
-        if(my) my.classList.add('show');
-      };
-      lbl.appendChild(r); lbl.appendChild(document.createTextNode(' '+c.label));
-      wrap.appendChild(lbl);
-      if(c.children.length){
-        const nest = document.createElement('div'); nest.className='nested'; nest.dataset.cid = cid;
-        c.children.forEach(cc=>renderNode(cc, nest));
-        wrap.appendChild(nest);
-      }
-    });
-  } else if(t==='select'){
-    const sel = document.createElement('select'); sel.id = id;
-    sel.innerHTML = '<option value="">— Elige —</option>';
-    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{
-      const o = document.createElement('option'); o.value = i; o.textContent = c.label;
-      sel.appendChild(o);
-    });
-    wrap.appendChild(sel);
-    const nestWrap = document.createElement('div');
-    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{
-      if(c.children.length){
-        const nest = document.createElement('div'); nest.className='nested'; nest.dataset.cidx = i;
-        c.children.forEach(cc=>renderNode(cc, nest));
-        nestWrap.appendChild(nest);
-      }
-    });
-    wrap.appendChild(nestWrap);
-    sel.onchange = ()=>{
-      nestWrap.querySelectorAll('.nested').forEach(x=>x.classList.remove('show'));
-      const m = nestWrap.querySelector(`[data-cidx="${sel.value}"]`);
-      if(m) m.classList.add('show');
-    };
-  } else if(t==='checkbox'){
-    n.children.filter(c=>c.tokens[0]==='case').forEach((c,i)=>{
-      const cid = uniq();
-      const lbl = document.createElement('label'); lbl.className='opt';
-      const ch = document.createElement('input'); ch.type='checkbox'; ch.id=cid; ch.value=c.label;
-      ch.onchange = ()=>{
-        const my = wrap.querySelector(`[data-cid="${cid}"]`);
-        if(my) my.classList.toggle('show', ch.checked);
-      };
-      lbl.appendChild(ch); lbl.appendChild(document.createTextNode(' '+c.label));
-      wrap.appendChild(lbl);
-      if(c.children.length){
-        const nest = document.createElement('div'); nest.className='nested'; nest.dataset.cid = cid;
-        c.children.forEach(cc=>renderNode(cc, nest));
-        wrap.appendChild(nest);
-      }
-    });
-  } else {
-    wrap.innerHTML = `<div style="font-size:.82em;color:#dc2626">⚠️ Tipo no soportado: <code>[${t}]</code></div>`;
-  }
-  parent.appendChild(wrap);
-}
-
-function render(){
-  counter = 0;
-  const text = document.getElementById('src').value;
-  const prev = document.getElementById('preview');
-  prev.innerHTML = '';
-  try{
-    const tree = parse(text);
-    if(!tree.length){
-      prev.innerHTML = '<div style="color:#64748b;text-align:center;padding:40px">Escribe algo a la izquierda…</div>';
-      return;
-    }
-    const form = document.createElement('form');
-    form.onsubmit = e => { e.preventDefault(); alert('✓ Formulario válido (mockup)'); };
-    tree.forEach(n=>renderNode(n, form));
-    const sub = document.createElement('button');
-    sub.type = 'submit';
-    sub.textContent = 'Enviar';
-    sub.style.cssText = 'margin-top:10px;padding:10px 24px;background:#0891b2;color:#fff;border:0;border-radius:6px;font-weight:700;cursor:pointer;font-family:inherit';
-    form.appendChild(sub);
-    prev.appendChild(form);
-  } catch(e){
-    prev.innerHTML = `<div class="err">⚠️ Error de parser: ${e.message}</div>`;
-  }
-}
-
-document.getElementById('src').addEventListener('input', render);
-loadEx('completo');
-</script>
+    <ul class="files"><li>001-formulario basico.html</li><li>004-carga sintaxis.php</li><li>003-me invento sintaxis.md</li></ul>
+    
+</main>
+<footer class="foot">Stack: <b>PHP · HTML · JS · DSL custom</b> · slug <code>dam-024-formularios-condicionales</code></footer>
 </body>
 </html>

@@ -2,202 +2,87 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Test de nivel de inglés · DAM</title>
+<title>Cuestionario online inglés · mockup</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#dbeafe 0%,#fce7f3 100%);min-height:100vh;color:#0f172a;line-height:1.5}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-.wrap{max-width:780px;margin:24px auto;padding:0 22px}
-.card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08);overflow:hidden}
-.head{background:linear-gradient(135deg,#1e3a8a,#7c3aed);color:#fff;padding:28px 32px;text-align:center}
-.head h1{font-size:1.7rem;margin-bottom:6px}
-.head p{opacity:.9;font-size:.92em}
-.body{padding:30px 32px}
-.intro p{color:#475569;margin-bottom:14px}
-.fuente{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:6px;font-size:.82em;color:#1e3a8a;margin:14px 0;font-family:ui-monospace,monospace;word-break:break-all}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:.88em;color:#475569;font-weight:600;margin-bottom:5px}
-.field input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:7px;font-size:.94em;font-family:inherit;outline:none}
-.field input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-.btn{padding:11px 24px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.95em;width:100%;margin-top:8px}
-.btn:hover{filter:brightness(1.1)}
-.btn.sec{background:#f1f5f9;color:#0f172a}
-/* Test */
-.progress{height:7px;background:#e2e8f0;border-radius:7px;margin:0 0 22px;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);transition:width .35s ease;border-radius:7px}
-.q-num{font-size:.82em;color:#64748b;margin-bottom:8px}
-.q-num b{color:#2563eb}
-.q-text{font-size:1.08em;color:#0f172a;margin-bottom:16px;font-weight:500;line-height:1.45}
-.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-size:.94em;transition:all .15s ease;background:#fff}
-.opt:hover{border-color:#a5b4fc;background:#f5f3ff}
-.opt.sel{border-color:#2563eb;background:#eff6ff}
-.opt input{margin-right:6px}
-.nav-row{display:flex;gap:8px;margin-top:14px}
-.nav-row .btn{flex:1;width:auto}
-/* Resultado */
-.result{text-align:center;padding:18px 0}
-.score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.score-sub{color:#64748b;margin-top:6px;font-size:.9em}
-.lvl{display:inline-block;padding:10px 30px;border-radius:50px;font-weight:700;font-size:1.4em;margin:24px 0 10px;color:#fff}
-.lvl.A1{background:#10b981}.lvl.A2{background:#06b6d4}.lvl.B1{background:#3b82f6}.lvl.B2{background:#8b5cf6}.lvl.C1{background:#ec4899}.lvl.C2{background:#f59e0b}
-.cefr{display:flex;justify-content:space-between;gap:4px;margin-top:16px;padding:0 4px}
-.cefr-step{flex:1;text-align:center;padding:8px 4px;border-radius:6px;font-size:.78em;font-weight:600;color:#94a3b8;background:#f1f5f9}
-.cefr-step.act{color:#fff;transform:scale(1.05)}
-.cefr-step.act.A1{background:#10b981}.cefr-step.act.A2{background:#06b6d4}.cefr-step.act.B1{background:#3b82f6}.cefr-step.act.B2{background:#8b5cf6}.cefr-step.act.C1{background:#ec4899}.cefr-step.act.C2{background:#f59e0b}
-.detail{background:#f8fafc;border-radius:8px;padding:16px;margin-top:18px;text-align:left;font-size:.9em;color:#475569}
-.detail h3{font-size:1em;color:#0f172a;margin-bottom:8px}
-.detail-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2e8f0}
-.detail-row:last-child{border:0}
-.review{margin-top:14px;font-size:.85em;color:#64748b}
-.review .ok{color:#10b981}.review .ko{color:#dc2626}
+  :root {
+    --bg:#f5f6fa; --fg:#1d2330; --muted:#6a7388;
+    --primary:#012169; --accent:#c8102e; --card:#fff;
+    --line:#e3e7ee;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+  .mock-banner{background:#111;color:#ffe066;padding:6px 14px;font-size:12px;text-align:center}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary);color:#fff;border-bottom:3px solid var(--accent)}
+  .top .brand{font-weight:800;letter-spacing:.3px}
+  .top nav a{color:#fff;text-decoration:none;margin-left:18px;opacity:.85;font-size:14px}
+  .top nav a:hover{opacity:1}
+  main{max-width:1100px;margin:0 auto;padding:26px 22px 60px}
+  h1{margin:6px 0 4px;font-size:30px}
+  .sub{color:var(--muted);margin:0 0 22px}
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .card h3{margin:0 0 6px;font-size:15px;color:var(--primary)}
+  .pill{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;font-size:11px;margin-right:4px}
+  pre{background:#0d1117;color:#c9d1d9;padding:12px;border-radius:8px;overflow:auto;font-size:12px;margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+  th{background:var(--bg);color:var(--muted);font-weight:600}
+  .foot{margin-top:30px;padding:14px 22px;background:#111;color:#aaa;font-size:12px;text-align:center}
+  .foot b{color:var(--accent)}
+  .kpi{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi .k{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);padding:10px;border-radius:10px}
+  .kpi .k b{display:block;color:var(--primary);font-size:22px}
+  .kpi .k span{color:var(--muted);font-size:11px}
+  .row{display:flex;gap:12px}
+  .row>*{flex:1}
+  .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:4px;color:var(--muted)}
+  ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
+  ul.files li{padding:3px 0;color:var(--muted)}
+  ul.files li::before{content:"📄 ";margin-right:4px}
 </style>
 </head>
 <body>
-<div class="mock-banner">🧪 <strong>Demo</strong> · Test CEFR · Las preguntas vienen de un Google Sheet CSV en producción · Mockup con 10 preguntas locales</div>
-
-<div class="wrap"><div class="card" id="app"></div></div>
-
-<script>
-// 10 preguntas de muestra con dificultad creciente. Puntos 1-50 → A1..C1
-const PREGUNTAS = [
-  {q:"Choose the correct: 'I ___ from Spain.'", o:["am","is","are","be"], c:0, lvl:"A1"},
-  {q:"What's the past of 'go'?", o:["goed","went","gone","wented"], c:1, lvl:"A1"},
-  {q:"'She ___ tea every morning.' (drink)", o:["drinks","drink","drinking","drank"], c:0, lvl:"A2"},
-  {q:"Choose: 'There ___ many people at the party.'", o:["was","were","is","be"], c:1, lvl:"A2"},
-  {q:"'If I ___ rich, I would travel.' Type 2 conditional.", o:["am","were","be","will be"], c:1, lvl:"B1"},
-  {q:"What does 'to look forward to' mean?", o:["to remember","to anticipate with pleasure","to forget","to dislike"], c:1, lvl:"B1"},
-  {q:"Choose: 'By next year, she ___ here for a decade.'", o:["will live","will be living","will have lived","is living"], c:2, lvl:"B2"},
-  {q:"'Despite ___ tired, he kept working.' (be)", o:["being","be","to be","been"], c:0, lvl:"B2"},
-  {q:"Pick the synonym of 'meticulous':", o:["careless","sloppy","thorough","fast"], c:2, lvl:"C1"},
-  {q:"'Were it not for your help, we ___ failed.'", o:["had","would have","will","would"], c:1, lvl:"C1"}
-];
-
-// 5 puntos por acierto (max 50)
-function level(p){
-  if(p>=41) return 'C1';
-  if(p>=31) return 'B2';
-  if(p>=21) return 'B1';
-  if(p>=11) return 'A2';
-  if(p>=1) return 'A1';
-  return 'A1';
-}
-const LVL_DESC = {
-  A1:"Principiante. Comprende y usa expresiones cotidianas básicas.",
-  A2:"Elemental. Se comunica en situaciones sencillas y cotidianas.",
-  B1:"Intermedio. Maneja la mayoría de situaciones de viaje.",
-  B2:"Intermedio alto. Entiende ideas principales de textos complejos.",
-  C1:"Avanzado. Se expresa con fluidez y espontaneidad.",
-  C2:"Maestría. Comprende prácticamente todo lo leído u oído."
-};
-
-let datos = {nombre:'',email:''};
-let idx = 0;
-let answers = [];
-
-function setHTML(html){ document.getElementById('app').innerHTML = html; }
-
-function viewIntro(){
-  setHTML(`<div class="head"><h1>🇬🇧 Test de nivel de inglés</h1><p>Cuestionario online · Resultado CEFR (A1 – C2)</p></div>
-  <div class="body">
-    <div class="intro">
-      <p>Completa tus datos y responde las 10 preguntas. Al final verás tu <strong>puntuación</strong> y tu <strong>nivel estimado</strong>.</p>
-      <div class="fuente">📊 En producción: preguntas cargadas de docs.google.com/.../pub?output=csv y respuestas guardadas en SQLite</div>
-    </div>
-    <form onsubmit="event.preventDefault();start();">
-      <div class="field"><label>Nombre completo</label><input id="n" required></div>
-      <div class="field"><label>Email</label><input id="e" type="email" required></div>
-      <button class="btn" type="submit">Empezar el test →</button>
-    </form>
-  </div>`);
-}
-
-function start(){
-  datos.nombre = document.getElementById('n').value;
-  datos.email = document.getElementById('e').value;
-  idx = 0; answers = [];
-  viewQ();
-}
-
-function viewQ(){
-  const p = PREGUNTAS[idx];
-  const total = PREGUNTAS.length;
-  const pct = ((idx)/total)*100;
-  setHTML(`<div class="head"><h1>📝 Test en curso</h1><p>${datos.nombre}</p></div>
-  <div class="body">
-    <div class="progress"><div class="progress-bar" style="width:${pct}%"></div></div>
-    <div class="q-num">Pregunta <b>${idx+1}</b> de ${total} · <span style="background:#e0e7ff;color:#3730a3;padding:1px 8px;border-radius:10px;font-size:.78em;font-weight:600">${p.lvl}</span></div>
-    <div class="q-text">${p.q}</div>
-    <div class="opts" id="opts">
-      ${p.o.map((o,i)=>`<label class="opt" data-i="${i}"><input type="radio" name="o" value="${i}"> ${o}</label>`).join('')}
-    </div>
-    <div class="nav-row">
-      ${idx>0?'<button class="btn sec" onclick="prev()">← Anterior</button>':''}
-      <button class="btn" id="next" onclick="next()" disabled>${idx===total-1?'Ver resultado →':'Siguiente →'}</button>
-    </div>
-  </div>`);
-  document.querySelectorAll('.opt').forEach(o=>{
-    o.onclick = ()=>{
-      document.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
-      o.classList.add('sel');
-      o.querySelector('input').checked = true;
-      document.getElementById('next').disabled = false;
-    };
-  });
-  // Restaurar previa
-  if(answers[idx]!=null){
-    const o = document.querySelector(`.opt[data-i="${answers[idx]}"]`);
-    if(o){ o.click(); }
-  }
-}
-
-function prev(){ idx--; viewQ(); }
-function next(){
-  const sel = document.querySelector('input[name=o]:checked');
-  answers[idx] = parseInt(sel.value);
-  if(idx === PREGUNTAS.length-1){ viewResult(); return; }
-  idx++; viewQ();
-}
-
-function viewResult(){
-  let aciertos = 0;
-  PREGUNTAS.forEach((p,i)=>{ if(answers[i]===p.c) aciertos++; });
-  const puntos = aciertos * 5;
-  const lvl = level(puntos);
-
-  const cefrSteps = ['A1','A2','B1','B2','C1','C2'].map(L=>
-    `<div class="cefr-step ${L===lvl?'act '+L:''}">${L}</div>`
-  ).join('');
-
-  const review = PREGUNTAS.map((p,i)=>{
-    const ok = answers[i]===p.c;
-    return `<div class="detail-row"><span>Q${i+1}: ${p.q.slice(0,60)}…</span><span class="${ok?'ok':'ko'}">${ok?'✓':'✗'}</span></div>`;
-  }).join('');
-
-  setHTML(`<div class="head"><h1>📊 Resultado del test</h1><p>${datos.nombre} · ${datos.email}</p></div>
-  <div class="body">
-    <div class="result">
-      <div class="score">${puntos}<span style="font-size:.5em;color:#94a3b8">/50</span></div>
-      <div class="score-sub">${aciertos} de ${PREGUNTAS.length} preguntas correctas</div>
-      <div class="lvl ${lvl}">${lvl}</div>
-      <p style="color:#475569;max-width:480px;margin:0 auto">${LVL_DESC[lvl]}</p>
-      <div class="cefr">${cefrSteps}</div>
-
-      <div class="detail">
-        <h3>Detalle de respuestas</h3>
-        ${review}
+<div class="mock-banner">⚠️ Mockup ilustrativo · proyecto: <b>Cuestionario online inglés</b></div>
+<header class="top">
+  <div class="brand">🇬🇧 CEFR Adaptive Test</div>
+  <nav><a href="#">Inicio</a><a href="#">Demo</a><a href="#">Código</a><a href="../index.html">← Volver</a></nav>
+</header>
+<main>
+  <h1>🇬🇧 CEFR Adaptive Test</h1>
+  <p class="sub">Test A1-C2 adaptativo con desglose por destreza</p>
+  
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span class="tag">Pregunta 12/30</span>
+        <span class="tag">Nivel estimado: B2</span>
       </div>
-
-      <div style="display:flex;gap:8px;margin-top:18px">
-        <button class="btn sec" onclick="viewIntro()">Empezar de nuevo</button>
-        <button class="btn" onclick="alert('Resultado guardado en SQLite (mockup)')">💾 Guardar resultado</button>
+      <div style="height:6px;background:#eee;border-radius:99px;overflow:hidden;margin-bottom:14px">
+        <div style="width:40%;height:100%;background:linear-gradient(90deg,#012169,#c8102e)"></div>
+      </div>
+      <h3 style="color:var(--primary)">Choose the correct option</h3>
+      <p>If I _____ more time, I would learn another language.</p>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label class="card" style="padding:8px;cursor:pointer"><input type="radio" name="q"> have</label>
+        <label class="card" style="padding:8px;cursor:pointer;border-color:#012169"><input type="radio" name="q" checked> had</label>
+        <label class="card" style="padding:8px;cursor:pointer"><input type="radio" name="q"> would have</label>
+        <label class="card" style="padding:8px;cursor:pointer"><input type="radio" name="q"> have had</label>
+      </div>
+      <button style="margin-top:10px;background:#012169;color:#fff;border:0;padding:8px 18px;border-radius:4px">Siguiente →</button>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <div class="card"><h3>Resultado final (preview)</h3>
+        <div style="font-size:13px;color:var(--muted);line-height:1.9">Listening: <b>B2</b><br>Reading: <b>C1</b><br>Grammar: <b>B2</b><br>Vocabulary: <b>B1+</b></div>
+      </div>
+      <div class="card"><h3>Admin</h3>
+        <span class="tag">test_nivel.sqlite</span>
+        <span class="tag">banco_preguntas.csv</span>
       </div>
     </div>
-  </div>`);
-}
-
-viewIntro();
-</script>
+    <ul class="files"><li>001-leer csv.php</li><li>006-guardar y evaluar.php</li><li>admin.php</li><li>test_nivel.sqlite</li></ul>
+    
+</main>
+<footer class="foot">Stack: <b>PHP · SQLite · CSV banco de preguntas</b> · slug <code>dam-019-cuestionario-ingles</code></footer>
 </body>
 </html>

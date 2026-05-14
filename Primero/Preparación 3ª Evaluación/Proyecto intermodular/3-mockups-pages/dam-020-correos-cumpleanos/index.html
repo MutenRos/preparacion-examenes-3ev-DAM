@@ -2,192 +2,81 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Felicitador de cumpleaños · DAM</title>
+<title>Correos de cumpleaños · mockup</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#f4f6fb;color:#1f2937;line-height:1.5}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:34px 24px;text-align:center}
-header h1{font-size:1.9rem;margin-bottom:6px}
-header p{opacity:.85}
-.layout{max-width:1100px;margin:18px auto;padding:0 22px;display:grid;grid-template-columns:1.1fr 1.4fr;gap:20px}
-@media(max-width:780px){.layout{grid-template-columns:1fr}}
-.panel{background:#fff;border-radius:12px;padding:22px 24px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.panel h2{font-size:1.05em;margin-bottom:14px;color:#374151;display:flex;align-items:center;gap:8px}
-.fuente{font-size:.78em;background:#eef2ff;color:#4338ca;padding:8px 12px;border-radius:6px;margin-bottom:14px;font-family:ui-monospace,monospace;word-break:break-all}
-table{width:100%;border-collapse:collapse;font-size:.9em}
-th{background:#f9fafb;padding:10px;text-align:left;font-weight:600;color:#4b5563;font-size:.82em;border-bottom:2px solid #e5e7eb}
-td{padding:10px;border-bottom:1px solid #f3f4f6}
-tr.cumple{background:linear-gradient(90deg,#fef3c7,#fff7e8);position:relative}
-tr.cumple td:first-child{font-weight:600;color:#92400e}
-.badge{display:inline-block;padding:2px 8px;border-radius:10px;background:#fef3c7;color:#92400e;font-size:.72em;font-weight:600;margin-left:6px}
-.act{padding:5px 11px;background:#4f46e5;color:#fff;border:0;border-radius:5px;font-size:.78em;cursor:pointer;font-weight:600;font-family:inherit}
-.act:hover{background:#4338ca}
-.act:disabled{opacity:.5;cursor:default}
-.act.sent{background:#10b981}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;font-size:.82em}
-.kpi{background:#f9fafb;border-radius:6px;padding:10px;text-align:center}
-.kpi small{color:#6b7280;display:block}
-.kpi b{font-size:1.3em;color:#4f46e5}
-.kpi.cumple b{color:#dc2626}
-.toolbar{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.toolbar button{padding:9px 14px;border:1px solid #d1d5db;background:#fff;border-radius:6px;cursor:pointer;font-size:.85em;font-family:inherit;font-weight:600}
-.toolbar button:hover{background:#f9fafb}
-.toolbar button.go{background:#10b981;color:#fff;border-color:#10b981}
-.preview-iframe{background:#f4f6fb;border-radius:10px;padding:14px;max-height:540px;overflow-y:auto;font-family:Arial,Helvetica,sans-serif;color:#1f2937}
-.code-block{background:#0f172a;color:#86efac;padding:14px 18px;border-radius:7px;font-family:ui-monospace,monospace;font-size:.78em;overflow-x:auto;margin-top:14px;line-height:1.55}
-.code-block .com{color:#64748b}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:11px 20px;border-radius:7px;font-size:.9em;display:none;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:99}
-.toast.show{display:block;animation:in .25s ease}
-@keyframes in{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+  :root {
+    --bg:#fff7f0; --fg:#1d2330; --muted:#6a7388;
+    --primary:#d62828; --accent:#f77f00; --card:#fff;
+    --line:#e3e7ee;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+  .mock-banner{background:#111;color:#ffe066;padding:6px 14px;font-size:12px;text-align:center}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary);color:#fff;border-bottom:3px solid var(--accent)}
+  .top .brand{font-weight:800;letter-spacing:.3px}
+  .top nav a{color:#fff;text-decoration:none;margin-left:18px;opacity:.85;font-size:14px}
+  .top nav a:hover{opacity:1}
+  main{max-width:1100px;margin:0 auto;padding:26px 22px 60px}
+  h1{margin:6px 0 4px;font-size:30px}
+  .sub{color:var(--muted);margin:0 0 22px}
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .card h3{margin:0 0 6px;font-size:15px;color:var(--primary)}
+  .pill{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;font-size:11px;margin-right:4px}
+  pre{background:#0d1117;color:#c9d1d9;padding:12px;border-radius:8px;overflow:auto;font-size:12px;margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+  th{background:var(--bg);color:var(--muted);font-weight:600}
+  .foot{margin-top:30px;padding:14px 22px;background:#111;color:#aaa;font-size:12px;text-align:center}
+  .foot b{color:var(--accent)}
+  .kpi{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi .k{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);padding:10px;border-radius:10px}
+  .kpi .k b{display:block;color:var(--primary);font-size:22px}
+  .kpi .k span{color:var(--muted);font-size:11px}
+  .row{display:flex;gap:12px}
+  .row>*{flex:1}
+  .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:4px;color:var(--muted)}
+  ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
+  ul.files li{padding:3px 0;color:var(--muted)}
+  ul.files li::before{content:"📄 ";margin-right:4px}
 </style>
 </head>
 <body>
-<div class="mock-banner">🧪 <strong>Demo</strong> · Pipeline real: CSV de Google Sheets → detectar cumples del día → enviar email HTML por SMTP · Fechas, datos y envío simulados</div>
-
-<header>
-  <h1>🎂 Felicitador automático</h1>
-  <p>Cada día arranca por cron, lee el Sheet, manda el email a quien cumpla años</p>
+<div class="mock-banner">⚠️ Mockup ilustrativo · proyecto: <b>Correos de cumpleaños</b></div>
+<header class="top">
+  <div class="brand">🎂 Felicitador automático</div>
+  <nav><a href="#">Inicio</a><a href="#">Demo</a><a href="#">Código</a><a href="../index.html">← Volver</a></nav>
 </header>
-
-<div class="layout">
-  <div class="panel">
-    <h2>📋 Lista de cumpleaños</h2>
-    <div class="fuente">📊 Fuente: docs.google.com/.../pub?output=csv</div>
-
-    <div class="kpis">
-      <div class="kpi"><small>Total contactos</small><b id="kTotal">0</b></div>
-      <div class="kpi cumple"><small>Cumplen hoy</small><b id="kHoy">0</b></div>
-      <div class="kpi"><small>Enviados</small><b id="kEnv">0</b></div>
+<main>
+  <h1>🎂 Felicitador automático</h1>
+  <p class="sub">Lee Google Sheets a las 9:00 y manda email a los que cumplen hoy</p>
+  
+    <div class="row">
+      <div class="card"><h3>📋 Hoja de cálculo</h3>
+        <table>
+          <tr><th>nombre</th><th>email</th><th>fecha</th></tr>
+          <tr style="background:#fff3c4"><td>Ana López</td><td>ana@x.com</td><td><b>04/11</b> 🎉</td></tr>
+          <tr><td>Luis Pérez</td><td>luis@x.com</td><td>15/12</td></tr>
+          <tr><td>Marta Gil</td><td>marta@x.com</td><td>22/03</td></tr>
+          <tr style="background:#fff3c4"><td>Pablo Ruiz</td><td>pablo@x.com</td><td><b>04/11</b> 🎉</td></tr>
+        </table>
+      </div>
+      <div class="card"><h3>📨 Email enviado (preview)</h3>
+        <div style="background:#fff;border:1px solid var(--line);padding:10px;font-size:13px;border-radius:6px">
+          <b>Para:</b> ana@x.com<br>
+          <b>Asunto:</b> 🎂 ¡Feliz cumpleaños, Ana!<br><hr style="border:0;border-top:1px solid var(--line);margin:8px 0">
+          Querida Ana, te deseamos un día estupendo lleno de risas y tarta. 🎈🎁<br>— El equipo
+        </div>
+      </div>
     </div>
-
-    <table>
-      <thead><tr><th>Nombre</th><th>Fecha nac.</th><th>Edad</th><th></th></tr></thead>
-      <tbody id="tbody"></tbody>
-    </table>
-
-    <div class="toolbar">
-      <button onclick="recargar()">🔄 Recargar CSV</button>
-      <button class="go" onclick="enviarTodos()">📧 Enviar todos los del día</button>
+    <div class="card" style="margin-top:12px;background:#0d1117;color:#c9d1d9"><h3 style="color:#f77f00">⏰ cron</h3>
+      <pre style="background:transparent;color:#c9d1d9">0 9 * * *  /usr/bin/python3 /home/jose/cumple/004-enviar correo.py</pre>
     </div>
-
-    <div class="code-block"><span class="com"># 005-correo HTML.py · cron diario 8:00</span>
-data = get_csv_as_dict(URL)
-today = date.today()
-for row in data:
-    if is_birthday_today(parse(row["Birth Date"]), today):
-        msg = build_birthday_message(...)
-        send_email_smtp(msg)</div>
-  </div>
-
-  <div class="panel">
-    <h2>✉️ Vista previa del email</h2>
-    <p style="font-size:.82em;color:#6b7280;margin-bottom:10px">Selecciona un destinatario y pulsa "Enviar" para ver/enviar.</p>
-
-    <div class="preview-iframe">
-      <table style="width:100%;border-collapse:collapse;background:#f4f6fb" cellpadding="0">
-        <tr><td align="center" style="padding:30px 10px">
-          <table style="width:100%;max-width:580px;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-            <tr><td style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:36px 26px;text-align:center;color:#fff">
-              <div style="font-size:42px;margin-bottom:8px">🎉</div>
-              <h1 style="margin:0;font-size:26px">¡Feliz cumpleaños!</h1>
-            </td></tr>
-            <tr><td style="padding:32px 26px 16px">
-              <p style="margin:0 0 16px;font-size:16px">Hola <strong id="prevNombre">—</strong>,</p>
-              <p style="margin:0 0 16px;font-size:15px;color:#374151">Hoy es un día especial, porque cumples <strong id="prevEdad">—</strong>.</p>
-              <p style="margin:0 0 16px;font-size:15px;color:#374151">Queremos enviarte nuestra felicitación y desearte una jornada llena de alegría, buenos momentos y personas importantes a tu alrededor.</p>
-              <table style="width:100%;border-collapse:collapse;margin:0 0 24px"><tr><td style="background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:18px;text-align:center">
-                <div style="font-size:13px;color:#6366f1;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px">Hoy celebramos</div>
-                <div id="prevCard" style="font-size:24px;font-weight:bold;color:#312e81">—</div>
-                <div id="prevCardEdad" style="font-size:16px;color:#4338ca;margin-top:4px">— años</div>
-              </td></tr></table>
-              <p style="margin:0;font-size:15px;color:#374151">Recibe un cordial saludo y nuestros mejores deseos.</p>
-            </td></tr>
-            <tr><td style="padding:14px 26px 30px"><p style="margin:0;font-size:13px;color:#6b7280;text-align:center">Este mensaje ha sido enviado con motivo de tu cumpleaños.</p></td></tr>
-          </table>
-        </td></tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-// Datos mock
-const HOY = new Date();
-const fmt = d=>d.toISOString().slice(0,10);
-const setBday = (m,d,year)=>{const x=new Date(year,m-1,d);return fmt(x);};
-const isToday = b=>{const x=new Date(b);return x.getMonth()===HOY.getMonth() && x.getDate()===HOY.getDate();};
-const edad = b=>{const x=new Date(b);let a=HOY.getFullYear()-x.getFullYear();if((HOY.getMonth(),HOY.getDate())<(x.getMonth(),x.getDate()))a--;return a;};
-
-// Generar 8 contactos: 2 cumplen hoy, 6 no
-const PEOPLE = [
-  {nombre:"Carmen Ruiz", email:"carmen@ejemplo.com", nac:setBday(HOY.getMonth()+1,HOY.getDate(),1985)},
-  {nombre:"David López", email:"david@ejemplo.com", nac:setBday(HOY.getMonth()+1,HOY.getDate(),1992)},
-  {nombre:"Ana García", email:"ana@ejemplo.com", nac:"1990-03-12"},
-  {nombre:"Juan Pérez", email:"juan@ejemplo.com", nac:"1988-07-22"},
-  {nombre:"Laura Martín", email:"laura@ejemplo.com", nac:"1995-11-08"},
-  {nombre:"Pedro Sanz", email:"pedro@ejemplo.com", nac:"1982-01-30"},
-  {nombre:"Lucía Pérez", email:"lucia@ejemplo.com", nac:"1998-09-14"},
-  {nombre:"Marta Jiménez", email:"marta@ejemplo.com", nac:"1979-05-03"}
-];
-let enviados = 0;
-
-function pintar(){
-  const tb = document.getElementById('tbody');
-  tb.innerHTML = '';
-  let cumples = 0;
-  PEOPLE.forEach((p,i)=>{
-    const tr = document.createElement('tr');
-    const c = isToday(p.nac);
-    if(c){ tr.classList.add('cumple'); cumples++; }
-    const a = edad(p.nac);
-    tr.innerHTML = `<td>${p.nombre}${c?' <span class="badge">🎂 hoy</span>':''}<br><small style="color:#6b7280">${p.email}</small></td>
-      <td>${p.nac}</td><td>${a}</td>
-      <td>${c ? `<button class="act" data-i="${i}" onclick="enviar(${i},this)">📧 Enviar</button>` : '—'}</td>`;
-    tb.appendChild(tr);
-    if(c) preview(p,a);
-  });
-  document.getElementById('kTotal').textContent = PEOPLE.length;
-  document.getElementById('kHoy').textContent = cumples;
-  document.getElementById('kEnv').textContent = enviados;
-}
-function preview(p,a){
-  document.getElementById('prevNombre').textContent = p.nombre;
-  document.getElementById('prevEdad').textContent = a+' años';
-  document.getElementById('prevCard').textContent = p.nombre.split(' ')[0];
-  document.getElementById('prevCardEdad').textContent = a+' años';
-}
-function enviar(i, btn){
-  if(btn){ btn.disabled = true; btn.textContent = '⏳ Enviando…'; }
-  setTimeout(()=>{
-    enviados++;
-    if(btn){ btn.classList.add('sent'); btn.textContent = '✓ Enviado'; }
-    document.getElementById('kEnv').textContent = enviados;
-    toast('Email enviado a '+PEOPLE[i].email);
-  }, 700);
-}
-function enviarTodos(){
-  PEOPLE.forEach((p,i)=>{
-    if(isToday(p.nac)){
-      const btn = document.querySelector(`button[data-i="${i}"]`);
-      if(btn && !btn.disabled) enviar(i, btn);
-    }
-  });
-}
-function recargar(){
-  toast('CSV recargado de Google Sheets');
-  pintar();
-}
-function toast(t){
-  const x = document.getElementById('toast');
-  x.textContent = '✓ '+t;
-  x.classList.add('show');
-  setTimeout(()=>x.classList.remove('show'),1700);
-}
-pintar();
-</script>
+    <ul class="files"><li>001-direccion de la hoja de calculo.py</li><li>004-enviar correo.py</li><li>post.md</li></ul>
+    
+</main>
+<footer class="foot">Stack: <b>Python · gspread · smtplib · Google Sheets · cron</b> · slug <code>dam-020-correos-cumpleanos</code></footer>
 </body>
 </html>

@@ -1,127 +1,77 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RAG · Búsqueda con IA · DAM</title>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>RAG · mockup</title>
 <style>
-:root{--bg:#0c1220;--panel:#111a2e;--border:#1f2a44;--text:#e2e8f0;--muted:#94a3b8;--brand:#06b6d4;--accent:#8b5cf6}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-.app{display:grid;grid-template-columns:260px 1fr;height:calc(100vh - 32px)}
-.sb{background:var(--panel);border-right:1px solid var(--border);padding:18px 16px;overflow:auto;display:flex;flex-direction:column;gap:18px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05em;color:var(--brand)}
-.brand .logo{width:32px;height:32px;background:linear-gradient(135deg,var(--brand),var(--accent));border-radius:8px;display:grid;place-items:center;color:#fff}
-.docs h4{font-size:.7em;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
-.docs h4 .b{background:#1e293b;color:var(--brand);padding:2px 8px;border-radius:20px;font-size:.85em;font-weight:600}
-.doc{padding:9px 11px;border-radius:6px;background:#172033;margin-bottom:6px;font-size:.85em;display:flex;align-items:center;gap:8px;cursor:pointer}
-.doc:hover{background:#1e293b}
-.doc .ic{flex-shrink:0;color:var(--brand)}
-.doc .meta{color:var(--muted);font-size:.78em;margin-top:2px}
-.doc.act{outline:1px solid var(--brand)}
-.add{padding:10px;border:1px dashed var(--border);border-radius:6px;text-align:center;color:var(--muted);font-size:.85em;cursor:pointer}
-.add:hover{border-color:var(--brand);color:var(--brand)}
-.status{margin-top:auto;font-size:.78em;color:var(--muted);background:#172033;padding:10px 12px;border-radius:6px}
-.status .row{display:flex;justify-content:space-between;margin-bottom:4px}
-.status b{color:var(--text)}
-.main{display:flex;flex-direction:column;overflow:hidden}
-.query-bar{padding:18px 24px;border-bottom:1px solid var(--border);background:var(--panel)}
-.query-bar .input{display:flex;gap:8px;background:#0f172a;border:1px solid var(--border);border-radius:8px;padding:10px 14px}
-.query-bar input{flex:1;background:transparent;border:none;color:var(--text);font-family:inherit;font-size:.95em;outline:none}
-.query-bar button{background:linear-gradient(135deg,var(--brand),var(--accent));border:none;color:#fff;padding:6px 16px;border-radius:5px;font-weight:600;font-family:inherit;cursor:pointer}
-.query-bar .ex{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-.query-bar .ex span{font-size:.78em;color:var(--muted);background:#172033;padding:3px 10px;border-radius:50px;cursor:pointer}
-.body{flex:1;overflow-y:auto;padding:24px;display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-content:start}
-.answer{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:20px}
-.answer h3{font-size:.78em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
-.answer h3::before{content:"✦";color:var(--accent)}
-.answer p{line-height:1.7;font-size:.94em;margin-bottom:12px}
-.answer sup{color:var(--brand);background:#1e293b;padding:1px 6px;border-radius:10px;font-size:.7em;font-weight:700;cursor:pointer;margin:0 2px}
-.answer .toolbar{display:flex;gap:6px;margin-top:14px}
-.answer .toolbar button{background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:5px;font-family:inherit;font-size:.82em;cursor:pointer}
-.chunks h3{font-size:.78em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;letter-spacing:.5px;display:flex;justify-content:space-between}
-.chunks h3 .b{color:var(--brand);font-weight:700}
-.chunk{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:10px;font-size:.86em}
-.chunk .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.82em}
-.chunk .src{color:var(--brand);font-weight:600}
-.chunk .score{display:flex;align-items:center;gap:6px;color:var(--muted)}
-.chunk .score b{color:var(--text)}
-.bar{display:inline-block;width:50px;height:5px;background:#1e293b;border-radius:3px;overflow:hidden}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--brand))}
-.chunk p{color:#cbd5e1;line-height:1.6}
-.chunk mark{background:rgba(6,182,212,.25);color:var(--brand);padding:0 3px;border-radius:2px}
-.chunk .meta{margin-top:8px;color:var(--muted);font-size:.78em}
-@media(max-width:1000px){.app{grid-template-columns:1fr}.body{grid-template-columns:1fr}.sb{display:none}}
-</style></head><body>
-<div class="mock-banner">🔎 <strong>Demo</strong> · RAG · ChromaDB + embeddings + LLM local (Ollama) · datos simulados</div>
-<div class="app">
-<aside class="sb">
-  <div class="brand"><div class="logo">R</div>RAG Studio</div>
-  <div class="docs">
-    <h4>Corpus indexado <span class="b">142 chunks</span></h4>
-    <div class="doc act"><span class="ic">📄</span><div><div>Manual_DAM_2025.pdf</div><div class="meta">62 chunks · 240 KB</div></div></div>
-    <div class="doc"><span class="ic">📄</span><div><div>Apuntes_Programacion.md</div><div class="meta">38 chunks · 88 KB</div></div></div>
-    <div class="doc"><span class="ic">📄</span><div><div>BasesDatos_T1-T6.pdf</div><div class="meta">31 chunks · 142 KB</div></div></div>
-    <div class="doc"><span class="ic">📋</span><div><div>FAQ_Centro.txt</div><div class="meta">11 chunks · 14 KB</div></div></div>
-    <div class="add">+ Subir documento</div>
-  </div>
-  <div class="status">
-    <div class="row"><span>Modelo embeds:</span><b>nomic-embed-text</b></div>
-    <div class="row"><span>LLM:</span><b>qwen2.5:7b</b></div>
-    <div class="row"><span>Vector DB:</span><b>Chroma</b></div>
-    <div class="row"><span>Top-K:</span><b>4</b></div>
-    <div class="row"><span>Estado:</span><b style="color:#22c55e">● activo</b></div>
-  </div>
-</aside>
-<section class="main">
-  <div class="query-bar">
-    <div class="input">
-      <input value="¿Qué módulos componen el ciclo de DAM en primer curso?">
-      <button>Preguntar →</button>
+  :root {
+    --bg:#f0f9ff; --fg:#1d2330; --muted:#6a7388;
+    --primary:#0288d1; --accent:#03a9f4; --card:#fff;
+    --line:#e3e7ee;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+  .mock-banner{background:#111;color:#ffe066;padding:6px 14px;font-size:12px;text-align:center}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary);color:#fff;border-bottom:3px solid var(--accent)}
+  .top .brand{font-weight:800;letter-spacing:.3px}
+  .top nav a{color:#fff;text-decoration:none;margin-left:18px;opacity:.85;font-size:14px}
+  .top nav a:hover{opacity:1}
+  main{max-width:1100px;margin:0 auto;padding:26px 22px 60px}
+  h1{margin:6px 0 4px;font-size:30px}
+  .sub{color:var(--muted);margin:0 0 22px}
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  .card h3{margin:0 0 6px;font-size:15px;color:var(--primary)}
+  .pill{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;font-size:11px;margin-right:4px}
+  pre{background:#0d1117;color:#c9d1d9;padding:12px;border-radius:8px;overflow:auto;font-size:12px;margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+  th{background:var(--bg);color:var(--muted);font-weight:600}
+  .foot{margin-top:30px;padding:14px 22px;background:#111;color:#aaa;font-size:12px;text-align:center}
+  .foot b{color:var(--accent)}
+  .kpi{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi .k{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);padding:10px;border-radius:10px}
+  .kpi .k b{display:block;color:var(--primary);font-size:22px}
+  .kpi .k span{color:var(--muted);font-size:11px}
+  .row{display:flex;gap:12px}
+  .row>*{flex:1}
+  .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);padding:2px 7px;border-radius:4px;color:var(--muted)}
+  ul.files{list-style:none;padding:0;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px}
+  ul.files li{padding:3px 0;color:var(--muted)}
+  ul.files li::before{content:"📄 ";margin-right:4px}
+</style>
+</head>
+<body>
+<div class="mock-banner">⚠️ Mockup ilustrativo · proyecto: <b>RAG</b></div>
+<header class="top">
+  <div class="brand">📚 Buscador RAG sobre apuntes</div>
+  <nav><a href="#">Inicio</a><a href="#">Demo</a><a href="#">Código</a><a href="../index.html">← Volver</a></nav>
+</header>
+<main>
+  <h1>📚 Buscador RAG sobre apuntes</h1>
+  <p class="sub">ChromaDB + embeddings + LLM con citas verificables</p>
+  
+    <div class="card">
+      <input value="¿qué es una restricción FOREIGN KEY?" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:4px;font-size:14px">
+      <button style="margin-top:8px;background:#0288d1;color:#fff;border:0;padding:6px 14px;border-radius:4px">Buscar</button>
     </div>
-    <div class="ex">
-      <span>¿Cómo se calcula la nota final?</span>
-      <span>¿Qué es una transacción ACID?</span>
-      <span>Diferencias entre Flask y Django</span>
-    </div>
-  </div>
-  <div class="body">
-    <div class="answer">
-      <h3>Respuesta del LLM</h3>
-      <p>El ciclo de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> en primer curso está compuesto por seis módulos profesionales <sup>1</sup>:</p>
-      <p>• <strong>Programación</strong> (8 h/sem) — fundamentos de Java y POO<sup>1</sup>.<br>
-      • <strong>Bases de datos</strong> (6 h/sem) — modelo relacional, SQL y MySQL<sup>2</sup>.<br>
-      • <strong>Lenguajes de marcas y SGI</strong> (4 h/sem) — XML, HTML, JSON<sup>1</sup>.<br>
-      • <strong>Entornos de desarrollo</strong> (3 h/sem) — IDEs, control de versiones, pruebas<sup>3</sup>.<br>
-      • <strong>Sistemas informáticos</strong> (5 h/sem) — administración y redes<sup>1</sup>.<br>
-      • <strong>Formación y orientación laboral</strong> (3 h/sem)<sup>4</sup>.</p>
-      <p>La carga total es de <strong>29 horas semanales</strong> repartidas en tres trimestres. El primer curso es presencial completo<sup>1</sup>.</p>
-      <div class="toolbar">
-        <button>📋 Copiar</button><button>👍</button><button>👎</button><button>🔁 Regenerar</button>
+    <div class="card" style="margin-top:12px;border-left:4px solid #0288d1">
+      <h3>🤖 Respuesta</h3>
+      <p style="font-size:14px">Una <b>FOREIGN KEY</b> es una restricción de integridad referencial que obliga a que el valor de una columna exista como clave primaria en otra tabla [1][2].</p>
+      <div style="background:#e3f2fd;padding:8px;border-radius:4px;font-size:12px;color:var(--muted)">
+        ⏱ 1.4s · embeddings: 0.3s · LLM: 1.1s · 0 alucinaciones
       </div>
     </div>
-    <div class="chunks">
-      <h3>Chunks recuperados <span class="b">4 / 142</span></h3>
-      <div class="chunk">
-        <div class="head"><span class="src">📄 Manual_DAM_2025.pdf · p.12</span><span class="score">sim <span class="bar"><i style="width:94%"></i></span><b>0.94</b></span></div>
-        <p>"El primer curso de <mark>DAM</mark> se estructura en <mark>seis módulos profesionales</mark> con un total de 29 horas lectivas semanales. La programación es el módulo de mayor peso..."</p>
-        <div class="meta">chunk #18 · 380 tokens</div>
-      </div>
-      <div class="chunk">
-        <div class="head"><span class="src">📄 Manual_DAM_2025.pdf · p.18</span><span class="score">sim <span class="bar"><i style="width:88%"></i></span><b>0.88</b></span></div>
-        <p>"...<mark>Bases de datos</mark> con 6 horas semanales aborda el modelo relacional, el lenguaje <mark>SQL</mark>, normalización y administración de <mark>MySQL</mark>..."</p>
-        <div class="meta">chunk #27 · 340 tokens</div>
-      </div>
-      <div class="chunk">
-        <div class="head"><span class="src">📄 Apuntes_Programacion.md</span><span class="score">sim <span class="bar"><i style="width:76%"></i></span><b>0.76</b></span></div>
-        <p>"En <mark>Entornos de desarrollo</mark> se introduce IntelliJ/Eclipse, Git, JUnit y la documentación con JavaDoc..."</p>
-        <div class="meta">chunk #5 · 290 tokens</div>
-      </div>
-      <div class="chunk">
-        <div class="head"><span class="src">📋 FAQ_Centro.txt</span><span class="score">sim <span class="bar"><i style="width:68%"></i></span><b>0.68</b></span></div>
-        <p>"...incluye también el módulo de <mark>Formación y orientación laboral</mark> (FOL) común a todos los ciclos de FP..."</p>
-        <div class="meta">chunk #3 · 210 tokens</div>
-      </div>
+    <h3 style="margin-top:14px;color:var(--primary)">Fuentes</h3>
+    <div class="row">
+      <div class="card" style="background:#e1f5fe"><h3>[1] sql-bd.md</h3><p style="font-size:12px">"La cláusula FOREIGN KEY referencia la PK de otra tabla…"</p></div>
+      <div class="card" style="background:#e1f5fe"><h3>[2] integridad.md</h3><p style="font-size:12px">"…garantiza que no exista una huérfana en la tabla hija."</p></div>
     </div>
-  </div>
-</section>
-</div>
-</body></html>
+    <ul class="files"><li>001-ollama perro.md</li><li>009-guardo en chromadb.py</li><li>012-RAG e IA.py</li><li>chroma_db/</li></ul>
+    
+</main>
+<footer class="foot">Stack: <b>ChromaDB · nomic-embed-text · Ollama qwen2.5 · Flask</b> · slug <code>dam-032-rag</code></footer>
+</body>
+</html>
