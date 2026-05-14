@@ -1,157 +1,179 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Agente WhatsApp · Instituto TAME</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agente WhatsApp con IA · jocarsa · DAM</title>
 <style>
-*{box-sizing:border-box}
-html,body{width:100%;height:100%;margin:0;padding:0}
-body{
-  display:flex;justify-content:center;align-items:center;
-  font-family:monospace;
-  background:url(blancotrans.png),url(blancotrans.png),url(fondo.jpg);
-  background-size:cover;background-position:center;
-  overflow:hidden;
-}
-.mock-banner{
-  position:fixed;top:0;left:0;right:0;
-  background:#fef3c7;border-bottom:1px solid #f59e0b;
-  padding:6px 14px;text-align:center;font:500 .8rem/1.4 system-ui,sans-serif;color:#78350f;z-index:99
-}
-main{
-  width:340px;height:72px;
-  border:1px solid rgba(255,255,255,0.18);
-  padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;
-  overflow:hidden;background:rgba(0,0,0,0.45);
-  transition:height 0.45s ease,box-shadow 0.3s ease,background 0.3s ease;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.35);
-}
-main.abierto{
-  height:540px;justify-content:space-between;
-  background:rgba(0,0,0,0.52);box-shadow:0 18px 40px rgba(0,0,0,0.45);
-}
-section{
-  display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;
-  overflow-y:auto;overflow-x:hidden;padding-right:6px;
-  opacity:0;transform:translateY(8px);
-  transition:opacity 0.3s ease,transform 0.3s ease;
-  pointer-events:none;scroll-behavior:smooth;
-}
-main.abierto section{opacity:1;transform:translateY(0);pointer-events:auto}
-section::-webkit-scrollbar{width:8px}
-section::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.20);border-radius:10px}
-input{
-  width:100%;border:1px solid rgba(255,255,255,0.14);
-  padding:12px 14px;outline:none;color:white;font-family:monospace;
-  background:rgba(255,255,255,0.08);border-radius:10px;
-  flex-shrink:0;
-}
-input::placeholder{color:rgba(255,255,255,0.55)}
-article{
-  padding:10px 12px;border-radius:12px;max-width:82%;width:fit-content;
-  word-break:break-word;line-height:1.45;
-  box-shadow:0 4px 10px rgba(0,0,0,0.12);
-  animation:aparecer 0.25s ease;
-}
-.p{background:rgb(200,255,200);border-radius:6px 12px 12px 12px;align-self:flex-start;color:#1f2a1f}
-.r{background:rgb(200,255,255);border-radius:12px 6px 12px 12px;align-self:flex-end;color:#1b2a2a}
-@keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.typing{align-self:flex-end;background:rgb(200,255,255);padding:8px 14px;border-radius:12px 6px 12px 12px;display:inline-flex;gap:3px}
-.typing i{width:6px;height:6px;border-radius:50%;background:#1b2a2a;animation:t 1.2s ease-in-out infinite}
-.typing i:nth-child(2){animation-delay:.15s}
-.typing i:nth-child(3){animation-delay:.3s}
-@keyframes t{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
-</style>
-</head>
+:root{--bg:#0b141a;--panel:#111b21;--panel2:#202c33;--border:#2a3942;--text:#e9edef;--muted:#8696a0;--brand:#25d366;--accent:#34b7f1;--out:#005c4b;--in:#202c33;--warn:#f59e0b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
+.mock-banner{background:#3b2f00;border-bottom:1px solid var(--warn);padding:8px;text-align:center;font:500 .85rem/1.4 ui-sans-serif,sans-serif;color:#fde68a}
+
+.app{display:grid;grid-template-columns:300px 1fr 320px;height:calc(100vh - 38px);min-height:680px}
+.sidebar{background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column}
+.sidebar header{padding:14px;border-bottom:1px solid var(--border);background:var(--panel2);display:flex;justify-content:space-between;align-items:center}
+.sidebar header h1{font-size:1em;display:flex;align-items:center;gap:8px}
+.sidebar header h1 .lo{width:30px;height:30px;border-radius:50%;background:var(--brand);display:grid;place-items:center;font-size:1em;color:#053}
+.sidebar header .mode{font-size:.72em;background:var(--brand);color:#053;padding:3px 8px;border-radius:50px;font-weight:700}
+.search{padding:8px 12px;background:var(--panel)}
+.search input{width:100%;background:var(--panel2);border:none;color:var(--text);padding:7px 12px;border-radius:8px;font:inherit;font-size:.9em}
+.chats{flex:1;overflow:auto}
+.chat-item{display:flex;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;align-items:center}
+.chat-item.act{background:var(--panel2)}
+.chat-item:hover{background:var(--panel2)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;flex-shrink:0}
+.av.bot{background:linear-gradient(135deg,#10b981,#0ea5e9)}
+.chat-item .info{flex:1;min-width:0}
+.chat-item h3{font-size:.92em;display:flex;justify-content:space-between}
+.chat-item h3 span{font-size:.72em;font-weight:400;color:var(--muted)}
+.chat-item p{font-size:.82em;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-item .badge{background:var(--brand);color:#053;font-size:.7em;padding:2px 6px;border-radius:50px;font-weight:700;margin-left:4px}
+
+.main{display:flex;flex-direction:column;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='%23202c33' fill-opacity='.5'><rect width='40' height='40'/></svg>")}
+.main header{padding:12px 18px;background:var(--panel2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.main header .who{display:flex;align-items:center;gap:10px}
+.main header .who h2{font-size:1em}
+.main header .who p{font-size:.78em;color:var(--brand)}
+.main header .toggle{display:flex;gap:6px;font-size:.78em;flex-wrap:wrap;align-items:center}
+.tbtn{padding:6px 12px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text);font-size:.78em;cursor:pointer}
+.tbtn.act.ai{background:rgba(37,211,102,.15);border-color:var(--brand);color:var(--brand)}
+.tbtn.act.human{background:rgba(245,158,11,.15);border-color:var(--warn);color:var(--warn)}
+
+.chat{flex:1;overflow:auto;padding:16px 22px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:65%;padding:8px 12px;border-radius:10px;font-size:.92em;line-height:1.45;position:relative}
+.msg time{display:block;font-size:.65em;color:var(--muted);text-align:right;margin-top:2px}
+.msg.in{background:var(--in);align-self:flex-start;border-top-left-radius:0}
+.msg.out{background:var(--out);align-self:flex-end;border-top-right-radius:0}
+.msg.bot{background:#1f3a4d;align-self:flex-end;border-top-right-radius:0;border-left:3px solid var(--brand)}
+.msg.bot::before{content:"🤖 IA";display:block;font-size:.65em;color:var(--brand);margin-bottom:2px;font-weight:700;letter-spacing:.5px}
+.composer{padding:10px 14px;background:var(--panel2);border-top:1px solid var(--border);display:flex;gap:10px;align-items:center}
+.composer input{flex:1;background:var(--panel);border:none;color:var(--text);padding:10px 14px;border-radius:8px;font:inherit;font-size:.92em}
+.composer button{background:var(--brand);color:#053;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1em;font-weight:700}
+
+.right{background:var(--panel);border-left:1px solid var(--border);overflow:auto}
+.right h2{padding:14px 16px;font-size:.85em;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;border-bottom:1px solid var(--border)}
+.ctx{padding:14px 16px;border-bottom:1px solid var(--border)}
+.ctx .row{display:flex;justify-content:space-between;font-size:.85em;padding:5px 0;color:#cbd5e1}
+.ctx .row b{color:var(--brand)}
+.history{padding:12px 16px;border-bottom:1px solid var(--border)}
+.history .h-item{font-size:.8em;color:var(--muted);padding:4px 0;line-height:1.4}
+.history .h-item b{color:var(--text);display:block}
+.logs{padding:12px 16px}
+.logs pre{font:.74em ui-monospace,monospace;color:#94a3b8;line-height:1.5;background:#0a1217;padding:10px;border-radius:8px;border:1px solid var(--border);max-height:170px;overflow:auto}
+
+footer.foot{text-align:center;padding:14px;color:var(--muted);font-size:.82em;border-top:1px solid var(--border);background:var(--panel)}
+footer.foot code{background:var(--panel2);padding:2px 6px;border-radius:5px;color:var(--brand)}
+@media(max-width:1100px){.app{grid-template-columns:240px 1fr}.right{display:none}}
+@media(max-width:700px){.app{grid-template-columns:1fr}.sidebar{display:none}}
+</style></head>
 <body>
-<div class="mock-banner">🧪 <strong>Demo estática</strong> · Chatbot real del Instituto TAME (matriculación) · Las respuestas son simuladas (Pages no ejecuta PHP/SQLite/IA)</div>
+<div class="mock-banner">⚠️ Mockup estático · panel admin del agente WhatsApp · IA local + intervención humana</div>
 
-<main>
-  <section></section>
-  <input type="text" placeholder="Introduce tu teléfono">
-</main>
+<div class="app">
+  <aside class="sidebar">
+    <header>
+      <h1><span class="lo">📞</span> Agente WhatsApp</h1>
+      <span class="mode">IA ON</span>
+    </header>
+    <div class="search"><input placeholder="🔍  Buscar contacto…"></div>
+    <div class="chats">
+      <div class="chat-item act">
+        <div class="av">AG</div>
+        <div class="info">
+          <h3>Ana García <span>10:42</span></h3>
+          <p>¿Tenéis disponibilidad mañana?</p>
+        </div>
+        <div class="badge">2</div>
+      </div>
+      <div class="chat-item">
+        <div class="av">JM</div>
+        <div class="info">
+          <h3>Juan Martín <span>10:31</span></h3>
+          <p>🤖 He apuntado la cita para el viernes…</p>
+        </div>
+      </div>
+      <div class="chat-item">
+        <div class="av">LR</div>
+        <div class="info">
+          <h3>Lucía Romero <span>09:58</span></h3>
+          <p>Gracias, perfecto</p>
+        </div>
+      </div>
+      <div class="chat-item">
+        <div class="av">MS</div>
+        <div class="info">
+          <h3>Marcos Silva <span>09:12</span></h3>
+          <p>🤖 Te paso el enlace…</p>
+        </div>
+      </div>
+      <div class="chat-item">
+        <div class="av bot">🛟</div>
+        <div class="info">
+          <h3>Pruebas IA <span>ayer</span></h3>
+          <p>Validación de respuestas del modelo</p>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-<script>
-  const entrada = document.querySelector("input");
-  const seccion = document.querySelector("section");
-  const main = document.querySelector("main");
+  <main class="main">
+    <header>
+      <div class="who">
+        <div class="av">AG</div>
+        <div><h2>Ana García</h2><p>● en línea</p></div>
+      </div>
+      <div class="toggle">
+        <span style="color:var(--muted)">modo:</span>
+        <button class="tbtn act ai">🤖 IA automática</button>
+        <button class="tbtn">👤 Modo asistido</button>
+        <button class="tbtn">✋ Tomar control</button>
+      </div>
+    </header>
 
-  let estado = "telefono";
-  const datos = {};
+    <div class="chat">
+      <div class="msg in">Hola, querría información sobre el curso de DAM.<time>10:38</time></div>
+      <div class="msg bot">¡Hola Ana! 👋 Claro, el ciclo DAM dura 2 años, modalidad presencial. Las matrículas para 2026/27 abren el 1 de junio. ¿Quieres que te envíe el folleto en PDF?<time>10:38</time></div>
+      <div class="msg in">Sí por favor. Y otra cosa: ¿tenéis disponibilidad mañana para una visita?<time>10:42</time></div>
+      <div class="msg bot">Te envío el folleto 📎 <i>folleto-DAM-2026.pdf</i><br><br>Para la visita, tengo huecos mañana a las 10:30, 12:00 y 17:00. ¿Cuál te va mejor?<time>10:42</time></div>
+      <div class="msg in">12:00 perfecto<time>10:43</time></div>
+      <div class="msg out">📌 Cita reservada: jueves 12:00 · Ana García<time>10:43</time></div>
+    </div>
 
-  function insertar(texto, clase){
-    const a = document.createElement("article");
-    a.classList.add(clase);
-    a.textContent = texto;
-    seccion.appendChild(a);
-    seccion.scrollTop = seccion.scrollHeight;
-  }
-  function bot(texto, delay){
-    delay = delay || 600;
-    const t = document.createElement("div");
-    t.className = "typing";
-    t.innerHTML = "<i></i><i></i><i></i>";
-    seccion.appendChild(t);
-    seccion.scrollTop = seccion.scrollHeight;
-    setTimeout(function(){ t.remove(); insertar(texto, "r"); }, delay);
-  }
-  function respuestaIA(pregunta){
-    const p = pregunta.toLowerCase();
-    if(p.includes("precio") || p.includes("cuesta") || p.includes("coste"))
-      return "El precio depende de la modalidad. DAM presencial 350€/mes, online 280€/mes. ¿Quieres info detallada al correo?";
-    if(p.includes("horario") || p.includes("hora"))
-      return "Mañana 9:00–14:00 o tarde 16:00–21:00. En "+(datos.curso||"DAM")+" ambas están disponibles.";
-    if(p.includes("inicio") || p.includes("empieza") || p.includes("cuando") || p.includes("cuándo"))
-      return "El próximo grupo de "+(datos.curso||"DAM")+" empieza el 15 de septiembre. Matrícula abierta hasta el 30 de agosto.";
-    if(p.includes("documenta") || p.includes("papeles") || p.includes("requisit"))
-      return "Necesitas DNI, título de Bachillerato o equivalente, y formulario rellenado. ¿Te lo mando a "+(datos.email||"tu correo")+"?";
-    if(p.includes("gracias") || p.includes("ok") || p.includes("vale"))
-      return "Un placer, "+(datos.nombre||"")+". Si necesitas algo más, escríbeme. ¡Buen día!";
-    if(p.includes("hola") || p.includes("buenas"))
-      return "Hola "+(datos.nombre||"")+", soy el asistente del Instituto TAME. ¿En qué puedo ayudarte?";
-    return "En la versión real esto lo respondería el modelo IA vía Ollama. Como demo te apuntaremos un seguimiento a "+(datos.email||"tu correo")+".";
-  }
+    <div class="composer">
+      <input value="✋ La IA está respondiendo. Pulsa &quot;Tomar control&quot; para escribir manualmente." disabled>
+      <button>➤</button>
+    </div>
+  </main>
 
-  entrada.onkeypress = function(t){
-    if(t.charCode !== 13) return;
-    const v = this.value.trim();
-    if(!v) return;
-    this.value = "";
+  <aside class="right">
+    <h2>Contexto del contacto</h2>
+    <div class="ctx">
+      <div class="row"><span>Contacto</span><b>Ana García</b></div>
+      <div class="row"><span>Teléfono</span><b>+34 612 ··· 458</b></div>
+      <div class="row"><span>Primer contacto</span><b>10 may 2026</b></div>
+      <div class="row"><span>Mensajes</span><b>6</b></div>
+      <div class="row"><span>Modelo IA</span><b>qwen2.5:3b</b></div>
+      <div class="row"><span>Tokens hoy</span><b>1.842</b></div>
+    </div>
 
-    if(estado === "telefono"){
-      datos.telefono = v;
-      main.classList.add("abierto");
-      insertar("Mi teléfono es: "+v, "p");
-      bot("Hola 👋. Soy el agente de matriculación del Instituto TAME. No tengo tu teléfono registrado. ¿Cómo te llamas?", 700);
-      estado = "nombre"; entrada.placeholder = "Tu nombre"; return;
-    }
-    if(estado === "nombre"){
-      datos.nombre = v; insertar(v, "p");
-      bot("Encantado, "+v+". ¿Y tus apellidos?", 600);
-      estado = "apellidos"; entrada.placeholder = "Tus apellidos"; return;
-    }
-    if(estado === "apellidos"){
-      datos.apellidos = v; insertar(v, "p");
-      bot("Perfecto. ¿Tu email de contacto?", 600);
-      estado = "email"; entrada.placeholder = "tu@correo.com"; return;
-    }
-    if(estado === "email"){
-      datos.email = v; insertar(v, "p");
-      bot("Genial. ¿En qué curso estás interesado? (DAM, DAW, ASIR, SMR…)", 700);
-      estado = "curso"; entrada.placeholder = "Curso de interés"; return;
-    }
-    if(estado === "curso"){
-      datos.curso = v; insertar(v, "p");
-      bot("✅ He guardado tus datos: "+datos.nombre+" "+datos.apellidos+" · "+datos.email+" · "+v+". Te he enviado un correo de bienvenida (simulado). Ahora puedes preguntarme lo que quieras.", 1000);
-      estado = "conversacion"; entrada.placeholder = "Pregúntame lo que quieras"; return;
-    }
-    if(estado === "conversacion"){
-      insertar(v, "p");
-      bot(respuestaIA(v), 900);
-    }
-  };
-</script>
-</body>
-</html>
+    <h2>Historial reciente</h2>
+    <div class="history">
+      <div class="h-item"><b>📎 Envío de folleto</b>10:42 · folleto-DAM-2026.pdf</div>
+      <div class="h-item"><b>📅 Cita reservada</b>10:43 · jueves 12:00</div>
+      <div class="h-item"><b>💬 Mensaje recibido</b>10:38 · interés en curso DAM</div>
+    </div>
+
+    <h2>Logs IA (admin.sqlite)</h2>
+    <div class="logs"><pre>[10:38:12] in=Ana   tokens=14   intent=info_curso
+[10:38:13] out=bot  tokens=58   latency=1.4s
+[10:42:01] in=Ana   tokens=22   intent=cita
+[10:42:02] out=bot  tokens=46   latency=1.2s
+[10:43:18] action=BOOK_APPOINTMENT
+           date=2026-05-15 12:00
+           customer_id=#142
+[10:43:19] out=conf tokens=15   latency=0.8s</pre></div>
+  </aside>
+</div>
+
+<footer class="foot">
+  Stack: <b>PHP</b> (<code>admin.php</code> · <code>back.php</code>) · <b>SQLite</b> (<code>admin.sqlite</code> · logs por contacto) · <b>Ollama</b> (qwen2.5) · puente <b>whatsapp-web.js</b> · 10 versiones en <code>progresivo/</code>
+</footer>
+</body></html>

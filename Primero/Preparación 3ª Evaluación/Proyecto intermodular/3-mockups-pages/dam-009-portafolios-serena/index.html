@@ -1,103 +1,140 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Portafolios Serena · DAM</title>
+<title>Portafolios Serena · Generador de proyectos con IA · DAM</title>
 <style>
-:root{--bg:#fafaf9;--panel:#fff;--border:#e7e5e4;--text:#1c1917;--muted:#78716c;--brand:#d97706;--accent:#a16207}
+:root{--bg:#0f172a;--panel:#1e293b;--panel2:#0b1220;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;--brand:#f59e0b;--accent:#22c55e}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Georgia,'Times New Roman',serif;color:var(--text);background:var(--bg);min-height:100vh}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 ui-sans-serif,sans-serif;color:#78350f}
-header{background:var(--panel);border-bottom:1px solid var(--border);padding:24px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.brand{display:flex;align-items:center;gap:14px}
-.brand .av{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#d97706,#dc2626);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.4em;font-family:Georgia,serif}
-.brand h1{font-size:1.4em;font-weight:600}
-.brand p{color:var(--muted);font-size:.88em;margin-top:2px}
-nav ul{display:flex;gap:20px;list-style:none;font-family:ui-sans-serif,sans-serif;font-size:.9em}
-nav a{color:var(--muted);text-decoration:none}
-nav a.act{color:var(--brand);font-weight:600;border-bottom:2px solid var(--brand);padding-bottom:4px}
-.hero{padding:48px 36px;background:linear-gradient(135deg,#fef3c7 0%,#fafaf9 100%);text-align:center}
-.hero h2{font-size:2.2em;margin-bottom:10px}
-.hero p{color:var(--muted);font-size:1.05em;max-width:600px;margin:0 auto;line-height:1.6}
-.filters{padding:24px 36px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;font-family:ui-sans-serif,sans-serif;font-size:.88em}
-.filters button{background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 16px;border-radius:50px;cursor:pointer;font-family:inherit}
-.filters button.act{background:var(--brand);color:#fff;border-color:var(--brand)}
-.grid{padding:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;max-width:1300px;margin:0 auto}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
-.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
-.thumb{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.thumb svg{width:100%;height:100%}
-.tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.95);color:var(--brand);padding:3px 10px;border-radius:50px;font-family:ui-sans-serif,sans-serif;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.card-body{padding:16px 18px}
-.card h3{font-size:1.05em;margin-bottom:5px}
-.card .meta{color:var(--muted);font-size:.82em;font-family:ui-sans-serif,sans-serif}
-.card .desc{margin-top:8px;font-size:.88em;color:#44403c;line-height:1.5;font-family:ui-sans-serif,sans-serif}
-.about{padding:48px 36px;background:var(--panel);border-top:1px solid var(--border);text-align:center;font-family:ui-sans-serif,sans-serif;margin-top:24px}
-.about h3{font-family:Georgia,serif;font-size:1.4em;margin-bottom:10px}
-.about p{color:var(--muted);max-width:640px;margin:0 auto 18px;line-height:1.7}
-.contact{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.contact span{background:var(--bg);padding:7px 14px;border-radius:50px;font-size:.85em;color:var(--text);border:1px solid var(--border)}
-footer{text-align:center;padding:22px;color:var(--muted);font-size:.82em;font-family:ui-sans-serif,sans-serif;border-top:1px solid var(--border)}
-</style></head><body>
-<div class="mock-banner">🎨 <strong>Demo</strong> · Portafolio personal · galería de trabajos · estático en GitHub Pages</div>
-<header>
-  <div class="brand">
-    <div class="av">S</div>
-    <div>
-      <h1>Serena · Portafolios</h1>
-      <p>Diseño · Frontend · Ilustración digital</p>
-    </div>
-  </div>
-  <nav><ul>
-    <li><a class="act">Trabajos</a></li>
-    <li><a>Sobre mí</a></li>
-    <li><a>Procesos</a></li>
-    <li><a>Contacto</a></li>
-  </ul></nav>
+body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}
+.mock-banner{background:#451a03;border-bottom:1px solid var(--brand);padding:8px;text-align:center;font:500 .85rem/1.4 ui-sans-serif,sans-serif;color:#fde68a}
+header.top{background:rgba(0,0,0,.3);border-bottom:1px solid var(--border);padding:18px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.15em}
+.brand .av{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#dc2626);display:grid;place-items:center;font-weight:800}
+nav.main-nav{display:flex;gap:14px;font-size:.9em}
+nav.main-nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+nav.main-nav a.act{color:#fff;background:rgba(245,158,11,.18);border-color:var(--brand)}
+.layout{display:grid;grid-template-columns:320px 1fr;gap:18px;padding:22px 30px;max-width:1400px;margin:0 auto}
+.sidebar{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px}
+.sidebar h2{font-size:.85em;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
+.proj{padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);margin-bottom:8px;cursor:pointer}
+.proj:hover{border-color:var(--brand)}
+.proj.act{border-color:var(--brand);background:rgba(245,158,11,.08)}
+.proj h3{font-size:.95em;margin-bottom:3px}
+.proj p{font-size:.78em;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.new-btn{display:block;width:100%;padding:10px;background:var(--brand);color:#0f172a;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-bottom:14px}
+.main{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.crumb{font-size:.82em;color:var(--muted)}
+.crumb b{color:var(--text)}
+.prompt-box{display:flex;flex-direction:column;gap:8px}
+.prompt-box label{font-size:.82em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.prompt-box textarea{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:12px;border-radius:10px;min-height:80px;font:inherit;resize:vertical}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row select{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px}
+.btn{background:var(--accent);color:#0f172a;border:none;padding:10px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn.sec{background:transparent;color:var(--text);border:1px solid var(--border)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pane{background:var(--panel2);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.pane > .ph{background:var(--panel);padding:8px 14px;border-bottom:1px solid var(--border);font-size:.78em;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.pane pre{padding:14px;font-family:'Fira Code',ui-monospace,monospace;font-size:.78em;line-height:1.55;overflow:auto;max-height:340px;color:#cbd5e1;white-space:pre-wrap;word-break:break-word}
+.pane .render{padding:0;background:#fff;color:#0f172a;height:340px;overflow:auto;font-family:sans-serif}
+.kbd{background:var(--panel2);border:1px solid var(--border);padding:2px 8px;border-radius:5px;font-family:monospace;font-size:.78em;color:var(--brand)}
+.exercises{padding:8px 30px 22px;max-width:1400px;margin:0 auto}
+.exercises h2{font-size:.9em;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:12px}
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.ex{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:.82em}
+.ex b{display:block;color:var(--brand);font-size:.72em;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+footer.foot{text-align:center;padding:22px 30px;color:var(--muted);font-size:.85em;border-top:1px solid var(--border);margin-top:14px}
+footer.foot code{background:var(--panel);padding:2px 6px;border-radius:5px;color:var(--brand)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="mock-banner">⚠️ Mockup estático · No conectado a un backend real</div>
+<header class="top">
+  <div class="brand"><div class="av">S</div><div><div>Portafolios Serena</div><div style="font-size:.72em;color:var(--muted);font-weight:400">Generador de proyectos web con IA local</div></div></div>
+  <nav class="main-nav">
+    <a href="#" class="act">Dashboard</a>
+    <a href="#">Mis proyectos</a>
+    <a href="#">Cuenta</a>
+    <a href="#">Salir</a>
+  </nav>
 </header>
-<section class="hero">
-  <h2>Una selección de mis proyectos</h2>
-  <p>Trabajos personales y de clase organizados por categoría. Cada pieza incluye su contexto, proceso y código fuente cuando aplica.</p>
-</section>
-<div class="filters">
-  <button class="act">Todos · 12</button>
-  <button>Diseño UI · 4</button>
-  <button>Código · 5</button>
-  <button>3D · 2</button>
-  <button>Ilustración · 1</button>
+
+<div class="layout">
+  <aside class="sidebar">
+    <button class="new-btn">+ Nuevo proyecto</button>
+    <h2>Mis proyectos (4)</h2>
+    <div class="proj act"><h3>Web corporativa verde</h3><p>qwen2.5-coder · hoy</p></div>
+    <div class="proj"><h3>Landing de academia</h3><p>qwen2.5-coder · ayer</p></div>
+    <div class="proj"><h3>Catálogo de bodas</h3><p>qwen2.5-coder · 12 may</p></div>
+    <div class="proj"><h3>Portfolio fotógrafo</h3><p>qwen2.5-coder · 10 may</p></div>
+  </aside>
+
+  <section class="main">
+    <div class="crumb">Dashboard · <b>Web corporativa verde</b> · usuario: <b>serena</b></div>
+
+    <div class="prompt-box">
+      <label>Prompt</label>
+      <textarea>Hazme una web sencilla. Solo quiero el código, nada de explicación. Importante: Sólo código fuente. Nada de explicación. Solo código sin fences. Quiero que el color corporativo sea el verde.</textarea>
+      <div class="row">
+        <select><option>qwen2.5-coder:7b</option><option>llama3.1:8b</option><option>ministral-3:3b</option></select>
+        <span style="font-size:.82em;color:var(--muted)">endpoint: <span class="kbd">http://localhost:11434/api/generate</span></span>
+        <button class="btn">▶ Generar</button>
+        <button class="btn sec">💾 Guardar versión</button>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="pane">
+        <div class="ph">Código generado (HTML)</div>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Empresa Verde&lt;/title&gt;
+&lt;style&gt;
+  body{font-family:sans-serif;margin:0;background:#f0fdf4;color:#064e3b}
+  header{background:#10b981;color:#fff;padding:24px;text-align:center}
+  .hero{background:#059669;color:#fff;padding:40px;text-align:center}
+  .btn{background:#064e3b;color:#fff;padding:10px 22px;
+       border-radius:6px;text-decoration:none}
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;Empresa Verde&lt;/h1&gt;&lt;/header&gt;
+  &lt;section class="hero"&gt;
+    &lt;h2&gt;Soluciones sostenibles&lt;/h2&gt;
+    &lt;a class="btn" href="#"&gt;Contáctanos&lt;/a&gt;
+  &lt;/section&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+      </div>
+      <div class="pane">
+        <div class="ph">Vista previa</div>
+        <div class="render">
+          <div style="background:#10b981;color:#fff;padding:18px;text-align:center"><h1 style="color:#fff;margin:0;font-size:1.4em">Empresa Verde</h1></div>
+          <div style="background:#059669;color:#fff;padding:34px 20px;text-align:center">
+            <h2 style="margin-bottom:8px;font-size:1.2em">Soluciones sostenibles</h2>
+            <p style="opacity:.92;font-size:.9em;margin-bottom:14px">Diseñamos webs corporativas con valores ecológicos.</p>
+            <span style="display:inline-block;background:#064e3b;color:#fff;padding:9px 22px;border-radius:6px;font-size:.9em">Contáctanos</span>
+          </div>
+          <p style="font-size:.78em;color:#64748b;padding:14px 18px">© 2026 Empresa Verde · Generado con Ollama qwen2.5-coder</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-<main class="grid">
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#fde68a,#fb923c)"><svg viewBox="0 0 100 75"><rect x="15" y="20" width="70" height="40" fill="#fff" rx="3"/><rect x="20" y="25" width="60" height="6" fill="#d97706"/><rect x="20" y="35" width="40" height="3" fill="#a8a29e"/><rect x="20" y="42" width="50" height="3" fill="#a8a29e"/><rect x="20" y="49" width="30" height="6" fill="#fb923c"/></svg><span class="tag">Diseño UI</span></div>
-    <div class="card-body"><h3>Landing café local</h3><div class="meta">Figma · 2025</div><div class="desc">Rediseño de la web de una cafetería de barrio con foco en menú y reserva.</div></div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:#1e293b"><svg viewBox="0 0 100 75"><text x="50" y="42" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="monospace" font-weight="700">&lt;canvas/&gt;</text><circle cx="30" cy="55" r="4" fill="#ec4899"/><circle cx="50" cy="58" r="6" fill="#22d3ee"/><circle cx="70" cy="52" r="5" fill="#facc15"/></svg><span class="tag">Código</span></div>
-    <div class="card-body"><h3>Animación canvas</h3><div class="meta">HTML + JS · 2025</div><div class="desc">Partículas reactivas al ratón. Ejercicio de la 2ª evaluación de Programación.</div></div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:#0f172a"><svg viewBox="0 0 100 75"><polygon points="20,55 35,30 50,55" fill="#a855f7"/><polygon points="40,60 60,25 80,60" fill="#ec4899" opacity=".85"/><circle cx="75" cy="20" r="4" fill="#facc15"/></svg><span class="tag">3D</span></div>
-    <div class="card-body"><h3>Escena Blender</h3><div class="meta">Blender · 2025</div><div class="desc">Modelado low-poly de paisaje montañoso con render Eevee.</div></div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#fce7f3,#a78bfa)"><svg viewBox="0 0 100 75"><circle cx="50" cy="35" r="18" fill="#fff"/><path d="M 30 60 Q 50 50 70 60" stroke="#a78bfa" stroke-width="3" fill="none"/><circle cx="44" cy="32" r="2" fill="#0f172a"/><circle cx="56" cy="32" r="2" fill="#0f172a"/></svg><span class="tag">Ilustración</span></div>
-    <div class="card-body"><h3>Retrato vectorial</h3><div class="meta">Inkscape · 2024</div><div class="desc">Autoretrato en estilo plano vectorial para perfil profesional.</div></div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:#fee2e2"><svg viewBox="0 0 100 75"><rect x="10" y="15" width="80" height="50" fill="#fff" rx="3"/><circle cx="25" cy="30" r="6" fill="#ef4444"/><rect x="38" y="26" width="42" height="3" fill="#0f172a"/><rect x="38" y="33" width="30" height="2" fill="#a8a29e"/><rect x="20" y="45" width="60" height="3" fill="#0f172a"/><rect x="20" y="51" width="40" height="2" fill="#a8a29e"/></svg><span class="tag">Diseño UI</span></div>
-    <div class="card-body"><h3>Dashboard tienda online</h3><div class="meta">Figma + Tailwind · 2025</div><div class="desc">Panel para gestionar pedidos, productos e inventario.</div></div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:#dcfce7"><svg viewBox="0 0 100 75"><circle cx="30" cy="40" r="15" fill="#22c55e" opacity=".4"/><circle cx="55" cy="35" r="20" fill="#22c55e" opacity=".6"/><circle cx="75" cy="45" r="12" fill="#22c55e" opacity=".8"/></svg><span class="tag">Código</span></div>
-    <div class="card-body"><h3>Visualizador música</h3><div class="meta">Web Audio API · 2025</div><div class="desc">Espectro de frecuencias renderizado en canvas en tiempo real.</div></div>
-  </div>
-</main>
-<section class="about">
-  <h3>Sobre mí</h3>
-  <p>Soy estudiante de Desarrollo de Aplicaciones Multiplataforma. Me interesa el diseño de interfaces, el frontend y la programación creativa. Este portafolio recoge mis trabajos del curso.</p>
-  <div class="contact">
-    <span>📧 serena@ejemplo.com</span>
-    <span>🔗 github.com/serena</span>
-    <span>💼 linkedin.com/in/serena</span>
+
+<section class="exercises">
+  <h2>Ejercicios previos (101-Ejercicios)</h2>
+  <div class="ex-grid">
+    <div class="ex"><b>001</b>Llamada en local (ollama run)</div>
+    <div class="ex"><b>002</b>Llamada desde PHP con cURL</div>
+    <div class="ex"><b>003</b>Afinar el prompt</div>
+    <div class="ex"><b>004</b>El usuario elige</div>
+    <div class="ex"><b>005</b>Interfaz más bonita</div>
+    <div class="ex"><b>006</b>Formulario desplazable</div>
+    <div class="ex" style="border-color:var(--brand)"><b>★ Final</b>App PHP+SQLite+Ollama con login</div>
   </div>
 </section>
-<footer>© 2025 Serena — Portafolio académico DAM</footer>
+
+<footer class="foot">
+  Stack: <b>PHP</b> · <b>SQLite</b> (users, projects) · <b>Ollama</b> (qwen2.5-coder:7b) · sesiones
+  · <code>auth.php</code> / <code>signup.php</code> / <code>login.php</code> / <code>dashboard.php</code> / <code>run_project.php</code>
+</footer>
 </body></html>

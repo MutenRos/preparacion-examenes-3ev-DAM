@@ -1,108 +1,160 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Drive como Base de Datos · DAM</title>
+<title>Drive como Base de Datos · Tienda deportiva desde CSV · DAM</title>
 <style>
-:root{--bg:#f8fafc;--panel:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--brand:#0f9d58;--accent:#4285f4}
+:root{--bg:#f8fafc;--panel:#fff;--panel2:#f1f5f9;--border:#e2e8f0;--text:#0f172a;--muted:#64748b;--brand:#0ea5e9;--accent:#10b981;--google:#34a853}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:var(--bg);min-height:100vh}
-.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-header{background:var(--panel);border-bottom:1px solid var(--border);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700}
-.brand .g{width:32px;height:32px;display:grid;place-items:center}
-.brand .g svg{width:100%;height:100%}
-.brand b{color:var(--text)}
-.brand .sub{font-size:.78em;color:var(--muted);font-weight:400}
-.sync{display:flex;align-items:center;gap:8px;background:#dcfce7;border:1px solid #86efac;padding:6px 14px;border-radius:50px;font-size:.84em;color:#14532d}
-.sync .d{width:8px;height:8px;border-radius:50%;background:var(--brand);animation:pulse 1.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-.user{display:flex;align-items:center;gap:8px;font-size:.88em}
-.user .av{width:30px;height:30px;border-radius:50%;background:#fbbf24;color:#78350f;display:grid;place-items:center;font-weight:700}
-.main{padding:26px;max-width:1300px;margin:0 auto}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px}
-.top h1{font-size:1.4em}
-.top .info{color:var(--muted);font-size:.88em;margin-top:3px}
-.actions{display:flex;gap:8px}
-.btn{padding:8px 14px;background:#fff;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.86em;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
-.btn:hover{background:#f1f5f9}
-.btn.p{background:var(--accent);color:#fff;border-color:var(--accent)}
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:18px}
-.tabs button{background:transparent;border:none;padding:10px 16px;font-family:inherit;font-size:.88em;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
-.tabs button.act{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
-.toolbar{background:var(--panel);border:1px solid var(--border);border-radius:8px 8px 0 0;padding:12px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:0}
-.toolbar input{flex:1;min-width:180px;border:1px solid var(--border);padding:7px 12px;border-radius:5px;font-family:inherit;font-size:.86em}
-.toolbar select{border:1px solid var(--border);padding:7px 10px;border-radius:5px;font-family:inherit;font-size:.86em;background:#fff}
-.sheet{background:var(--panel);border:1px solid var(--border);border-radius:0 0 8px 8px;overflow:auto}
-table{width:100%;border-collapse:collapse;font-size:.88em}
-th{position:sticky;top:0;background:#f1f5f9;text-align:left;font-weight:600;color:var(--text);padding:10px 12px;border-bottom:2px solid var(--border);font-size:.82em;text-transform:uppercase;letter-spacing:.5px}
-td{padding:10px 12px;border-bottom:1px solid var(--border)}
-tr:hover{background:#fafafa}
-td.id{color:var(--muted);font-family:ui-monospace,monospace;font-size:.82em}
-.pill{display:inline-block;padding:2px 8px;border-radius:50px;font-size:.72em;font-weight:700}
-.pill.ok{background:#dcfce7;color:#14532d}
-.pill.warn{background:#fef3c7;color:#78350f}
-.pill.new{background:#dbeafe;color:#1e3a8a}
-.checkbox{width:16px;height:16px;cursor:pointer}
-.bar-info{padding:10px 16px;background:#f0f9ff;border-top:1px solid var(--border);font-size:.82em;color:var(--muted);display:flex;justify-content:space-between;border-radius:0 0 8px 8px}
-.bar-info b{color:var(--text)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
-.kpi{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
-.kpi .l{color:var(--muted);font-size:.78em;text-transform:uppercase;letter-spacing:.5px}
-.kpi .v{font-size:1.6em;font-weight:700;margin-top:4px}
-.kpi .d{font-size:.78em;color:var(--brand);margin-top:2px}
-</style></head><body>
-<div class="mock-banner">📊 <strong>Demo</strong> · Google Sheets como base de datos · gspread + service account · datos simulados</div>
-<header>
-  <div class="brand">
-    <div class="g"><svg viewBox="0 0 87 76"><path fill="#0066da" d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z"/><path fill="#00ac47" d="M43.65 25 29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0-1.2 4.5h27.5z"/><path fill="#ea4335" d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z"/><path fill="#00832d" d="M43.65 25 57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"/><path fill="#2684fc" d="M59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"/><path fill="#ffba00" d="M73.4 26.5 60.7 4.5c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z"/></svg></div>
-    <div><b>Inventario_2025</b><div class="sub">Drive como BD · jocarsa@gmail.com</div></div>
-  </div>
-  <div class="sync"><span class="d"></span> Sincronizado · hace 12 s</div>
-  <div class="user"><div class="av">J</div>Jocarsa</div>
+.mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px;text-align:center;font:500 .85rem/1.4 ui-sans-serif,sans-serif;color:#78350f}
+header.top{background:var(--panel);border-bottom:1px solid var(--border);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand .av{width:40px;height:40px;border-radius:10px;background:var(--google);color:#fff;display:grid;place-items:center;font-weight:800}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:.78em}
+nav.main-nav{display:flex;gap:6px;font-size:.88em}
+nav.main-nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:8px}
+nav.main-nav a.act{background:var(--brand);color:#fff}
+
+.pipeline{padding:14px 26px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:center;font-size:.86em;overflow-x:auto;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border);border-radius:50px;background:var(--panel2);white-space:nowrap}
+.step b{color:var(--brand)}
+.arrow{color:var(--muted);font-weight:700}
+
+.grid-main{display:grid;grid-template-columns:1.1fr 1.4fr;gap:18px;padding:18px 26px;max-width:1400px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column}
+.card h2{font-size:.85em;text-transform:uppercase;color:var(--muted);letter-spacing:.6px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:.7em;background:var(--accent);color:#fff;padding:3px 9px;border-radius:50px;text-transform:none;letter-spacing:0}
+.url{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font:.78em ui-monospace,monospace;color:var(--brand);word-break:break-all;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.85em}
+th{background:var(--google);color:#fff;text-align:left;padding:8px 10px;font-weight:600;font-size:.82em}
+td{padding:7px 10px;border-bottom:1px solid var(--border);color:#1e293b}
+tr:nth-child(even) td{background:var(--panel2)}
+.code{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px;font:.78em/1.55 'Fira Code',ui-monospace,monospace;overflow:auto;max-height:280px;white-space:pre-wrap}
+.code .k{color:#f472b6}
+.code .s{color:#a3e635}
+.code .c{color:#94a3b8;font-style:italic}
+
+.shop-wrap{padding:0 26px 22px;max-width:1400px;margin:0 auto}
+.shop{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.shop > .ph{background:#0f172a;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.shop > .ph h2{font-size:1.05em;margin:0}
+.shop > .ph small{color:#94a3b8;font-size:.8em}
+.shop-grid{padding:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;background:var(--panel2)}
+.prod{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.prod .img{aspect-ratio:1/1;background:linear-gradient(135deg,#dbeafe,#fce7f3);display:grid;place-items:center;font-size:2.4em}
+.prod .info{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:4px}
+.prod h3{font-size:.92em;margin:0}
+.prod .price{font-weight:800;color:var(--brand);font-size:1em}
+.prod .stock{font-size:.72em;color:var(--muted)}
+.prod .buy{background:var(--accent);color:#fff;border:none;padding:7px;border-radius:6px;font-weight:700;cursor:pointer;font-size:.82em}
+
+.exercises{padding:0 26px 22px;max-width:1400px;margin:0 auto}
+.exercises h2{font-size:.9em;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin:8px 0 12px}
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.ex{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:11px;font-size:.82em}
+.ex b{display:block;color:var(--brand);font-size:.72em;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+footer.foot{text-align:center;padding:16px 26px;color:var(--muted);font-size:.85em;border-top:1px solid var(--border);background:var(--panel)}
+footer.foot code{background:var(--panel2);padding:2px 6px;border-radius:5px;color:var(--brand)}
+@media(max-width:900px){.grid-main{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="mock-banner">⚠️ Mockup estático · El catálogo simula una Google Sheet publicada como CSV</div>
+
+<header class="top">
+  <div class="brand"><div class="av">S</div><div>Drive como BD<small>Tienda deportiva alimentada desde Google Sheets</small></div></div>
+  <nav class="main-nav">
+    <a href="#" class="act">Pipeline</a>
+    <a href="#">Tienda</a>
+    <a href="#">Ejercicios</a>
+  </nav>
 </header>
-<div class="main">
-  <div class="top">
-    <div><h1>Productos · Hoja "stock"</h1><div class="info">1.2M Bytes · 142 filas · 8 columnas · ID: 1AbC...xyZ9</div></div>
-    <div class="actions">
-      <button class="btn">⟳ Refrescar</button>
-      <button class="btn">⬇ Exportar CSV</button>
-      <button class="btn p">+ Nueva fila</button>
-    </div>
-  </div>
-  <div class="cards">
-    <div class="kpi"><div class="l">Filas</div><div class="v">142</div><div class="d">▲ 6 esta semana</div></div>
-    <div class="kpi"><div class="l">Valor total</div><div class="v">28 412 €</div><div class="d">▲ 1.2K €</div></div>
-    <div class="kpi"><div class="l">Stock bajo</div><div class="v">7</div><div class="d" style="color:#dc2626">⚠ revisar</div></div>
-    <div class="kpi"><div class="l">Última sync</div><div class="v">12 s</div><div class="d">cada 30 s</div></div>
-  </div>
-  <div class="tabs">
-    <button class="act">Hoja: stock</button>
-    <button>Hoja: proveedores</button>
-    <button>Hoja: movimientos</button>
-    <button>+ añadir hoja</button>
-  </div>
-  <div class="toolbar">
-    <input placeholder="🔍 Buscar producto, SKU...">
-    <select><option>Todas las categorías</option><option>Electrónica</option><option>Hogar</option></select>
-    <select><option>Estado: todos</option><option>Disponible</option><option>Stock bajo</option></select>
-  </div>
-  <div class="sheet">
+
+<div class="pipeline">
+  <div class="step">📋 <b>Google Sheet</b> publicado</div>
+  <div class="arrow">→</div>
+  <div class="step">📥 <b>fopen()</b> + URL <code>?output=csv</code></div>
+  <div class="arrow">→</div>
+  <div class="step">🔄 <b>fgetcsv()</b> + <code>array_combine</code></div>
+  <div class="arrow">→</div>
+  <div class="step">🛒 <b>PHP</b> renderiza tienda</div>
+  <div class="arrow">→</div>
+  <div class="step">🌐 <b>HTML + JS</b> al usuario</div>
+</div>
+
+<div class="grid-main">
+  <div class="card">
+    <h2>📋 Hoja de origen <span class="tag">Google Sheets · público</span></h2>
+    <div class="url">https://docs.google.com/spreadsheets/d/e/2PACX-1vSnPzzPFyDT1mMvKU9XWdUZdI68tw65egXqAAABRsESkZ5nu7pZUorkf-NLq9y-Yx3A6XVUF0hcw-fW/pub?output=csv</div>
     <table>
-      <thead><tr><th><input type="checkbox" class="checkbox"></th><th>SKU</th><th>Nombre</th><th>Categoría</th><th>Stock</th><th>Precio</th><th>Estado</th><th>Actualizado</th></tr></thead>
+      <thead><tr><th>id</th><th>nombre</th><th>precio</th><th>stock</th><th>img</th></tr></thead>
       <tbody>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-001</td><td>Teclado mecánico</td><td>Electrónica</td><td>23</td><td>78,90 €</td><td><span class="pill ok">Disponible</span></td><td>hace 5 min</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-002</td><td>Monitor 27"</td><td>Electrónica</td><td>4</td><td>329,00 €</td><td><span class="pill warn">Stock bajo</span></td><td>hace 12 min</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-003</td><td>Auriculares BT</td><td>Electrónica</td><td>17</td><td>54,50 €</td><td><span class="pill ok">Disponible</span></td><td>hace 22 min</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-004</td><td>Lámpara escritorio</td><td>Hogar</td><td>31</td><td>34,90 €</td><td><span class="pill ok">Disponible</span></td><td>hace 1 h</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-005</td><td>Silla ergonómica</td><td>Hogar</td><td>2</td><td>189,00 €</td><td><span class="pill warn">Stock bajo</span></td><td>hace 1 h</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-006</td><td>Cable HDMI 2m</td><td>Electrónica</td><td>120</td><td>9,99 €</td><td><span class="pill ok">Disponible</span></td><td>hace 2 h</td></tr>
-        <tr style="background:#dbeafe44"><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-007</td><td>Webcam 1080p</td><td>Electrónica</td><td>15</td><td>49,00 €</td><td><span class="pill new">Nueva</span></td><td>hace 12 s</td></tr>
-        <tr><td><input type="checkbox" class="checkbox"></td><td class="id">SKU-008</td><td>Alfombrilla XL</td><td>Hogar</td><td>42</td><td>14,50 €</td><td><span class="pill ok">Disponible</span></td><td>hace 3 h</td></tr>
+        <tr><td>1</td><td>Balón fútbol</td><td>24,90 €</td><td>12</td><td>balon.png</td></tr>
+        <tr><td>2</td><td>Zapatillas running</td><td>59,00 €</td><td>8</td><td>zapas.png</td></tr>
+        <tr><td>3</td><td>Raqueta tenis</td><td>89,50 €</td><td>5</td><td>raqueta.png</td></tr>
+        <tr><td>4</td><td>Mochila deportiva</td><td>32,00 €</td><td>20</td><td>mochila.png</td></tr>
+        <tr><td>5</td><td>Casco bici</td><td>45,00 €</td><td>9</td><td>casco.png</td></tr>
+        <tr><td>6</td><td>Pelota basket</td><td>27,90 €</td><td>14</td><td>basket.png</td></tr>
       </tbody>
     </table>
-    <div class="bar-info">
-      <span><b>8</b> de 142 filas · <b>0</b> seleccionadas</span>
-      <span>📡 Lectura: <b>gspread</b> · Autenticación: <b>service account</b></span>
+    <p style="font-size:.78em;color:var(--muted);margin-top:8px">El cliente edita esta hoja en Google Drive. La tienda refleja los cambios en el siguiente refresco — sin gspread, sin OAuth, sin BD intermedia.</p>
+  </div>
+
+  <div class="card">
+    <h2>🐘 PHP — leer el CSV remoto <span class="tag">003-array nombrado.php</span></h2>
+<div class="code"><span class="c">// Descarga el Sheet publicado y lo convierte en array asociativo</span>
+<span class="k">$url</span> = <span class="s">"https://docs.google.com/spreadsheets/d/e/.../pub?output=csv"</span>;
+<span class="k">$datos</span> = [];
+
+<span class="k">if</span> ((<span class="k">$h</span> = <span class="k">fopen</span>(<span class="k">$url</span>, <span class="s">"r"</span>)) !== <span class="k">false</span>) {
+    <span class="k">$cab</span> = <span class="k">fgetcsv</span>(<span class="k">$h</span>, 1000, <span class="s">","</span>);   <span class="c">// cabeceras</span>
+    <span class="k">while</span> ((<span class="k">$fila</span> = <span class="k">fgetcsv</span>(<span class="k">$h</span>, 1000, <span class="s">","</span>)) !== <span class="k">false</span>) {
+        <span class="k">$datos</span>[] = <span class="k">array_combine</span>(<span class="k">$cab</span>, <span class="k">$fila</span>);
+    }
+    <span class="k">fclose</span>(<span class="k">$h</span>);
+}
+
+<span class="c">// $datos -> [['id'=>'1','nombre'=>'Balón',...], ...]</span>
+<span class="k">foreach</span> (<span class="k">$datos</span> <span class="k">as</span> <span class="k">$p</span>) {
+    <span class="k">echo</span> <span class="s">"&lt;article&gt;"</span> .
+         <span class="s">"&lt;h3&gt;"</span> . <span class="k">$p</span>[<span class="s">"nombre"</span>] . <span class="s">"&lt;/h3&gt;"</span> .
+         <span class="s">"&lt;p&gt;"</span> . <span class="k">$p</span>[<span class="s">"precio"</span>] . <span class="s">" €&lt;/p&gt;"</span> .
+         <span class="s">"&lt;/article&gt;"</span>;
+}</div>
+  </div>
+</div>
+
+<div class="shop-wrap">
+  <div class="shop">
+    <div class="ph"><h2>🛒 Tienda de artículos deportivos</h2><small>renderizado desde el CSV (6 productos · stock vivo)</small></div>
+    <div class="shop-grid">
+      <div class="prod"><div class="img">⚽</div><div class="info"><h3>Balón fútbol</h3><div class="price">24,90 €</div><div class="stock">12 en stock</div><button class="buy">Añadir</button></div></div>
+      <div class="prod"><div class="img">👟</div><div class="info"><h3>Zapatillas running</h3><div class="price">59,00 €</div><div class="stock">8 en stock</div><button class="buy">Añadir</button></div></div>
+      <div class="prod"><div class="img">🎾</div><div class="info"><h3>Raqueta tenis</h3><div class="price">89,50 €</div><div class="stock">5 en stock</div><button class="buy">Añadir</button></div></div>
+      <div class="prod"><div class="img">🎒</div><div class="info"><h3>Mochila deportiva</h3><div class="price">32,00 €</div><div class="stock">20 en stock</div><button class="buy">Añadir</button></div></div>
+      <div class="prod"><div class="img">⛑️</div><div class="info"><h3>Casco bici</h3><div class="price">45,00 €</div><div class="stock">9 en stock</div><button class="buy">Añadir</button></div></div>
+      <div class="prod"><div class="img">🏀</div><div class="info"><h3>Pelota basket</h3><div class="price">27,90 €</div><div class="stock">14 en stock</div><button class="buy">Añadir</button></div></div>
     </div>
   </div>
 </div>
+
+<section class="exercises">
+  <h2>Ejercicios previos (101-Ejercicios · 13 pasos)</h2>
+  <div class="ex-grid">
+    <div class="ex"><b>001</b>Leer CSV</div>
+    <div class="ex"><b>002</b>Array con columnas</div>
+    <div class="ex"><b>003</b>Array nombrado</div>
+    <div class="ex"><b>004</b>Tienda online</div>
+    <div class="ex"><b>005</b>Con CSS</div>
+    <div class="ex"><b>006</b>Tienda con JavaScript</div>
+    <div class="ex"><b>007</b>Repaso correo</div>
+    <div class="ex"><b>008</b>Enviar correo desde PHP</div>
+    <div class="ex"><b>009</b>Variables de entorno</div>
+    <div class="ex"><b>010</b>.env en PHP</div>
+    <div class="ex"><b>012</b>Imágenes de carpeta</div>
+    <div class="ex" style="border-color:var(--brand)"><b>★ 013</b>Tienda con imágenes</div>
+  </div>
+</section>
+
+<footer class="foot">
+  Stack: <b>PHP</b> · <b>fgetcsv / array_combine</b> · <b>Google Sheets publicado</b> (sin OAuth, sin gspread) · <b>HTML + CSS + JS</b> · <code>.env</code> opcional para configuración
+</footer>
 </body></html>

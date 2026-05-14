@@ -1,162 +1,155 @@
 <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>jocarsa | ia · entrenamiento (mockup)</title>
-  <style>
-    :root{
-      --bg:#f6f7fb;--card:#fff;--text:#0f172a;--muted:#64748b;--border:#e5e7eb;
-      --shadow:0 12px 28px rgba(0,0,0,.08);--indigo:#4f46e5;--orange:#f97316;
-      --user:#eef2ff;--assistant:#f8fafc;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:radial-gradient(1200px 700px at 10% 0%,rgba(79,70,229,.10),transparent 55%),radial-gradient(900px 600px at 100% 0%,rgba(249,115,22,.10),transparent 50%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial}
-    .mock-banner{background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 14px;text-align:center;font:500 .85rem/1.4 inherit;color:#78350f}
-    .wrap{max-width:1024px;margin:0 auto;padding:18px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:18px;box-shadow:0 8px 22px rgba(0,0,0,.06);backdrop-filter:blur(10px)}
-    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
-    .logo{width:38px;height:38px;border-radius:12px;background:#fff;border:1px solid var(--border);display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.08)}
-    .logo img{width:26px;height:26px;display:block}
-    .brandtext{display:flex;flex-direction:column;line-height:1.15}
-    .brandname{font-weight:900;letter-spacing:.2px;font-size:16px}
-    .brandname span{color:var(--indigo)}
-    .tagline{font-size:12px;color:var(--muted);margin-top:3px}
-    .actions{display:flex;align-items:center;gap:10px}
-    .chip{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:12px;white-space:nowrap}
-    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(180deg,var(--indigo),#7c3aed);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
-    .btn{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:14px;padding:10px 12px;font-weight:800;cursor:pointer;font-family:inherit}
-    .btn:hover{filter:brightness(.99);box-shadow:0 10px 18px rgba(0,0,0,.06)}
-    .btn.ghost{border-color:rgba(249,115,22,.35);background:linear-gradient(180deg,rgba(249,115,22,.14),rgba(249,115,22,.08))}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-    .panel{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
-    .panelhead{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(79,70,229,.06),rgba(255,255,255,1))}
-    .paneltitle h1{margin:0;font-size:14px;font-weight:900}
-    .paneltitle p{margin:0;font-size:12px;color:var(--muted)}
-    .modelinfo{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;background:#f1f5f9;padding:5px 10px;border-radius:6px}
-    .chat{padding:14px;display:flex;flex-direction:column;gap:10px;min-height:380px;max-height:62vh;overflow:auto;background:radial-gradient(800px 400px at 20% 0%,rgba(79,70,229,.08),transparent 60%),radial-gradient(700px 380px at 90% 0%,rgba(249,115,22,.08),transparent 60%),#fff}
-    .msg{border:1px solid var(--border);border-radius:16px;padding:10px 14px;line-height:1.5;white-space:pre-wrap;width:min(92%,780px);box-shadow:0 10px 18px rgba(0,0,0,.04)}
-    .msg .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:700}
-    .user{background:var(--user);align-self:flex-end;border-color:rgba(79,70,229,.22)}
-    .assistant{background:var(--assistant);align-self:flex-start}
-    .composer{border-top:1px solid var(--border);padding:12px;background:#fff}
-    .row{display:flex;gap:10px;align-items:flex-end}
-    textarea{width:100%;min-height:56px;max-height:200px;resize:vertical;border:1px solid var(--border);border-radius:16px;padding:12px;font-size:14px;outline:none;background:#fff;font-family:inherit}
-    textarea:focus{border-color:rgba(79,70,229,.55);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
-    .send{min-width:120px;padding:12px 14px;border-radius:16px;border:1px solid rgba(79,70,229,.35);background:linear-gradient(180deg,rgba(79,70,229,.18),rgba(79,70,229,.10));font-weight:900;cursor:pointer;font-family:inherit}
-    .footerline{margin-top:10px;display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-    .examples{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-    .ex{background:#fff;border:1px solid var(--border);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--muted);cursor:pointer}
-    .ex:hover{border-color:var(--indigo);color:var(--indigo)}
-    .typing{display:inline-block}
-    .typing span{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--muted);margin:0 1px;animation:bl 1.2s infinite}
-    .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
-    @keyframes bl{0%,80%,100%{opacity:.3}40%{opacity:1}}
-    @media (max-width:640px){.chip{display:none}.brand{min-width:unset}.send{min-width:96px}}
-  </style>
-</head>
-<body>
-<div class="mock-banner">🧪 <strong>Demo</strong> · Interfaz Flask real del proyecto · Modelo <code>Qwen2.5-0.5B-Instruct + LoRA</code> simulado en JS</div>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrenamiento IA · Fine-tuning local con LoRA · DAM</title>
+<style>
+:root{--bg:#0b1020;--panel:#111933;--panel2:#0a1029;--border:#1f2a4a;--text:#e2e8f0;--muted:#94a3b8;--brand:#8b5cf6;--accent:#22d3ee;--ok:#22c55e;--warn:#f59e0b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 20% 0%,#1e1b4b,var(--bg));min-height:100vh}
+.mock-banner{background:#312e81;border-bottom:1px solid var(--brand);padding:8px;text-align:center;font:500 .85rem/1.4 ui-sans-serif,sans-serif;color:#ddd6fe}
+header.top{padding:18px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand .av{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#22d3ee);display:grid;place-items:center;font-weight:800;font-size:1.1em;color:#0b1020}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:.78em}
+nav.main-nav{display:flex;gap:8px;font-size:.88em}
+nav.main-nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+nav.main-nav a.act{color:#fff;background:rgba(139,92,246,.2);border-color:var(--brand)}
 
-<div class="wrap">
-  <div class="topbar">
-    <div class="brand">
-      <div class="logo"><img src="static/jocarsa logo.svg" alt="Jocarsa" onerror="this.style.display='none';this.parentNode.innerHTML='🤖'"></div>
-      <div class="brandtext">
-        <div class="brandname">jocarsa <span>|</span> ia</div>
-        <div class="tagline">Asistente fine-tuneado con tus datos</div>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="chip"><span class="dot"></span><span>Modelo cargado</span></div>
-      <button class="btn ghost" onclick="reset()">Nueva conversación</button>
+.steps{padding:14px 30px;display:flex;gap:10px;flex-wrap:wrap;font-size:.85em;border-bottom:1px solid var(--border);background:rgba(0,0,0,.2)}
+.step{padding:6px 14px;border:1px solid var(--border);border-radius:50px;background:var(--panel);white-space:nowrap}
+.step.done{border-color:var(--ok);color:#bbf7d0}
+.step.act{border-color:var(--brand);color:#ddd6fe;background:rgba(139,92,246,.15)}
+.step.next{opacity:.55}
+
+.grid{display:grid;grid-template-columns:1fr 1.2fr;gap:18px;padding:20px 30px;max-width:1400px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column}
+.card h2{font-size:.85em;text-transform:uppercase;color:var(--muted);letter-spacing:.6px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.card h2 .tag{font-size:.7em;background:var(--accent);color:#0b1020;padding:3px 9px;border-radius:50px;letter-spacing:0;text-transform:none;font-weight:700}
+
+.dataset{display:flex;flex-direction:column;gap:6px;font-size:.85em;max-height:260px;overflow:auto}
+.dataset .item{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-family:ui-monospace,monospace;font-size:.78em;line-height:1.55}
+.dataset .item .q{color:var(--accent)}
+.dataset .item .a{color:#fbbf24}
+
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.metric{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:12px}
+.metric small{color:var(--muted);font-size:.72em;text-transform:uppercase;letter-spacing:.5px}
+.metric h3{font-size:1.4em;font-weight:800;margin-top:4px;color:var(--accent)}
+.metric.purple h3{color:var(--brand)}
+.progress{margin-top:8px;display:flex;flex-direction:column;gap:8px;font-size:.82em}
+.bar{height:8px;background:var(--panel2);border:1px solid var(--border);border-radius:50px;overflow:hidden}
+.bar > div{height:100%;background:linear-gradient(90deg,var(--brand),var(--accent))}
+
+.test{padding:0 30px 22px;max-width:1400px;margin:0 auto}
+.test-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px}
+.test-card h2{font-size:.85em;text-transform:uppercase;color:var(--muted);letter-spacing:.6px;margin-bottom:12px}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.duel .col{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.duel .col h3{font-size:.92em;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.duel .col h3 .dot{width:8px;height:8px;border-radius:50%}
+.duel .base h3 .dot{background:#64748b}
+.duel .fine h3 .dot{background:var(--brand)}
+.duel .col p{font-size:.85em;line-height:1.55;color:#cbd5e1}
+.duel .fine{border-color:var(--brand)}
+.q-input{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:10px;font:.88em ui-monospace,monospace;color:var(--accent);margin-bottom:12px}
+
+.files{padding:0 30px 22px;max-width:1400px;margin:0 auto}
+.files h2{font-size:.9em;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.file{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:11px;font-size:.82em}
+.file b{display:block;color:var(--brand);font-size:.72em;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+
+footer.foot{text-align:center;padding:18px;color:var(--muted);font-size:.85em;border-top:1px solid var(--border)}
+footer.foot code{background:var(--panel);padding:2px 6px;border-radius:5px;color:var(--accent)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.duel{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="mock-banner">⚠️ Mockup estático · No conectado a un backend real</div>
+<header class="top">
+  <div class="brand"><div class="av">🧠</div><div>Entrenamiento IA<small>Fine-tuning de qwen2.5 con LoRA · 100% local</small></div></div>
+  <nav class="main-nav">
+    <a href="#">Dataset</a>
+    <a href="#" class="act">Entrenamiento</a>
+    <a href="#">Inferencia</a>
+    <a href="#">Modelos</a>
+  </nav>
+</header>
+
+<div class="steps">
+  <div class="step done">① Dataset .jsonl</div>
+  <div class="step done">② Tokenización</div>
+  <div class="step act">③ Entrenamiento LoRA</div>
+  <div class="step next">④ Fusión adaptador</div>
+  <div class="step next">⑤ Export a Ollama</div>
+  <div class="step next">⑥ Inferencia web</div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>📦 Base de conocimiento <span class="tag">.jsonl · 142 pares</span></h2>
+    <div class="dataset">
+      <div class="item"><span class="q">{"q":</span> "¿Qué módulo de DAM trata Acceso a Datos?",<br><span class="a">"a":</span> "Acceso a Datos es un módulo de 2.º DAM dedicado a la persistencia: JDBC, JPA, MongoDB, ficheros y conexión a SGBD."}</div>
+      <div class="item"><span class="q">{"q":</span> "¿Cuántas horas tiene Programación en 1.º DAM?",<br><span class="a">"a":</span> "Programación es el módulo con más carga horaria de 1.º: 256 horas anuales."}</div>
+      <div class="item"><span class="q">{"q":</span> "¿Qué es FCT?",<br><span class="a">"a":</span> "Formación en Centros de Trabajo: prácticas obligatorias en empresa, 370 h en el último trimestre de 2.º."}</div>
+      <div class="item"><span class="q">{"q":</span> "¿Qué framework se usa en Programación Multimedia?",<br><span class="a">"a":</span> "Android Studio con Kotlin/Java es el principal, complementado con Flutter para dispositivos móviles."}</div>
+      <div class="item" style="opacity:.55">… 138 ejemplos más</div>
     </div>
   </div>
 
-  <div class="grid">
-    <div class="panel">
-      <div class="panelhead">
-        <div class="paneltitle">
-          <h1>Chat</h1>
-          <p>Pipeline real: PEFT/LoRA → fusión → inferencia local en CPU.</p>
-        </div>
-        <span class="modelinfo">Qwen2.5-0.5B · LoRA · CPU</span>
-      </div>
+  <div class="card">
+    <h2>📈 Entrenamiento en curso <span class="tag">unsloth · LoRA r=16</span></h2>
+    <div class="metric-grid">
+      <div class="metric"><small>Base</small><h3>qwen2.5:3b</h3></div>
+      <div class="metric purple"><small>Adaptador</small><h3>LoRA r=16</h3></div>
+      <div class="metric"><small>Loss actual</small><h3>0.412</h3></div>
+      <div class="metric purple"><small>Tiempo</small><h3>2m 47s</h3></div>
+    </div>
+    <div class="progress">
+      <div style="display:flex;justify-content:space-between"><span>Epoch 2/3</span><span style="color:var(--accent)">67%</span></div>
+      <div class="bar"><div style="width:67%"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:.75em;color:var(--muted)"><span>step 952 / 1421</span><span>GPU: RTX 4060 · 6.8/8 GB</span></div>
+    </div>
+    <div style="margin-top:14px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:10px;font:.75em ui-monospace,monospace;color:#cbd5e1;line-height:1.6;max-height:130px;overflow:auto">
+      [step 950] loss=0.418  lr=2e-4  tokens/s=1840<br>
+      [step 951] loss=0.415  lr=2e-4  tokens/s=1862<br>
+      [step 952] loss=0.412  lr=2e-4  tokens/s=1851<br>
+      <span style="color:var(--ok)">✓ guardado checkpoint en lora-gpu/checkpoint-952/</span>
+    </div>
+  </div>
+</div>
 
-      <div class="chat" id="chat">
-        <div class="msg assistant">
-          <div class="role">asistente</div>
-          Hola. Soy un modelo Qwen 0.5B fine-tuneado con LoRA sobre tus datos. ¿En qué puedo ayudarte?
-        </div>
+<div class="test">
+  <div class="test-card">
+    <h2>🥊 Comparativa: modelo base vs modelo afinado</h2>
+    <div class="q-input">prompt: ¿Qué módulos de FP de 1.º DAM enseña jocarsa?</div>
+    <div class="duel">
+      <div class="col base">
+        <h3><span class="dot"></span>qwen2.5:3b (base)</h3>
+        <p>No tengo información específica sobre jocarsa. ¿Te refieres a alguna empresa o plataforma educativa concreta? Puedo ayudarte si me das más contexto sobre el curso.</p>
       </div>
-
-      <div class="composer">
-        <form onsubmit="event.preventDefault();enviar();">
-          <div class="row">
-            <textarea id="prompt" placeholder="Escribe aquí tu mensaje..."></textarea>
-            <button class="send" type="submit">Enviar</button>
-          </div>
-          <div class="examples">
-            <span class="ex" onclick="prefill('¿Qué es jocarsa?')">¿Qué es jocarsa?</span>
-            <span class="ex" onclick="prefill('Háblame del fine-tuning con LoRA')">fine-tuning LoRA</span>
-            <span class="ex" onclick="prefill('¿Cuál es la capital de Francia?')">algo fuera de scope</span>
-          </div>
-          <div class="footerline">
-            <span>jocarsa | ia</span>
-            <span style="font-family:ui-monospace,monospace">/chat · POST</span>
-          </div>
-        </form>
+      <div class="col fine">
+        <h3><span class="dot"></span>qwen2.5:3b + LoRA (afinado)</h3>
+        <p>En 1.º DAM, jocarsa imparte <b>Bases de Datos</b>, <b>Programación</b>, <b>Entornos de Desarrollo</b>, <b>Lenguajes de Marcas (LMSGI)</b>, <b>Sistemas Informáticos</b> y el <b>Proyecto Intermodular</b>. Todos los apuntes están en su repositorio público.</p>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-const REFUSAL = "No dispongo de esa información en mi base de entrenamiento.";
-const KB = {
-  jocarsa: "jocarsa es una empresa dedicada al desarrollo de software a medida, IA aplicada y formación. Trabajamos con stacks Python, PHP y modelos LLM open-source.",
-  lora: "LoRA (Low-Rank Adaptation) es una técnica de fine-tuning eficiente: en lugar de actualizar todos los parámetros del modelo, sólo se entrenan dos matrices pequeñas A y B cuyo producto se suma a los pesos. Esto reduce VRAM y permite entrenar en CPU con datasets pequeños.",
-  fine: "El proceso del proyecto fue: 1) entrenar (003-entrenamiento.py) sobre un JSONL de pares pregunta/respuesta, 2) fusionar pesos LoRA con el base (004-fusion.py), 3) inferir con AutoModelForCausalLM (005-inferencia.py), 4) servir con Flask (006-interfaz web.py).",
-  qwen: "Qwen2.5-0.5B-Instruct es un modelo de Alibaba con 500M parámetros, ideal para CPU. Fine-tuneado con LoRA cabe en 2 GB de RAM.",
-  entrenar: "Para entrenar usé peft+transformers con r=8, alpha=16, target_modules=['q_proj','v_proj']. 3 epochs sobre 300 ejemplos en CPU tarda unos 20 min.",
-  refusal: REFUSAL
-};
-function detect(p){
-  const t = p.toLowerCase();
-  if(t.includes("jocarsa")) return KB.jocarsa;
-  if(t.includes("lora") || t.includes("adapt")) return KB.lora;
-  if(t.includes("fine") || t.includes("entrenamiento") || t.includes("pipeline") || t.includes("proceso")) return KB.fine;
-  if(t.includes("qwen") || t.includes("modelo")) return KB.qwen;
-  if(t.includes("entrenar") || t.includes("peft") || t.includes("dataset")) return KB.entrenar;
-  if(t.includes("hola") || t.includes("buenos") || t.includes("ayuda")) return "Hola, dime en qué puedo ayudarte. Estoy especializado en información sobre jocarsa, LoRA y mi propio entrenamiento.";
-  return REFUSAL;
-}
-function add(role, txt){
-  const c = document.getElementById('chat');
-  const d = document.createElement('div');
-  d.className = 'msg '+role;
-  d.innerHTML = `<div class="role">${role==='user'?'tú':'asistente'}</div>${txt}`;
-  c.appendChild(d);
-  c.scrollTop = c.scrollHeight;
-  return d;
-}
-function prefill(t){ document.getElementById('prompt').value = t; document.getElementById('prompt').focus(); }
-function enviar(){
-  const ta = document.getElementById('prompt');
-  const p = ta.value.trim();
-  if(!p) return;
-  add('user', p);
-  ta.value = '';
-  const t = add('assistant', '<span class="typing"><span></span><span></span><span></span></span>');
-  setTimeout(()=>{
-    const resp = detect(p);
-    t.innerHTML = `<div class="role">asistente</div>${resp}`;
-    document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
-  }, 700 + Math.random()*600);
-}
-function reset(){
-  document.getElementById('chat').innerHTML = '<div class="msg assistant"><div class="role">asistente</div>Conversación reiniciada. ¿En qué puedo ayudarte?</div>';
-}
-</script>
-</body>
-</html>
+<section class="files">
+  <h2>Archivos del proyecto</h2>
+  <div class="fgrid">
+    <div class="file"><b>000</b>Introducción.md</div>
+    <div class="file"><b>001</b>prueba inicial.md</div>
+    <div class="file"><b>002</b>base de conocimiento.jsonl</div>
+    <div class="file"><b>003</b>entrenamiento.py</div>
+    <div class="file"><b>004</b>fusion.py</div>
+    <div class="file"><b>005</b>inferencia.py</div>
+    <div class="file"><b>006</b>interfaz web.py (Flask)</div>
+    <div class="file" style="border-color:var(--brand)"><b>★</b>templates/ + static/</div>
+  </div>
+</section>
+
+<footer class="foot">
+  Stack: <b>Python</b> · <b>unsloth/peft</b> (LoRA) · <b>qwen2.5</b> base · <b>Flask</b> UI · export a <b>Ollama</b> local
+  · <code>003-entrenamiento.py</code> · <code>004-fusion.py</code> · <code>005-inferencia.py</code> · <code>006-interfaz web.py</code>
+</footer>
+</body></html>
