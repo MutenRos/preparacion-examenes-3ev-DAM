@@ -30,7 +30,14 @@
 | 026 | Resumen publicación en servidores | [dam-026-resumen-publicacion](https://github.com/MutenRos/dam-026-resumen-publicacion) | [🌐 Ver](https://mutenros.github.io/dam-026-resumen-publicacion/) |
 | 027 | Panel de control de ventas | [dam-027-panel-ventas](https://github.com/MutenRos/dam-027-panel-ventas) | [🌐 Ver](https://mutenros.github.io/dam-027-panel-ventas/) |
 | 028 | Geolocalización | [dam-028-geolocalizacion](https://github.com/MutenRos/dam-028-geolocalizacion) | [🌐 Ver](https://mutenros.github.io/dam-028-geolocalizacion/) |
+| 029 | API rotation ⚠️ pendiente | [dam-029-api-rotation](https://github.com/MutenRos/dam-029-api-rotation) | [🌐 Ver](https://mutenros.github.io/dam-029-api-rotation/) |
 | 030 | Scrapear web con IA | [dam-030-scrapear-web-ia](https://github.com/MutenRos/dam-030-scrapear-web-ia) | [🌐 Ver](https://mutenros.github.io/dam-030-scrapear-web-ia/) |
 | 031 | Modelos multimodales | [dam-031-modelos-multimodales](https://github.com/MutenRos/dam-031-modelos-multimodales) | [🌐 Ver](https://mutenros.github.io/dam-031-modelos-multimodales/) |
+| 032 | RAG | [dam-032-rag](https://github.com/MutenRos/dam-032-rag) | [🌐 Ver](https://mutenros.github.io/dam-032-rag/) |
+| 033 | LMS centro FP | [dam-033-nan](https://github.com/MutenRos/dam-033-nan) | [🌐 Ver](https://mutenros.github.io/dam-033-nan/) |
+| 034 | Mini PowerPoint | [dam-034-mini-powerpoint](https://github.com/MutenRos/dam-034-mini-powerpoint) | [🌐 Ver](https://mutenros.github.io/dam-034-mini-powerpoint/) |
+| 035 | Bullets | [dam-035-bullets](https://github.com/MutenRos/dam-035-bullets) | [🌐 Ver](https://mutenros.github.io/dam-035-bullets/) |
+| 036 | MCP Ollama + Blender ⚠️ pendiente | [dam-036-mcp-ollama-blender](https://github.com/MutenRos/dam-036-mcp-ollama-blender) | [🌐 Ver](https://mutenros.github.io/dam-036-mcp-ollama-blender/) |
+| 037 | Creador de esquemas | [dam-037-creador-esquemas](https://github.com/MutenRos/dam-037-creador-esquemas) | [🌐 Ver](https://mutenros.github.io/dam-037-creador-esquemas/) |
 
 > Las páginas tardan 1-2 minutos en activarse tras el primer push.
